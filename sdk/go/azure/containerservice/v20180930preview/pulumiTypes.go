@@ -323,6 +323,7 @@ type OpenShiftManagedClusterAADIdentityProvider struct {
 	// The groupId to be granted cluster admin role.
 	CustomerAdminGroupId *string `pulumi:"customerAdminGroupId"`
 	// The kind of the provider.
+	// Expected value is 'AADIdentityProvider'.
 	Kind string `pulumi:"kind"`
 	// The secret password associated with the provider.
 	Secret *string `pulumi:"secret"`
@@ -348,6 +349,7 @@ type OpenShiftManagedClusterAADIdentityProviderArgs struct {
 	// The groupId to be granted cluster admin role.
 	CustomerAdminGroupId pulumi.StringPtrInput `pulumi:"customerAdminGroupId"`
 	// The kind of the provider.
+	// Expected value is 'AADIdentityProvider'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// The secret password associated with the provider.
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
@@ -444,6 +446,7 @@ func (o OpenShiftManagedClusterAADIdentityProviderOutput) CustomerAdminGroupId()
 }
 
 // The kind of the provider.
+// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -499,6 +502,7 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) CustomerAdminGroupI
 }
 
 // The kind of the provider.
+// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
 		if v == nil {
@@ -535,6 +539,7 @@ type OpenShiftManagedClusterAADIdentityProviderResponse struct {
 	// The groupId to be granted cluster admin role.
 	CustomerAdminGroupId *string `pulumi:"customerAdminGroupId"`
 	// The kind of the provider.
+	// Expected value is 'AADIdentityProvider'.
 	Kind string `pulumi:"kind"`
 	// The secret password associated with the provider.
 	Secret *string `pulumi:"secret"`
@@ -560,6 +565,7 @@ type OpenShiftManagedClusterAADIdentityProviderResponseArgs struct {
 	// The groupId to be granted cluster admin role.
 	CustomerAdminGroupId pulumi.StringPtrInput `pulumi:"customerAdminGroupId"`
 	// The kind of the provider.
+	// Expected value is 'AADIdentityProvider'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// The secret password associated with the provider.
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
@@ -656,6 +662,7 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) CustomerAdminG
 }
 
 // The kind of the provider.
+// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -711,6 +718,7 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) CustomerAdm
 }
 
 // The kind of the provider.
+// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
 		if v == nil {

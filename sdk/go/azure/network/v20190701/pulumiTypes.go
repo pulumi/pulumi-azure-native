@@ -10646,6 +10646,7 @@ type ApplicationRuleCondition struct {
 	// Array of Application Protocols.
 	Protocols []FirewallPolicyRuleConditionApplicationProtocol `pulumi:"protocols"`
 	// Rule Condition Type.
+	// Expected value is 'ApplicationRuleCondition'.
 	RuleConditionType string `pulumi:"ruleConditionType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -10677,6 +10678,7 @@ type ApplicationRuleConditionArgs struct {
 	// Array of Application Protocols.
 	Protocols FirewallPolicyRuleConditionApplicationProtocolArrayInput `pulumi:"protocols"`
 	// Rule Condition Type.
+	// Expected value is 'ApplicationRuleCondition'.
 	RuleConditionType pulumi.StringInput `pulumi:"ruleConditionType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -10737,6 +10739,7 @@ func (o ApplicationRuleConditionOutput) Protocols() FirewallPolicyRuleConditionA
 }
 
 // Rule Condition Type.
+// Expected value is 'ApplicationRuleCondition'.
 func (o ApplicationRuleConditionOutput) RuleConditionType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationRuleCondition) string { return v.RuleConditionType }).(pulumi.StringOutput)
 }
@@ -10764,6 +10767,7 @@ type ApplicationRuleConditionResponse struct {
 	// Array of Application Protocols.
 	Protocols []FirewallPolicyRuleConditionApplicationProtocolResponse `pulumi:"protocols"`
 	// Rule Condition Type.
+	// Expected value is 'ApplicationRuleCondition'.
 	RuleConditionType string `pulumi:"ruleConditionType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -10795,6 +10799,7 @@ type ApplicationRuleConditionResponseArgs struct {
 	// Array of Application Protocols.
 	Protocols FirewallPolicyRuleConditionApplicationProtocolResponseArrayInput `pulumi:"protocols"`
 	// Rule Condition Type.
+	// Expected value is 'ApplicationRuleCondition'.
 	RuleConditionType pulumi.StringInput `pulumi:"ruleConditionType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -10857,6 +10862,7 @@ func (o ApplicationRuleConditionResponseOutput) Protocols() FirewallPolicyRuleCo
 }
 
 // Rule Condition Type.
+// Expected value is 'ApplicationRuleCondition'.
 func (o ApplicationRuleConditionResponseOutput) RuleConditionType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationRuleConditionResponse) string { return v.RuleConditionType }).(pulumi.StringOutput)
 }
@@ -22919,6 +22925,7 @@ type FirewallPolicyFilterRule struct {
 	// Collection of rule conditions used by a rule.
 	RuleConditions []interface{} `pulumi:"ruleConditions"`
 	// The type of the rule.
+	// Expected value is 'FirewallPolicyFilterRule'.
 	RuleType string `pulumi:"ruleType"`
 }
 
@@ -22944,6 +22951,7 @@ type FirewallPolicyFilterRuleArgs struct {
 	// Collection of rule conditions used by a rule.
 	RuleConditions pulumi.ArrayInput `pulumi:"ruleConditions"`
 	// The type of the rule.
+	// Expected value is 'FirewallPolicyFilterRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 }
 
@@ -22995,6 +23003,7 @@ func (o FirewallPolicyFilterRuleOutput) RuleConditions() pulumi.ArrayOutput {
 }
 
 // The type of the rule.
+// Expected value is 'FirewallPolicyFilterRule'.
 func (o FirewallPolicyFilterRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyFilterRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -23278,6 +23287,7 @@ type FirewallPolicyFilterRuleResponse struct {
 	// Collection of rule conditions used by a rule.
 	RuleConditions []interface{} `pulumi:"ruleConditions"`
 	// The type of the rule.
+	// Expected value is 'FirewallPolicyFilterRule'.
 	RuleType string `pulumi:"ruleType"`
 }
 
@@ -23303,6 +23313,7 @@ type FirewallPolicyFilterRuleResponseArgs struct {
 	// Collection of rule conditions used by a rule.
 	RuleConditions pulumi.ArrayInput `pulumi:"ruleConditions"`
 	// The type of the rule.
+	// Expected value is 'FirewallPolicyFilterRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 }
 
@@ -23354,6 +23365,7 @@ func (o FirewallPolicyFilterRuleResponseOutput) RuleConditions() pulumi.ArrayOut
 }
 
 // The type of the rule.
+// Expected value is 'FirewallPolicyFilterRule'.
 func (o FirewallPolicyFilterRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyFilterRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -23369,6 +23381,7 @@ type FirewallPolicyNatRule struct {
 	// The match conditions for incoming traffic.
 	RuleCondition interface{} `pulumi:"ruleCondition"`
 	// The type of the rule.
+	// Expected value is 'FirewallPolicyNatRule'.
 	RuleType string `pulumi:"ruleType"`
 	// The translated address for this NAT rule.
 	TranslatedAddress *string `pulumi:"translatedAddress"`
@@ -23398,6 +23411,7 @@ type FirewallPolicyNatRuleArgs struct {
 	// The match conditions for incoming traffic.
 	RuleCondition pulumi.Input `pulumi:"ruleCondition"`
 	// The type of the rule.
+	// Expected value is 'FirewallPolicyNatRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// The translated address for this NAT rule.
 	TranslatedAddress pulumi.StringPtrInput `pulumi:"translatedAddress"`
@@ -23453,6 +23467,7 @@ func (o FirewallPolicyNatRuleOutput) RuleCondition() pulumi.AnyOutput {
 }
 
 // The type of the rule.
+// Expected value is 'FirewallPolicyNatRule'.
 func (o FirewallPolicyNatRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyNatRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -23746,6 +23761,7 @@ type FirewallPolicyNatRuleResponse struct {
 	// The match conditions for incoming traffic.
 	RuleCondition interface{} `pulumi:"ruleCondition"`
 	// The type of the rule.
+	// Expected value is 'FirewallPolicyNatRule'.
 	RuleType string `pulumi:"ruleType"`
 	// The translated address for this NAT rule.
 	TranslatedAddress *string `pulumi:"translatedAddress"`
@@ -23775,6 +23791,7 @@ type FirewallPolicyNatRuleResponseArgs struct {
 	// The match conditions for incoming traffic.
 	RuleCondition pulumi.Input `pulumi:"ruleCondition"`
 	// The type of the rule.
+	// Expected value is 'FirewallPolicyNatRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// The translated address for this NAT rule.
 	TranslatedAddress pulumi.StringPtrInput `pulumi:"translatedAddress"`
@@ -23830,6 +23847,7 @@ func (o FirewallPolicyNatRuleResponseOutput) RuleCondition() pulumi.AnyOutput {
 }
 
 // The type of the rule.
+// Expected value is 'FirewallPolicyNatRule'.
 func (o FirewallPolicyNatRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyNatRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -32412,6 +32430,7 @@ type NetworkRuleCondition struct {
 	// Name of the rule condition.
 	Name *string `pulumi:"name"`
 	// Rule Condition Type.
+	// Expected value is 'NetworkRuleCondition'.
 	RuleConditionType string `pulumi:"ruleConditionType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -32441,6 +32460,7 @@ type NetworkRuleConditionArgs struct {
 	// Name of the rule condition.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Rule Condition Type.
+	// Expected value is 'NetworkRuleCondition'.
 	RuleConditionType pulumi.StringInput `pulumi:"ruleConditionType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -32499,6 +32519,7 @@ func (o NetworkRuleConditionOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Rule Condition Type.
+// Expected value is 'NetworkRuleCondition'.
 func (o NetworkRuleConditionOutput) RuleConditionType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkRuleCondition) string { return v.RuleConditionType }).(pulumi.StringOutput)
 }
@@ -32521,6 +32542,7 @@ type NetworkRuleConditionResponse struct {
 	// Name of the rule condition.
 	Name *string `pulumi:"name"`
 	// Rule Condition Type.
+	// Expected value is 'NetworkRuleCondition'.
 	RuleConditionType string `pulumi:"ruleConditionType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -32550,6 +32572,7 @@ type NetworkRuleConditionResponseArgs struct {
 	// Name of the rule condition.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Rule Condition Type.
+	// Expected value is 'NetworkRuleCondition'.
 	RuleConditionType pulumi.StringInput `pulumi:"ruleConditionType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -32608,6 +32631,7 @@ func (o NetworkRuleConditionResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Rule Condition Type.
+// Expected value is 'NetworkRuleCondition'.
 func (o NetworkRuleConditionResponseOutput) RuleConditionType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkRuleConditionResponse) string { return v.RuleConditionType }).(pulumi.StringOutput)
 }

@@ -333,6 +333,7 @@ type ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse struct {
 	// Database name
 	Name string `pulumi:"name"`
 	// Type of result - database level or task level
+	// Expected value is 'DatabaseLevelOutput'.
 	ResultType string `pulumi:"resultType"`
 	// Size of the file in megabytes
 	SizeMB float64 `pulumi:"sizeMB"`
@@ -362,6 +363,7 @@ type ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs struct {
 	// Database name
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of result - database level or task level
+	// Expected value is 'DatabaseLevelOutput'.
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 	// Size of the file in megabytes
 	SizeMB pulumi.Float64Input `pulumi:"sizeMB"`
@@ -422,6 +424,7 @@ func (o ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutput) Name() pu
 }
 
 // Type of result - database level or task level
+// Expected value is 'DatabaseLevelOutput'.
 func (o ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutput) ResultType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse) string { return v.ResultType }).(pulumi.StringOutput)
 }
@@ -438,6 +441,7 @@ type ConnectToSourceSqlServerTaskOutputTaskLevelResponse struct {
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Type of result - database level or task level
+	// Expected value is 'TaskLevelOutput'.
 	ResultType string `pulumi:"resultType"`
 	// Source server brand version
 	SourceServerBrandVersion string `pulumi:"sourceServerBrandVersion"`
@@ -465,6 +469,7 @@ type ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs struct {
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Type of result - database level or task level
+	// Expected value is 'TaskLevelOutput'.
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 	// Source server brand version
 	SourceServerBrandVersion pulumi.StringInput `pulumi:"sourceServerBrandVersion"`
@@ -512,6 +517,7 @@ func (o ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput) Id() pulumi.S
 }
 
 // Type of result - database level or task level
+// Expected value is 'TaskLevelOutput'.
 func (o ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput) ResultType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectToSourceSqlServerTaskOutputTaskLevelResponse) string { return v.ResultType }).(pulumi.StringOutput)
 }
@@ -538,6 +544,7 @@ type ConnectToSourceSqlServerTaskProperties struct {
 	// Task input
 	Input *ConnectToSourceSqlServerTaskInput `pulumi:"input"`
 	// Task type.
+	// Expected value is 'ConnectToSource.SqlServer'.
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -557,6 +564,7 @@ type ConnectToSourceSqlServerTaskPropertiesArgs struct {
 	// Task input
 	Input ConnectToSourceSqlServerTaskInputPtrInput `pulumi:"input"`
 	// Task type.
+	// Expected value is 'ConnectToSource.SqlServer'.
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -593,6 +601,7 @@ func (o ConnectToSourceSqlServerTaskPropertiesOutput) Input() ConnectToSourceSql
 }
 
 // Task type.
+// Expected value is 'ConnectToSource.SqlServer'.
 func (o ConnectToSourceSqlServerTaskPropertiesOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectToSourceSqlServerTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -608,6 +617,7 @@ type ConnectToSourceSqlServerTaskPropertiesResponse struct {
 	// The state of the task. This is ignored if submitted.
 	State string `pulumi:"state"`
 	// Task type.
+	// Expected value is 'ConnectToSource.SqlServer'.
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -633,6 +643,7 @@ type ConnectToSourceSqlServerTaskPropertiesResponseArgs struct {
 	// The state of the task. This is ignored if submitted.
 	State pulumi.StringInput `pulumi:"state"`
 	// Task type.
+	// Expected value is 'ConnectToSource.SqlServer'.
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -686,6 +697,7 @@ func (o ConnectToSourceSqlServerTaskPropertiesResponseOutput) State() pulumi.Str
 }
 
 // Task type.
+// Expected value is 'ConnectToSource.SqlServer'.
 func (o ConnectToSourceSqlServerTaskPropertiesResponseOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectToSourceSqlServerTaskPropertiesResponse) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -1090,6 +1102,7 @@ type ConnectToTargetSqlDbTaskProperties struct {
 	// Task input
 	Input *ConnectToTargetSqlDbTaskInput `pulumi:"input"`
 	// Task type.
+	// Expected value is 'ConnectToTarget.SqlDb'.
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -1109,6 +1122,7 @@ type ConnectToTargetSqlDbTaskPropertiesArgs struct {
 	// Task input
 	Input ConnectToTargetSqlDbTaskInputPtrInput `pulumi:"input"`
 	// Task type.
+	// Expected value is 'ConnectToTarget.SqlDb'.
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -1145,6 +1159,7 @@ func (o ConnectToTargetSqlDbTaskPropertiesOutput) Input() ConnectToTargetSqlDbTa
 }
 
 // Task type.
+// Expected value is 'ConnectToTarget.SqlDb'.
 func (o ConnectToTargetSqlDbTaskPropertiesOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectToTargetSqlDbTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -1160,6 +1175,7 @@ type ConnectToTargetSqlDbTaskPropertiesResponse struct {
 	// The state of the task. This is ignored if submitted.
 	State string `pulumi:"state"`
 	// Task type.
+	// Expected value is 'ConnectToTarget.SqlDb'.
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -1185,6 +1201,7 @@ type ConnectToTargetSqlDbTaskPropertiesResponseArgs struct {
 	// The state of the task. This is ignored if submitted.
 	State pulumi.StringInput `pulumi:"state"`
 	// Task type.
+	// Expected value is 'ConnectToTarget.SqlDb'.
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -1240,6 +1257,7 @@ func (o ConnectToTargetSqlDbTaskPropertiesResponseOutput) State() pulumi.StringO
 }
 
 // Task type.
+// Expected value is 'ConnectToTarget.SqlDb'.
 func (o ConnectToTargetSqlDbTaskPropertiesResponseOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectToTargetSqlDbTaskPropertiesResponse) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -2491,6 +2509,7 @@ type GetUserTablesSqlTaskProperties struct {
 	// Task input
 	Input *GetUserTablesSqlTaskInput `pulumi:"input"`
 	// Task type.
+	// Expected value is 'GetUserTables.Sql'.
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -2510,6 +2529,7 @@ type GetUserTablesSqlTaskPropertiesArgs struct {
 	// Task input
 	Input GetUserTablesSqlTaskInputPtrInput `pulumi:"input"`
 	// Task type.
+	// Expected value is 'GetUserTables.Sql'.
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -2546,6 +2566,7 @@ func (o GetUserTablesSqlTaskPropertiesOutput) Input() GetUserTablesSqlTaskInputP
 }
 
 // Task type.
+// Expected value is 'GetUserTables.Sql'.
 func (o GetUserTablesSqlTaskPropertiesOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserTablesSqlTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -2561,6 +2582,7 @@ type GetUserTablesSqlTaskPropertiesResponse struct {
 	// The state of the task. This is ignored if submitted.
 	State string `pulumi:"state"`
 	// Task type.
+	// Expected value is 'GetUserTables.Sql'.
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -2586,6 +2608,7 @@ type GetUserTablesSqlTaskPropertiesResponseArgs struct {
 	// The state of the task. This is ignored if submitted.
 	State pulumi.StringInput `pulumi:"state"`
 	// Task type.
+	// Expected value is 'GetUserTables.Sql'.
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -2637,6 +2660,7 @@ func (o GetUserTablesSqlTaskPropertiesResponseOutput) State() pulumi.StringOutpu
 }
 
 // Task type.
+// Expected value is 'GetUserTables.Sql'.
 func (o GetUserTablesSqlTaskPropertiesResponseOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserTablesSqlTaskPropertiesResponse) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -3328,6 +3352,7 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse struct {
 	// Wildcard string prefix to use for querying all sub-tem results of the item
 	ResultPrefix string `pulumi:"resultPrefix"`
 	// Result type
+	// Expected value is 'DatabaseLevelOutput'.
 	ResultType string `pulumi:"resultType"`
 	// Migration stage that this database is in
 	Stage string `pulumi:"stage"`
@@ -3375,6 +3400,7 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs struct {
 	// Wildcard string prefix to use for querying all sub-tem results of the item
 	ResultPrefix pulumi.StringInput `pulumi:"resultPrefix"`
 	// Result type
+	// Expected value is 'DatabaseLevelOutput'.
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 	// Migration stage that this database is in
 	Stage pulumi.StringInput `pulumi:"stage"`
@@ -3473,6 +3499,7 @@ func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) ResultPrefix
 }
 
 // Result type
+// Expected value is 'DatabaseLevelOutput'.
 func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) ResultType() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) string { return v.ResultType }).(pulumi.StringOutput)
 }
@@ -3502,6 +3529,7 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse struct
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Result type
+	// Expected value is 'MigrationDatabaseLevelValidationOutput'.
 	ResultType string `pulumi:"resultType"`
 }
 
@@ -3521,6 +3549,7 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseArgs st
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Result type
+	// Expected value is 'MigrationDatabaseLevelValidationOutput'.
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 }
 
@@ -3557,6 +3586,7 @@ func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutp
 }
 
 // Result type
+// Expected value is 'MigrationDatabaseLevelValidationOutput'.
 func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutput) ResultType() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse) string {
 		return v.ResultType
@@ -3570,6 +3600,7 @@ type MigrateSqlServerSqlDbTaskOutputErrorResponse struct {
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Result type
+	// Expected value is 'ErrorOutput'.
 	ResultType string `pulumi:"resultType"`
 }
 
@@ -3591,6 +3622,7 @@ type MigrateSqlServerSqlDbTaskOutputErrorResponseArgs struct {
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Result type
+	// Expected value is 'ErrorOutput'.
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 }
 
@@ -3632,6 +3664,7 @@ func (o MigrateSqlServerSqlDbTaskOutputErrorResponseOutput) Id() pulumi.StringOu
 }
 
 // Result type
+// Expected value is 'ErrorOutput'.
 func (o MigrateSqlServerSqlDbTaskOutputErrorResponseOutput) ResultType() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputErrorResponse) string { return v.ResultType }).(pulumi.StringOutput)
 }
@@ -3655,6 +3688,7 @@ type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse struct {
 	// Migration Report Result, provides unique url for downloading your migration report.
 	MigrationReportResult *MigrationReportResultResponse `pulumi:"migrationReportResult"`
 	// Result type
+	// Expected value is 'MigrationLevelOutput'.
 	ResultType string `pulumi:"resultType"`
 	// Source server brand version
 	SourceServerBrandVersion string `pulumi:"sourceServerBrandVersion"`
@@ -3702,6 +3736,7 @@ type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs struct {
 	// Migration Report Result, provides unique url for downloading your migration report.
 	MigrationReportResult MigrationReportResultResponsePtrInput `pulumi:"migrationReportResult"`
 	// Result type
+	// Expected value is 'MigrationLevelOutput'.
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 	// Source server brand version
 	SourceServerBrandVersion pulumi.StringInput `pulumi:"sourceServerBrandVersion"`
@@ -3793,6 +3828,7 @@ func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) MigrationRe
 }
 
 // Result type
+// Expected value is 'MigrationLevelOutput'.
 func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) ResultType() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse) string { return v.ResultType }).(pulumi.StringOutput)
 }
@@ -3853,6 +3889,7 @@ type MigrateSqlServerSqlDbTaskOutputTableLevelResponse struct {
 	// Wildcard string prefix to use for querying all sub-tem results of the item
 	ResultPrefix string `pulumi:"resultPrefix"`
 	// Result type
+	// Expected value is 'TableLevelOutput'.
 	ResultType string `pulumi:"resultType"`
 	// Migration start time
 	StartedOn string `pulumi:"startedOn"`
@@ -3890,6 +3927,7 @@ type MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs struct {
 	// Wildcard string prefix to use for querying all sub-tem results of the item
 	ResultPrefix pulumi.StringInput `pulumi:"resultPrefix"`
 	// Result type
+	// Expected value is 'TableLevelOutput'.
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 	// Migration start time
 	StartedOn pulumi.StringInput `pulumi:"startedOn"`
@@ -3962,6 +4000,7 @@ func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) ResultPrefix() 
 }
 
 // Result type
+// Expected value is 'TableLevelOutput'.
 func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) ResultType() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputTableLevelResponse) string { return v.ResultType }).(pulumi.StringOutput)
 }
@@ -3986,6 +4025,7 @@ type MigrateSqlServerSqlDbTaskOutputValidationResultResponse struct {
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Result type
+	// Expected value is 'MigrationValidationOutput'.
 	ResultType string `pulumi:"resultType"`
 }
 
@@ -4005,6 +4045,7 @@ type MigrateSqlServerSqlDbTaskOutputValidationResultResponseArgs struct {
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Result type
+	// Expected value is 'MigrationValidationOutput'.
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 }
 
@@ -4041,6 +4082,7 @@ func (o MigrateSqlServerSqlDbTaskOutputValidationResultResponseOutput) Id() pulu
 }
 
 // Result type
+// Expected value is 'MigrationValidationOutput'.
 func (o MigrateSqlServerSqlDbTaskOutputValidationResultResponseOutput) ResultType() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputValidationResultResponse) string { return v.ResultType }).(pulumi.StringOutput)
 }
@@ -4050,6 +4092,7 @@ type MigrateSqlServerSqlDbTaskProperties struct {
 	// Task input
 	Input *MigrateSqlServerSqlDbTaskInput `pulumi:"input"`
 	// Task type.
+	// Expected value is 'Migrate.SqlServer.SqlDb'.
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -4069,6 +4112,7 @@ type MigrateSqlServerSqlDbTaskPropertiesArgs struct {
 	// Task input
 	Input MigrateSqlServerSqlDbTaskInputPtrInput `pulumi:"input"`
 	// Task type.
+	// Expected value is 'Migrate.SqlServer.SqlDb'.
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -4105,6 +4149,7 @@ func (o MigrateSqlServerSqlDbTaskPropertiesOutput) Input() MigrateSqlServerSqlDb
 }
 
 // Task type.
+// Expected value is 'Migrate.SqlServer.SqlDb'.
 func (o MigrateSqlServerSqlDbTaskPropertiesOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -4120,6 +4165,7 @@ type MigrateSqlServerSqlDbTaskPropertiesResponse struct {
 	// The state of the task. This is ignored if submitted.
 	State string `pulumi:"state"`
 	// Task type.
+	// Expected value is 'Migrate.SqlServer.SqlDb'.
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -4145,6 +4191,7 @@ type MigrateSqlServerSqlDbTaskPropertiesResponseArgs struct {
 	// The state of the task. This is ignored if submitted.
 	State pulumi.StringInput `pulumi:"state"`
 	// Task type.
+	// Expected value is 'Migrate.SqlServer.SqlDb'.
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -4198,6 +4245,7 @@ func (o MigrateSqlServerSqlDbTaskPropertiesResponseOutput) State() pulumi.String
 }
 
 // Task type.
+// Expected value is 'Migrate.SqlServer.SqlDb'.
 func (o MigrateSqlServerSqlDbTaskPropertiesResponseOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskPropertiesResponse) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -5388,6 +5436,7 @@ type SqlConnectionInfo struct {
 	// Whether to trust the server certificate
 	TrustServerCertificate *bool `pulumi:"trustServerCertificate"`
 	// Type of connection info
+	// Expected value is 'SqlConnectionInfo'.
 	Type string `pulumi:"type"`
 	// User name
 	UserName *string `pulumi:"userName"`
@@ -5419,6 +5468,7 @@ type SqlConnectionInfoArgs struct {
 	// Whether to trust the server certificate
 	TrustServerCertificate pulumi.BoolPtrInput `pulumi:"trustServerCertificate"`
 	// Type of connection info
+	// Expected value is 'SqlConnectionInfo'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
@@ -5533,6 +5583,7 @@ func (o SqlConnectionInfoOutput) TrustServerCertificate() pulumi.BoolPtrOutput {
 }
 
 // Type of connection info
+// Expected value is 'SqlConnectionInfo'.
 func (o SqlConnectionInfoOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlConnectionInfo) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5621,6 +5672,7 @@ func (o SqlConnectionInfoPtrOutput) TrustServerCertificate() pulumi.BoolPtrOutpu
 }
 
 // Type of connection info
+// Expected value is 'SqlConnectionInfo'.
 func (o SqlConnectionInfoPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlConnectionInfo) *string {
 		if v == nil {
@@ -5655,6 +5707,7 @@ type SqlConnectionInfoResponse struct {
 	// Whether to trust the server certificate
 	TrustServerCertificate *bool `pulumi:"trustServerCertificate"`
 	// Type of connection info
+	// Expected value is 'SqlConnectionInfo'.
 	Type string `pulumi:"type"`
 	// User name
 	UserName *string `pulumi:"userName"`
@@ -5686,6 +5739,7 @@ type SqlConnectionInfoResponseArgs struct {
 	// Whether to trust the server certificate
 	TrustServerCertificate pulumi.BoolPtrInput `pulumi:"trustServerCertificate"`
 	// Type of connection info
+	// Expected value is 'SqlConnectionInfo'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
@@ -5800,6 +5854,7 @@ func (o SqlConnectionInfoResponseOutput) TrustServerCertificate() pulumi.BoolPtr
 }
 
 // Type of connection info
+// Expected value is 'SqlConnectionInfo'.
 func (o SqlConnectionInfoResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlConnectionInfoResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5888,6 +5943,7 @@ func (o SqlConnectionInfoResponsePtrOutput) TrustServerCertificate() pulumi.Bool
 }
 
 // Type of connection info
+// Expected value is 'SqlConnectionInfo'.
 func (o SqlConnectionInfoResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlConnectionInfoResponse) *string {
 		if v == nil {

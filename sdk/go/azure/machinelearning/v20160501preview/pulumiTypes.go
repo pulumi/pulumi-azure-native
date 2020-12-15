@@ -6381,6 +6381,7 @@ type WebServicePropertiesForGraph struct {
 	// The definition of the graph package making up this web service.
 	Package *GraphPackage `pulumi:"package"`
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+	// Expected value is 'Graph'.
 	PackageType string `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -6430,6 +6431,7 @@ type WebServicePropertiesForGraphArgs struct {
 	// The definition of the graph package making up this web service.
 	Package GraphPackagePtrInput `pulumi:"package"`
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+	// Expected value is 'Graph'.
 	PackageType pulumi.StringInput `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
@@ -6577,6 +6579,7 @@ func (o WebServicePropertiesForGraphOutput) Package() GraphPackagePtrOutput {
 }
 
 // Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+// Expected value is 'Graph'.
 func (o WebServicePropertiesForGraphOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) string { return v.PackageType }).(pulumi.StringOutput)
 }
@@ -6735,6 +6738,7 @@ func (o WebServicePropertiesForGraphPtrOutput) Package() GraphPackagePtrOutput {
 }
 
 // Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+// Expected value is 'Graph'.
 func (o WebServicePropertiesForGraphPtrOutput) PackageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *string {
 		if v == nil {
@@ -6823,6 +6827,7 @@ type WebServicePropertiesForGraphResponse struct {
 	// The definition of the graph package making up this web service.
 	Package *GraphPackageResponse `pulumi:"package"`
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+	// Expected value is 'Graph'.
 	PackageType string `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -6880,6 +6885,7 @@ type WebServicePropertiesForGraphResponseArgs struct {
 	// The definition of the graph package making up this web service.
 	Package GraphPackageResponsePtrInput `pulumi:"package"`
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+	// Expected value is 'Graph'.
 	PackageType pulumi.StringInput `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
@@ -7043,6 +7049,7 @@ func (o WebServicePropertiesForGraphResponseOutput) Package() GraphPackageRespon
 }
 
 // Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+// Expected value is 'Graph'.
 func (o WebServicePropertiesForGraphResponseOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) string { return v.PackageType }).(pulumi.StringOutput)
 }
@@ -7233,6 +7240,7 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) Package() GraphPackageRes
 }
 
 // Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+// Expected value is 'Graph'.
 func (o WebServicePropertiesForGraphResponsePtrOutput) PackageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {

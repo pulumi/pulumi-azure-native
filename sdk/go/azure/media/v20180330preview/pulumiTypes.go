@@ -527,6 +527,7 @@ type Audio struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
 	OdataType string `pulumi:"odataType"`
 	// The sampling rate to use for encoding in hertz.
 	SamplingRate *int `pulumi:"samplingRate"`
@@ -552,6 +553,7 @@ type AudioArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The sampling rate to use for encoding in hertz.
 	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
@@ -600,6 +602,7 @@ func (o AudioOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Audio'.
 func (o AudioOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v Audio) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -614,6 +617,7 @@ type AudioAnalyzerPreset struct {
 	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage *string `pulumi:"audioLanguage"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -633,6 +637,7 @@ type AudioAnalyzerPresetArgs struct {
 	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -669,6 +674,7 @@ func (o AudioAnalyzerPresetOutput) AudioLanguage() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
 func (o AudioAnalyzerPresetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioAnalyzerPreset) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -678,6 +684,7 @@ type AudioAnalyzerPresetResponse struct {
 	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage *string `pulumi:"audioLanguage"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -697,6 +704,7 @@ type AudioAnalyzerPresetResponseArgs struct {
 	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -733,6 +741,7 @@ func (o AudioAnalyzerPresetResponseOutput) AudioLanguage() pulumi.StringPtrOutpu
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
 func (o AudioAnalyzerPresetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioAnalyzerPresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -750,6 +759,7 @@ type AudioOverlay struct {
 	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 	InputLabel *string `pulumi:"inputLabel"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioOverlay'.
 	OdataType string `pulumi:"odataType"`
 	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
 	Start *string `pulumi:"start"`
@@ -779,6 +789,7 @@ type AudioOverlayArgs struct {
 	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 	InputLabel pulumi.StringPtrInput `pulumi:"inputLabel"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioOverlay'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
 	Start pulumi.StringPtrInput `pulumi:"start"`
@@ -837,6 +848,7 @@ func (o AudioOverlayOutput) InputLabel() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.AudioOverlay'.
 func (o AudioOverlayOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioOverlay) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -859,6 +871,7 @@ type AudioOverlayResponse struct {
 	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 	InputLabel *string `pulumi:"inputLabel"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioOverlay'.
 	OdataType string `pulumi:"odataType"`
 	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
 	Start *string `pulumi:"start"`
@@ -888,6 +901,7 @@ type AudioOverlayResponseArgs struct {
 	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 	InputLabel pulumi.StringPtrInput `pulumi:"inputLabel"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioOverlay'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
 	Start pulumi.StringPtrInput `pulumi:"start"`
@@ -946,6 +960,7 @@ func (o AudioOverlayResponseOutput) InputLabel() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.AudioOverlay'.
 func (o AudioOverlayResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -964,6 +979,7 @@ type AudioResponse struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
 	OdataType string `pulumi:"odataType"`
 	// The sampling rate to use for encoding in hertz.
 	SamplingRate *int `pulumi:"samplingRate"`
@@ -989,6 +1005,7 @@ type AudioResponseArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The sampling rate to use for encoding in hertz.
 	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
@@ -1037,6 +1054,7 @@ func (o AudioResponseOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Audio'.
 func (o AudioResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1049,6 +1067,7 @@ func (o AudioResponseOutput) SamplingRate() pulumi.IntPtrOutput {
 // Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPreset struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
 	OdataType string `pulumi:"odataType"`
 	// The built-in preset to be used for encoding videos.
 	PresetName string `pulumi:"presetName"`
@@ -1068,6 +1087,7 @@ type BuiltInStandardEncoderPresetInput interface {
 // Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPresetArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The built-in preset to be used for encoding videos.
 	PresetName pulumi.StringInput `pulumi:"presetName"`
@@ -1101,6 +1121,7 @@ func (o BuiltInStandardEncoderPresetOutput) ToBuiltInStandardEncoderPresetOutput
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
 func (o BuiltInStandardEncoderPresetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v BuiltInStandardEncoderPreset) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1113,6 +1134,7 @@ func (o BuiltInStandardEncoderPresetOutput) PresetName() pulumi.StringOutput {
 // Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPresetResponse struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
 	OdataType string `pulumi:"odataType"`
 	// The built-in preset to be used for encoding videos.
 	PresetName string `pulumi:"presetName"`
@@ -1132,6 +1154,7 @@ type BuiltInStandardEncoderPresetResponseInput interface {
 // Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPresetResponseArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The built-in preset to be used for encoding videos.
 	PresetName pulumi.StringInput `pulumi:"presetName"`
@@ -1165,6 +1188,7 @@ func (o BuiltInStandardEncoderPresetResponseOutput) ToBuiltInStandardEncoderPres
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
 func (o BuiltInStandardEncoderPresetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v BuiltInStandardEncoderPresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2595,6 +2619,7 @@ func (o CommonEncryptionCencResponsePtrOutput) EnabledProtocols() EnabledProtoco
 // Represents a configuration for non-DRM keys.
 type ContentKeyPolicyClearKeyConfiguration struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -2612,6 +2637,7 @@ type ContentKeyPolicyClearKeyConfigurationInput interface {
 // Represents a configuration for non-DRM keys.
 type ContentKeyPolicyClearKeyConfigurationArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -2643,6 +2669,7 @@ func (o ContentKeyPolicyClearKeyConfigurationOutput) ToContentKeyPolicyClearKeyC
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 func (o ContentKeyPolicyClearKeyConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyClearKeyConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2650,6 +2677,7 @@ func (o ContentKeyPolicyClearKeyConfigurationOutput) OdataType() pulumi.StringOu
 // Represents a configuration for non-DRM keys.
 type ContentKeyPolicyClearKeyConfigurationResponse struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -2667,6 +2695,7 @@ type ContentKeyPolicyClearKeyConfigurationResponseInput interface {
 // Represents a configuration for non-DRM keys.
 type ContentKeyPolicyClearKeyConfigurationResponseArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -2698,6 +2727,7 @@ func (o ContentKeyPolicyClearKeyConfigurationResponseOutput) ToContentKeyPolicyC
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
 func (o ContentKeyPolicyClearKeyConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyClearKeyConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2711,6 +2741,7 @@ type ContentKeyPolicyFairPlayConfiguration struct {
 	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
 	FairPlayPfxPassword string `pulumi:"fairPlayPfxPassword"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
 	OdataType string `pulumi:"odataType"`
 	// The rental and lease key type.
 	RentalAndLeaseKeyType string `pulumi:"rentalAndLeaseKeyType"`
@@ -2738,6 +2769,7 @@ type ContentKeyPolicyFairPlayConfigurationArgs struct {
 	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
 	FairPlayPfxPassword pulumi.StringInput `pulumi:"fairPlayPfxPassword"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The rental and lease key type.
 	RentalAndLeaseKeyType pulumi.StringInput `pulumi:"rentalAndLeaseKeyType"`
@@ -2788,6 +2820,7 @@ func (o ContentKeyPolicyFairPlayConfigurationOutput) FairPlayPfxPassword() pulum
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
 func (o ContentKeyPolicyFairPlayConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2811,6 +2844,7 @@ type ContentKeyPolicyFairPlayConfigurationResponse struct {
 	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
 	FairPlayPfxPassword string `pulumi:"fairPlayPfxPassword"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
 	OdataType string `pulumi:"odataType"`
 	// The rental and lease key type.
 	RentalAndLeaseKeyType string `pulumi:"rentalAndLeaseKeyType"`
@@ -2838,6 +2872,7 @@ type ContentKeyPolicyFairPlayConfigurationResponseArgs struct {
 	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
 	FairPlayPfxPassword pulumi.StringInput `pulumi:"fairPlayPfxPassword"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The rental and lease key type.
 	RentalAndLeaseKeyType pulumi.StringInput `pulumi:"rentalAndLeaseKeyType"`
@@ -2888,6 +2923,7 @@ func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) FairPlayPfxPassword
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
 func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2905,6 +2941,7 @@ func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) RentalDuration() pu
 // Represents an open restriction. License or key will be delivered on every request.
 type ContentKeyPolicyOpenRestriction struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -2922,6 +2959,7 @@ type ContentKeyPolicyOpenRestrictionInput interface {
 // Represents an open restriction. License or key will be delivered on every request.
 type ContentKeyPolicyOpenRestrictionArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -2953,6 +2991,7 @@ func (o ContentKeyPolicyOpenRestrictionOutput) ToContentKeyPolicyOpenRestriction
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 func (o ContentKeyPolicyOpenRestrictionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOpenRestriction) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2960,6 +2999,7 @@ func (o ContentKeyPolicyOpenRestrictionOutput) OdataType() pulumi.StringOutput {
 // Represents an open restriction. License or key will be delivered on every request.
 type ContentKeyPolicyOpenRestrictionResponse struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -2977,6 +3017,7 @@ type ContentKeyPolicyOpenRestrictionResponseInput interface {
 // Represents an open restriction. License or key will be delivered on every request.
 type ContentKeyPolicyOpenRestrictionResponseArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -3008,6 +3049,7 @@ func (o ContentKeyPolicyOpenRestrictionResponseOutput) ToContentKeyPolicyOpenRes
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
 func (o ContentKeyPolicyOpenRestrictionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOpenRestrictionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -3262,6 +3304,7 @@ type ContentKeyPolicyPlayReadyConfiguration struct {
 	// The PlayReady licenses.
 	Licenses []ContentKeyPolicyPlayReadyLicense `pulumi:"licenses"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
 	OdataType string `pulumi:"odataType"`
 	// The custom response data.
 	ResponseCustomData *string `pulumi:"responseCustomData"`
@@ -3283,6 +3326,7 @@ type ContentKeyPolicyPlayReadyConfigurationArgs struct {
 	// The PlayReady licenses.
 	Licenses ContentKeyPolicyPlayReadyLicenseArrayInput `pulumi:"licenses"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The custom response data.
 	ResponseCustomData pulumi.StringPtrInput `pulumi:"responseCustomData"`
@@ -3321,6 +3365,7 @@ func (o ContentKeyPolicyPlayReadyConfigurationOutput) Licenses() ContentKeyPolic
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
 func (o ContentKeyPolicyPlayReadyConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -3335,6 +3380,7 @@ type ContentKeyPolicyPlayReadyConfigurationResponse struct {
 	// The PlayReady licenses.
 	Licenses []ContentKeyPolicyPlayReadyLicenseResponse `pulumi:"licenses"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
 	OdataType string `pulumi:"odataType"`
 	// The custom response data.
 	ResponseCustomData *string `pulumi:"responseCustomData"`
@@ -3356,6 +3402,7 @@ type ContentKeyPolicyPlayReadyConfigurationResponseArgs struct {
 	// The PlayReady licenses.
 	Licenses ContentKeyPolicyPlayReadyLicenseResponseArrayInput `pulumi:"licenses"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The custom response data.
 	ResponseCustomData pulumi.StringPtrInput `pulumi:"responseCustomData"`
@@ -3396,6 +3443,7 @@ func (o ContentKeyPolicyPlayReadyConfigurationResponseOutput) Licenses() Content
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
 func (o ContentKeyPolicyPlayReadyConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -3408,6 +3456,7 @@ func (o ContentKeyPolicyPlayReadyConfigurationResponseOutput) ResponseCustomData
 // Specifies that the content key ID is in the PlayReady header.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -3425,6 +3474,7 @@ type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInput interface {
 // Specifies that the content key ID is in the PlayReady header.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -3456,6 +3506,7 @@ func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutput) ToContent
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -3463,6 +3514,7 @@ func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutput) OdataType
 // Specifies that the content key ID is in the PlayReady header.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -3480,6 +3532,7 @@ type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseInput interf
 // Specifies that the content key ID is in the PlayReady header.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -3511,6 +3564,7 @@ func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseOutput) T
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
 func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -3520,6 +3574,7 @@ type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier struct {
 	// The content key ID.
 	KeyId string `pulumi:"keyId"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -3539,6 +3594,7 @@ type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs struct {
 	// The content key ID.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -3575,6 +3631,7 @@ func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput) Ke
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
 func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -3584,6 +3641,7 @@ type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse stru
 	// The content key ID.
 	KeyId string `pulumi:"keyId"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -3603,6 +3661,7 @@ type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseArgs 
 	// The content key ID.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -3639,6 +3698,7 @@ func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseOu
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
 func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse) string {
 		return v.OdataType
@@ -5068,6 +5128,7 @@ type ContentKeyPolicyRsaTokenKey struct {
 	// The RSA Parameter modulus
 	Modulus string `pulumi:"modulus"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5089,6 +5150,7 @@ type ContentKeyPolicyRsaTokenKeyArgs struct {
 	// The RSA Parameter modulus
 	Modulus pulumi.StringInput `pulumi:"modulus"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -5130,6 +5192,7 @@ func (o ContentKeyPolicyRsaTokenKeyOutput) Modulus() pulumi.StringOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
 func (o ContentKeyPolicyRsaTokenKeyOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyRsaTokenKey) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -5141,6 +5204,7 @@ type ContentKeyPolicyRsaTokenKeyResponse struct {
 	// The RSA Parameter modulus
 	Modulus string `pulumi:"modulus"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5162,6 +5226,7 @@ type ContentKeyPolicyRsaTokenKeyResponseArgs struct {
 	// The RSA Parameter modulus
 	Modulus pulumi.StringInput `pulumi:"modulus"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -5203,6 +5268,7 @@ func (o ContentKeyPolicyRsaTokenKeyResponseOutput) Modulus() pulumi.StringOutput
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
 func (o ContentKeyPolicyRsaTokenKeyResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyRsaTokenKeyResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -5212,6 +5278,7 @@ type ContentKeyPolicySymmetricTokenKey struct {
 	// The key value of the key
 	KeyValue string `pulumi:"keyValue"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5231,6 +5298,7 @@ type ContentKeyPolicySymmetricTokenKeyArgs struct {
 	// The key value of the key
 	KeyValue pulumi.StringInput `pulumi:"keyValue"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -5267,6 +5335,7 @@ func (o ContentKeyPolicySymmetricTokenKeyOutput) KeyValue() pulumi.StringOutput 
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
 func (o ContentKeyPolicySymmetricTokenKeyOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicySymmetricTokenKey) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -5276,6 +5345,7 @@ type ContentKeyPolicySymmetricTokenKeyResponse struct {
 	// The key value of the key
 	KeyValue string `pulumi:"keyValue"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5295,6 +5365,7 @@ type ContentKeyPolicySymmetricTokenKeyResponseArgs struct {
 	// The key value of the key
 	KeyValue pulumi.StringInput `pulumi:"keyValue"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -5331,6 +5402,7 @@ func (o ContentKeyPolicySymmetricTokenKeyResponseOutput) KeyValue() pulumi.Strin
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
 func (o ContentKeyPolicySymmetricTokenKeyResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicySymmetricTokenKeyResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -5562,6 +5634,7 @@ type ContentKeyPolicyTokenRestriction struct {
 	// The token issuer.
 	Issuer string `pulumi:"issuer"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
 	OdataType string `pulumi:"odataType"`
 	// The OpenID connect discovery document.
 	OpenIdConnectDiscoveryDocument *string `pulumi:"openIdConnectDiscoveryDocument"`
@@ -5593,6 +5666,7 @@ type ContentKeyPolicyTokenRestrictionArgs struct {
 	// The token issuer.
 	Issuer pulumi.StringInput `pulumi:"issuer"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The OpenID connect discovery document.
 	OpenIdConnectDiscoveryDocument pulumi.StringPtrInput `pulumi:"openIdConnectDiscoveryDocument"`
@@ -5647,6 +5721,7 @@ func (o ContentKeyPolicyTokenRestrictionOutput) Issuer() pulumi.StringOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
 func (o ContentKeyPolicyTokenRestrictionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestriction) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -5680,6 +5755,7 @@ type ContentKeyPolicyTokenRestrictionResponse struct {
 	// The token issuer.
 	Issuer string `pulumi:"issuer"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
 	OdataType string `pulumi:"odataType"`
 	// The OpenID connect discovery document.
 	OpenIdConnectDiscoveryDocument *string `pulumi:"openIdConnectDiscoveryDocument"`
@@ -5711,6 +5787,7 @@ type ContentKeyPolicyTokenRestrictionResponseArgs struct {
 	// The token issuer.
 	Issuer pulumi.StringInput `pulumi:"issuer"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The OpenID connect discovery document.
 	OpenIdConnectDiscoveryDocument pulumi.StringPtrInput `pulumi:"openIdConnectDiscoveryDocument"`
@@ -5765,6 +5842,7 @@ func (o ContentKeyPolicyTokenRestrictionResponseOutput) Issuer() pulumi.StringOu
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
 func (o ContentKeyPolicyTokenRestrictionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -5794,6 +5872,7 @@ func (o ContentKeyPolicyTokenRestrictionResponseOutput) RestrictionTokenType() p
 // Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
 type ContentKeyPolicyUnknownConfiguration struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5811,6 +5890,7 @@ type ContentKeyPolicyUnknownConfigurationInput interface {
 // Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
 type ContentKeyPolicyUnknownConfigurationArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -5842,6 +5922,7 @@ func (o ContentKeyPolicyUnknownConfigurationOutput) ToContentKeyPolicyUnknownCon
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 func (o ContentKeyPolicyUnknownConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyUnknownConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -5849,6 +5930,7 @@ func (o ContentKeyPolicyUnknownConfigurationOutput) OdataType() pulumi.StringOut
 // Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
 type ContentKeyPolicyUnknownConfigurationResponse struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5866,6 +5948,7 @@ type ContentKeyPolicyUnknownConfigurationResponseInput interface {
 // Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
 type ContentKeyPolicyUnknownConfigurationResponseArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -5897,6 +5980,7 @@ func (o ContentKeyPolicyUnknownConfigurationResponseOutput) ToContentKeyPolicyUn
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
 func (o ContentKeyPolicyUnknownConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyUnknownConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -5904,6 +5988,7 @@ func (o ContentKeyPolicyUnknownConfigurationResponseOutput) OdataType() pulumi.S
 // Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
 type ContentKeyPolicyUnknownRestriction struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5921,6 +6006,7 @@ type ContentKeyPolicyUnknownRestrictionInput interface {
 // Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
 type ContentKeyPolicyUnknownRestrictionArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -5952,6 +6038,7 @@ func (o ContentKeyPolicyUnknownRestrictionOutput) ToContentKeyPolicyUnknownRestr
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 func (o ContentKeyPolicyUnknownRestrictionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyUnknownRestriction) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -5959,6 +6046,7 @@ func (o ContentKeyPolicyUnknownRestrictionOutput) OdataType() pulumi.StringOutpu
 // Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
 type ContentKeyPolicyUnknownRestrictionResponse struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5976,6 +6064,7 @@ type ContentKeyPolicyUnknownRestrictionResponseInput interface {
 // Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
 type ContentKeyPolicyUnknownRestrictionResponseArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -6007,6 +6096,7 @@ func (o ContentKeyPolicyUnknownRestrictionResponseOutput) ToContentKeyPolicyUnkn
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 func (o ContentKeyPolicyUnknownRestrictionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyUnknownRestrictionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -6014,6 +6104,7 @@ func (o ContentKeyPolicyUnknownRestrictionResponseOutput) OdataType() pulumi.Str
 // Specifies a configuration for Widevine licenses.
 type ContentKeyPolicyWidevineConfiguration struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
 	OdataType string `pulumi:"odataType"`
 	// The Widevine template.
 	WidevineTemplate string `pulumi:"widevineTemplate"`
@@ -6033,6 +6124,7 @@ type ContentKeyPolicyWidevineConfigurationInput interface {
 // Specifies a configuration for Widevine licenses.
 type ContentKeyPolicyWidevineConfigurationArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The Widevine template.
 	WidevineTemplate pulumi.StringInput `pulumi:"widevineTemplate"`
@@ -6066,6 +6158,7 @@ func (o ContentKeyPolicyWidevineConfigurationOutput) ToContentKeyPolicyWidevineC
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
 func (o ContentKeyPolicyWidevineConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyWidevineConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -6078,6 +6171,7 @@ func (o ContentKeyPolicyWidevineConfigurationOutput) WidevineTemplate() pulumi.S
 // Specifies a configuration for Widevine licenses.
 type ContentKeyPolicyWidevineConfigurationResponse struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
 	OdataType string `pulumi:"odataType"`
 	// The Widevine template.
 	WidevineTemplate string `pulumi:"widevineTemplate"`
@@ -6097,6 +6191,7 @@ type ContentKeyPolicyWidevineConfigurationResponseInput interface {
 // Specifies a configuration for Widevine licenses.
 type ContentKeyPolicyWidevineConfigurationResponseArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The Widevine template.
 	WidevineTemplate pulumi.StringInput `pulumi:"widevineTemplate"`
@@ -6130,6 +6225,7 @@ func (o ContentKeyPolicyWidevineConfigurationResponseOutput) ToContentKeyPolicyW
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
 func (o ContentKeyPolicyWidevineConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyWidevineConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -6142,6 +6238,7 @@ func (o ContentKeyPolicyWidevineConfigurationResponseOutput) WidevineTemplate() 
 // Specifies a certificate for token validation.
 type ContentKeyPolicyX509CertificateTokenKey struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 	OdataType string `pulumi:"odataType"`
 	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
 	RawBody string `pulumi:"rawBody"`
@@ -6161,6 +6258,7 @@ type ContentKeyPolicyX509CertificateTokenKeyInput interface {
 // Specifies a certificate for token validation.
 type ContentKeyPolicyX509CertificateTokenKeyArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
 	RawBody pulumi.StringInput `pulumi:"rawBody"`
@@ -6194,6 +6292,7 @@ func (o ContentKeyPolicyX509CertificateTokenKeyOutput) ToContentKeyPolicyX509Cer
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 func (o ContentKeyPolicyX509CertificateTokenKeyOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyX509CertificateTokenKey) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -6206,6 +6305,7 @@ func (o ContentKeyPolicyX509CertificateTokenKeyOutput) RawBody() pulumi.StringOu
 // Specifies a certificate for token validation.
 type ContentKeyPolicyX509CertificateTokenKeyResponse struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 	OdataType string `pulumi:"odataType"`
 	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
 	RawBody string `pulumi:"rawBody"`
@@ -6225,6 +6325,7 @@ type ContentKeyPolicyX509CertificateTokenKeyResponseInput interface {
 // Specifies a certificate for token validation.
 type ContentKeyPolicyX509CertificateTokenKeyResponseArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
 	RawBody pulumi.StringInput `pulumi:"rawBody"`
@@ -6258,6 +6359,7 @@ func (o ContentKeyPolicyX509CertificateTokenKeyResponseOutput) ToContentKeyPolic
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
 func (o ContentKeyPolicyX509CertificateTokenKeyResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyX509CertificateTokenKeyResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -6272,6 +6374,7 @@ type CopyAudio struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyAudio'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -6291,6 +6394,7 @@ type CopyAudioArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyAudio'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -6327,6 +6431,7 @@ func (o CopyAudioOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.CopyAudio'.
 func (o CopyAudioOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyAudio) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -6336,6 +6441,7 @@ type CopyAudioResponse struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyAudio'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -6355,6 +6461,7 @@ type CopyAudioResponseArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyAudio'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -6391,6 +6498,7 @@ func (o CopyAudioResponseOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.CopyAudio'.
 func (o CopyAudioResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyAudioResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -6400,6 +6508,7 @@ type CopyVideo struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyVideo'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -6419,6 +6528,7 @@ type CopyVideoArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyVideo'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -6455,6 +6565,7 @@ func (o CopyVideoOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.CopyVideo'.
 func (o CopyVideoOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyVideo) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -6464,6 +6575,7 @@ type CopyVideoResponse struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyVideo'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -6483,6 +6595,7 @@ type CopyVideoResponseArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyVideo'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -6519,6 +6632,7 @@ func (o CopyVideoResponseOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.CopyVideo'.
 func (o CopyVideoResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyVideoResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -9364,6 +9478,7 @@ type ImageFormat struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -9383,6 +9498,7 @@ type ImageFormatArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -9419,6 +9535,7 @@ func (o ImageFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ImageFormat'.
 func (o ImageFormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageFormat) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -9428,6 +9545,7 @@ type ImageFormatResponse struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -9447,6 +9565,7 @@ type ImageFormatResponseArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -9483,6 +9602,7 @@ func (o ImageFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ImageFormat'.
 func (o ImageFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -9694,6 +9814,7 @@ type JobInputClip struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -9715,6 +9836,7 @@ type JobInputClipArgs struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -9756,6 +9878,7 @@ func (o JobInputClipOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputClip'.
 func (o JobInputClipOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputClip) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -9767,6 +9890,7 @@ type JobInputClipResponse struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -9788,6 +9912,7 @@ type JobInputClipResponseArgs struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -9829,6 +9954,7 @@ func (o JobInputClipResponseOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputClip'.
 func (o JobInputClipResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputClipResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -9840,6 +9966,7 @@ type JobInputs struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputs'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -9861,6 +9988,7 @@ type JobInputsArgs struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputs'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -9902,6 +10030,7 @@ func (o JobInputsOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputs'.
 func (o JobInputsOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputs) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -9913,6 +10042,7 @@ type JobInputsResponse struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputs'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -9934,6 +10064,7 @@ type JobInputsResponseArgs struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputs'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -9975,6 +10106,7 @@ func (o JobInputsResponseOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputs'.
 func (o JobInputsResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputsResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -9984,6 +10116,7 @@ type JobOutputAsset struct {
 	// The name of the output Asset.
 	AssetName string `pulumi:"assetName"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobOutputAsset'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -10003,6 +10136,7 @@ type JobOutputAssetArgs struct {
 	// The name of the output Asset.
 	AssetName pulumi.StringInput `pulumi:"assetName"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobOutputAsset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -10064,6 +10198,7 @@ func (o JobOutputAssetOutput) AssetName() pulumi.StringOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobOutputAsset'.
 func (o JobOutputAssetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobOutputAsset) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -10095,6 +10230,7 @@ type JobOutputAssetResponse struct {
 	// If the JobOutput is in the Error state, it contains the details of the error.
 	Error JobErrorResponse `pulumi:"error"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobOutputAsset'.
 	OdataType string `pulumi:"odataType"`
 	// If the JobOutput is in a Processing state, this contains the job completion percentage.  The value is an estimate and not intended to be used to predict job completion times. To determine if the JobOutput is complete, use the State property.
 	Progress int `pulumi:"progress"`
@@ -10120,6 +10256,7 @@ type JobOutputAssetResponseArgs struct {
 	// If the JobOutput is in the Error state, it contains the details of the error.
 	Error JobErrorResponseInput `pulumi:"error"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobOutputAsset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// If the JobOutput is in a Processing state, this contains the job completion percentage.  The value is an estimate and not intended to be used to predict job completion times. To determine if the JobOutput is complete, use the State property.
 	Progress pulumi.IntInput `pulumi:"progress"`
@@ -10190,6 +10327,7 @@ func (o JobOutputAssetResponseOutput) Error() JobErrorResponseOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobOutputAsset'.
 func (o JobOutputAssetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobOutputAssetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -11785,6 +11923,7 @@ type MultiBitrateFormat struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
 	OdataType string `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles []OutputFile `pulumi:"outputFiles"`
@@ -11806,6 +11945,7 @@ type MultiBitrateFormatArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles OutputFileArrayInput `pulumi:"outputFiles"`
@@ -11844,6 +11984,7 @@ func (o MultiBitrateFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
 func (o MultiBitrateFormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiBitrateFormat) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -11858,6 +11999,7 @@ type MultiBitrateFormatResponse struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
 	OdataType string `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles []OutputFileResponse `pulumi:"outputFiles"`
@@ -11879,6 +12021,7 @@ type MultiBitrateFormatResponseArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles OutputFileResponseArrayInput `pulumi:"outputFiles"`
@@ -11917,6 +12060,7 @@ func (o MultiBitrateFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutp
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
 func (o MultiBitrateFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiBitrateFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -12785,6 +12929,7 @@ type StandardEncoderPreset struct {
 	// The list of outputs to be produced by the encoder.
 	Formats []interface{} `pulumi:"formats"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -12808,6 +12953,7 @@ type StandardEncoderPresetArgs struct {
 	// The list of outputs to be produced by the encoder.
 	Formats pulumi.ArrayInput `pulumi:"formats"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -12854,6 +13000,7 @@ func (o StandardEncoderPresetOutput) Formats() pulumi.ArrayOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
 func (o StandardEncoderPresetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v StandardEncoderPreset) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -12867,6 +13014,7 @@ type StandardEncoderPresetResponse struct {
 	// The list of outputs to be produced by the encoder.
 	Formats []interface{} `pulumi:"formats"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -12890,6 +13038,7 @@ type StandardEncoderPresetResponseArgs struct {
 	// The list of outputs to be produced by the encoder.
 	Formats pulumi.ArrayInput `pulumi:"formats"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -12936,6 +13085,7 @@ func (o StandardEncoderPresetResponseOutput) Formats() pulumi.ArrayOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
 func (o StandardEncoderPresetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v StandardEncoderPresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -16078,6 +16228,7 @@ type Video struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
 	OdataType string `pulumi:"odataType"`
 	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 	StretchMode *string `pulumi:"stretchMode"`
@@ -16101,6 +16252,7 @@ type VideoArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
@@ -16144,6 +16296,7 @@ func (o VideoOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
 func (o VideoOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v Video) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -16168,6 +16321,7 @@ type VideoOverlay struct {
 	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 	InputLabel *string `pulumi:"inputLabel"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoOverlay'.
 	OdataType string `pulumi:"odataType"`
 	// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
 	Opacity *float64 `pulumi:"opacity"`
@@ -16203,6 +16357,7 @@ type VideoOverlayArgs struct {
 	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 	InputLabel pulumi.StringPtrInput `pulumi:"inputLabel"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoOverlay'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
 	Opacity pulumi.Float64PtrInput `pulumi:"opacity"`
@@ -16270,6 +16425,7 @@ func (o VideoOverlayOutput) InputLabel() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.VideoOverlay'.
 func (o VideoOverlayOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoOverlay) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -16304,6 +16460,7 @@ type VideoOverlayResponse struct {
 	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 	InputLabel *string `pulumi:"inputLabel"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoOverlay'.
 	OdataType string `pulumi:"odataType"`
 	// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
 	Opacity *float64 `pulumi:"opacity"`
@@ -16339,6 +16496,7 @@ type VideoOverlayResponseArgs struct {
 	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
 	InputLabel pulumi.StringPtrInput `pulumi:"inputLabel"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoOverlay'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
 	Opacity pulumi.Float64PtrInput `pulumi:"opacity"`
@@ -16406,6 +16564,7 @@ func (o VideoOverlayResponseOutput) InputLabel() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.VideoOverlay'.
 func (o VideoOverlayResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -16432,6 +16591,7 @@ type VideoResponse struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
 	OdataType string `pulumi:"odataType"`
 	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 	StretchMode *string `pulumi:"stretchMode"`
@@ -16455,6 +16615,7 @@ type VideoResponseArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
@@ -16498,6 +16659,7 @@ func (o VideoResponseOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
 func (o VideoResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }

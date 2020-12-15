@@ -45,6 +45,7 @@ type AzureFileshareProtectedItem struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'AzureFileShareProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -102,6 +103,7 @@ type AzureFileshareProtectedItemArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'AzureFileShareProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -221,6 +223,7 @@ func (o AzureFileshareProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // backup item type.
+// Expected value is 'AzureFileShareProtectedItem'.
 func (o AzureFileshareProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -664,6 +667,7 @@ type AzureFileshareProtectedItemResponse struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'AzureFileShareProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -721,6 +725,7 @@ type AzureFileshareProtectedItemResponseArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'AzureFileShareProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -844,6 +849,7 @@ func (o AzureFileshareProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOu
 }
 
 // backup item type.
+// Expected value is 'AzureFileShareProtectedItem'.
 func (o AzureFileshareProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -1036,6 +1042,7 @@ type AzureIaaSVMProtectedItem struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -1101,6 +1108,7 @@ type AzureIaaSVMProtectedItemArgs struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -1237,6 +1245,7 @@ func (o AzureIaaSVMProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOu
 }
 
 // backup item type.
+// Expected value is 'AzureIaaSVMProtectedItem'.
 func (o AzureIaaSVMProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -1655,6 +1664,7 @@ type AzureIaaSVMProtectedItemResponse struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -1722,6 +1732,7 @@ type AzureIaaSVMProtectedItemResponseArgs struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -1867,6 +1878,7 @@ func (o AzureIaaSVMProtectedItemResponseOutput) ProtectedItemDataId() pulumi.Str
 }
 
 // backup item type.
+// Expected value is 'AzureIaaSVMProtectedItem'.
 func (o AzureIaaSVMProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -1925,6 +1937,7 @@ type AzureSqlProtectedItem struct {
 	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of the backed up item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -1974,6 +1987,7 @@ type AzureSqlProtectedItemArgs struct {
 	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of the backed up item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -2076,6 +2090,7 @@ func (o AzureSqlProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOutpu
 }
 
 // backup item type.
+// Expected value is 'Microsoft.Sql/servers/databases'.
 func (o AzureSqlProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -2470,6 +2485,7 @@ type AzureSqlProtectedItemResponse struct {
 	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of the backed up item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -2519,6 +2535,7 @@ type AzureSqlProtectedItemResponseArgs struct {
 	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of the backed up item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -2623,6 +2640,7 @@ func (o AzureSqlProtectedItemResponseOutput) ProtectedItemDataId() pulumi.String
 }
 
 // backup item type.
+// Expected value is 'Microsoft.Sql/servers/databases'.
 func (o AzureSqlProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -2685,6 +2703,7 @@ type AzureVmWorkloadProtectedItem struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -2752,6 +2771,7 @@ type AzureVmWorkloadProtectedItemArgs struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -2893,6 +2913,7 @@ func (o AzureVmWorkloadProtectedItemOutput) ProtectedItemHealthStatus() pulumi.S
 }
 
 // backup item type.
+// Expected value is 'AzureVmWorkloadProtectedItem'.
 func (o AzureVmWorkloadProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -3313,6 +3334,7 @@ type AzureVmWorkloadProtectedItemResponse struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -3382,6 +3404,7 @@ type AzureVmWorkloadProtectedItemResponseArgs struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -3532,6 +3555,7 @@ func (o AzureVmWorkloadProtectedItemResponseOutput) ProtectedItemHealthStatus() 
 }
 
 // backup item type.
+// Expected value is 'AzureVmWorkloadProtectedItem'.
 func (o AzureVmWorkloadProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -3592,6 +3616,7 @@ type DPMProtectedItem struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'DPMProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protection state of the backup engine
 	ProtectionState *string `pulumi:"protectionState"`
@@ -3643,6 +3668,7 @@ type DPMProtectedItemArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'DPMProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Protection state of the backup engine
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -3750,6 +3776,7 @@ func (o DPMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // backup item type.
+// Expected value is 'DPMProtectedItem'.
 func (o DPMProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v DPMProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -4562,6 +4589,7 @@ type DPMProtectedItemResponse struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'DPMProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protection state of the backup engine
 	ProtectionState *string `pulumi:"protectionState"`
@@ -4613,6 +4641,7 @@ type DPMProtectedItemResponseArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'DPMProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Protection state of the backup engine
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -4720,6 +4749,7 @@ func (o DPMProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // backup item type.
+// Expected value is 'DPMProtectedItem'.
 func (o DPMProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -5512,6 +5542,7 @@ type GenericProtectedItem struct {
 	// Data Plane Service ID of the protected item.
 	ProtectedItemId *int `pulumi:"protectedItemId"`
 	// backup item type.
+	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -5567,6 +5598,7 @@ type GenericProtectedItemArgs struct {
 	// Data Plane Service ID of the protected item.
 	ProtectedItemId pulumi.IntPtrInput `pulumi:"protectedItemId"`
 	// backup item type.
+	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -5681,6 +5713,7 @@ func (o GenericProtectedItemOutput) ProtectedItemId() pulumi.IntPtrOutput {
 }
 
 // backup item type.
+// Expected value is 'GenericProtectedItem'.
 func (o GenericProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v GenericProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -5738,6 +5771,7 @@ type GenericProtectedItemResponse struct {
 	// Data Plane Service ID of the protected item.
 	ProtectedItemId *int `pulumi:"protectedItemId"`
 	// backup item type.
+	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -5793,6 +5827,7 @@ type GenericProtectedItemResponseArgs struct {
 	// Data Plane Service ID of the protected item.
 	ProtectedItemId pulumi.IntPtrInput `pulumi:"protectedItemId"`
 	// backup item type.
+	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -5907,6 +5942,7 @@ func (o GenericProtectedItemResponseOutput) ProtectedItemId() pulumi.IntPtrOutpu
 }
 
 // backup item type.
+// Expected value is 'GenericProtectedItem'.
 func (o GenericProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -6179,6 +6215,7 @@ type MabFileFolderProtectedItem struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protected, ProtectionStopped, IRPending or ProtectionError
 	ProtectionState *string `pulumi:"protectionState"`
@@ -6236,6 +6273,7 @@ type MabFileFolderProtectedItemArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Protected, ProtectionStopped, IRPending or ProtectionError
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -6358,6 +6396,7 @@ func (o MabFileFolderProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // backup item type.
+// Expected value is 'MabFileFolderProtectedItem'.
 func (o MabFileFolderProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -6760,6 +6799,7 @@ type MabFileFolderProtectedItemResponse struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protected, ProtectionStopped, IRPending or ProtectionError
 	ProtectionState *string `pulumi:"protectionState"`
@@ -6817,6 +6857,7 @@ type MabFileFolderProtectedItemResponseArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Protected, ProtectionStopped, IRPending or ProtectionError
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -6941,6 +6982,7 @@ func (o MabFileFolderProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOut
 }
 
 // backup item type.
+// Expected value is 'MabFileFolderProtectedItem'.
 func (o MabFileFolderProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }

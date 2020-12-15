@@ -13240,6 +13240,7 @@ type ApplicationRule struct {
 	// Array of Application Protocols.
 	Protocols []FirewallPolicyRuleApplicationProtocol `pulumi:"protocols"`
 	// Rule Type.
+	// Expected value is 'ApplicationRule'.
 	RuleType string `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -13273,6 +13274,7 @@ type ApplicationRuleArgs struct {
 	// Array of Application Protocols.
 	Protocols FirewallPolicyRuleApplicationProtocolArrayInput `pulumi:"protocols"`
 	// Rule Type.
+	// Expected value is 'ApplicationRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -13335,6 +13337,7 @@ func (o ApplicationRuleOutput) Protocols() FirewallPolicyRuleApplicationProtocol
 }
 
 // Rule Type.
+// Expected value is 'ApplicationRule'.
 func (o ApplicationRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -13367,6 +13370,7 @@ type ApplicationRuleResponse struct {
 	// Array of Application Protocols.
 	Protocols []FirewallPolicyRuleApplicationProtocolResponse `pulumi:"protocols"`
 	// Rule Type.
+	// Expected value is 'ApplicationRule'.
 	RuleType string `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -13400,6 +13404,7 @@ type ApplicationRuleResponseArgs struct {
 	// Array of Application Protocols.
 	Protocols FirewallPolicyRuleApplicationProtocolResponseArrayInput `pulumi:"protocols"`
 	// Rule Type.
+	// Expected value is 'ApplicationRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -13462,6 +13467,7 @@ func (o ApplicationRuleResponseOutput) Protocols() FirewallPolicyRuleApplication
 }
 
 // Rule Type.
+// Expected value is 'ApplicationRule'.
 func (o ApplicationRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -31298,6 +31304,7 @@ type FirewallPolicyFilterRuleCollection struct {
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority *int `pulumi:"priority"`
 	// The type of the rule collection.
+	// Expected value is 'FirewallPolicyFilterRuleCollection'.
 	RuleCollectionType string `pulumi:"ruleCollectionType"`
 	// List of rules included in a rule collection.
 	Rules []interface{} `pulumi:"rules"`
@@ -31323,6 +31330,7 @@ type FirewallPolicyFilterRuleCollectionArgs struct {
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The type of the rule collection.
+	// Expected value is 'FirewallPolicyFilterRuleCollection'.
 	RuleCollectionType pulumi.StringInput `pulumi:"ruleCollectionType"`
 	// List of rules included in a rule collection.
 	Rules pulumi.ArrayInput `pulumi:"rules"`
@@ -31371,6 +31379,7 @@ func (o FirewallPolicyFilterRuleCollectionOutput) Priority() pulumi.IntPtrOutput
 }
 
 // The type of the rule collection.
+// Expected value is 'FirewallPolicyFilterRuleCollection'.
 func (o FirewallPolicyFilterRuleCollectionOutput) RuleCollectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyFilterRuleCollection) string { return v.RuleCollectionType }).(pulumi.StringOutput)
 }
@@ -31659,6 +31668,7 @@ type FirewallPolicyFilterRuleCollectionResponse struct {
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority *int `pulumi:"priority"`
 	// The type of the rule collection.
+	// Expected value is 'FirewallPolicyFilterRuleCollection'.
 	RuleCollectionType string `pulumi:"ruleCollectionType"`
 	// List of rules included in a rule collection.
 	Rules []interface{} `pulumi:"rules"`
@@ -31684,6 +31694,7 @@ type FirewallPolicyFilterRuleCollectionResponseArgs struct {
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The type of the rule collection.
+	// Expected value is 'FirewallPolicyFilterRuleCollection'.
 	RuleCollectionType pulumi.StringInput `pulumi:"ruleCollectionType"`
 	// List of rules included in a rule collection.
 	Rules pulumi.ArrayInput `pulumi:"rules"`
@@ -31734,6 +31745,7 @@ func (o FirewallPolicyFilterRuleCollectionResponseOutput) Priority() pulumi.IntP
 }
 
 // The type of the rule collection.
+// Expected value is 'FirewallPolicyFilterRuleCollection'.
 func (o FirewallPolicyFilterRuleCollectionResponseOutput) RuleCollectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyFilterRuleCollectionResponse) string { return v.RuleCollectionType }).(pulumi.StringOutput)
 }
@@ -31752,6 +31764,7 @@ type FirewallPolicyNatRuleCollection struct {
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority *int `pulumi:"priority"`
 	// The type of the rule collection.
+	// Expected value is 'FirewallPolicyNatRuleCollection'.
 	RuleCollectionType string `pulumi:"ruleCollectionType"`
 	// List of rules included in a rule collection.
 	Rules []interface{} `pulumi:"rules"`
@@ -31777,6 +31790,7 @@ type FirewallPolicyNatRuleCollectionArgs struct {
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The type of the rule collection.
+	// Expected value is 'FirewallPolicyNatRuleCollection'.
 	RuleCollectionType pulumi.StringInput `pulumi:"ruleCollectionType"`
 	// List of rules included in a rule collection.
 	Rules pulumi.ArrayInput `pulumi:"rules"`
@@ -31825,6 +31839,7 @@ func (o FirewallPolicyNatRuleCollectionOutput) Priority() pulumi.IntPtrOutput {
 }
 
 // The type of the rule collection.
+// Expected value is 'FirewallPolicyNatRuleCollection'.
 func (o FirewallPolicyNatRuleCollectionOutput) RuleCollectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyNatRuleCollection) string { return v.RuleCollectionType }).(pulumi.StringOutput)
 }
@@ -32113,6 +32128,7 @@ type FirewallPolicyNatRuleCollectionResponse struct {
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority *int `pulumi:"priority"`
 	// The type of the rule collection.
+	// Expected value is 'FirewallPolicyNatRuleCollection'.
 	RuleCollectionType string `pulumi:"ruleCollectionType"`
 	// List of rules included in a rule collection.
 	Rules []interface{} `pulumi:"rules"`
@@ -32138,6 +32154,7 @@ type FirewallPolicyNatRuleCollectionResponseArgs struct {
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The type of the rule collection.
+	// Expected value is 'FirewallPolicyNatRuleCollection'.
 	RuleCollectionType pulumi.StringInput `pulumi:"ruleCollectionType"`
 	// List of rules included in a rule collection.
 	Rules pulumi.ArrayInput `pulumi:"rules"`
@@ -32188,6 +32205,7 @@ func (o FirewallPolicyNatRuleCollectionResponseOutput) Priority() pulumi.IntPtrO
 }
 
 // The type of the rule collection.
+// Expected value is 'FirewallPolicyNatRuleCollection'.
 func (o FirewallPolicyNatRuleCollectionResponseOutput) RuleCollectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyNatRuleCollectionResponse) string { return v.RuleCollectionType }).(pulumi.StringOutput)
 }
@@ -42104,6 +42122,7 @@ type NatRule struct {
 	// Name of the rule.
 	Name *string `pulumi:"name"`
 	// Rule Type.
+	// Expected value is 'NatRule'.
 	RuleType string `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -42139,6 +42158,7 @@ type NatRuleArgs struct {
 	// Name of the rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Rule Type.
+	// Expected value is 'NatRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -42203,6 +42223,7 @@ func (o NatRuleOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Rule Type.
+// Expected value is 'NatRule'.
 func (o NatRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v NatRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -42240,6 +42261,7 @@ type NatRuleResponse struct {
 	// Name of the rule.
 	Name *string `pulumi:"name"`
 	// Rule Type.
+	// Expected value is 'NatRule'.
 	RuleType string `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -42275,6 +42297,7 @@ type NatRuleResponseArgs struct {
 	// Name of the rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Rule Type.
+	// Expected value is 'NatRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -42339,6 +42362,7 @@ func (o NatRuleResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Rule Type.
+// Expected value is 'NatRule'.
 func (o NatRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v NatRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -44230,6 +44254,7 @@ type NetworkRule struct {
 	// Name of the rule.
 	Name *string `pulumi:"name"`
 	// Rule Type.
+	// Expected value is 'NetworkRule'.
 	RuleType string `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -44265,6 +44290,7 @@ type NetworkRuleArgs struct {
 	// Name of the rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Rule Type.
+	// Expected value is 'NetworkRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -44335,6 +44361,7 @@ func (o NetworkRuleOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Rule Type.
+// Expected value is 'NetworkRule'.
 func (o NetworkRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -44366,6 +44393,7 @@ type NetworkRuleResponse struct {
 	// Name of the rule.
 	Name *string `pulumi:"name"`
 	// Rule Type.
+	// Expected value is 'NetworkRule'.
 	RuleType string `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -44401,6 +44429,7 @@ type NetworkRuleResponseArgs struct {
 	// Name of the rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Rule Type.
+	// Expected value is 'NetworkRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// List of source IP addresses for this rule.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -44471,6 +44500,7 @@ func (o NetworkRuleResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Rule Type.
+// Expected value is 'NetworkRule'.
 func (o NetworkRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }

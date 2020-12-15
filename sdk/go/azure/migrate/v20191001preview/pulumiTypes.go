@@ -153,6 +153,7 @@ type AvailabilitySetResourceSettings struct {
 	// Gets or sets the target fault domain.
 	FaultDomain *int `pulumi:"faultDomain"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/availabilitySets'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -176,6 +177,7 @@ type AvailabilitySetResourceSettingsArgs struct {
 	// Gets or sets the target fault domain.
 	FaultDomain pulumi.IntPtrInput `pulumi:"faultDomain"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/availabilitySets'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -216,6 +218,7 @@ func (o AvailabilitySetResourceSettingsOutput) FaultDomain() pulumi.IntPtrOutput
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Compute/availabilitySets'.
 func (o AvailabilitySetResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -235,6 +238,7 @@ type AvailabilitySetResourceSettingsResponse struct {
 	// Gets or sets the target fault domain.
 	FaultDomain *int `pulumi:"faultDomain"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/availabilitySets'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -258,6 +262,7 @@ type AvailabilitySetResourceSettingsResponseArgs struct {
 	// Gets or sets the target fault domain.
 	FaultDomain pulumi.IntPtrInput `pulumi:"faultDomain"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/availabilitySets'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -298,6 +303,7 @@ func (o AvailabilitySetResourceSettingsResponseOutput) FaultDomain() pulumi.IntP
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Compute/availabilitySets'.
 func (o AvailabilitySetResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -1512,6 +1518,7 @@ type LoadBalancerResourceSettings struct {
 	// Gets or sets the frontend IP configurations of the load balancer.
 	FrontendIPConfigurations []LBFrontendIPConfigurationResourceSettings `pulumi:"frontendIPConfigurations"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/loadBalancers'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets load balancer sku (Basic/Standard).
 	Sku *string `pulumi:"sku"`
@@ -1540,6 +1547,7 @@ type LoadBalancerResourceSettingsArgs struct {
 	// Gets or sets the frontend IP configurations of the load balancer.
 	FrontendIPConfigurations LBFrontendIPConfigurationResourceSettingsArrayInput `pulumi:"frontendIPConfigurations"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/loadBalancers'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets load balancer sku (Basic/Standard).
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
@@ -1592,6 +1600,7 @@ func (o LoadBalancerResourceSettingsOutput) FrontendIPConfigurations() LBFronten
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Network/loadBalancers'.
 func (o LoadBalancerResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -1619,6 +1628,7 @@ type LoadBalancerResourceSettingsResponse struct {
 	// Gets or sets the frontend IP configurations of the load balancer.
 	FrontendIPConfigurations []LBFrontendIPConfigurationResourceSettingsResponse `pulumi:"frontendIPConfigurations"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/loadBalancers'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets load balancer sku (Basic/Standard).
 	Sku *string `pulumi:"sku"`
@@ -1647,6 +1657,7 @@ type LoadBalancerResourceSettingsResponseArgs struct {
 	// Gets or sets the frontend IP configurations of the load balancer.
 	FrontendIPConfigurations LBFrontendIPConfigurationResourceSettingsResponseArrayInput `pulumi:"frontendIPConfigurations"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/loadBalancers'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets load balancer sku (Basic/Standard).
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
@@ -1699,6 +1710,7 @@ func (o LoadBalancerResourceSettingsResponseOutput) FrontendIPConfigurations() L
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Network/loadBalancers'.
 func (o LoadBalancerResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -3930,6 +3942,7 @@ type NetworkInterfaceResourceSettings struct {
 	// Gets or sets the IP configurations of the NIC.
 	IpConfigurations []NicIpConfigurationResourceSettings `pulumi:"ipConfigurations"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/networkInterfaces'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -3953,6 +3966,7 @@ type NetworkInterfaceResourceSettingsArgs struct {
 	// Gets or sets the IP configurations of the NIC.
 	IpConfigurations NicIpConfigurationResourceSettingsArrayInput `pulumi:"ipConfigurations"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/networkInterfaces'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -3998,6 +4012,7 @@ func (o NetworkInterfaceResourceSettingsOutput) IpConfigurations() NicIpConfigur
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Network/networkInterfaces'.
 func (o NetworkInterfaceResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -4014,6 +4029,7 @@ type NetworkInterfaceResourceSettingsResponse struct {
 	// Gets or sets the IP configurations of the NIC.
 	IpConfigurations []NicIpConfigurationResourceSettingsResponse `pulumi:"ipConfigurations"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/networkInterfaces'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -4037,6 +4053,7 @@ type NetworkInterfaceResourceSettingsResponseArgs struct {
 	// Gets or sets the IP configurations of the NIC.
 	IpConfigurations NicIpConfigurationResourceSettingsResponseArrayInput `pulumi:"ipConfigurations"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/networkInterfaces'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -4082,6 +4099,7 @@ func (o NetworkInterfaceResourceSettingsResponseOutput) IpConfigurations() NicIp
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Network/networkInterfaces'.
 func (o NetworkInterfaceResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -4094,6 +4112,7 @@ func (o NetworkInterfaceResourceSettingsResponseOutput) TargetResourceName() pul
 // Defines the NSG resource settings.
 type NetworkSecurityGroupResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets Security rules of network security group.
 	SecurityRules []NsgSecurityRule `pulumi:"securityRules"`
@@ -4115,6 +4134,7 @@ type NetworkSecurityGroupResourceSettingsInput interface {
 // Defines the NSG resource settings.
 type NetworkSecurityGroupResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets Security rules of network security group.
 	SecurityRules NsgSecurityRuleArrayInput `pulumi:"securityRules"`
@@ -4150,6 +4170,7 @@ func (o NetworkSecurityGroupResourceSettingsOutput) ToNetworkSecurityGroupResour
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Network/networkSecurityGroups'.
 func (o NetworkSecurityGroupResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -4167,6 +4188,7 @@ func (o NetworkSecurityGroupResourceSettingsOutput) TargetResourceName() pulumi.
 // Defines the NSG resource settings.
 type NetworkSecurityGroupResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets Security rules of network security group.
 	SecurityRules []NsgSecurityRuleResponse `pulumi:"securityRules"`
@@ -4188,6 +4210,7 @@ type NetworkSecurityGroupResourceSettingsResponseInput interface {
 // Defines the NSG resource settings.
 type NetworkSecurityGroupResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/networkSecurityGroups'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets Security rules of network security group.
 	SecurityRules NsgSecurityRuleResponseArrayInput `pulumi:"securityRules"`
@@ -4223,6 +4246,7 @@ func (o NetworkSecurityGroupResourceSettingsResponseOutput) ToNetworkSecurityGro
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Network/networkSecurityGroups'.
 func (o NetworkSecurityGroupResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -4968,6 +4992,7 @@ type PublicIPAddressResourceSettings struct {
 	// Gets or sets public IP allocation method.
 	PublicIpAllocationMethod *string `pulumi:"publicIpAllocationMethod"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/publicIPAddresses'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets public IP sku.
 	Sku *string `pulumi:"sku"`
@@ -4997,6 +5022,7 @@ type PublicIPAddressResourceSettingsArgs struct {
 	// Gets or sets public IP allocation method.
 	PublicIpAllocationMethod pulumi.StringPtrInput `pulumi:"publicIpAllocationMethod"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/publicIPAddresses'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets public IP sku.
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
@@ -5049,6 +5075,7 @@ func (o PublicIPAddressResourceSettingsOutput) PublicIpAllocationMethod() pulumi
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Network/publicIPAddresses'.
 func (o PublicIPAddressResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -5077,6 +5104,7 @@ type PublicIPAddressResourceSettingsResponse struct {
 	// Gets or sets public IP allocation method.
 	PublicIpAllocationMethod *string `pulumi:"publicIpAllocationMethod"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/publicIPAddresses'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets public IP sku.
 	Sku *string `pulumi:"sku"`
@@ -5106,6 +5134,7 @@ type PublicIPAddressResourceSettingsResponseArgs struct {
 	// Gets or sets public IP allocation method.
 	PublicIpAllocationMethod pulumi.StringPtrInput `pulumi:"publicIpAllocationMethod"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/publicIPAddresses'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets public IP sku.
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
@@ -5158,6 +5187,7 @@ func (o PublicIPAddressResourceSettingsResponseOutput) PublicIpAllocationMethod(
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Network/publicIPAddresses'.
 func (o PublicIPAddressResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -5180,6 +5210,7 @@ func (o PublicIPAddressResourceSettingsResponseOutput) Zones() pulumi.StringPtrO
 // Defines the resource group resource settings.
 type ResourceGroupResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'resourceGroups'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -5199,6 +5230,7 @@ type ResourceGroupResourceSettingsInput interface {
 // Defines the resource group resource settings.
 type ResourceGroupResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'resourceGroups'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -5232,6 +5264,7 @@ func (o ResourceGroupResourceSettingsOutput) ToResourceGroupResourceSettingsOutp
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'resourceGroups'.
 func (o ResourceGroupResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -5244,6 +5277,7 @@ func (o ResourceGroupResourceSettingsOutput) TargetResourceName() pulumi.StringO
 // Defines the resource group resource settings.
 type ResourceGroupResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'resourceGroups'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -5263,6 +5297,7 @@ type ResourceGroupResourceSettingsResponseInput interface {
 // Defines the resource group resource settings.
 type ResourceGroupResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'resourceGroups'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -5296,6 +5331,7 @@ func (o ResourceGroupResourceSettingsResponseOutput) ToResourceGroupResourceSett
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'resourceGroups'.
 func (o ResourceGroupResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -5308,6 +5344,7 @@ func (o ResourceGroupResourceSettingsResponseOutput) TargetResourceName() pulumi
 // Defines the Sql Database resource settings.
 type SqlDatabaseResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -5329,6 +5366,7 @@ type SqlDatabaseResourceSettingsInput interface {
 // Defines the Sql Database resource settings.
 type SqlDatabaseResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -5364,6 +5402,7 @@ func (o SqlDatabaseResourceSettingsOutput) ToSqlDatabaseResourceSettingsOutputWi
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Sql/servers/databases'.
 func (o SqlDatabaseResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -5381,6 +5420,7 @@ func (o SqlDatabaseResourceSettingsOutput) ZoneRedundant() pulumi.StringPtrOutpu
 // Defines the Sql Database resource settings.
 type SqlDatabaseResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -5402,6 +5442,7 @@ type SqlDatabaseResourceSettingsResponseInput interface {
 // Defines the Sql Database resource settings.
 type SqlDatabaseResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -5437,6 +5478,7 @@ func (o SqlDatabaseResourceSettingsResponseOutput) ToSqlDatabaseResourceSettings
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Sql/servers/databases'.
 func (o SqlDatabaseResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -5454,6 +5496,7 @@ func (o SqlDatabaseResourceSettingsResponseOutput) ZoneRedundant() pulumi.String
 // Defines the Sql ElasticPool resource settings.
 type SqlElasticPoolResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -5475,6 +5518,7 @@ type SqlElasticPoolResourceSettingsInput interface {
 // Defines the Sql ElasticPool resource settings.
 type SqlElasticPoolResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -5510,6 +5554,7 @@ func (o SqlElasticPoolResourceSettingsOutput) ToSqlElasticPoolResourceSettingsOu
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Sql/servers/elasticPools'.
 func (o SqlElasticPoolResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlElasticPoolResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -5527,6 +5572,7 @@ func (o SqlElasticPoolResourceSettingsOutput) ZoneRedundant() pulumi.StringPtrOu
 // Defines the Sql ElasticPool resource settings.
 type SqlElasticPoolResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -5548,6 +5594,7 @@ type SqlElasticPoolResourceSettingsResponseInput interface {
 // Defines the Sql ElasticPool resource settings.
 type SqlElasticPoolResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -5583,6 +5630,7 @@ func (o SqlElasticPoolResourceSettingsResponseOutput) ToSqlElasticPoolResourceSe
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Sql/servers/elasticPools'.
 func (o SqlElasticPoolResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlElasticPoolResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -5600,6 +5648,7 @@ func (o SqlElasticPoolResourceSettingsResponseOutput) ZoneRedundant() pulumi.Str
 // Defines the SQL Server resource settings.
 type SqlServerResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -5619,6 +5668,7 @@ type SqlServerResourceSettingsInput interface {
 // Defines the SQL Server resource settings.
 type SqlServerResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -5652,6 +5702,7 @@ func (o SqlServerResourceSettingsOutput) ToSqlServerResourceSettingsOutputWithCo
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Sql/servers'.
 func (o SqlServerResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -5664,6 +5715,7 @@ func (o SqlServerResourceSettingsOutput) TargetResourceName() pulumi.StringOutpu
 // Defines the SQL Server resource settings.
 type SqlServerResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
@@ -5683,6 +5735,7 @@ type SqlServerResourceSettingsResponseInput interface {
 // Defines the SQL Server resource settings.
 type SqlServerResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Sql/servers'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target Resource name.
 	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
@@ -5716,6 +5769,7 @@ func (o SqlServerResourceSettingsResponseOutput) ToSqlServerResourceSettingsResp
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Sql/servers'.
 func (o SqlServerResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -6252,6 +6306,7 @@ func (o SubnetResourceSettingsResponseArrayOutput) Index(i pulumi.IntInput) Subn
 // Gets or sets the virtual machine resource settings.
 type VirtualMachineResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target availability set id for virtual machines not in an availability set at source.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
@@ -6277,6 +6332,7 @@ type VirtualMachineResourceSettingsInput interface {
 // Gets or sets the virtual machine resource settings.
 type VirtualMachineResourceSettingsArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target availability set id for virtual machines not in an availability set at source.
 	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
@@ -6316,6 +6372,7 @@ func (o VirtualMachineResourceSettingsOutput) ToVirtualMachineResourceSettingsOu
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Compute/virtualMachines'.
 func (o VirtualMachineResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -6343,6 +6400,7 @@ func (o VirtualMachineResourceSettingsOutput) TargetVmSize() pulumi.StringPtrOut
 // Gets or sets the virtual machine resource settings.
 type VirtualMachineResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets the target availability set id for virtual machines not in an availability set at source.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
@@ -6368,6 +6426,7 @@ type VirtualMachineResourceSettingsResponseInput interface {
 // Gets or sets the virtual machine resource settings.
 type VirtualMachineResourceSettingsResponseArgs struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets the target availability set id for virtual machines not in an availability set at source.
 	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
@@ -6407,6 +6466,7 @@ func (o VirtualMachineResourceSettingsResponseOutput) ToVirtualMachineResourceSe
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Compute/virtualMachines'.
 func (o VirtualMachineResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -6442,6 +6502,7 @@ type VirtualNetworkResourceSettings struct {
 	// DDOS protection should be switched on.
 	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/virtualNetworks'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets List of subnets in a VirtualNetwork.
 	Subnets []SubnetResourceSettings `pulumi:"subnets"`
@@ -6471,6 +6532,7 @@ type VirtualNetworkResourceSettingsArgs struct {
 	// DDOS protection should be switched on.
 	EnableDdosProtection pulumi.BoolPtrInput `pulumi:"enableDdosProtection"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/virtualNetworks'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets List of subnets in a VirtualNetwork.
 	Subnets SubnetResourceSettingsArrayInput `pulumi:"subnets"`
@@ -6523,6 +6585,7 @@ func (o VirtualNetworkResourceSettingsOutput) EnableDdosProtection() pulumi.Bool
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Network/virtualNetworks'.
 func (o VirtualNetworkResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -6548,6 +6611,7 @@ type VirtualNetworkResourceSettingsResponse struct {
 	// DDOS protection should be switched on.
 	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/virtualNetworks'.
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets List of subnets in a VirtualNetwork.
 	Subnets []SubnetResourceSettingsResponse `pulumi:"subnets"`
@@ -6577,6 +6641,7 @@ type VirtualNetworkResourceSettingsResponseArgs struct {
 	// DDOS protection should be switched on.
 	EnableDdosProtection pulumi.BoolPtrInput `pulumi:"enableDdosProtection"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Network/virtualNetworks'.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// Gets or sets List of subnets in a VirtualNetwork.
 	Subnets SubnetResourceSettingsResponseArrayInput `pulumi:"subnets"`
@@ -6629,6 +6694,7 @@ func (o VirtualNetworkResourceSettingsResponseOutput) EnableDdosProtection() pul
 }
 
 // The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Network/virtualNetworks'.
 func (o VirtualNetworkResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }

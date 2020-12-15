@@ -4012,6 +4012,7 @@ func (o ContainerPartitionKeyResponsePtrOutput) Version() pulumi.IntPtrOutput {
 // The object representing continuous mode backup policy.
 type ContinuousModeBackupPolicy struct {
 	// Describes the mode of backups.
+	// Expected value is 'Continuous'.
 	Type string `pulumi:"type"`
 }
 
@@ -4029,6 +4030,7 @@ type ContinuousModeBackupPolicyInput interface {
 // The object representing continuous mode backup policy.
 type ContinuousModeBackupPolicyArgs struct {
 	// Describes the mode of backups.
+	// Expected value is 'Continuous'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4060,6 +4062,7 @@ func (o ContinuousModeBackupPolicyOutput) ToContinuousModeBackupPolicyOutputWith
 }
 
 // Describes the mode of backups.
+// Expected value is 'Continuous'.
 func (o ContinuousModeBackupPolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ContinuousModeBackupPolicy) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4067,6 +4070,7 @@ func (o ContinuousModeBackupPolicyOutput) Type() pulumi.StringOutput {
 // The object representing continuous mode backup policy.
 type ContinuousModeBackupPolicyResponse struct {
 	// Describes the mode of backups.
+	// Expected value is 'Continuous'.
 	Type string `pulumi:"type"`
 }
 
@@ -4084,6 +4088,7 @@ type ContinuousModeBackupPolicyResponseInput interface {
 // The object representing continuous mode backup policy.
 type ContinuousModeBackupPolicyResponseArgs struct {
 	// Describes the mode of backups.
+	// Expected value is 'Continuous'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4115,6 +4120,7 @@ func (o ContinuousModeBackupPolicyResponseOutput) ToContinuousModeBackupPolicyRe
 }
 
 // Describes the mode of backups.
+// Expected value is 'Continuous'.
 func (o ContinuousModeBackupPolicyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ContinuousModeBackupPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9355,6 +9361,7 @@ type PeriodicModeBackupPolicy struct {
 	// Configuration values for periodic mode backup
 	PeriodicModeProperties *PeriodicModeProperties `pulumi:"periodicModeProperties"`
 	// Describes the mode of backups.
+	// Expected value is 'Periodic'.
 	Type string `pulumi:"type"`
 }
 
@@ -9374,6 +9381,7 @@ type PeriodicModeBackupPolicyArgs struct {
 	// Configuration values for periodic mode backup
 	PeriodicModeProperties PeriodicModePropertiesPtrInput `pulumi:"periodicModeProperties"`
 	// Describes the mode of backups.
+	// Expected value is 'Periodic'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9410,6 +9418,7 @@ func (o PeriodicModeBackupPolicyOutput) PeriodicModeProperties() PeriodicModePro
 }
 
 // Describes the mode of backups.
+// Expected value is 'Periodic'.
 func (o PeriodicModeBackupPolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PeriodicModeBackupPolicy) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9419,6 +9428,7 @@ type PeriodicModeBackupPolicyResponse struct {
 	// Configuration values for periodic mode backup
 	PeriodicModeProperties *PeriodicModePropertiesResponse `pulumi:"periodicModeProperties"`
 	// Describes the mode of backups.
+	// Expected value is 'Periodic'.
 	Type string `pulumi:"type"`
 }
 
@@ -9438,6 +9448,7 @@ type PeriodicModeBackupPolicyResponseArgs struct {
 	// Configuration values for periodic mode backup
 	PeriodicModeProperties PeriodicModePropertiesResponsePtrInput `pulumi:"periodicModeProperties"`
 	// Describes the mode of backups.
+	// Expected value is 'Periodic'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9476,6 +9487,7 @@ func (o PeriodicModeBackupPolicyResponseOutput) PeriodicModeProperties() Periodi
 }
 
 // Describes the mode of backups.
+// Expected value is 'Periodic'.
 func (o PeriodicModeBackupPolicyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PeriodicModeBackupPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
 }

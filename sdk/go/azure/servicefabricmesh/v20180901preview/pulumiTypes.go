@@ -13,6 +13,7 @@ import (
 // Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanism struct {
 	// The type of auto scaling mechanism.
+	// Expected value is 'AddRemoveReplica'.
 	Kind string `pulumi:"kind"`
 	// Maximum number of containers (scale up won't be performed above this number).
 	MaxCount int `pulumi:"maxCount"`
@@ -36,6 +37,7 @@ type AddRemoveReplicaScalingMechanismInput interface {
 // Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanismArgs struct {
 	// The type of auto scaling mechanism.
+	// Expected value is 'AddRemoveReplica'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Maximum number of containers (scale up won't be performed above this number).
 	MaxCount pulumi.IntInput `pulumi:"maxCount"`
@@ -73,6 +75,7 @@ func (o AddRemoveReplicaScalingMechanismOutput) ToAddRemoveReplicaScalingMechani
 }
 
 // The type of auto scaling mechanism.
+// Expected value is 'AddRemoveReplica'.
 func (o AddRemoveReplicaScalingMechanismOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanism) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -95,6 +98,7 @@ func (o AddRemoveReplicaScalingMechanismOutput) ScaleIncrement() pulumi.IntOutpu
 // Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanismResponse struct {
 	// The type of auto scaling mechanism.
+	// Expected value is 'AddRemoveReplica'.
 	Kind string `pulumi:"kind"`
 	// Maximum number of containers (scale up won't be performed above this number).
 	MaxCount int `pulumi:"maxCount"`
@@ -118,6 +122,7 @@ type AddRemoveReplicaScalingMechanismResponseInput interface {
 // Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanismResponseArgs struct {
 	// The type of auto scaling mechanism.
+	// Expected value is 'AddRemoveReplica'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Maximum number of containers (scale up won't be performed above this number).
 	MaxCount pulumi.IntInput `pulumi:"maxCount"`
@@ -155,6 +160,7 @@ func (o AddRemoveReplicaScalingMechanismResponseOutput) ToAddRemoveReplicaScalin
 }
 
 // The type of auto scaling mechanism.
+// Expected value is 'AddRemoveReplica'.
 func (o AddRemoveReplicaScalingMechanismResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanismResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -308,6 +314,7 @@ type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk struct {
 	// User readable description of the volume.
 	Description *string `pulumi:"description"`
 	// Specifies the application-scoped volume kind.
+	// Expected value is 'ServiceFabricVolumeDisk'.
 	Kind string `pulumi:"kind"`
 	// Volume size
 	SizeDisk string `pulumi:"sizeDisk"`
@@ -329,6 +336,7 @@ type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs struct
 	// User readable description of the volume.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies the application-scoped volume kind.
+	// Expected value is 'ServiceFabricVolumeDisk'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Volume size
 	SizeDisk pulumi.StringInput `pulumi:"sizeDisk"`
@@ -367,6 +375,7 @@ func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) 
 }
 
 // Specifies the application-scoped volume kind.
+// Expected value is 'ServiceFabricVolumeDisk'.
 func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -381,6 +390,7 @@ type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse st
 	// User readable description of the volume.
 	Description *string `pulumi:"description"`
 	// Specifies the application-scoped volume kind.
+	// Expected value is 'ServiceFabricVolumeDisk'.
 	Kind string `pulumi:"kind"`
 	// Volume size
 	SizeDisk string `pulumi:"sizeDisk"`
@@ -402,6 +412,7 @@ type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArg
 	// User readable description of the volume.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies the application-scoped volume kind.
+	// Expected value is 'ServiceFabricVolumeDisk'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Volume size
 	SizeDisk pulumi.StringInput `pulumi:"sizeDisk"`
@@ -442,6 +453,7 @@ func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse
 }
 
 // Specifies the application-scoped volume kind.
+// Expected value is 'ServiceFabricVolumeDisk'.
 func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -821,6 +833,7 @@ func (o AutoScalingPolicyResponseArrayOutput) Index(i pulumi.IntInput) AutoScali
 // Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetric struct {
 	// The type of auto scaling metric
+	// Expected value is 'Resource'.
 	Kind string `pulumi:"kind"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
@@ -840,6 +853,7 @@ type AutoScalingResourceMetricInput interface {
 // Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetricArgs struct {
 	// The type of auto scaling metric
+	// Expected value is 'Resource'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Name of the resource.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -873,6 +887,7 @@ func (o AutoScalingResourceMetricOutput) ToAutoScalingResourceMetricOutputWithCo
 }
 
 // The type of auto scaling metric
+// Expected value is 'Resource'.
 func (o AutoScalingResourceMetricOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingResourceMetric) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -885,6 +900,7 @@ func (o AutoScalingResourceMetricOutput) Name() pulumi.StringOutput {
 // Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetricResponse struct {
 	// The type of auto scaling metric
+	// Expected value is 'Resource'.
 	Kind string `pulumi:"kind"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
@@ -904,6 +920,7 @@ type AutoScalingResourceMetricResponseInput interface {
 // Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetricResponseArgs struct {
 	// The type of auto scaling metric
+	// Expected value is 'Resource'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Name of the resource.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -937,6 +954,7 @@ func (o AutoScalingResourceMetricResponseOutput) ToAutoScalingResourceMetricResp
 }
 
 // The type of auto scaling metric
+// Expected value is 'Resource'.
 func (o AutoScalingResourceMetricResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingResourceMetricResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -949,6 +967,7 @@ func (o AutoScalingResourceMetricResponseOutput) Name() pulumi.StringOutput {
 // Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTrigger struct {
 	// The type of auto scaling trigger
+	// Expected value is 'AverageLoad'.
 	Kind string `pulumi:"kind"`
 	// Lower load threshold (if average load is below this threshold, service will scale down).
 	LowerLoadThreshold float64 `pulumi:"lowerLoadThreshold"`
@@ -974,6 +993,7 @@ type AverageLoadScalingTriggerInput interface {
 // Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTriggerArgs struct {
 	// The type of auto scaling trigger
+	// Expected value is 'AverageLoad'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Lower load threshold (if average load is below this threshold, service will scale down).
 	LowerLoadThreshold pulumi.Float64Input `pulumi:"lowerLoadThreshold"`
@@ -1013,6 +1033,7 @@ func (o AverageLoadScalingTriggerOutput) ToAverageLoadScalingTriggerOutputWithCo
 }
 
 // The type of auto scaling trigger
+// Expected value is 'AverageLoad'.
 func (o AverageLoadScalingTriggerOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AverageLoadScalingTrigger) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -1040,6 +1061,7 @@ func (o AverageLoadScalingTriggerOutput) UpperLoadThreshold() pulumi.Float64Outp
 // Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTriggerResponse struct {
 	// The type of auto scaling trigger
+	// Expected value is 'AverageLoad'.
 	Kind string `pulumi:"kind"`
 	// Lower load threshold (if average load is below this threshold, service will scale down).
 	LowerLoadThreshold float64 `pulumi:"lowerLoadThreshold"`
@@ -1065,6 +1087,7 @@ type AverageLoadScalingTriggerResponseInput interface {
 // Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTriggerResponseArgs struct {
 	// The type of auto scaling trigger
+	// Expected value is 'AverageLoad'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Lower load threshold (if average load is below this threshold, service will scale down).
 	LowerLoadThreshold pulumi.Float64Input `pulumi:"lowerLoadThreshold"`
@@ -1104,6 +1127,7 @@ func (o AverageLoadScalingTriggerResponseOutput) ToAverageLoadScalingTriggerResp
 }
 
 // The type of auto scaling trigger
+// Expected value is 'AverageLoad'.
 func (o AverageLoadScalingTriggerResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -1139,6 +1163,7 @@ type AzureInternalMonitoringPipelineSinkDescription struct {
 	// Azure Internal monitoring agent fluentd configuration.
 	FluentdConfigUrl interface{} `pulumi:"fluentdConfigUrl"`
 	// The kind of DiagnosticsSink.
+	// Expected value is 'AzureInternalMonitoringPipeline'.
 	Kind string `pulumi:"kind"`
 	// Azure Internal monitoring agent configuration.
 	MaConfigUrl *string `pulumi:"maConfigUrl"`
@@ -1170,6 +1195,7 @@ type AzureInternalMonitoringPipelineSinkDescriptionArgs struct {
 	// Azure Internal monitoring agent fluentd configuration.
 	FluentdConfigUrl pulumi.Input `pulumi:"fluentdConfigUrl"`
 	// The kind of DiagnosticsSink.
+	// Expected value is 'AzureInternalMonitoringPipeline'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Azure Internal monitoring agent configuration.
 	MaConfigUrl pulumi.StringPtrInput `pulumi:"maConfigUrl"`
@@ -1252,6 +1278,7 @@ func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) FluentdConfigUrl()
 }
 
 // The kind of DiagnosticsSink.
+// Expected value is 'AzureInternalMonitoringPipeline'.
 func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -1302,6 +1329,7 @@ type AzureInternalMonitoringPipelineSinkDescriptionResponse struct {
 	// Azure Internal monitoring agent fluentd configuration.
 	FluentdConfigUrl interface{} `pulumi:"fluentdConfigUrl"`
 	// The kind of DiagnosticsSink.
+	// Expected value is 'AzureInternalMonitoringPipeline'.
 	Kind string `pulumi:"kind"`
 	// Azure Internal monitoring agent configuration.
 	MaConfigUrl *string `pulumi:"maConfigUrl"`
@@ -1333,6 +1361,7 @@ type AzureInternalMonitoringPipelineSinkDescriptionResponseArgs struct {
 	// Azure Internal monitoring agent fluentd configuration.
 	FluentdConfigUrl pulumi.Input `pulumi:"fluentdConfigUrl"`
 	// The kind of DiagnosticsSink.
+	// Expected value is 'AzureInternalMonitoringPipeline'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Azure Internal monitoring agent configuration.
 	MaConfigUrl pulumi.StringPtrInput `pulumi:"maConfigUrl"`
@@ -1415,6 +1444,7 @@ func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) FluentdCon
 }
 
 // The kind of DiagnosticsSink.
+// Expected value is 'AzureInternalMonitoringPipeline'.
 func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -5937,6 +5967,7 @@ type NetworkResourceProperties struct {
 	// User readable description of the network.
 	Description *string `pulumi:"description"`
 	// The type of a Service Fabric container network.
+	// Expected value is 'NetworkResourceProperties'.
 	Kind string `pulumi:"kind"`
 }
 
@@ -5956,6 +5987,7 @@ type NetworkResourcePropertiesArgs struct {
 	// User readable description of the network.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The type of a Service Fabric container network.
+	// Expected value is 'NetworkResourceProperties'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 }
 
@@ -6043,6 +6075,7 @@ func (o NetworkResourcePropertiesOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The type of a Service Fabric container network.
+// Expected value is 'NetworkResourceProperties'.
 func (o NetworkResourcePropertiesOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkResourceProperties) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -6076,6 +6109,7 @@ func (o NetworkResourcePropertiesPtrOutput) Description() pulumi.StringPtrOutput
 }
 
 // The type of a Service Fabric container network.
+// Expected value is 'NetworkResourceProperties'.
 func (o NetworkResourcePropertiesPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResourceProperties) *string {
 		if v == nil {
@@ -6090,6 +6124,7 @@ type NetworkResourcePropertiesResponse struct {
 	// User readable description of the network.
 	Description *string `pulumi:"description"`
 	// The type of a Service Fabric container network.
+	// Expected value is 'NetworkResourceProperties'.
 	Kind string `pulumi:"kind"`
 	// State of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -6115,6 +6150,7 @@ type NetworkResourcePropertiesResponseArgs struct {
 	// User readable description of the network.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The type of a Service Fabric container network.
+	// Expected value is 'NetworkResourceProperties'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// State of the resource.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
@@ -6208,6 +6244,7 @@ func (o NetworkResourcePropertiesResponseOutput) Description() pulumi.StringPtrO
 }
 
 // The type of a Service Fabric container network.
+// Expected value is 'NetworkResourceProperties'.
 func (o NetworkResourcePropertiesResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkResourcePropertiesResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -6256,6 +6293,7 @@ func (o NetworkResourcePropertiesResponsePtrOutput) Description() pulumi.StringP
 }
 
 // The type of a Service Fabric container network.
+// Expected value is 'NetworkResourceProperties'.
 func (o NetworkResourcePropertiesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -7082,6 +7120,7 @@ type SecretResourceProperties struct {
 	// User readable description of the secret.
 	Description *string `pulumi:"description"`
 	// Describes the kind of secret.
+	// Expected value is 'SecretResourceProperties'.
 	Kind string `pulumi:"kind"`
 }
 
@@ -7103,6 +7142,7 @@ type SecretResourcePropertiesArgs struct {
 	// User readable description of the secret.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Describes the kind of secret.
+	// Expected value is 'SecretResourceProperties'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 }
 
@@ -7195,6 +7235,7 @@ func (o SecretResourcePropertiesOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Describes the kind of secret.
+// Expected value is 'SecretResourceProperties'.
 func (o SecretResourcePropertiesOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretResourceProperties) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -7238,6 +7279,7 @@ func (o SecretResourcePropertiesPtrOutput) Description() pulumi.StringPtrOutput 
 }
 
 // Describes the kind of secret.
+// Expected value is 'SecretResourceProperties'.
 func (o SecretResourcePropertiesPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretResourceProperties) *string {
 		if v == nil {
@@ -7254,6 +7296,7 @@ type SecretResourcePropertiesResponse struct {
 	// User readable description of the secret.
 	Description *string `pulumi:"description"`
 	// Describes the kind of secret.
+	// Expected value is 'SecretResourceProperties'.
 	Kind string `pulumi:"kind"`
 	// State of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -7281,6 +7324,7 @@ type SecretResourcePropertiesResponseArgs struct {
 	// User readable description of the secret.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Describes the kind of secret.
+	// Expected value is 'SecretResourceProperties'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// State of the resource.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
@@ -7379,6 +7423,7 @@ func (o SecretResourcePropertiesResponseOutput) Description() pulumi.StringPtrOu
 }
 
 // Describes the kind of secret.
+// Expected value is 'SecretResourceProperties'.
 func (o SecretResourcePropertiesResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretResourcePropertiesResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -7437,6 +7482,7 @@ func (o SecretResourcePropertiesResponsePtrOutput) Description() pulumi.StringPt
 }
 
 // Describes the kind of secret.
+// Expected value is 'SecretResourceProperties'.
 func (o SecretResourcePropertiesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretResourcePropertiesResponse) *string {
 		if v == nil {

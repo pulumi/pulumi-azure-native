@@ -21,6 +21,7 @@ type ActivityTimelineItemResponse struct {
 	// The time of the first activity in the grouping bucket.
 	FirstActivityTimeUTC string `pulumi:"firstActivityTimeUTC"`
 	// The entity query kind type.
+	// Expected value is 'Activity'.
 	Kind string `pulumi:"kind"`
 	// The time of the last activity in the grouping bucket.
 	LastActivityTimeUTC string `pulumi:"lastActivityTimeUTC"`
@@ -52,6 +53,7 @@ type ActivityTimelineItemResponseArgs struct {
 	// The time of the first activity in the grouping bucket.
 	FirstActivityTimeUTC pulumi.StringInput `pulumi:"firstActivityTimeUTC"`
 	// The entity query kind type.
+	// Expected value is 'Activity'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// The time of the last activity in the grouping bucket.
 	LastActivityTimeUTC pulumi.StringInput `pulumi:"lastActivityTimeUTC"`
@@ -109,6 +111,7 @@ func (o ActivityTimelineItemResponseOutput) FirstActivityTimeUTC() pulumi.String
 }
 
 // The entity query kind type.
+// Expected value is 'Activity'.
 func (o ActivityTimelineItemResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -141,6 +144,7 @@ type BookmarkTimelineItemResponse struct {
 	// The bookmark event time.
 	EventTime *string `pulumi:"eventTime"`
 	// The entity query kind type.
+	// Expected value is 'Bookmark'.
 	Kind string `pulumi:"kind"`
 	// List of labels relevant to this bookmark
 	Labels []string `pulumi:"labels"`
@@ -174,6 +178,7 @@ type BookmarkTimelineItemResponseArgs struct {
 	// The bookmark event time.
 	EventTime pulumi.StringPtrInput `pulumi:"eventTime"`
 	// The entity query kind type.
+	// Expected value is 'Bookmark'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// List of labels relevant to this bookmark
 	Labels pulumi.StringArrayInput `pulumi:"labels"`
@@ -236,6 +241,7 @@ func (o BookmarkTimelineItemResponseOutput) EventTime() pulumi.StringPtrOutput {
 }
 
 // The entity query kind type.
+// Expected value is 'Bookmark'.
 func (o BookmarkTimelineItemResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -1640,6 +1646,7 @@ type SecurityAlertTimelineItemResponse struct {
 	// The alert end time.
 	EndTimeUtc string `pulumi:"endTimeUtc"`
 	// The entity query kind type.
+	// Expected value is 'SecurityAlert'.
 	Kind string `pulumi:"kind"`
 	// The alert product name.
 	ProductName string `pulumi:"productName"`
@@ -1673,6 +1680,7 @@ type SecurityAlertTimelineItemResponseArgs struct {
 	// The alert end time.
 	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
 	// The entity query kind type.
+	// Expected value is 'SecurityAlert'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// The alert product name.
 	ProductName pulumi.StringInput `pulumi:"productName"`
@@ -1732,6 +1740,7 @@ func (o SecurityAlertTimelineItemResponseOutput) EndTimeUtc() pulumi.StringOutpu
 }
 
 // The entity query kind type.
+// Expected value is 'SecurityAlert'.
 func (o SecurityAlertTimelineItemResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.Kind }).(pulumi.StringOutput)
 }

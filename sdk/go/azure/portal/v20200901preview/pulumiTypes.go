@@ -653,6 +653,7 @@ type MarkdownPartMetadata struct {
 	// Markdown part settings.
 	Settings *MarkdownPartMetadataSettings `pulumi:"settings"`
 	// The type of dashboard part.
+	// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 	Type string `pulumi:"type"`
 }
 
@@ -674,6 +675,7 @@ type MarkdownPartMetadataArgs struct {
 	// Markdown part settings.
 	Settings MarkdownPartMetadataSettingsPtrInput `pulumi:"settings"`
 	// The type of dashboard part.
+	// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -766,6 +768,7 @@ func (o MarkdownPartMetadataOutput) Settings() MarkdownPartMetadataSettingsPtrOu
 }
 
 // The type of dashboard part.
+// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 func (o MarkdownPartMetadataOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MarkdownPartMetadata) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -809,6 +812,7 @@ func (o MarkdownPartMetadataPtrOutput) Settings() MarkdownPartMetadataSettingsPt
 }
 
 // The type of dashboard part.
+// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 func (o MarkdownPartMetadataPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadata) *string {
 		if v == nil {
@@ -959,6 +963,7 @@ type MarkdownPartMetadataResponse struct {
 	// Markdown part settings.
 	Settings *MarkdownPartMetadataResponseSettings `pulumi:"settings"`
 	// The type of dashboard part.
+	// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 	Type string `pulumi:"type"`
 }
 
@@ -980,6 +985,7 @@ type MarkdownPartMetadataResponseArgs struct {
 	// Markdown part settings.
 	Settings MarkdownPartMetadataResponseSettingsPtrInput `pulumi:"settings"`
 	// The type of dashboard part.
+	// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1072,6 +1078,7 @@ func (o MarkdownPartMetadataResponseOutput) Settings() MarkdownPartMetadataRespo
 }
 
 // The type of dashboard part.
+// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 func (o MarkdownPartMetadataResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MarkdownPartMetadataResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1115,6 +1122,7 @@ func (o MarkdownPartMetadataResponsePtrOutput) Settings() MarkdownPartMetadataRe
 }
 
 // The type of dashboard part.
+// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
 func (o MarkdownPartMetadataResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponse) *string {
 		if v == nil {

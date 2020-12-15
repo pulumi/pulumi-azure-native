@@ -13,6 +13,7 @@ import (
 // AzureStorage backup policy.
 type AzureFileShareProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureStorage'.
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -40,6 +41,7 @@ type AzureFileShareProtectionPolicyInput interface {
 // AzureStorage backup policy.
 type AzureFileShareProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureStorage'.
 	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -81,6 +83,7 @@ func (o AzureFileShareProtectionPolicyOutput) ToAzureFileShareProtectionPolicyOu
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureStorage'.
 func (o AzureFileShareProtectionPolicyOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileShareProtectionPolicy) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -113,6 +116,7 @@ func (o AzureFileShareProtectionPolicyOutput) WorkLoadType() pulumi.StringPtrOut
 // AzureStorage backup policy.
 type AzureFileShareProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureStorage'.
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -140,6 +144,7 @@ type AzureFileShareProtectionPolicyResponseInput interface {
 // AzureStorage backup policy.
 type AzureFileShareProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureStorage'.
 	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -181,6 +186,7 @@ func (o AzureFileShareProtectionPolicyResponseOutput) ToAzureFileShareProtection
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureStorage'.
 func (o AzureFileShareProtectionPolicyResponseOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileShareProtectionPolicyResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -245,6 +251,7 @@ type AzureFileshareProtectedItem struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'AzureFileShareProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -302,6 +309,7 @@ type AzureFileshareProtectedItemArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'AzureFileShareProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -421,6 +429,7 @@ func (o AzureFileshareProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // backup item type.
+// Expected value is 'AzureFileShareProtectedItem'.
 func (o AzureFileshareProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -864,6 +873,7 @@ type AzureFileshareProtectedItemResponse struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'AzureFileShareProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -921,6 +931,7 @@ type AzureFileshareProtectedItemResponseArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'AzureFileShareProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -1044,6 +1055,7 @@ func (o AzureFileshareProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOu
 }
 
 // backup item type.
+// Expected value is 'AzureFileShareProtectedItem'.
 func (o AzureFileshareProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -1236,6 +1248,7 @@ type AzureIaaSVMProtectedItem struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -1301,6 +1314,7 @@ type AzureIaaSVMProtectedItemArgs struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -1437,6 +1451,7 @@ func (o AzureIaaSVMProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOu
 }
 
 // backup item type.
+// Expected value is 'AzureIaaSVMProtectedItem'.
 func (o AzureIaaSVMProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -1855,6 +1870,7 @@ type AzureIaaSVMProtectedItemResponse struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -1922,6 +1938,7 @@ type AzureIaaSVMProtectedItemResponseArgs struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -2067,6 +2084,7 @@ func (o AzureIaaSVMProtectedItemResponseOutput) ProtectedItemDataId() pulumi.Str
 }
 
 // backup item type.
+// Expected value is 'AzureIaaSVMProtectedItem'.
 func (o AzureIaaSVMProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -2099,6 +2117,7 @@ func (o AzureIaaSVMProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrO
 // IaaS VM workload-specific backup policy.
 type AzureIaaSVMProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
 	BackupManagementType string                      `pulumi:"backupManagementType"`
 	InstantRPDetails     *InstantRPAdditionalDetails `pulumi:"instantRPDetails"`
 	// Instant RP retention policy range in days
@@ -2127,6 +2146,7 @@ type AzureIaaSVMProtectionPolicyInput interface {
 // IaaS VM workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
 	BackupManagementType pulumi.StringInput                 `pulumi:"backupManagementType"`
 	InstantRPDetails     InstantRPAdditionalDetailsPtrInput `pulumi:"instantRPDetails"`
 	// Instant RP retention policy range in days
@@ -2169,6 +2189,7 @@ func (o AzureIaaSVMProtectionPolicyOutput) ToAzureIaaSVMProtectionPolicyOutputWi
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureIaasVM'.
 func (o AzureIaaSVMProtectionPolicyOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectionPolicy) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -2205,6 +2226,7 @@ func (o AzureIaaSVMProtectionPolicyOutput) TimeZone() pulumi.StringPtrOutput {
 // IaaS VM workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
 	BackupManagementType string                              `pulumi:"backupManagementType"`
 	InstantRPDetails     *InstantRPAdditionalDetailsResponse `pulumi:"instantRPDetails"`
 	// Instant RP retention policy range in days
@@ -2233,6 +2255,7 @@ type AzureIaaSVMProtectionPolicyResponseInput interface {
 // IaaS VM workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
 	BackupManagementType pulumi.StringInput                         `pulumi:"backupManagementType"`
 	InstantRPDetails     InstantRPAdditionalDetailsResponsePtrInput `pulumi:"instantRPDetails"`
 	// Instant RP retention policy range in days
@@ -2275,6 +2298,7 @@ func (o AzureIaaSVMProtectionPolicyResponseOutput) ToAzureIaaSVMProtectionPolicy
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureIaasVM'.
 func (o AzureIaaSVMProtectionPolicyResponseOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -2318,6 +2342,7 @@ type AzureSqlContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'AzureSqlContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -2346,6 +2371,7 @@ type AzureSqlContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'AzureSqlContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -2391,6 +2417,7 @@ func (o AzureSqlContainerOutput) BackupManagementType() pulumi.StringPtrOutput {
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'AzureSqlContainer'.
 func (o AzureSqlContainerOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlContainer) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -2418,6 +2445,7 @@ type AzureSqlContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'AzureSqlContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -2446,6 +2474,7 @@ type AzureSqlContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'AzureSqlContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -2491,6 +2520,7 @@ func (o AzureSqlContainerResponseOutput) BackupManagementType() pulumi.StringPtr
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'AzureSqlContainer'.
 func (o AzureSqlContainerResponseOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlContainerResponse) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -2539,6 +2569,7 @@ type AzureSqlProtectedItem struct {
 	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of the backed up item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -2588,6 +2619,7 @@ type AzureSqlProtectedItemArgs struct {
 	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of the backed up item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -2690,6 +2722,7 @@ func (o AzureSqlProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOutpu
 }
 
 // backup item type.
+// Expected value is 'Microsoft.Sql/servers/databases'.
 func (o AzureSqlProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -3084,6 +3117,7 @@ type AzureSqlProtectedItemResponse struct {
 	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of the backed up item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -3133,6 +3167,7 @@ type AzureSqlProtectedItemResponseArgs struct {
 	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of the backed up item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -3237,6 +3272,7 @@ func (o AzureSqlProtectedItemResponseOutput) ProtectedItemDataId() pulumi.String
 }
 
 // backup item type.
+// Expected value is 'Microsoft.Sql/servers/databases'.
 func (o AzureSqlProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -3259,6 +3295,7 @@ func (o AzureSqlProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutp
 // Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -3280,6 +3317,7 @@ type AzureSqlProtectionPolicyInput interface {
 // Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
 	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -3315,6 +3353,7 @@ func (o AzureSqlProtectionPolicyOutput) ToAzureSqlProtectionPolicyOutputWithCont
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureSql'.
 func (o AzureSqlProtectionPolicyOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlProtectionPolicy) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -3332,6 +3371,7 @@ func (o AzureSqlProtectionPolicyOutput) RetentionPolicy() pulumi.AnyOutput {
 // Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -3353,6 +3393,7 @@ type AzureSqlProtectionPolicyResponseInput interface {
 // Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
 	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -3388,6 +3429,7 @@ func (o AzureSqlProtectionPolicyResponseOutput) ToAzureSqlProtectionPolicyRespon
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureSql'.
 func (o AzureSqlProtectionPolicyResponseOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlProtectionPolicyResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -3410,6 +3452,7 @@ type AzureStorageContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'StorageContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -3446,6 +3489,7 @@ type AzureStorageContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'StorageContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -3499,6 +3543,7 @@ func (o AzureStorageContainerOutput) BackupManagementType() pulumi.StringPtrOutp
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'StorageContainer'.
 func (o AzureStorageContainerOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureStorageContainer) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -3546,6 +3591,7 @@ type AzureStorageContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'StorageContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -3582,6 +3628,7 @@ type AzureStorageContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'StorageContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -3635,6 +3682,7 @@ func (o AzureStorageContainerResponseOutput) BackupManagementType() pulumi.Strin
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'StorageContainer'.
 func (o AzureStorageContainerResponseOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureStorageContainerResponse) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -3717,6 +3765,7 @@ type AzureVmWorkloadProtectedItem struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -3784,6 +3833,7 @@ type AzureVmWorkloadProtectedItemArgs struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -3925,6 +3975,7 @@ func (o AzureVmWorkloadProtectedItemOutput) ProtectedItemHealthStatus() pulumi.S
 }
 
 // backup item type.
+// Expected value is 'AzureVmWorkloadProtectedItem'.
 func (o AzureVmWorkloadProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -4345,6 +4396,7 @@ type AzureVmWorkloadProtectedItemResponse struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -4414,6 +4466,7 @@ type AzureVmWorkloadProtectedItemResponseArgs struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -4564,6 +4617,7 @@ func (o AzureVmWorkloadProtectedItemResponseOutput) ProtectedItemHealthStatus() 
 }
 
 // backup item type.
+// Expected value is 'AzureVmWorkloadProtectedItem'.
 func (o AzureVmWorkloadProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -4596,6 +4650,7 @@ func (o AzureVmWorkloadProtectedItemResponseOutput) WorkloadType() pulumi.String
 // Azure VM (Mercury) workload-specific backup policy.
 type AzureVmWorkloadProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureWorkload'.
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Fix the policy inconsistency
 	MakePolicyConsistent *bool `pulumi:"makePolicyConsistent"`
@@ -4623,6 +4678,7 @@ type AzureVmWorkloadProtectionPolicyInput interface {
 // Azure VM (Mercury) workload-specific backup policy.
 type AzureVmWorkloadProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureWorkload'.
 	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
 	// Fix the policy inconsistency
 	MakePolicyConsistent pulumi.BoolPtrInput `pulumi:"makePolicyConsistent"`
@@ -4664,6 +4720,7 @@ func (o AzureVmWorkloadProtectionPolicyOutput) ToAzureVmWorkloadProtectionPolicy
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureWorkload'.
 func (o AzureVmWorkloadProtectionPolicyOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectionPolicy) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -4696,6 +4753,7 @@ func (o AzureVmWorkloadProtectionPolicyOutput) WorkLoadType() pulumi.StringPtrOu
 // Azure VM (Mercury) workload-specific backup policy.
 type AzureVmWorkloadProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureWorkload'.
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Fix the policy inconsistency
 	MakePolicyConsistent *bool `pulumi:"makePolicyConsistent"`
@@ -4723,6 +4781,7 @@ type AzureVmWorkloadProtectionPolicyResponseInput interface {
 // Azure VM (Mercury) workload-specific backup policy.
 type AzureVmWorkloadProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureWorkload'.
 	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
 	// Fix the policy inconsistency
 	MakePolicyConsistent pulumi.BoolPtrInput `pulumi:"makePolicyConsistent"`
@@ -4764,6 +4823,7 @@ func (o AzureVmWorkloadProtectionPolicyResponseOutput) ToAzureVmWorkloadProtecti
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureWorkload'.
 func (o AzureVmWorkloadProtectionPolicyResponseOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectionPolicyResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -4803,6 +4863,7 @@ type AzureWorkloadContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo *AzureWorkloadContainerExtendedInfo `pulumi:"extendedInfo"`
@@ -4841,6 +4902,7 @@ type AzureWorkloadContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo AzureWorkloadContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
@@ -4896,6 +4958,7 @@ func (o AzureWorkloadContainerOutput) BackupManagementType() pulumi.StringPtrOut
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'AzureWorkloadContainer'.
 func (o AzureWorkloadContainerOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureWorkloadContainer) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -5294,6 +5357,7 @@ type AzureWorkloadContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo *AzureWorkloadContainerExtendedInfoResponse `pulumi:"extendedInfo"`
@@ -5332,6 +5396,7 @@ type AzureWorkloadContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo AzureWorkloadContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
@@ -5387,6 +5452,7 @@ func (o AzureWorkloadContainerResponseOutput) BackupManagementType() pulumi.Stri
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'AzureWorkloadContainer'.
 func (o AzureWorkloadContainerResponseOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureWorkloadContainerResponse) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -6114,6 +6180,7 @@ type DPMProtectedItem struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'DPMProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protection state of the backup engine
 	ProtectionState *string `pulumi:"protectionState"`
@@ -6165,6 +6232,7 @@ type DPMProtectedItemArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'DPMProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Protection state of the backup engine
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -6272,6 +6340,7 @@ func (o DPMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // backup item type.
+// Expected value is 'DPMProtectedItem'.
 func (o DPMProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v DPMProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -7084,6 +7153,7 @@ type DPMProtectedItemResponse struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'DPMProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protection state of the backup engine
 	ProtectionState *string `pulumi:"protectionState"`
@@ -7135,6 +7205,7 @@ type DPMProtectedItemResponseArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'DPMProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Protection state of the backup engine
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -7242,6 +7313,7 @@ func (o DPMProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // backup item type.
+// Expected value is 'DPMProtectedItem'.
 func (o DPMProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -8598,6 +8670,7 @@ type DpmContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Backup engine Agent version
 	DpmAgentVersion *string `pulumi:"dpmAgentVersion"`
@@ -8642,6 +8715,7 @@ type DpmContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Backup engine Agent version
 	DpmAgentVersion pulumi.StringPtrInput `pulumi:"dpmAgentVersion"`
@@ -8709,6 +8783,7 @@ func (o DpmContainerOutput) ContainerId() pulumi.StringPtrOutput {
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'DPMContainer'.
 func (o DpmContainerOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v DpmContainer) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -8770,6 +8845,7 @@ type DpmContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Backup engine Agent version
 	DpmAgentVersion *string `pulumi:"dpmAgentVersion"`
@@ -8814,6 +8890,7 @@ type DpmContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Backup engine Agent version
 	DpmAgentVersion pulumi.StringPtrInput `pulumi:"dpmAgentVersion"`
@@ -8881,6 +8958,7 @@ func (o DpmContainerResponseOutput) ContainerId() pulumi.StringPtrOutput {
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'DPMContainer'.
 func (o DpmContainerResponseOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v DpmContainerResponse) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -9378,6 +9456,7 @@ type GenericContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'GenericContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Extended information (not returned in List container API calls)
 	ExtendedInformation *GenericContainerExtendedInfo `pulumi:"extendedInformation"`
@@ -9410,6 +9489,7 @@ type GenericContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'GenericContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Extended information (not returned in List container API calls)
 	ExtendedInformation GenericContainerExtendedInfoPtrInput `pulumi:"extendedInformation"`
@@ -9459,6 +9539,7 @@ func (o GenericContainerOutput) BackupManagementType() pulumi.StringPtrOutput {
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'GenericContainer'.
 func (o GenericContainerOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v GenericContainer) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -9842,6 +9923,7 @@ type GenericContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'GenericContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Extended information (not returned in List container API calls)
 	ExtendedInformation *GenericContainerExtendedInfoResponse `pulumi:"extendedInformation"`
@@ -9874,6 +9956,7 @@ type GenericContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'GenericContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Extended information (not returned in List container API calls)
 	ExtendedInformation GenericContainerExtendedInfoResponsePtrInput `pulumi:"extendedInformation"`
@@ -9923,6 +10006,7 @@ func (o GenericContainerResponseOutput) BackupManagementType() pulumi.StringPtrO
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'GenericContainer'.
 func (o GenericContainerResponseOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v GenericContainerResponse) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -9985,6 +10069,7 @@ type GenericProtectedItem struct {
 	// Data Plane Service ID of the protected item.
 	ProtectedItemId *int `pulumi:"protectedItemId"`
 	// backup item type.
+	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -10040,6 +10125,7 @@ type GenericProtectedItemArgs struct {
 	// Data Plane Service ID of the protected item.
 	ProtectedItemId pulumi.IntPtrInput `pulumi:"protectedItemId"`
 	// backup item type.
+	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -10154,6 +10240,7 @@ func (o GenericProtectedItemOutput) ProtectedItemId() pulumi.IntPtrOutput {
 }
 
 // backup item type.
+// Expected value is 'GenericProtectedItem'.
 func (o GenericProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v GenericProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -10211,6 +10298,7 @@ type GenericProtectedItemResponse struct {
 	// Data Plane Service ID of the protected item.
 	ProtectedItemId *int `pulumi:"protectedItemId"`
 	// backup item type.
+	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -10266,6 +10354,7 @@ type GenericProtectedItemResponseArgs struct {
 	// Data Plane Service ID of the protected item.
 	ProtectedItemId pulumi.IntPtrInput `pulumi:"protectedItemId"`
 	// backup item type.
+	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -10380,6 +10469,7 @@ func (o GenericProtectedItemResponseOutput) ProtectedItemId() pulumi.IntPtrOutpu
 }
 
 // backup item type.
+// Expected value is 'GenericProtectedItem'.
 func (o GenericProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -10407,6 +10497,7 @@ func (o GenericProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutpu
 // Azure VM (Mercury) workload-specific backup policy.
 type GenericProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'GenericProtectionPolicy'.
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Name of this policy's fabric.
 	FabricName *string `pulumi:"fabricName"`
@@ -10432,6 +10523,7 @@ type GenericProtectionPolicyInput interface {
 // Azure VM (Mercury) workload-specific backup policy.
 type GenericProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'GenericProtectionPolicy'.
 	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
 	// Name of this policy's fabric.
 	FabricName pulumi.StringPtrInput `pulumi:"fabricName"`
@@ -10471,6 +10563,7 @@ func (o GenericProtectionPolicyOutput) ToGenericProtectionPolicyOutputWithContex
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'GenericProtectionPolicy'.
 func (o GenericProtectionPolicyOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v GenericProtectionPolicy) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -10498,6 +10591,7 @@ func (o GenericProtectionPolicyOutput) TimeZone() pulumi.StringPtrOutput {
 // Azure VM (Mercury) workload-specific backup policy.
 type GenericProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'GenericProtectionPolicy'.
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Name of this policy's fabric.
 	FabricName *string `pulumi:"fabricName"`
@@ -10523,6 +10617,7 @@ type GenericProtectionPolicyResponseInput interface {
 // Azure VM (Mercury) workload-specific backup policy.
 type GenericProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'GenericProtectionPolicy'.
 	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
 	// Name of this policy's fabric.
 	FabricName pulumi.StringPtrInput `pulumi:"fabricName"`
@@ -10562,6 +10657,7 @@ func (o GenericProtectionPolicyResponseOutput) ToGenericProtectionPolicyResponse
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'GenericProtectionPolicy'.
 func (o GenericProtectionPolicyResponseOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v GenericProtectionPolicyResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -10594,6 +10690,7 @@ type IaaSVMContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -10628,6 +10725,7 @@ type IaaSVMContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -10679,6 +10777,7 @@ func (o IaaSVMContainerOutput) BackupManagementType() pulumi.StringPtrOutput {
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'IaaSVMContainer'.
 func (o IaaSVMContainerOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v IaaSVMContainer) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -10721,6 +10820,7 @@ type IaaSVMContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -10755,6 +10855,7 @@ type IaaSVMContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -10806,6 +10907,7 @@ func (o IaaSVMContainerResponseOutput) BackupManagementType() pulumi.StringPtrOu
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'IaaSVMContainer'.
 func (o IaaSVMContainerResponseOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v IaaSVMContainerResponse) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -11985,6 +12087,7 @@ type LogSchedulePolicy struct {
 	// Frequency of the log schedule operation of this policy in minutes.
 	ScheduleFrequencyInMins *int `pulumi:"scheduleFrequencyInMins"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LogSchedulePolicy'.
 	SchedulePolicyType string `pulumi:"schedulePolicyType"`
 }
 
@@ -12004,6 +12107,7 @@ type LogSchedulePolicyArgs struct {
 	// Frequency of the log schedule operation of this policy in minutes.
 	ScheduleFrequencyInMins pulumi.IntPtrInput `pulumi:"scheduleFrequencyInMins"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LogSchedulePolicy'.
 	SchedulePolicyType pulumi.StringInput `pulumi:"schedulePolicyType"`
 }
 
@@ -12040,6 +12144,7 @@ func (o LogSchedulePolicyOutput) ScheduleFrequencyInMins() pulumi.IntPtrOutput {
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LogSchedulePolicy'.
 func (o LogSchedulePolicyOutput) SchedulePolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogSchedulePolicy) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
 }
@@ -12049,6 +12154,7 @@ type LogSchedulePolicyResponse struct {
 	// Frequency of the log schedule operation of this policy in minutes.
 	ScheduleFrequencyInMins *int `pulumi:"scheduleFrequencyInMins"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LogSchedulePolicy'.
 	SchedulePolicyType string `pulumi:"schedulePolicyType"`
 }
 
@@ -12068,6 +12174,7 @@ type LogSchedulePolicyResponseArgs struct {
 	// Frequency of the log schedule operation of this policy in minutes.
 	ScheduleFrequencyInMins pulumi.IntPtrInput `pulumi:"scheduleFrequencyInMins"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LogSchedulePolicy'.
 	SchedulePolicyType pulumi.StringInput `pulumi:"schedulePolicyType"`
 }
 
@@ -12104,6 +12211,7 @@ func (o LogSchedulePolicyResponseOutput) ScheduleFrequencyInMins() pulumi.IntPtr
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LogSchedulePolicy'.
 func (o LogSchedulePolicyResponseOutput) SchedulePolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogSchedulePolicyResponse) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
 }
@@ -12115,6 +12223,7 @@ type LongTermRetentionPolicy struct {
 	// Monthly retention schedule of the protection policy.
 	MonthlySchedule *MonthlyRetentionSchedule `pulumi:"monthlySchedule"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
 	RetentionPolicyType string `pulumi:"retentionPolicyType"`
 	// Weekly retention schedule of the protection policy.
 	WeeklySchedule *WeeklyRetentionSchedule `pulumi:"weeklySchedule"`
@@ -12140,6 +12249,7 @@ type LongTermRetentionPolicyArgs struct {
 	// Monthly retention schedule of the protection policy.
 	MonthlySchedule MonthlyRetentionSchedulePtrInput `pulumi:"monthlySchedule"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
 	RetentionPolicyType pulumi.StringInput `pulumi:"retentionPolicyType"`
 	// Weekly retention schedule of the protection policy.
 	WeeklySchedule WeeklyRetentionSchedulePtrInput `pulumi:"weeklySchedule"`
@@ -12185,6 +12295,7 @@ func (o LongTermRetentionPolicyOutput) MonthlySchedule() MonthlyRetentionSchedul
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermRetentionPolicy'.
 func (o LongTermRetentionPolicyOutput) RetentionPolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LongTermRetentionPolicy) string { return v.RetentionPolicyType }).(pulumi.StringOutput)
 }
@@ -12206,6 +12317,7 @@ type LongTermRetentionPolicyResponse struct {
 	// Monthly retention schedule of the protection policy.
 	MonthlySchedule *MonthlyRetentionScheduleResponse `pulumi:"monthlySchedule"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
 	RetentionPolicyType string `pulumi:"retentionPolicyType"`
 	// Weekly retention schedule of the protection policy.
 	WeeklySchedule *WeeklyRetentionScheduleResponse `pulumi:"weeklySchedule"`
@@ -12231,6 +12343,7 @@ type LongTermRetentionPolicyResponseArgs struct {
 	// Monthly retention schedule of the protection policy.
 	MonthlySchedule MonthlyRetentionScheduleResponsePtrInput `pulumi:"monthlySchedule"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
 	RetentionPolicyType pulumi.StringInput `pulumi:"retentionPolicyType"`
 	// Weekly retention schedule of the protection policy.
 	WeeklySchedule WeeklyRetentionScheduleResponsePtrInput `pulumi:"weeklySchedule"`
@@ -12276,6 +12389,7 @@ func (o LongTermRetentionPolicyResponseOutput) MonthlySchedule() MonthlyRetentio
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermRetentionPolicy'.
 func (o LongTermRetentionPolicyResponseOutput) RetentionPolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LongTermRetentionPolicyResponse) string { return v.RetentionPolicyType }).(pulumi.StringOutput)
 }
@@ -12293,6 +12407,7 @@ func (o LongTermRetentionPolicyResponseOutput) YearlySchedule() YearlyRetentionS
 // Long term policy schedule.
 type LongTermSchedulePolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
 	SchedulePolicyType string `pulumi:"schedulePolicyType"`
 }
 
@@ -12310,6 +12425,7 @@ type LongTermSchedulePolicyInput interface {
 // Long term policy schedule.
 type LongTermSchedulePolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
 	SchedulePolicyType pulumi.StringInput `pulumi:"schedulePolicyType"`
 }
 
@@ -12341,6 +12457,7 @@ func (o LongTermSchedulePolicyOutput) ToLongTermSchedulePolicyOutputWithContext(
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermSchedulePolicy'.
 func (o LongTermSchedulePolicyOutput) SchedulePolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LongTermSchedulePolicy) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
 }
@@ -12348,6 +12465,7 @@ func (o LongTermSchedulePolicyOutput) SchedulePolicyType() pulumi.StringOutput {
 // Long term policy schedule.
 type LongTermSchedulePolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
 	SchedulePolicyType string `pulumi:"schedulePolicyType"`
 }
 
@@ -12365,6 +12483,7 @@ type LongTermSchedulePolicyResponseInput interface {
 // Long term policy schedule.
 type LongTermSchedulePolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
 	SchedulePolicyType pulumi.StringInput `pulumi:"schedulePolicyType"`
 }
 
@@ -12396,6 +12515,7 @@ func (o LongTermSchedulePolicyResponseOutput) ToLongTermSchedulePolicyResponseOu
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermSchedulePolicy'.
 func (o LongTermSchedulePolicyResponseOutput) SchedulePolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LongTermSchedulePolicyResponse) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
 }
@@ -12670,6 +12790,7 @@ type MabContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'Windows'.
 	ContainerType string `pulumi:"containerType"`
 	// Additional information for this container
 	ExtendedInfo *MabContainerExtendedInfo `pulumi:"extendedInfo"`
@@ -12712,6 +12833,7 @@ type MabContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'Windows'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Additional information for this container
 	ExtendedInfo MabContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
@@ -12783,6 +12905,7 @@ func (o MabContainerOutput) ContainerId() pulumi.IntPtrOutput {
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'Windows'.
 func (o MabContainerOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v MabContainer) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -13253,6 +13376,7 @@ type MabContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'Windows'.
 	ContainerType string `pulumi:"containerType"`
 	// Additional information for this container
 	ExtendedInfo *MabContainerExtendedInfoResponse `pulumi:"extendedInfo"`
@@ -13295,6 +13419,7 @@ type MabContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
+	// Expected value is 'Windows'.
 	ContainerType pulumi.StringInput `pulumi:"containerType"`
 	// Additional information for this container
 	ExtendedInfo MabContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
@@ -13366,6 +13491,7 @@ func (o MabContainerResponseOutput) ContainerId() pulumi.IntPtrOutput {
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
+// Expected value is 'Windows'.
 func (o MabContainerResponseOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v MabContainerResponse) string { return v.ContainerType }).(pulumi.StringOutput)
 }
@@ -13437,6 +13563,7 @@ type MabFileFolderProtectedItem struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protected, ProtectionStopped, IRPending or ProtectionError
 	ProtectionState *string `pulumi:"protectionState"`
@@ -13494,6 +13621,7 @@ type MabFileFolderProtectedItemArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Protected, ProtectionStopped, IRPending or ProtectionError
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -13616,6 +13744,7 @@ func (o MabFileFolderProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // backup item type.
+// Expected value is 'MabFileFolderProtectedItem'.
 func (o MabFileFolderProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -14018,6 +14147,7 @@ type MabFileFolderProtectedItemResponse struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protected, ProtectionStopped, IRPending or ProtectionError
 	ProtectionState *string `pulumi:"protectionState"`
@@ -14075,6 +14205,7 @@ type MabFileFolderProtectedItemResponseArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
 	// Protected, ProtectionStopped, IRPending or ProtectionError
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -14199,6 +14330,7 @@ func (o MabFileFolderProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOut
 }
 
 // backup item type.
+// Expected value is 'MabFileFolderProtectedItem'.
 func (o MabFileFolderProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -14221,6 +14353,7 @@ func (o MabFileFolderProtectedItemResponseOutput) WorkloadType() pulumi.StringPt
 // Mab container-specific backup policy.
 type MabProtectionPolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -14244,6 +14377,7 @@ type MabProtectionPolicyInput interface {
 // Mab container-specific backup policy.
 type MabProtectionPolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
 	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -14281,6 +14415,7 @@ func (o MabProtectionPolicyOutput) ToMabProtectionPolicyOutputWithContext(ctx co
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'MAB'.
 func (o MabProtectionPolicyOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v MabProtectionPolicy) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -14303,6 +14438,7 @@ func (o MabProtectionPolicyOutput) SchedulePolicy() pulumi.AnyOutput {
 // Mab container-specific backup policy.
 type MabProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -14326,6 +14462,7 @@ type MabProtectionPolicyResponseInput interface {
 // Mab container-specific backup policy.
 type MabProtectionPolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
 	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -14363,6 +14500,7 @@ func (o MabProtectionPolicyResponseOutput) ToMabProtectionPolicyResponseOutputWi
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'MAB'.
 func (o MabProtectionPolicyResponseOutput) BackupManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v MabProtectionPolicyResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
 }
@@ -16566,6 +16704,7 @@ type SimpleRetentionPolicy struct {
 	// Retention duration of the protection policy.
 	RetentionDuration *RetentionDuration `pulumi:"retentionDuration"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
 	RetentionPolicyType string `pulumi:"retentionPolicyType"`
 }
 
@@ -16585,6 +16724,7 @@ type SimpleRetentionPolicyArgs struct {
 	// Retention duration of the protection policy.
 	RetentionDuration RetentionDurationPtrInput `pulumi:"retentionDuration"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
 	RetentionPolicyType pulumi.StringInput `pulumi:"retentionPolicyType"`
 }
 
@@ -16621,6 +16761,7 @@ func (o SimpleRetentionPolicyOutput) RetentionDuration() RetentionDurationPtrOut
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleRetentionPolicy'.
 func (o SimpleRetentionPolicyOutput) RetentionPolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v SimpleRetentionPolicy) string { return v.RetentionPolicyType }).(pulumi.StringOutput)
 }
@@ -16630,6 +16771,7 @@ type SimpleRetentionPolicyResponse struct {
 	// Retention duration of the protection policy.
 	RetentionDuration *RetentionDurationResponse `pulumi:"retentionDuration"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
 	RetentionPolicyType string `pulumi:"retentionPolicyType"`
 }
 
@@ -16649,6 +16791,7 @@ type SimpleRetentionPolicyResponseArgs struct {
 	// Retention duration of the protection policy.
 	RetentionDuration RetentionDurationResponsePtrInput `pulumi:"retentionDuration"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
 	RetentionPolicyType pulumi.StringInput `pulumi:"retentionPolicyType"`
 }
 
@@ -16685,6 +16828,7 @@ func (o SimpleRetentionPolicyResponseOutput) RetentionDuration() RetentionDurati
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleRetentionPolicy'.
 func (o SimpleRetentionPolicyResponseOutput) RetentionPolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v SimpleRetentionPolicyResponse) string { return v.RetentionPolicyType }).(pulumi.StringOutput)
 }
@@ -16692,6 +16836,7 @@ func (o SimpleRetentionPolicyResponseOutput) RetentionPolicyType() pulumi.String
 // Simple policy schedule.
 type SimpleSchedulePolicy struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType string `pulumi:"schedulePolicyType"`
 	// List of days of week this schedule has to be run.
 	ScheduleRunDays []string `pulumi:"scheduleRunDays"`
@@ -16717,6 +16862,7 @@ type SimpleSchedulePolicyInput interface {
 // Simple policy schedule.
 type SimpleSchedulePolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType pulumi.StringInput `pulumi:"schedulePolicyType"`
 	// List of days of week this schedule has to be run.
 	ScheduleRunDays DayOfWeekArrayInput `pulumi:"scheduleRunDays"`
@@ -16756,6 +16902,7 @@ func (o SimpleSchedulePolicyOutput) ToSimpleSchedulePolicyOutputWithContext(ctx 
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleSchedulePolicy'.
 func (o SimpleSchedulePolicyOutput) SchedulePolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v SimpleSchedulePolicy) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
 }
@@ -16783,6 +16930,7 @@ func (o SimpleSchedulePolicyOutput) ScheduleWeeklyFrequency() pulumi.IntPtrOutpu
 // Simple policy schedule.
 type SimpleSchedulePolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType string `pulumi:"schedulePolicyType"`
 	// List of days of week this schedule has to be run.
 	ScheduleRunDays []string `pulumi:"scheduleRunDays"`
@@ -16808,6 +16956,7 @@ type SimpleSchedulePolicyResponseInput interface {
 // Simple policy schedule.
 type SimpleSchedulePolicyResponseArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType pulumi.StringInput `pulumi:"schedulePolicyType"`
 	// List of days of week this schedule has to be run.
 	ScheduleRunDays pulumi.StringArrayInput `pulumi:"scheduleRunDays"`
@@ -16847,6 +16996,7 @@ func (o SimpleSchedulePolicyResponseOutput) ToSimpleSchedulePolicyResponseOutput
 }
 
 // This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleSchedulePolicy'.
 func (o SimpleSchedulePolicyResponseOutput) SchedulePolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v SimpleSchedulePolicyResponse) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
 }

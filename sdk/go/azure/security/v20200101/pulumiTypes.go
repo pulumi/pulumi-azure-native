@@ -600,6 +600,7 @@ func (o AssessmentStatusResponsePtrOutput) Description() pulumi.StringPtrOutput 
 // Details of the Azure resource that was assessed
 type AzureResourceDetails struct {
 	// The platform where the assessed resource resides
+	// Expected value is 'Azure'.
 	Source string `pulumi:"source"`
 }
 
@@ -617,6 +618,7 @@ type AzureResourceDetailsInput interface {
 // Details of the Azure resource that was assessed
 type AzureResourceDetailsArgs struct {
 	// The platform where the assessed resource resides
+	// Expected value is 'Azure'.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -648,6 +650,7 @@ func (o AzureResourceDetailsOutput) ToAzureResourceDetailsOutputWithContext(ctx 
 }
 
 // The platform where the assessed resource resides
+// Expected value is 'Azure'.
 func (o AzureResourceDetailsOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureResourceDetails) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -657,6 +660,7 @@ type AzureResourceDetailsResponse struct {
 	// Azure resource Id of the assessed resource
 	Id string `pulumi:"id"`
 	// The platform where the assessed resource resides
+	// Expected value is 'Azure'.
 	Source string `pulumi:"source"`
 }
 
@@ -676,6 +680,7 @@ type AzureResourceDetailsResponseArgs struct {
 	// Azure resource Id of the assessed resource
 	Id pulumi.StringInput `pulumi:"id"`
 	// The platform where the assessed resource resides
+	// Expected value is 'Azure'.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -712,6 +717,7 @@ func (o AzureResourceDetailsResponseOutput) Id() pulumi.StringOutput {
 }
 
 // The platform where the assessed resource resides
+// Expected value is 'Azure'.
 func (o AzureResourceDetailsResponseOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -1961,6 +1967,7 @@ type OnPremiseResourceDetails struct {
 	// The name of the machine
 	MachineName string `pulumi:"machineName"`
 	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
 	Source string `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId string `pulumi:"sourceComputerId"`
@@ -1986,6 +1993,7 @@ type OnPremiseResourceDetailsArgs struct {
 	// The name of the machine
 	MachineName pulumi.StringInput `pulumi:"machineName"`
 	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
 	Source pulumi.StringInput `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
@@ -2028,6 +2036,7 @@ func (o OnPremiseResourceDetailsOutput) MachineName() pulumi.StringOutput {
 }
 
 // The platform where the assessed resource resides
+// Expected value is 'OnPremise'.
 func (o OnPremiseResourceDetailsOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -2052,6 +2061,7 @@ type OnPremiseResourceDetailsResponse struct {
 	// The name of the machine
 	MachineName string `pulumi:"machineName"`
 	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
 	Source string `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId string `pulumi:"sourceComputerId"`
@@ -2077,6 +2087,7 @@ type OnPremiseResourceDetailsResponseArgs struct {
 	// The name of the machine
 	MachineName pulumi.StringInput `pulumi:"machineName"`
 	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
 	Source pulumi.StringInput `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
@@ -2119,6 +2130,7 @@ func (o OnPremiseResourceDetailsResponseOutput) MachineName() pulumi.StringOutpu
 }
 
 // The platform where the assessed resource resides
+// Expected value is 'OnPremise'.
 func (o OnPremiseResourceDetailsResponseOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
 }

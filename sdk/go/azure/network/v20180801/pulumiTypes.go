@@ -11770,6 +11770,7 @@ type AzureManagedRuleSet struct {
 	// List of azure managed provider override configuration (optional)
 	RuleGroupOverrides []AzureManagedOverrideRuleGroup `pulumi:"ruleGroupOverrides"`
 	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+	// Expected value is 'AzureManagedRuleSet'.
 	RuleSetType string `pulumi:"ruleSetType"`
 	// defines version of the rule set
 	Version *int `pulumi:"version"`
@@ -11793,6 +11794,7 @@ type AzureManagedRuleSetArgs struct {
 	// List of azure managed provider override configuration (optional)
 	RuleGroupOverrides AzureManagedOverrideRuleGroupArrayInput `pulumi:"ruleGroupOverrides"`
 	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+	// Expected value is 'AzureManagedRuleSet'.
 	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
 	// defines version of the rule set
 	Version pulumi.IntPtrInput `pulumi:"version"`
@@ -11861,6 +11863,7 @@ func (o AzureManagedRuleSetOutput) RuleGroupOverrides() AzureManagedOverrideRule
 }
 
 // RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+// Expected value is 'AzureManagedRuleSet'.
 func (o AzureManagedRuleSetOutput) RuleSetType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureManagedRuleSet) string { return v.RuleSetType }).(pulumi.StringOutput)
 }
@@ -11897,6 +11900,7 @@ type AzureManagedRuleSetResponse struct {
 	// List of azure managed provider override configuration (optional)
 	RuleGroupOverrides []AzureManagedOverrideRuleGroupResponse `pulumi:"ruleGroupOverrides"`
 	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+	// Expected value is 'AzureManagedRuleSet'.
 	RuleSetType string `pulumi:"ruleSetType"`
 	// defines version of the rule set
 	Version *int `pulumi:"version"`
@@ -11920,6 +11924,7 @@ type AzureManagedRuleSetResponseArgs struct {
 	// List of azure managed provider override configuration (optional)
 	RuleGroupOverrides AzureManagedOverrideRuleGroupResponseArrayInput `pulumi:"ruleGroupOverrides"`
 	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+	// Expected value is 'AzureManagedRuleSet'.
 	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
 	// defines version of the rule set
 	Version pulumi.IntPtrInput `pulumi:"version"`
@@ -11990,6 +11995,7 @@ func (o AzureManagedRuleSetResponseOutput) RuleGroupOverrides() AzureManagedOver
 }
 
 // RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+// Expected value is 'AzureManagedRuleSet'.
 func (o AzureManagedRuleSetResponseOutput) RuleSetType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureManagedRuleSetResponse) string { return v.RuleSetType }).(pulumi.StringOutput)
 }

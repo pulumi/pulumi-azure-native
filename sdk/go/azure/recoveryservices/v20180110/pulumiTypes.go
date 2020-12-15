@@ -17,6 +17,7 @@ type A2AContainerMappingInput struct {
 	// The automation account arm id.
 	AutomationAccountArmId *string `pulumi:"automationAccountArmId"`
 	// The class type.
+	// Expected value is 'A2A'.
 	InstanceType *string `pulumi:"instanceType"`
 }
 
@@ -38,6 +39,7 @@ type A2AContainerMappingInputArgs struct {
 	// The automation account arm id.
 	AutomationAccountArmId pulumi.StringPtrInput `pulumi:"automationAccountArmId"`
 	// The class type.
+	// Expected value is 'A2A'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 }
 
@@ -79,6 +81,7 @@ func (o A2AContainerMappingInputOutput) AutomationAccountArmId() pulumi.StringPt
 }
 
 // The class type.
+// Expected value is 'A2A'.
 func (o A2AContainerMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AContainerMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -90,6 +93,7 @@ type A2AEnableProtectionInput struct {
 	// The fabric specific object Id of the virtual machine.
 	FabricObjectId *string `pulumi:"fabricObjectId"`
 	// The class type.
+	// Expected value is 'A2A'.
 	InstanceType *string `pulumi:"instanceType"`
 	// The multi vm group name.
 	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
@@ -127,6 +131,7 @@ type A2AEnableProtectionInputArgs struct {
 	// The fabric specific object Id of the virtual machine.
 	FabricObjectId pulumi.StringPtrInput `pulumi:"fabricObjectId"`
 	// The class type.
+	// Expected value is 'A2A'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The multi vm group name.
 	MultiVmGroupName pulumi.StringPtrInput `pulumi:"multiVmGroupName"`
@@ -184,6 +189,7 @@ func (o A2AEnableProtectionInputOutput) FabricObjectId() pulumi.StringPtrOutput 
 }
 
 // The class type.
+// Expected value is 'A2A'.
 func (o A2AEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -235,6 +241,7 @@ type A2APolicyCreationInput struct {
 	// The crash consistent snapshot frequency (in minutes).
 	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
 	// The class type.
+	// Expected value is 'A2A'.
 	InstanceType *string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
@@ -260,6 +267,7 @@ type A2APolicyCreationInputArgs struct {
 	// The crash consistent snapshot frequency (in minutes).
 	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
 	// The class type.
+	// Expected value is 'A2A'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 	MultiVmSyncStatus pulumi.StringInput `pulumi:"multiVmSyncStatus"`
@@ -305,6 +313,7 @@ func (o A2APolicyCreationInputOutput) CrashConsistentFrequencyInMinutes() pulumi
 }
 
 // The class type.
+// Expected value is 'A2A'.
 func (o A2APolicyCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2APolicyCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -326,6 +335,7 @@ type A2APolicyDetailsResponse struct {
 	// The crash consistent snapshot frequency in minutes.
 	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'A2A'.
 	InstanceType string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled.
 	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
@@ -353,6 +363,7 @@ type A2APolicyDetailsResponseArgs struct {
 	// The crash consistent snapshot frequency in minutes.
 	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'A2A'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled.
 	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
@@ -400,6 +411,7 @@ func (o A2APolicyDetailsResponseOutput) CrashConsistentFrequencyInMinutes() pulu
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'A2A'.
 func (o A2APolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v A2APolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -970,6 +982,7 @@ type A2AProtectionContainerMappingDetailsResponse struct {
 	// The automation account arm id.
 	AutomationAccountArmId *string `pulumi:"automationAccountArmId"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'A2A'.
 	InstanceType string `pulumi:"instanceType"`
 	// The job schedule arm name.
 	JobScheduleName *string `pulumi:"jobScheduleName"`
@@ -995,6 +1008,7 @@ type A2AProtectionContainerMappingDetailsResponseArgs struct {
 	// The automation account arm id.
 	AutomationAccountArmId pulumi.StringPtrInput `pulumi:"automationAccountArmId"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'A2A'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The job schedule arm name.
 	JobScheduleName pulumi.StringPtrInput `pulumi:"jobScheduleName"`
@@ -1040,6 +1054,7 @@ func (o A2AProtectionContainerMappingDetailsResponseOutput) AutomationAccountArm
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'A2A'.
 func (o A2AProtectionContainerMappingDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v A2AProtectionContainerMappingDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -1061,6 +1076,7 @@ type A2AReplicationDetailsResponse struct {
 	// The fabric specific object Id of the virtual machine.
 	FabricObjectId *string `pulumi:"fabricObjectId"`
 	// Gets the Instance type.
+	// Expected value is 'A2A'.
 	InstanceType string `pulumi:"instanceType"`
 	// A value indicating whether replication agent update is required.
 	IsReplicationAgentUpdateRequired *bool `pulumi:"isReplicationAgentUpdateRequired"`
@@ -1140,6 +1156,7 @@ type A2AReplicationDetailsResponseArgs struct {
 	// The fabric specific object Id of the virtual machine.
 	FabricObjectId pulumi.StringPtrInput `pulumi:"fabricObjectId"`
 	// Gets the Instance type.
+	// Expected value is 'A2A'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A value indicating whether replication agent update is required.
 	IsReplicationAgentUpdateRequired pulumi.BoolPtrInput `pulumi:"isReplicationAgentUpdateRequired"`
@@ -1239,6 +1256,7 @@ func (o A2AReplicationDetailsResponseOutput) FabricObjectId() pulumi.StringPtrOu
 }
 
 // Gets the Instance type.
+// Expected value is 'A2A'.
 func (o A2AReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -2037,6 +2055,7 @@ func (o AddVCenterRequestPropertiesPtrOutput) RunAsAccountId() pulumi.StringPtrO
 // Fabric provider specific settings.
 type AzureFabricCreationInput struct {
 	// Gets the class type.
+	// Expected value is 'Azure'.
 	InstanceType *string `pulumi:"instanceType"`
 	// The Location.
 	Location *string `pulumi:"location"`
@@ -2056,6 +2075,7 @@ type AzureFabricCreationInputInput interface {
 // Fabric provider specific settings.
 type AzureFabricCreationInputArgs struct {
 	// Gets the class type.
+	// Expected value is 'Azure'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The Location.
 	Location pulumi.StringPtrInput `pulumi:"location"`
@@ -2089,6 +2109,7 @@ func (o AzureFabricCreationInputOutput) ToAzureFabricCreationInputOutputWithCont
 }
 
 // Gets the class type.
+// Expected value is 'Azure'.
 func (o AzureFabricCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFabricCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -2103,6 +2124,7 @@ type AzureFabricSpecificDetailsResponse struct {
 	// The container Ids for the Azure fabric.
 	ContainerIds []string `pulumi:"containerIds"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'Azure'.
 	InstanceType string `pulumi:"instanceType"`
 	// The Location for the Azure fabric.
 	Location *string `pulumi:"location"`
@@ -2124,6 +2146,7 @@ type AzureFabricSpecificDetailsResponseArgs struct {
 	// The container Ids for the Azure fabric.
 	ContainerIds pulumi.StringArrayInput `pulumi:"containerIds"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'Azure'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The Location for the Azure fabric.
 	Location pulumi.StringPtrInput `pulumi:"location"`
@@ -2162,6 +2185,7 @@ func (o AzureFabricSpecificDetailsResponseOutput) ContainerIds() pulumi.StringAr
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'Azure'.
 func (o AzureFabricSpecificDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFabricSpecificDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -2174,6 +2198,7 @@ func (o AzureFabricSpecificDetailsResponseOutput) Location() pulumi.StringPtrOut
 // Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
 type AzureToAzureCreateNetworkMappingInput struct {
 	// The instance type.
+	// Expected value is 'AzureToAzure'.
 	InstanceType *string `pulumi:"instanceType"`
 	// The primary azure vnet Id.
 	PrimaryNetworkId *string `pulumi:"primaryNetworkId"`
@@ -2193,6 +2218,7 @@ type AzureToAzureCreateNetworkMappingInputInput interface {
 // Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
 type AzureToAzureCreateNetworkMappingInputArgs struct {
 	// The instance type.
+	// Expected value is 'AzureToAzure'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The primary azure vnet Id.
 	PrimaryNetworkId pulumi.StringPtrInput `pulumi:"primaryNetworkId"`
@@ -2226,6 +2252,7 @@ func (o AzureToAzureCreateNetworkMappingInputOutput) ToAzureToAzureCreateNetwork
 }
 
 // The instance type.
+// Expected value is 'AzureToAzure'.
 func (o AzureToAzureCreateNetworkMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureToAzureCreateNetworkMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -2238,6 +2265,7 @@ func (o AzureToAzureCreateNetworkMappingInputOutput) PrimaryNetworkId() pulumi.S
 // A2A Network Mapping fabric specific settings.
 type AzureToAzureNetworkMappingSettingsResponse struct {
 	// Gets the Instance type.
+	// Expected value is 'AzureToAzure'.
 	InstanceType string `pulumi:"instanceType"`
 	// The primary fabric location.
 	PrimaryFabricLocation *string `pulumi:"primaryFabricLocation"`
@@ -2259,6 +2287,7 @@ type AzureToAzureNetworkMappingSettingsResponseInput interface {
 // A2A Network Mapping fabric specific settings.
 type AzureToAzureNetworkMappingSettingsResponseArgs struct {
 	// Gets the Instance type.
+	// Expected value is 'AzureToAzure'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The primary fabric location.
 	PrimaryFabricLocation pulumi.StringPtrInput `pulumi:"primaryFabricLocation"`
@@ -2294,6 +2323,7 @@ func (o AzureToAzureNetworkMappingSettingsResponseOutput) ToAzureToAzureNetworkM
 }
 
 // Gets the Instance type.
+// Expected value is 'AzureToAzure'.
 func (o AzureToAzureNetworkMappingSettingsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureToAzureNetworkMappingSettingsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -5335,6 +5365,7 @@ type HyperVReplicaAzureEnableProtectionInput struct {
 	// The Hyper-V host Vm Id.
 	HvHostVmId *string `pulumi:"hvHostVmId"`
 	// The class type.
+	// Expected value is 'HyperVReplicaAzure'.
 	InstanceType *string `pulumi:"instanceType"`
 	// The storage account to be used for logging during replication.
 	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
@@ -5380,6 +5411,7 @@ type HyperVReplicaAzureEnableProtectionInputArgs struct {
 	// The Hyper-V host Vm Id.
 	HvHostVmId pulumi.StringPtrInput `pulumi:"hvHostVmId"`
 	// The class type.
+	// Expected value is 'HyperVReplicaAzure'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The storage account to be used for logging during replication.
 	LogStorageAccountId pulumi.StringPtrInput `pulumi:"logStorageAccountId"`
@@ -5448,6 +5480,7 @@ func (o HyperVReplicaAzureEnableProtectionInputOutput) HvHostVmId() pulumi.Strin
 }
 
 // The class type.
+// Expected value is 'HyperVReplicaAzure'.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -5516,6 +5549,7 @@ type HyperVReplicaAzurePolicyDetailsResponse struct {
 	// A value indicating whether encryption is enabled for virtual machines in this cloud.
 	Encryption *string `pulumi:"encryption"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'HyperVReplicaAzure'.
 	InstanceType string `pulumi:"instanceType"`
 	// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
 	OnlineReplicationStartTime *string `pulumi:"onlineReplicationStartTime"`
@@ -5545,6 +5579,7 @@ type HyperVReplicaAzurePolicyDetailsResponseArgs struct {
 	// A value indicating whether encryption is enabled for virtual machines in this cloud.
 	Encryption pulumi.StringPtrInput `pulumi:"encryption"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'HyperVReplicaAzure'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
 	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
@@ -5599,6 +5634,7 @@ func (o HyperVReplicaAzurePolicyDetailsResponseOutput) Encryption() pulumi.Strin
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'HyperVReplicaAzure'.
 func (o HyperVReplicaAzurePolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -5623,6 +5659,7 @@ type HyperVReplicaAzurePolicyInput struct {
 	// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
 	ApplicationConsistentSnapshotFrequencyInHours *int `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
 	// The class type.
+	// Expected value is 'HyperVReplicaAzure'.
 	InstanceType *string `pulumi:"instanceType"`
 	// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
 	OnlineReplicationStartTime *string `pulumi:"onlineReplicationStartTime"`
@@ -5650,6 +5687,7 @@ type HyperVReplicaAzurePolicyInputArgs struct {
 	// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
 	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
 	// The class type.
+	// Expected value is 'HyperVReplicaAzure'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
 	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
@@ -5694,6 +5732,7 @@ func (o HyperVReplicaAzurePolicyInputOutput) ApplicationConsistentSnapshotFreque
 }
 
 // The class type.
+// Expected value is 'HyperVReplicaAzure'.
 func (o HyperVReplicaAzurePolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -5729,6 +5768,7 @@ type HyperVReplicaAzureReplicationDetailsResponse struct {
 	// Initial replication details.
 	InitialReplicationDetails *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
 	// Gets the Instance type.
+	// Expected value is 'HyperVReplicaAzure'.
 	InstanceType string `pulumi:"instanceType"`
 	// The Last replication time.
 	LastReplicatedTime *string `pulumi:"lastReplicatedTime"`
@@ -5794,6 +5834,7 @@ type HyperVReplicaAzureReplicationDetailsResponseArgs struct {
 	// Initial replication details.
 	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
 	// Gets the Instance type.
+	// Expected value is 'HyperVReplicaAzure'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The Last replication time.
 	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
@@ -5889,6 +5930,7 @@ func (o HyperVReplicaAzureReplicationDetailsResponseOutput) InitialReplicationDe
 }
 
 // Gets the Instance type.
+// Expected value is 'HyperVReplicaAzure'.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -6006,6 +6048,7 @@ type HyperVReplicaBasePolicyDetailsResponse struct {
 	// A value indicating whether IR is online.
 	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'HyperVReplicaBasePolicyDetails'.
 	InstanceType string `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
@@ -6043,6 +6086,7 @@ type HyperVReplicaBasePolicyDetailsResponseArgs struct {
 	// A value indicating whether IR is online.
 	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'HyperVReplicaBasePolicyDetails'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
@@ -6108,6 +6152,7 @@ func (o HyperVReplicaBasePolicyDetailsResponseOutput) InitialReplicationMethod()
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'HyperVReplicaBasePolicyDetails'.
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -6147,6 +6192,7 @@ type HyperVReplicaBaseReplicationDetailsResponse struct {
 	// Initial replication details.
 	InitialReplicationDetails *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
 	// Gets the Instance type.
+	// Expected value is 'HyperVReplicaBaseReplicationDetails'.
 	InstanceType string `pulumi:"instanceType"`
 	// The Last replication time.
 	LastReplicatedTime *string `pulumi:"lastReplicatedTime"`
@@ -6178,6 +6224,7 @@ type HyperVReplicaBaseReplicationDetailsResponseArgs struct {
 	// Initial replication details.
 	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
 	// Gets the Instance type.
+	// Expected value is 'HyperVReplicaBaseReplicationDetails'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The Last replication time.
 	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
@@ -6228,6 +6275,7 @@ func (o HyperVReplicaBaseReplicationDetailsResponseOutput) InitialReplicationDet
 }
 
 // Gets the Instance type.
+// Expected value is 'HyperVReplicaBaseReplicationDetails'.
 func (o HyperVReplicaBaseReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaBaseReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -6273,6 +6321,7 @@ type HyperVReplicaBluePolicyDetailsResponse struct {
 	// A value indicating whether IR is online.
 	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'HyperVReplica2012R2'.
 	InstanceType string `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
@@ -6312,6 +6361,7 @@ type HyperVReplicaBluePolicyDetailsResponseArgs struct {
 	// A value indicating whether IR is online.
 	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'HyperVReplica2012R2'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
@@ -6379,6 +6429,7 @@ func (o HyperVReplicaBluePolicyDetailsResponseOutput) InitialReplicationMethod()
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'HyperVReplica2012R2'.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -6429,6 +6480,7 @@ type HyperVReplicaBluePolicyInput struct {
 	// A value indicating whether IR is online.
 	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
 	// The class type.
+	// Expected value is 'HyperVReplica2012R2'.
 	InstanceType *string `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
@@ -6468,6 +6520,7 @@ type HyperVReplicaBluePolicyInputArgs struct {
 	// A value indicating whether IR is online.
 	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
 	// The class type.
+	// Expected value is 'HyperVReplica2012R2'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
@@ -6533,6 +6586,7 @@ func (o HyperVReplicaBluePolicyInputOutput) InitialReplicationMethod() pulumi.St
 }
 
 // The class type.
+// Expected value is 'HyperVReplica2012R2'.
 func (o HyperVReplicaBluePolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -6577,6 +6631,7 @@ type HyperVReplicaBlueReplicationDetailsResponse struct {
 	// Initial replication details.
 	InitialReplicationDetails *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
 	// Gets the Instance type.
+	// Expected value is 'HyperVReplica2012R2'.
 	InstanceType string `pulumi:"instanceType"`
 	// The Last replication time.
 	LastReplicatedTime *string `pulumi:"lastReplicatedTime"`
@@ -6608,6 +6663,7 @@ type HyperVReplicaBlueReplicationDetailsResponseArgs struct {
 	// Initial replication details.
 	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
 	// Gets the Instance type.
+	// Expected value is 'HyperVReplica2012R2'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The Last replication time.
 	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
@@ -6658,6 +6714,7 @@ func (o HyperVReplicaBlueReplicationDetailsResponseOutput) InitialReplicationDet
 }
 
 // Gets the Instance type.
+// Expected value is 'HyperVReplica2012R2'.
 func (o HyperVReplicaBlueReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaBlueReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -6703,6 +6760,7 @@ type HyperVReplicaPolicyDetailsResponse struct {
 	// A value indicating whether IR is online.
 	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'HyperVReplica2012'.
 	InstanceType string `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
@@ -6740,6 +6798,7 @@ type HyperVReplicaPolicyDetailsResponseArgs struct {
 	// A value indicating whether IR is online.
 	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'HyperVReplica2012'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
@@ -6805,6 +6864,7 @@ func (o HyperVReplicaPolicyDetailsResponseOutput) InitialReplicationMethod() pul
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'HyperVReplica2012'.
 func (o HyperVReplicaPolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -6850,6 +6910,7 @@ type HyperVReplicaPolicyInput struct {
 	// A value indicating whether IR is online.
 	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
 	// The class type.
+	// Expected value is 'HyperVReplica2012'.
 	InstanceType *string `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
@@ -6887,6 +6948,7 @@ type HyperVReplicaPolicyInputArgs struct {
 	// A value indicating whether IR is online.
 	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
 	// The class type.
+	// Expected value is 'HyperVReplica2012'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
@@ -6950,6 +7012,7 @@ func (o HyperVReplicaPolicyInputOutput) InitialReplicationMethod() pulumi.String
 }
 
 // The class type.
+// Expected value is 'HyperVReplica2012'.
 func (o HyperVReplicaPolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -6989,6 +7052,7 @@ type HyperVReplicaReplicationDetailsResponse struct {
 	// Initial replication details.
 	InitialReplicationDetails *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
 	// Gets the Instance type.
+	// Expected value is 'HyperVReplica2012'.
 	InstanceType string `pulumi:"instanceType"`
 	// The Last replication time.
 	LastReplicatedTime *string `pulumi:"lastReplicatedTime"`
@@ -7020,6 +7084,7 @@ type HyperVReplicaReplicationDetailsResponseArgs struct {
 	// Initial replication details.
 	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
 	// Gets the Instance type.
+	// Expected value is 'HyperVReplica2012'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The Last replication time.
 	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
@@ -7070,6 +7135,7 @@ func (o HyperVReplicaReplicationDetailsResponseOutput) InitialReplicationDetails
 }
 
 // Gets the Instance type.
+// Expected value is 'HyperVReplica2012'.
 func (o HyperVReplicaReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -7107,6 +7173,7 @@ func (o HyperVReplicaReplicationDetailsResponseOutput) VmProtectionStateDescript
 // HyperVSite fabric specific details.
 type HyperVSiteDetailsResponse struct {
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'HyperVSite'.
 	InstanceType string `pulumi:"instanceType"`
 }
 
@@ -7124,6 +7191,7 @@ type HyperVSiteDetailsResponseInput interface {
 // HyperVSite fabric specific details.
 type HyperVSiteDetailsResponseArgs struct {
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'HyperVSite'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 }
 
@@ -7155,6 +7223,7 @@ func (o HyperVSiteDetailsResponseOutput) ToHyperVSiteDetailsResponseOutputWithCo
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'HyperVSite'.
 func (o HyperVSiteDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVSiteDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -7777,6 +7846,7 @@ type InMageAzureV2EnableProtectionInput struct {
 	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
 	EnableRdpOnTargetOption *string `pulumi:"enableRdpOnTargetOption"`
 	// The class type.
+	// Expected value is 'InMageAzureV2'.
 	InstanceType *string `pulumi:"instanceType"`
 	// The storage account to be used for logging during replication.
 	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
@@ -7824,6 +7894,7 @@ type InMageAzureV2EnableProtectionInputArgs struct {
 	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
 	EnableRdpOnTargetOption pulumi.StringPtrInput `pulumi:"enableRdpOnTargetOption"`
 	// The class type.
+	// Expected value is 'InMageAzureV2'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The storage account to be used for logging during replication.
 	LogStorageAccountId pulumi.StringPtrInput `pulumi:"logStorageAccountId"`
@@ -7891,6 +7962,7 @@ func (o InMageAzureV2EnableProtectionInputOutput) EnableRdpOnTargetOption() pulu
 }
 
 // The class type.
+// Expected value is 'InMageAzureV2'.
 func (o InMageAzureV2EnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -7967,6 +8039,7 @@ type InMageAzureV2PolicyDetailsResponse struct {
 	// The crash consistent snapshot frequency in minutes.
 	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'InMageAzureV2'.
 	InstanceType string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled.
 	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
@@ -7994,6 +8067,7 @@ type InMageAzureV2PolicyDetailsResponseArgs struct {
 	// The crash consistent snapshot frequency in minutes.
 	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'InMageAzureV2'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled.
 	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
@@ -8041,6 +8115,7 @@ func (o InMageAzureV2PolicyDetailsResponseOutput) CrashConsistentFrequencyInMinu
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'InMageAzureV2'.
 func (o InMageAzureV2PolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -8067,6 +8142,7 @@ type InMageAzureV2PolicyInput struct {
 	// The crash consistent snapshot frequency (in minutes).
 	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
 	// The class type.
+	// Expected value is 'InMageAzureV2'.
 	InstanceType *string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
@@ -8094,6 +8170,7 @@ type InMageAzureV2PolicyInputArgs struct {
 	// The crash consistent snapshot frequency (in minutes).
 	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
 	// The class type.
+	// Expected value is 'InMageAzureV2'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 	MultiVmSyncStatus pulumi.StringInput `pulumi:"multiVmSyncStatus"`
@@ -8141,6 +8218,7 @@ func (o InMageAzureV2PolicyInputOutput) CrashConsistentFrequencyInMinutes() pulu
 }
 
 // The class type.
+// Expected value is 'InMageAzureV2'.
 func (o InMageAzureV2PolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -8407,6 +8485,7 @@ type InMageAzureV2ReplicationDetailsResponse struct {
 	// The infrastructure VM Id.
 	InfrastructureVmId *string `pulumi:"infrastructureVmId"`
 	// Gets the Instance type.
+	// Expected value is 'InMageAzureV2'.
 	InstanceType string `pulumi:"instanceType"`
 	// The source IP address.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -8522,6 +8601,7 @@ type InMageAzureV2ReplicationDetailsResponseArgs struct {
 	// The infrastructure VM Id.
 	InfrastructureVmId pulumi.StringPtrInput `pulumi:"infrastructureVmId"`
 	// Gets the Instance type.
+	// Expected value is 'InMageAzureV2'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The source IP address.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
@@ -8680,6 +8760,7 @@ func (o InMageAzureV2ReplicationDetailsResponseOutput) InfrastructureVmId() pulu
 }
 
 // Gets the Instance type.
+// Expected value is 'InMageAzureV2'.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -8891,6 +8972,7 @@ type InMageBasePolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'InMageBasePolicyDetails'.
 	InstanceType string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled.
 	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
@@ -8916,6 +8998,7 @@ type InMageBasePolicyDetailsResponseArgs struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'InMageBasePolicyDetails'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled.
 	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
@@ -8958,6 +9041,7 @@ func (o InMageBasePolicyDetailsResponseOutput) AppConsistentFrequencyInMinutes()
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'InMageBasePolicyDetails'.
 func (o InMageBasePolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageBasePolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -9239,6 +9323,7 @@ type InMageEnableProtectionInput struct {
 	// The disks to include list.
 	DisksToInclude []string `pulumi:"disksToInclude"`
 	// The class type.
+	// Expected value is 'InMage'.
 	InstanceType *string `pulumi:"instanceType"`
 	// The Master Target Id.
 	MasterTargetId string `pulumi:"masterTargetId"`
@@ -9276,6 +9361,7 @@ type InMageEnableProtectionInputArgs struct {
 	// The disks to include list.
 	DisksToInclude pulumi.StringArrayInput `pulumi:"disksToInclude"`
 	// The class type.
+	// Expected value is 'InMage'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The Master Target Id.
 	MasterTargetId pulumi.StringInput `pulumi:"masterTargetId"`
@@ -9336,6 +9422,7 @@ func (o InMageEnableProtectionInputOutput) DisksToInclude() pulumi.StringArrayOu
 }
 
 // The class type.
+// Expected value is 'InMage'.
 func (o InMageEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -9380,6 +9467,7 @@ type InMagePolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'InMage'.
 	InstanceType string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled.
 	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
@@ -9405,6 +9493,7 @@ type InMagePolicyDetailsResponseArgs struct {
 	// The app consistent snapshot frequency in minutes.
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'InMage'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled.
 	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
@@ -9447,6 +9536,7 @@ func (o InMagePolicyDetailsResponseOutput) AppConsistentFrequencyInMinutes() pul
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'InMage'.
 func (o InMagePolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v InMagePolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -9471,6 +9561,7 @@ type InMagePolicyInput struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
 	// The class type.
+	// Expected value is 'InMage'.
 	InstanceType *string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
@@ -9496,6 +9587,7 @@ type InMagePolicyInputArgs struct {
 	// The app consistent snapshot frequency (in minutes).
 	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
 	// The class type.
+	// Expected value is 'InMage'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 	MultiVmSyncStatus pulumi.StringInput `pulumi:"multiVmSyncStatus"`
@@ -9538,6 +9630,7 @@ func (o InMagePolicyInputOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtr
 }
 
 // The class type.
+// Expected value is 'InMage'.
 func (o InMagePolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMagePolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -9804,6 +9897,7 @@ type InMageReplicationDetailsResponse struct {
 	// The infrastructure VM Id.
 	InfrastructureVmId *string `pulumi:"infrastructureVmId"`
 	// Gets the Instance type.
+	// Expected value is 'InMage'.
 	InstanceType string `pulumi:"instanceType"`
 	// The source IP address.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -9895,6 +9989,7 @@ type InMageReplicationDetailsResponseArgs struct {
 	// The infrastructure VM Id.
 	InfrastructureVmId pulumi.StringPtrInput `pulumi:"infrastructureVmId"`
 	// Gets the Instance type.
+	// Expected value is 'InMage'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The source IP address.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
@@ -10027,6 +10122,7 @@ func (o InMageReplicationDetailsResponseOutput) InfrastructureVmId() pulumi.Stri
 }
 
 // Gets the Instance type.
+// Expected value is 'InMage'.
 func (o InMageReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -13207,6 +13303,7 @@ type RcmAzureMigrationPolicyDetailsResponse struct {
 	// The crash consistent snapshot frequency in minutes.
 	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'RcmAzureMigration'.
 	InstanceType string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled.
 	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
@@ -13234,6 +13331,7 @@ type RcmAzureMigrationPolicyDetailsResponseArgs struct {
 	// The crash consistent snapshot frequency in minutes.
 	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'RcmAzureMigration'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled.
 	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
@@ -13281,6 +13379,7 @@ func (o RcmAzureMigrationPolicyDetailsResponseOutput) CrashConsistentFrequencyIn
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'RcmAzureMigration'.
 func (o RcmAzureMigrationPolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v RcmAzureMigrationPolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -13550,6 +13649,7 @@ type RecoveryPlanAutomationRunbookActionDetailsResponse struct {
 	// The fabric location.
 	FabricLocation string `pulumi:"fabricLocation"`
 	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+	// Expected value is 'AutomationRunbookActionDetails'.
 	InstanceType string `pulumi:"instanceType"`
 	// The runbook ARM Id.
 	RunbookId *string `pulumi:"runbookId"`
@@ -13573,6 +13673,7 @@ type RecoveryPlanAutomationRunbookActionDetailsResponseArgs struct {
 	// The fabric location.
 	FabricLocation pulumi.StringInput `pulumi:"fabricLocation"`
 	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+	// Expected value is 'AutomationRunbookActionDetails'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The runbook ARM Id.
 	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
@@ -13613,6 +13714,7 @@ func (o RecoveryPlanAutomationRunbookActionDetailsResponseOutput) FabricLocation
 }
 
 // Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+// Expected value is 'AutomationRunbookActionDetails'.
 func (o RecoveryPlanAutomationRunbookActionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanAutomationRunbookActionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -13888,6 +13990,7 @@ type RecoveryPlanManualActionDetailsResponse struct {
 	// The manual action description.
 	Description *string `pulumi:"description"`
 	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+	// Expected value is 'ManualActionDetails'.
 	InstanceType string `pulumi:"instanceType"`
 }
 
@@ -13907,6 +14010,7 @@ type RecoveryPlanManualActionDetailsResponseArgs struct {
 	// The manual action description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+	// Expected value is 'ManualActionDetails'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 }
 
@@ -13943,6 +14047,7 @@ func (o RecoveryPlanManualActionDetailsResponseOutput) Description() pulumi.Stri
 }
 
 // Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+// Expected value is 'ManualActionDetails'.
 func (o RecoveryPlanManualActionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanManualActionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -14570,6 +14675,7 @@ type RecoveryPlanScriptActionDetailsResponse struct {
 	// The fabric location.
 	FabricLocation string `pulumi:"fabricLocation"`
 	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+	// Expected value is 'ScriptActionDetails'.
 	InstanceType string `pulumi:"instanceType"`
 	// The script path.
 	Path string `pulumi:"path"`
@@ -14593,6 +14699,7 @@ type RecoveryPlanScriptActionDetailsResponseArgs struct {
 	// The fabric location.
 	FabricLocation pulumi.StringInput `pulumi:"fabricLocation"`
 	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+	// Expected value is 'ScriptActionDetails'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The script path.
 	Path pulumi.StringInput `pulumi:"path"`
@@ -14633,6 +14740,7 @@ func (o RecoveryPlanScriptActionDetailsResponseOutput) FabricLocation() pulumi.S
 }
 
 // Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+// Expected value is 'ScriptActionDetails'.
 func (o RecoveryPlanScriptActionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanScriptActionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -16085,6 +16193,7 @@ func (o RunAsAccountResponseArrayOutput) Index(i pulumi.IntInput) RunAsAccountRe
 // San enable protection provider specific input.
 type SanEnableProtectionInput struct {
 	// The class type.
+	// Expected value is 'San'.
 	InstanceType *string `pulumi:"instanceType"`
 }
 
@@ -16102,6 +16211,7 @@ type SanEnableProtectionInputInput interface {
 // San enable protection provider specific input.
 type SanEnableProtectionInputArgs struct {
 	// The class type.
+	// Expected value is 'San'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 }
 
@@ -16133,6 +16243,7 @@ func (o SanEnableProtectionInputOutput) ToSanEnableProtectionInputOutputWithCont
 }
 
 // The class type.
+// Expected value is 'San'.
 func (o SanEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SanEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -16942,6 +17053,7 @@ func (o VMNicDetailsResponseArrayOutput) Index(i pulumi.IntInput) VMNicDetailsRe
 // VMwareCbt container mapping input.
 type VMwareCbtContainerMappingInput struct {
 	// The class type.
+	// Expected value is 'VMwareCbt'.
 	InstanceType *string `pulumi:"instanceType"`
 	// The target key vault ARM Id.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -16971,6 +17083,7 @@ type VMwareCbtContainerMappingInputInput interface {
 // VMwareCbt container mapping input.
 type VMwareCbtContainerMappingInputArgs struct {
 	// The class type.
+	// Expected value is 'VMwareCbt'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The target key vault ARM Id.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
@@ -17014,6 +17127,7 @@ func (o VMwareCbtContainerMappingInputOutput) ToVMwareCbtContainerMappingInputOu
 }
 
 // The class type.
+// Expected value is 'VMwareCbt'.
 func (o VMwareCbtContainerMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtContainerMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -17200,6 +17314,7 @@ type VMwareCbtEnableMigrationInput struct {
 	// The disks to include list.
 	DisksToInclude []VMwareCbtDiskInput `pulumi:"disksToInclude"`
 	// The class type.
+	// Expected value is 'VMwareCbt'.
 	InstanceType string `pulumi:"instanceType"`
 	// License type.
 	LicenseType *string `pulumi:"licenseType"`
@@ -17245,6 +17360,7 @@ type VMwareCbtEnableMigrationInputArgs struct {
 	// The disks to include list.
 	DisksToInclude VMwareCbtDiskInputArrayInput `pulumi:"disksToInclude"`
 	// The class type.
+	// Expected value is 'VMwareCbt'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// License type.
 	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
@@ -17361,6 +17477,7 @@ func (o VMwareCbtEnableMigrationInputOutput) DisksToInclude() VMwareCbtDiskInput
 }
 
 // The class type.
+// Expected value is 'VMwareCbt'.
 func (o VMwareCbtEnableMigrationInputOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -17464,6 +17581,7 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) DisksToInclude() VMwareCbtDiskIn
 }
 
 // The class type.
+// Expected value is 'VMwareCbt'.
 func (o VMwareCbtEnableMigrationInputPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17602,6 +17720,7 @@ type VMwareCbtMigrationDetailsResponse struct {
 	// The initial seeding progress percentage.
 	InitialSeedingProgressPercentage int `pulumi:"initialSeedingProgressPercentage"`
 	// Gets the instance type.
+	// Expected value is 'VMwareCbt'.
 	InstanceType string `pulumi:"instanceType"`
 	// The last recovery point Id.
 	LastRecoveryPointId string `pulumi:"lastRecoveryPointId"`
@@ -17671,6 +17790,7 @@ type VMwareCbtMigrationDetailsResponseArgs struct {
 	// The initial seeding progress percentage.
 	InitialSeedingProgressPercentage pulumi.IntInput `pulumi:"initialSeedingProgressPercentage"`
 	// Gets the instance type.
+	// Expected value is 'VMwareCbt'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The last recovery point Id.
 	LastRecoveryPointId pulumi.StringInput `pulumi:"lastRecoveryPointId"`
@@ -17814,6 +17934,7 @@ func (o VMwareCbtMigrationDetailsResponseOutput) InitialSeedingProgressPercentag
 }
 
 // Gets the instance type.
+// Expected value is 'VMwareCbt'.
 func (o VMwareCbtMigrationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -17984,6 +18105,7 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) InitialSeedingProgressPercen
 }
 
 // Gets the instance type.
+// Expected value is 'VMwareCbt'.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18402,6 +18524,7 @@ type VMwareCbtPolicyCreationInput struct {
 	// The crash consistent snapshot frequency (in minutes).
 	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
 	// The class type.
+	// Expected value is 'VMwareCbt'.
 	InstanceType *string `pulumi:"instanceType"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistoryInMinutes *int `pulumi:"recoveryPointHistoryInMinutes"`
@@ -18425,6 +18548,7 @@ type VMwareCbtPolicyCreationInputArgs struct {
 	// The crash consistent snapshot frequency (in minutes).
 	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
 	// The class type.
+	// Expected value is 'VMwareCbt'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistoryInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointHistoryInMinutes"`
@@ -18468,6 +18592,7 @@ func (o VMwareCbtPolicyCreationInputOutput) CrashConsistentFrequencyInMinutes() 
 }
 
 // The class type.
+// Expected value is 'VMwareCbt'.
 func (o VMwareCbtPolicyCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtPolicyCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -18670,6 +18795,7 @@ func (o VMwareCbtProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInpu
 // VMwareCbt provider specific container mapping details.
 type VMwareCbtProtectionContainerMappingDetailsResponse struct {
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'VMwareCbt'.
 	InstanceType string `pulumi:"instanceType"`
 	// The target key vault ARM Id.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -18699,6 +18825,7 @@ type VMwareCbtProtectionContainerMappingDetailsResponseInput interface {
 // VMwareCbt provider specific container mapping details.
 type VMwareCbtProtectionContainerMappingDetailsResponseArgs struct {
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'VMwareCbt'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The target key vault ARM Id.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
@@ -18742,6 +18869,7 @@ func (o VMwareCbtProtectionContainerMappingDetailsResponseOutput) ToVMwareCbtPro
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'VMwareCbt'.
 func (o VMwareCbtProtectionContainerMappingDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectionContainerMappingDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -18807,6 +18935,7 @@ type VMwareDetailsResponse struct {
 	// The host name.
 	HostName *string `pulumi:"hostName"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'VMware'.
 	InstanceType string `pulumi:"instanceType"`
 	// The IP address.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -18888,6 +19017,7 @@ type VMwareDetailsResponseArgs struct {
 	// The host name.
 	HostName pulumi.StringPtrInput `pulumi:"hostName"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'VMware'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The IP address.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
@@ -19019,6 +19149,7 @@ func (o VMwareDetailsResponseOutput) HostName() pulumi.StringPtrOutput {
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'VMware'.
 func (o VMwareDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -19126,6 +19257,7 @@ func (o VMwareDetailsResponseOutput) WebLoadStatus() pulumi.StringPtrOutput {
 // VMwareV2 fabric provider specific settings.
 type VMwareV2FabricCreationInput struct {
 	// Gets the class type.
+	// Expected value is 'VMwareV2'.
 	InstanceType *string `pulumi:"instanceType"`
 	// The ARM Id of the migration solution.
 	MigrationSolutionId string `pulumi:"migrationSolutionId"`
@@ -19149,6 +19281,7 @@ type VMwareV2FabricCreationInputInput interface {
 // VMwareV2 fabric provider specific settings.
 type VMwareV2FabricCreationInputArgs struct {
 	// Gets the class type.
+	// Expected value is 'VMwareV2'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The ARM Id of the migration solution.
 	MigrationSolutionId pulumi.StringInput `pulumi:"migrationSolutionId"`
@@ -19186,6 +19319,7 @@ func (o VMwareV2FabricCreationInputOutput) ToVMwareV2FabricCreationInputOutputWi
 }
 
 // Gets the class type.
+// Expected value is 'VMwareV2'.
 func (o VMwareV2FabricCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareV2FabricCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -19208,6 +19342,7 @@ func (o VMwareV2FabricCreationInputOutput) VmwareSiteId() pulumi.StringPtrOutput
 // VMwareV2 fabric specific details.
 type VMwareV2FabricSpecificDetailsResponse struct {
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'VMwareV2'.
 	InstanceType string `pulumi:"instanceType"`
 	// The Migration solution ARM Id.
 	MigrationSolutionId string `pulumi:"migrationSolutionId"`
@@ -19235,6 +19370,7 @@ type VMwareV2FabricSpecificDetailsResponseInput interface {
 // VMwareV2 fabric specific details.
 type VMwareV2FabricSpecificDetailsResponseArgs struct {
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'VMwareV2'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The Migration solution ARM Id.
 	MigrationSolutionId pulumi.StringInput `pulumi:"migrationSolutionId"`
@@ -19276,6 +19412,7 @@ func (o VMwareV2FabricSpecificDetailsResponseOutput) ToVMwareV2FabricSpecificDet
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'VMwareV2'.
 func (o VMwareV2FabricSpecificDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareV2FabricSpecificDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -19480,6 +19617,7 @@ func (o VersionDetailsResponsePtrOutput) Version() pulumi.StringPtrOutput {
 // VMM fabric specific details.
 type VmmDetailsResponse struct {
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'VMM'.
 	InstanceType string `pulumi:"instanceType"`
 }
 
@@ -19497,6 +19635,7 @@ type VmmDetailsResponseInput interface {
 // VMM fabric specific details.
 type VmmDetailsResponseArgs struct {
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'VMM'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 }
 
@@ -19528,6 +19667,7 @@ func (o VmmDetailsResponseOutput) ToVmmDetailsResponseOutputWithContext(ctx cont
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'VMM'.
 func (o VmmDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VmmDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -19535,6 +19675,7 @@ func (o VmmDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 // Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
 type VmmToAzureCreateNetworkMappingInput struct {
 	// The instance type.
+	// Expected value is 'VmmToAzure'.
 	InstanceType *string `pulumi:"instanceType"`
 }
 
@@ -19552,6 +19693,7 @@ type VmmToAzureCreateNetworkMappingInputInput interface {
 // Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
 type VmmToAzureCreateNetworkMappingInputArgs struct {
 	// The instance type.
+	// Expected value is 'VmmToAzure'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 }
 
@@ -19583,6 +19725,7 @@ func (o VmmToAzureCreateNetworkMappingInputOutput) ToVmmToAzureCreateNetworkMapp
 }
 
 // The instance type.
+// Expected value is 'VmmToAzure'.
 func (o VmmToAzureCreateNetworkMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmmToAzureCreateNetworkMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -19590,6 +19733,7 @@ func (o VmmToAzureCreateNetworkMappingInputOutput) InstanceType() pulumi.StringP
 // E2A Network Mapping fabric specific settings.
 type VmmToAzureNetworkMappingSettingsResponse struct {
 	// Gets the Instance type.
+	// Expected value is 'VmmToAzure'.
 	InstanceType string `pulumi:"instanceType"`
 }
 
@@ -19607,6 +19751,7 @@ type VmmToAzureNetworkMappingSettingsResponseInput interface {
 // E2A Network Mapping fabric specific settings.
 type VmmToAzureNetworkMappingSettingsResponseArgs struct {
 	// Gets the Instance type.
+	// Expected value is 'VmmToAzure'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 }
 
@@ -19638,6 +19783,7 @@ func (o VmmToAzureNetworkMappingSettingsResponseOutput) ToVmmToAzureNetworkMappi
 }
 
 // Gets the Instance type.
+// Expected value is 'VmmToAzure'.
 func (o VmmToAzureNetworkMappingSettingsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VmmToAzureNetworkMappingSettingsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -19645,6 +19791,7 @@ func (o VmmToAzureNetworkMappingSettingsResponseOutput) InstanceType() pulumi.St
 // Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
 type VmmToVmmCreateNetworkMappingInput struct {
 	// The instance type.
+	// Expected value is 'VmmToVmm'.
 	InstanceType *string `pulumi:"instanceType"`
 }
 
@@ -19662,6 +19809,7 @@ type VmmToVmmCreateNetworkMappingInputInput interface {
 // Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
 type VmmToVmmCreateNetworkMappingInputArgs struct {
 	// The instance type.
+	// Expected value is 'VmmToVmm'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 }
 
@@ -19693,6 +19841,7 @@ func (o VmmToVmmCreateNetworkMappingInputOutput) ToVmmToVmmCreateNetworkMappingI
 }
 
 // The instance type.
+// Expected value is 'VmmToVmm'.
 func (o VmmToVmmCreateNetworkMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmmToVmmCreateNetworkMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -19700,6 +19849,7 @@ func (o VmmToVmmCreateNetworkMappingInputOutput) InstanceType() pulumi.StringPtr
 // E2E Network Mapping fabric specific settings.
 type VmmToVmmNetworkMappingSettingsResponse struct {
 	// Gets the Instance type.
+	// Expected value is 'VmmToVmm'.
 	InstanceType string `pulumi:"instanceType"`
 }
 
@@ -19717,6 +19867,7 @@ type VmmToVmmNetworkMappingSettingsResponseInput interface {
 // E2E Network Mapping fabric specific settings.
 type VmmToVmmNetworkMappingSettingsResponseArgs struct {
 	// Gets the Instance type.
+	// Expected value is 'VmmToVmm'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 }
 
@@ -19748,6 +19899,7 @@ func (o VmmToVmmNetworkMappingSettingsResponseOutput) ToVmmToVmmNetworkMappingSe
 }
 
 // Gets the Instance type.
+// Expected value is 'VmmToVmm'.
 func (o VmmToVmmNetworkMappingSettingsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VmmToVmmNetworkMappingSettingsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -19759,6 +19911,7 @@ type VmwareCbtPolicyDetailsResponse struct {
 	// The crash consistent snapshot frequency in minutes.
 	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'VMwareCbt'.
 	InstanceType string `pulumi:"instanceType"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistoryInMinutes *int `pulumi:"recoveryPointHistoryInMinutes"`
@@ -19782,6 +19935,7 @@ type VmwareCbtPolicyDetailsResponseArgs struct {
 	// The crash consistent snapshot frequency in minutes.
 	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
 	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'VMwareCbt'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistoryInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointHistoryInMinutes"`
@@ -19825,6 +19979,7 @@ func (o VmwareCbtPolicyDetailsResponseOutput) CrashConsistentFrequencyInMinutes(
 }
 
 // Gets the class type. Overridden in derived classes.
+// Expected value is 'VMwareCbt'.
 func (o VmwareCbtPolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VmwareCbtPolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }

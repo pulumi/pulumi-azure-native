@@ -723,6 +723,7 @@ type VmGuestHealthAlertCriterion struct {
 	// Names of health monitor type on which to define alert
 	MonitorTypes []string `pulumi:"monitorTypes"`
 	// specifies the type of the alert criterion.
+	// Expected value is 'GuestVmHealth'.
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -746,6 +747,7 @@ type VmGuestHealthAlertCriterionArgs struct {
 	// Names of health monitor type on which to define alert
 	MonitorTypes pulumi.StringArrayInput `pulumi:"monitorTypes"`
 	// specifies the type of the alert criterion.
+	// Expected value is 'GuestVmHealth'.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -817,6 +819,7 @@ func (o VmGuestHealthAlertCriterionOutput) MonitorTypes() pulumi.StringArrayOutp
 }
 
 // specifies the type of the alert criterion.
+// Expected value is 'GuestVmHealth'.
 func (o VmGuestHealthAlertCriterionOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterion) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -850,6 +853,7 @@ type VmGuestHealthAlertCriterionResponse struct {
 	// Names of health monitor type on which to define alert
 	MonitorTypes []string `pulumi:"monitorTypes"`
 	// specifies the type of the alert criterion.
+	// Expected value is 'GuestVmHealth'.
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -873,6 +877,7 @@ type VmGuestHealthAlertCriterionResponseArgs struct {
 	// Names of health monitor type on which to define alert
 	MonitorTypes pulumi.StringArrayInput `pulumi:"monitorTypes"`
 	// specifies the type of the alert criterion.
+	// Expected value is 'GuestVmHealth'.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -944,6 +949,7 @@ func (o VmGuestHealthAlertCriterionResponseOutput) MonitorTypes() pulumi.StringA
 }
 
 // specifies the type of the alert criterion.
+// Expected value is 'GuestVmHealth'.
 func (o VmGuestHealthAlertCriterionResponseOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterionResponse) string { return v.Namespace }).(pulumi.StringOutput)
 }

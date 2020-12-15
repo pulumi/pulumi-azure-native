@@ -27,6 +27,7 @@ type AzureIaaSVMProtectedItem struct {
 	// The ID of the backup policy associated with this backup item.
 	PolicyId *string `pulumi:"policyId"`
 	// The backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -68,6 +69,7 @@ type AzureIaaSVMProtectedItemArgs struct {
 	// The ID of the backup policy associated with this backup item.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// The backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
 	ProtectionState ProtectionState `pulumi:"protectionState"`
@@ -144,6 +146,7 @@ func (o AzureIaaSVMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // The backup item type.
+// Expected value is 'AzureIaaSVMProtectedItem'.
 func (o AzureIaaSVMProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -348,6 +351,7 @@ func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulu
 // Azure VM (also known as IaaS VM) workload-specific backup policy.
 type AzureIaaSVMProtectionPolicy struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
 	BackupManagementType *string `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -371,6 +375,7 @@ type AzureIaaSVMProtectionPolicyInput interface {
 // Azure VM (also known as IaaS VM) workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -408,6 +413,7 @@ func (o AzureIaaSVMProtectionPolicyOutput) ToAzureIaaSVMProtectionPolicyOutputWi
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureIaasVM'.
 func (o AzureIaaSVMProtectionPolicyOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectionPolicy) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
@@ -430,6 +436,7 @@ func (o AzureIaaSVMProtectionPolicyOutput) SchedulePolicy() pulumi.AnyOutput {
 // Azure VM (also known as IaaS VM) workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyResponse struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
 	BackupManagementType *string `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -453,6 +460,7 @@ type AzureIaaSVMProtectionPolicyResponseInput interface {
 // Azure VM (also known as IaaS VM) workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyResponseArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -490,6 +498,7 @@ func (o AzureIaaSVMProtectionPolicyResponseOutput) ToAzureIaaSVMProtectionPolicy
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureIaasVM'.
 func (o AzureIaaSVMProtectionPolicyResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
@@ -522,6 +531,7 @@ type AzureSqlProtectedItem struct {
 	// The internal ID of a backup item. The internal ID is used by the Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// The backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// The backup state of the backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -555,6 +565,7 @@ type AzureSqlProtectedItemArgs struct {
 	// The internal ID of a backup item. The internal ID is used by the Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// The backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// The backup state of the backup item.
 	ProtectionState ProtectedItemState `pulumi:"protectionState"`
@@ -617,6 +628,7 @@ func (o AzureSqlProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOutpu
 }
 
 // The backup item type.
+// Expected value is 'Microsoft.Sql/servers/databases'.
 func (o AzureSqlProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -811,6 +823,7 @@ func (o AzureSqlProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.
 //  The Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicy struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
 	BackupManagementType *string `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -832,6 +845,7 @@ type AzureSqlProtectionPolicyInput interface {
 //  The Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -867,6 +881,7 @@ func (o AzureSqlProtectionPolicyOutput) ToAzureSqlProtectionPolicyOutputWithCont
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureSql'.
 func (o AzureSqlProtectionPolicyOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectionPolicy) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
@@ -884,6 +899,7 @@ func (o AzureSqlProtectionPolicyOutput) RetentionPolicy() pulumi.AnyOutput {
 //  The Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyResponse struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
 	BackupManagementType *string `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -905,6 +921,7 @@ type AzureSqlProtectionPolicyResponseInput interface {
 //  The Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyResponseArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -940,6 +957,7 @@ func (o AzureSqlProtectionPolicyResponseOutput) ToAzureSqlProtectionPolicyRespon
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureSql'.
 func (o AzureSqlProtectionPolicyResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectionPolicyResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
@@ -2047,6 +2065,7 @@ type LongTermRetentionPolicy struct {
 	// Monthly retention schedule of the backup policy.
 	MonthlySchedule *MonthlyRetentionSchedule `pulumi:"monthlySchedule"`
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
 	RetentionPolicyType *string `pulumi:"retentionPolicyType"`
 	// Weekly retention schedule of the backup policy.
 	WeeklySchedule *WeeklyRetentionSchedule `pulumi:"weeklySchedule"`
@@ -2072,6 +2091,7 @@ type LongTermRetentionPolicyArgs struct {
 	// Monthly retention schedule of the backup policy.
 	MonthlySchedule MonthlyRetentionSchedulePtrInput `pulumi:"monthlySchedule"`
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
 	RetentionPolicyType pulumi.StringPtrInput `pulumi:"retentionPolicyType"`
 	// Weekly retention schedule of the backup policy.
 	WeeklySchedule WeeklyRetentionSchedulePtrInput `pulumi:"weeklySchedule"`
@@ -2117,6 +2137,7 @@ func (o LongTermRetentionPolicyOutput) MonthlySchedule() MonthlyRetentionSchedul
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermRetentionPolicy'.
 func (o LongTermRetentionPolicyOutput) RetentionPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LongTermRetentionPolicy) *string { return v.RetentionPolicyType }).(pulumi.StringPtrOutput)
 }
@@ -2138,6 +2159,7 @@ type LongTermRetentionPolicyResponse struct {
 	// Monthly retention schedule of the backup policy.
 	MonthlySchedule *MonthlyRetentionScheduleResponse `pulumi:"monthlySchedule"`
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
 	RetentionPolicyType *string `pulumi:"retentionPolicyType"`
 	// Weekly retention schedule of the backup policy.
 	WeeklySchedule *WeeklyRetentionScheduleResponse `pulumi:"weeklySchedule"`
@@ -2163,6 +2185,7 @@ type LongTermRetentionPolicyResponseArgs struct {
 	// Monthly retention schedule of the backup policy.
 	MonthlySchedule MonthlyRetentionScheduleResponsePtrInput `pulumi:"monthlySchedule"`
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
 	RetentionPolicyType pulumi.StringPtrInput `pulumi:"retentionPolicyType"`
 	// Weekly retention schedule of the backup policy.
 	WeeklySchedule WeeklyRetentionScheduleResponsePtrInput `pulumi:"weeklySchedule"`
@@ -2208,6 +2231,7 @@ func (o LongTermRetentionPolicyResponseOutput) MonthlySchedule() MonthlyRetentio
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermRetentionPolicy'.
 func (o LongTermRetentionPolicyResponseOutput) RetentionPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LongTermRetentionPolicyResponse) *string { return v.RetentionPolicyType }).(pulumi.StringPtrOutput)
 }
@@ -2225,6 +2249,7 @@ func (o LongTermRetentionPolicyResponseOutput) YearlySchedule() YearlyRetentionS
 // Long-term policy schedule.
 type LongTermSchedulePolicy struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
 	SchedulePolicyType *string `pulumi:"schedulePolicyType"`
 }
 
@@ -2242,6 +2267,7 @@ type LongTermSchedulePolicyInput interface {
 // Long-term policy schedule.
 type LongTermSchedulePolicyArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
 	SchedulePolicyType pulumi.StringPtrInput `pulumi:"schedulePolicyType"`
 }
 
@@ -2273,6 +2299,7 @@ func (o LongTermSchedulePolicyOutput) ToLongTermSchedulePolicyOutputWithContext(
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermSchedulePolicy'.
 func (o LongTermSchedulePolicyOutput) SchedulePolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LongTermSchedulePolicy) *string { return v.SchedulePolicyType }).(pulumi.StringPtrOutput)
 }
@@ -2280,6 +2307,7 @@ func (o LongTermSchedulePolicyOutput) SchedulePolicyType() pulumi.StringPtrOutpu
 // Long-term policy schedule.
 type LongTermSchedulePolicyResponse struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
 	SchedulePolicyType *string `pulumi:"schedulePolicyType"`
 }
 
@@ -2297,6 +2325,7 @@ type LongTermSchedulePolicyResponseInput interface {
 // Long-term policy schedule.
 type LongTermSchedulePolicyResponseArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
 	SchedulePolicyType pulumi.StringPtrInput `pulumi:"schedulePolicyType"`
 }
 
@@ -2328,6 +2357,7 @@ func (o LongTermSchedulePolicyResponseOutput) ToLongTermSchedulePolicyResponseOu
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermSchedulePolicy'.
 func (o LongTermSchedulePolicyResponseOutput) SchedulePolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LongTermSchedulePolicyResponse) *string { return v.SchedulePolicyType }).(pulumi.StringPtrOutput)
 }
@@ -2350,6 +2380,7 @@ type MabFileFolderProtectedItem struct {
 	// The ID of the backup policy associated with this backup item.
 	PolicyId *string `pulumi:"policyId"`
 	// The backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// The states for this property are: Protected, ProtectionStopped, IRPending, or ProtectionError.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -2388,6 +2419,7 @@ type MabFileFolderProtectedItemArgs struct {
 	// The ID of the backup policy associated with this backup item.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// The backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// The states for this property are: Protected, ProtectionStopped, IRPending, or ProtectionError.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -2464,6 +2496,7 @@ func (o MabFileFolderProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // The backup item type.
+// Expected value is 'MabFileFolderProtectedItem'.
 func (o MabFileFolderProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -2658,6 +2691,7 @@ func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pu
 // The backup policy for the file or folder container.
 type MabProtectionPolicy struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
 	BackupManagementType *string `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -2681,6 +2715,7 @@ type MabProtectionPolicyInput interface {
 // The backup policy for the file or folder container.
 type MabProtectionPolicyArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -2718,6 +2753,7 @@ func (o MabProtectionPolicyOutput) ToMabProtectionPolicyOutputWithContext(ctx co
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'MAB'.
 func (o MabProtectionPolicyOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabProtectionPolicy) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
@@ -2740,6 +2776,7 @@ func (o MabProtectionPolicyOutput) SchedulePolicy() pulumi.AnyOutput {
 // The backup policy for the file or folder container.
 type MabProtectionPolicyResponse struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
 	BackupManagementType *string `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
@@ -2763,6 +2800,7 @@ type MabProtectionPolicyResponseInput interface {
 // The backup policy for the file or folder container.
 type MabProtectionPolicyResponseArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
@@ -2800,6 +2838,7 @@ func (o MabProtectionPolicyResponseOutput) ToMabProtectionPolicyResponseOutputWi
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'MAB'.
 func (o MabProtectionPolicyResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabProtectionPolicyResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
@@ -3876,6 +3915,7 @@ type SimpleRetentionPolicy struct {
 	// Retention duration of the protection policy.
 	RetentionDuration *RetentionDuration `pulumi:"retentionDuration"`
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
 	RetentionPolicyType *string `pulumi:"retentionPolicyType"`
 }
 
@@ -3895,6 +3935,7 @@ type SimpleRetentionPolicyArgs struct {
 	// Retention duration of the protection policy.
 	RetentionDuration RetentionDurationPtrInput `pulumi:"retentionDuration"`
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
 	RetentionPolicyType pulumi.StringPtrInput `pulumi:"retentionPolicyType"`
 }
 
@@ -3931,6 +3972,7 @@ func (o SimpleRetentionPolicyOutput) RetentionDuration() RetentionDurationPtrOut
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleRetentionPolicy'.
 func (o SimpleRetentionPolicyOutput) RetentionPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SimpleRetentionPolicy) *string { return v.RetentionPolicyType }).(pulumi.StringPtrOutput)
 }
@@ -3940,6 +3982,7 @@ type SimpleRetentionPolicyResponse struct {
 	// Retention duration of the protection policy.
 	RetentionDuration *RetentionDurationResponse `pulumi:"retentionDuration"`
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
 	RetentionPolicyType *string `pulumi:"retentionPolicyType"`
 }
 
@@ -3959,6 +4002,7 @@ type SimpleRetentionPolicyResponseArgs struct {
 	// Retention duration of the protection policy.
 	RetentionDuration RetentionDurationResponsePtrInput `pulumi:"retentionDuration"`
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
 	RetentionPolicyType pulumi.StringPtrInput `pulumi:"retentionPolicyType"`
 }
 
@@ -3995,6 +4039,7 @@ func (o SimpleRetentionPolicyResponseOutput) RetentionDuration() RetentionDurati
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleRetentionPolicy'.
 func (o SimpleRetentionPolicyResponseOutput) RetentionPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SimpleRetentionPolicyResponse) *string { return v.RetentionPolicyType }).(pulumi.StringPtrOutput)
 }
@@ -4002,6 +4047,7 @@ func (o SimpleRetentionPolicyResponseOutput) RetentionPolicyType() pulumi.String
 // Simple policy schedule.
 type SimpleSchedulePolicy struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType *string `pulumi:"schedulePolicyType"`
 	// This list is the days of the week when the schedule runs.
 	ScheduleRunDays []string `pulumi:"scheduleRunDays"`
@@ -4027,6 +4073,7 @@ type SimpleSchedulePolicyInput interface {
 // Simple policy schedule.
 type SimpleSchedulePolicyArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType pulumi.StringPtrInput `pulumi:"schedulePolicyType"`
 	// This list is the days of the week when the schedule runs.
 	ScheduleRunDays DayOfWeekArrayInput `pulumi:"scheduleRunDays"`
@@ -4066,6 +4113,7 @@ func (o SimpleSchedulePolicyOutput) ToSimpleSchedulePolicyOutputWithContext(ctx 
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleSchedulePolicy'.
 func (o SimpleSchedulePolicyOutput) SchedulePolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SimpleSchedulePolicy) *string { return v.SchedulePolicyType }).(pulumi.StringPtrOutput)
 }
@@ -4093,6 +4141,7 @@ func (o SimpleSchedulePolicyOutput) ScheduleWeeklyFrequency() pulumi.IntPtrOutpu
 // Simple policy schedule.
 type SimpleSchedulePolicyResponse struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType *string `pulumi:"schedulePolicyType"`
 	// This list is the days of the week when the schedule runs.
 	ScheduleRunDays []string `pulumi:"scheduleRunDays"`
@@ -4118,6 +4167,7 @@ type SimpleSchedulePolicyResponseInput interface {
 // Simple policy schedule.
 type SimpleSchedulePolicyResponseArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType pulumi.StringPtrInput `pulumi:"schedulePolicyType"`
 	// This list is the days of the week when the schedule runs.
 	ScheduleRunDays pulumi.StringArrayInput `pulumi:"scheduleRunDays"`
@@ -4157,6 +4207,7 @@ func (o SimpleSchedulePolicyResponseOutput) ToSimpleSchedulePolicyResponseOutput
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleSchedulePolicy'.
 func (o SimpleSchedulePolicyResponseOutput) SchedulePolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SimpleSchedulePolicyResponse) *string { return v.SchedulePolicyType }).(pulumi.StringPtrOutput)
 }

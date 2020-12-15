@@ -13,6 +13,7 @@ import (
 // Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination
+	// Expected value is 'EventHub'.
 	EndpointType string `pulumi:"endpointType"`
 	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
 	ResourceId *string `pulumi:"resourceId"`
@@ -32,6 +33,7 @@ type EventHubEventSubscriptionDestinationInput interface {
 // Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationArgs struct {
 	// Type of the endpoint for the event subscription destination
+	// Expected value is 'EventHub'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
@@ -65,6 +67,7 @@ func (o EventHubEventSubscriptionDestinationOutput) ToEventHubEventSubscriptionD
 }
 
 // Type of the endpoint for the event subscription destination
+// Expected value is 'EventHub'.
 func (o EventHubEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -77,6 +80,7 @@ func (o EventHubEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPt
 // Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationResponse struct {
 	// Type of the endpoint for the event subscription destination
+	// Expected value is 'EventHub'.
 	EndpointType string `pulumi:"endpointType"`
 	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
 	ResourceId *string `pulumi:"resourceId"`
@@ -96,6 +100,7 @@ type EventHubEventSubscriptionDestinationResponseInput interface {
 // Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationResponseArgs struct {
 	// Type of the endpoint for the event subscription destination
+	// Expected value is 'EventHub'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
@@ -129,6 +134,7 @@ func (o EventHubEventSubscriptionDestinationResponseOutput) ToEventHubEventSubsc
 }
 
 // Type of the endpoint for the event subscription destination
+// Expected value is 'EventHub'.
 func (o EventHubEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -563,6 +569,7 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.Strin
 // Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination
+	// Expected value is 'WebHook'.
 	EndpointType string `pulumi:"endpointType"`
 	// The URL that represents the endpoint of the destination of an event subscription.
 	EndpointUrl *string `pulumi:"endpointUrl"`
@@ -582,6 +589,7 @@ type WebHookEventSubscriptionDestinationInput interface {
 // Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationArgs struct {
 	// Type of the endpoint for the event subscription destination
+	// Expected value is 'WebHook'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The URL that represents the endpoint of the destination of an event subscription.
 	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
@@ -615,6 +623,7 @@ func (o WebHookEventSubscriptionDestinationOutput) ToWebHookEventSubscriptionDes
 }
 
 // Type of the endpoint for the event subscription destination
+// Expected value is 'WebHook'.
 func (o WebHookEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -629,6 +638,7 @@ type WebHookEventSubscriptionDestinationResponse struct {
 	// The base URL that represents the endpoint of the destination of an event subscription.
 	EndpointBaseUrl string `pulumi:"endpointBaseUrl"`
 	// Type of the endpoint for the event subscription destination
+	// Expected value is 'WebHook'.
 	EndpointType string `pulumi:"endpointType"`
 	// The URL that represents the endpoint of the destination of an event subscription.
 	EndpointUrl *string `pulumi:"endpointUrl"`
@@ -650,6 +660,7 @@ type WebHookEventSubscriptionDestinationResponseArgs struct {
 	// The base URL that represents the endpoint of the destination of an event subscription.
 	EndpointBaseUrl pulumi.StringInput `pulumi:"endpointBaseUrl"`
 	// Type of the endpoint for the event subscription destination
+	// Expected value is 'WebHook'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The URL that represents the endpoint of the destination of an event subscription.
 	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
@@ -688,6 +699,7 @@ func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointBaseUrl() pul
 }
 
 // Type of the endpoint for the event subscription destination
+// Expected value is 'WebHook'.
 func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }

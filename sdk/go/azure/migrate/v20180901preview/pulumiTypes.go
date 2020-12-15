@@ -15,6 +15,7 @@ type DatabaseProjectSummaryResponse struct {
 	// Gets or sets the extended summary.
 	ExtendedSummary map[string]string `pulumi:"extendedSummary"`
 	// Gets the Instance type.
+	// Expected value is 'Databases'.
 	InstanceType string `pulumi:"instanceType"`
 	// Gets or sets the time when summary was last refreshed.
 	LastSummaryRefreshedTime *string `pulumi:"lastSummaryRefreshedTime"`
@@ -38,6 +39,7 @@ type DatabaseProjectSummaryResponseArgs struct {
 	// Gets or sets the extended summary.
 	ExtendedSummary pulumi.StringMapInput `pulumi:"extendedSummary"`
 	// Gets the Instance type.
+	// Expected value is 'Databases'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// Gets or sets the time when summary was last refreshed.
 	LastSummaryRefreshedTime pulumi.StringPtrInput `pulumi:"lastSummaryRefreshedTime"`
@@ -78,6 +80,7 @@ func (o DatabaseProjectSummaryResponseOutput) ExtendedSummary() pulumi.StringMap
 }
 
 // Gets the Instance type.
+// Expected value is 'Databases'.
 func (o DatabaseProjectSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseProjectSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -99,6 +102,7 @@ type DatabasesSolutionSummaryResponse struct {
 	// Gets or sets the count of databases assessed.
 	DatabasesAssessedCount *int `pulumi:"databasesAssessedCount"`
 	// Gets the Instance type.
+	// Expected value is 'Databases'.
 	InstanceType string `pulumi:"instanceType"`
 	// Gets or sets the count of databases ready for migration.
 	MigrationReadyCount *int `pulumi:"migrationReadyCount"`
@@ -122,6 +126,7 @@ type DatabasesSolutionSummaryResponseArgs struct {
 	// Gets or sets the count of databases assessed.
 	DatabasesAssessedCount pulumi.IntPtrInput `pulumi:"databasesAssessedCount"`
 	// Gets the Instance type.
+	// Expected value is 'Databases'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// Gets or sets the count of databases ready for migration.
 	MigrationReadyCount pulumi.IntPtrInput `pulumi:"migrationReadyCount"`
@@ -165,6 +170,7 @@ func (o DatabasesSolutionSummaryResponseOutput) DatabasesAssessedCount() pulumi.
 }
 
 // Gets the Instance type.
+// Expected value is 'Databases'.
 func (o DatabasesSolutionSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -804,6 +810,7 @@ type ServersProjectSummaryResponse struct {
 	// Gets or sets the extended summary.
 	ExtendedSummary map[string]string `pulumi:"extendedSummary"`
 	// Gets the Instance type.
+	// Expected value is 'Servers'.
 	InstanceType string `pulumi:"instanceType"`
 	// Gets or sets the time when summary was last refreshed.
 	LastSummaryRefreshedTime *string `pulumi:"lastSummaryRefreshedTime"`
@@ -837,6 +844,7 @@ type ServersProjectSummaryResponseArgs struct {
 	// Gets or sets the extended summary.
 	ExtendedSummary pulumi.StringMapInput `pulumi:"extendedSummary"`
 	// Gets the Instance type.
+	// Expected value is 'Servers'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// Gets or sets the time when summary was last refreshed.
 	LastSummaryRefreshedTime pulumi.StringPtrInput `pulumi:"lastSummaryRefreshedTime"`
@@ -893,6 +901,7 @@ func (o ServersProjectSummaryResponseOutput) ExtendedSummary() pulumi.StringMapO
 }
 
 // Gets the Instance type.
+// Expected value is 'Servers'.
 func (o ServersProjectSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -929,6 +938,7 @@ type ServersSolutionSummaryResponse struct {
 	// Gets or sets the count of servers discovered.
 	DiscoveredCount *int `pulumi:"discoveredCount"`
 	// Gets the Instance type.
+	// Expected value is 'Servers'.
 	InstanceType string `pulumi:"instanceType"`
 	// Gets or sets the count of servers migrated.
 	MigratedCount *int `pulumi:"migratedCount"`
@@ -956,6 +966,7 @@ type ServersSolutionSummaryResponseArgs struct {
 	// Gets or sets the count of servers discovered.
 	DiscoveredCount pulumi.IntPtrInput `pulumi:"discoveredCount"`
 	// Gets the Instance type.
+	// Expected value is 'Servers'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// Gets or sets the count of servers migrated.
 	MigratedCount pulumi.IntPtrInput `pulumi:"migratedCount"`
@@ -1003,6 +1014,7 @@ func (o ServersSolutionSummaryResponseOutput) DiscoveredCount() pulumi.IntPtrOut
 }
 
 // Gets the Instance type.
+// Expected value is 'Servers'.
 func (o ServersSolutionSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }

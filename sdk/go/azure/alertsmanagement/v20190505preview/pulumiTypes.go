@@ -23,6 +23,7 @@ type ActionGroup struct {
 	// Indicates if the given action rule is enabled or disabled
 	Status *string `pulumi:"status"`
 	// Indicates type of action rule
+	// Expected value is 'ActionGroup'.
 	Type string `pulumi:"type"`
 }
 
@@ -50,6 +51,7 @@ type ActionGroupArgs struct {
 	// Indicates if the given action rule is enabled or disabled
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Indicates type of action rule
+	// Expected value is 'ActionGroup'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -106,6 +108,7 @@ func (o ActionGroupOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Indicates type of action rule
+// Expected value is 'ActionGroup'.
 func (o ActionGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -131,6 +134,7 @@ type ActionGroupResponse struct {
 	// Indicates if the given action rule is enabled or disabled
 	Status *string `pulumi:"status"`
 	// Indicates type of action rule
+	// Expected value is 'ActionGroup'.
 	Type string `pulumi:"type"`
 }
 
@@ -166,6 +170,7 @@ type ActionGroupResponseArgs struct {
 	// Indicates if the given action rule is enabled or disabled
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Indicates type of action rule
+	// Expected value is 'ActionGroup'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -242,6 +247,7 @@ func (o ActionGroupResponseOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Indicates type of action rule
+// Expected value is 'ActionGroup'.
 func (o ActionGroupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1059,6 +1065,7 @@ type Diagnostics struct {
 	// Indicates if the given action rule is enabled or disabled
 	Status *string `pulumi:"status"`
 	// Indicates type of action rule
+	// Expected value is 'Diagnostics'.
 	Type string `pulumi:"type"`
 }
 
@@ -1084,6 +1091,7 @@ type DiagnosticsArgs struct {
 	// Indicates if the given action rule is enabled or disabled
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Indicates type of action rule
+	// Expected value is 'Diagnostics'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1135,6 +1143,7 @@ func (o DiagnosticsOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Indicates type of action rule
+// Expected value is 'Diagnostics'.
 func (o DiagnosticsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Diagnostics) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1158,6 +1167,7 @@ type DiagnosticsResponse struct {
 	// Indicates if the given action rule is enabled or disabled
 	Status *string `pulumi:"status"`
 	// Indicates type of action rule
+	// Expected value is 'Diagnostics'.
 	Type string `pulumi:"type"`
 }
 
@@ -1191,6 +1201,7 @@ type DiagnosticsResponseArgs struct {
 	// Indicates if the given action rule is enabled or disabled
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Indicates type of action rule
+	// Expected value is 'Diagnostics'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1262,6 +1273,7 @@ func (o DiagnosticsResponseOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Indicates type of action rule
+// Expected value is 'Diagnostics'.
 func (o DiagnosticsResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DiagnosticsResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1585,6 +1597,7 @@ type Suppression struct {
 	// suppression configuration for the action rule
 	SuppressionConfig SuppressionConfig `pulumi:"suppressionConfig"`
 	// Indicates type of action rule
+	// Expected value is 'Suppression'.
 	Type string `pulumi:"type"`
 }
 
@@ -1612,6 +1625,7 @@ type SuppressionArgs struct {
 	// suppression configuration for the action rule
 	SuppressionConfig SuppressionConfigInput `pulumi:"suppressionConfig"`
 	// Indicates type of action rule
+	// Expected value is 'Suppression'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1668,6 +1682,7 @@ func (o SuppressionOutput) SuppressionConfig() SuppressionConfigOutput {
 }
 
 // Indicates type of action rule
+// Expected value is 'Suppression'.
 func (o SuppressionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Suppression) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1821,6 +1836,7 @@ type SuppressionResponse struct {
 	// suppression configuration for the action rule
 	SuppressionConfig SuppressionConfigResponse `pulumi:"suppressionConfig"`
 	// Indicates type of action rule
+	// Expected value is 'Suppression'.
 	Type string `pulumi:"type"`
 }
 
@@ -1856,6 +1872,7 @@ type SuppressionResponseArgs struct {
 	// suppression configuration for the action rule
 	SuppressionConfig SuppressionConfigResponseInput `pulumi:"suppressionConfig"`
 	// Indicates type of action rule
+	// Expected value is 'Suppression'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1932,6 +1949,7 @@ func (o SuppressionResponseOutput) SuppressionConfig() SuppressionConfigResponse
 }
 
 // Indicates type of action rule
+// Expected value is 'Suppression'.
 func (o SuppressionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SuppressionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
