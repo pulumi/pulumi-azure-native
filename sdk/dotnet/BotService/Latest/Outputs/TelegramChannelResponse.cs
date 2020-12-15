@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Outputs
     {
         /// <summary>
         /// The channel name
+        /// Expected value is 'TelegramChannel'.
         /// </summary>
         public readonly string ChannelName;
         /// <summary>

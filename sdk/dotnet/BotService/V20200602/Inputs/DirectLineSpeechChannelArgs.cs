@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Inputs
     {
         /// <summary>
         /// The channel name
+        /// Expected value is 'DirectLineSpeechChannel'.
         /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;

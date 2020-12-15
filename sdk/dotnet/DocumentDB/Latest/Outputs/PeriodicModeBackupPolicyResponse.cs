@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
         public readonly Outputs.PeriodicModePropertiesResponse? PeriodicModeProperties;
         /// <summary>
         /// Describes the mode of backups.
+        /// Expected value is 'Periodic'.
         /// </summary>
         public readonly string Type;
 

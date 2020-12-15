@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20200214.Outputs
         public readonly string RunOutputName;
         /// <summary>
         /// Type of distribution.
+        /// Expected value is 'VHD'.
         /// </summary>
         public readonly string Type;
 

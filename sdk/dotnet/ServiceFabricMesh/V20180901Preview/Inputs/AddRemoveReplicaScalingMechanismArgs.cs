@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
     {
         /// <summary>
         /// The type of auto scaling mechanism.
+        /// Expected value is 'AddRemoveReplica'.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;

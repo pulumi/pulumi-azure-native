@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview.Outputs
         public readonly Outputs.WaitStepAttributesResponse Attributes;
         /// <summary>
         /// The type of step.
+        /// Expected value is 'Wait'.
         /// </summary>
         public readonly string StepType;
 

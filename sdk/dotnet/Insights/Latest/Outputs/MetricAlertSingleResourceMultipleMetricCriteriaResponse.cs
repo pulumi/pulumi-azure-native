@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Outputs
         public readonly ImmutableArray<Outputs.MetricCriteriaResponse> AllOf;
         /// <summary>
         /// specifies the type of the alert criteria.
+        /// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
         /// </summary>
         public readonly string OdataType;
 

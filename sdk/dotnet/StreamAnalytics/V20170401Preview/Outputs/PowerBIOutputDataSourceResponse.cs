@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
         public readonly string? TokenUserPrincipalName;
         /// <summary>
         /// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'PowerBI'.
         /// </summary>
         public readonly string Type;
 

@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Outputs
         public readonly string FabricLocation;
         /// <summary>
         /// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+        /// Expected value is 'ScriptActionDetails'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

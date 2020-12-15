@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701.Outputs
         public readonly ImmutableDictionary<string, string>? ExperimentalOptions;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
         /// </summary>
         public readonly string OdataType;
 

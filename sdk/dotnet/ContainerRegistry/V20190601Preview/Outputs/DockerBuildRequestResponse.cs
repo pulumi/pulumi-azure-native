@@ -72,6 +72,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Outputs
         public readonly int? Timeout;
         /// <summary>
         /// The type of the run request.
+        /// Expected value is 'DockerBuildRequest'.
         /// </summary>
         public readonly string Type;
 

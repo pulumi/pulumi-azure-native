@@ -107,6 +107,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190615.Inputs
 
         /// <summary>
         /// backup item type.
+        /// Expected value is 'GenericProtectedItem'.
         /// </summary>
         [Input("protectedItemType", required: true)]
         public Input<string> ProtectedItemType { get; set; } = null!;

@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Outputs
         public readonly ImmutableArray<Outputs.SecurityPolicyWebApplicationFirewallAssociationResponse> Associations;
         /// <summary>
         /// The type of the Security policy to create.
+        /// Expected value is 'WebApplicationFirewall'.
         /// </summary>
         public readonly string Type;
         /// <summary>

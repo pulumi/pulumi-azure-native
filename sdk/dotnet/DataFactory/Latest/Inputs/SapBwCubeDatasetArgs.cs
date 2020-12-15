@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
 
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'SapBwCube'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

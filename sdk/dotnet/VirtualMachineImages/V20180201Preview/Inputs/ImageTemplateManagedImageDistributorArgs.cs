@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20180201Preview.Inputs
 
         /// <summary>
         /// Type of distribution.
+        /// Expected value is 'managedImage'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

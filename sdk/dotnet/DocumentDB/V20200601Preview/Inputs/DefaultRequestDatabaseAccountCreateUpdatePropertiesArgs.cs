@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
 
         /// <summary>
         /// Enum to indicate the mode of account creation.
+        /// Expected value is 'Default'.
         /// </summary>
         [Input("createMode", required: true)]
         public Input<string> CreateMode { get; set; } = null!;

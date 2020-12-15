@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Inputs
 
         /// <summary>
         /// The class type.
+        /// Expected value is 'InMageAzureV2'.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }

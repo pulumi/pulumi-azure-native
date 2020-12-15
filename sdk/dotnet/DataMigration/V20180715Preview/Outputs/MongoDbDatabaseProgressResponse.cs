@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         public readonly string? QualifiedName;
         /// <summary>
         /// The type of progress object
+        /// Expected value is 'Database'.
         /// </summary>
         public readonly string ResultType;
         public readonly string State;

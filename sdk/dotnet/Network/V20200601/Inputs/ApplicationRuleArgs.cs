@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
 
         /// <summary>
         /// Rule Type.
+        /// Expected value is 'ApplicationRule'.
         /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;

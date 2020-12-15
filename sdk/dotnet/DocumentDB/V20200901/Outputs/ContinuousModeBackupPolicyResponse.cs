@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200901.Outputs
     {
         /// <summary>
         /// Describes the mode of backups.
+        /// Expected value is 'Continuous'.
         /// </summary>
         public readonly string Type;
 

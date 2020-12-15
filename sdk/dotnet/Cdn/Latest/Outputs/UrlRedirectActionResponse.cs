@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Outputs
     {
         /// <summary>
         /// The name of the action for the delivery rule.
+        /// Expected value is 'UrlRedirect'.
         /// </summary>
         public readonly string Name;
         /// <summary>

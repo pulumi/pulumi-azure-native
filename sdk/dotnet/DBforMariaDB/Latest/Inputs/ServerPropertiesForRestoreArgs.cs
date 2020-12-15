@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest.Inputs
     {
         /// <summary>
         /// The mode to create a new server.
+        /// Expected value is 'PointInTimeRestore'.
         /// </summary>
         [Input("createMode", required: true)]
         public Input<string> CreateMode { get; set; } = null!;

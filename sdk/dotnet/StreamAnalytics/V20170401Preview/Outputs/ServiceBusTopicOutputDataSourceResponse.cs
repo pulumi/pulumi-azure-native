@@ -40,6 +40,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
         public readonly string? TopicName;
         /// <summary>
         /// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Microsoft.ServiceBus/Topic'.
         /// </summary>
         public readonly string Type;
 

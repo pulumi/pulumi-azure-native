@@ -44,6 +44,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
 
         /// <summary>
         /// Gets or sets the HTTP authentication type.
+        /// Expected value is 'ClientCertificate'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

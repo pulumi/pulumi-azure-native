@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview.Inputs
 
         /// <summary>
         /// Specifies the sub-class of the reference.
+        /// Expected value is 'ref:machinewithhints'.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;

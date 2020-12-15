@@ -20,6 +20,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160301.Inputs
 
         /// <summary>
         /// Gets or sets the HTTP authentication type.
+        /// Expected value is 'Basic'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

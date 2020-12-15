@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         public readonly string InitialRecoveryZone;
         /// <summary>
         /// Gets the Instance type.
+        /// Expected value is 'A2A'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

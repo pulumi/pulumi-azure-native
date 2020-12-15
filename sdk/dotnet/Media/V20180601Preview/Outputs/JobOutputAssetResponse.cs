@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Outputs
         public readonly Outputs.JobErrorResponse Error;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.JobOutputAsset'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
     {
         /// <summary>
         /// The name of the action for the delivery rule.
+        /// Expected value is 'OriginGroupOverride'.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

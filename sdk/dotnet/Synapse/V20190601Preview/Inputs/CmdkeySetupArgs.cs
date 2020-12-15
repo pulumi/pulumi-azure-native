@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
 
         /// <summary>
         /// The type of custom setup.
+        /// Expected value is 'CmdkeySetup'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
         public readonly string State;
         /// <summary>
         /// Task type.
+        /// Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.Sync'.
         /// </summary>
         public readonly string TaskType;
 

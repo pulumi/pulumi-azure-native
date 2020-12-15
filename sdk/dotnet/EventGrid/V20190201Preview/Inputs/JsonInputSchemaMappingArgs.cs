@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190201Preview.Inputs
 
         /// <summary>
         /// Type of the custom mapping
+        /// Expected value is 'Json'.
         /// </summary>
         [Input("inputSchemaMappingType")]
         public Input<string>? InputSchemaMappingType { get; set; }

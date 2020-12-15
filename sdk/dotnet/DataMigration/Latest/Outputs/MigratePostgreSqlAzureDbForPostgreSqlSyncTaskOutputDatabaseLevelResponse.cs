@@ -75,6 +75,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         public readonly string MigrationState;
         /// <summary>
         /// Result type
+        /// Expected value is 'DatabaseLevelOutput'.
         /// </summary>
         public readonly string ResultType;
         /// <summary>

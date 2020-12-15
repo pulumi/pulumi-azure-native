@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         public readonly object TargetName;
         /// <summary>
         /// The type of custom setup.
+        /// Expected value is 'CmdkeySetup'.
         /// </summary>
         public readonly string Type;
         /// <summary>

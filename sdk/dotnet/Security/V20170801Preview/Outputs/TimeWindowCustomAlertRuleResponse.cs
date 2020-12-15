@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview.Outputs
         public readonly int MinThreshold;
         /// <summary>
         /// The type of the custom alert rule.
+        /// Expected value is 'ThresholdCustomAlertRule'.
         /// </summary>
         public readonly string RuleType;
         /// <summary>

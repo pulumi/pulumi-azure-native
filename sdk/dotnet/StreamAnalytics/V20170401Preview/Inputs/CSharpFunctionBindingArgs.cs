@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
 
         /// <summary>
         /// Indicates the function binding type.
+        /// Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

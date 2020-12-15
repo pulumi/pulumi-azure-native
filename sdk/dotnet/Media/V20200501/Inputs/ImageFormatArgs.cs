@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
 
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.ImageFormat'.
         /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

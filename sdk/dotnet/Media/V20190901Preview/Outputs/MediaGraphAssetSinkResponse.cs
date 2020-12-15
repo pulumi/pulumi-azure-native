@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.Media.V20190901Preview.Outputs
         public readonly string Name;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
         /// </summary>
         public readonly string OdataType;
 

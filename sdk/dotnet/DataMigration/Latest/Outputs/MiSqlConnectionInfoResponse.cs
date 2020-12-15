@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         public readonly string? Password;
         /// <summary>
         /// Type of connection info
+        /// Expected value is 'MiSqlConnectionInfo'.
         /// </summary>
         public readonly string Type;
         /// <summary>

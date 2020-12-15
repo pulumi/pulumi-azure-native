@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     {
         /// <summary>
         /// Type of the secret.
+        /// Expected value is 'SecureString'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

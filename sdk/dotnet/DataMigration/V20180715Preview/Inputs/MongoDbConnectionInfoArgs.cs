@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
 
         /// <summary>
         /// Type of connection info
+        /// Expected value is 'MongoDbConnectionInfo'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

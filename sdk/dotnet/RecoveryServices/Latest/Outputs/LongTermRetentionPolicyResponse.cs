@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         public readonly Outputs.MonthlyRetentionScheduleResponse? MonthlySchedule;
         /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// Expected value is 'LongTermRetentionPolicy'.
         /// </summary>
         public readonly string RetentionPolicyType;
         /// <summary>

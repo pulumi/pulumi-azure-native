@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Inputs
 
         /// <summary>
         /// Type of connection info
+        /// Expected value is 'PostgreSqlConnectionInfo'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

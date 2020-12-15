@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Outputs
         public readonly ImmutableArray<string> MonitorTypes;
         /// <summary>
         /// specifies the type of the alert criterion.
+        /// Expected value is 'GuestVmHealth'.
         /// </summary>
         public readonly string Namespace;
 

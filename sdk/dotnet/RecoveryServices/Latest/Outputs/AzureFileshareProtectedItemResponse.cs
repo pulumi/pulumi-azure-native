@@ -79,6 +79,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         public readonly string? PolicyId;
         /// <summary>
         /// backup item type.
+        /// Expected value is 'AzureFileShareProtectedItem'.
         /// </summary>
         public readonly string ProtectedItemType;
         /// <summary>

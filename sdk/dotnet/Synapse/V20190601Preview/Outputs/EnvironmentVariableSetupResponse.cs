@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
     {
         /// <summary>
         /// The type of custom setup.
+        /// Expected value is 'EnvironmentVariableSetup'.
         /// </summary>
         public readonly string Type;
         /// <summary>

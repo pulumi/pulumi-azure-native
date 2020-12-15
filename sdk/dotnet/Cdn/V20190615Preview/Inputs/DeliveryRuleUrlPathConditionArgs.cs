@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
+        /// Expected value is 'UrlPath'.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest.Outputs
         public readonly string? Table;
         /// <summary>
         /// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Microsoft.Sql/Server/Database'.
         /// </summary>
         public readonly string? Type;
         /// <summary>

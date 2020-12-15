@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly string? Level;
         /// <summary>
         /// Type of dataset compression.
+        /// Expected value is 'ZipDeflate'.
         /// </summary>
         public readonly string Type;
 

@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly string RootFolder;
         /// <summary>
         /// Type of repo configuration.
+        /// Expected value is 'FactoryGitHubConfiguration'.
         /// </summary>
         public readonly string Type;
 

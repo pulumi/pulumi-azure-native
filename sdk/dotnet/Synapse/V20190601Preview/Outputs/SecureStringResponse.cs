@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
     {
         /// <summary>
         /// Type of the secret.
+        /// Expected value is 'SecureString'.
         /// </summary>
         public readonly string Type;
         /// <summary>

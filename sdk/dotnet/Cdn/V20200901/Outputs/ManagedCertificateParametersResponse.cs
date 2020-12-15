@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Outputs
         public readonly string? Thumbprint;
         /// <summary>
         /// The type of the Secret to create.
+        /// Expected value is 'ManagedCertificate'.
         /// </summary>
         public readonly string Type;
 

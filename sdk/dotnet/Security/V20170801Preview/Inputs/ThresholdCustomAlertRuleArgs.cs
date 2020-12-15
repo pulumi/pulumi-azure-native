@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview.Inputs
 
         /// <summary>
         /// The type of the custom alert rule.
+        /// Expected value is 'ThresholdCustomAlertRule'.
         /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;

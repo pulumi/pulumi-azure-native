@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
     {
         /// <summary>
         /// Type of the secret.
+        /// Expected value is 'SecureString'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? Table;
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'AzureDataExplorerTable'.
         /// </summary>
         public readonly string Type;
 

@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview.Outputs
         public readonly string SourceURI;
         /// <summary>
         /// Specifies the type of source image you want to start with.
+        /// Expected value is 'ISO'.
         /// </summary>
         public readonly string Type;
 

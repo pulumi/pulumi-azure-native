@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Inputs
 
         /// <summary>
         /// Task type.
+        /// Expected value is 'Migrate.SqlServer.AzureSqlDb.Sync'.
         /// </summary>
         [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;

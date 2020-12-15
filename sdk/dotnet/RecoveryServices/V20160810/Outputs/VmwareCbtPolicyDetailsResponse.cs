@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Outputs
         public readonly int? CrashConsistentFrequencyInMinutes;
         /// <summary>
         /// Gets the class type. Overridden in derived classes.
+        /// Expected value is 'VMwareCbt'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

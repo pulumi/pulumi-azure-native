@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview.Outputs
         public readonly string Id;
         /// <summary>
         /// The platform where the assessed resource resides
+        /// Expected value is 'Azure'.
         /// </summary>
         public readonly string Source;
 

@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview.Outputs
         public readonly string? Key;
         /// <summary>
         /// Represents the filter operator
+        /// Expected value is 'NumberLessThan'.
         /// </summary>
         public readonly string OperatorType;
         /// <summary>

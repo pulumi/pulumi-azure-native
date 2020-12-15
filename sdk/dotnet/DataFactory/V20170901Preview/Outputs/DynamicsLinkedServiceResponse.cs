@@ -63,6 +63,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly object? ServiceUri;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Dynamics'.
         /// </summary>
         public readonly string Type;
         /// <summary>

@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
     {
         /// <summary>
         /// The type of compute
+        /// Expected value is 'AmlCompute'.
         /// </summary>
         public readonly string ComputeType;
         /// <summary>

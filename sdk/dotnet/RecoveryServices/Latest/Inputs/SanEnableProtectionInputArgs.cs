@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
     {
         /// <summary>
         /// The class type.
+        /// Expected value is 'San'.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }

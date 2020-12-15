@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     {
         /// <summary>
         /// The authorization type for integration runtime sharing.
+        /// Expected value is 'Key'.
         /// </summary>
         [Input("authorizationType", required: true)]
         public Input<string> AuthorizationType { get; set; } = null!;

@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110.Outputs
         public readonly int InitialSeedingProgressPercentage;
         /// <summary>
         /// Gets the instance type.
+        /// Expected value is 'VMwareCbt'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

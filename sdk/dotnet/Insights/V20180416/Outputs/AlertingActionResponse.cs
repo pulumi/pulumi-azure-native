@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416.Outputs
         public readonly Outputs.AzNsActionGroupResponse? AznsAction;
         /// <summary>
         /// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        /// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

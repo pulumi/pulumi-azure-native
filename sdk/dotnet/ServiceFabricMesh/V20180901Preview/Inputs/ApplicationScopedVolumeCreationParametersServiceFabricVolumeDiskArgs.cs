@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
 
         /// <summary>
         /// Specifies the application-scoped volume kind.
+        /// Expected value is 'ServiceFabricVolumeDisk'.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;

@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20200214.Inputs
 
         /// <summary>
         /// Specifies the type of source image you want to start with.
+        /// Expected value is 'ManagedImage'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

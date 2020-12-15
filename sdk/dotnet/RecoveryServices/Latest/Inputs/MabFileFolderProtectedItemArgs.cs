@@ -119,6 +119,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
 
         /// <summary>
         /// backup item type.
+        /// Expected value is 'MabFileFolderProtectedItem'.
         /// </summary>
         [Input("protectedItemType", required: true)]
         public Input<string> ProtectedItemType { get; set; } = null!;

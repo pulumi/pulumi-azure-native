@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Outputs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
+        /// Expected value is 'RequestHeader'.
         /// </summary>
         public readonly string Name;
         /// <summary>

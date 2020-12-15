@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
         public readonly string Name;
         /// <summary>
         /// Result type
+        /// Expected value is 'AgentJobLevelOutput'.
         /// </summary>
         public readonly string ResultType;
         /// <summary>

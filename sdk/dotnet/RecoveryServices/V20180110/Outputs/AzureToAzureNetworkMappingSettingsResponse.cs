@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110.Outputs
     {
         /// <summary>
         /// Gets the Instance type.
+        /// Expected value is 'AzureToAzure'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

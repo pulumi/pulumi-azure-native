@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         public readonly string DataMoverRunAsAccountId;
         /// <summary>
         /// Gets the instance type.
+        /// Expected value is 'VMwareCbt'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

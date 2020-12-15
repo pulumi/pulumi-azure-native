@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20200201Preview.Outputs
         public readonly Outputs.MediaGraphUsernamePasswordCredentialsResponse? Credentials;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

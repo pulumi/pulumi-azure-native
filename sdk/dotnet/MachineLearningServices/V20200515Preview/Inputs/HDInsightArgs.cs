@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.Inputs
 
         /// <summary>
         /// The type of compute
+        /// Expected value is 'HDInsight'.
         /// </summary>
         [Input("computeType", required: true)]
         public Input<string> ComputeType { get; set; } = null!;

@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
     {
         /// <summary>
         /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Parquet'.
         /// </summary>
         public readonly string Type;
 

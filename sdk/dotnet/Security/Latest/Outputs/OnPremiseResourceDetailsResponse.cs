@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Security.Latest.Outputs
         public readonly string MachineName;
         /// <summary>
         /// The platform where the assessed resource resides
+        /// Expected value is 'OnPremise'.
         /// </summary>
         public readonly string Source;
         /// <summary>

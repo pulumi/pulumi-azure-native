@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301.Inputs
 
         /// <summary>
         /// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+        /// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
         /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

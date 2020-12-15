@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
         /// Type of activity.
+        /// Expected value is 'Execution'.
         /// </summary>
         public readonly string Type;
         /// <summary>

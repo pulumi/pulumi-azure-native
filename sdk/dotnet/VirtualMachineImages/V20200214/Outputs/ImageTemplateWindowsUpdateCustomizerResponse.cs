@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20200214.Outputs
         public readonly string? SearchCriteria;
         /// <summary>
         /// The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        /// Expected value is 'WindowsUpdate'.
         /// </summary>
         public readonly string Type;
         /// <summary>

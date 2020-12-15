@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Outputs
     {
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

@@ -91,6 +91,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? SystemNumber;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'SapTable'.
         /// </summary>
         public readonly string Type;
         /// <summary>

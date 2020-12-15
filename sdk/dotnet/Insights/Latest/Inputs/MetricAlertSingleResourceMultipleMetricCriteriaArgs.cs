@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
 
         /// <summary>
         /// specifies the type of the alert criteria.
+        /// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
         /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview.Outputs
         public readonly ImmutableDictionary<string, string>? ExtendedSummary;
         /// <summary>
         /// Gets the Instance type.
+        /// Expected value is 'Servers'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

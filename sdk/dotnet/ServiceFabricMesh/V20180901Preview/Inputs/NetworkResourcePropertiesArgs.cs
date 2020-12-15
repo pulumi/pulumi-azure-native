@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
 
         /// <summary>
         /// The type of a Service Fabric container network.
+        /// Expected value is 'NetworkResourceProperties'.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;

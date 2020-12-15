@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110.Outputs
         public readonly string? Encryption;
         /// <summary>
         /// Gets the class type. Overridden in derived classes.
+        /// Expected value is 'HyperVReplicaAzure'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

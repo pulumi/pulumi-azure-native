@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Couchbase'.
         /// </summary>
         public readonly string Type;
 

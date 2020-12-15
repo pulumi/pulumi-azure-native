@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101.Outputs
         public readonly string? AccountId;
         /// <summary>
         /// Data Destination Type.
+        /// Expected value is 'ManagedDisk'.
         /// </summary>
         public readonly string DataDestinationType;
         /// <summary>

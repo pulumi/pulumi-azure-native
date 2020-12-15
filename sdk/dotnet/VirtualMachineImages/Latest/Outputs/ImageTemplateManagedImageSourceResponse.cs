@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest.Outputs
         public readonly string ImageId;
         /// <summary>
         /// Specifies the type of source image you want to start with.
+        /// Expected value is 'ManagedImage'.
         /// </summary>
         public readonly string Type;
 

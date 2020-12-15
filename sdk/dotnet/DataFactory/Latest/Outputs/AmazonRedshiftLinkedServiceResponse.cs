@@ -51,6 +51,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object Server;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AmazonRedshift'.
         /// </summary>
         public readonly string Type;
         /// <summary>

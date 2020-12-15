@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180315Preview.Outputs
         public readonly string State;
         /// <summary>
         /// Task type.
+        /// Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
         /// </summary>
         public readonly string TaskType;
 

@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest.Inputs
 
         /// <summary>
         /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Json'.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

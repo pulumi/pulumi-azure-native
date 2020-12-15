@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         public readonly bool? EnableDdosProtection;
         /// <summary>
         /// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        /// Expected value is 'Microsoft.Network/virtualNetworks'.
         /// </summary>
         public readonly string ResourceType;
         /// <summary>

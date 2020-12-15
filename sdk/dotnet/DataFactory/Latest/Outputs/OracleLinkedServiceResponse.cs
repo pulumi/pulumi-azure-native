@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly Outputs.AzureKeyVaultSecretReferenceResponse? Password;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Oracle'.
         /// </summary>
         public readonly string Type;
 

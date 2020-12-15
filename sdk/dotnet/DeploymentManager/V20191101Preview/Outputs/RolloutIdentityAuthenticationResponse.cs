@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview.Outputs
     {
         /// <summary>
         /// The authentication type.
+        /// Expected value is 'RolloutIdentity'.
         /// </summary>
         public readonly string Type;
 

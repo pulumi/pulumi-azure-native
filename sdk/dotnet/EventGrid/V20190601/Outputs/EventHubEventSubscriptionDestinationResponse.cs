@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190601.Outputs
     {
         /// <summary>
         /// Type of the endpoint for the event subscription destination
+        /// Expected value is 'EventHub'.
         /// </summary>
         public readonly string EndpointType;
         /// <summary>

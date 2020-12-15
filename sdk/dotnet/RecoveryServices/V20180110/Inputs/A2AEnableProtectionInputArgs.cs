@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110.Inputs
 
         /// <summary>
         /// The class type.
+        /// Expected value is 'A2A'.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }

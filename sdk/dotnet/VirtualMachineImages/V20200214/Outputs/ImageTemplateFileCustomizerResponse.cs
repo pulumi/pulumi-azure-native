@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20200214.Outputs
         public readonly string? SourceUri;
         /// <summary>
         /// The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        /// Expected value is 'File'.
         /// </summary>
         public readonly string Type;
 

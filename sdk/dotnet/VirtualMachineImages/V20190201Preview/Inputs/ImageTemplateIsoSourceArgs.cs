@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview.Inputs
 
         /// <summary>
         /// Specifies the type of source image you want to start with.
+        /// Expected value is 'ISO'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

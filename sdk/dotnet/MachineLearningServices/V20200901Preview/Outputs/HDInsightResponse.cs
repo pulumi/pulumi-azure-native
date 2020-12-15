@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview.Outputs
         public readonly string? ComputeLocation;
         /// <summary>
         /// The type of compute
+        /// Expected value is 'HDInsight'.
         /// </summary>
         public readonly string ComputeType;
         /// <summary>

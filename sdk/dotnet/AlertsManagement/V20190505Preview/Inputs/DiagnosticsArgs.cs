@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190505Preview.Inputs
 
         /// <summary>
         /// Indicates type of action rule
+        /// Expected value is 'Diagnostics'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

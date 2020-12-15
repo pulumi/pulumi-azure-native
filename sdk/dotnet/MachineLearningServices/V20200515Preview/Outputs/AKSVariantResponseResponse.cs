@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.Outputs
     {
         /// <summary>
         /// The compute environment type for the service.
+        /// Expected value is 'Custom'.
         /// </summary>
         public readonly string ComputeType;
         /// <summary>

@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160301.Outputs
         public readonly string? Tenant;
         /// <summary>
         /// Gets or sets the HTTP authentication type.
+        /// Expected value is 'ActiveDirectoryOAuth'.
         /// </summary>
         public readonly string Type;
 

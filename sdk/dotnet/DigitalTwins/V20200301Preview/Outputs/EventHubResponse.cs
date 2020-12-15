@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview.Outputs
         public readonly string CreatedTime;
         /// <summary>
         /// The type of Digital Twins endpoint
+        /// Expected value is 'EventHub'.
         /// </summary>
         public readonly string EndpointType;
         /// <summary>

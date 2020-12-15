@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201031.Inputs
 
         /// <summary>
         /// The type of Digital Twins endpoint
+        /// Expected value is 'ServiceBus'.
         /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;

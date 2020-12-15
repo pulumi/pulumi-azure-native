@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
 
         /// <summary>
         /// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Microsoft.AzureFunction'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

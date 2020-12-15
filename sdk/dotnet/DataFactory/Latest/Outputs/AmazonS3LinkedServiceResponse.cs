@@ -55,6 +55,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? SessionToken;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AmazonS3'.
         /// </summary>
         public readonly string Type;
 

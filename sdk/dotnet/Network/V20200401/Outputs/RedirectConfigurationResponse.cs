@@ -29,6 +29,10 @@ namespace Pulumi.AzureNextGen.Network.V20200401.Outputs
         /// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in &lt;key&gt;=&lt;value&gt; format. The first ? and &amp; will be added automatically so do not include them in the front, but do separate multiple query strings with &amp;.
         /// </summary>
         public readonly string? CustomQueryString;
+        /// <summary>
+        /// 
+        /// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
+        /// </summary>
         public readonly string OdataType;
         /// <summary>
         /// The protocol of the destination to where the traffic is redirected

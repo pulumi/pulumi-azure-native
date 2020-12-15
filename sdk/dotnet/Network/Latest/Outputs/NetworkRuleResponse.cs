@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         public readonly string? Name;
         /// <summary>
         /// Rule Type.
+        /// Expected value is 'NetworkRule'.
         /// </summary>
         public readonly string RuleType;
         /// <summary>

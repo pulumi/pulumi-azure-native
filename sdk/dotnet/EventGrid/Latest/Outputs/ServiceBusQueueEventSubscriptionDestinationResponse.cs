@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest.Outputs
     {
         /// <summary>
         /// Type of the endpoint for the event subscription destination.
+        /// Expected value is 'ServiceBusQueue'.
         /// </summary>
         public readonly string EndpointType;
         /// <summary>

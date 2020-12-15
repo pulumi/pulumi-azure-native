@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615.Inputs
     {
         /// <summary>
         /// The name of the action for the delivery rule.
+        /// Expected value is 'CacheExpiration'.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

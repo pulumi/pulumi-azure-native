@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
         public readonly string? SharedAccessPolicyName;
         /// <summary>
         /// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Microsoft.ServiceBus/EventHub'.
         /// </summary>
         public readonly string Type;
 

@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
 
         /// <summary>
         /// Trigger type.
+        /// Expected value is 'ChainingTrigger'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

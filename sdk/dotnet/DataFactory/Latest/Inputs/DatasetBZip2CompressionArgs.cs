@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     {
         /// <summary>
         /// Type of dataset compression.
+        /// Expected value is 'BZip2'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

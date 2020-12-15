@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.BotService.V20171201.Outputs
     {
         /// <summary>
         /// The channel name
+        /// Expected value is 'KikChannel'.
         /// </summary>
         public readonly string ChannelName;
         /// <summary>

@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Outputs
         public readonly string? Description;
         /// <summary>
         /// Specifies the application-scoped volume kind.
+        /// Expected value is 'ServiceFabricVolumeDisk'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

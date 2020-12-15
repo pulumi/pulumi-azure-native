@@ -63,6 +63,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly string TaskQueueId;
         /// <summary>
         /// Type of integration runtime.
+        /// Expected value is 'SelfHosted'.
         /// </summary>
         public readonly string? Type;
         /// <summary>

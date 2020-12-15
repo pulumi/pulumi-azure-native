@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview.Outputs
         public readonly string? RestartTimeout;
         /// <summary>
         /// The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        /// Expected value is 'WindowsRestart'.
         /// </summary>
         public readonly string Type;
 

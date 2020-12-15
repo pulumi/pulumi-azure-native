@@ -131,6 +131,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Inputs
 
         /// <summary>
         /// backup item type.
+        /// Expected value is 'AzureVmWorkloadProtectedItem'.
         /// </summary>
         [Input("protectedItemType")]
         public Input<string>? ProtectedItemType { get; set; }

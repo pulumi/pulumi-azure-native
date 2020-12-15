@@ -51,6 +51,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly object ServicePrincipalTenantId;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Office365'.
         /// </summary>
         public readonly string Type;
 

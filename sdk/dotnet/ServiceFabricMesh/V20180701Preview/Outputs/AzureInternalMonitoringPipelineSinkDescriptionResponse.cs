@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Outputs
         public readonly object? FluentdConfigUrl;
         /// <summary>
         /// The kind of DiagnosticsSink.
+        /// Expected value is 'AzureInternalMonitoringPipeline'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

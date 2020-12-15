@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         public readonly string Id;
         /// <summary>
         /// Result type
+        /// Expected value is 'DatabaseLevelErrorOutput'.
         /// </summary>
         public readonly string ResultType;
 

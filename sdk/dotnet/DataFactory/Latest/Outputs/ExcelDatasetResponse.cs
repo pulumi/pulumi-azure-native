@@ -67,6 +67,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? Structure;
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'Excel'.
         /// </summary>
         public readonly string Type;
 

@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415.Inputs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
+        /// Expected value is 'PostArgs'.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

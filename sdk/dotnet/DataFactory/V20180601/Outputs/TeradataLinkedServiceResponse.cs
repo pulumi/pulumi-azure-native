@@ -51,6 +51,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly object? Server;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Teradata'.
         /// </summary>
         public readonly string Type;
         /// <summary>

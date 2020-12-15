@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview.Inputs
 
         /// <summary>
         /// The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        /// Expected value is 'Shell'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

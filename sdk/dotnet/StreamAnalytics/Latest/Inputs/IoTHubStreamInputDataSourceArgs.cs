@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest.Inputs
 
         /// <summary>
         /// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Microsoft.Devices/IotHubs'.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -89,6 +89,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest.Inputs
 
         /// <summary>
         /// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+        /// Expected value is 'Graph'.
         /// </summary>
         [Input("packageType", required: true)]
         public Input<string> PackageType { get; set; } = null!;

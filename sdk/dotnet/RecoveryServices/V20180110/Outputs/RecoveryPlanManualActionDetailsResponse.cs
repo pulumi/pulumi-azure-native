@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110.Outputs
         public readonly string? Description;
         /// <summary>
         /// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+        /// Expected value is 'ManualActionDetails'.
         /// </summary>
         public readonly string InstanceType;
 

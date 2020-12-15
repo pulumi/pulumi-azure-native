@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         public readonly ImmutableDictionary<string, string> Logins;
         /// <summary>
         /// Type of result - database level or task level
+        /// Expected value is 'TaskLevelOutput'.
         /// </summary>
         public readonly string ResultType;
         /// <summary>

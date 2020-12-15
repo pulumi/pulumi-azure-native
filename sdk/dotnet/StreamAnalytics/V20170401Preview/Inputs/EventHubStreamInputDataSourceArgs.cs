@@ -53,6 +53,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
 
         /// <summary>
         /// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Microsoft.ServiceBus/EventHub'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

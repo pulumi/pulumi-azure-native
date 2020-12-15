@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest.Outputs
         public readonly string? Pfx;
         /// <summary>
         /// Gets or sets the HTTP authentication type.
+        /// Expected value is 'ClientCertificate'.
         /// </summary>
         public readonly string Type;
 

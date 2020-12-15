@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly string State;
         /// <summary>
         /// Type of integration runtime.
+        /// Expected value is 'Managed'.
         /// </summary>
         public readonly string Type;
 

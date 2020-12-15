@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest.Outputs
     {
         /// <summary>
         /// Kind of synchronization
+        /// Expected value is 'ScheduleBased'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

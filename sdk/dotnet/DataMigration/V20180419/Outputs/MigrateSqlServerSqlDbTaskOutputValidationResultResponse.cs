@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
         public readonly string MigrationId;
         /// <summary>
         /// Result type
+        /// Expected value is 'MigrationValidationOutput'.
         /// </summary>
         public readonly string ResultType;
         /// <summary>

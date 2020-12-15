@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly ImmutableArray<Outputs.TransformationResponse> Transformations;
         /// <summary>
         /// Type of data flow.
+        /// Expected value is 'MappingDataFlow'.
         /// </summary>
         public readonly string? Type;
 

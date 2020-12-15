@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
 
         /// <summary>
         /// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        /// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
         /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

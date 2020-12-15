@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301.Outputs
         public readonly string? Level;
         /// <summary>
         /// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+        /// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

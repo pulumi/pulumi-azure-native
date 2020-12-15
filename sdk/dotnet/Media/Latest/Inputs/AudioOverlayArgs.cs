@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
 
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.AudioOverlay'.
         /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Inputs
 
         /// <summary>
         /// The class type.
+        /// Expected value is 'HyperVReplica2012R2'.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }

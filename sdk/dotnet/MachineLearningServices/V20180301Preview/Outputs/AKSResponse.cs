@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20180301Preview.Outputs
         public readonly string? ComputeLocation;
         /// <summary>
         /// The type of compute
+        /// Expected value is 'AKS'.
         /// </summary>
         public readonly string ComputeType;
         /// <summary>

@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20170701.Outputs
         public readonly string? PolicyId;
         /// <summary>
         /// backup protectionIntent type.
+        /// Expected value is 'RecoveryServiceVaultItem'.
         /// </summary>
         public readonly string? ProtectionIntentItemType;
         /// <summary>

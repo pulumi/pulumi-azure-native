@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly Union<Outputs.LinkedIntegrationRuntimeKeyResponse, Outputs.LinkedIntegrationRuntimeRbacResponse>? LinkedInfo;
         /// <summary>
         /// Type of integration runtime.
+        /// Expected value is 'SelfHosted'.
         /// </summary>
         public readonly string Type;
 

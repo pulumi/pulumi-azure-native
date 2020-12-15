@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Outputs
         public readonly string? Description;
         /// <summary>
         /// The type of a Service Fabric container network.
+        /// Expected value is 'NetworkResourceProperties'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

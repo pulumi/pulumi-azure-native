@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
 
         /// <summary>
         /// Type of integration runtime.
+        /// Expected value is 'SelfHosted'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

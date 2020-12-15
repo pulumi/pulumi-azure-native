@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly Outputs.LinkedServiceReferenceResponse Store;
         /// <summary>
         /// Type of the secret.
+        /// Expected value is 'AzureKeyVaultSecret'.
         /// </summary>
         public readonly string Type;
 

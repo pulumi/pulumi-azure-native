@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.BotService.V20180712.Inputs
     {
         /// <summary>
         /// The channel name
+        /// Expected value is 'FacebookChannel'.
         /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;

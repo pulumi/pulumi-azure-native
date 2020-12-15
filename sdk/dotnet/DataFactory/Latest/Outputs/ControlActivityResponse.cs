@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly string Name;
         /// <summary>
         /// Type of activity.
+        /// Expected value is 'Container'.
         /// </summary>
         public readonly string Type;
         /// <summary>

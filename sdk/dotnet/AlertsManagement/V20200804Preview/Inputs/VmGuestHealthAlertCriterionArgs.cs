@@ -53,6 +53,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Inputs
 
         /// <summary>
         /// specifies the type of the alert criterion.
+        /// Expected value is 'GuestVmHealth'.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;

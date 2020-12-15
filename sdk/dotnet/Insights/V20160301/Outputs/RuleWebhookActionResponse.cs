@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301.Outputs
     {
         /// <summary>
         /// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+        /// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

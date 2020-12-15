@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly object? FolderPath;
         /// <summary>
         /// Type of dataset storage location.
+        /// Expected value is 'HdfsLocation'.
         /// </summary>
         public readonly string Type;
 

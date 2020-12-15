@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
     {
         /// <summary>
         /// Type of authentication used to connect to the web table source.
+        /// Expected value is 'Basic'.
         /// </summary>
         public readonly string AuthenticationType;
         /// <summary>

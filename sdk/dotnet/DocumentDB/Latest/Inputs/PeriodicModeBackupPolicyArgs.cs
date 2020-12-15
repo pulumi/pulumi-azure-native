@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Inputs
 
         /// <summary>
         /// Describes the mode of backups.
+        /// Expected value is 'Periodic'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Inputs
 
         /// <summary>
         /// The type of Digital Twins endpoint
+        /// Expected value is 'EventHub'.
         /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;

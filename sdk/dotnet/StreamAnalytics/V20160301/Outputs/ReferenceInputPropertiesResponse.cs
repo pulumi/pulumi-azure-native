@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301.Outputs
         public readonly Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Outputs.JsonSerializationResponse>>? Serialization;
         /// <summary>
         /// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Reference'.
         /// </summary>
         public readonly string? Type;
 

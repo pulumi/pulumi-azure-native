@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly ImmutableArray<Outputs.SsisParameterResponseResult> Parameters;
         /// <summary>
         /// Type of metadata.
+        /// Expected value is 'Project'.
         /// </summary>
         public readonly string Type;
         /// <summary>

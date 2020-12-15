@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
         public readonly string State;
         /// <summary>
         /// Task type.
+        /// Expected value is 'ConnectToSource.SqlServer'.
         /// </summary>
         public readonly string TaskType;
 

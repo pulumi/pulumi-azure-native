@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160301.Outputs
         public readonly string? Password;
         /// <summary>
         /// Gets or sets the HTTP authentication type.
+        /// Expected value is 'Basic'.
         /// </summary>
         public readonly string Type;
         /// <summary>

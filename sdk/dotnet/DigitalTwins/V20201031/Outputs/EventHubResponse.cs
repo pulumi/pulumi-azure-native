@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201031.Outputs
         public readonly string? DeadLetterSecret;
         /// <summary>
         /// The type of Digital Twins endpoint
+        /// Expected value is 'EventHub'.
         /// </summary>
         public readonly string EndpointType;
         /// <summary>

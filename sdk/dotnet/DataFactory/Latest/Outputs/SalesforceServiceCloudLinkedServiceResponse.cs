@@ -55,6 +55,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? SecurityToken;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'SalesforceServiceCloud'.
         /// </summary>
         public readonly string Type;
         /// <summary>

@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
 
         /// <summary>
         /// Type of data flow.
+        /// Expected value is 'MappingDataFlow'.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

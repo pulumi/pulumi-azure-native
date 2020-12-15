@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200301.Outputs
     {
         /// <summary>
         /// Specifies how the service is partitioned.
+        /// Expected value is 'Singleton'.
         /// </summary>
         public readonly string PartitionScheme;
 

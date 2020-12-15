@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Outputs
         public readonly ImmutableArray<string> CustomEmails;
         /// <summary>
         /// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+        /// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
     {
         /// <summary>
         /// Type of dataset compression.
+        /// Expected value is 'Tar'.
         /// </summary>
         public readonly string Type;
 

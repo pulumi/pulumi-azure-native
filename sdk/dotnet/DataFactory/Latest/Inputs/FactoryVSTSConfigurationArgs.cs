@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
 
         /// <summary>
         /// Type of repo configuration.
+        /// Expected value is 'FactoryVSTSConfiguration'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

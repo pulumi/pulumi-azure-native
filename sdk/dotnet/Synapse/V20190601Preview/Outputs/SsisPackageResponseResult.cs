@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         public readonly int? ProjectVersion;
         /// <summary>
         /// Type of metadata.
+        /// Expected value is 'Package'.
         /// </summary>
         public readonly string Type;
 

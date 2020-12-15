@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
 
         /// <summary>
         /// The type of compute
+        /// Expected value is 'DataLakeAnalytics'.
         /// </summary>
         [Input("computeType", required: true)]
         public Input<string> ComputeType { get; set; } = null!;

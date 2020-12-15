@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Outputs
         public readonly string? InfrastructureVmId;
         /// <summary>
         /// Gets the Instance type.
+        /// Expected value is 'InMageAzureV2'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

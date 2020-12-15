@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Outputs
         public readonly ImmutableDictionary<string, string>? ExperimentalOptions;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.FaceDetectorPreset'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

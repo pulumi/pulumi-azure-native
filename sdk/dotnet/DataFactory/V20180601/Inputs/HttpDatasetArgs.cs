@@ -109,6 +109,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
 
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'HttpFile'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

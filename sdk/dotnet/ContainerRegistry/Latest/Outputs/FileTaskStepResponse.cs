@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Outputs
         public readonly string TaskFilePath;
         /// <summary>
         /// The type of the step.
+        /// Expected value is 'FileTask'.
         /// </summary>
         public readonly string Type;
         /// <summary>

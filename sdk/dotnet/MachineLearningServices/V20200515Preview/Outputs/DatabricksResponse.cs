@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.Outputs
         public readonly string? ComputeLocation;
         /// <summary>
         /// The type of compute
+        /// Expected value is 'Databricks'.
         /// </summary>
         public readonly string ComputeType;
         /// <summary>

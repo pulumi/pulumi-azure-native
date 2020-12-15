@@ -16,6 +16,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
         public readonly Outputs.AzureSqlReferenceInputDataSourcePropertiesResponse? Properties;
         /// <summary>
         /// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Microsoft.Sql/Server/Database'.
         /// </summary>
         public readonly string Type;
 

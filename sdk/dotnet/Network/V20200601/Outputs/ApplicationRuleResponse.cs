@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Outputs
         public readonly ImmutableArray<Outputs.FirewallPolicyRuleApplicationProtocolResponse> Protocols;
         /// <summary>
         /// Rule Type.
+        /// Expected value is 'ApplicationRule'.
         /// </summary>
         public readonly string RuleType;
         /// <summary>

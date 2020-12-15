@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
     {
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
         /// </summary>
         public readonly string OdataType;
 

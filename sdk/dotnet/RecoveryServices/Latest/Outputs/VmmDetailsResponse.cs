@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     {
         /// <summary>
         /// Gets the class type. Overridden in derived classes.
+        /// Expected value is 'VMM'.
         /// </summary>
         public readonly string InstanceType;
 

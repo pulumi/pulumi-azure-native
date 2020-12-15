@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview.Outputs
     {
         /// <summary>
         /// The kind of artifact.
+        /// Expected value is 'template'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

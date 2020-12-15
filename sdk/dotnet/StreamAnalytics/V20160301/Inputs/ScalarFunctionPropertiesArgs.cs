@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301.Inputs
 
         /// <summary>
         /// Indicates the type of function.
+        /// Expected value is 'Scalar'.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

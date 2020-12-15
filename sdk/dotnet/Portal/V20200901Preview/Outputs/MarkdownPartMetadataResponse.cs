@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview.Outputs
         public readonly Outputs.MarkdownPartMetadataResponseSettings? Settings;
         /// <summary>
         /// The type of dashboard part.
+        /// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         /// </summary>
         public readonly string Type;
 

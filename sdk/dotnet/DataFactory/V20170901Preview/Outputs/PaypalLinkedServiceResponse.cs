@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Paypal'.
         /// </summary>
         public readonly string Type;
         /// <summary>

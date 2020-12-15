@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview.Outputs
         public readonly string RunOutputName;
         /// <summary>
         /// Type of distribution.
+        /// Expected value is 'SharedImage'.
         /// </summary>
         public readonly string Type;
 

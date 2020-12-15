@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
     {
         /// <summary>
         /// Type of the secret.
+        /// Expected value is 'RBAC'.
         /// </summary>
         [Input("authorizationType", required: true)]
         public Input<string> AuthorizationType { get; set; } = null!;

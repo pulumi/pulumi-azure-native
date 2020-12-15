@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601.Outputs
         public readonly Outputs.RetentionDurationResponse? RetentionDuration;
         /// <summary>
         /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// Expected value is 'SimpleRetentionPolicy'.
         /// </summary>
         public readonly string? RetentionPolicyType;
 

@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly string RuntimeState;
         /// <summary>
         /// Trigger type.
+        /// Expected value is 'RerunTumblingWindowTrigger'.
         /// </summary>
         public readonly string Type;
 

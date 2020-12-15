@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
 
         /// <summary>
         /// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        /// Expected value is 'Microsoft.Compute/availabilitySets'.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;

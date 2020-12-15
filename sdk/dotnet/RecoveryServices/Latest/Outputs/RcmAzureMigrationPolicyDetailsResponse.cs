@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         public readonly int? CrashConsistentFrequencyInMinutes;
         /// <summary>
         /// Gets the class type. Overridden in derived classes.
+        /// Expected value is 'RcmAzureMigration'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest.Inputs
 
         /// <summary>
         /// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        /// Expected value is 'StringEndsWith'.
         /// </summary>
         [Input("operatorType", required: true)]
         public Input<string> OperatorType { get; set; } = null!;

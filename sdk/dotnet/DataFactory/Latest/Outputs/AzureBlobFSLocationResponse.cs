@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? FolderPath;
         /// <summary>
         /// Type of dataset storage location.
+        /// Expected value is 'AzureBlobFSLocation'.
         /// </summary>
         public readonly string Type;
 

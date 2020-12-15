@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         public readonly string State;
         /// <summary>
         /// Type of integration runtime.
+        /// Expected value is 'Managed'.
         /// </summary>
         public readonly string Type;
 

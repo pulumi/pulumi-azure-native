@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701.Outputs
         public readonly string KeyId;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
         /// </summary>
         public readonly string OdataType;
 

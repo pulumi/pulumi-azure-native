@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     {
         /// <summary>
         /// Type of authentication used to connect to the web table source.
+        /// Expected value is 'Anonymous'.
         /// </summary>
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;

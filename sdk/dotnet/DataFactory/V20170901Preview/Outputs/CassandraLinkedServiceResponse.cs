@@ -51,6 +51,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly object? Port;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Cassandra'.
         /// </summary>
         public readonly string Type;
         /// <summary>

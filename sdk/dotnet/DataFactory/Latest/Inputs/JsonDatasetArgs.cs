@@ -89,6 +89,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
 
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'Json'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

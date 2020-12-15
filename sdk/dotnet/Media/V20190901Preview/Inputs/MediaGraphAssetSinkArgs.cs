@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.Media.V20190901Preview.Inputs
 
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
         /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

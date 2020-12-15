@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly Outputs.AzureKeyVaultSecretReferenceResponse? Pwd;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AzureMariaDB'.
         /// </summary>
         public readonly string Type;
 

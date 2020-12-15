@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? Serializer;
         /// <summary>
         /// Type of dataset storage format.
+        /// Expected value is 'JsonFormat'.
         /// </summary>
         public readonly string Type;
 

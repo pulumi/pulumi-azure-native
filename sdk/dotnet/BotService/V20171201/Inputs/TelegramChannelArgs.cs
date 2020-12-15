@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.BotService.V20171201.Inputs
     {
         /// <summary>
         /// The channel name
+        /// Expected value is 'TelegramChannel'.
         /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;

@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Outputs
         public readonly string? Name;
         /// <summary>
         /// Rule Condition Type.
+        /// Expected value is 'NatRuleCondition'.
         /// </summary>
         public readonly string RuleConditionType;
         /// <summary>

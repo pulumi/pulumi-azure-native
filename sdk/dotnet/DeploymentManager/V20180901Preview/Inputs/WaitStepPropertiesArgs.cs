@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview.Inputs
 
         /// <summary>
         /// The type of step.
+        /// Expected value is 'Wait'.
         /// </summary>
         [Input("stepType", required: true)]
         public Input<string> StepType { get; set; } = null!;

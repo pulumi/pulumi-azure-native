@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Inputs
 
         /// <summary>
         /// Gets the class type.
+        /// Expected value is 'InMageRcm'.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }

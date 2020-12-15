@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Outputs
         public readonly string AccountName;
         /// <summary>
         /// Indicates the type of job details.
+        /// Expected value is 'DataBoxHeavy'.
         /// </summary>
         public readonly string CopyLogDetailsType;
         /// <summary>

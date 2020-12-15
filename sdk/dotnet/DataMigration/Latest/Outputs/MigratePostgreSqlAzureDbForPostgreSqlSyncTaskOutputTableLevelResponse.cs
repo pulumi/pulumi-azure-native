@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         public readonly string LastModifiedTime;
         /// <summary>
         /// Result type
+        /// Expected value is 'TableLevelOutput'.
         /// </summary>
         public readonly string ResultType;
         /// <summary>
