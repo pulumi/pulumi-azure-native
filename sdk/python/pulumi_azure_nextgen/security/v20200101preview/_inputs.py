@@ -27,6 +27,7 @@ class AwAssumeRoleAuthenticationDetailsPropertiesArgs:
         """
         AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
         :param pulumi.Input[str] authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+               Expected value is 'awsAssumeRole'.
         :param pulumi.Input[str] aws_assume_role_arn: Assumed role ID is an identifier that you can use to create temporary security credentials.
         :param pulumi.Input[str] aws_external_id: A unique identifier that is required when you assume a role in another account.
         """
@@ -39,6 +40,7 @@ class AwAssumeRoleAuthenticationDetailsPropertiesArgs:
     def authentication_type(self) -> pulumi.Input[str]:
         """
         Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'awsAssumeRole'.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -80,6 +82,7 @@ class AwsCredsAuthenticationDetailsPropertiesArgs:
         """
         AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
         :param pulumi.Input[str] authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+               Expected value is 'awsCreds'.
         :param pulumi.Input[str] aws_access_key_id: Public key element of the AWS credential object (write only)
         :param pulumi.Input[str] aws_secret_access_key: Secret key element of the AWS credential object (write only)
         """
@@ -92,6 +95,7 @@ class AwsCredsAuthenticationDetailsPropertiesArgs:
     def authentication_type(self) -> pulumi.Input[str]:
         """
         Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'awsCreds'.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -144,6 +148,7 @@ class GcpCredentialsDetailsPropertiesArgs:
         :param pulumi.Input[str] auth_provider_x509_cert_url: Auth provider x509 certificate URL field of the API key (write only)
         :param pulumi.Input[str] auth_uri: Auth URI field of the API key (write only)
         :param pulumi.Input[str] authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+               Expected value is 'gcpCredentials'.
         :param pulumi.Input[str] client_email: Client email field of the API key (write only)
         :param pulumi.Input[str] client_id: Client ID field of the API key (write only)
         :param pulumi.Input[str] client_x509_cert_url: Client x509 certificate URL field of the API key (write only)
@@ -196,6 +201,7 @@ class GcpCredentialsDetailsPropertiesArgs:
     def authentication_type(self) -> pulumi.Input[str]:
         """
         Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'gcpCredentials'.
         """
         return pulumi.get(self, "authentication_type")
 

@@ -37,6 +37,7 @@ class AllowlistCustomAlertRuleResponse(dict):
         :param str display_name: The display name of the custom alert.
         :param bool is_enabled: Status of the custom alert.
         :param str rule_type: The type of the custom alert rule.
+               Expected value is 'ListCustomAlertRule'.
         :param str value_type: The value type of the items in the list.
         """
         pulumi.set(__self__, "allowlist_values", allowlist_values)
@@ -83,6 +84,7 @@ class AllowlistCustomAlertRuleResponse(dict):
     def rule_type(self) -> str:
         """
         The type of the custom alert rule.
+        Expected value is 'ListCustomAlertRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -117,6 +119,7 @@ class DenylistCustomAlertRuleResponse(dict):
         :param str display_name: The display name of the custom alert.
         :param bool is_enabled: Status of the custom alert.
         :param str rule_type: The type of the custom alert rule.
+               Expected value is 'ListCustomAlertRule'.
         :param str value_type: The value type of the items in the list.
         """
         pulumi.set(__self__, "denylist_values", denylist_values)
@@ -163,6 +166,7 @@ class DenylistCustomAlertRuleResponse(dict):
     def rule_type(self) -> str:
         """
         The type of the custom alert rule.
+        Expected value is 'ListCustomAlertRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -241,6 +245,7 @@ class ThresholdCustomAlertRuleResponse(dict):
         :param int max_threshold: The maximum threshold.
         :param int min_threshold: The minimum threshold.
         :param str rule_type: The type of the custom alert rule.
+               Expected value is 'ThresholdCustomAlertRule'.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
@@ -294,6 +299,7 @@ class ThresholdCustomAlertRuleResponse(dict):
     def rule_type(self) -> str:
         """
         The type of the custom alert rule.
+        Expected value is 'ThresholdCustomAlertRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -322,6 +328,7 @@ class TimeWindowCustomAlertRuleResponse(dict):
         :param int max_threshold: The maximum threshold.
         :param int min_threshold: The minimum threshold.
         :param str rule_type: The type of the custom alert rule.
+               Expected value is 'ThresholdCustomAlertRule'.
         :param str time_window_size: The time window size in iso8601 format.
         """
         pulumi.set(__self__, "description", description)
@@ -377,6 +384,7 @@ class TimeWindowCustomAlertRuleResponse(dict):
     def rule_type(self) -> str:
         """
         The type of the custom alert rule.
+        Expected value is 'ThresholdCustomAlertRule'.
         """
         return pulumi.get(self, "rule_type")
 

@@ -36,6 +36,7 @@ class AlertingActionResponse(dict):
         """
         Specify action need to be taken when rule type is Alert
         :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
+               Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
         :param str severity: Severity of the alert
         :param 'TriggerConditionResponseArgs' trigger: The trigger condition that results in the alert rule being.
         :param 'AzNsActionGroupResponseArgs' azns_action: Azure action group reference.
@@ -54,6 +55,7 @@ class AlertingActionResponse(dict):
     def odata_type(self) -> str:
         """
         Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -301,6 +303,7 @@ class LogToMetricActionResponse(dict):
         Specify action need to be taken when rule type is converting log to metric
         :param Sequence['CriteriaResponseArgs'] criteria: Criteria of Metric
         :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
+               Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
         """
         pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction')
@@ -318,6 +321,7 @@ class LogToMetricActionResponse(dict):
     def odata_type(self) -> str:
         """
         Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
         """
         return pulumi.get(self, "odata_type")
 

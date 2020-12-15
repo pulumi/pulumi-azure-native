@@ -95,6 +95,7 @@ class ServerPropertiesForDefaultCreateArgs:
         :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
         :param pulumi.Input[str] create_mode: The mode to create a new server.
+               Expected value is 'Default'.
         :param pulumi.Input[Union[str, 'PublicNetworkAccessEnum']] public_network_access: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input['SslEnforcementEnum'] ssl_enforcement: Enable ssl enforcement or not when connect to server.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
@@ -141,6 +142,7 @@ class ServerPropertiesForDefaultCreateArgs:
     def create_mode(self) -> pulumi.Input[str]:
         """
         The mode to create a new server.
+        Expected value is 'Default'.
         """
         return pulumi.get(self, "create_mode")
 
@@ -209,6 +211,7 @@ class ServerPropertiesForGeoRestoreArgs:
         """
         The properties used to create a new server by restoring to a different region from a geo replicated backup.
         :param pulumi.Input[str] create_mode: The mode to create a new server.
+               Expected value is 'GeoRestore'.
         :param pulumi.Input[str] source_server_id: The source server id to restore from.
         :param pulumi.Input[Union[str, 'PublicNetworkAccessEnum']] public_network_access: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input['SslEnforcementEnum'] ssl_enforcement: Enable ssl enforcement or not when connect to server.
@@ -231,6 +234,7 @@ class ServerPropertiesForGeoRestoreArgs:
     def create_mode(self) -> pulumi.Input[str]:
         """
         The mode to create a new server.
+        Expected value is 'GeoRestore'.
         """
         return pulumi.get(self, "create_mode")
 
@@ -311,6 +315,7 @@ class ServerPropertiesForReplicaArgs:
         """
         The properties to create a new replica.
         :param pulumi.Input[str] create_mode: The mode to create a new server.
+               Expected value is 'Replica'.
         :param pulumi.Input[str] source_server_id: The master server id to create replica from.
         :param pulumi.Input[Union[str, 'PublicNetworkAccessEnum']] public_network_access: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input['SslEnforcementEnum'] ssl_enforcement: Enable ssl enforcement or not when connect to server.
@@ -333,6 +338,7 @@ class ServerPropertiesForReplicaArgs:
     def create_mode(self) -> pulumi.Input[str]:
         """
         The mode to create a new server.
+        Expected value is 'Replica'.
         """
         return pulumi.get(self, "create_mode")
 
@@ -414,6 +420,7 @@ class ServerPropertiesForRestoreArgs:
         """
         The properties used to create a new server by restoring from a backup.
         :param pulumi.Input[str] create_mode: The mode to create a new server.
+               Expected value is 'PointInTimeRestore'.
         :param pulumi.Input[str] restore_point_in_time: Restore point creation time (ISO8601 format), specifying the time to restore from.
         :param pulumi.Input[str] source_server_id: The source server id to restore from.
         :param pulumi.Input[Union[str, 'PublicNetworkAccessEnum']] public_network_access: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -438,6 +445,7 @@ class ServerPropertiesForRestoreArgs:
     def create_mode(self) -> pulumi.Input[str]:
         """
         The mode to create a new server.
+        Expected value is 'PointInTimeRestore'.
         """
         return pulumi.get(self, "create_mode")
 

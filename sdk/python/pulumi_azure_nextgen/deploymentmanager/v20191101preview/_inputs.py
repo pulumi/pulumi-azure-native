@@ -39,6 +39,7 @@ class ApiKeyAuthenticationArgs:
         :param pulumi.Input['RestAuthLocation'] in_: The location of the authentication key/value pair in the request.
         :param pulumi.Input[str] name: The key name of the authentication key/value pair.
         :param pulumi.Input[str] type: The authentication type.
+               Expected value is 'ApiKey'.
         :param pulumi.Input[str] value: The value of the authentication key/value pair.
         """
         pulumi.set(__self__, "in_", in_)
@@ -75,6 +76,7 @@ class ApiKeyAuthenticationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The authentication type.
+        Expected value is 'ApiKey'.
         """
         return pulumi.get(self, "type")
 
@@ -104,6 +106,7 @@ class HealthCheckStepPropertiesArgs:
         Defines the properties of a health check step.
         :param pulumi.Input['RestHealthCheckStepAttributesArgs'] attributes: The health check step attributes
         :param pulumi.Input[str] step_type: The type of step.
+               Expected value is 'HealthCheck'.
         """
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "step_type", 'HealthCheck')
@@ -125,6 +128,7 @@ class HealthCheckStepPropertiesArgs:
     def step_type(self) -> pulumi.Input[str]:
         """
         The type of step.
+        Expected value is 'HealthCheck'.
         """
         return pulumi.get(self, "step_type")
 
@@ -261,6 +265,7 @@ class RestHealthCheckStepAttributesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RestHealthCheckArgs']]] health_checks: The list of checks that form the health check step.
         :param pulumi.Input[str] healthy_state_duration: The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
         :param pulumi.Input[str] type: The type of health check.
+               Expected value is 'REST'.
         :param pulumi.Input[str] max_elastic_duration: The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
         :param pulumi.Input[str] wait_duration: The duration in ISO 8601 format for which health check waits idly without any checks.
         """
@@ -301,6 +306,7 @@ class RestHealthCheckStepAttributesArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of health check.
+        Expected value is 'REST'.
         """
         return pulumi.get(self, "type")
 
@@ -473,6 +479,7 @@ class RolloutIdentityAuthenticationArgs:
         """
         RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
         :param pulumi.Input[str] type: The authentication type.
+               Expected value is 'RolloutIdentity'.
         """
         pulumi.set(__self__, "type", 'RolloutIdentity')
 
@@ -481,6 +488,7 @@ class RolloutIdentityAuthenticationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The authentication type.
+        Expected value is 'RolloutIdentity'.
         """
         return pulumi.get(self, "type")
 
@@ -498,6 +506,7 @@ class SasAuthenticationArgs:
         Defines the properties to access the artifacts using an Azure Storage SAS URI.
         :param pulumi.Input[str] sas_uri: The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
         :param pulumi.Input[str] type: The authentication type
+               Expected value is 'Sas'.
         """
         pulumi.set(__self__, "sas_uri", sas_uri)
         pulumi.set(__self__, "type", 'Sas')
@@ -519,6 +528,7 @@ class SasAuthenticationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The authentication type
+        Expected value is 'Sas'.
         """
         return pulumi.get(self, "type")
 
@@ -717,6 +727,7 @@ class WaitStepPropertiesArgs:
         Defines the properties of a Wait step.
         :param pulumi.Input['WaitStepAttributesArgs'] attributes: The Wait attributes
         :param pulumi.Input[str] step_type: The type of step.
+               Expected value is 'Wait'.
         """
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "step_type", 'Wait')
@@ -738,6 +749,7 @@ class WaitStepPropertiesArgs:
     def step_type(self) -> pulumi.Input[str]:
         """
         The type of step.
+        Expected value is 'Wait'.
         """
         return pulumi.get(self, "step_type")
 

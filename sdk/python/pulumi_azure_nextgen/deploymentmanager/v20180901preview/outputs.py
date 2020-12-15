@@ -414,6 +414,7 @@ class SasAuthenticationResponse(dict):
         Defines the properties to access the artifacts using an Azure Storage SAS URI.
         :param str sas_uri: The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
         :param str type: The authentication type
+               Expected value is 'Sas'.
         """
         pulumi.set(__self__, "sas_uri", sas_uri)
         pulumi.set(__self__, "type", 'Sas')
@@ -431,6 +432,7 @@ class SasAuthenticationResponse(dict):
     def type(self) -> str:
         """
         The authentication type
+        Expected value is 'Sas'.
         """
         return pulumi.get(self, "type")
 
@@ -812,6 +814,7 @@ class WaitStepPropertiesResponse(dict):
         """
         Defines the properties of a Wait step.
         :param str step_type: The type of step.
+               Expected value is 'Wait'.
         :param 'WaitStepAttributesResponseArgs' attributes: The Wait attributes
         """
         pulumi.set(__self__, "step_type", 'Wait')
@@ -823,6 +826,7 @@ class WaitStepPropertiesResponse(dict):
     def step_type(self) -> str:
         """
         The type of step.
+        Expected value is 'Wait'.
         """
         return pulumi.get(self, "step_type")
 

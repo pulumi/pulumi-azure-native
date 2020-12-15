@@ -696,6 +696,7 @@ class DeliveryRuleCacheExpirationActionArgs:
         """
         Defines the cache expiration action for the delivery rule.
         :param pulumi.Input[str] name: The name of the action for the delivery rule.
+               Expected value is 'CacheExpiration'.
         :param pulumi.Input['CacheExpirationActionParametersArgs'] parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'CacheExpiration')
@@ -706,6 +707,7 @@ class DeliveryRuleCacheExpirationActionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the action for the delivery rule.
+        Expected value is 'CacheExpiration'.
         """
         return pulumi.get(self, "name")
 
@@ -734,6 +736,7 @@ class DeliveryRuleCacheKeyQueryStringActionArgs:
         """
         Defines the cache-key query string action for the delivery rule.
         :param pulumi.Input[str] name: The name of the action for the delivery rule.
+               Expected value is 'CacheKeyQueryString'.
         :param pulumi.Input['CacheKeyQueryStringActionParametersArgs'] parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'CacheKeyQueryString')
@@ -744,6 +747,7 @@ class DeliveryRuleCacheKeyQueryStringActionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the action for the delivery rule.
+        Expected value is 'CacheKeyQueryString'.
         """
         return pulumi.get(self, "name")
 
@@ -772,6 +776,7 @@ class DeliveryRuleCookiesConditionArgs:
         """
         Defines the Cookies condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'Cookies'.
         :param pulumi.Input['CookiesMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'Cookies')
@@ -782,6 +787,7 @@ class DeliveryRuleCookiesConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'Cookies'.
         """
         return pulumi.get(self, "name")
 
@@ -810,6 +816,7 @@ class DeliveryRuleHttpVersionConditionArgs:
         """
         Defines the HttpVersion condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'HttpVersion'.
         :param pulumi.Input['HttpVersionMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'HttpVersion')
@@ -820,6 +827,7 @@ class DeliveryRuleHttpVersionConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'HttpVersion'.
         """
         return pulumi.get(self, "name")
 
@@ -848,6 +856,7 @@ class DeliveryRuleIsDeviceConditionArgs:
         """
         Defines the IsDevice condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'IsDevice'.
         :param pulumi.Input['IsDeviceMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'IsDevice')
@@ -858,6 +867,7 @@ class DeliveryRuleIsDeviceConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'IsDevice'.
         """
         return pulumi.get(self, "name")
 
@@ -886,6 +896,7 @@ class DeliveryRulePostArgsConditionArgs:
         """
         Defines the PostArgs condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'PostArgs'.
         :param pulumi.Input['PostArgsMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'PostArgs')
@@ -896,6 +907,7 @@ class DeliveryRulePostArgsConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'PostArgs'.
         """
         return pulumi.get(self, "name")
 
@@ -924,6 +936,7 @@ class DeliveryRuleQueryStringConditionArgs:
         """
         Defines the QueryString condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'QueryString'.
         :param pulumi.Input['QueryStringMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'QueryString')
@@ -934,6 +947,7 @@ class DeliveryRuleQueryStringConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'QueryString'.
         """
         return pulumi.get(self, "name")
 
@@ -962,6 +976,7 @@ class DeliveryRuleRemoteAddressConditionArgs:
         """
         Defines the RemoteAddress condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'RemoteAddress'.
         :param pulumi.Input['RemoteAddressMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RemoteAddress')
@@ -972,6 +987,7 @@ class DeliveryRuleRemoteAddressConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RemoteAddress'.
         """
         return pulumi.get(self, "name")
 
@@ -1000,6 +1016,7 @@ class DeliveryRuleRequestBodyConditionArgs:
         """
         Defines the RequestBody condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'RequestBody'.
         :param pulumi.Input['RequestBodyMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestBody')
@@ -1010,6 +1027,7 @@ class DeliveryRuleRequestBodyConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RequestBody'.
         """
         return pulumi.get(self, "name")
 
@@ -1038,6 +1056,7 @@ class DeliveryRuleRequestHeaderActionArgs:
         """
         Defines the request header action for the delivery rule.
         :param pulumi.Input[str] name: The name of the action for the delivery rule.
+               Expected value is 'ModifyRequestHeader'.
         :param pulumi.Input['HeaderActionParametersArgs'] parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'ModifyRequestHeader')
@@ -1048,6 +1067,7 @@ class DeliveryRuleRequestHeaderActionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the action for the delivery rule.
+        Expected value is 'ModifyRequestHeader'.
         """
         return pulumi.get(self, "name")
 
@@ -1076,6 +1096,7 @@ class DeliveryRuleRequestHeaderConditionArgs:
         """
         Defines the RequestHeader condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'RequestHeader'.
         :param pulumi.Input['RequestHeaderMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestHeader')
@@ -1086,6 +1107,7 @@ class DeliveryRuleRequestHeaderConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RequestHeader'.
         """
         return pulumi.get(self, "name")
 
@@ -1114,6 +1136,7 @@ class DeliveryRuleRequestMethodConditionArgs:
         """
         Defines the RequestMethod condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'RequestMethod'.
         :param pulumi.Input['RequestMethodMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestMethod')
@@ -1124,6 +1147,7 @@ class DeliveryRuleRequestMethodConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RequestMethod'.
         """
         return pulumi.get(self, "name")
 
@@ -1152,6 +1176,7 @@ class DeliveryRuleRequestSchemeConditionArgs:
         """
         Defines the RequestScheme condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'RequestScheme'.
         :param pulumi.Input['RequestSchemeMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestScheme')
@@ -1162,6 +1187,7 @@ class DeliveryRuleRequestSchemeConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RequestScheme'.
         """
         return pulumi.get(self, "name")
 
@@ -1190,6 +1216,7 @@ class DeliveryRuleRequestUriConditionArgs:
         """
         Defines the RequestUri condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'RequestUri'.
         :param pulumi.Input['RequestUriMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestUri')
@@ -1200,6 +1227,7 @@ class DeliveryRuleRequestUriConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RequestUri'.
         """
         return pulumi.get(self, "name")
 
@@ -1228,6 +1256,7 @@ class DeliveryRuleResponseHeaderActionArgs:
         """
         Defines the response header action for the delivery rule.
         :param pulumi.Input[str] name: The name of the action for the delivery rule.
+               Expected value is 'ModifyResponseHeader'.
         :param pulumi.Input['HeaderActionParametersArgs'] parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'ModifyResponseHeader')
@@ -1238,6 +1267,7 @@ class DeliveryRuleResponseHeaderActionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the action for the delivery rule.
+        Expected value is 'ModifyResponseHeader'.
         """
         return pulumi.get(self, "name")
 
@@ -1266,6 +1296,7 @@ class DeliveryRuleUrlFileExtensionConditionArgs:
         """
         Defines the UrlFileExtension condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'UrlFileExtension'.
         :param pulumi.Input['UrlFileExtensionMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlFileExtension')
@@ -1276,6 +1307,7 @@ class DeliveryRuleUrlFileExtensionConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'UrlFileExtension'.
         """
         return pulumi.get(self, "name")
 
@@ -1304,6 +1336,7 @@ class DeliveryRuleUrlFileNameConditionArgs:
         """
         Defines the UrlFileName condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'UrlFileName'.
         :param pulumi.Input['UrlFileNameMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlFileName')
@@ -1314,6 +1347,7 @@ class DeliveryRuleUrlFileNameConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'UrlFileName'.
         """
         return pulumi.get(self, "name")
 
@@ -1342,6 +1376,7 @@ class DeliveryRuleUrlPathConditionArgs:
         """
         Defines the UrlPath condition for the delivery rule.
         :param pulumi.Input[str] name: The name of the condition for the delivery rule.
+               Expected value is 'UrlPath'.
         :param pulumi.Input['UrlPathMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlPath')
@@ -1352,6 +1387,7 @@ class DeliveryRuleUrlPathConditionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'UrlPath'.
         """
         return pulumi.get(self, "name")
 
@@ -3436,6 +3472,7 @@ class UrlRedirectActionArgs:
         """
         Defines the url redirect action for the delivery rule.
         :param pulumi.Input[str] name: The name of the action for the delivery rule.
+               Expected value is 'UrlRedirect'.
         :param pulumi.Input['UrlRedirectActionParametersArgs'] parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'UrlRedirect')
@@ -3446,6 +3483,7 @@ class UrlRedirectActionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the action for the delivery rule.
+        Expected value is 'UrlRedirect'.
         """
         return pulumi.get(self, "name")
 
@@ -3588,6 +3626,7 @@ class UrlRewriteActionArgs:
         """
         Defines the url rewrite action for the delivery rule.
         :param pulumi.Input[str] name: The name of the action for the delivery rule.
+               Expected value is 'UrlRewrite'.
         :param pulumi.Input['UrlRewriteActionParametersArgs'] parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'UrlRewrite')
@@ -3598,6 +3637,7 @@ class UrlRewriteActionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the action for the delivery rule.
+        Expected value is 'UrlRewrite'.
         """
         return pulumi.get(self, "name")
 
@@ -3691,6 +3731,7 @@ class UrlSigningActionArgs:
         """
         Defines the url signing action for the delivery rule.
         :param pulumi.Input[str] name: The name of the action for the delivery rule.
+               Expected value is 'UrlSigning'.
         :param pulumi.Input['UrlSigningActionParametersArgs'] parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'UrlSigning')
@@ -3701,6 +3742,7 @@ class UrlSigningActionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the action for the delivery rule.
+        Expected value is 'UrlSigning'.
         """
         return pulumi.get(self, "name")
 

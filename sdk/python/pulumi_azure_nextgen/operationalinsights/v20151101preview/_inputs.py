@@ -23,6 +23,7 @@ class MachineReferenceWithHintsArgs:
         A machine reference with a hint of the machine's name and operating system.
         :param pulumi.Input[str] id: Resource URI.
         :param pulumi.Input[str] kind: Specifies the sub-class of the reference.
+               Expected value is 'ref:machinewithhints'.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "kind", 'ref:machinewithhints')
@@ -44,6 +45,7 @@ class MachineReferenceWithHintsArgs:
     def kind(self) -> pulumi.Input[str]:
         """
         Specifies the sub-class of the reference.
+        Expected value is 'ref:machinewithhints'.
         """
         return pulumi.get(self, "kind")
 

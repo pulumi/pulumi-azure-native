@@ -186,6 +186,7 @@ class MarkdownPartMetadataResponse(dict):
         """
         Markdown part metadata.
         :param str type: The type of dashboard part.
+               Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         :param Sequence[Any] inputs: Input to dashboard part.
         :param 'MarkdownPartMetadataResponseSettingsArgs' settings: Markdown part settings.
         """
@@ -200,6 +201,7 @@ class MarkdownPartMetadataResponse(dict):
     def type(self) -> str:
         """
         The type of dashboard part.
+        Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         """
         return pulumi.get(self, "type")
 

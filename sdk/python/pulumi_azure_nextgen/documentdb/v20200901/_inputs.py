@@ -590,6 +590,7 @@ class ContinuousModeBackupPolicyArgs:
         """
         The object representing continuous mode backup policy.
         :param pulumi.Input[str] type: Describes the mode of backups.
+               Expected value is 'Continuous'.
         """
         pulumi.set(__self__, "type", 'Continuous')
 
@@ -598,6 +599,7 @@ class ContinuousModeBackupPolicyArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Describes the mode of backups.
+        Expected value is 'Continuous'.
         """
         return pulumi.get(self, "type")
 
@@ -1368,6 +1370,7 @@ class PeriodicModeBackupPolicyArgs:
         """
         The object representing periodic mode backup policy.
         :param pulumi.Input[str] type: Describes the mode of backups.
+               Expected value is 'Periodic'.
         :param pulumi.Input['PeriodicModePropertiesArgs'] periodic_mode_properties: Configuration values for periodic mode backup
         """
         pulumi.set(__self__, "type", 'Periodic')
@@ -1379,6 +1382,7 @@ class PeriodicModeBackupPolicyArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Describes the mode of backups.
+        Expected value is 'Periodic'.
         """
         return pulumi.get(self, "type")
 

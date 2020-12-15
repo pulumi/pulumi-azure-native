@@ -22,6 +22,7 @@ class TemplateSpecTemplateArtifactArgs:
         """
         Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
         :param pulumi.Input[str] kind: The kind of artifact.
+               Expected value is 'template'.
         :param pulumi.Input[str] path: A filesystem safe relative path of the artifact.
         :param Any template: The Azure Resource Manager template.
         """
@@ -34,6 +35,7 @@ class TemplateSpecTemplateArtifactArgs:
     def kind(self) -> pulumi.Input[str]:
         """
         The kind of artifact.
+        Expected value is 'template'.
         """
         return pulumi.get(self, "kind")
 

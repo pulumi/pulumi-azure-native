@@ -90,6 +90,7 @@ class AzureResourceDetailsArgs:
         """
         Details of the Azure resource that was assessed
         :param pulumi.Input[str] source: The platform where the assessed resource resides
+               Expected value is 'Azure'.
         """
         pulumi.set(__self__, "source", 'Azure')
 
@@ -98,6 +99,7 @@ class AzureResourceDetailsArgs:
     def source(self) -> pulumi.Input[str]:
         """
         The platform where the assessed resource resides
+        Expected value is 'Azure'.
         """
         return pulumi.get(self, "source")
 
@@ -459,6 +461,7 @@ class OnPremiseResourceDetailsArgs:
         Details of the On Premise resource that was assessed
         :param pulumi.Input[str] machine_name: The name of the machine
         :param pulumi.Input[str] source: The platform where the assessed resource resides
+               Expected value is 'OnPremise'.
         :param pulumi.Input[str] source_computer_id: The oms agent Id installed on the machine
         :param pulumi.Input[str] vmuuid: The unique Id of the machine
         :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
@@ -486,6 +489,7 @@ class OnPremiseResourceDetailsArgs:
     def source(self) -> pulumi.Input[str]:
         """
         The platform where the assessed resource resides
+        Expected value is 'OnPremise'.
         """
         return pulumi.get(self, "source")
 

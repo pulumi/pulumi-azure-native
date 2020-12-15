@@ -63,6 +63,7 @@ class AddRemoveReplicaScalingMechanismResponse(dict):
         """
         Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
         :param str kind: The type of auto scaling mechanism.
+               Expected value is 'AddRemoveReplica'.
         :param int max_count: Maximum number of containers (scale up won't be performed above this number).
         :param int min_count: Minimum number of containers (scale down won't be performed below this number).
         :param int scale_increment: Each time auto scaling is performed, this number of containers will be added or removed.
@@ -77,6 +78,7 @@ class AddRemoveReplicaScalingMechanismResponse(dict):
     def kind(self) -> str:
         """
         The type of auto scaling mechanism.
+        Expected value is 'AddRemoveReplica'.
         """
         return pulumi.get(self, "kind")
 
@@ -120,6 +122,7 @@ class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse(d
         """
         Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
         :param str kind: Specifies the application-scoped volume kind.
+               Expected value is 'ServiceFabricVolumeDisk'.
         :param str size_disk: Volume size
         :param str description: User readable description of the volume.
         """
@@ -133,6 +136,7 @@ class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse(d
     def kind(self) -> str:
         """
         Specifies the application-scoped volume kind.
+        Expected value is 'ServiceFabricVolumeDisk'.
         """
         return pulumi.get(self, "kind")
 
@@ -273,6 +277,7 @@ class AutoScalingResourceMetricResponse(dict):
         """
         Describes the resource that is used for triggering auto scaling.
         :param str kind: The type of auto scaling metric
+               Expected value is 'Resource'.
         :param str name: Name of the resource.
         """
         pulumi.set(__self__, "kind", 'Resource')
@@ -283,6 +288,7 @@ class AutoScalingResourceMetricResponse(dict):
     def kind(self) -> str:
         """
         The type of auto scaling metric
+        Expected value is 'Resource'.
         """
         return pulumi.get(self, "kind")
 
@@ -312,6 +318,7 @@ class AverageLoadScalingTriggerResponse(dict):
         """
         Describes the average load trigger used for auto scaling.
         :param str kind: The type of auto scaling trigger
+               Expected value is 'AverageLoad'.
         :param float lower_load_threshold: Lower load threshold (if average load is below this threshold, service will scale down).
         :param 'AutoScalingResourceMetricResponseArgs' metric: Description of the metric that is used for scaling.
         :param int scale_interval_in_seconds: Scale interval that indicates how often will this trigger be checked.
@@ -328,6 +335,7 @@ class AverageLoadScalingTriggerResponse(dict):
     def kind(self) -> str:
         """
         The type of auto scaling trigger
+        Expected value is 'AverageLoad'.
         """
         return pulumi.get(self, "kind")
 
@@ -384,6 +392,7 @@ class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
         """
         Diagnostics settings for Geneva.
         :param str kind: The kind of DiagnosticsSink.
+               Expected value is 'AzureInternalMonitoringPipeline'.
         :param str account_name: Azure Internal monitoring pipeline account.
         :param str auto_key_config_url: Azure Internal monitoring pipeline autokey associated with the certificate.
         :param str description: A description of the sink.
@@ -413,6 +422,7 @@ class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
     def kind(self) -> str:
         """
         The kind of DiagnosticsSink.
+        Expected value is 'AzureInternalMonitoringPipeline'.
         """
         return pulumi.get(self, "kind")
 
@@ -1524,6 +1534,7 @@ class NetworkResourcePropertiesResponse(dict):
         """
         Describes properties of a network resource.
         :param str kind: The type of a Service Fabric container network.
+               Expected value is 'NetworkResourceProperties'.
         :param str provisioning_state: State of the resource.
         :param str status: Status of the network.
         :param str status_details: Gives additional information about the current status of the network.
@@ -1541,6 +1552,7 @@ class NetworkResourcePropertiesResponse(dict):
     def kind(self) -> str:
         """
         The type of a Service Fabric container network.
+        Expected value is 'NetworkResourceProperties'.
         """
         return pulumi.get(self, "kind")
 
@@ -1743,6 +1755,7 @@ class SecretResourcePropertiesResponse(dict):
         """
         Describes the properties of a secret resource.
         :param str kind: Describes the kind of secret.
+               Expected value is 'SecretResourceProperties'.
         :param str provisioning_state: State of the resource.
         :param str status: Status of the resource.
         :param str status_details: Gives additional information about the current status of the secret.
@@ -1763,6 +1776,7 @@ class SecretResourcePropertiesResponse(dict):
     def kind(self) -> str:
         """
         Describes the kind of secret.
+        Expected value is 'SecretResourceProperties'.
         """
         return pulumi.get(self, "kind")
 

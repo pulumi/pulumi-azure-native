@@ -364,6 +364,7 @@ class DataBoxAccountCopyLogDetailsResponse(dict):
         Copy log details for a storage account of a DataBox job
         :param str account_name: Destination account name.
         :param str copy_log_details_type: Indicates the type of job details.
+               Expected value is 'DataBox'.
         :param str copy_log_link: Link for copy logs.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -383,6 +384,7 @@ class DataBoxAccountCopyLogDetailsResponse(dict):
     def copy_log_details_type(self) -> str:
         """
         Indicates the type of job details.
+        Expected value is 'DataBox'.
         """
         return pulumi.get(self, "copy_log_details_type")
 
@@ -411,6 +413,7 @@ class DataBoxDiskCopyLogDetailsResponse(dict):
         """
         Copy Log Details for a disk
         :param str copy_log_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxDisk'.
         :param str disk_serial_number: Disk Serial Number.
         :param str error_log_link: Link for copy error logs.
         :param str verbose_log_link: Link for copy verbose logs.
@@ -425,6 +428,7 @@ class DataBoxDiskCopyLogDetailsResponse(dict):
     def copy_log_details_type(self) -> str:
         """
         Indicates the type of job details.
+        Expected value is 'DataBoxDisk'.
         """
         return pulumi.get(self, "copy_log_details_type")
 
@@ -548,6 +552,7 @@ class DataBoxDiskJobDetailsResponse(dict):
         :param Mapping[str, int] disks_and_size_details: Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
         :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
         :param str job_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxDisk'.
         :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
         :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
@@ -648,6 +653,7 @@ class DataBoxDiskJobDetailsResponse(dict):
     def job_details_type(self) -> str:
         """
         Indicates the type of job details.
+        Expected value is 'DataBoxDisk'.
         """
         return pulumi.get(self, "job_details_type")
 
@@ -735,6 +741,7 @@ class DataBoxDiskJobSecretsResponseResult(dict):
         :param Sequence['DiskSecretResponseArgs'] disk_secrets: Contains the list of secrets object for that device.
         :param bool is_passkey_user_defined: Whether passkey was provided by user.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
+               Expected value is 'DataBoxDisk'.
         :param str pass_key: PassKey for the disk Job.
         :param 'DcAccessSecurityCodeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
         """
@@ -766,6 +773,7 @@ class DataBoxDiskJobSecretsResponseResult(dict):
     def job_secrets_type(self) -> str:
         """
         Used to indicate what type of job secrets object.
+        Expected value is 'DataBoxDisk'.
         """
         return pulumi.get(self, "job_secrets_type")
 
@@ -799,6 +807,7 @@ class DataBoxHeavyAccountCopyLogDetailsResponse(dict):
         Copy log details for a storage account for Databox heavy
         :param str account_name: Destination account name.
         :param str copy_log_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxHeavy'.
         :param Sequence[str] copy_log_link: Link for copy logs.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -818,6 +827,7 @@ class DataBoxHeavyAccountCopyLogDetailsResponse(dict):
     def copy_log_details_type(self) -> str:
         """
         Indicates the type of job details.
+        Expected value is 'DataBoxHeavy'.
         """
         return pulumi.get(self, "copy_log_details_type")
 
@@ -864,6 +874,7 @@ class DataBoxHeavyJobDetailsResponse(dict):
         :param Sequence[Union['DestinationManagedDiskDetailsResponseArgs', 'DestinationStorageAccountDetailsResponseArgs']] destination_account_details: Destination account details.
         :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
         :param str job_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxHeavy'.
         :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
         :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
@@ -952,6 +963,7 @@ class DataBoxHeavyJobDetailsResponse(dict):
     def job_details_type(self) -> str:
         """
         Indicates the type of job details.
+        Expected value is 'DataBoxHeavy'.
         """
         return pulumi.get(self, "job_details_type")
 
@@ -1028,6 +1040,7 @@ class DataBoxHeavyJobSecretsResponseResult(dict):
         The secrets related to a databox heavy job.
         :param Sequence['DataBoxHeavySecretResponseArgs'] cabinet_pod_secrets: Contains the list of secret objects for a databox heavy job.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
+               Expected value is 'DataBoxHeavy'.
         :param 'DcAccessSecurityCodeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
         """
         pulumi.set(__self__, "cabinet_pod_secrets", cabinet_pod_secrets)
@@ -1048,6 +1061,7 @@ class DataBoxHeavyJobSecretsResponseResult(dict):
     def job_secrets_type(self) -> str:
         """
         Used to indicate what type of job secrets object.
+        Expected value is 'DataBoxHeavy'.
         """
         return pulumi.get(self, "job_secrets_type")
 
@@ -1157,6 +1171,7 @@ class DataBoxJobDetailsResponse(dict):
         :param Sequence[Union['DestinationManagedDiskDetailsResponseArgs', 'DestinationStorageAccountDetailsResponseArgs']] destination_account_details: Destination account details.
         :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
         :param str job_details_type: Indicates the type of job details.
+               Expected value is 'DataBox'.
         :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
         :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
@@ -1245,6 +1260,7 @@ class DataBoxJobDetailsResponse(dict):
     def job_details_type(self) -> str:
         """
         Indicates the type of job details.
+        Expected value is 'DataBox'.
         """
         return pulumi.get(self, "job_details_type")
 
@@ -1386,6 +1402,7 @@ class DataboxJobSecretsResponseResult(dict):
         """
         The secrets related to a databox job.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
+               Expected value is 'DataBox'.
         :param 'DcAccessSecurityCodeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
         :param Sequence['DataBoxSecretResponseArgs'] pod_secrets: Contains the list of secret objects for a job.
         """
@@ -1400,6 +1417,7 @@ class DataboxJobSecretsResponseResult(dict):
     def job_secrets_type(self) -> str:
         """
         Used to indicate what type of job secrets object.
+        Expected value is 'DataBox'.
         """
         return pulumi.get(self, "job_secrets_type")
 
@@ -1469,6 +1487,7 @@ class DestinationManagedDiskDetailsResponse(dict):
         """
         Details for the destination compute disks.
         :param str data_destination_type: Data Destination Type.
+               Expected value is 'ManagedDisk'.
         :param str resource_group_id: Destination Resource Group Id where the Compute disks should be created.
         :param str staging_storage_account_id: Arm Id of the storage account that can be used to copy the vhd for staging.
         :param str account_id: Arm Id of the destination where the data has to be moved.
@@ -1487,6 +1506,7 @@ class DestinationManagedDiskDetailsResponse(dict):
     def data_destination_type(self) -> str:
         """
         Data Destination Type.
+        Expected value is 'ManagedDisk'.
         """
         return pulumi.get(self, "data_destination_type")
 
@@ -1539,6 +1559,7 @@ class DestinationStorageAccountDetailsResponse(dict):
         """
         Details for the destination storage account.
         :param str data_destination_type: Data Destination Type.
+               Expected value is 'StorageAccount'.
         :param str storage_account_id: Destination Storage Account Arm Id.
         :param str account_id: Arm Id of the destination where the data has to be moved.
         :param str share_password: Share password to be shared by all shares in SA.
@@ -1555,6 +1576,7 @@ class DestinationStorageAccountDetailsResponse(dict):
     def data_destination_type(self) -> str:
         """
         Data Destination Type.
+        Expected value is 'StorageAccount'.
         """
         return pulumi.get(self, "data_destination_type")
 

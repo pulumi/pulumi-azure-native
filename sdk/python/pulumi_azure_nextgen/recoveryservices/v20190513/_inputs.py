@@ -70,6 +70,7 @@ class AzureFileshareProtectedItemArgs:
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureFileShareProtectedItem'.
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] protection_status: Backup status of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
@@ -315,6 +316,7 @@ class AzureFileshareProtectedItemArgs:
     def protected_item_type(self) -> Optional[pulumi.Input[str]]:
         """
         backup item type.
+        Expected value is 'AzureFileShareProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -475,6 +477,7 @@ class AzureIaaSVMProtectedItemArgs:
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protected_item_data_id: Data ID of the protected item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureIaaSVMProtectedItem'.
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] protection_status: Backup status of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
@@ -751,6 +754,7 @@ class AzureIaaSVMProtectedItemArgs:
     def protected_item_type(self) -> Optional[pulumi.Input[str]]:
         """
         backup item type.
+        Expected value is 'AzureIaaSVMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -911,6 +915,7 @@ class AzureSqlProtectedItemArgs:
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protected_item_data_id: Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'Microsoft.Sql/servers/databases'.
         :param pulumi.Input[Union[str, 'ProtectedItemState']] protection_state: Backup state of the backed up item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
@@ -1111,6 +1116,7 @@ class AzureSqlProtectedItemArgs:
     def protected_item_type(self) -> Optional[pulumi.Input[str]]:
         """
         backup item type.
+        Expected value is 'Microsoft.Sql/servers/databases'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1261,6 +1267,7 @@ class AzureVmWorkloadProtectedItemArgs:
         :param pulumi.Input[str] protected_item_data_source_id: Data ID of the protected item.
         :param pulumi.Input[Union[str, 'ProtectedItemHealthStatus']] protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureVmWorkloadProtectedItem'.
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] protection_status: Backup status of this backup item.
         :param pulumi.Input[str] server_name: Host/Cluster Name for instance or AG
@@ -1551,6 +1558,7 @@ class AzureVmWorkloadProtectedItemArgs:
     def protected_item_type(self) -> Optional[pulumi.Input[str]]:
         """
         backup item type.
+        Expected value is 'AzureVmWorkloadProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1713,6 +1721,7 @@ class DPMProtectedItemArgs:
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'DPMProtectedItem'.
         :param pulumi.Input[Union[str, 'ProtectedItemState']] protection_state: Protection state of the backup engine
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
@@ -1927,6 +1936,7 @@ class DPMProtectedItemArgs:
     def protected_item_type(self) -> Optional[pulumi.Input[str]]:
         """
         backup item type.
+        Expected value is 'DPMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2307,6 +2317,7 @@ class GenericProtectedItemArgs:
         :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
         :param pulumi.Input[int] protected_item_id: Data Plane Service ID of the protected item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'GenericProtectedItem'.
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] source_associations: Loosely coupled (type, value) associations (example - parent of a protected item)
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
@@ -2538,6 +2549,7 @@ class GenericProtectedItemArgs:
     def protected_item_type(self) -> Optional[pulumi.Input[str]]:
         """
         backup item type.
+        Expected value is 'GenericProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2638,6 +2650,7 @@ class MabFileFolderProtectedItemArgs:
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'MabFileFolderProtectedItem'.
         :param pulumi.Input[str] protection_state: Protected, ProtectionStopped, IRPending or ProtectionError
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
@@ -2894,6 +2907,7 @@ class MabFileFolderProtectedItemArgs:
     def protected_item_type(self) -> Optional[pulumi.Input[str]]:
         """
         backup item type.
+        Expected value is 'MabFileFolderProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 

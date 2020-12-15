@@ -322,6 +322,8 @@ class ForwardingConfigurationArgs:
                  forwarding_protocol: Optional[pulumi.Input[Union[str, 'FrontDoorForwardingProtocol']]] = None):
         """
         Describes Forwarding Route.
+        :param pulumi.Input[str] odata_type: 
+               Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
         :param pulumi.Input['SubResourceArgs'] backend_pool: A reference to the BackendPool which this rule routes to.
         :param pulumi.Input['CacheConfigurationArgs'] cache_configuration: The caching configuration associated with this rule.
         :param pulumi.Input[str] custom_forwarding_path: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
@@ -340,6 +342,10 @@ class ForwardingConfigurationArgs:
     @property
     @pulumi.getter(name="odataType")
     def odata_type(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
+        """
         return pulumi.get(self, "odata_type")
 
     @odata_type.setter
@@ -743,6 +749,8 @@ class RedirectConfigurationArgs:
                  redirect_type: Optional[pulumi.Input[Union[str, 'FrontDoorRedirectType']]] = None):
         """
         Describes Redirect Route.
+        :param pulumi.Input[str] odata_type: 
+               Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
         :param pulumi.Input[str] custom_fragment: Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
         :param pulumi.Input[str] custom_host: Host to redirect. Leave empty to use the incoming host as the destination host.
         :param pulumi.Input[str] custom_path: The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
@@ -767,6 +775,10 @@ class RedirectConfigurationArgs:
     @property
     @pulumi.getter(name="odataType")
     def odata_type(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
+        """
         return pulumi.get(self, "odata_type")
 
     @odata_type.setter

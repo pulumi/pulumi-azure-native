@@ -134,6 +134,7 @@ class AzureFileshareProtectedItemResponse(dict):
         """
         Azure File Share workload-specific backup item.
         :param str protected_item_type: backup item type.
+               Expected value is 'AzureFileShareProtectedItem'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -202,6 +203,7 @@ class AzureFileshareProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'AzureFileShareProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -512,6 +514,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
         """
         IaaS VM workload-specific backup item.
         :param str protected_item_type: backup item type.
+               Expected value is 'AzureIaaSVMProtectedItem'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -595,6 +598,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'AzureIaaSVMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -878,6 +882,7 @@ class AzureSqlProtectedItemResponse(dict):
         """
         Azure SQL workload-specific backup item.
         :param str protected_item_type: backup item type.
+               Expected value is 'Microsoft.Sql/servers/databases'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -934,6 +939,7 @@ class AzureSqlProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'Microsoft.Sql/servers/databases'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1155,6 +1161,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         """
         Azure VM workload-specific protected item.
         :param str protected_item_type: backup item type.
+               Expected value is 'AzureVmWorkloadProtectedItem'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -1241,6 +1248,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'AzureVmWorkloadProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1665,6 +1673,7 @@ class DPMProtectedItemResponse(dict):
         """
         Additional information on Backup engine specific backup item.
         :param str protected_item_type: backup item type.
+               Expected value is 'DPMProtectedItem'.
         :param str backup_engine_name: Backup Management server protecting this backup item
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
@@ -1724,6 +1733,7 @@ class DPMProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'DPMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2003,6 +2013,7 @@ class GenericProtectedItemResponse(dict):
         """
         Base class for backup items.
         :param str protected_item_type: backup item type.
+               Expected value is 'GenericProtectedItem'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -2068,6 +2079,7 @@ class GenericProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'GenericProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2345,6 +2357,7 @@ class MabFileFolderProtectedItemResponse(dict):
         """
         MAB workload-specific backup item.
         :param str protected_item_type: backup item type.
+               Expected value is 'MabFileFolderProtectedItem'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str computer_name: Name of the computer associated with this backup item.
@@ -2413,6 +2426,7 @@ class MabFileFolderProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'MabFileFolderProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 

@@ -94,6 +94,7 @@ class GetMachineGroupResult:
     def kind(self) -> str:
         """
         Additional resource type qualifier.
+        Expected value is 'machineGroup'.
         """
         return pulumi.get(self, "kind")
 

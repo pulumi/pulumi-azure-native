@@ -52,6 +52,7 @@ class EventGridArgs:
         :param pulumi.Input[str] access_key1: EventGrid secondary accesskey. Will be obfuscated during read
         :param pulumi.Input[str] access_key2: EventGrid secondary accesskey. Will be obfuscated during read
         :param pulumi.Input[str] endpoint_type: The type of Digital Twins endpoint
+               Expected value is 'EventGrid'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] topic_endpoint: EventGrid Topic Endpoint
         """
@@ -92,6 +93,7 @@ class EventGridArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         The type of Digital Twins endpoint
+        Expected value is 'EventGrid'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -136,6 +138,7 @@ class EventHubArgs:
         :param pulumi.Input[str] connection_string_primary_key: PrimaryConnectionString of the endpoint. Will be obfuscated during read
         :param pulumi.Input[str] connection_string_secondary_key: SecondaryConnectionString of the endpoint. Will be obfuscated during read
         :param pulumi.Input[str] endpoint_type: The type of Digital Twins endpoint
+               Expected value is 'EventHub'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "connection_string_primary_key", connection_string_primary_key)
@@ -173,6 +176,7 @@ class EventHubArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         The type of Digital Twins endpoint
+        Expected value is 'EventHub'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -203,6 +207,7 @@ class ServiceBusArgs:
         """
         properties related to servicebus.
         :param pulumi.Input[str] endpoint_type: The type of Digital Twins endpoint
+               Expected value is 'ServiceBus'.
         :param pulumi.Input[str] primary_connection_string: PrimaryConnectionString of the endpoint. Will be obfuscated during read
         :param pulumi.Input[str] secondary_connection_string: SecondaryConnectionString of the endpoint. Will be obfuscated during read
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -218,6 +223,7 @@ class ServiceBusArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         The type of Digital Twins endpoint
+        Expected value is 'ServiceBus'.
         """
         return pulumi.get(self, "endpoint_type")
 

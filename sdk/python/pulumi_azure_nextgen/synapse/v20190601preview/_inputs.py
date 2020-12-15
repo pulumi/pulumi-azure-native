@@ -153,6 +153,7 @@ class CmdkeySetupArgs:
         :param pulumi.Input['SecureStringArgs'] password: The password of data source access.
         :param Any target_name: The server name of data source access.
         :param pulumi.Input[str] type: The type of custom setup.
+               Expected value is 'CmdkeySetup'.
         :param Any user_name: The user name of data source access.
         """
         pulumi.set(__self__, "password", password)
@@ -189,6 +190,7 @@ class CmdkeySetupArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of custom setup.
+        Expected value is 'CmdkeySetup'.
         """
         return pulumi.get(self, "type")
 
@@ -219,6 +221,7 @@ class ComponentSetupArgs:
         The custom setup of installing 3rd party components.
         :param pulumi.Input[str] component_name: The name of the 3rd party component.
         :param pulumi.Input[str] type: The type of custom setup.
+               Expected value is 'ComponentSetup'.
         :param pulumi.Input['SecureStringArgs'] license_key: The license key to activate the component.
         """
         pulumi.set(__self__, "component_name", component_name)
@@ -243,6 +246,7 @@ class ComponentSetupArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of custom setup.
+        Expected value is 'ComponentSetup'.
         """
         return pulumi.get(self, "type")
 
@@ -400,6 +404,7 @@ class EnvironmentVariableSetupArgs:
         """
         The custom setup of setting environment variable.
         :param pulumi.Input[str] type: The type of custom setup.
+               Expected value is 'EnvironmentVariableSetup'.
         :param pulumi.Input[str] variable_name: The name of the environment variable.
         :param pulumi.Input[str] variable_value: The value of the environment variable.
         """
@@ -412,6 +417,7 @@ class EnvironmentVariableSetupArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of custom setup.
+        Expected value is 'EnvironmentVariableSetup'.
         """
         return pulumi.get(self, "type")
 
@@ -980,6 +986,7 @@ class LinkedIntegrationRuntimeKeyAuthorizationArgs:
         """
         The key authorization type integration runtime.
         :param pulumi.Input[str] authorization_type: The authorization type for integration runtime sharing.
+               Expected value is 'Key'.
         :param pulumi.Input['SecureStringArgs'] key: The key used for authorization.
         """
         pulumi.set(__self__, "authorization_type", 'Key')
@@ -990,6 +997,7 @@ class LinkedIntegrationRuntimeKeyAuthorizationArgs:
     def authorization_type(self) -> pulumi.Input[str]:
         """
         The authorization type for integration runtime sharing.
+        Expected value is 'Key'.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -1018,6 +1026,7 @@ class LinkedIntegrationRuntimeRbacAuthorizationArgs:
         """
         The role based access control (RBAC) authorization type integration runtime.
         :param pulumi.Input[str] authorization_type: The authorization type for integration runtime sharing.
+               Expected value is 'RBAC'.
         :param pulumi.Input[str] resource_id: The resource identifier of the integration runtime to be shared.
         """
         pulumi.set(__self__, "authorization_type", 'RBAC')
@@ -1028,6 +1037,7 @@ class LinkedIntegrationRuntimeRbacAuthorizationArgs:
     def authorization_type(self) -> pulumi.Input[str]:
         """
         The authorization type for integration runtime sharing.
+        Expected value is 'RBAC'.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -1082,6 +1092,7 @@ class ManagedIntegrationRuntimeArgs:
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
         :param pulumi.Input[str] type: Type of integration runtime.
+               Expected value is 'Managed'.
         :param pulumi.Input['IntegrationRuntimeComputePropertiesArgs'] compute_properties: The compute resource for managed integration runtime.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input['IntegrationRuntimeSsisPropertiesArgs'] ssis_properties: SSIS properties for managed integration runtime.
@@ -1099,6 +1110,7 @@ class ManagedIntegrationRuntimeArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of integration runtime.
+        Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
 
@@ -1295,6 +1307,7 @@ class SecureStringArgs:
         """
         Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
         :param pulumi.Input[str] type: Type of the secret.
+               Expected value is 'SecureString'.
         :param pulumi.Input[str] value: Value of secure string.
         """
         pulumi.set(__self__, "type", 'SecureString')
@@ -1305,6 +1318,7 @@ class SecureStringArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of the secret.
+        Expected value is 'SecureString'.
         """
         return pulumi.get(self, "type")
 
@@ -1334,6 +1348,7 @@ class SelfHostedIntegrationRuntimeArgs:
         """
         Self-hosted integration runtime.
         :param pulumi.Input[str] type: Type of integration runtime.
+               Expected value is 'SelfHosted'.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']] linked_info: Linked integration runtime type from data factory
         """
@@ -1348,6 +1363,7 @@ class SelfHostedIntegrationRuntimeArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of integration runtime.
+        Expected value is 'SelfHosted'.
         """
         return pulumi.get(self, "type")
 

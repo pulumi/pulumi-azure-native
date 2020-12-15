@@ -464,6 +464,7 @@ class DockerBuildRequestResponse(dict):
         :param str docker_file_path: The Docker file path relative to the source location.
         :param 'PlatformPropertiesResponseArgs' platform: The platform properties against which the run has to happen.
         :param str type: The type of the run request.
+               Expected value is 'DockerBuildRequest'.
         :param 'AgentPropertiesResponseArgs' agent_configuration: The machine configuration of the run agent.
         :param str agent_pool_name: The dedicated agent pool for the run.
         :param Sequence['ArgumentResponseArgs'] arguments: The collection of override arguments to be used when executing the run.
@@ -527,6 +528,7 @@ class DockerBuildRequestResponse(dict):
     def type(self) -> str:
         """
         The type of the run request.
+        Expected value is 'DockerBuildRequest'.
         """
         return pulumi.get(self, "type")
 
@@ -652,6 +654,7 @@ class DockerBuildStepResponse(dict):
         :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str docker_file_path: The Docker file path relative to the source context.
         :param str type: The type of the step.
+               Expected value is 'Docker'.
         :param Sequence['ArgumentResponseArgs'] arguments: The collection of override arguments to be used when executing this build step.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
@@ -699,6 +702,7 @@ class DockerBuildStepResponse(dict):
     def type(self) -> str:
         """
         The type of the step.
+        Expected value is 'Docker'.
         """
         return pulumi.get(self, "type")
 
@@ -785,6 +789,7 @@ class EncodedTaskRunRequestResponse(dict):
         :param str encoded_task_content: Base64 encoded value of the template/definition file content.
         :param 'PlatformPropertiesResponseArgs' platform: The platform properties against which the run has to happen.
         :param str type: The type of the run request.
+               Expected value is 'EncodedTaskRunRequest'.
         :param 'AgentPropertiesResponseArgs' agent_configuration: The machine configuration of the run agent.
         :param str agent_pool_name: The dedicated agent pool for the run.
         :param 'CredentialsResponseArgs' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
@@ -839,6 +844,7 @@ class EncodedTaskRunRequestResponse(dict):
     def type(self) -> str:
         """
         The type of the run request.
+        Expected value is 'EncodedTaskRunRequest'.
         """
         return pulumi.get(self, "type")
 
@@ -937,6 +943,7 @@ class EncodedTaskStepResponse(dict):
         :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str encoded_task_content: Base64 encoded value of the template/definition file content.
         :param str type: The type of the step.
+               Expected value is 'EncodedTask'.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
         :param str encoded_values_content: Base64 encoded value of the parameters/values file content.
@@ -975,6 +982,7 @@ class EncodedTaskStepResponse(dict):
     def type(self) -> str:
         """
         The type of the step.
+        Expected value is 'EncodedTask'.
         """
         return pulumi.get(self, "type")
 
@@ -1037,6 +1045,7 @@ class FileTaskRunRequestResponse(dict):
         :param 'PlatformPropertiesResponseArgs' platform: The platform properties against which the run has to happen.
         :param str task_file_path: The template/definition file path relative to the source.
         :param str type: The type of the run request.
+               Expected value is 'FileTaskRunRequest'.
         :param 'AgentPropertiesResponseArgs' agent_configuration: The machine configuration of the run agent.
         :param str agent_pool_name: The dedicated agent pool for the run.
         :param 'CredentialsResponseArgs' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
@@ -1091,6 +1100,7 @@ class FileTaskRunRequestResponse(dict):
     def type(self) -> str:
         """
         The type of the run request.
+        Expected value is 'FileTaskRunRequest'.
         """
         return pulumi.get(self, "type")
 
@@ -1189,6 +1199,7 @@ class FileTaskStepResponse(dict):
         :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str task_file_path: The task template/definition file path relative to the source context.
         :param str type: The type of the step.
+               Expected value is 'FileTask'.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
         :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
@@ -1227,6 +1238,7 @@ class FileTaskStepResponse(dict):
     def type(self) -> str:
         """
         The type of the step.
+        Expected value is 'FileTask'.
         """
         return pulumi.get(self, "type")
 
@@ -2342,6 +2354,7 @@ class TaskRunRequestResponse(dict):
         The parameters for a task run request.
         :param str task_id: The resource ID of task against which run has to be queued.
         :param str type: The type of the run request.
+               Expected value is 'TaskRunRequest'.
         :param str agent_pool_name: The dedicated agent pool for the run.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
         :param str log_template: The template that describes the repository and tag information for run log artifact.
@@ -2371,6 +2384,7 @@ class TaskRunRequestResponse(dict):
     def type(self) -> str:
         """
         The type of the run request.
+        Expected value is 'TaskRunRequest'.
         """
         return pulumi.get(self, "type")
 

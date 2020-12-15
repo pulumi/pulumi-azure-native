@@ -205,6 +205,7 @@ class CdnManagedHttpsParametersResponse(dict):
         """
         Defines the certificate source parameters using CDN managed certificate for enabling SSL.
         :param str certificate_source: Defines the source of the SSL certificate.
+               Expected value is 'Cdn'.
         :param 'CdnCertificateSourceParametersResponseArgs' certificate_source_parameters: Defines the certificate source parameters using CDN managed certificate for enabling SSL.
         :param str protocol_type: Defines the TLS extension protocol that is used for secure delivery.
         :param str minimum_tls_version: TLS protocol version that will be used for Https
@@ -220,6 +221,7 @@ class CdnManagedHttpsParametersResponse(dict):
     def certificate_source(self) -> str:
         """
         Defines the source of the SSL certificate.
+        Expected value is 'Cdn'.
         """
         return pulumi.get(self, "certificate_source")
 
@@ -402,6 +404,7 @@ class DeliveryRuleCacheExpirationActionResponse(dict):
         """
         Defines the cache expiration action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
+               Expected value is 'CacheExpiration'.
         :param 'CacheExpirationActionParametersResponseArgs' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'CacheExpiration')
@@ -412,6 +415,7 @@ class DeliveryRuleCacheExpirationActionResponse(dict):
     def name(self) -> str:
         """
         The name of the action for the delivery rule.
+        Expected value is 'CacheExpiration'.
         """
         return pulumi.get(self, "name")
 
@@ -438,6 +442,7 @@ class DeliveryRuleCacheKeyQueryStringActionResponse(dict):
         """
         Defines the cache-key query string action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
+               Expected value is 'CacheKeyQueryString'.
         :param 'CacheKeyQueryStringActionParametersResponseArgs' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'CacheKeyQueryString')
@@ -448,6 +453,7 @@ class DeliveryRuleCacheKeyQueryStringActionResponse(dict):
     def name(self) -> str:
         """
         The name of the action for the delivery rule.
+        Expected value is 'CacheKeyQueryString'.
         """
         return pulumi.get(self, "name")
 
@@ -474,6 +480,7 @@ class DeliveryRuleCookiesConditionResponse(dict):
         """
         Defines the Cookies condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'Cookies'.
         :param 'CookiesMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'Cookies')
@@ -484,6 +491,7 @@ class DeliveryRuleCookiesConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'Cookies'.
         """
         return pulumi.get(self, "name")
 
@@ -510,6 +518,7 @@ class DeliveryRuleHttpVersionConditionResponse(dict):
         """
         Defines the HttpVersion condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'HttpVersion'.
         :param 'HttpVersionMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'HttpVersion')
@@ -520,6 +529,7 @@ class DeliveryRuleHttpVersionConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'HttpVersion'.
         """
         return pulumi.get(self, "name")
 
@@ -546,6 +556,7 @@ class DeliveryRuleIsDeviceConditionResponse(dict):
         """
         Defines the IsDevice condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'IsDevice'.
         :param 'IsDeviceMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'IsDevice')
@@ -556,6 +567,7 @@ class DeliveryRuleIsDeviceConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'IsDevice'.
         """
         return pulumi.get(self, "name")
 
@@ -582,6 +594,7 @@ class DeliveryRulePostArgsConditionResponse(dict):
         """
         Defines the PostArgs condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'PostArgs'.
         :param 'PostArgsMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'PostArgs')
@@ -592,6 +605,7 @@ class DeliveryRulePostArgsConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'PostArgs'.
         """
         return pulumi.get(self, "name")
 
@@ -618,6 +632,7 @@ class DeliveryRuleQueryStringConditionResponse(dict):
         """
         Defines the QueryString condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'QueryString'.
         :param 'QueryStringMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'QueryString')
@@ -628,6 +643,7 @@ class DeliveryRuleQueryStringConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'QueryString'.
         """
         return pulumi.get(self, "name")
 
@@ -654,6 +670,7 @@ class DeliveryRuleRemoteAddressConditionResponse(dict):
         """
         Defines the RemoteAddress condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RemoteAddress'.
         :param 'RemoteAddressMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RemoteAddress')
@@ -664,6 +681,7 @@ class DeliveryRuleRemoteAddressConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RemoteAddress'.
         """
         return pulumi.get(self, "name")
 
@@ -690,6 +708,7 @@ class DeliveryRuleRequestBodyConditionResponse(dict):
         """
         Defines the RequestBody condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RequestBody'.
         :param 'RequestBodyMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestBody')
@@ -700,6 +719,7 @@ class DeliveryRuleRequestBodyConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RequestBody'.
         """
         return pulumi.get(self, "name")
 
@@ -726,6 +746,7 @@ class DeliveryRuleRequestHeaderActionResponse(dict):
         """
         Defines the request header action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
+               Expected value is 'ModifyRequestHeader'.
         :param 'HeaderActionParametersResponseArgs' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'ModifyRequestHeader')
@@ -736,6 +757,7 @@ class DeliveryRuleRequestHeaderActionResponse(dict):
     def name(self) -> str:
         """
         The name of the action for the delivery rule.
+        Expected value is 'ModifyRequestHeader'.
         """
         return pulumi.get(self, "name")
 
@@ -762,6 +784,7 @@ class DeliveryRuleRequestHeaderConditionResponse(dict):
         """
         Defines the RequestHeader condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RequestHeader'.
         :param 'RequestHeaderMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestHeader')
@@ -772,6 +795,7 @@ class DeliveryRuleRequestHeaderConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RequestHeader'.
         """
         return pulumi.get(self, "name")
 
@@ -798,6 +822,7 @@ class DeliveryRuleRequestMethodConditionResponse(dict):
         """
         Defines the RequestMethod condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RequestMethod'.
         :param 'RequestMethodMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestMethod')
@@ -808,6 +833,7 @@ class DeliveryRuleRequestMethodConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RequestMethod'.
         """
         return pulumi.get(self, "name")
 
@@ -834,6 +860,7 @@ class DeliveryRuleRequestSchemeConditionResponse(dict):
         """
         Defines the RequestScheme condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RequestScheme'.
         :param 'RequestSchemeMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestScheme')
@@ -844,6 +871,7 @@ class DeliveryRuleRequestSchemeConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RequestScheme'.
         """
         return pulumi.get(self, "name")
 
@@ -870,6 +898,7 @@ class DeliveryRuleRequestUriConditionResponse(dict):
         """
         Defines the RequestUri condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RequestUri'.
         :param 'RequestUriMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestUri')
@@ -880,6 +909,7 @@ class DeliveryRuleRequestUriConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'RequestUri'.
         """
         return pulumi.get(self, "name")
 
@@ -966,6 +996,7 @@ class DeliveryRuleResponseHeaderActionResponse(dict):
         """
         Defines the response header action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
+               Expected value is 'ModifyResponseHeader'.
         :param 'HeaderActionParametersResponseArgs' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'ModifyResponseHeader')
@@ -976,6 +1007,7 @@ class DeliveryRuleResponseHeaderActionResponse(dict):
     def name(self) -> str:
         """
         The name of the action for the delivery rule.
+        Expected value is 'ModifyResponseHeader'.
         """
         return pulumi.get(self, "name")
 
@@ -1002,6 +1034,7 @@ class DeliveryRuleUrlFileExtensionConditionResponse(dict):
         """
         Defines the UrlFileExtension condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'UrlFileExtension'.
         :param 'UrlFileExtensionMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlFileExtension')
@@ -1012,6 +1045,7 @@ class DeliveryRuleUrlFileExtensionConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'UrlFileExtension'.
         """
         return pulumi.get(self, "name")
 
@@ -1038,6 +1072,7 @@ class DeliveryRuleUrlFileNameConditionResponse(dict):
         """
         Defines the UrlFileName condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'UrlFileName'.
         :param 'UrlFileNameMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlFileName')
@@ -1048,6 +1083,7 @@ class DeliveryRuleUrlFileNameConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'UrlFileName'.
         """
         return pulumi.get(self, "name")
 
@@ -1074,6 +1110,7 @@ class DeliveryRuleUrlPathConditionResponse(dict):
         """
         Defines the UrlPath condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'UrlPath'.
         :param 'UrlPathMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlPath')
@@ -1084,6 +1121,7 @@ class DeliveryRuleUrlPathConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'UrlPath'.
         """
         return pulumi.get(self, "name")
 
@@ -2338,6 +2376,7 @@ class UrlRedirectActionResponse(dict):
         """
         Defines the url redirect action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
+               Expected value is 'UrlRedirect'.
         :param 'UrlRedirectActionParametersResponseArgs' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'UrlRedirect')
@@ -2348,6 +2387,7 @@ class UrlRedirectActionResponse(dict):
     def name(self) -> str:
         """
         The name of the action for the delivery rule.
+        Expected value is 'UrlRedirect'.
         """
         return pulumi.get(self, "name")
 
@@ -2429,6 +2469,7 @@ class UrlRewriteActionResponse(dict):
         """
         Defines the url rewrite action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
+               Expected value is 'UrlRewrite'.
         :param 'UrlRewriteActionParametersResponseArgs' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'UrlRewrite')
@@ -2439,6 +2480,7 @@ class UrlRewriteActionResponse(dict):
     def name(self) -> str:
         """
         The name of the action for the delivery rule.
+        Expected value is 'UrlRewrite'.
         """
         return pulumi.get(self, "name")
 
@@ -2467,6 +2509,7 @@ class UserManagedHttpsParametersResponse(dict):
         """
         Defines the certificate source parameters using user's keyvault certificate for enabling SSL.
         :param str certificate_source: Defines the source of the SSL certificate.
+               Expected value is 'AzureKeyVault'.
         :param 'KeyVaultCertificateSourceParametersResponseArgs' certificate_source_parameters: Defines the certificate source parameters using user's keyvault certificate for enabling SSL.
         :param str protocol_type: Defines the TLS extension protocol that is used for secure delivery.
         :param str minimum_tls_version: TLS protocol version that will be used for Https
@@ -2482,6 +2525,7 @@ class UserManagedHttpsParametersResponse(dict):
     def certificate_source(self) -> str:
         """
         Defines the source of the SSL certificate.
+        Expected value is 'AzureKeyVault'.
         """
         return pulumi.get(self, "certificate_source")
 

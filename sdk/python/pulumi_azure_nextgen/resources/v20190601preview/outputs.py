@@ -113,6 +113,7 @@ class TemplateSpecTemplateArtifactResponse(dict):
         """
         Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
         :param str kind: The kind of artifact.
+               Expected value is 'template'.
         :param str path: A filesystem safe relative path of the artifact.
         :param Any template: The Azure Resource Manager template.
         """
@@ -125,6 +126,7 @@ class TemplateSpecTemplateArtifactResponse(dict):
     def kind(self) -> str:
         """
         The kind of artifact.
+        Expected value is 'template'.
         """
         return pulumi.get(self, "kind")
 

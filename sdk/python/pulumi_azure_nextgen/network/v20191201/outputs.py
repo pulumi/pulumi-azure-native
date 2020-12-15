@@ -3532,6 +3532,7 @@ class ApplicationRuleConditionResponse(dict):
         """
         Rule condition of type application.
         :param str rule_condition_type: Rule Condition Type.
+               Expected value is 'ApplicationRuleCondition'.
         :param str description: Description of the rule condition.
         :param Sequence[str] destination_addresses: List of destination IP addresses or Service Tags.
         :param Sequence[str] fqdn_tags: List of FQDN Tags for this rule condition.
@@ -3564,6 +3565,7 @@ class ApplicationRuleConditionResponse(dict):
     def rule_condition_type(self) -> str:
         """
         Rule Condition Type.
+        Expected value is 'ApplicationRuleCondition'.
         """
         return pulumi.get(self, "rule_condition_type")
 
@@ -7614,6 +7616,7 @@ class FirewallPolicyFilterRuleResponse(dict):
         """
         Firewall Policy Filter Rule.
         :param str rule_type: The type of the rule.
+               Expected value is 'FirewallPolicyFilterRule'.
         :param 'FirewallPolicyFilterRuleActionResponseArgs' action: The action type of a Filter rule.
         :param str name: The name of the rule.
         :param int priority: Priority of the Firewall Policy Rule resource.
@@ -7634,6 +7637,7 @@ class FirewallPolicyFilterRuleResponse(dict):
     def rule_type(self) -> str:
         """
         The type of the rule.
+        Expected value is 'FirewallPolicyFilterRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -7715,6 +7719,7 @@ class FirewallPolicyNatRuleResponse(dict):
         """
         Firewall Policy NAT Rule.
         :param str rule_type: The type of the rule.
+               Expected value is 'FirewallPolicyNatRule'.
         :param 'FirewallPolicyNatRuleActionResponseArgs' action: The action type of a Nat rule.
         :param str name: The name of the rule.
         :param int priority: Priority of the Firewall Policy Rule resource.
@@ -7741,6 +7746,7 @@ class FirewallPolicyNatRuleResponse(dict):
     def rule_type(self) -> str:
         """
         The type of the rule.
+        Expected value is 'FirewallPolicyNatRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -10131,6 +10137,7 @@ class NatRuleConditionResponse(dict):
         """
         Rule condition of type nat.
         :param str rule_condition_type: Rule Condition Type.
+               Expected value is 'NatRuleCondition'.
         :param str description: Description of the rule condition.
         :param Sequence[str] destination_addresses: List of destination IP addresses or Service Tags.
         :param Sequence[str] destination_ports: List of destination ports.
@@ -10160,6 +10167,7 @@ class NatRuleConditionResponse(dict):
     def rule_condition_type(self) -> str:
         """
         Rule Condition Type.
+        Expected value is 'NatRuleCondition'.
         """
         return pulumi.get(self, "rule_condition_type")
 
@@ -10876,6 +10884,7 @@ class NetworkRuleConditionResponse(dict):
         """
         Rule condition of type network.
         :param str rule_condition_type: Rule Condition Type.
+               Expected value is 'NetworkRuleCondition'.
         :param str description: Description of the rule condition.
         :param Sequence[str] destination_addresses: List of destination IP addresses or Service Tags.
         :param Sequence[str] destination_ip_groups: List of destination IpGroups for this rule.
@@ -10908,6 +10917,7 @@ class NetworkRuleConditionResponse(dict):
     def rule_condition_type(self) -> str:
         """
         Rule Condition Type.
+        Expected value is 'NetworkRuleCondition'.
         """
         return pulumi.get(self, "rule_condition_type")
 

@@ -3405,6 +3405,7 @@ class ApplicationRuleConditionArgs:
         """
         Rule condition of type application.
         :param pulumi.Input[str] rule_condition_type: Rule Condition Type
+               Expected value is 'ApplicationRuleCondition'.
         :param pulumi.Input[str] description: Description of the rule condition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: List of destination IP addresses or Service Tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdn_tags: List of FQDN Tags for this rule condition.
@@ -3434,6 +3435,7 @@ class ApplicationRuleConditionArgs:
     def rule_condition_type(self) -> pulumi.Input[str]:
         """
         Rule Condition Type
+        Expected value is 'ApplicationRuleCondition'.
         """
         return pulumi.get(self, "rule_condition_type")
 
@@ -6086,6 +6088,7 @@ class FirewallPolicyFilterRuleArgs:
         """
         Firewall Policy Filter Rule
         :param pulumi.Input[str] rule_type:  The type of the rule
+               Expected value is 'FirewallPolicyFilterRule'.
         :param pulumi.Input['FirewallPolicyFilterRuleActionArgs'] action: The action type of a Filter rule
         :param pulumi.Input[str] name: Name of the Rule
         :param pulumi.Input[int] priority: Priority of the Firewall Policy Rule resource.
@@ -6106,6 +6109,7 @@ class FirewallPolicyFilterRuleArgs:
     def rule_type(self) -> pulumi.Input[str]:
         """
          The type of the rule
+        Expected value is 'FirewallPolicyFilterRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -6199,6 +6203,7 @@ class FirewallPolicyNatRuleArgs:
         """
         Firewall Policy NAT Rule
         :param pulumi.Input[str] rule_type:  The type of the rule
+               Expected value is 'FirewallPolicyNatRule'.
         :param pulumi.Input['FirewallPolicyNatRuleActionArgs'] action: The action type of a Nat rule, SNAT or DNAT
         :param pulumi.Input[str] name: Name of the Rule
         :param pulumi.Input[int] priority: Priority of the Firewall Policy Rule resource.
@@ -6225,6 +6230,7 @@ class FirewallPolicyNatRuleArgs:
     def rule_type(self) -> pulumi.Input[str]:
         """
          The type of the rule
+        Expected value is 'FirewallPolicyNatRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -8380,6 +8386,7 @@ class NetworkRuleConditionArgs:
         """
         Rule condition of type network
         :param pulumi.Input[str] rule_condition_type: Rule Condition Type
+               Expected value is 'NetworkRuleCondition'.
         :param pulumi.Input[str] description: Description of the rule condition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: List of destination IP addresses or Service Tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ports: List of destination ports.
@@ -8406,6 +8413,7 @@ class NetworkRuleConditionArgs:
     def rule_condition_type(self) -> pulumi.Input[str]:
         """
         Rule Condition Type
+        Expected value is 'NetworkRuleCondition'.
         """
         return pulumi.get(self, "rule_condition_type")
 

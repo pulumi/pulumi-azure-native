@@ -113,6 +113,7 @@ class OpenShiftManagedClusterAADIdentityProviderResponse(dict):
         """
         Defines the Identity provider for MS AAD.
         :param str kind: The kind of the provider.
+               Expected value is 'AADIdentityProvider'.
         :param str client_id: The clientId password associated with the provider.
         :param str customer_admin_group_id: The groupId to be granted cluster admin role.
         :param str secret: The secret password associated with the provider.
@@ -133,6 +134,7 @@ class OpenShiftManagedClusterAADIdentityProviderResponse(dict):
     def kind(self) -> str:
         """
         The kind of the provider.
+        Expected value is 'AADIdentityProvider'.
         """
         return pulumi.get(self, "kind")
 

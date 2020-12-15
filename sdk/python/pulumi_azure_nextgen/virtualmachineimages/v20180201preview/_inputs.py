@@ -27,6 +27,7 @@ class ImageTemplateIsoSourceArgs:
         :param pulumi.Input[str] sha256_checksum: SHA256 Checksum of the ISO image.
         :param pulumi.Input[str] source_uri: URL to get the ISO image. This URL has to be accessible to the resource provider at the time of the imageTemplate creation.
         :param pulumi.Input[str] type: Specifies the type of source image you want to start with.
+               Expected value is 'ISO'.
         """
         pulumi.set(__self__, "sha256_checksum", sha256_checksum)
         pulumi.set(__self__, "source_uri", source_uri)
@@ -61,6 +62,7 @@ class ImageTemplateIsoSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Specifies the type of source image you want to start with.
+        Expected value is 'ISO'.
         """
         return pulumi.get(self, "type")
 
@@ -83,6 +85,7 @@ class ImageTemplateManagedImageDistributorArgs:
         :param pulumi.Input[str] location: Azure location for the image, should match if image already exists
         :param pulumi.Input[str] run_output_name: The name to be used for the associated RunOutput.
         :param pulumi.Input[str] type: Type of distribution.
+               Expected value is 'managedImage'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         """
         pulumi.set(__self__, "image_id", image_id)
@@ -133,6 +136,7 @@ class ImageTemplateManagedImageDistributorArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of distribution.
+        Expected value is 'managedImage'.
         """
         return pulumi.get(self, "type")
 
@@ -164,6 +168,7 @@ class ImageTemplatePlatformImageSourceArgs:
         """
         Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param pulumi.Input[str] type: Specifies the type of source image you want to start with.
+               Expected value is 'PlatformImage'.
         :param pulumi.Input[str] offer: Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param pulumi.Input[str] publisher: Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param pulumi.Input[str] sku: Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
@@ -184,6 +189,7 @@ class ImageTemplatePlatformImageSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Specifies the type of source image you want to start with.
+        Expected value is 'PlatformImage'.
         """
         return pulumi.get(self, "type")
 
@@ -253,6 +259,7 @@ class ImageTemplateSharedImageDistributorArgs:
         :param pulumi.Input[str] gallery_image_id: Resource Id of the Shared Image Gallery image
         :param pulumi.Input[str] run_output_name: The name to be used for the associated RunOutput.
         :param pulumi.Input[str] type: Type of distribution.
+               Expected value is 'sharedImage'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         """
         pulumi.set(__self__, "gallery_image_id", gallery_image_id)
@@ -300,6 +307,7 @@ class ImageTemplateSharedImageDistributorArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of distribution.
+        Expected value is 'sharedImage'.
         """
         return pulumi.get(self, "type")
 
@@ -329,6 +337,7 @@ class ImageTemplateShellCustomizerArgs:
         """
         Runs a shell script during the customization phase
         :param pulumi.Input[str] type: The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+               Expected value is 'shell'.
         :param pulumi.Input[str] name: Friendly Name to provide context on what this customization step does
         :param pulumi.Input[str] script: The shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
         """
@@ -343,6 +352,7 @@ class ImageTemplateShellCustomizerArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+        Expected value is 'shell'.
         """
         return pulumi.get(self, "type")
 

@@ -89,6 +89,7 @@ class AzureFileShareProtectionPolicyResponse(dict):
         """
         AzureStorage backup policy.
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureStorage'.
         :param int protected_items_count: Number of items associated with this policy.
         :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy with the details on backup copy retention ranges.
         :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule specified as part of backup policy.
@@ -112,6 +113,7 @@ class AzureFileShareProtectionPolicyResponse(dict):
     def backup_management_type(self) -> str:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureStorage'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -261,6 +263,7 @@ class AzureFileshareProtectedItemResponse(dict):
         """
         Azure File Share workload-specific backup item.
         :param str protected_item_type: backup item type.
+               Expected value is 'AzureFileShareProtectedItem'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -329,6 +332,7 @@ class AzureFileshareProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'AzureFileShareProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -639,6 +643,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
         """
         IaaS VM workload-specific backup item.
         :param str protected_item_type: backup item type.
+               Expected value is 'AzureIaaSVMProtectedItem'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -722,6 +727,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'AzureIaaSVMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -945,6 +951,7 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
         """
         IaaS VM workload-specific backup policy.
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureIaasVM'.
         :param int instant_rp_retention_range_in_days: Instant RP retention policy range in days
         :param int protected_items_count: Number of items associated with this policy.
         :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy with the details on backup copy retention ranges.
@@ -970,6 +977,7 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
     def backup_management_type(self) -> str:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureIaasVM'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -1039,6 +1047,7 @@ class AzureSqlContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'AzureSqlContainer'.
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -1062,6 +1071,7 @@ class AzureSqlContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'AzureSqlContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -1177,6 +1187,7 @@ class AzureSqlProtectedItemResponse(dict):
         """
         Azure SQL workload-specific backup item.
         :param str protected_item_type: backup item type.
+               Expected value is 'Microsoft.Sql/servers/databases'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -1233,6 +1244,7 @@ class AzureSqlProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'Microsoft.Sql/servers/databases'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1380,6 +1392,7 @@ class AzureSqlProtectionPolicyResponse(dict):
         """
         Azure SQL workload-specific backup policy.
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureSql'.
         :param int protected_items_count: Number of items associated with this policy.
         :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy details.
         """
@@ -1394,6 +1407,7 @@ class AzureSqlProtectionPolicyResponse(dict):
     def backup_management_type(self) -> str:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureSql'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -1438,6 +1452,7 @@ class AzureStorageContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'StorageContainer'.
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -1473,6 +1488,7 @@ class AzureStorageContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'StorageContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -1630,6 +1646,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         """
         Azure VM workload-specific protected item.
         :param str protected_item_type: backup item type.
+               Expected value is 'AzureVmWorkloadProtectedItem'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -1716,6 +1733,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'AzureVmWorkloadProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1946,6 +1964,7 @@ class AzureVmWorkloadProtectionPolicyResponse(dict):
         """
         Azure VM (Mercury) workload-specific backup policy.
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureWorkload'.
         :param bool make_policy_consistent: Fix the policy inconsistency
         :param int protected_items_count: Number of items associated with this policy.
         :param 'SettingsResponseArgs' settings: Common settings for the backup management
@@ -1969,6 +1988,7 @@ class AzureVmWorkloadProtectionPolicyResponse(dict):
     def backup_management_type(self) -> str:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureWorkload'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -2088,6 +2108,7 @@ class AzureWorkloadContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'AzureWorkloadContainer'.
         :param str backup_management_type: Type of backup management for the container.
         :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
@@ -2126,6 +2147,7 @@ class AzureWorkloadContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'AzureWorkloadContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -2502,6 +2524,7 @@ class DPMProtectedItemResponse(dict):
         """
         Additional information on Backup engine specific backup item.
         :param str protected_item_type: backup item type.
+               Expected value is 'DPMProtectedItem'.
         :param str backup_engine_name: Backup Management server protecting this backup item
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
@@ -2561,6 +2584,7 @@ class DPMProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'DPMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2917,6 +2941,7 @@ class DpmContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'DPMContainer'.
         :param str backup_management_type: Type of backup management for the container.
         :param bool can_re_register: Specifies whether the container is re-registrable.
         :param str container_id: ID of container.
@@ -2964,6 +2989,7 @@ class DpmContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'DPMContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -3209,6 +3235,7 @@ class GenericContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'GenericContainer'.
         :param str backup_management_type: Type of backup management for the container.
         :param 'GenericContainerExtendedInfoResponseArgs' extended_information: Extended information (not returned in List container API calls)
         :param str fabric_name: Name of the container's fabric
@@ -3238,6 +3265,7 @@ class GenericContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'GenericContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -3322,6 +3350,7 @@ class GenericProtectedItemResponse(dict):
         """
         Base class for backup items.
         :param str protected_item_type: backup item type.
+               Expected value is 'GenericProtectedItem'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -3387,6 +3416,7 @@ class GenericProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'GenericProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -3560,6 +3590,7 @@ class GenericProtectionPolicyResponse(dict):
         """
         Azure VM (Mercury) workload-specific backup policy.
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'GenericProtectionPolicy'.
         :param str fabric_name: Name of this policy's fabric.
         :param int protected_items_count: Number of items associated with this policy.
         :param Sequence['SubProtectionPolicyResponseArgs'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
@@ -3580,6 +3611,7 @@ class GenericProtectionPolicyResponse(dict):
     def backup_management_type(self) -> str:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'GenericProtectionPolicy'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -3639,6 +3671,7 @@ class IaaSVMContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'IaaSVMContainer'.
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -3671,6 +3704,7 @@ class IaaSVMContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'IaaSVMContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -3910,6 +3944,7 @@ class LogSchedulePolicyResponse(dict):
         """
         Log policy schedule.
         :param str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'LogSchedulePolicy'.
         :param int schedule_frequency_in_mins: Frequency of the log schedule operation of this policy in minutes.
         """
         pulumi.set(__self__, "schedule_policy_type", 'LogSchedulePolicy')
@@ -3921,6 +3956,7 @@ class LogSchedulePolicyResponse(dict):
     def schedule_policy_type(self) -> str:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LogSchedulePolicy'.
         """
         return pulumi.get(self, "schedule_policy_type")
 
@@ -3950,6 +3986,7 @@ class LongTermRetentionPolicyResponse(dict):
         """
         Long term retention policy.
         :param str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'LongTermRetentionPolicy'.
         :param 'DailyRetentionScheduleResponseArgs' daily_schedule: Daily retention schedule of the protection policy.
         :param 'MonthlyRetentionScheduleResponseArgs' monthly_schedule: Monthly retention schedule of the protection policy.
         :param 'WeeklyRetentionScheduleResponseArgs' weekly_schedule: Weekly retention schedule of the protection policy.
@@ -3970,6 +4007,7 @@ class LongTermRetentionPolicyResponse(dict):
     def retention_policy_type(self) -> str:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LongTermRetentionPolicy'.
         """
         return pulumi.get(self, "retention_policy_type")
 
@@ -4019,6 +4057,7 @@ class LongTermSchedulePolicyResponse(dict):
         """
         Long term policy schedule.
         :param str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'LongTermSchedulePolicy'.
         """
         pulumi.set(__self__, "schedule_policy_type", 'LongTermSchedulePolicy')
 
@@ -4027,6 +4066,7 @@ class LongTermSchedulePolicyResponse(dict):
     def schedule_policy_type(self) -> str:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LongTermSchedulePolicy'.
         """
         return pulumi.get(self, "schedule_policy_type")
 
@@ -4194,6 +4234,7 @@ class MabContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'Windows'.
         :param str agent_version: Agent version of this container.
         :param str backup_management_type: Type of backup management for the container.
         :param bool can_re_register: Can the container be registered one more time.
@@ -4238,6 +4279,7 @@ class MabContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'Windows'.
         """
         return pulumi.get(self, "container_type")
 
@@ -4413,6 +4455,7 @@ class MabFileFolderProtectedItemResponse(dict):
         """
         MAB workload-specific backup item.
         :param str protected_item_type: backup item type.
+               Expected value is 'MabFileFolderProtectedItem'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str computer_name: Name of the computer associated with this backup item.
@@ -4481,6 +4524,7 @@ class MabFileFolderProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
+        Expected value is 'MabFileFolderProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -4661,6 +4705,7 @@ class MabProtectionPolicyResponse(dict):
         """
         Mab container-specific backup policy.
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'MAB'.
         :param int protected_items_count: Number of items associated with this policy.
         :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy details.
         :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule of backup policy.
@@ -4678,6 +4723,7 @@ class MabProtectionPolicyResponse(dict):
     def backup_management_type(self) -> str:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'MAB'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -5070,6 +5116,7 @@ class SimpleRetentionPolicyResponse(dict):
         """
         Simple policy retention.
         :param str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'SimpleRetentionPolicy'.
         :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of the protection policy.
         """
         pulumi.set(__self__, "retention_policy_type", 'SimpleRetentionPolicy')
@@ -5081,6 +5128,7 @@ class SimpleRetentionPolicyResponse(dict):
     def retention_policy_type(self) -> str:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleRetentionPolicy'.
         """
         return pulumi.get(self, "retention_policy_type")
 
@@ -5110,6 +5158,7 @@ class SimpleSchedulePolicyResponse(dict):
         """
         Simple policy schedule.
         :param str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'SimpleSchedulePolicy'.
         :param Sequence[str] schedule_run_days: List of days of week this schedule has to be run.
         :param str schedule_run_frequency: Frequency of the schedule operation of this policy.
         :param Sequence[str] schedule_run_times: List of times of day this schedule has to be run.
@@ -5130,6 +5179,7 @@ class SimpleSchedulePolicyResponse(dict):
     def schedule_policy_type(self) -> str:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleSchedulePolicy'.
         """
         return pulumi.get(self, "schedule_policy_type")
 

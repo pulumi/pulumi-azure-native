@@ -23,6 +23,7 @@ class EventHubEventSubscriptionDestinationArgs:
         """
         Information about the event hub destination for an event subscription
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination
+               Expected value is 'EventHub'.
         :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'EventHub')
@@ -34,6 +35,7 @@ class EventHubEventSubscriptionDestinationArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         Type of the endpoint for the event subscription destination
+        Expected value is 'EventHub'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -144,6 +146,7 @@ class WebHookEventSubscriptionDestinationArgs:
         """
         Information about the webhook destination for an event subscription
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination
+               Expected value is 'WebHook'.
         :param pulumi.Input[str] endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'WebHook')
@@ -155,6 +158,7 @@ class WebHookEventSubscriptionDestinationArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         Type of the endpoint for the event subscription destination
+        Expected value is 'WebHook'.
         """
         return pulumi.get(self, "endpoint_type")
 

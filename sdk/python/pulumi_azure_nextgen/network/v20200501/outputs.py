@@ -3922,6 +3922,7 @@ class ApplicationRuleResponse(dict):
         """
         Rule of type application.
         :param str rule_type: Rule Type.
+               Expected value is 'ApplicationRule'.
         :param str description: Description of the rule.
         :param Sequence[str] destination_addresses: List of destination IP addresses or Service Tags.
         :param Sequence[str] fqdn_tags: List of FQDN Tags for this rule.
@@ -3954,6 +3955,7 @@ class ApplicationRuleResponse(dict):
     def rule_type(self) -> str:
         """
         Rule Type.
+        Expected value is 'ApplicationRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -8614,6 +8616,7 @@ class FirewallPolicyFilterRuleCollectionResponse(dict):
         """
         Firewall Policy Filter Rule Collection.
         :param str rule_collection_type: The type of the rule collection.
+               Expected value is 'FirewallPolicyFilterRuleCollection'.
         :param 'FirewallPolicyFilterRuleCollectionActionResponseArgs' action: The action type of a Filter rule collection.
         :param str name: The name of the rule collection.
         :param int priority: Priority of the Firewall Policy Rule Collection resource.
@@ -8634,6 +8637,7 @@ class FirewallPolicyFilterRuleCollectionResponse(dict):
     def rule_collection_type(self) -> str:
         """
         The type of the rule collection.
+        Expected value is 'FirewallPolicyFilterRuleCollection'.
         """
         return pulumi.get(self, "rule_collection_type")
 
@@ -8713,6 +8717,7 @@ class FirewallPolicyNatRuleCollectionResponse(dict):
         """
         Firewall Policy NAT Rule Collection.
         :param str rule_collection_type: The type of the rule collection.
+               Expected value is 'FirewallPolicyNatRuleCollection'.
         :param 'FirewallPolicyNatRuleCollectionActionResponseArgs' action: The action type of a Nat rule collection.
         :param str name: The name of the rule collection.
         :param int priority: Priority of the Firewall Policy Rule Collection resource.
@@ -8733,6 +8738,7 @@ class FirewallPolicyNatRuleCollectionResponse(dict):
     def rule_collection_type(self) -> str:
         """
         The type of the rule collection.
+        Expected value is 'FirewallPolicyNatRuleCollection'.
         """
         return pulumi.get(self, "rule_collection_type")
 
@@ -9074,6 +9080,8 @@ class ForwardingConfigurationResponse(dict):
                  forwarding_protocol: Optional[str] = None):
         """
         Describes Forwarding Route.
+        :param str odata_type: 
+               Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
         :param 'SubResourceResponseArgs' backend_pool: A reference to the BackendPool which this rule routes to.
         :param 'CacheConfigurationResponseArgs' cache_configuration: The caching configuration associated with this rule.
         :param str custom_forwarding_path: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
@@ -9092,6 +9100,10 @@ class ForwardingConfigurationResponse(dict):
     @property
     @pulumi.getter(name="odataType")
     def odata_type(self) -> str:
+        """
+
+        Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
+        """
         return pulumi.get(self, "odata_type")
 
     @property
@@ -11733,6 +11745,7 @@ class NatRuleResponse(dict):
         """
         Rule of type nat.
         :param str rule_type: Rule Type.
+               Expected value is 'NatRule'.
         :param str description: Description of the rule.
         :param Sequence[str] destination_addresses: List of destination IP addresses or Service Tags.
         :param Sequence[str] destination_ports: List of destination ports.
@@ -11768,6 +11781,7 @@ class NatRuleResponse(dict):
     def rule_type(self) -> str:
         """
         Rule Type.
+        Expected value is 'NatRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -12501,6 +12515,7 @@ class NetworkRuleResponse(dict):
         """
         Rule of type network.
         :param str rule_type: Rule Type.
+               Expected value is 'NetworkRule'.
         :param str description: Description of the rule.
         :param Sequence[str] destination_addresses: List of destination IP addresses or Service Tags.
         :param Sequence[str] destination_fqdns: List of destination FQDNs.
@@ -12536,6 +12551,7 @@ class NetworkRuleResponse(dict):
     def rule_type(self) -> str:
         """
         Rule Type.
+        Expected value is 'NetworkRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -14963,6 +14979,8 @@ class RedirectConfigurationResponse(dict):
                  redirect_type: Optional[str] = None):
         """
         Describes Redirect Route.
+        :param str odata_type: 
+               Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
         :param str custom_fragment: Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
         :param str custom_host: Host to redirect. Leave empty to use the incoming host as the destination host.
         :param str custom_path: The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
@@ -14987,6 +15005,10 @@ class RedirectConfigurationResponse(dict):
     @property
     @pulumi.getter(name="odataType")
     def odata_type(self) -> str:
+        """
+
+        Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
+        """
         return pulumi.get(self, "odata_type")
 
     @property

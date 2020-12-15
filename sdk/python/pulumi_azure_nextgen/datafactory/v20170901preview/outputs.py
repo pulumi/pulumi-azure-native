@@ -308,6 +308,7 @@ class AmazonMWSLinkedServiceResponse(dict):
         :param Any marketplace_id: The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
         :param Any seller_id: The Amazon seller ID.
         :param str type: Type of linked service.
+               Expected value is 'AmazonMWS'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -382,6 +383,7 @@ class AmazonMWSLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AmazonMWS'.
         """
         return pulumi.get(self, "type")
 
@@ -485,6 +487,7 @@ class AmazonMWSObjectDatasetResponse(dict):
         Amazon Marketplace Web Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'AmazonMWSObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -514,6 +517,7 @@ class AmazonMWSObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'AmazonMWSObject'.
         """
         return pulumi.get(self, "type")
 
@@ -575,6 +579,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
         :param Any database: The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
         :param Any server: The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'AmazonRedshift'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -625,6 +630,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AmazonRedshift'.
         """
         return pulumi.get(self, "type")
 
@@ -719,6 +725,7 @@ class AmazonS3DatasetResponse(dict):
         :param Any bucket_name: The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'AmazonS3Object'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the Amazon S3 object.
         :param str description: Dataset description.
@@ -772,6 +779,7 @@ class AmazonS3DatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'AmazonS3Object'.
         """
         return pulumi.get(self, "type")
 
@@ -868,6 +876,7 @@ class AmazonS3LinkedServiceResponse(dict):
         """
         Linked service for Amazon S3.
         :param str type: Type of linked service.
+               Expected value is 'AmazonS3'.
         :param Any access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -897,6 +906,7 @@ class AmazonS3LinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AmazonS3'.
         """
         return pulumi.get(self, "type")
 
@@ -972,6 +982,7 @@ class AvroFormatResponse(dict):
         """
         The data stored in Avro format.
         :param str type: Type of dataset storage format.
+               Expected value is 'AvroFormat'.
         :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
         :param Any serializer: Serializer. Type: string (or Expression with resultType string).
         """
@@ -986,6 +997,7 @@ class AvroFormatResponse(dict):
     def type(self) -> str:
         """
         Type of dataset storage format.
+        Expected value is 'AvroFormat'.
         """
         return pulumi.get(self, "type")
 
@@ -1033,6 +1045,7 @@ class AzureBatchLinkedServiceResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: The Azure Storage linked service reference.
         :param Any pool_name: The Azure Batch pool name. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'AzureBatch'.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_key: The Azure Batch account access key.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -1095,6 +1108,7 @@ class AzureBatchLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzureBatch'.
         """
         return pulumi.get(self, "type")
 
@@ -1171,6 +1185,7 @@ class AzureBlobDatasetResponse(dict):
         The Azure Blob storage.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'AzureBlob'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the blob storage.
         :param str description: Dataset description.
@@ -1215,6 +1230,7 @@ class AzureBlobDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'AzureBlob'.
         """
         return pulumi.get(self, "type")
 
@@ -1318,6 +1334,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
         :param Any account_name: The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'AzureDataLakeAnalytics'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Any data_lake_analytics_uri: Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
@@ -1374,6 +1391,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzureDataLakeAnalytics'.
         """
         return pulumi.get(self, "type")
 
@@ -1482,6 +1500,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
         :param Any folder_path: Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'AzureDataLakeStoreFile'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
         :param str description: Dataset description.
@@ -1529,6 +1548,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'AzureDataLakeStoreFile'.
         """
         return pulumi.get(self, "type")
 
@@ -1615,6 +1635,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
         Azure Data Lake Store linked service.
         :param Any data_lake_store_uri: Data Lake Store service URI. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'AzureDataLakeStore'.
         :param Any account_name: Data Lake Store account name. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -1665,6 +1686,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzureDataLakeStore'.
         """
         return pulumi.get(self, "type")
 
@@ -1784,6 +1806,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
         :param Any domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'AzureDatabricks'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -1840,6 +1863,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzureDatabricks'.
         """
         return pulumi.get(self, "type")
 
@@ -1943,6 +1967,7 @@ class AzureKeyVaultLinkedServiceResponse(dict):
         Azure Key Vault linked service.
         :param Any base_url: The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'AzureKeyVault'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -1972,6 +1997,7 @@ class AzureKeyVaultLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzureKeyVault'.
         """
         return pulumi.get(self, "type")
 
@@ -2026,6 +2052,7 @@ class AzureKeyVaultSecretReferenceResponse(dict):
         :param Any secret_name: The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' store: The Azure Key Vault linked service reference.
         :param str type: Type of the secret.
+               Expected value is 'AzureKeyVaultSecret'.
         :param Any secret_version: The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "secret_name", secret_name)
@@ -2055,6 +2082,7 @@ class AzureKeyVaultSecretReferenceResponse(dict):
     def type(self) -> str:
         """
         Type of the secret.
+        Expected value is 'AzureKeyVaultSecret'.
         """
         return pulumi.get(self, "type")
 
@@ -2093,6 +2121,7 @@ class AzureMLLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] api_key: The API key for accessing the Azure ML model endpoint.
         :param Any ml_endpoint: The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'AzureML'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -2146,6 +2175,7 @@ class AzureMLLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzureML'.
         """
         return pulumi.get(self, "type")
 
@@ -2242,6 +2272,7 @@ class AzureMySqlLinkedServiceResponse(dict):
         Azure MySQL database linked service.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
+               Expected value is 'AzureMySql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -2274,6 +2305,7 @@ class AzureMySqlLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzureMySql'.
         """
         return pulumi.get(self, "type")
 
@@ -2338,6 +2370,7 @@ class AzureMySqlTableDatasetResponse(dict):
         The Azure MySQL database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'AzureMySqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -2370,6 +2403,7 @@ class AzureMySqlTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'AzureMySqlTable'.
         """
         return pulumi.get(self, "type")
 
@@ -2433,6 +2467,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         """
         Azure PostgreSQL linked service.
         :param str type: Type of linked service.
+               Expected value is 'AzurePostgreSql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -2459,6 +2494,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzurePostgreSql'.
         """
         return pulumi.get(self, "type")
 
@@ -2530,6 +2566,7 @@ class AzurePostgreSqlTableDatasetResponse(dict):
         Azure PostgreSQL dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'AzurePostgreSqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -2559,6 +2596,7 @@ class AzurePostgreSqlTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'AzurePostgreSqlTable'.
         """
         return pulumi.get(self, "type")
 
@@ -2616,6 +2654,7 @@ class AzureSearchIndexDatasetResponse(dict):
         :param Any index_name: The name of the Azure Search Index. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'AzureSearchIndex'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -2654,6 +2693,7 @@ class AzureSearchIndexDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'AzureSearchIndex'.
         """
         return pulumi.get(self, "type")
 
@@ -2710,6 +2750,7 @@ class AzureSearchLinkedServiceResponse(dict):
         """
         Linked service for Windows Azure Search Service.
         :param str type: Type of linked service.
+               Expected value is 'AzureSearch'.
         :param Any url: URL for Azure Search service. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -2738,6 +2779,7 @@ class AzureSearchLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzureSearch'.
         """
         return pulumi.get(self, "type")
 
@@ -2821,6 +2863,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
         Azure SQL Data Warehouse linked service.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
+               Expected value is 'AzureSqlDW'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -2862,6 +2905,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzureSqlDW'.
         """
         return pulumi.get(self, "type")
 
@@ -2951,6 +2995,7 @@ class AzureSqlDWTableDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
+               Expected value is 'AzureSqlDWTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -2989,6 +3034,7 @@ class AzureSqlDWTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'AzureSqlDWTable'.
         """
         return pulumi.get(self, "type")
 
@@ -3048,6 +3094,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
         Microsoft Azure SQL Database linked service.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
+               Expected value is 'AzureSqlDatabase'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -3089,6 +3136,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzureSqlDatabase'.
         """
         return pulumi.get(self, "type")
 
@@ -3178,6 +3226,7 @@ class AzureSqlTableDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the Azure SQL database. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
+               Expected value is 'AzureSqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -3216,6 +3265,7 @@ class AzureSqlTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'AzureSqlTable'.
         """
         return pulumi.get(self, "type")
 
@@ -3272,6 +3322,7 @@ class AzureStorageLinkedServiceResponse(dict):
         """
         The storage account linked service.
         :param str type: Type of linked service.
+               Expected value is 'AzureStorage'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -3301,6 +3352,7 @@ class AzureStorageLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'AzureStorage'.
         """
         return pulumi.get(self, "type")
 
@@ -3382,6 +3434,7 @@ class AzureTableDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the Azure Table storage. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
+               Expected value is 'AzureTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -3420,6 +3473,7 @@ class AzureTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'AzureTable'.
         """
         return pulumi.get(self, "type")
 
@@ -3480,6 +3534,7 @@ class CassandraLinkedServiceResponse(dict):
         Linked service for Cassandra data source.
         :param Any host: Host name for connection. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'Cassandra'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any authentication_type: AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -3524,6 +3579,7 @@ class CassandraLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Cassandra'.
         """
         return pulumi.get(self, "type")
 
@@ -3621,6 +3677,7 @@ class CassandraTableDatasetResponse(dict):
         The Cassandra database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'CassandraTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Any keyspace: The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
@@ -3656,6 +3713,7 @@ class CassandraTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'CassandraTable'.
         """
         return pulumi.get(self, "type")
 
@@ -3733,6 +3791,7 @@ class ConcurLinkedServiceResponse(dict):
         Concur Service linked service.
         :param Any client_id: Application client_id supplied by Concur App Management.
         :param str type: Type of linked service.
+               Expected value is 'Concur'.
         :param Any username: The user name that you use to access Concur Service.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -3779,6 +3838,7 @@ class ConcurLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Concur'.
         """
         return pulumi.get(self, "type")
 
@@ -3882,6 +3942,7 @@ class ConcurObjectDatasetResponse(dict):
         Concur Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'ConcurObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -3911,6 +3972,7 @@ class ConcurObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'ConcurObject'.
         """
         return pulumi.get(self, "type")
 
@@ -3964,6 +4026,7 @@ class ControlActivityResponse(dict):
         Base class for all control activities like IfCondition, ForEach , Until.
         :param str name: Activity name.
         :param str type: Type of activity.
+               Expected value is 'Container'.
         :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         """
@@ -3987,6 +4050,7 @@ class ControlActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
+        Expected value is 'Container'.
         """
         return pulumi.get(self, "type")
 
@@ -4027,6 +4091,7 @@ class CosmosDbLinkedServiceResponse(dict):
         Microsoft Azure Cosmos Database (CosmosDB) linked service.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
+               Expected value is 'CosmosDb'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -4059,6 +4124,7 @@ class CosmosDbLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'CosmosDb'.
         """
         return pulumi.get(self, "type")
 
@@ -4122,6 +4188,7 @@ class CouchbaseLinkedServiceResponse(dict):
         """
         Couchbase server linked service.
         :param str type: Type of linked service.
+               Expected value is 'Couchbase'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -4148,6 +4215,7 @@ class CouchbaseLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Couchbase'.
         """
         return pulumi.get(self, "type")
 
@@ -4219,6 +4287,7 @@ class CouchbaseTableDatasetResponse(dict):
         Couchbase server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'CouchbaseTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -4248,6 +4317,7 @@ class CouchbaseTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'CouchbaseTable'.
         """
         return pulumi.get(self, "type")
 
@@ -4301,6 +4371,7 @@ class CustomDataSourceLinkedServiceResponse(dict):
         """
         Custom linked service.
         :param str type: Type of linked service.
+               Expected value is 'CustomDataSource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -4321,6 +4392,7 @@ class CustomDataSourceLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'CustomDataSource'.
         """
         return pulumi.get(self, "type")
 
@@ -4376,6 +4448,7 @@ class CustomDatasetResponse(dict):
         The custom dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'CustomDataset'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -4405,6 +4478,7 @@ class CustomDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'CustomDataset'.
         """
         return pulumi.get(self, "type")
 
@@ -4454,6 +4528,7 @@ class DatasetBZip2CompressionResponse(dict):
         """
         The BZip2 compression method used on a dataset.
         :param str type: Type of dataset compression.
+               Expected value is 'BZip2'.
         """
         pulumi.set(__self__, "type", 'BZip2')
 
@@ -4462,6 +4537,7 @@ class DatasetBZip2CompressionResponse(dict):
     def type(self) -> str:
         """
         Type of dataset compression.
+        Expected value is 'BZip2'.
         """
         return pulumi.get(self, "type")
 
@@ -4480,6 +4556,7 @@ class DatasetDeflateCompressionResponse(dict):
         """
         The Deflate compression method used on a dataset.
         :param str type: Type of dataset compression.
+               Expected value is 'Deflate'.
         :param str level: The Deflate compression level.
         """
         pulumi.set(__self__, "type", 'Deflate')
@@ -4491,6 +4568,7 @@ class DatasetDeflateCompressionResponse(dict):
     def type(self) -> str:
         """
         Type of dataset compression.
+        Expected value is 'Deflate'.
         """
         return pulumi.get(self, "type")
 
@@ -4517,6 +4595,7 @@ class DatasetGZipCompressionResponse(dict):
         """
         The GZip compression method used on a dataset.
         :param str type: Type of dataset compression.
+               Expected value is 'GZip'.
         :param str level: The GZip compression level.
         """
         pulumi.set(__self__, "type", 'GZip')
@@ -4528,6 +4607,7 @@ class DatasetGZipCompressionResponse(dict):
     def type(self) -> str:
         """
         Type of dataset compression.
+        Expected value is 'GZip'.
         """
         return pulumi.get(self, "type")
 
@@ -4554,6 +4634,7 @@ class DatasetZipDeflateCompressionResponse(dict):
         """
         The ZipDeflate compression method used on a dataset.
         :param str type: Type of dataset compression.
+               Expected value is 'ZipDeflate'.
         :param str level: The ZipDeflate compression level.
         """
         pulumi.set(__self__, "type", 'ZipDeflate')
@@ -4565,6 +4646,7 @@ class DatasetZipDeflateCompressionResponse(dict):
     def type(self) -> str:
         """
         Type of dataset compression.
+        Expected value is 'ZipDeflate'.
         """
         return pulumi.get(self, "type")
 
@@ -4602,6 +4684,7 @@ class Db2LinkedServiceResponse(dict):
         :param Any database: Database name for connection. Type: string (or Expression with resultType string).
         :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'Db2'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: AuthenticationType to be used for connection.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -4652,6 +4735,7 @@ class Db2LinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Db2'.
         """
         return pulumi.get(self, "type")
 
@@ -4741,6 +4825,7 @@ class DocumentDbCollectionDatasetResponse(dict):
         :param Any collection_name: Document Database collection name. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'DocumentDbCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -4779,6 +4864,7 @@ class DocumentDbCollectionDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'DocumentDbCollection'.
         """
         return pulumi.get(self, "type")
 
@@ -4834,6 +4920,7 @@ class DrillLinkedServiceResponse(dict):
         """
         Drill server linked service.
         :param str type: Type of linked service.
+               Expected value is 'Drill'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -4860,6 +4947,7 @@ class DrillLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Drill'.
         """
         return pulumi.get(self, "type")
 
@@ -4931,6 +5019,7 @@ class DrillTableDatasetResponse(dict):
         Drill server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'DrillTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -4960,6 +5049,7 @@ class DrillTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'DrillTable'.
         """
         return pulumi.get(self, "type")
 
@@ -5016,6 +5106,7 @@ class DynamicsEntityDatasetResponse(dict):
         The Dynamics entity dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'DynamicsEntity'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Any entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
@@ -5048,6 +5139,7 @@ class DynamicsEntityDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'DynamicsEntity'.
         """
         return pulumi.get(self, "type")
 
@@ -5120,6 +5212,7 @@ class DynamicsLinkedServiceResponse(dict):
         :param str authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
         :param str deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'Dynamics'.
         :param Any username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -5178,6 +5271,7 @@ class DynamicsLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Dynamics'.
         """
         return pulumi.get(self, "type")
 
@@ -5295,6 +5389,7 @@ class EloquaLinkedServiceResponse(dict):
         Eloqua server linked service.
         :param Any endpoint: The endpoint of the Eloqua server. (i.e. eloqua.example.com)
         :param str type: Type of linked service.
+               Expected value is 'Eloqua'.
         :param Any username: The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -5341,6 +5436,7 @@ class EloquaLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Eloqua'.
         """
         return pulumi.get(self, "type")
 
@@ -5444,6 +5540,7 @@ class EloquaObjectDatasetResponse(dict):
         Eloqua server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'EloquaObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -5473,6 +5570,7 @@ class EloquaObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'EloquaObject'.
         """
         return pulumi.get(self, "type")
 
@@ -5566,6 +5664,7 @@ class ExecutionActivityResponse(dict):
         Base class for all execution activities.
         :param str name: Activity name.
         :param str type: Type of activity.
+               Expected value is 'Execution'.
         :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
@@ -5595,6 +5694,7 @@ class ExecutionActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
+        Expected value is 'Execution'.
         """
         return pulumi.get(self, "type")
 
@@ -5798,6 +5898,7 @@ class FileServerLinkedServiceResponse(dict):
         File system linked service.
         :param Any host: Host name of the server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'FileServer'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -5836,6 +5937,7 @@ class FileServerLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'FileServer'.
         """
         return pulumi.get(self, "type")
 
@@ -5920,6 +6022,7 @@ class FileShareDatasetResponse(dict):
         An on-premises file system dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'FileShare'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the file system.
         :param str description: Dataset description.
@@ -5964,6 +6067,7 @@ class FileShareDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'FileShare'.
         """
         return pulumi.get(self, "type")
 
@@ -6066,6 +6170,7 @@ class FtpServerLinkedServiceResponse(dict):
         A FTP server Linked Service.
         :param Any host: Host name of the FTP server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'FtpServer'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the FTP server.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -6116,6 +6221,7 @@ class FtpServerLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'FtpServer'.
         """
         return pulumi.get(self, "type")
 
@@ -6239,6 +6345,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
         :param str authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
         :param Any project: The default BigQuery project to query against.
         :param str type: Type of linked service.
+               Expected value is 'GoogleBigQuery'.
         :param Any additional_projects: A comma-separated list of public BigQuery projects to access.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_id: The client id of the google application used to acquire the refresh token.
@@ -6307,6 +6414,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'GoogleBigQuery'.
         """
         return pulumi.get(self, "type")
 
@@ -6442,6 +6550,7 @@ class GoogleBigQueryObjectDatasetResponse(dict):
         Google BigQuery service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'GoogleBigQueryObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -6471,6 +6580,7 @@ class GoogleBigQueryObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'GoogleBigQueryObject'.
         """
         return pulumi.get(self, "type")
 
@@ -6526,6 +6636,7 @@ class GreenplumLinkedServiceResponse(dict):
         """
         Greenplum Database linked service.
         :param str type: Type of linked service.
+               Expected value is 'Greenplum'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -6552,6 +6663,7 @@ class GreenplumLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Greenplum'.
         """
         return pulumi.get(self, "type")
 
@@ -6623,6 +6735,7 @@ class GreenplumTableDatasetResponse(dict):
         Greenplum Database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'GreenplumTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -6652,6 +6765,7 @@ class GreenplumTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'GreenplumTable'.
         """
         return pulumi.get(self, "type")
 
@@ -6718,6 +6832,7 @@ class HBaseLinkedServiceResponse(dict):
         :param str authentication_type: The authentication mechanism to use to connect to the HBase server.
         :param Any host: The IP address or host name of the HBase server. (i.e. 192.168.222.160)
         :param str type: Type of linked service.
+               Expected value is 'HBase'.
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -6783,6 +6898,7 @@ class HBaseLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'HBase'.
         """
         return pulumi.get(self, "type")
 
@@ -6910,6 +7026,7 @@ class HBaseObjectDatasetResponse(dict):
         HBase server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'HBaseObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -6939,6 +7056,7 @@ class HBaseObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'HBaseObject'.
         """
         return pulumi.get(self, "type")
 
@@ -6999,6 +7117,7 @@ class HDInsightLinkedServiceResponse(dict):
         HDInsight linked service.
         :param Any cluster_uri: HDInsight cluster URI. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'HDInsight'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -7043,6 +7162,7 @@ class HDInsightLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'HDInsight'.
         """
         return pulumi.get(self, "type")
 
@@ -7172,6 +7292,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         :param Any tenant: The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
         :param Any time_to_live: The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'HDInsightOnDemand'.
         :param Any version: Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
         :param Sequence['LinkedServiceReferenceResponseArgs'] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -7317,6 +7438,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'HDInsightOnDemand'.
         """
         return pulumi.get(self, "type")
 
@@ -7567,6 +7689,7 @@ class HdfsLinkedServiceResponse(dict):
         """
         Hadoop Distributed File System (HDFS) linked service.
         :param str type: Type of linked service.
+               Expected value is 'Hdfs'.
         :param Any url: The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any authentication_type: Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
@@ -7601,6 +7724,7 @@ class HdfsLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Hdfs'.
         """
         return pulumi.get(self, "type")
 
@@ -7713,6 +7837,7 @@ class HiveLinkedServiceResponse(dict):
         :param str authentication_type: The authentication method used to access the Hive server.
         :param Any host: IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
         :param str type: Type of linked service.
+               Expected value is 'Hive'.
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -7796,6 +7921,7 @@ class HiveLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Hive'.
         """
         return pulumi.get(self, "type")
 
@@ -7971,6 +8097,7 @@ class HiveObjectDatasetResponse(dict):
         Hive Server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'HiveObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -8000,6 +8127,7 @@ class HiveObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'HiveObject'.
         """
         return pulumi.get(self, "type")
 
@@ -8061,6 +8189,7 @@ class HttpDatasetResponse(dict):
         A file in an HTTP web server.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'HttpFile'.
         :param Any additional_headers: The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
                ...
                request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
@@ -8110,6 +8239,7 @@ class HttpDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'HttpFile'.
         """
         return pulumi.get(self, "type")
 
@@ -8221,6 +8351,7 @@ class HttpLinkedServiceResponse(dict):
         """
         Linked service for an HTTP source.
         :param str type: Type of linked service.
+               Expected value is 'HttpServer'.
         :param Any url: The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the HTTP server.
@@ -8264,6 +8395,7 @@ class HttpLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'HttpServer'.
         """
         return pulumi.get(self, "type")
 
@@ -8390,6 +8522,7 @@ class HubspotLinkedServiceResponse(dict):
         Hubspot Service linked service.
         :param Any client_id: The client ID associated with your Hubspot application.
         :param str type: Type of linked service.
+               Expected value is 'Hubspot'.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token obtained when initially authenticating your OAuth integration.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your Hubspot application.
@@ -8440,6 +8573,7 @@ class HubspotLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Hubspot'.
         """
         return pulumi.get(self, "type")
 
@@ -8551,6 +8685,7 @@ class HubspotObjectDatasetResponse(dict):
         Hubspot Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'HubspotObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -8580,6 +8715,7 @@ class HubspotObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'HubspotObject'.
         """
         return pulumi.get(self, "type")
 
@@ -8646,6 +8782,7 @@ class ImpalaLinkedServiceResponse(dict):
         :param str authentication_type: The authentication type to use.
         :param Any host: The IP address or host name of the Impala server. (i.e. 192.168.222.160)
         :param str type: Type of linked service.
+               Expected value is 'Impala'.
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -8711,6 +8848,7 @@ class ImpalaLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Impala'.
         """
         return pulumi.get(self, "type")
 
@@ -8838,6 +8976,7 @@ class ImpalaObjectDatasetResponse(dict):
         Impala server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'ImpalaObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -8867,6 +9006,7 @@ class ImpalaObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'ImpalaObject'.
         """
         return pulumi.get(self, "type")
 
@@ -9313,6 +9453,7 @@ class JiraLinkedServiceResponse(dict):
         Jira Service linked service.
         :param Any host: The IP address or host name of the Jira service. (e.g. jira.example.com)
         :param str type: Type of linked service.
+               Expected value is 'Jira'.
         :param Any username: The user name that you use to access Jira Service.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -9362,6 +9503,7 @@ class JiraLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Jira'.
         """
         return pulumi.get(self, "type")
 
@@ -9473,6 +9615,7 @@ class JiraObjectDatasetResponse(dict):
         Jira Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'JiraObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -9502,6 +9645,7 @@ class JiraObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'JiraObject'.
         """
         return pulumi.get(self, "type")
 
@@ -9558,6 +9702,7 @@ class JsonFormatResponse(dict):
         """
         The data stored in JSON format.
         :param str type: Type of dataset storage format.
+               Expected value is 'JsonFormat'.
         :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
         :param Any encoding_name: The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
         :param str file_pattern: File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
@@ -9587,6 +9732,7 @@ class JsonFormatResponse(dict):
     def type(self) -> str:
         """
         Type of dataset storage format.
+        Expected value is 'JsonFormat'.
         """
         return pulumi.get(self, "type")
 
@@ -9661,6 +9807,7 @@ class LinkedIntegrationRuntimeKeyResponse(dict):
         """
         The base definition of a secret type.
         :param str authorization_type: Type of the secret.
+               Expected value is 'Key'.
         :param 'SecureStringResponseArgs' key: Type of the secret.
         """
         pulumi.set(__self__, "authorization_type", 'Key')
@@ -9671,6 +9818,7 @@ class LinkedIntegrationRuntimeKeyResponse(dict):
     def authorization_type(self) -> str:
         """
         Type of the secret.
+        Expected value is 'Key'.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -9697,6 +9845,7 @@ class LinkedIntegrationRuntimeRbacResponse(dict):
         """
         The base definition of a secret type.
         :param str authorization_type: Type of the secret.
+               Expected value is 'RBAC'.
         :param str resource_id: The resource ID of the integration runtime to be shared.
         """
         pulumi.set(__self__, "authorization_type", 'RBAC')
@@ -9707,6 +9856,7 @@ class LinkedIntegrationRuntimeRbacResponse(dict):
     def authorization_type(self) -> str:
         """
         Type of the secret.
+        Expected value is 'RBAC'.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -9857,6 +10007,7 @@ class MagentoLinkedServiceResponse(dict):
         Magento server linked service.
         :param Any host: The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
         :param str type: Type of linked service.
+               Expected value is 'Magento'.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token from Magento.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -9901,6 +10052,7 @@ class MagentoLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Magento'.
         """
         return pulumi.get(self, "type")
 
@@ -9996,6 +10148,7 @@ class MagentoObjectDatasetResponse(dict):
         Magento server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'MagentoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -10025,6 +10178,7 @@ class MagentoObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'MagentoObject'.
         """
         return pulumi.get(self, "type")
 
@@ -10256,6 +10410,7 @@ class ManagedIntegrationRuntimeResponse(dict):
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
         :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param str type: Type of integration runtime.
+               Expected value is 'Managed'.
         :param 'IntegrationRuntimeComputePropertiesResponseArgs' compute_properties: The compute resource for managed integration runtime.
         :param str description: Integration runtime description.
         :param 'IntegrationRuntimeSsisPropertiesResponseArgs' ssis_properties: SSIS properties for managed integration runtime.
@@ -10282,6 +10437,7 @@ class ManagedIntegrationRuntimeResponse(dict):
     def type(self) -> str:
         """
         Type of integration runtime.
+        Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
 
@@ -10335,6 +10491,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
         :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] other_errors: The errors that occurred on this integration runtime.
         :param str state: The state of integration runtime.
         :param str type: Type of integration runtime.
+               Expected value is 'Managed'.
         """
         pulumi.set(__self__, "create_time", create_time)
         pulumi.set(__self__, "data_factory_name", data_factory_name)
@@ -10398,6 +10555,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
     def type(self) -> Optional[str]:
         """
         Type of integration runtime.
+        Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
 
@@ -10418,6 +10576,7 @@ class MariaDBLinkedServiceResponse(dict):
         """
         MariaDB server linked service.
         :param str type: Type of linked service.
+               Expected value is 'MariaDB'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -10444,6 +10603,7 @@ class MariaDBLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'MariaDB'.
         """
         return pulumi.get(self, "type")
 
@@ -10515,6 +10675,7 @@ class MariaDBTableDatasetResponse(dict):
         MariaDB server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'MariaDBTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -10544,6 +10705,7 @@ class MariaDBTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'MariaDBTable'.
         """
         return pulumi.get(self, "type")
 
@@ -10606,6 +10768,7 @@ class MarketoLinkedServiceResponse(dict):
         :param Any client_id: The client Id of your Marketo service.
         :param Any endpoint: The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
         :param str type: Type of linked service.
+               Expected value is 'Marketo'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret of your Marketo service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -10659,6 +10822,7 @@ class MarketoLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Marketo'.
         """
         return pulumi.get(self, "type")
 
@@ -10754,6 +10918,7 @@ class MarketoObjectDatasetResponse(dict):
         Marketo server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'MarketoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -10783,6 +10948,7 @@ class MarketoObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'MarketoObject'.
         """
         return pulumi.get(self, "type")
 
@@ -10840,6 +11006,7 @@ class MongoDbCollectionDatasetResponse(dict):
         :param Any collection_name: The table name of the MongoDB database. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'MongoDbCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -10878,6 +11045,7 @@ class MongoDbCollectionDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'MongoDbCollection'.
         """
         return pulumi.get(self, "type")
 
@@ -10943,6 +11111,7 @@ class MongoDbLinkedServiceResponse(dict):
         :param Any database_name: The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
         :param Any server: The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'MongoDb'.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any auth_source: Database to verify the username and password. Type: string (or Expression with resultType string).
@@ -11005,6 +11174,7 @@ class MongoDbLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'MongoDb'.
         """
         return pulumi.get(self, "type")
 
@@ -11122,6 +11292,7 @@ class MultiplePipelineTriggerResponse(dict):
         Base class for all triggers that support one to many model for trigger to pipeline.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str type: Trigger type.
+               Expected value is 'MultiplePipelineTrigger'.
         :param str description: Trigger description.
         :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
         """
@@ -11145,6 +11316,7 @@ class MultiplePipelineTriggerResponse(dict):
     def type(self) -> str:
         """
         Trigger type.
+        Expected value is 'MultiplePipelineTrigger'.
         """
         return pulumi.get(self, "type")
 
@@ -11185,6 +11357,7 @@ class MySqlLinkedServiceResponse(dict):
         Linked service for MySQL data source.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] connection_string: The connection string.
         :param str type: Type of linked service.
+               Expected value is 'MySql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -11217,6 +11390,7 @@ class MySqlLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'MySql'.
         """
         return pulumi.get(self, "type")
 
@@ -11280,6 +11454,7 @@ class NetezzaLinkedServiceResponse(dict):
         """
         Netezza linked service.
         :param str type: Type of linked service.
+               Expected value is 'Netezza'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -11306,6 +11481,7 @@ class NetezzaLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Netezza'.
         """
         return pulumi.get(self, "type")
 
@@ -11377,6 +11553,7 @@ class NetezzaTableDatasetResponse(dict):
         Netezza dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'NetezzaTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -11406,6 +11583,7 @@ class NetezzaTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'NetezzaTable'.
         """
         return pulumi.get(self, "type")
 
@@ -11464,6 +11642,7 @@ class ODataLinkedServiceResponse(dict):
         """
         Open Data Protocol (OData) linked service.
         :param str type: Type of linked service.
+               Expected value is 'OData'.
         :param Any url: The URL of the OData service endpoint. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: Type of authentication used to connect to the OData service.
@@ -11498,6 +11677,7 @@ class ODataLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'OData'.
         """
         return pulumi.get(self, "type")
 
@@ -11594,6 +11774,7 @@ class ODataResourceDatasetResponse(dict):
         The Open Data Protocol (OData) resource dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'ODataResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -11626,6 +11807,7 @@ class ODataResourceDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'ODataResource'.
         """
         return pulumi.get(self, "type")
 
@@ -11694,6 +11876,7 @@ class OdbcLinkedServiceResponse(dict):
         Open Database Connectivity (ODBC) linked service.
         :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
+               Expected value is 'Odbc'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any authentication_type: Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -11738,6 +11921,7 @@ class OdbcLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Odbc'.
         """
         return pulumi.get(self, "type")
 
@@ -11834,6 +12018,7 @@ class OracleLinkedServiceResponse(dict):
         Oracle database.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
+               Expected value is 'Oracle'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -11866,6 +12051,7 @@ class OracleLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Oracle'.
         """
         return pulumi.get(self, "type")
 
@@ -11931,6 +12117,7 @@ class OracleTableDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
+               Expected value is 'OracleTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -11969,6 +12156,7 @@ class OracleTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'OracleTable'.
         """
         return pulumi.get(self, "type")
 
@@ -12020,6 +12208,7 @@ class OrcFormatResponse(dict):
         """
         The data stored in Optimized Row Columnar (ORC) format.
         :param str type: Type of dataset storage format.
+               Expected value is 'OrcFormat'.
         :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
         :param Any serializer: Serializer. Type: string (or Expression with resultType string).
         """
@@ -12034,6 +12223,7 @@ class OrcFormatResponse(dict):
     def type(self) -> str:
         """
         Type of dataset storage format.
+        Expected value is 'OrcFormat'.
         """
         return pulumi.get(self, "type")
 
@@ -12106,6 +12296,7 @@ class ParquetFormatResponse(dict):
         """
         The data stored in Parquet format.
         :param str type: Type of dataset storage format.
+               Expected value is 'ParquetFormat'.
         :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
         :param Any serializer: Serializer. Type: string (or Expression with resultType string).
         """
@@ -12120,6 +12311,7 @@ class ParquetFormatResponse(dict):
     def type(self) -> str:
         """
         Type of dataset storage format.
+        Expected value is 'ParquetFormat'.
         """
         return pulumi.get(self, "type")
 
@@ -12166,6 +12358,7 @@ class PaypalLinkedServiceResponse(dict):
         :param Any client_id: The client ID associated with your PayPal application.
         :param Any host: The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
         :param str type: Type of linked service.
+               Expected value is 'Paypal'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your PayPal application.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -12219,6 +12412,7 @@ class PaypalLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Paypal'.
         """
         return pulumi.get(self, "type")
 
@@ -12314,6 +12508,7 @@ class PaypalObjectDatasetResponse(dict):
         Paypal Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'PaypalObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -12343,6 +12538,7 @@ class PaypalObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'PaypalObject'.
         """
         return pulumi.get(self, "type")
 
@@ -12410,6 +12606,7 @@ class PhoenixLinkedServiceResponse(dict):
         :param str authentication_type: The authentication mechanism used to connect to the Phoenix server.
         :param Any host: The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
         :param str type: Type of linked service.
+               Expected value is 'Phoenix'.
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -12478,6 +12675,7 @@ class PhoenixLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Phoenix'.
         """
         return pulumi.get(self, "type")
 
@@ -12613,6 +12811,7 @@ class PhoenixObjectDatasetResponse(dict):
         Phoenix server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'PhoenixObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -12642,6 +12841,7 @@ class PhoenixObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'PhoenixObject'.
         """
         return pulumi.get(self, "type")
 
@@ -12746,6 +12946,7 @@ class PostgreSqlLinkedServiceResponse(dict):
         Linked service for PostgreSQL data source.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] connection_string: The connection string.
         :param str type: Type of linked service.
+               Expected value is 'PostgreSql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -12778,6 +12979,7 @@ class PostgreSqlLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'PostgreSql'.
         """
         return pulumi.get(self, "type")
 
@@ -12857,6 +13059,7 @@ class PrestoLinkedServiceResponse(dict):
         :param Any host: The IP address or host name of the Presto server. (i.e. 192.168.222.160)
         :param Any server_version: The version of the Presto server. (i.e. 0.148-t)
         :param str type: Type of linked service.
+               Expected value is 'Presto'.
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -12943,6 +13146,7 @@ class PrestoLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Presto'.
         """
         return pulumi.get(self, "type")
 
@@ -13078,6 +13282,7 @@ class PrestoObjectDatasetResponse(dict):
         Presto server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'PrestoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -13107,6 +13312,7 @@ class PrestoObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'PrestoObject'.
         """
         return pulumi.get(self, "type")
 
@@ -13174,6 +13380,7 @@ class QuickBooksLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] consumer_secret: The consumer secret for OAuth 1.0 authentication.
         :param Any endpoint: The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
         :param str type: Type of linked service.
+               Expected value is 'QuickBooks'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -13254,6 +13461,7 @@ class QuickBooksLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'QuickBooks'.
         """
         return pulumi.get(self, "type")
 
@@ -13325,6 +13533,7 @@ class QuickBooksObjectDatasetResponse(dict):
         QuickBooks server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'QuickBooksObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -13354,6 +13563,7 @@ class QuickBooksObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'QuickBooksObject'.
         """
         return pulumi.get(self, "type")
 
@@ -13410,6 +13620,7 @@ class RelationalTableDatasetResponse(dict):
         The relational table dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'RelationalTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -13442,6 +13653,7 @@ class RelationalTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'RelationalTable'.
         """
         return pulumi.get(self, "type")
 
@@ -13512,6 +13724,7 @@ class ResponsysLinkedServiceResponse(dict):
         :param Any client_id: The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
         :param Any endpoint: The endpoint of the Responsys server.
         :param str type: Type of linked service.
+               Expected value is 'Responsys'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -13565,6 +13778,7 @@ class ResponsysLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Responsys'.
         """
         return pulumi.get(self, "type")
 
@@ -13660,6 +13874,7 @@ class ResponsysObjectDatasetResponse(dict):
         Responsys dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'ResponsysObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -13689,6 +13904,7 @@ class ResponsysObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'ResponsysObject'.
         """
         return pulumi.get(self, "type")
 
@@ -13785,6 +14001,7 @@ class SalesforceLinkedServiceResponse(dict):
         """
         Linked service for Salesforce.
         :param str type: Type of linked service.
+               Expected value is 'Salesforce'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -13820,6 +14037,7 @@ class SalesforceLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Salesforce'.
         """
         return pulumi.get(self, "type")
 
@@ -13920,6 +14138,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
         Salesforce Marketing Cloud linked service.
         :param Any client_id: The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'SalesforceMarketingCloud'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -13964,6 +14183,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'SalesforceMarketingCloud'.
         """
         return pulumi.get(self, "type")
 
@@ -14059,6 +14279,7 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
         Salesforce Marketing Cloud dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'SalesforceMarketingCloudObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -14088,6 +14309,7 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'SalesforceMarketingCloudObject'.
         """
         return pulumi.get(self, "type")
 
@@ -14144,6 +14366,7 @@ class SalesforceObjectDatasetResponse(dict):
         The Salesforce object dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'SalesforceObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Any object_api_name: The Salesforce object API name. Type: string (or Expression with resultType string).
@@ -14176,6 +14399,7 @@ class SalesforceObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'SalesforceObject'.
         """
         return pulumi.get(self, "type")
 
@@ -14246,6 +14470,7 @@ class SapBWLinkedServiceResponse(dict):
         :param Any server: Host name of the SAP BW instance. Type: string (or Expression with resultType string).
         :param Any system_number: System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'SapBW'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -14302,6 +14527,7 @@ class SapBWLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'SapBW'.
         """
         return pulumi.get(self, "type")
 
@@ -14383,6 +14609,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
         """
         Linked service for SAP Cloud for Customer.
         :param str type: Type of linked service.
+               Expected value is 'SapCloudForCustomer'.
         :param Any url: The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -14414,6 +14641,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'SapCloudForCustomer'.
         """
         return pulumi.get(self, "type")
 
@@ -14503,6 +14731,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Any path: The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
+               Expected value is 'SapCloudForCustomerResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -14541,6 +14770,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'SapCloudForCustomerResource'.
         """
         return pulumi.get(self, "type")
 
@@ -14598,6 +14828,7 @@ class SapEccLinkedServiceResponse(dict):
         """
         Linked service for SAP ERP Central Component(SAP ECC).
         :param str type: Type of linked service.
+               Expected value is 'SapEcc'.
         :param str url: The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -14629,6 +14860,7 @@ class SapEccLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'SapEcc'.
         """
         return pulumi.get(self, "type")
 
@@ -14718,6 +14950,7 @@ class SapEccResourceDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Any path: The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
+               Expected value is 'SapEccResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -14756,6 +14989,7 @@ class SapEccResourceDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'SapEccResource'.
         """
         return pulumi.get(self, "type")
 
@@ -14815,6 +15049,7 @@ class SapHanaLinkedServiceResponse(dict):
         SAP HANA Linked Service.
         :param Any server: Host name of the SAP HANA server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'SapHana'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the SAP HANA server.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -14856,6 +15091,7 @@ class SapHanaLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'SapHana'.
         """
         return pulumi.get(self, "type")
 
@@ -14938,6 +15174,7 @@ class SecureStringResponse(dict):
         """
         Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
         :param str type: Type of the secret.
+               Expected value is 'SecureString'.
         :param str value: Value of secure string.
         """
         pulumi.set(__self__, "type", 'SecureString')
@@ -14948,6 +15185,7 @@ class SecureStringResponse(dict):
     def type(self) -> str:
         """
         Type of the secret.
+        Expected value is 'SecureString'.
         """
         return pulumi.get(self, "type")
 
@@ -15184,6 +15422,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
         """
         Self-hosted integration runtime.
         :param str type: Type of integration runtime.
+               Expected value is 'SelfHosted'.
         :param str description: Integration runtime description.
         :param Union['LinkedIntegrationRuntimeKeyResponseArgs', 'LinkedIntegrationRuntimeRbacResponseArgs'] linked_info: The base definition of a secret type.
         """
@@ -15198,6 +15437,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
     def type(self) -> str:
         """
         Type of integration runtime.
+        Expected value is 'SelfHosted'.
         """
         return pulumi.get(self, "type")
 
@@ -15261,6 +15501,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         :param Sequence['LinkedIntegrationRuntimeResponseArgs'] links: The list of linked integration runtimes that are created to share with this integration runtime.
         :param Sequence['SelfHostedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for this integration runtime.
         :param str type: Type of integration runtime.
+               Expected value is 'SelfHosted'.
         """
         pulumi.set(__self__, "auto_update", auto_update)
         pulumi.set(__self__, "capabilities", capabilities)
@@ -15407,6 +15648,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
     def type(self) -> Optional[str]:
         """
         Type of integration runtime.
+        Expected value is 'SelfHosted'.
         """
         return pulumi.get(self, "type")
 
@@ -15437,6 +15679,7 @@ class ServiceNowLinkedServiceResponse(dict):
         :param str authentication_type: The authentication type to use.
         :param Any endpoint: The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
         :param str type: Type of linked service.
+               Expected value is 'ServiceNow'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any client_id: The client id for OAuth2 authentication.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret for OAuth2 authentication.
@@ -15499,6 +15742,7 @@ class ServiceNowLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'ServiceNow'.
         """
         return pulumi.get(self, "type")
 
@@ -15618,6 +15862,7 @@ class ServiceNowObjectDatasetResponse(dict):
         ServiceNow server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'ServiceNowObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -15647,6 +15892,7 @@ class ServiceNowObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'ServiceNowObject'.
         """
         return pulumi.get(self, "type")
 
@@ -15712,6 +15958,7 @@ class SftpServerLinkedServiceResponse(dict):
         A linked service for an SSH File Transfer Protocol (SFTP) server. 
         :param Any host: The SFTP server host name. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'Sftp'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the FTP server.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -15771,6 +16018,7 @@ class SftpServerLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Sftp'.
         """
         return pulumi.get(self, "type")
 
@@ -15911,6 +16159,7 @@ class ShopifyLinkedServiceResponse(dict):
         Shopify Service linked service.
         :param Any host: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
         :param str type: Type of linked service.
+               Expected value is 'Shopify'.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -15955,6 +16204,7 @@ class ShopifyLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Shopify'.
         """
         return pulumi.get(self, "type")
 
@@ -16050,6 +16300,7 @@ class ShopifyObjectDatasetResponse(dict):
         Shopify Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'ShopifyObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -16079,6 +16330,7 @@ class ShopifyObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'ShopifyObject'.
         """
         return pulumi.get(self, "type")
 
@@ -16149,6 +16401,7 @@ class SparkLinkedServiceResponse(dict):
         :param Any host: IP address or host name of the Spark server
         :param Any port: The TCP port that the Spark server uses to listen for client connections.
         :param str type: Type of linked service.
+               Expected value is 'Spark'.
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -16229,6 +16482,7 @@ class SparkLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Spark'.
         """
         return pulumi.get(self, "type")
 
@@ -16372,6 +16626,7 @@ class SparkObjectDatasetResponse(dict):
         Spark Server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'SparkObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -16401,6 +16656,7 @@ class SparkObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'SparkObject'.
         """
         return pulumi.get(self, "type")
 
@@ -16459,6 +16715,7 @@ class SqlServerLinkedServiceResponse(dict):
         SQL Server linked service.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
+               Expected value is 'SqlServer'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -16497,6 +16754,7 @@ class SqlServerLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'SqlServer'.
         """
         return pulumi.get(self, "type")
 
@@ -16578,6 +16836,7 @@ class SqlServerTableDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
+               Expected value is 'SqlServerTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -16616,6 +16875,7 @@ class SqlServerTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'SqlServerTable'.
         """
         return pulumi.get(self, "type")
 
@@ -16680,6 +16940,7 @@ class SquareLinkedServiceResponse(dict):
         :param Any host: The URL of the Square instance. (i.e. mystore.mysquare.com)
         :param Any redirect_uri: The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
         :param str type: Type of linked service.
+               Expected value is 'Square'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your Square application.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -16742,6 +17003,7 @@ class SquareLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Square'.
         """
         return pulumi.get(self, "type")
 
@@ -16837,6 +17099,7 @@ class SquareObjectDatasetResponse(dict):
         Square Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'SquareObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -16866,6 +17129,7 @@ class SquareObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'SquareObject'.
         """
         return pulumi.get(self, "type")
 
@@ -16928,6 +17192,7 @@ class SybaseLinkedServiceResponse(dict):
         :param Any database: Database name for connection. Type: string (or Expression with resultType string).
         :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'Sybase'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: AuthenticationType to be used for connection.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -16981,6 +17246,7 @@ class SybaseLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Sybase'.
         """
         return pulumi.get(self, "type")
 
@@ -17080,6 +17346,7 @@ class TeradataLinkedServiceResponse(dict):
         Linked service for Teradata data source.
         :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
+               Expected value is 'Teradata'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: AuthenticationType to be used for connection.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -17121,6 +17388,7 @@ class TeradataLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Teradata'.
         """
         return pulumi.get(self, "type")
 
@@ -17213,6 +17481,7 @@ class TextFormatResponse(dict):
         """
         The data stored in text format.
         :param str type: Type of dataset storage format.
+               Expected value is 'TextFormat'.
         :param Any column_delimiter: The column delimiter. Type: string (or Expression with resultType string).
         :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
         :param Any encoding_name: The code page name of the preferred encoding. If miss, the default value is ΓÇ£utf-8ΓÇ¥, unless BOM denotes another Unicode encoding. Refer to the ΓÇ£NameΓÇ¥ column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
@@ -17254,6 +17523,7 @@ class TextFormatResponse(dict):
     def type(self) -> str:
         """
         Type of dataset storage format.
+        Expected value is 'TextFormat'.
         """
         return pulumi.get(self, "type")
 
@@ -17413,6 +17683,7 @@ class TumblingWindowTriggerResponse(dict):
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str start_time: The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
         :param str type: Trigger type.
+               Expected value is 'TumblingWindowTrigger'.
         :param Any delay: Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param str description: Trigger description.
         :param str end_time: The end time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
@@ -17487,6 +17758,7 @@ class TumblingWindowTriggerResponse(dict):
     def type(self) -> str:
         """
         Trigger type.
+        Expected value is 'TumblingWindowTrigger'.
         """
         return pulumi.get(self, "type")
 
@@ -17542,6 +17814,7 @@ class VerticaLinkedServiceResponse(dict):
         """
         Vertica linked service.
         :param str type: Type of linked service.
+               Expected value is 'Vertica'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -17568,6 +17841,7 @@ class VerticaLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Vertica'.
         """
         return pulumi.get(self, "type")
 
@@ -17639,6 +17913,7 @@ class VerticaTableDatasetResponse(dict):
         Vertica dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'VerticaTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -17668,6 +17943,7 @@ class VerticaTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'VerticaTable'.
         """
         return pulumi.get(self, "type")
 
@@ -17718,6 +17994,7 @@ class WebAnonymousAuthenticationResponse(dict):
         """
         A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
         :param str authentication_type: Type of authentication used to connect to the web table source.
+               Expected value is 'Anonymous'.
         :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'Anonymous')
@@ -17728,6 +18005,7 @@ class WebAnonymousAuthenticationResponse(dict):
     def authentication_type(self) -> str:
         """
         Type of authentication used to connect to the web table source.
+        Expected value is 'Anonymous'.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -17756,6 +18034,7 @@ class WebBasicAuthenticationResponse(dict):
         """
         A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
         :param str authentication_type: Type of authentication used to connect to the web table source.
+               Expected value is 'Basic'.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication.
         :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         :param Any username: User name for Basic authentication. Type: string (or Expression with resultType string).
@@ -17770,6 +18049,7 @@ class WebBasicAuthenticationResponse(dict):
     def authentication_type(self) -> str:
         """
         Type of authentication used to connect to the web table source.
+        Expected value is 'Basic'.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -17814,6 +18094,7 @@ class WebClientCertificateAuthenticationResponse(dict):
         """
         A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
         :param str authentication_type: Type of authentication used to connect to the web table source.
+               Expected value is 'ClientCertificate'.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for the PFX file.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] pfx: Base64-encoded contents of a PFX file.
         :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
@@ -17828,6 +18109,7 @@ class WebClientCertificateAuthenticationResponse(dict):
     def authentication_type(self) -> str:
         """
         Type of authentication used to connect to the web table source.
+        Expected value is 'ClientCertificate'.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -17874,6 +18156,7 @@ class WebLinkedServiceResponse(dict):
         """
         Web linked service.
         :param str type: Type of linked service.
+               Expected value is 'Web'.
         :param Union['WebAnonymousAuthenticationResponseArgs', 'WebBasicAuthenticationResponseArgs', 'WebClientCertificateAuthenticationResponseArgs'] type_properties: Web linked service properties.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -17896,6 +18179,7 @@ class WebLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Web'.
         """
         return pulumi.get(self, "type")
 
@@ -17962,6 +18246,7 @@ class WebTableDatasetResponse(dict):
         :param Any index: The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'WebTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -18003,6 +18288,7 @@ class WebTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'WebTable'.
         """
         return pulumi.get(self, "type")
 
@@ -18072,6 +18358,7 @@ class XeroLinkedServiceResponse(dict):
         Xero Service linked service.
         :param Any host: The endpoint of the Xero server. (i.e. api.xero.com)
         :param str type: Type of linked service.
+               Expected value is 'Xero'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] consumer_key: The consumer key associated with the Xero application.
@@ -18120,6 +18407,7 @@ class XeroLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Xero'.
         """
         return pulumi.get(self, "type")
 
@@ -18224,6 +18512,7 @@ class XeroObjectDatasetResponse(dict):
         Xero Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'XeroObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -18253,6 +18542,7 @@ class XeroObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'XeroObject'.
         """
         return pulumi.get(self, "type")
 
@@ -18313,6 +18603,7 @@ class ZohoLinkedServiceResponse(dict):
         Zoho server linked service.
         :param Any endpoint: The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
         :param str type: Type of linked service.
+               Expected value is 'Zoho'.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token for Zoho authentication.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -18357,6 +18648,7 @@ class ZohoLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
+        Expected value is 'Zoho'.
         """
         return pulumi.get(self, "type")
 
@@ -18452,6 +18744,7 @@ class ZohoObjectDatasetResponse(dict):
         Zoho server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
+               Expected value is 'ZohoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -18481,6 +18774,7 @@ class ZohoObjectDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
+        Expected value is 'ZohoObject'.
         """
         return pulumi.get(self, "type")
 

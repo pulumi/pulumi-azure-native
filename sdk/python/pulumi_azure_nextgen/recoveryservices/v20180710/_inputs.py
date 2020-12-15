@@ -73,6 +73,7 @@ class A2AContainerMappingInputArgs:
         :param pulumi.Input[Union[str, 'AgentAutoUpdateStatus']] agent_auto_update_status: A value indicating whether the auto update is enabled.
         :param pulumi.Input[str] automation_account_arm_id: The automation account arm id.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'A2A'.
         """
         if agent_auto_update_status is not None:
             pulumi.set(__self__, "agent_auto_update_status", agent_auto_update_status)
@@ -110,6 +111,7 @@ class A2AContainerMappingInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'A2A'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -141,6 +143,7 @@ class A2AEnableProtectionInputArgs:
         :param pulumi.Input['DiskEncryptionInfoArgs'] disk_encryption_info: The recovery disk encryption information.
         :param pulumi.Input[str] fabric_object_id: The fabric specific object Id of the virtual machine.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'A2A'.
         :param pulumi.Input[str] multi_vm_group_name: The multi vm group name.
         :param pulumi.Input[str] recovery_availability_set_id: The recovery availability set Id.
         :param pulumi.Input[str] recovery_availability_zone: The recovery availability zone.
@@ -214,6 +217,7 @@ class A2AEnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'A2A'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -380,6 +384,7 @@ class A2APolicyCreationInputArgs:
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'A2A'.
         :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         """
         pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
@@ -433,6 +438,7 @@ class A2APolicyCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'A2A'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -810,6 +816,7 @@ class AzureFabricCreationInputArgs:
         """
         Fabric provider specific settings.
         :param pulumi.Input[str] instance_type: Gets the class type.
+               Expected value is 'Azure'.
         :param pulumi.Input[str] location: The Location.
         """
         if instance_type is not None:
@@ -822,6 +829,7 @@ class AzureFabricCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         Gets the class type.
+        Expected value is 'Azure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -850,6 +858,7 @@ class AzureToAzureCreateNetworkMappingInputArgs:
         """
         Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
         :param pulumi.Input[str] instance_type: The instance type.
+               Expected value is 'AzureToAzure'.
         :param pulumi.Input[str] primary_network_id: The primary azure vnet Id.
         """
         if instance_type is not None:
@@ -862,6 +871,7 @@ class AzureToAzureCreateNetworkMappingInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The instance type.
+        Expected value is 'AzureToAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1327,6 +1337,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
         :param pulumi.Input[str] enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param pulumi.Input[str] hv_host_vm_id: The Hyper-V host Vm Id.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'HyperVReplicaAzure'.
         :param pulumi.Input[str] log_storage_account_id: The storage account to be used for logging during replication.
         :param pulumi.Input[str] os_type: The OS type associated with vm.
         :param pulumi.Input[str] target_availability_zone: The target availability zone.
@@ -1417,6 +1428,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'HyperVReplicaAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1594,6 +1606,7 @@ class HyperVReplicaAzurePolicyInputArgs:
         Hyper-V Replica Azure specific input for creating a protection profile.
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'HyperVReplicaAzure'.
         :param pulumi.Input[str] online_replication_start_time: The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
         :param pulumi.Input[int] recovery_point_history_duration: The duration (in hours) to which point the recovery history needs to be maintained.
         :param pulumi.Input[int] replication_interval: The replication interval.
@@ -1629,6 +1642,7 @@ class HyperVReplicaAzurePolicyInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'HyperVReplicaAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1707,6 +1721,7 @@ class HyperVReplicaBluePolicyInputArgs:
         :param pulumi.Input[str] compression: A value indicating whether compression has to be enabled.
         :param pulumi.Input[str] initial_replication_method: A value indicating whether IR is online.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'HyperVReplica2012R2'.
         :param pulumi.Input[str] offline_replication_export_path: A value indicating the offline IR export path.
         :param pulumi.Input[str] offline_replication_import_path: A value indicating the offline IR import path.
         :param pulumi.Input[str] online_replication_start_time: A value indicating the online IR start time.
@@ -1793,6 +1808,7 @@ class HyperVReplicaBluePolicyInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'HyperVReplica2012R2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1906,6 +1922,7 @@ class HyperVReplicaPolicyInputArgs:
         :param pulumi.Input[str] compression: A value indicating whether compression has to be enabled.
         :param pulumi.Input[str] initial_replication_method: A value indicating whether IR is online.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'HyperVReplica2012'.
         :param pulumi.Input[str] offline_replication_export_path: A value indicating the offline IR export path.
         :param pulumi.Input[str] offline_replication_import_path: A value indicating the offline IR import path.
         :param pulumi.Input[str] online_replication_start_time: A value indicating the online IR start time.
@@ -1989,6 +2006,7 @@ class HyperVReplicaPolicyInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'HyperVReplica2012'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2253,6 +2271,7 @@ class InMageAzureV2EnableProtectionInputArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMageAzureV2'.
         :param pulumi.Input[str] log_storage_account_id: The storage account to be used for logging during replication.
         :param pulumi.Input[str] master_target_id: The Master target Id.
         :param pulumi.Input[str] multi_vm_group_id: The multi vm group Id.
@@ -2360,6 +2379,7 @@ class InMageAzureV2EnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMageAzureV2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2551,6 +2571,7 @@ class InMageAzureV2PolicyInputArgs:
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMageAzureV2'.
         :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param pulumi.Input[int] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
@@ -2607,6 +2628,7 @@ class InMageAzureV2PolicyInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMageAzureV2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2728,6 +2750,7 @@ class InMageEnableProtectionInputArgs:
         :param pulumi.Input['InMageDiskExclusionInputArgs'] disk_exclusion_input: The enable disk exclusion input.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMage'.
         :param pulumi.Input[str] run_as_account_id: The CS account Id.
         :param pulumi.Input[str] vm_friendly_name: The Vm Name.
         """
@@ -2850,6 +2873,7 @@ class InMageEnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMage'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2895,6 +2919,7 @@ class InMagePolicyInputArgs:
         :param pulumi.Input[Union[str, 'SetMultiVmSyncStatus']] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMage'.
         :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param pulumi.Input[int] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
@@ -2937,6 +2962,7 @@ class InMagePolicyInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMage'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -3125,6 +3151,7 @@ class InMageRcmEnableProtectionInputArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InMageRcmDiskInputArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] fabric_discovery_machine_id: The ARM Id of discovered machine.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMageRcm'.
         :param pulumi.Input[Union[str, 'LicenseType']] license_type: The license type.
         :param pulumi.Input[str] multi_vm_group_name: The multi VM group name.
         :param pulumi.Input[str] process_server_id: The process server Id.
@@ -3221,6 +3248,7 @@ class InMageRcmEnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMageRcm'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -3421,6 +3449,7 @@ class InMageRcmFabricCreationInputArgs:
         InMageRcm fabric provider specific settings.
         :param pulumi.Input[str] auth_certificate: The certificate to be used for AAD authentication.
         :param pulumi.Input[str] instance_type: Gets the class type.
+               Expected value is 'InMageRcm'.
         :param pulumi.Input[str] physical_site_id: The ARM Id of the physical site.
         :param pulumi.Input['IdentityProviderInputArgs'] source_agent_identity: The identity provider input for source agent authentication.
         :param pulumi.Input[str] vmware_site_id: The ARM Id of the VMware site.
@@ -3453,6 +3482,7 @@ class InMageRcmFabricCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         Gets the class type.
+        Expected value is 'InMageRcm'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -3511,6 +3541,7 @@ class InMageRcmPolicyCreationInputArgs:
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] enable_multi_vm_sync: A value indicating whether multi-VM sync has to be enabled.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMageRcm'.
         :param pulumi.Input[int] recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
         if app_consistent_frequency_in_minutes is not None:
@@ -3565,6 +3596,7 @@ class InMageRcmPolicyCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMageRcm'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -3674,6 +3706,7 @@ class RecoveryPlanA2AInputArgs:
         """
         Recovery plan A2A input.
         :param pulumi.Input[str] instance_type: Gets the Instance type.
+               Expected value is 'A2A'.
         :param pulumi.Input[str] primary_zone: The primary zone.
         :param pulumi.Input[str] recovery_zone: The recovery zone.
         """
@@ -3689,6 +3722,7 @@ class RecoveryPlanA2AInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         Gets the Instance type.
+        Expected value is 'A2A'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -3892,6 +3926,7 @@ class SanEnableProtectionInputArgs:
         """
         San enable protection provider specific input.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'San'.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", 'San')
@@ -3901,6 +3936,7 @@ class SanEnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'San'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -3952,6 +3988,7 @@ class VMwareCbtContainerMappingInputArgs:
         :param pulumi.Input[str] storage_account_sas_secret_name: The secret name of the storage account.
         :param pulumi.Input[str] target_location: The target location.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'VMwareCbt'.
         """
         pulumi.set(__self__, "key_vault_id", key_vault_id)
         pulumi.set(__self__, "key_vault_uri", key_vault_uri)
@@ -4039,6 +4076,7 @@ class VMwareCbtContainerMappingInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'VMwareCbt'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -4152,6 +4190,7 @@ class VMwareCbtEnableMigrationInputArgs:
         :param pulumi.Input[str] data_mover_run_as_account_id: The data mover RunAs account Id.
         :param pulumi.Input[Sequence[pulumi.Input['VMwareCbtDiskInputArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'VMwareCbt'.
         :param pulumi.Input[str] snapshot_run_as_account_id: The snapshot RunAs account Id.
         :param pulumi.Input[str] target_network_id: The target network ARM Id.
         :param pulumi.Input[str] target_resource_group_id: The target resource group ARM Id.
@@ -4212,6 +4251,7 @@ class VMwareCbtEnableMigrationInputArgs:
     def instance_type(self) -> pulumi.Input[str]:
         """
         The class type.
+        Expected value is 'VMwareCbt'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -4352,6 +4392,7 @@ class VMwareCbtPolicyCreationInputArgs:
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'VMwareCbt'.
         :param pulumi.Input[int] recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
         if app_consistent_frequency_in_minutes is not None:
@@ -4392,6 +4433,7 @@ class VMwareCbtPolicyCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'VMwareCbt'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -4423,6 +4465,7 @@ class VMwareV2FabricCreationInputArgs:
         :param pulumi.Input[str] migration_solution_id: The ARM Id of the migration solution.
         :param pulumi.Input[str] vmware_site_id: The ARM Id of the VMware site.
         :param pulumi.Input[str] instance_type: Gets the class type.
+               Expected value is 'VMwareV2'.
         """
         pulumi.set(__self__, "migration_solution_id", migration_solution_id)
         pulumi.set(__self__, "vmware_site_id", vmware_site_id)
@@ -4458,6 +4501,7 @@ class VMwareV2FabricCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         Gets the class type.
+        Expected value is 'VMwareV2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -4473,6 +4517,7 @@ class VmmToAzureCreateNetworkMappingInputArgs:
         """
         Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
         :param pulumi.Input[str] instance_type: The instance type.
+               Expected value is 'VmmToAzure'.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", 'VmmToAzure')
@@ -4482,6 +4527,7 @@ class VmmToAzureCreateNetworkMappingInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The instance type.
+        Expected value is 'VmmToAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -4497,6 +4543,7 @@ class VmmToVmmCreateNetworkMappingInputArgs:
         """
         Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
         :param pulumi.Input[str] instance_type: The instance type.
+               Expected value is 'VmmToVmm'.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", 'VmmToVmm')
@@ -4506,6 +4553,7 @@ class VmmToVmmCreateNetworkMappingInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The instance type.
+        Expected value is 'VmmToVmm'.
         """
         return pulumi.get(self, "instance_type")
 

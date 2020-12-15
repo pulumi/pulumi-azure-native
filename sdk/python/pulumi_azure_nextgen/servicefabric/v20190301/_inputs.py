@@ -1169,6 +1169,7 @@ class NamedPartitionSchemeDescriptionArgs:
         :param pulumi.Input[int] count: The number of partitions.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] names: Array of size specified by the ‘Count’ parameter, for the names of the partitions.
         :param pulumi.Input[str] partition_scheme: Specifies how the service is partitioned.
+               Expected value is 'Named'.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "names", names)
@@ -1203,6 +1204,7 @@ class NamedPartitionSchemeDescriptionArgs:
     def partition_scheme(self) -> pulumi.Input[str]:
         """
         Specifies how the service is partitioned.
+        Expected value is 'Named'.
         """
         return pulumi.get(self, "partition_scheme")
 
@@ -1761,6 +1763,7 @@ class SingletonPartitionSchemeDescriptionArgs:
         """
         Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
         :param pulumi.Input[str] partition_scheme: Specifies how the service is partitioned.
+               Expected value is 'Singleton'.
         """
         pulumi.set(__self__, "partition_scheme", 'Singleton')
 
@@ -1769,6 +1772,7 @@ class SingletonPartitionSchemeDescriptionArgs:
     def partition_scheme(self) -> pulumi.Input[str]:
         """
         Specifies how the service is partitioned.
+        Expected value is 'Singleton'.
         """
         return pulumi.get(self, "partition_scheme")
 
@@ -1792,6 +1796,7 @@ class UniformInt64RangePartitionSchemeDescriptionArgs:
         :param pulumi.Input[str] low_key: String indicating the lower bound of the partition key range that
                should be split between the partition ‘Count’
         :param pulumi.Input[str] partition_scheme: Specifies how the service is partitioned.
+               Expected value is 'UniformInt64Range'.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "high_key", high_key)
@@ -1841,6 +1846,7 @@ class UniformInt64RangePartitionSchemeDescriptionArgs:
     def partition_scheme(self) -> pulumi.Input[str]:
         """
         Specifies how the service is partitioned.
+        Expected value is 'UniformInt64Range'.
         """
         return pulumi.get(self, "partition_scheme")
 

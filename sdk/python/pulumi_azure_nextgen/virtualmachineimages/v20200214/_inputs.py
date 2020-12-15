@@ -38,6 +38,7 @@ class ImageTemplateFileCustomizerArgs:
         """
         Uploads files to VMs (Linux, Windows). Corresponds to Packer file provisioner
         :param pulumi.Input[str] type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'File'.
         :param pulumi.Input[str] destination: The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
         :param pulumi.Input[str] name: Friendly Name to provide context on what this customization step does
         :param pulumi.Input[str] sha256_checksum: SHA256 checksum of the file provided in the sourceUri field above
@@ -58,6 +59,7 @@ class ImageTemplateFileCustomizerArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'File'.
         """
         return pulumi.get(self, "type")
 
@@ -168,6 +170,7 @@ class ImageTemplateManagedImageDistributorArgs:
         :param pulumi.Input[str] location: Azure location for the image, should match if image already exists
         :param pulumi.Input[str] run_output_name: The name to be used for the associated RunOutput.
         :param pulumi.Input[str] type: Type of distribution.
+               Expected value is 'ManagedImage'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         """
         pulumi.set(__self__, "image_id", image_id)
@@ -218,6 +221,7 @@ class ImageTemplateManagedImageDistributorArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of distribution.
+        Expected value is 'ManagedImage'.
         """
         return pulumi.get(self, "type")
 
@@ -247,6 +251,7 @@ class ImageTemplateManagedImageSourceArgs:
         Describes an image source that is a managed image in customer subscription.
         :param pulumi.Input[str] image_id: ARM resource id of the managed image in customer subscription
         :param pulumi.Input[str] type: Specifies the type of source image you want to start with.
+               Expected value is 'ManagedImage'.
         """
         pulumi.set(__self__, "image_id", image_id)
         pulumi.set(__self__, "type", 'ManagedImage')
@@ -268,6 +273,7 @@ class ImageTemplateManagedImageSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Specifies the type of source image you want to start with.
+        Expected value is 'ManagedImage'.
         """
         return pulumi.get(self, "type")
 
@@ -288,6 +294,7 @@ class ImageTemplatePlatformImageSourceArgs:
         """
         Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param pulumi.Input[str] type: Specifies the type of source image you want to start with.
+               Expected value is 'PlatformImage'.
         :param pulumi.Input[str] offer: Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param pulumi.Input['PlatformImagePurchasePlanArgs'] plan_info: Optional configuration of purchase plan for platform image.
         :param pulumi.Input[str] publisher: Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
@@ -311,6 +318,7 @@ class ImageTemplatePlatformImageSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Specifies the type of source image you want to start with.
+        Expected value is 'PlatformImage'.
         """
         return pulumi.get(self, "type")
 
@@ -393,6 +401,7 @@ class ImageTemplatePowerShellCustomizerArgs:
         """
         Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
         :param pulumi.Input[str] type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'PowerShell'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inline: Array of PowerShell commands to execute
         :param pulumi.Input[str] name: Friendly Name to provide context on what this customization step does
         :param pulumi.Input[bool] run_as_system: If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
@@ -422,6 +431,7 @@ class ImageTemplatePowerShellCustomizerArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'PowerShell'.
         """
         return pulumi.get(self, "type")
 
@@ -525,6 +535,7 @@ class ImageTemplateRestartCustomizerArgs:
         """
         Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
         :param pulumi.Input[str] type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'WindowsRestart'.
         :param pulumi.Input[str] name: Friendly Name to provide context on what this customization step does
         :param pulumi.Input[str] restart_check_command: Command to check if restart succeeded [Default: '']
         :param pulumi.Input[str] restart_command: Command to execute the restart [Default: 'shutdown /r /f /t 0 /c "packer restart"']
@@ -545,6 +556,7 @@ class ImageTemplateRestartCustomizerArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'WindowsRestart'.
         """
         return pulumi.get(self, "type")
 
@@ -617,6 +629,7 @@ class ImageTemplateSharedImageDistributorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_regions: A list of regions that the image will be replicated to
         :param pulumi.Input[str] run_output_name: The name to be used for the associated RunOutput.
         :param pulumi.Input[str] type: Type of distribution.
+               Expected value is 'SharedImage'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         :param pulumi.Input[bool] exclude_from_latest: Flag that indicates whether created image version should be excluded from latest. Omit to use the default (false).
         :param pulumi.Input[Union[str, 'SharedImageStorageAccountType']] storage_account_type: Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
@@ -673,6 +686,7 @@ class ImageTemplateSharedImageDistributorArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of distribution.
+        Expected value is 'SharedImage'.
         """
         return pulumi.get(self, "type")
 
@@ -726,6 +740,7 @@ class ImageTemplateSharedImageVersionSourceArgs:
         Describes an image source that is an image version in a shared image gallery.
         :param pulumi.Input[str] image_version_id: ARM resource id of the image version in the shared image gallery
         :param pulumi.Input[str] type: Specifies the type of source image you want to start with.
+               Expected value is 'SharedImageVersion'.
         """
         pulumi.set(__self__, "image_version_id", image_version_id)
         pulumi.set(__self__, "type", 'SharedImageVersion')
@@ -747,6 +762,7 @@ class ImageTemplateSharedImageVersionSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Specifies the type of source image you want to start with.
+        Expected value is 'SharedImageVersion'.
         """
         return pulumi.get(self, "type")
 
@@ -766,6 +782,7 @@ class ImageTemplateShellCustomizerArgs:
         """
         Runs a shell script during the customization phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
         :param pulumi.Input[str] type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'Shell'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inline: Array of shell commands to execute
         :param pulumi.Input[str] name: Friendly Name to provide context on what this customization step does
         :param pulumi.Input[str] script_uri: URI of the shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
@@ -786,6 +803,7 @@ class ImageTemplateShellCustomizerArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'Shell'.
         """
         return pulumi.get(self, "type")
 
@@ -852,6 +870,7 @@ class ImageTemplateVhdDistributorArgs:
         Distribute via VHD in a storage account.
         :param pulumi.Input[str] run_output_name: The name to be used for the associated RunOutput.
         :param pulumi.Input[str] type: Type of distribution.
+               Expected value is 'VHD'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         """
         pulumi.set(__self__, "run_output_name", run_output_name)
@@ -876,6 +895,7 @@ class ImageTemplateVhdDistributorArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of distribution.
+        Expected value is 'VHD'.
         """
         return pulumi.get(self, "type")
 
@@ -963,6 +983,7 @@ class ImageTemplateWindowsUpdateCustomizerArgs:
         """
         Installs Windows Updates. Corresponds to Packer Windows Update Provisioner (https://github.com/rgl/packer-provisioner-windows-update)
         :param pulumi.Input[str] type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'WindowsUpdate'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filters: Array of filters to select updates to apply. Omit or specify empty array to use the default (no filter). Refer to above link for examples and detailed description of this field.
         :param pulumi.Input[str] name: Friendly Name to provide context on what this customization step does
         :param pulumi.Input[str] search_criteria: Criteria to search updates. Omit or specify empty string to use the default (search all). Refer to above link for examples and detailed description of this field.
@@ -983,6 +1004,7 @@ class ImageTemplateWindowsUpdateCustomizerArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'WindowsUpdate'.
         """
         return pulumi.get(self, "type")
 

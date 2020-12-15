@@ -36,6 +36,7 @@ class AKSArgs:
         """
         A Machine Learning compute based on AKS.
         :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'AKS'.
         :param pulumi.Input[str] compute_location: Location for the underlying compute
         :param pulumi.Input[str] description: The description of the Machine Learning compute.
         :param pulumi.Input['AKSPropertiesArgs'] properties: AKS properties
@@ -56,6 +57,7 @@ class AKSArgs:
     def compute_type(self) -> pulumi.Input[str]:
         """
         The type of compute
+        Expected value is 'AKS'.
         """
         return pulumi.get(self, "compute_type")
 
@@ -195,6 +197,7 @@ class BatchAIArgs:
         """
         A Machine Learning compute based on Azure BatchAI.
         :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'BatchAI'.
         :param pulumi.Input[str] compute_location: Location for the underlying compute
         :param pulumi.Input[str] description: The description of the Machine Learning compute.
         :param pulumi.Input['BatchAIPropertiesArgs'] properties: BatchAI properties
@@ -215,6 +218,7 @@ class BatchAIArgs:
     def compute_type(self) -> pulumi.Input[str]:
         """
         The type of compute
+        Expected value is 'BatchAI'.
         """
         return pulumi.get(self, "compute_type")
 
@@ -337,6 +341,7 @@ class DataFactoryArgs:
         """
         A DataFactory compute.
         :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'DataFactory'.
         :param pulumi.Input[str] compute_location: Location for the underlying compute
         :param pulumi.Input[str] description: The description of the Machine Learning compute.
         :param pulumi.Input[str] resource_id: ARM resource id of the compute
@@ -354,6 +359,7 @@ class DataFactoryArgs:
     def compute_type(self) -> pulumi.Input[str]:
         """
         The type of compute
+        Expected value is 'DataFactory'.
         """
         return pulumi.get(self, "compute_type")
 
@@ -409,6 +415,7 @@ class HDInsightArgs:
         """
         A HDInsight compute.
         :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'HDInsight'.
         :param pulumi.Input[str] compute_location: Location for the underlying compute
         :param pulumi.Input[str] description: The description of the Machine Learning compute.
         :param pulumi.Input[str] resource_id: ARM resource id of the compute
@@ -428,6 +435,7 @@ class HDInsightArgs:
     def compute_type(self) -> pulumi.Input[str]:
         """
         The type of compute
+        Expected value is 'HDInsight'.
         """
         return pulumi.get(self, "compute_type")
 
@@ -699,6 +707,7 @@ class VirtualMachineArgs:
         """
         A Machine Learning compute based on Azure Virtual Machines.
         :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'VirtualMachine'.
         :param pulumi.Input[str] compute_location: Location for the underlying compute
         :param pulumi.Input[str] description: The description of the Machine Learning compute.
         :param pulumi.Input[str] resource_id: ARM resource id of the compute
@@ -718,6 +727,7 @@ class VirtualMachineArgs:
     def compute_type(self) -> pulumi.Input[str]:
         """
         The type of compute
+        Expected value is 'VirtualMachine'.
         """
         return pulumi.get(self, "compute_type")
 

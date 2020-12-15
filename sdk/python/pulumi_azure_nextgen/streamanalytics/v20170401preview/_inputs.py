@@ -72,6 +72,7 @@ class AggregateFunctionPropertiesArgs:
         """
         The properties that are associated with an aggregate function.
         :param pulumi.Input[str] type: Indicates the type of function.
+               Expected value is 'Aggregate'.
         :param pulumi.Input[Union['AzureMachineLearningServiceFunctionBindingArgs', 'AzureMachineLearningStudioFunctionBindingArgs', 'CSharpFunctionBindingArgs', 'JavaScriptFunctionBindingArgs']] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
         :param pulumi.Input['FunctionOutputArgs'] output: Describes the output of a function.
         """
@@ -88,6 +89,7 @@ class AggregateFunctionPropertiesArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of function.
+        Expected value is 'Aggregate'.
         """
         return pulumi.get(self, "type")
 
@@ -136,6 +138,7 @@ class AvroSerializationArgs:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
         :param pulumi.Input[str] type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Avro'.
         """
         pulumi.set(__self__, "type", 'Avro')
 
@@ -144,6 +147,7 @@ class AvroSerializationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Avro'.
         """
         return pulumi.get(self, "type")
 
@@ -168,6 +172,7 @@ class AzureDataLakeStoreOutputDataSourceArgs:
         """
         Describes an Azure Data Lake Store output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.DataLake/Accounts'.
         :param pulumi.Input[str] account_name: The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in filePathPrefix, the value of this property is used as the date format instead.
@@ -203,6 +208,7 @@ class AzureDataLakeStoreOutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.DataLake/Accounts'.
         """
         return pulumi.get(self, "type")
 
@@ -331,6 +337,7 @@ class AzureFunctionOutputDataSourceArgs:
         """
         Defines the metadata of AzureFunctionOutputDataSource
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.AzureFunction'.
         :param pulumi.Input[str] api_key: If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
         :param pulumi.Input[str] function_app_name: The name of your Azure Functions app.
         :param pulumi.Input[str] function_name: The name of the function in your Azure Functions app.
@@ -354,6 +361,7 @@ class AzureFunctionOutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.AzureFunction'.
         """
         return pulumi.get(self, "type")
 
@@ -435,6 +443,7 @@ class AzureMachineLearningServiceFunctionBindingArgs:
         """
         The binding to an Azure Machine Learning web service.
         :param pulumi.Input[str] type: Indicates the function binding type.
+               Expected value is 'Microsoft.MachineLearningServices'.
         :param pulumi.Input[str] api_key: The API key used to authenticate with Request-Response endpoint.
         :param pulumi.Input[int] batch_size: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
         :param pulumi.Input[str] endpoint: The Request-Response execute endpoint of the Azure Machine Learning web service.
@@ -461,6 +470,7 @@ class AzureMachineLearningServiceFunctionBindingArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the function binding type.
+        Expected value is 'Microsoft.MachineLearningServices'.
         """
         return pulumi.get(self, "type")
 
@@ -665,6 +675,7 @@ class AzureMachineLearningStudioFunctionBindingArgs:
         """
         The binding to an Azure Machine Learning Studio.
         :param pulumi.Input[str] type: Indicates the function binding type.
+               Expected value is 'Microsoft.MachineLearning/WebService'.
         :param pulumi.Input[str] api_key: The API key used to authenticate with Request-Response endpoint.
         :param pulumi.Input[int] batch_size: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
         :param pulumi.Input[str] endpoint: The Request-Response execute endpoint of the Azure Machine Learning Studio. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
@@ -688,6 +699,7 @@ class AzureMachineLearningStudioFunctionBindingArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the function binding type.
+        Expected value is 'Microsoft.MachineLearning/WebService'.
         """
         return pulumi.get(self, "type")
 
@@ -907,6 +919,7 @@ class AzureSqlDatabaseOutputDataSourceArgs:
         """
         Describes an Azure SQL database output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Sql/Server/Database'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] database: The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[float] max_batch_count: Max Batch count for write to Sql database, the default value is 10,000. Optional on PUT requests.
@@ -939,6 +952,7 @@ class AzureSqlDatabaseOutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Sql/Server/Database'.
         """
         return pulumi.get(self, "type")
 
@@ -1051,6 +1065,7 @@ class AzureSqlReferenceInputDataSourceArgs:
         """
         Describes an Azure SQL database reference input data source.
         :param pulumi.Input[str] type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Sql/Server/Database'.
         """
         pulumi.set(__self__, "type", 'Microsoft.Sql/Server/Database')
         if properties is not None:
@@ -1061,6 +1076,7 @@ class AzureSqlReferenceInputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Sql/Server/Database'.
         """
         return pulumi.get(self, "type")
 
@@ -1241,6 +1257,7 @@ class AzureSynapseOutputDataSourceArgs:
         """
         Describes an Azure Synapse output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Sql/Server/DataWarehouse'.
         :param pulumi.Input[str] database: The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] password: The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] server: The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
@@ -1264,6 +1281,7 @@ class AzureSynapseOutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Sql/Server/DataWarehouse'.
         """
         return pulumi.get(self, "type")
 
@@ -1346,6 +1364,7 @@ class AzureTableOutputDataSourceArgs:
         """
         Describes an Azure Table output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Storage/Table'.
         :param pulumi.Input[str] account_key: The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] account_name: The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[int] batch_size: The number of rows to write to the Azure Table at a time.
@@ -1375,6 +1394,7 @@ class AzureTableOutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Storage/Table'.
         """
         return pulumi.get(self, "type")
 
@@ -1480,6 +1500,7 @@ class BlobOutputDataSourceArgs:
         """
         Describes a blob output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Storage/Blob'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -1506,6 +1527,7 @@ class BlobOutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Storage/Blob'.
         """
         return pulumi.get(self, "type")
 
@@ -1598,6 +1620,7 @@ class BlobReferenceInputDataSourceArgs:
         """
         Describes a blob input data source that contains reference data.
         :param pulumi.Input[str] type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Storage/Blob'.
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
@@ -1621,6 +1644,7 @@ class BlobReferenceInputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Storage/Blob'.
         """
         return pulumi.get(self, "type")
 
@@ -1702,6 +1726,7 @@ class BlobStreamInputDataSourceArgs:
         """
         Describes a blob input data source that contains stream data.
         :param pulumi.Input[str] type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Storage/Blob'.
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
@@ -1728,6 +1753,7 @@ class BlobStreamInputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Storage/Blob'.
         """
         return pulumi.get(self, "type")
 
@@ -1819,6 +1845,7 @@ class CSharpFunctionBindingArgs:
         """
         The binding to a CSharp function.
         :param pulumi.Input[str] type: Indicates the function binding type.
+               Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
         :param pulumi.Input[str] class_: The Csharp code containing a single function definition.
         :param pulumi.Input[str] dll_path: The Csharp code containing a single function definition.
         :param pulumi.Input[str] method: The Csharp code containing a single function definition.
@@ -1839,6 +1866,7 @@ class CSharpFunctionBindingArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the function binding type.
+        Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
         """
         return pulumi.get(self, "type")
 
@@ -1947,6 +1975,7 @@ class CsvSerializationArgs:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
         :param pulumi.Input[str] type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Csv'.
         :param pulumi.Input[Union[str, 'Encoding']] encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] field_delimiter: Specifies the delimiter that will be used to separate comma-separated value (CSV) records. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a list of supported values. Required on PUT (CreateOrReplace) requests.
         """
@@ -1961,6 +1990,7 @@ class CsvSerializationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Csv'.
         """
         return pulumi.get(self, "type")
 
@@ -2002,6 +2032,7 @@ class CustomClrSerializationArgs:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in custom format.
         :param pulumi.Input[str] type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'CustomClr'.
         :param pulumi.Input[str] serialization_class_name: The serialization class name.
         :param pulumi.Input[str] serialization_dll_path: The serialization library path.
         """
@@ -2016,6 +2047,7 @@ class CustomClrSerializationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'CustomClr'.
         """
         return pulumi.get(self, "type")
 
@@ -2061,6 +2093,7 @@ class DocumentDbOutputDataSourceArgs:
         """
         Describes a DocumentDB output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Storage/DocumentDB'.
         :param pulumi.Input[str] account_id: The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] account_key: The account key for the DocumentDB account. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] collection_name_pattern: The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
@@ -2087,6 +2120,7 @@ class DocumentDbOutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Storage/DocumentDB'.
         """
         return pulumi.get(self, "type")
 
@@ -2181,6 +2215,7 @@ class EventHubOutputDataSourceArgs:
         """
         Describes an Event Hub output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.ServiceBus/EventHub'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: The key/column that is used to determine to which partition to send event data.
@@ -2209,6 +2244,7 @@ class EventHubOutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.ServiceBus/EventHub'.
         """
         return pulumi.get(self, "type")
 
@@ -2311,6 +2347,7 @@ class EventHubStreamInputDataSourceArgs:
         """
         Describes an Event Hub input data source that contains stream data.
         :param pulumi.Input[str] type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.ServiceBus/EventHub'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
@@ -2337,6 +2374,7 @@ class EventHubStreamInputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.ServiceBus/EventHub'.
         """
         return pulumi.get(self, "type")
 
@@ -2431,6 +2469,7 @@ class EventHubV2OutputDataSourceArgs:
         """
         Describes an Event Hub output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.EventHub/EventHub'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: The key/column that is used to determine to which partition to send event data.
@@ -2459,6 +2498,7 @@ class EventHubV2OutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.EventHub/EventHub'.
         """
         return pulumi.get(self, "type")
 
@@ -2561,6 +2601,7 @@ class EventHubV2StreamInputDataSourceArgs:
         """
         Describes an Event Hub input data source that contains stream data.
         :param pulumi.Input[str] type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.EventHub/EventHub'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
@@ -2587,6 +2628,7 @@ class EventHubV2StreamInputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.EventHub/EventHub'.
         """
         return pulumi.get(self, "type")
 
@@ -2915,6 +2957,7 @@ class IoTHubStreamInputDataSourceArgs:
         """
         Describes an IoT Hub input data source that contains stream data.
         :param pulumi.Input[str] type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Devices/IotHubs'.
         :param pulumi.Input[str] consumer_group_name: The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
         :param pulumi.Input[str] endpoint: The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
         :param pulumi.Input[str] iot_hub_namespace: The name or the URI of the IoT Hub. Required on PUT (CreateOrReplace) requests.
@@ -2938,6 +2981,7 @@ class IoTHubStreamInputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Devices/IotHubs'.
         """
         return pulumi.get(self, "type")
 
@@ -3014,6 +3058,7 @@ class JavaScriptFunctionBindingArgs:
         """
         The binding to a JavaScript function.
         :param pulumi.Input[str] type: Indicates the function binding type.
+               Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
         :param pulumi.Input[str] script: The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
         """
         pulumi.set(__self__, "type", 'Microsoft.StreamAnalytics/JavascriptUdf')
@@ -3025,6 +3070,7 @@ class JavaScriptFunctionBindingArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the function binding type.
+        Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
         """
         return pulumi.get(self, "type")
 
@@ -3110,6 +3156,7 @@ class JsonSerializationArgs:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
         :param pulumi.Input[str] type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Json'.
         :param pulumi.Input[Union[str, 'Encoding']] encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[Union[str, 'JsonOutputSerializationFormat']] format: This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
         """
@@ -3124,6 +3171,7 @@ class JsonSerializationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Json'.
         """
         return pulumi.get(self, "type")
 
@@ -3243,6 +3291,7 @@ class ParquetSerializationArgs:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.
         :param pulumi.Input[str] type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Parquet'.
         """
         pulumi.set(__self__, "type", 'Parquet')
 
@@ -3251,6 +3300,7 @@ class ParquetSerializationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Parquet'.
         """
         return pulumi.get(self, "type")
 
@@ -3274,6 +3324,7 @@ class PowerBIOutputDataSourceArgs:
         """
         Describes a Power BI output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'PowerBI'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] dataset: The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] group_id: The ID of the Power BI group.
@@ -3306,6 +3357,7 @@ class PowerBIOutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'PowerBI'.
         """
         return pulumi.get(self, "type")
 
@@ -3421,6 +3473,7 @@ class ReferenceInputPropertiesArgs:
         """
         The properties that are associated with an input containing reference data.
         :param pulumi.Input[str] type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Reference'.
         :param pulumi.Input['CompressionArgs'] compression: Describes how input data is compressed
         :param pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs']] datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
@@ -3441,6 +3494,7 @@ class ReferenceInputPropertiesArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Reference'.
         """
         return pulumi.get(self, "type")
 
@@ -3507,6 +3561,7 @@ class ScalarFunctionPropertiesArgs:
         """
         The properties that are associated with a scalar function.
         :param pulumi.Input[str] type: Indicates the type of function.
+               Expected value is 'Scalar'.
         :param pulumi.Input[Union['AzureMachineLearningServiceFunctionBindingArgs', 'AzureMachineLearningStudioFunctionBindingArgs', 'CSharpFunctionBindingArgs', 'JavaScriptFunctionBindingArgs']] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
         :param pulumi.Input['FunctionOutputArgs'] output: Describes the output of a function.
         """
@@ -3523,6 +3578,7 @@ class ScalarFunctionPropertiesArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of function.
+        Expected value is 'Scalar'.
         """
         return pulumi.get(self, "type")
 
@@ -3578,6 +3634,7 @@ class ServiceBusQueueOutputDataSourceArgs:
         """
         Describes a Service Bus Queue output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.ServiceBus/Queue'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue. Required on PUT (CreateOrReplace) requests.
@@ -3606,6 +3663,7 @@ class ServiceBusQueueOutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.ServiceBus/Queue'.
         """
         return pulumi.get(self, "type")
 
@@ -3709,6 +3767,7 @@ class ServiceBusTopicOutputDataSourceArgs:
         """
         Describes a Service Bus Topic output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.ServiceBus/Topic'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -3737,6 +3796,7 @@ class ServiceBusTopicOutputDataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.ServiceBus/Topic'.
         """
         return pulumi.get(self, "type")
 
@@ -3877,6 +3937,7 @@ class StreamInputPropertiesArgs:
         """
         The properties that are associated with an input containing stream data.
         :param pulumi.Input[str] type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Stream'.
         :param pulumi.Input['CompressionArgs'] compression: Describes how input data is compressed
         :param pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs']] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
@@ -3897,6 +3958,7 @@ class StreamInputPropertiesArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Stream'.
         """
         return pulumi.get(self, "type")
 

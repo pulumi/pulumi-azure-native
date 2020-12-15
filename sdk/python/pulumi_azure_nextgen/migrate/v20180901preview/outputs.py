@@ -34,6 +34,7 @@ class DatabaseProjectSummaryResponse(dict):
         """
         The database project summary class.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'Databases'.
         :param Mapping[str, str] extended_summary: Gets or sets the extended summary.
         :param str last_summary_refreshed_time: Gets or sets the time when summary was last refreshed.
         :param str refresh_summary_state: Gets or sets the state of refresh summary.
@@ -51,6 +52,7 @@ class DatabaseProjectSummaryResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'Databases'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -95,6 +97,7 @@ class DatabasesSolutionSummaryResponse(dict):
         """
         Class representing the databases solution summary.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'Databases'.
         :param int database_instances_assessed_count: Gets or sets the count of database instances assessed.
         :param int databases_assessed_count: Gets or sets the count of databases assessed.
         :param int migration_ready_count: Gets or sets the count of databases ready for migration.
@@ -112,6 +115,7 @@ class DatabasesSolutionSummaryResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'Databases'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -254,6 +258,7 @@ class ServersProjectSummaryResponse(dict):
         """
         Class representing the servers project summary.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'Servers'.
         :param int assessed_count: Gets or sets the count of entities assessed.
         :param int discovered_count: Gets or sets the count of entities discovered.
         :param Mapping[str, str] extended_summary: Gets or sets the extended summary.
@@ -286,6 +291,7 @@ class ServersProjectSummaryResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'Servers'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -372,6 +378,7 @@ class ServersSolutionSummaryResponse(dict):
         """
         Class representing the servers solution summary.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'Servers'.
         :param int assessed_count: Gets or sets the count of servers assessed.
         :param int discovered_count: Gets or sets the count of servers discovered.
         :param int migrated_count: Gets or sets the count of servers migrated.
@@ -395,6 +402,7 @@ class ServersSolutionSummaryResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'Servers'.
         """
         return pulumi.get(self, "instance_type")
 

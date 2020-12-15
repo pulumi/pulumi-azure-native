@@ -264,6 +264,7 @@ class DataBoxDiskJobDetailsArgs:
         DataBox Disk Job Details.
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxDisk'.
         :param pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
         :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
         :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
@@ -306,6 +307,7 @@ class DataBoxDiskJobDetailsArgs:
     def job_details_type(self) -> pulumi.Input[str]:
         """
         Indicates the type of job details.
+        Expected value is 'DataBoxDisk'.
         """
         return pulumi.get(self, "job_details_type")
 
@@ -413,6 +415,7 @@ class DataBoxHeavyJobDetailsArgs:
         Databox Heavy Device Job Details
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxHeavy'.
         :param pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
         :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
@@ -452,6 +455,7 @@ class DataBoxHeavyJobDetailsArgs:
     def job_details_type(self) -> pulumi.Input[str]:
         """
         Indicates the type of job details.
+        Expected value is 'DataBoxHeavy'.
         """
         return pulumi.get(self, "job_details_type")
 
@@ -547,6 +551,7 @@ class DataBoxJobDetailsArgs:
         Databox Job Details
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+               Expected value is 'DataBox'.
         :param pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
         :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
@@ -586,6 +591,7 @@ class DataBoxJobDetailsArgs:
     def job_details_type(self) -> pulumi.Input[str]:
         """
         Indicates the type of job details.
+        Expected value is 'DataBox'.
         """
         return pulumi.get(self, "job_details_type")
 
@@ -815,6 +821,7 @@ class ManagedDiskDetailsArgs:
         """
         Details of the managed disks.
         :param pulumi.Input[str] data_account_type: Account Type of the data to be transferred.
+               Expected value is 'ManagedDisk'.
         :param pulumi.Input[str] resource_group_id: Resource Group Id of the compute disks.
         :param pulumi.Input[str] staging_storage_account_id: Resource Id of the storage account that can be used to copy the vhd for staging.
         :param pulumi.Input[str] share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
@@ -830,6 +837,7 @@ class ManagedDiskDetailsArgs:
     def data_account_type(self) -> pulumi.Input[str]:
         """
         Account Type of the data to be transferred.
+        Expected value is 'ManagedDisk'.
         """
         return pulumi.get(self, "data_account_type")
 
@@ -1205,6 +1213,7 @@ class StorageAccountDetailsArgs:
         """
         Details for the storage account.
         :param pulumi.Input[str] data_account_type: Account Type of the data to be transferred.
+               Expected value is 'StorageAccount'.
         :param pulumi.Input[str] storage_account_id: Storage Account Resource Id.
         :param pulumi.Input[str] share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         """
@@ -1218,6 +1227,7 @@ class StorageAccountDetailsArgs:
     def data_account_type(self) -> pulumi.Input[str]:
         """
         Account Type of the data to be transferred.
+        Expected value is 'StorageAccount'.
         """
         return pulumi.get(self, "data_account_type")
 

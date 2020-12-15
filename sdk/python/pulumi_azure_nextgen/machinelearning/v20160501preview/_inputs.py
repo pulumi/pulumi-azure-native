@@ -1195,6 +1195,7 @@ class WebServicePropertiesForGraphArgs:
         """
         Properties specific to a Graph based web service.
         :param pulumi.Input[str] package_type: Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+               Expected value is 'Graph'.
         :param pulumi.Input[Mapping[str, pulumi.Input['AssetItemArgs']]] assets: Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
         :param pulumi.Input['CommitmentPlanArgs'] commitment_plan: Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
         :param pulumi.Input[str] description: The description of the web service.
@@ -1251,6 +1252,7 @@ class WebServicePropertiesForGraphArgs:
     def package_type(self) -> pulumi.Input[str]:
         """
         Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+        Expected value is 'Graph'.
         """
         return pulumi.get(self, "package_type")
 

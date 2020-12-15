@@ -462,6 +462,7 @@ class ConnectToMongoDbTaskPropertiesResponse(dict):
         :param Sequence['MongoDbClusterInfoResponseArgs'] output: An array containing a single MongoDbClusterInfo object
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Connect.MongoDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MongoDbConnectionInfoResponseArgs' input: Describes a connection to a MongoDB data source
         """
@@ -512,6 +513,7 @@ class ConnectToMongoDbTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Connect.MongoDb'.
         """
         return pulumi.get(self, "task_type")
 
@@ -638,6 +640,7 @@ class ConnectToSourceOracleSyncTaskPropertiesResponse(dict):
         :param Sequence['ConnectToSourceOracleSyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ConnectToSource.Oracle.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceOracleSyncTaskInputResponseArgs' input: Task input
         """
@@ -688,6 +691,7 @@ class ConnectToSourceOracleSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ConnectToSource.Oracle.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -825,6 +829,7 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesResponse(dict):
         :param Sequence['ConnectToSourcePostgreSqlSyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ConnectToSource.PostgreSql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourcePostgreSqlSyncTaskInputResponseArgs' input: Task input
         """
@@ -875,6 +880,7 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ConnectToSource.PostgreSql.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -918,6 +924,7 @@ class ConnectToSourceSqlServerSyncTaskPropertiesResponse(dict):
         :param Sequence[Union['ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputLoginLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ConnectToSource.SqlServer.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceSqlServerTaskInputResponseArgs' input: Task input
         """
@@ -968,6 +975,7 @@ class ConnectToSourceSqlServerSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ConnectToSource.SqlServer.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -1113,6 +1121,7 @@ class ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse(dict):
         :param 'MigrationEligibilityInfoResponseArgs' migration_eligibility: Information about eligibility of agent job for migration.
         :param str name: Agent Job name
         :param str result_type: Type of result - database level or task level
+               Expected value is 'AgentJobLevelOutput'.
         :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
         """
         pulumi.set(__self__, "id", id)
@@ -1186,6 +1195,7 @@ class ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse(dict):
     def result_type(self) -> str:
         """
         Type of result - database level or task level
+        Expected value is 'AgentJobLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -1222,6 +1232,7 @@ class ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse(dict):
         :param str id: Result identifier
         :param str name: Database name
         :param str result_type: Type of result - database level or task level
+               Expected value is 'DatabaseLevelOutput'.
         :param float size_mb: Size of the file in megabytes
         """
         pulumi.set(__self__, "compatibility_level", compatibility_level)
@@ -1277,6 +1288,7 @@ class ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse(dict):
     def result_type(self) -> str:
         """
         Type of result - database level or task level
+        Expected value is 'DatabaseLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -1314,6 +1326,7 @@ class ConnectToSourceSqlServerTaskOutputLoginLevelResponse(dict):
         :param 'MigrationEligibilityInfoResponseArgs' migration_eligibility: Information about eligibility of login for migration.
         :param str name: Login name.
         :param str result_type: Type of result - database level or task level
+               Expected value is 'LoginLevelOutput'.
         """
         pulumi.set(__self__, "default_database", default_database)
         pulumi.set(__self__, "id", id)
@@ -1376,6 +1389,7 @@ class ConnectToSourceSqlServerTaskOutputLoginLevelResponse(dict):
     def result_type(self) -> str:
         """
         Type of result - database level or task level
+        Expected value is 'LoginLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -1406,6 +1420,7 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
         :param str id: Result identifier
         :param Mapping[str, str] logins: Source logins as a map from login name to login id.
         :param str result_type: Type of result - database level or task level
+               Expected value is 'TaskLevelOutput'.
         :param str source_server_brand_version: Source server brand version
         :param str source_server_version: Source server version
         :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
@@ -1465,6 +1480,7 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
     def result_type(self) -> str:
         """
         Type of result - database level or task level
+        Expected value is 'TaskLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -1516,6 +1532,7 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
         :param Sequence[Union['ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputLoginLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ConnectToSource.SqlServer'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceSqlServerTaskInputResponseArgs' input: Task input
         """
@@ -1566,6 +1583,7 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ConnectToSource.SqlServer'.
         """
         return pulumi.get(self, "task_type")
 
@@ -1714,6 +1732,7 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesResponse(dict):
         :param Sequence['ConnectToTargetAzureDbForMySqlTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ConnectToTarget.AzureDbForMySql'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetAzureDbForMySqlTaskInputResponseArgs' input: Task input
         """
@@ -1764,6 +1783,7 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ConnectToTarget.AzureDbForMySql'.
         """
         return pulumi.get(self, "task_type")
 
@@ -1912,6 +1932,7 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Sequence['ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ConnectToTarget.AzureDbForPostgreSql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs' input: Task input
         """
@@ -1962,6 +1983,7 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ConnectToTarget.AzureDbForPostgreSql.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -2124,6 +2146,7 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Sequence['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponseArgs' input: Task input
         """
@@ -2174,6 +2197,7 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -2300,6 +2324,7 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
         :param Sequence['ConnectToTargetSqlDbTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ConnectToTarget.SqlDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetSqlDbTaskInputResponseArgs' input: Task input
         """
@@ -2350,6 +2375,7 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ConnectToTarget.SqlDb'.
         """
         return pulumi.get(self, "task_type")
 
@@ -2476,6 +2502,7 @@ class ConnectToTargetSqlMISyncTaskPropertiesResponse(dict):
         :param Sequence['ConnectToTargetSqlMISyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ConnectToTarget.AzureSqlDbMI.Sync.LRS'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetSqlMISyncTaskInputResponseArgs' input: Task input
         """
@@ -2526,6 +2553,7 @@ class ConnectToTargetSqlMISyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ConnectToTarget.AzureSqlDbMI.Sync.LRS'.
         """
         return pulumi.get(self, "task_type")
 
@@ -2710,6 +2738,7 @@ class ConnectToTargetSqlMITaskPropertiesResponse(dict):
         :param Sequence['ConnectToTargetSqlMITaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ConnectToTarget.AzureSqlDbMI'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetSqlMITaskInputResponseArgs' input: Task input
         """
@@ -2760,6 +2789,7 @@ class ConnectToTargetSqlMITaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ConnectToTarget.AzureSqlDbMI'.
         """
         return pulumi.get(self, "task_type")
 
@@ -2839,6 +2869,7 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse(dict):
         :param Sequence['ConnectToTargetSqlDbTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ConnectToTarget.SqlDb.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs' input: Task input
         """
@@ -2889,6 +2920,7 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ConnectToTarget.SqlDb.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -3562,6 +3594,7 @@ class GetTdeCertificatesSqlTaskPropertiesResponse(dict):
         :param Sequence['GetTdeCertificatesSqlTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'GetTDECertificates.Sql'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetTdeCertificatesSqlTaskInputResponseArgs' input: Task input
         """
@@ -3612,6 +3645,7 @@ class GetTdeCertificatesSqlTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'GetTDECertificates.Sql'.
         """
         return pulumi.get(self, "task_type")
 
@@ -3738,6 +3772,7 @@ class GetUserTablesOracleTaskPropertiesResponse(dict):
         :param Sequence['GetUserTablesOracleTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'GetUserTablesOracle'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesOracleTaskInputResponseArgs' input: Task input
         """
@@ -3788,6 +3823,7 @@ class GetUserTablesOracleTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'GetUserTablesOracle'.
         """
         return pulumi.get(self, "task_type")
 
@@ -3914,6 +3950,7 @@ class GetUserTablesPostgreSqlTaskPropertiesResponse(dict):
         :param Sequence['GetUserTablesPostgreSqlTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'GetUserTablesPostgreSql'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesPostgreSqlTaskInputResponseArgs' input: Task input
         """
@@ -3964,6 +4001,7 @@ class GetUserTablesPostgreSqlTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'GetUserTablesPostgreSql'.
         """
         return pulumi.get(self, "task_type")
 
@@ -4123,6 +4161,7 @@ class GetUserTablesSqlSyncTaskPropertiesResponse(dict):
         :param Sequence['GetUserTablesSqlSyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'GetUserTables.AzureSqlDb.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesSqlSyncTaskInputResponseArgs' input: Task input
         """
@@ -4173,6 +4212,7 @@ class GetUserTablesSqlSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'GetUserTables.AzureSqlDb.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -4299,6 +4339,7 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
         :param Sequence['GetUserTablesSqlTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'GetUserTables.Sql'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesSqlTaskInputResponseArgs' input: Task input
         """
@@ -4349,6 +4390,7 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'GetUserTables.Sql'.
         """
         return pulumi.get(self, "task_type")
 
@@ -4386,6 +4428,7 @@ class MiSqlConnectionInfoResponse(dict):
         Properties required to create a connection to Azure SQL database Managed instance
         :param str managed_instance_resource_id: Resource id for Azure SQL database Managed instance
         :param str type: Type of connection info
+               Expected value is 'MiSqlConnectionInfo'.
         :param str password: Password credential.
         :param str user_name: User name
         """
@@ -4409,6 +4452,7 @@ class MiSqlConnectionInfoResponse(dict):
     def type(self) -> str:
         """
         Type of connection info
+        Expected value is 'MiSqlConnectionInfo'.
         """
         return pulumi.get(self, "type")
 
@@ -4497,6 +4541,7 @@ class MigrateMISyncCompleteCommandPropertiesResponse(dict):
         """
         Properties for the command that completes online migration for an Azure SQL Database Managed Instance.
         :param str command_type: Command type.
+               Expected value is 'Migrate.SqlServer.AzureDbSqlMi.Complete'.
         :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
         :param 'MigrateMISyncCompleteCommandOutputResponseArgs' output: Command output. This is ignored if submitted.
         :param str state: The state of the command. This is ignored if submitted.
@@ -4514,6 +4559,7 @@ class MigrateMISyncCompleteCommandPropertiesResponse(dict):
     def command_type(self) -> str:
         """
         Command type.
+        Expected value is 'Migrate.SqlServer.AzureDbSqlMi.Complete'.
         """
         return pulumi.get(self, "command_type")
 
@@ -4572,6 +4618,7 @@ class MigrateMongoDbTaskPropertiesResponse(dict):
         :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Migrate.MongoDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MongoDbMigrationSettingsResponseArgs' input: Describes how a MongoDB data migration should be performed
         """
@@ -4619,6 +4666,7 @@ class MigrateMongoDbTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Migrate.MongoDb'.
         """
         return pulumi.get(self, "task_type")
 
@@ -4785,6 +4833,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse(dict):
         """
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'DatabaseLevelErrorOutput'.
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponseArgs'] events: List of error events.
         """
@@ -4808,6 +4857,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'DatabaseLevelErrorOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -4868,6 +4918,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
         :param int latency: CDC apply latency
         :param str migration_state: Migration state that this database is in
         :param str result_type: Result type
+               Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
         pulumi.set(__self__, "applied_changes", applied_changes)
@@ -5013,6 +5064,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'DatabaseLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -5038,6 +5090,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse(dict):
         :param 'ReportableExceptionResponseArgs' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'ErrorOutput'.
         """
         pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "id", id)
@@ -5064,6 +5117,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'ErrorOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -5086,6 +5140,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse(dict):
         :param str ended_on: Migration end time
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'MigrationLevelOutput'.
         :param str source_server: Source server name
         :param str source_server_version: Source server version
         :param str started_on: Migration start time
@@ -5122,6 +5177,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'MigrationLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -5200,6 +5256,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse(dict):
         :param str id: Result identifier
         :param str last_modified_time: Last modified time on target
         :param str result_type: Result type
+               Expected value is 'TableLevelOutput'.
         :param str state: Current state of the table migration
         :param str table_name: Name of the table
         :param int total_changes_applied: Total number of applied changes
@@ -5313,6 +5370,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'TableLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -5364,6 +5422,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse(dict):
         :param Sequence[Union['MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Migrate.MySql.AzureDbForMySql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs' input: Task input
         """
@@ -5414,6 +5473,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Migrate.MySql.AzureDbForMySql.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -5457,6 +5517,7 @@ class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Sequence[Union['MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponseArgs', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponseArgs', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponseArgs', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseArgs']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Migrate.Oracle.AzureDbForPostgreSql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateOracleAzureDbPostgreSqlSyncTaskInputResponseArgs' input: Task input
         """
@@ -5507,6 +5568,7 @@ class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Migrate.Oracle.AzureDbForPostgreSql.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -5697,6 +5759,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse(dict):
         """
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'DatabaseLevelErrorOutput'.
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponseArgs'] events: List of error events.
         """
@@ -5720,6 +5783,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'DatabaseLevelErrorOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -5780,6 +5844,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse(dict):
         :param int latency: CDC apply latency
         :param str migration_state: Migration state that this database is in
         :param str result_type: Result type
+               Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
         pulumi.set(__self__, "applied_changes", applied_changes)
@@ -5925,6 +5990,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'DatabaseLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -5950,6 +6016,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse(dict):
         :param 'ReportableExceptionResponseArgs' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'ErrorOutput'.
         """
         pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "id", id)
@@ -5976,6 +6043,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'ErrorOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -5998,6 +6066,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse(dict):
         :param str ended_on: Migration end time
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'MigrationLevelOutput'.
         :param str source_server: Source server name
         :param str source_server_version: Source server version
         :param str started_on: Migration start time
@@ -6034,6 +6103,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'MigrationLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -6112,6 +6182,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse(dict):
         :param str id: Result identifier
         :param str last_modified_time: Last modified time on target
         :param str result_type: Result type
+               Expected value is 'TableLevelOutput'.
         :param str state: Current state of the table migration
         :param str table_name: Name of the table
         :param int total_changes_applied: Total number of applied changes
@@ -6225,6 +6296,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'TableLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -6425,6 +6497,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse(d
         """
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'DatabaseLevelErrorOutput'.
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponseArgs'] events: List of error events.
         """
@@ -6448,6 +6521,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse(d
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'DatabaseLevelErrorOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -6508,6 +6582,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
         :param int latency: CDC apply latency
         :param str migration_state: Migration state that this database is in
         :param str result_type: Result type
+               Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
         pulumi.set(__self__, "applied_changes", applied_changes)
@@ -6653,6 +6728,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'DatabaseLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -6678,6 +6754,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse(dict):
         :param 'ReportableExceptionResponseArgs' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'ErrorOutput'.
         """
         pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "id", id)
@@ -6704,6 +6781,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'ErrorOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -6729,6 +6807,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(
         :param str ended_on: Migration end time
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'MigrationLevelOutput'.
         :param str source_server: Source server name
         :param str source_server_type: Source server type.
         :param str source_server_version: Source server version
@@ -6771,6 +6850,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'MigrationLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -6873,6 +6953,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse(dict
         :param str id: Result identifier
         :param str last_modified_time: Last modified time on target
         :param str result_type: Result type
+               Expected value is 'TableLevelOutput'.
         :param str state: Current state of the table migration
         :param str table_name: Name of the table
         :param int total_changes_applied: Total number of applied changes
@@ -6986,6 +7067,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse(dict
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'TableLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -7037,6 +7119,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Sequence[Union['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs' input: Task input
         """
@@ -7087,6 +7170,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2'.
         """
         return pulumi.get(self, "task_type")
 
@@ -7351,6 +7435,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse(dict):
         """
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'DatabaseLevelErrorOutput'.
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponseArgs'] events: List of error events.
         """
@@ -7374,6 +7459,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'DatabaseLevelErrorOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -7434,6 +7520,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
         :param int latency: CDC apply latency
         :param str migration_state: Migration state that this database is in
         :param str result_type: Result type
+               Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
         pulumi.set(__self__, "applied_changes", applied_changes)
@@ -7579,6 +7666,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'DatabaseLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -7604,6 +7692,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputErrorResponse(dict):
         :param 'ReportableExceptionResponseArgs' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'ErrorOutput'.
         """
         pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "id", id)
@@ -7630,6 +7719,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputErrorResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'ErrorOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -7654,6 +7744,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse(dict):
         :param str ended_on: Migration end time
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'MigrationLevelOutput'.
         :param str source_server: Source server name
         :param str source_server_version: Source server version
         :param str started_on: Migration start time
@@ -7699,6 +7790,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'MigrationLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -7777,6 +7869,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(dict):
         :param str id: Result identifier
         :param str last_modified_time: Last modified time on target
         :param str result_type: Result type
+               Expected value is 'TableLevelOutput'.
         :param str state: Current state of the table migration
         :param str table_name: Name of the table
         :param int total_changes_applied: Total number of applied changes
@@ -7890,6 +7983,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'TableLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -7941,6 +8035,7 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesResponse(dict):
         :param Sequence[Union['MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseArgs', 'MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseArgs', 'MigrateSqlServerSqlDbSyncTaskOutputErrorResponseArgs', 'MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseArgs', 'MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Migrate.SqlServer.AzureSqlDb.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSqlServerSqlDbSyncTaskInputResponseArgs' input: Task input
         """
@@ -7991,6 +8086,7 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Migrate.SqlServer.AzureSqlDb.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -8109,6 +8205,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
         :param Mapping[str, 'DataItemMigrationSummaryResultResponseArgs'] object_summary: Summary of object results in the migration
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param str result_type: Result type
+               Expected value is 'DatabaseLevelOutput'.
         :param str stage: Migration stage that this database is in
         :param str started_on: Migration start time
         :param str state: Current state of migration
@@ -8224,6 +8321,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'DatabaseLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -8271,6 +8369,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse(dict)
         """
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'MigrationDatabaseLevelValidationOutput'.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "result_type", 'MigrationDatabaseLevelValidationOutput')
@@ -8288,6 +8387,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse(dict)
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'MigrationDatabaseLevelValidationOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -8305,6 +8405,7 @@ class MigrateSqlServerSqlDbTaskOutputErrorResponse(dict):
         :param 'ReportableExceptionResponseArgs' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'ErrorOutput'.
         """
         pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "id", id)
@@ -8331,6 +8432,7 @@ class MigrateSqlServerSqlDbTaskOutputErrorResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'ErrorOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -8367,6 +8469,7 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
         :param str id: Result identifier
         :param str message: Migration progress message
         :param str result_type: Result type
+               Expected value is 'MigrationLevelOutput'.
         :param str source_server_brand_version: Source server brand version
         :param str source_server_version: Source server version
         :param str started_on: Migration start time
@@ -8458,6 +8561,7 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'MigrationLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -8560,6 +8664,7 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
         :param str object_name: Name of the item
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param str result_type: Result type
+               Expected value is 'TableLevelOutput'.
         :param str started_on: Migration start time
         :param str state: Current state of migration
         :param str status_message: Status message
@@ -8637,6 +8742,7 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'TableLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -8676,6 +8782,7 @@ class MigrateSqlServerSqlDbTaskOutputValidationResultResponse(dict):
         """
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'MigrationValidationOutput'.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "result_type", 'MigrationValidationOutput')
@@ -8693,6 +8800,7 @@ class MigrateSqlServerSqlDbTaskOutputValidationResultResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'MigrationValidationOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -8720,6 +8828,7 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
         :param Sequence[Union['MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs', 'MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseArgs', 'MigrateSqlServerSqlDbTaskOutputErrorResponseArgs', 'MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs', 'MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs', 'MigrateSqlServerSqlDbTaskOutputValidationResultResponseArgs']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Migrate.SqlServer.SqlDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSqlServerSqlDbTaskInputResponseArgs' input: Task input
         """
@@ -8770,6 +8879,7 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Migrate.SqlServer.SqlDb'.
         """
         return pulumi.get(self, "task_type")
 
@@ -8962,6 +9072,7 @@ class MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse(dict):
         :param 'BackupSetInfoResponseArgs' last_restored_backup_set_info: Last applied backup set information
         :param str migration_state: Current state of database
         :param str result_type: Result type
+               Expected value is 'DatabaseLevelOutput'.
         :param str source_database_name: Name of the database
         :param str started_on: Database migration start time
         """
@@ -9064,6 +9175,7 @@ class MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'DatabaseLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -9097,6 +9209,7 @@ class MigrateSqlServerSqlMISyncTaskOutputErrorResponse(dict):
         :param 'ReportableExceptionResponseArgs' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'ErrorOutput'.
         """
         pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "id", id)
@@ -9123,6 +9236,7 @@ class MigrateSqlServerSqlMISyncTaskOutputErrorResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'ErrorOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -9152,6 +9266,7 @@ class MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse(dict):
         :param str ended_on: Migration end time
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'MigrationLevelOutput'.
         :param str source_server_brand_version: Source server brand version
         :param str source_server_name: Source server name
         :param str source_server_version: Source server version
@@ -9212,6 +9327,7 @@ class MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'MigrationLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -9303,6 +9419,7 @@ class MigrateSqlServerSqlMISyncTaskPropertiesResponse(dict):
         :param Sequence[Union['MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseArgs', 'MigrateSqlServerSqlMISyncTaskOutputErrorResponseArgs', 'MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseArgs']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSqlServerSqlMISyncTaskInputResponseArgs' input: Task input
         """
@@ -9353,6 +9470,7 @@ class MigrateSqlServerSqlMISyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS'.
         """
         return pulumi.get(self, "task_type")
 
@@ -9514,6 +9632,7 @@ class MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse(dict):
         :param str message: Migration progress message
         :param str name: Agent Job name.
         :param str result_type: Result type
+               Expected value is 'AgentJobLevelOutput'.
         :param str started_on: Migration start time
         :param str state: Current state of migration
         """
@@ -9580,6 +9699,7 @@ class MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'AgentJobLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -9623,6 +9743,7 @@ class MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse(dict):
         :param str id: Result identifier
         :param str message: Migration progress message
         :param str result_type: Result type
+               Expected value is 'DatabaseLevelOutput'.
         :param float size_mb: Size of the database in megabytes
         :param str stage: Current stage of migration
         :param str started_on: Migration start time
@@ -9684,6 +9805,7 @@ class MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'DatabaseLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -9733,6 +9855,7 @@ class MigrateSqlServerSqlMITaskOutputErrorResponse(dict):
         :param 'ReportableExceptionResponseArgs' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
+               Expected value is 'ErrorOutput'.
         """
         pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "id", id)
@@ -9759,6 +9882,7 @@ class MigrateSqlServerSqlMITaskOutputErrorResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'ErrorOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -9785,6 +9909,7 @@ class MigrateSqlServerSqlMITaskOutputLoginLevelResponse(dict):
         :param str login_name: Login name.
         :param str message: Login migration progress message
         :param str result_type: Result type
+               Expected value is 'LoginLevelOutput'.
         :param str stage: Current stage of login
         :param str started_on: Login migration start time
         :param str state: Current state of login
@@ -9844,6 +9969,7 @@ class MigrateSqlServerSqlMITaskOutputLoginLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'LoginLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -9905,6 +10031,7 @@ class MigrateSqlServerSqlMITaskOutputMigrationLevelResponse(dict):
         :param str message: Migration progress message
         :param Sequence['OrphanedUserInfoResponseArgs'] orphaned_users_info: List of orphaned users.
         :param str result_type: Result type
+               Expected value is 'MigrationLevelOutput'.
         :param Mapping[str, 'StartMigrationScenarioServerRoleResultResponseArgs'] server_role_results: Map of server role migration results.
         :param str source_server_brand_version: Source server brand version
         :param str source_server_version: Source server version
@@ -10001,6 +10128,7 @@ class MigrateSqlServerSqlMITaskOutputMigrationLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'MigrationLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -10092,6 +10220,7 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
         :param Sequence[Union['MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseArgs', 'MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseArgs', 'MigrateSqlServerSqlMITaskOutputErrorResponseArgs', 'MigrateSqlServerSqlMITaskOutputLoginLevelResponseArgs', 'MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSqlServerSqlMITaskInputResponseArgs' input: Task input
         """
@@ -10142,6 +10271,7 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
         """
         return pulumi.get(self, "task_type")
 
@@ -10233,6 +10363,7 @@ class MigrateSsisTaskOutputMigrationLevelResponse(dict):
         :param str id: Result identifier
         :param str message: Migration progress message
         :param str result_type: Result type
+               Expected value is 'MigrationLevelOutput'.
         :param str source_server_brand_version: Source server brand version
         :param str source_server_version: Source server version
         :param str stage: Stage of SSIS migration.
@@ -10291,6 +10422,7 @@ class MigrateSsisTaskOutputMigrationLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'MigrationLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -10375,6 +10507,7 @@ class MigrateSsisTaskOutputProjectLevelResponse(dict):
         :param str message: Migration progress message
         :param str project_name: Name of the project
         :param str result_type: Result type
+               Expected value is 'SsisProjectLevelOutput'.
         :param str stage: Stage of SSIS migration.
         :param str started_on: Migration start time
         :param str state: Current state of migration
@@ -10443,6 +10576,7 @@ class MigrateSsisTaskOutputProjectLevelResponse(dict):
     def result_type(self) -> str:
         """
         Result type
+        Expected value is 'SsisProjectLevelOutput'.
         """
         return pulumi.get(self, "result_type")
 
@@ -10494,6 +10628,7 @@ class MigrateSsisTaskPropertiesResponse(dict):
         :param Sequence[Union['MigrateSsisTaskOutputMigrationLevelResponseArgs', 'MigrateSsisTaskOutputProjectLevelResponseArgs']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Migrate.Ssis'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSsisTaskInputResponseArgs' input: Task input
         """
@@ -10544,6 +10679,7 @@ class MigrateSsisTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Migrate.Ssis'.
         """
         return pulumi.get(self, "task_type")
 
@@ -10654,6 +10790,7 @@ class MigrateSyncCompleteCommandPropertiesResponse(dict):
         """
         Properties for the command that completes sync migration for a database.
         :param str command_type: Command type.
+               Expected value is 'Migrate.Sync.Complete.Database'.
         :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
         :param 'MigrateSyncCompleteCommandOutputResponseArgs' output: Command output. This is ignored if submitted.
         :param str state: The state of the command. This is ignored if submitted.
@@ -10671,6 +10808,7 @@ class MigrateSyncCompleteCommandPropertiesResponse(dict):
     def command_type(self) -> str:
         """
         Command type.
+        Expected value is 'Migrate.Sync.Complete.Database'.
         """
         return pulumi.get(self, "command_type")
 
@@ -11219,6 +11357,7 @@ class MongoDbCollectionProgressResponse(dict):
         :param int events_pending: The number of oplog events awaiting replay
         :param int events_replayed: The number of oplog events replayed so far
         :param str result_type: The type of progress object
+               Expected value is 'Collection'.
         :param int total_bytes: The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
         :param int total_documents: The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
         :param str last_event_time: The timestamp of the last oplog event received, or null if no oplog event has been received yet
@@ -11298,6 +11437,7 @@ class MongoDbCollectionProgressResponse(dict):
     def result_type(self) -> str:
         """
         The type of progress object
+        Expected value is 'Collection'.
         """
         return pulumi.get(self, "result_type")
 
@@ -11422,6 +11562,7 @@ class MongoDbConnectionInfoResponse(dict):
         Describes a connection to a MongoDB data source
         :param str connection_string: A MongoDB connection string or blob container URL. The user name and password can be specified here or in the userName and password properties
         :param str type: Type of connection info
+               Expected value is 'MongoDbConnectionInfo'.
         :param str password: Password credential.
         :param str user_name: User name
         """
@@ -11445,6 +11586,7 @@ class MongoDbConnectionInfoResponse(dict):
     def type(self) -> str:
         """
         Type of connection info
+        Expected value is 'MongoDbConnectionInfo'.
         """
         return pulumi.get(self, "type")
 
@@ -11589,6 +11731,7 @@ class MongoDbDatabaseProgressResponse(dict):
         :param int events_pending: The number of oplog events awaiting replay
         :param int events_replayed: The number of oplog events replayed so far
         :param str result_type: The type of progress object
+               Expected value is 'Database'.
         :param int total_bytes: The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
         :param int total_documents: The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
         :param Mapping[str, 'MongoDbCollectionProgressResponseArgs'] collections: The progress of the collections in the database. The keys are the unqualified names of the collections
@@ -11671,6 +11814,7 @@ class MongoDbDatabaseProgressResponse(dict):
     def result_type(self) -> str:
         """
         The type of progress object
+        Expected value is 'Database'.
         """
         return pulumi.get(self, "result_type")
 
@@ -11868,6 +12012,7 @@ class MongoDbMigrationProgressResponse(dict):
         :param int events_pending: The number of oplog events awaiting replay
         :param int events_replayed: The number of oplog events replayed so far
         :param str result_type: The type of progress object
+               Expected value is 'Migration'.
         :param int total_bytes: The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
         :param int total_documents: The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
         :param Mapping[str, 'MongoDbDatabaseProgressResponseArgs'] databases: The progress of the databases in the migration. The keys are the names of the databases
@@ -11950,6 +12095,7 @@ class MongoDbMigrationProgressResponse(dict):
     def result_type(self) -> str:
         """
         The type of progress object
+        Expected value is 'Migration'.
         """
         return pulumi.get(self, "result_type")
 
@@ -12275,6 +12421,7 @@ class MySqlConnectionInfoResponse(dict):
         :param int port: Port for Server
         :param str server_name: Name of the server
         :param str type: Type of connection info
+               Expected value is 'MySqlConnectionInfo'.
         :param str password: Password credential.
         :param str user_name: User name
         """
@@ -12307,6 +12454,7 @@ class MySqlConnectionInfoResponse(dict):
     def type(self) -> str:
         """
         Type of connection info
+        Expected value is 'MySqlConnectionInfo'.
         """
         return pulumi.get(self, "type")
 
@@ -12394,6 +12542,7 @@ class OracleConnectionInfoResponse(dict):
         Information for connecting to Oracle server
         :param str data_source: EZConnect or TNSName connection string.
         :param str type: Type of connection info
+               Expected value is 'OracleConnectionInfo'.
         :param str password: Password credential.
         :param str user_name: User name
         """
@@ -12417,6 +12566,7 @@ class OracleConnectionInfoResponse(dict):
     def type(self) -> str:
         """
         Type of connection info
+        Expected value is 'OracleConnectionInfo'.
         """
         return pulumi.get(self, "type")
 
@@ -12497,6 +12647,7 @@ class PostgreSqlConnectionInfoResponse(dict):
         :param int port: Port for Server
         :param str server_name: Name of the server
         :param str type: Type of connection info
+               Expected value is 'PostgreSqlConnectionInfo'.
         :param str database_name: Name of the database
         :param bool encrypt_connection: Whether to encrypt the connection
         :param str password: Password credential.
@@ -12538,6 +12689,7 @@ class PostgreSqlConnectionInfoResponse(dict):
     def type(self) -> str:
         """
         Type of connection info
+        Expected value is 'PostgreSqlConnectionInfo'.
         """
         return pulumi.get(self, "type")
 
@@ -12872,6 +13024,7 @@ class SqlConnectionInfoResponse(dict):
         Information for connecting to SQL database server
         :param str data_source: Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
         :param str type: Type of connection info
+               Expected value is 'SqlConnectionInfo'.
         :param str additional_settings: Additional connection settings
         :param str authentication: Authentication type to use for connection
         :param bool encrypt_connection: Whether to encrypt the connection
@@ -12910,6 +13063,7 @@ class SqlConnectionInfoResponse(dict):
     def type(self) -> str:
         """
         Type of connection info
+        Expected value is 'SqlConnectionInfo'.
         """
         return pulumi.get(self, "type")
 
@@ -13137,6 +13291,7 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse(dict):
         :param Sequence['ValidateSyncMigrationInputSqlServerTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ValidateMigrationInput.SqlServer.SqlDb.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ValidateSyncMigrationInputSqlServerTaskInputResponseArgs' input: Task input
         """
@@ -13187,6 +13342,7 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ValidateMigrationInput.SqlServer.SqlDb.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -13358,6 +13514,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse(dict):
         :param Sequence['ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs' input: Task input
         """
@@ -13408,6 +13565,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS'.
         """
         return pulumi.get(self, "task_type")
 
@@ -13648,6 +13806,7 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse(dict):
         :param Sequence['ValidateMigrationInputSqlServerSqlMITaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs' input: Task input
         """
@@ -13698,6 +13857,7 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
         """
         return pulumi.get(self, "task_type")
 
@@ -13741,6 +13901,7 @@ class ValidateMongoDbTaskPropertiesResponse(dict):
         :param Sequence['MongoDbMigrationProgressResponseArgs'] output: An array containing a single MongoDbMigrationProgress object
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Validate.MongoDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MongoDbMigrationSettingsResponseArgs' input: Describes how a MongoDB data migration should be performed
         """
@@ -13791,6 +13952,7 @@ class ValidateMongoDbTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Validate.MongoDb'.
         """
         return pulumi.get(self, "task_type")
 
@@ -13834,6 +13996,7 @@ class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Sequence['ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponseArgs'] output: An array containing a single validation error response object
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
+               Expected value is 'Validate.Oracle.AzureDbPostgreSql.Sync'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateOracleAzureDbPostgreSqlSyncTaskInputResponseArgs' input: Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
         """
@@ -13884,6 +14047,7 @@ class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
     def task_type(self) -> str:
         """
         Task type.
+        Expected value is 'Validate.Oracle.AzureDbPostgreSql.Sync'.
         """
         return pulumi.get(self, "task_type")
 

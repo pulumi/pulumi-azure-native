@@ -38,6 +38,7 @@ class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
         :param str account_id: The ID of the cloud account
         :param str authentication_provisioning_state: State of the multi-cloud connector
         :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+               Expected value is 'awsAssumeRole'.
         :param str aws_assume_role_arn: Assumed role ID is an identifier that you can use to create temporary security credentials.
         :param str aws_external_id: A unique identifier that is required when you assume a role in another account.
         :param Sequence[str] granted_permissions: The permissions detected in the cloud account.
@@ -70,6 +71,7 @@ class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
     def authentication_type(self) -> str:
         """
         Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'awsAssumeRole'.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -118,6 +120,7 @@ class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
         :param str account_id: The ID of the cloud account
         :param str authentication_provisioning_state: State of the multi-cloud connector
         :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+               Expected value is 'awsCreds'.
         :param str aws_access_key_id: Public key element of the AWS credential object (write only)
         :param str aws_secret_access_key: Secret key element of the AWS credential object (write only)
         :param Sequence[str] granted_permissions: The permissions detected in the cloud account.
@@ -150,6 +153,7 @@ class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
     def authentication_type(self) -> str:
         """
         Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'awsCreds'.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -207,6 +211,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
         :param str auth_uri: Auth URI field of the API key (write only)
         :param str authentication_provisioning_state: State of the multi-cloud connector
         :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+               Expected value is 'gcpCredentials'.
         :param str client_email: Client email field of the API key (write only)
         :param str client_id: Client ID field of the API key (write only)
         :param str client_x509_cert_url: Client x509 certificate URL field of the API key (write only)
@@ -262,6 +267,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
     def authentication_type(self) -> str:
         """
         Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'gcpCredentials'.
         """
         return pulumi.get(self, "authentication_type")
 

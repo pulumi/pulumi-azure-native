@@ -45,6 +45,7 @@ class ActionGroupResponse(dict):
         :param str last_modified_at: Last updated time of action rule. Date-Time in ISO-8601 format.
         :param str last_modified_by: Last modified by user name.
         :param str type: Indicates type of action rule
+               Expected value is 'ActionGroup'.
         :param 'ConditionsResponseArgs' conditions: conditions on which alerts will be filtered
         :param str description: Description of action rule
         :param 'ScopeResponseArgs' scope: scope on which action rule will apply
@@ -110,6 +111,7 @@ class ActionGroupResponse(dict):
     def type(self) -> str:
         """
         Indicates type of action rule
+        Expected value is 'ActionGroup'.
         """
         return pulumi.get(self, "type")
 
@@ -307,6 +309,7 @@ class DiagnosticsResponse(dict):
         :param str last_modified_at: Last updated time of action rule. Date-Time in ISO-8601 format.
         :param str last_modified_by: Last modified by user name.
         :param str type: Indicates type of action rule
+               Expected value is 'Diagnostics'.
         :param 'ConditionsResponseArgs' conditions: conditions on which alerts will be filtered
         :param str description: Description of action rule
         :param 'ScopeResponseArgs' scope: scope on which action rule will apply
@@ -363,6 +366,7 @@ class DiagnosticsResponse(dict):
     def type(self) -> str:
         """
         Indicates type of action rule
+        Expected value is 'Diagnostics'.
         """
         return pulumi.get(self, "type")
 
@@ -501,6 +505,7 @@ class SuppressionResponse(dict):
         :param str last_modified_by: Last modified by user name.
         :param 'SuppressionConfigResponseArgs' suppression_config: suppression configuration for the action rule
         :param str type: Indicates type of action rule
+               Expected value is 'Suppression'.
         :param 'ConditionsResponseArgs' conditions: conditions on which alerts will be filtered
         :param str description: Description of action rule
         :param 'ScopeResponseArgs' scope: scope on which action rule will apply
@@ -566,6 +571,7 @@ class SuppressionResponse(dict):
     def type(self) -> str:
         """
         Indicates type of action rule
+        Expected value is 'Suppression'.
         """
         return pulumi.get(self, "type")
 

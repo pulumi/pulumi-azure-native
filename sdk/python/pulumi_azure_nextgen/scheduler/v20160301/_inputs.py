@@ -40,6 +40,7 @@ class BasicAuthenticationArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Gets or sets the HTTP authentication type.
+               Expected value is 'Basic'.
         :param pulumi.Input[str] password: Gets or sets the password, return value will always be empty.
         :param pulumi.Input[str] username: Gets or sets the username.
         """
@@ -54,6 +55,7 @@ class BasicAuthenticationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Gets or sets the HTTP authentication type.
+        Expected value is 'Basic'.
         """
         return pulumi.get(self, "type")
 
@@ -97,6 +99,7 @@ class ClientCertAuthenticationArgs:
                  pfx: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Gets or sets the HTTP authentication type.
+               Expected value is 'ClientCertificate'.
         :param pulumi.Input[str] certificate_expiration_date: Gets or sets the certificate expiration date.
         :param pulumi.Input[str] certificate_subject_name: Gets or sets the certificate subject name.
         :param pulumi.Input[str] certificate_thumbprint: Gets or sets the certificate thumbprint.
@@ -120,6 +123,7 @@ class ClientCertAuthenticationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Gets or sets the HTTP authentication type.
+        Expected value is 'ClientCertificate'.
         """
         return pulumi.get(self, "type")
 
@@ -936,6 +940,7 @@ class OAuthAuthenticationArgs:
                  tenant: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Gets or sets the HTTP authentication type.
+               Expected value is 'ActiveDirectoryOAuth'.
         :param pulumi.Input[str] audience: Gets or sets the audience.
         :param pulumi.Input[str] client_id: Gets or sets the client identifier.
         :param pulumi.Input[str] secret: Gets or sets the secret, return value will always be empty.
@@ -956,6 +961,7 @@ class OAuthAuthenticationArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Gets or sets the HTTP authentication type.
+        Expected value is 'ActiveDirectoryOAuth'.
         """
         return pulumi.get(self, "type")
 

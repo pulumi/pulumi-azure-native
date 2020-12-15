@@ -72,6 +72,7 @@ class ConnectToSourceSqlServerTaskPropertiesArgs:
         """
         Properties for the task that validates connection to SQL Server and also validates source server requirements
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ConnectToSource.SqlServer'.
         :param pulumi.Input['ConnectToSourceSqlServerTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ConnectToSource.SqlServer')
@@ -83,6 +84,7 @@ class ConnectToSourceSqlServerTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ConnectToSource.SqlServer'.
         """
         return pulumi.get(self, "task_type")
 
@@ -134,6 +136,7 @@ class ConnectToTargetSqlDbTaskPropertiesArgs:
         """
         Properties for the task that validates connection to SQL DB and target server requirements
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ConnectToTarget.SqlDb'.
         :param pulumi.Input['ConnectToTargetSqlDbTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ConnectToTarget.SqlDb')
@@ -145,6 +148,7 @@ class ConnectToTargetSqlDbTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ConnectToTarget.SqlDb'.
         """
         return pulumi.get(self, "task_type")
 
@@ -234,6 +238,7 @@ class GetUserTablesSqlTaskPropertiesArgs:
         """
         Properties for the task that collects user tables for the given list of databases
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'GetUserTables.Sql'.
         :param pulumi.Input['GetUserTablesSqlTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'GetUserTables.Sql')
@@ -245,6 +250,7 @@ class GetUserTablesSqlTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'GetUserTables.Sql'.
         """
         return pulumi.get(self, "task_type")
 
@@ -418,6 +424,7 @@ class MigrateSqlServerSqlDbTaskPropertiesArgs:
         """
         Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'Migrate.SqlServer.SqlDb'.
         :param pulumi.Input['MigrateSqlServerSqlDbTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'Migrate.SqlServer.SqlDb')
@@ -429,6 +436,7 @@ class MigrateSqlServerSqlDbTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'Migrate.SqlServer.SqlDb'.
         """
         return pulumi.get(self, "task_type")
 
@@ -608,6 +616,7 @@ class SqlConnectionInfoArgs:
         Information for connecting to SQL database server
         :param pulumi.Input[str] data_source: Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
         :param pulumi.Input[str] type: Type of connection info
+               Expected value is 'SqlConnectionInfo'.
         :param pulumi.Input[str] additional_settings: Additional connection settings
         :param pulumi.Input['AuthenticationType'] authentication: Authentication type to use for connection
         :param pulumi.Input[bool] encrypt_connection: Whether to encrypt the connection
@@ -647,6 +656,7 @@ class SqlConnectionInfoArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of connection info
+        Expected value is 'SqlConnectionInfo'.
         """
         return pulumi.get(self, "type")
 

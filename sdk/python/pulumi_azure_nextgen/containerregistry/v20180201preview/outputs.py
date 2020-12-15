@@ -174,6 +174,7 @@ class DockerBuildStepResponse(dict):
         :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str provisioning_state: The provisioning state of the build step.
         :param str type: The type of the step.
+               Expected value is 'Docker'.
         :param str base_image_trigger: The type of the auto trigger for base image dependency updates.
         :param str branch: The repository branch name.
         :param Sequence['BuildArgumentResponseArgs'] build_arguments: The custom arguments for building this build step.
@@ -224,6 +225,7 @@ class DockerBuildStepResponse(dict):
     def type(self) -> str:
         """
         The type of the step.
+        Expected value is 'Docker'.
         """
         return pulumi.get(self, "type")
 

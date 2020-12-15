@@ -46,6 +46,7 @@ class KubernetesConnectionDetailsResponseResult(dict):
         """
         Contains information used to connect to a Kubernetes cluster
         :param str instance_type: Gets the Instance type.
+               Expected value is 'Kubernetes'.
         :param str kube_config: Gets the kubeconfig for the cluster.
         """
         pulumi.set(__self__, "instance_type", 'Kubernetes')
@@ -57,6 +58,7 @@ class KubernetesConnectionDetailsResponseResult(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'Kubernetes'.
         """
         return pulumi.get(self, "instance_type")
 

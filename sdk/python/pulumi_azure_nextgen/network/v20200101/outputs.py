@@ -555,6 +555,8 @@ class ForwardingConfigurationResponse(dict):
                  forwarding_protocol: Optional[str] = None):
         """
         Describes Forwarding Route.
+        :param str odata_type: 
+               Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
         :param 'SubResourceResponseArgs' backend_pool: A reference to the BackendPool which this rule routes to.
         :param 'CacheConfigurationResponseArgs' cache_configuration: The caching configuration associated with this rule.
         :param str custom_forwarding_path: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
@@ -573,6 +575,10 @@ class ForwardingConfigurationResponse(dict):
     @property
     @pulumi.getter(name="odataType")
     def odata_type(self) -> str:
+        """
+
+        Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
+        """
         return pulumi.get(self, "odata_type")
 
     @property
@@ -1147,6 +1153,8 @@ class RedirectConfigurationResponse(dict):
                  redirect_type: Optional[str] = None):
         """
         Describes Redirect Route.
+        :param str odata_type: 
+               Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
         :param str custom_fragment: Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
         :param str custom_host: Host to redirect. Leave empty to use the incoming host as the destination host.
         :param str custom_path: The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
@@ -1171,6 +1179,10 @@ class RedirectConfigurationResponse(dict):
     @property
     @pulumi.getter(name="odataType")
     def odata_type(self) -> str:
+        """
+
+        Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
+        """
         return pulumi.get(self, "odata_type")
 
     @property

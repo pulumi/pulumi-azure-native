@@ -466,6 +466,7 @@ class DockerBuildStepResponse(dict):
         :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str docker_file_path: The Docker file path relative to the source context.
         :param str type: The type of the step.
+               Expected value is 'Docker'.
         :param Sequence['ArgumentResponseArgs'] arguments: The collection of override arguments to be used when executing this build step.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
@@ -513,6 +514,7 @@ class DockerBuildStepResponse(dict):
     def type(self) -> str:
         """
         The type of the step.
+        Expected value is 'Docker'.
         """
         return pulumi.get(self, "type")
 
@@ -594,6 +596,7 @@ class EncodedTaskStepResponse(dict):
         :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str encoded_task_content: Base64 encoded value of the template/definition file content.
         :param str type: The type of the step.
+               Expected value is 'EncodedTask'.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
         :param str encoded_values_content: Base64 encoded value of the parameters/values file content.
@@ -632,6 +635,7 @@ class EncodedTaskStepResponse(dict):
     def type(self) -> str:
         """
         The type of the step.
+        Expected value is 'EncodedTask'.
         """
         return pulumi.get(self, "type")
 
@@ -973,6 +977,7 @@ class FileTaskStepResponse(dict):
         :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str task_file_path: The task template/definition file path relative to the source context.
         :param str type: The type of the step.
+               Expected value is 'FileTask'.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
         :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
@@ -1011,6 +1016,7 @@ class FileTaskStepResponse(dict):
     def type(self) -> str:
         """
         The type of the step.
+        Expected value is 'FileTask'.
         """
         return pulumi.get(self, "type")
 

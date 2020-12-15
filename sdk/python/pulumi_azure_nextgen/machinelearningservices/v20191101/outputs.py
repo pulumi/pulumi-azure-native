@@ -61,6 +61,7 @@ class AKSResponse(dict):
         """
         A Machine Learning compute based on AKS.
         :param str compute_type: The type of compute
+               Expected value is 'AKS'.
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
@@ -91,6 +92,7 @@ class AKSResponse(dict):
     def compute_type(self) -> str:
         """
         The type of compute
+        Expected value is 'AKS'.
         """
         return pulumi.get(self, "compute_type")
 
@@ -413,6 +415,7 @@ class AmlComputeResponse(dict):
         """
         An Azure Machine Learning compute.
         :param str compute_type: The type of compute
+               Expected value is 'AmlCompute'.
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
@@ -443,6 +446,7 @@ class AmlComputeResponse(dict):
     def compute_type(self) -> str:
         """
         The type of compute
+        Expected value is 'AmlCompute'.
         """
         return pulumi.get(self, "compute_type")
 
@@ -692,6 +696,7 @@ class DataFactoryResponse(dict):
         """
         A DataFactory compute.
         :param str compute_type: The type of compute
+               Expected value is 'DataFactory'.
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
@@ -719,6 +724,7 @@ class DataFactoryResponse(dict):
     def compute_type(self) -> str:
         """
         The type of compute
+        Expected value is 'DataFactory'.
         """
         return pulumi.get(self, "compute_type")
 
@@ -809,6 +815,7 @@ class DataLakeAnalyticsResponse(dict):
         """
         A DataLakeAnalytics compute.
         :param str compute_type: The type of compute
+               Expected value is 'DataLakeAnalytics'.
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
@@ -838,6 +845,7 @@ class DataLakeAnalyticsResponse(dict):
     def compute_type(self) -> str:
         """
         The type of compute
+        Expected value is 'DataLakeAnalytics'.
         """
         return pulumi.get(self, "compute_type")
 
@@ -955,6 +963,7 @@ class DatabricksResponse(dict):
         """
         A DataFactory compute.
         :param str compute_type: The type of compute
+               Expected value is 'Databricks'.
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
@@ -984,6 +993,7 @@ class DatabricksResponse(dict):
     def compute_type(self) -> str:
         """
         The type of compute
+        Expected value is 'Databricks'.
         """
         return pulumi.get(self, "compute_type")
 
@@ -1184,6 +1194,7 @@ class HDInsightResponse(dict):
         """
         A HDInsight compute.
         :param str compute_type: The type of compute
+               Expected value is 'HDInsight'.
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
@@ -1213,6 +1224,7 @@ class HDInsightResponse(dict):
     def compute_type(self) -> str:
         """
         The type of compute
+        Expected value is 'HDInsight'.
         """
         return pulumi.get(self, "compute_type")
 
@@ -1823,6 +1835,7 @@ class VirtualMachineResponse(dict):
         """
         A Machine Learning compute based on Azure Virtual Machines.
         :param str compute_type: The type of compute
+               Expected value is 'VirtualMachine'.
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
@@ -1852,6 +1865,7 @@ class VirtualMachineResponse(dict):
     def compute_type(self) -> str:
         """
         The type of compute
+        Expected value is 'VirtualMachine'.
         """
         return pulumi.get(self, "compute_type")
 
