@@ -402,9 +402,14 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
 	}
 
+	resourceDescription := resourceResponse.description
+	if g.apiVersion == "latest" {
+		resourceDescription = fmt.Sprintf("%s\nLatest API Version: %s.", resourceDescription, swagger.Info.Version)
+	}
+
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: resourceResponse.description,
+			Description: resourceDescription,
 			Type:        "object",
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
