@@ -59,11 +59,16 @@ export * from "./getTagByOperation";
 export * from "./getTagByProduct";
 export * from "./getUser";
 export * from "./group";
+export * from "./groupUser";
 export * from "./identityProvider";
 export * from "./logger";
+export * from "./notificationRecipientEmail";
+export * from "./notificationRecipientUser";
 export * from "./openIdConnectProvider";
 export * from "./policy";
 export * from "./product";
+export * from "./productApi";
+export * from "./productGroup";
 export * from "./productPolicy";
 export * from "./property";
 export * from "./subscription";
@@ -97,11 +102,16 @@ import { Certificate } from "./certificate";
 import { Diagnostic } from "./diagnostic";
 import { EmailTemplate } from "./emailTemplate";
 import { Group } from "./group";
+import { GroupUser } from "./groupUser";
 import { IdentityProvider } from "./identityProvider";
 import { Logger } from "./logger";
+import { NotificationRecipientEmail } from "./notificationRecipientEmail";
+import { NotificationRecipientUser } from "./notificationRecipientUser";
 import { OpenIdConnectProvider } from "./openIdConnectProvider";
 import { Policy } from "./policy";
 import { Product } from "./product";
+import { ProductApi } from "./productApi";
+import { ProductGroup } from "./productGroup";
 import { ProductPolicy } from "./productPolicy";
 import { Property } from "./property";
 import { Subscription } from "./subscription";
@@ -155,16 +165,26 @@ const _module = {
                 return new EmailTemplate(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20190101:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20190101:GroupUser":
+                return new GroupUser(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20190101:IdentityProvider":
                 return new IdentityProvider(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20190101:Logger":
                 return new Logger(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20190101:NotificationRecipientEmail":
+                return new NotificationRecipientEmail(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20190101:NotificationRecipientUser":
+                return new NotificationRecipientUser(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20190101:OpenIdConnectProvider":
                 return new OpenIdConnectProvider(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20190101:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20190101:Product":
                 return new Product(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20190101:ProductApi":
+                return new ProductApi(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20190101:ProductGroup":
+                return new ProductGroup(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20190101:ProductPolicy":
                 return new ProductPolicy(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20190101:Property":
