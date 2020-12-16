@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
 {
     /// <summary>
     /// IoT Security solution configuration and resource information.
+    /// Latest API Version: 2019-08-01.
     /// </summary>
     public partial class IotSecuritySolution : Pulumi.CustomResource
     {

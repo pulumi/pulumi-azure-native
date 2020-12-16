@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
 {
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
+    /// Latest API Version: 2017-04-01.
     /// </summary>
     public partial class DisasterRecoveryConfig : Pulumi.CustomResource
     {

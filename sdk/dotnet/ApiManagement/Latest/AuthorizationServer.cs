@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
     /// <summary>
     /// External OAuth authorization server settings.
+    /// Latest API Version: 2019-12-01.
     /// </summary>
     public partial class AuthorizationServer : Pulumi.CustomResource
     {

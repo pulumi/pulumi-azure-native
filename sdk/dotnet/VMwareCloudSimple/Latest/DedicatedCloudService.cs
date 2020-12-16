@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
 {
     /// <summary>
     /// Dedicated cloud service model
+    /// Latest API Version: 2019-04-01.
     /// </summary>
     public partial class DedicatedCloudService : Pulumi.CustomResource
     {

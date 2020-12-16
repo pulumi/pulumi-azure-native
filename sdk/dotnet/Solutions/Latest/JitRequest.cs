@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
 {
     /// <summary>
     /// Information about JIT request definition.
+    /// Latest API Version: 2019-07-01.
     /// </summary>
     public partial class JitRequest : Pulumi.CustomResource
     {

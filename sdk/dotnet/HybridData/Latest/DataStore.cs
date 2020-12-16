@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
 {
     /// <summary>
     /// Data store.
+    /// Latest API Version: 2019-06-01.
     /// </summary>
     public partial class DataStore : Pulumi.CustomResource
     {

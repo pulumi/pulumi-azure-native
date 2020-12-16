@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
 {
     /// <summary>
     /// A Media Services account.
+    /// Latest API Version: 2020-05-01.
     /// </summary>
     public partial class MediaService : Pulumi.CustomResource
     {

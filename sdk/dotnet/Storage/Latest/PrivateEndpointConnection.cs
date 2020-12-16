@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// Latest API Version: 2019-06-01.
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

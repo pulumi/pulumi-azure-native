@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
 {
     /// <summary>
     /// Security assessment on a resource
+    /// Latest API Version: 2020-01-01.
     /// </summary>
     public partial class Assessment : Pulumi.CustomResource
     {

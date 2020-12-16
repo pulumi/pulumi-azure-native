@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Static Site ARM resource.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class StaticSite : Pulumi.CustomResource
     {

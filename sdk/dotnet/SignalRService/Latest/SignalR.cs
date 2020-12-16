@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest
 {
     /// <summary>
     /// A class represent a SignalR service resource.
+    /// Latest API Version: 2020-05-01.
     /// </summary>
     public partial class SignalR : Pulumi.CustomResource
     {

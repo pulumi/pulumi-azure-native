@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+    /// Latest API Version: 2020-05-01.
     /// </summary>
     public partial class RulesEngine : Pulumi.CustomResource
     {

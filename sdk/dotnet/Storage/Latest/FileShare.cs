@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 {
     /// <summary>
     /// Properties of the file share, including Id, resource name, resource type, Etag.
+    /// Latest API Version: 2019-06-01.
     /// </summary>
     public partial class FileShare : Pulumi.CustomResource
     {

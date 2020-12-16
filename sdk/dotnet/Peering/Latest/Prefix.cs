@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
 {
     /// <summary>
     /// The peering service prefix class.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     public partial class Prefix : Pulumi.CustomResource
     {

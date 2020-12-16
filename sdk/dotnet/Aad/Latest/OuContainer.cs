@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
 {
     /// <summary>
     /// Resource for OuContainer.
+    /// Latest API Version: 2020-01-01.
     /// </summary>
     public partial class OuContainer : Pulumi.CustomResource
     {

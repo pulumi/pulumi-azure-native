@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
     /// <summary>
     /// A notebook workspace resource
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class NotebookWorkspace : Pulumi.CustomResource
     {

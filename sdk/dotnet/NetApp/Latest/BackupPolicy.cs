@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 {
     /// <summary>
     /// Backup policy information
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     public partial class BackupPolicy : Pulumi.CustomResource
     {

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 {
     /// <summary>
     /// Workspace connection.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     public partial class WorkspaceConnection : Pulumi.CustomResource
     {

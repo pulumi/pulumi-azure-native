@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Search.Latest
 {
     /// <summary>
     /// Describes an Azure Cognitive Search service and its current state.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

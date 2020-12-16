@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
 {
     /// <summary>
     /// Server communication link.
+    /// Latest API Version: 2014-04-01.
     /// </summary>
     public partial class ServerCommunicationLink : Pulumi.CustomResource
     {

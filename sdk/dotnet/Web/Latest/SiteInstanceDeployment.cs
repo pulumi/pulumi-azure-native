@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Represents user credentials used for publishing activity
+    /// Latest API Version: 2015-08-01.
     /// </summary>
     public partial class SiteInstanceDeployment : Pulumi.CustomResource
     {

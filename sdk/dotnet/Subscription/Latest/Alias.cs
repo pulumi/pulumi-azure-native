@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Subscription.Latest
 {
     /// <summary>
     /// Subscription Information with the alias.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class Alias : Pulumi.CustomResource
     {

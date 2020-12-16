@@ -9,6 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ProviderHub.Latest
 {
+    /// <summary>
+    /// Latest API Version: 2020-11-20.
+    /// </summary>
     public partial class ProviderRegistration : Pulumi.CustomResource
     {
         /// <summary>

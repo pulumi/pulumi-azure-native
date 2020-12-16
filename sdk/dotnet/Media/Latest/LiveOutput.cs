@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
 {
     /// <summary>
     /// The Live Output.
+    /// Latest API Version: 2020-05-01.
     /// </summary>
     public partial class LiveOutput : Pulumi.CustomResource
     {

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
     /// <summary>
     /// Email Template details.
+    /// Latest API Version: 2019-12-01.
     /// </summary>
     public partial class EmailTemplate : Pulumi.CustomResource
     {

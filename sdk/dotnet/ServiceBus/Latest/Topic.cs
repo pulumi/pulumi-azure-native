@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
 {
     /// <summary>
     /// Description of topic resource.
+    /// Latest API Version: 2017-04-01.
     /// </summary>
     public partial class Topic : Pulumi.CustomResource
     {

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Hybrid Connection for an App Service app.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class WebAppRelayServiceConnectionSlot : Pulumi.CustomResource
     {

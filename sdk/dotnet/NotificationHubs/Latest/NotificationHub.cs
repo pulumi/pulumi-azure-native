@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
 {
     /// <summary>
     /// Description of a NotificationHub Resource.
+    /// Latest API Version: 2017-04-01.
     /// </summary>
     public partial class NotificationHub : Pulumi.CustomResource
     {

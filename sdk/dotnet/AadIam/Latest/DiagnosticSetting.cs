@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.AadIam.Latest
 {
     /// <summary>
     /// The diagnostic setting resource.
+    /// Latest API Version: 2017-04-01.
     /// </summary>
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {

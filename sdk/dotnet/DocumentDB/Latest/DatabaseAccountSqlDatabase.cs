@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB SQL database.
+    /// Latest API Version: 2016-03-31.
     /// </summary>
     public partial class DatabaseAccountSqlDatabase : Pulumi.CustomResource
     {

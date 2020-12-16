@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
 {
     /// <summary>
     /// A Database Migration Service resource
+    /// Latest API Version: 2018-04-19.
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

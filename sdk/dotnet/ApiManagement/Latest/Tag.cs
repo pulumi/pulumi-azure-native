@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
     /// <summary>
     /// Tag Contract details.
+    /// Latest API Version: 2019-12-01.
     /// </summary>
     public partial class Tag : Pulumi.CustomResource
     {

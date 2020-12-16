@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
     /// <summary>
     /// Properties of an artifact source.
+    /// Latest API Version: 2018-09-15.
     /// </summary>
     public partial class ArtifactSource : Pulumi.CustomResource
     {

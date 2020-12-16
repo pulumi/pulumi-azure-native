@@ -11,6 +11,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest
 {
     /// <summary>
     /// The cluster resource
+    /// 
+    /// Latest API Version: 2020-03-01.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 {
     /// <summary>
     /// A data set mapping data transfer object.
+    /// Latest API Version: 2019-11-01.
     /// </summary>
     public partial class DataSetMapping : Pulumi.CustomResource
     {

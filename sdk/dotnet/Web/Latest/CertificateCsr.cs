@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Certificate signing request object
+    /// Latest API Version: 2015-08-01.
     /// </summary>
     public partial class CertificateCsr : Pulumi.CustomResource
     {

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the webhook type.
+    /// Latest API Version: 2015-10-31.
     /// </summary>
     public partial class Webhook : Pulumi.CustomResource
     {

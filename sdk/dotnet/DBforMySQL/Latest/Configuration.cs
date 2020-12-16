@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
 {
     /// <summary>
     /// Represents a Configuration.
+    /// Latest API Version: 2017-12-01.
     /// </summary>
     public partial class Configuration : Pulumi.CustomResource
     {

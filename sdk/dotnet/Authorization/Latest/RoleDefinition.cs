@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
 {
     /// <summary>
     /// Role definition.
+    /// Latest API Version: 2015-07-01.
     /// </summary>
     public partial class RoleDefinition : Pulumi.CustomResource
     {

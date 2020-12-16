@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
 {
     /// <summary>
     /// States and configurations of Cost Analysis.
+    /// Latest API Version: 2020-06-01.
     /// </summary>
     public partial class View : Pulumi.CustomResource
     {

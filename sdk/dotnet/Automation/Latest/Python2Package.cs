@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the module type.
+    /// Latest API Version: 2018-06-30.
     /// </summary>
     public partial class Python2Package : Pulumi.CustomResource
     {

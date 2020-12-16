@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Security Partner Provider resource.
+    /// Latest API Version: 2020-07-01.
     /// </summary>
     public partial class SecurityPartnerProvider : Pulumi.CustomResource
     {

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.IoTCentral.Latest
 {
     /// <summary>
     /// The IoT Central application.
+    /// Latest API Version: 2018-09-01.
     /// </summary>
     public partial class App : Pulumi.CustomResource
     {

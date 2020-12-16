@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
     /// <summary>
     /// The iSCSI disk.
+    /// Latest API Version: 2016-10-01.
     /// </summary>
     public partial class IscsiDisk : Pulumi.CustomResource
     {

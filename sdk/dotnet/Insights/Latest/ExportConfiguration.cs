@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 {
     /// <summary>
     /// Properties that define a Continuous Export configuration.
+    /// Latest API Version: 2015-05-01.
     /// </summary>
     public partial class ExportConfiguration : Pulumi.CustomResource
     {

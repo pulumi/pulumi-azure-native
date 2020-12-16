@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
 {
     /// <summary>
     /// An server Active Directory Administrator.
+    /// Latest API Version: 2014-04-01.
     /// </summary>
     public partial class ServerAzureADAdministrator : Pulumi.CustomResource
     {

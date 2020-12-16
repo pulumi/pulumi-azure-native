@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
 {
     /// <summary>
     /// Cluster details.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

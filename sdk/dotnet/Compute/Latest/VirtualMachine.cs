@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Describes a Virtual Machine.
+    /// Latest API Version: 2020-06-01.
     /// </summary>
     public partial class VirtualMachine : Pulumi.CustomResource
     {

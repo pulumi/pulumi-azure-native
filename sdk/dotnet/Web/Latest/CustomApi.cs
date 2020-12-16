@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// A custom API
+    /// Latest API Version: 2016-06-01.
     /// </summary>
     public partial class CustomApi : Pulumi.CustomResource
     {

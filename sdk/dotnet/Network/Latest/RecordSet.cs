@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+    /// Latest API Version: 2020-06-01.
     /// </summary>
     public partial class RecordSet : Pulumi.CustomResource
     {

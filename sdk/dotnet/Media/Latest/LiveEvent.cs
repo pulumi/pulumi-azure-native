@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
 {
     /// <summary>
     /// The live event.
+    /// Latest API Version: 2020-05-01.
     /// </summary>
     public partial class LiveEvent : Pulumi.CustomResource
     {

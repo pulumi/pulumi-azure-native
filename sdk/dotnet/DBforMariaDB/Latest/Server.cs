@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
 {
     /// <summary>
     /// Represents a server.
+    /// Latest API Version: 2018-06-01.
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

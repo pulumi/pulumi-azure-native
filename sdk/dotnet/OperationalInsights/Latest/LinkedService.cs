@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
     /// <summary>
     /// The top level Linked service resource container.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     public partial class LinkedService : Pulumi.CustomResource
     {

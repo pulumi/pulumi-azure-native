@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
 {
     /// <summary>
     /// An export resource.
+    /// Latest API Version: 2020-06-01.
     /// </summary>
     public partial class Export : Pulumi.CustomResource
     {

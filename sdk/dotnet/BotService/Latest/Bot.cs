@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest
 {
     /// <summary>
     /// Bot resource definition
+    /// Latest API Version: 2020-06-02.
     /// </summary>
     public partial class Bot : Pulumi.CustomResource
     {

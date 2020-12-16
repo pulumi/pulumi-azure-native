@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
 {
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
+    /// Latest API Version: 2017-04-01.
     /// </summary>
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {

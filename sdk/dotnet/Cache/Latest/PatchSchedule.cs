@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
 {
     /// <summary>
     /// Response to put/get patch schedules for Redis cache.
+    /// Latest API Version: 2020-06-01.
     /// </summary>
     public partial class PatchSchedule : Pulumi.CustomResource
     {

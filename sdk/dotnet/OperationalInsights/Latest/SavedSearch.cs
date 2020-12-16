@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
     /// <summary>
     /// Value object for saved search results.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     public partial class SavedSearch : Pulumi.CustomResource
     {

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.HealthBot.Latest
 {
     /// <summary>
     /// Bot resource definition
+    /// Latest API Version: 2020-10-20.
     /// </summary>
     public partial class Getbot : Pulumi.CustomResource
     {

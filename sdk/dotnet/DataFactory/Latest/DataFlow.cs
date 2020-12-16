@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
 {
     /// <summary>
     /// Data flow resource type.
+    /// Latest API Version: 2018-06-01.
     /// </summary>
     public partial class DataFlow : Pulumi.CustomResource
     {

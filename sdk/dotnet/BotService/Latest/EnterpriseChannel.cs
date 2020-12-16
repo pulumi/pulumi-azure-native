@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest
 {
     /// <summary>
     /// Enterprise Channel resource definition
+    /// Latest API Version: 2018-07-12.
     /// </summary>
     public partial class EnterpriseChannel : Pulumi.CustomResource
     {

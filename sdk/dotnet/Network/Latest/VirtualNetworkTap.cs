@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Virtual Network Tap resource.
+    /// Latest API Version: 2020-07-01.
     /// </summary>
     public partial class VirtualNetworkTap : Pulumi.CustomResource
     {
