@@ -91,7 +91,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['modified_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/latest:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:TopicAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/latest:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TopicAuthorizationRule, __self__).__init__(
             'azure-nextgen:servicebus/v20140901:TopicAuthorizationRule',

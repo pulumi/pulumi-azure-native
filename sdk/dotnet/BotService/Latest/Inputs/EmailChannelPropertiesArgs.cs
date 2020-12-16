@@ -30,8 +30,8 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Inputs
         /// <summary>
         /// The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         public EmailChannelPropertiesArgs()
         {

@@ -18,14 +18,14 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Inputs
         /// <summary>
         /// The Slack client id
         /// </summary>
-        [Input("clientId", required: true)]
-        public Input<string> ClientId { get; set; } = null!;
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
 
         /// <summary>
         /// The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
+        [Input("clientSecret")]
+        public Input<string>? ClientSecret { get; set; }
 
         /// <summary>
         /// Whether this channel is enabled for the bot
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Inputs
         /// <summary>
         /// The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        [Input("verificationToken", required: true)]
-        public Input<string> VerificationToken { get; set; } = null!;
+        [Input("verificationToken")]
+        public Input<string>? VerificationToken { get; set; }
 
         public SlackChannelPropertiesArgs()
         {

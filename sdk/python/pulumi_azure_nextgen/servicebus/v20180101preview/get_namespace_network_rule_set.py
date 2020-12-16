@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetNamespaceNetworkRuleSetResult:
     """
-    Description of topic resource.
+    Description of NetworkRuleSet resource.
     """
     def __init__(__self__, default_action=None, id=None, ip_rules=None, name=None, type=None, virtual_network_rules=None):
         if default_action and not isinstance(default_action, str):

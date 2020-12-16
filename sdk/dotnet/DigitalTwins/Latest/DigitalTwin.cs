@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
 {
     /// <summary>
     /// The description of the DigitalTwins service.
-    /// Latest API Version: 2020-10-31.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     public partial class DigitalTwin : Pulumi.CustomResource
     {
@@ -26,6 +26,12 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed identity for the DigitalTwinsInstance.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.DigitalTwinsIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Time when DigitalTwinsInstance was updated.
@@ -45,11 +51,20 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
         /// <summary>
         /// The provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Public network access for the DigitalTwinsInstance.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -90,6 +105,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20200301preview:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201031:DigitalTwin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201201:DigitalTwin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,10 +130,30 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
     public sealed class DigitalTwinArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The managed identity for the DigitalTwinsInstance.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.DigitalTwinsIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        [Input("privateEndpointConnections")]
+        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
+            set => _privateEndpointConnections = value;
+        }
+
+        /// <summary>
+        /// Public network access for the DigitalTwinsInstance.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNextGen.DigitalTwins.Latest.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.

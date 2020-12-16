@@ -31,7 +31,7 @@ export interface GetNamespaceNetworkRuleSetArgs {
 }
 
 /**
- * Description of topic resource.
+ * Description of NetworkRuleSet resource.
  */
 export interface GetNamespaceNetworkRuleSetResult {
     /**

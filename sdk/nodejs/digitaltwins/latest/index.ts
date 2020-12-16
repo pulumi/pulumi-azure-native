@@ -9,6 +9,8 @@ export * from "./digitalTwin";
 export * from "./digitalTwinsEndpoint";
 export * from "./getDigitalTwin";
 export * from "./getDigitalTwinsEndpoint";
+export * from "./getPrivateEndpointConnection";
+export * from "./privateEndpointConnection";
 
 // Export enums:
 export * from "../../types/enums/digitaltwins/latest";
@@ -16,6 +18,7 @@ export * from "../../types/enums/digitaltwins/latest";
 // Import resources to register:
 import { DigitalTwin } from "./digitalTwin";
 import { DigitalTwinsEndpoint } from "./digitalTwinsEndpoint";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),
@@ -25,6 +28,8 @@ const _module = {
                 return new DigitalTwin(name, <any>undefined, { urn })
             case "azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint":
                 return new DigitalTwinsEndpoint(name, <any>undefined, { urn })
+            case "azure-nextgen:digitaltwins/latest:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -16,6 +16,7 @@ type SkuName pulumi.String
 const (
 	SkuNameF0 = SkuName("F0")
 	SkuNameS1 = SkuName("S1")
+	SkuNameC0 = SkuName("C0")
 )
 
 func (SkuName) ElementType() reflect.Type {

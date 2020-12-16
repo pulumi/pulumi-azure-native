@@ -18,8 +18,8 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Inputs
         /// <summary>
         /// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        [Input("accessToken", required: true)]
-        public Input<string> AccessToken { get; set; } = null!;
+        [Input("accessToken")]
+        public Input<string>? AccessToken { get; set; }
 
         /// <summary>
         /// Whether this channel is enabled for the bot

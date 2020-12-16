@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Inputs
     public sealed class BotPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The CMK Url
+        /// </summary>
+        [Input("cmekKeyVaultUrl")]
+        public Input<string>? CmekKeyVaultUrl { get; set; }
+
+        /// <summary>
         /// The description of the bot
         /// </summary>
         [Input("description")]
@@ -56,6 +62,12 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Inputs
         /// </summary>
         [Input("iconUrl")]
         public Input<string>? IconUrl { get; set; }
+
+        /// <summary>
+        /// Whether Cmek is enabled
+        /// </summary>
+        [Input("isCmekEnabled")]
+        public Input<bool>? IsCmekEnabled { get; set; }
 
         [Input("luisAppIds")]
         private InputList<string>? _luisAppIds;

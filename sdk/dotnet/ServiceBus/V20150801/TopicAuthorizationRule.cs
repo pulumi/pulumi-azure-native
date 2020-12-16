@@ -66,6 +66,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

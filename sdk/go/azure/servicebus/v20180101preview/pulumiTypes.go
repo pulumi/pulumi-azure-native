@@ -10,6 +10,350 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+type Action struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
+	// SQL expression. e.g. MyProperty='ABC'
+	SqlExpression *string `pulumi:"sqlExpression"`
+}
+
+// ActionInput is an input type that accepts ActionArgs and ActionOutput values.
+// You can construct a concrete instance of `ActionInput` via:
+//
+//          ActionArgs{...}
+type ActionInput interface {
+	pulumi.Input
+
+	ToActionOutput() ActionOutput
+	ToActionOutputWithContext(context.Context) ActionOutput
+}
+
+// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+type ActionArgs struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
+	// SQL expression. e.g. MyProperty='ABC'
+	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
+}
+
+func (ActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Action)(nil)).Elem()
+}
+
+func (i ActionArgs) ToActionOutput() ActionOutput {
+	return i.ToActionOutputWithContext(context.Background())
+}
+
+func (i ActionArgs) ToActionOutputWithContext(ctx context.Context) ActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionOutput)
+}
+
+func (i ActionArgs) ToActionPtrOutput() ActionPtrOutput {
+	return i.ToActionPtrOutputWithContext(context.Background())
+}
+
+func (i ActionArgs) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionOutput).ToActionPtrOutputWithContext(ctx)
+}
+
+// ActionPtrInput is an input type that accepts ActionArgs, ActionPtr and ActionPtrOutput values.
+// You can construct a concrete instance of `ActionPtrInput` via:
+//
+//          ActionArgs{...}
+//
+//  or:
+//
+//          nil
+type ActionPtrInput interface {
+	pulumi.Input
+
+	ToActionPtrOutput() ActionPtrOutput
+	ToActionPtrOutputWithContext(context.Context) ActionPtrOutput
+}
+
+type actionPtrType ActionArgs
+
+func ActionPtr(v *ActionArgs) ActionPtrInput {
+	return (*actionPtrType)(v)
+}
+
+func (*actionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Action)(nil)).Elem()
+}
+
+func (i *actionPtrType) ToActionPtrOutput() ActionPtrOutput {
+	return i.ToActionPtrOutputWithContext(context.Background())
+}
+
+func (i *actionPtrType) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionPtrOutput)
+}
+
+// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+type ActionOutput struct{ *pulumi.OutputState }
+
+func (ActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Action)(nil)).Elem()
+}
+
+func (o ActionOutput) ToActionOutput() ActionOutput {
+	return o
+}
+
+func (o ActionOutput) ToActionOutputWithContext(ctx context.Context) ActionOutput {
+	return o
+}
+
+func (o ActionOutput) ToActionPtrOutput() ActionPtrOutput {
+	return o.ToActionPtrOutputWithContext(context.Background())
+}
+
+func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return o.ApplyT(func(v Action) *Action {
+		return &v
+	}).(ActionPtrOutput)
+}
+
+// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+func (o ActionOutput) CompatibilityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Action) *int { return v.CompatibilityLevel }).(pulumi.IntPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o ActionOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Action) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
+}
+
+// SQL expression. e.g. MyProperty='ABC'
+func (o ActionOutput) SqlExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Action) *string { return v.SqlExpression }).(pulumi.StringPtrOutput)
+}
+
+type ActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Action)(nil)).Elem()
+}
+
+func (o ActionPtrOutput) ToActionPtrOutput() ActionPtrOutput {
+	return o
+}
+
+func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return o
+}
+
+func (o ActionPtrOutput) Elem() ActionOutput {
+	return o.ApplyT(func(v *Action) Action { return *v }).(ActionOutput)
+}
+
+// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+func (o ActionPtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Action) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CompatibilityLevel
+	}).(pulumi.IntPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o ActionPtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Action) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiresPreprocessing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// SQL expression. e.g. MyProperty='ABC'
+func (o ActionPtrOutput) SqlExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Action) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SqlExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+type ActionResponse struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
+	// SQL expression. e.g. MyProperty='ABC'
+	SqlExpression *string `pulumi:"sqlExpression"`
+}
+
+// ActionResponseInput is an input type that accepts ActionResponseArgs and ActionResponseOutput values.
+// You can construct a concrete instance of `ActionResponseInput` via:
+//
+//          ActionResponseArgs{...}
+type ActionResponseInput interface {
+	pulumi.Input
+
+	ToActionResponseOutput() ActionResponseOutput
+	ToActionResponseOutputWithContext(context.Context) ActionResponseOutput
+}
+
+// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+type ActionResponseArgs struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
+	// SQL expression. e.g. MyProperty='ABC'
+	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
+}
+
+func (ActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionResponse)(nil)).Elem()
+}
+
+func (i ActionResponseArgs) ToActionResponseOutput() ActionResponseOutput {
+	return i.ToActionResponseOutputWithContext(context.Background())
+}
+
+func (i ActionResponseArgs) ToActionResponseOutputWithContext(ctx context.Context) ActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseOutput)
+}
+
+func (i ActionResponseArgs) ToActionResponsePtrOutput() ActionResponsePtrOutput {
+	return i.ToActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ActionResponseArgs) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseOutput).ToActionResponsePtrOutputWithContext(ctx)
+}
+
+// ActionResponsePtrInput is an input type that accepts ActionResponseArgs, ActionResponsePtr and ActionResponsePtrOutput values.
+// You can construct a concrete instance of `ActionResponsePtrInput` via:
+//
+//          ActionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ActionResponsePtrInput interface {
+	pulumi.Input
+
+	ToActionResponsePtrOutput() ActionResponsePtrOutput
+	ToActionResponsePtrOutputWithContext(context.Context) ActionResponsePtrOutput
+}
+
+type actionResponsePtrType ActionResponseArgs
+
+func ActionResponsePtr(v *ActionResponseArgs) ActionResponsePtrInput {
+	return (*actionResponsePtrType)(v)
+}
+
+func (*actionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionResponse)(nil)).Elem()
+}
+
+func (i *actionResponsePtrType) ToActionResponsePtrOutput() ActionResponsePtrOutput {
+	return i.ToActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *actionResponsePtrType) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionResponsePtrOutput)
+}
+
+// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+type ActionResponseOutput struct{ *pulumi.OutputState }
+
+func (ActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionResponse)(nil)).Elem()
+}
+
+func (o ActionResponseOutput) ToActionResponseOutput() ActionResponseOutput {
+	return o
+}
+
+func (o ActionResponseOutput) ToActionResponseOutputWithContext(ctx context.Context) ActionResponseOutput {
+	return o
+}
+
+func (o ActionResponseOutput) ToActionResponsePtrOutput() ActionResponsePtrOutput {
+	return o.ToActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ActionResponseOutput) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
+	return o.ApplyT(func(v ActionResponse) *ActionResponse {
+		return &v
+	}).(ActionResponsePtrOutput)
+}
+
+// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+func (o ActionResponseOutput) CompatibilityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ActionResponse) *int { return v.CompatibilityLevel }).(pulumi.IntPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o ActionResponseOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActionResponse) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
+}
+
+// SQL expression. e.g. MyProperty='ABC'
+func (o ActionResponseOutput) SqlExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionResponse) *string { return v.SqlExpression }).(pulumi.StringPtrOutput)
+}
+
+type ActionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionResponse)(nil)).Elem()
+}
+
+func (o ActionResponsePtrOutput) ToActionResponsePtrOutput() ActionResponsePtrOutput {
+	return o
+}
+
+func (o ActionResponsePtrOutput) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
+	return o
+}
+
+func (o ActionResponsePtrOutput) Elem() ActionResponseOutput {
+	return o.ApplyT(func(v *ActionResponse) ActionResponse { return *v }).(ActionResponseOutput)
+}
+
+// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+func (o ActionResponsePtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ActionResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CompatibilityLevel
+	}).(pulumi.IntPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o ActionResponsePtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiresPreprocessing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// SQL expression. e.g. MyProperty='ABC'
+func (o ActionResponsePtrOutput) SqlExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SqlExpression
+	}).(pulumi.StringPtrOutput)
+}
+
 // ConnectionState information.
 type ConnectionState struct {
 	// Description of the connection state.
@@ -313,6 +657,616 @@ func (o ConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represents the correlation filter expression.
+type CorrelationFilter struct {
+	// Content type of the message.
+	ContentType *string `pulumi:"contentType"`
+	// Identifier of the correlation.
+	CorrelationId *string `pulumi:"correlationId"`
+	// Application specific label.
+	Label *string `pulumi:"label"`
+	// Identifier of the message.
+	MessageId *string `pulumi:"messageId"`
+	// dictionary object for custom filters
+	Properties map[string]string `pulumi:"properties"`
+	// Address of the queue to reply to.
+	ReplyTo *string `pulumi:"replyTo"`
+	// Session identifier to reply to.
+	ReplyToSessionId *string `pulumi:"replyToSessionId"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
+	// Session identifier.
+	SessionId *string `pulumi:"sessionId"`
+	// Address to send to.
+	To *string `pulumi:"to"`
+}
+
+// CorrelationFilterInput is an input type that accepts CorrelationFilterArgs and CorrelationFilterOutput values.
+// You can construct a concrete instance of `CorrelationFilterInput` via:
+//
+//          CorrelationFilterArgs{...}
+type CorrelationFilterInput interface {
+	pulumi.Input
+
+	ToCorrelationFilterOutput() CorrelationFilterOutput
+	ToCorrelationFilterOutputWithContext(context.Context) CorrelationFilterOutput
+}
+
+// Represents the correlation filter expression.
+type CorrelationFilterArgs struct {
+	// Content type of the message.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// Identifier of the correlation.
+	CorrelationId pulumi.StringPtrInput `pulumi:"correlationId"`
+	// Application specific label.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Identifier of the message.
+	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
+	// dictionary object for custom filters
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Address of the queue to reply to.
+	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
+	// Session identifier to reply to.
+	ReplyToSessionId pulumi.StringPtrInput `pulumi:"replyToSessionId"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
+	// Session identifier.
+	SessionId pulumi.StringPtrInput `pulumi:"sessionId"`
+	// Address to send to.
+	To pulumi.StringPtrInput `pulumi:"to"`
+}
+
+func (CorrelationFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorrelationFilter)(nil)).Elem()
+}
+
+func (i CorrelationFilterArgs) ToCorrelationFilterOutput() CorrelationFilterOutput {
+	return i.ToCorrelationFilterOutputWithContext(context.Background())
+}
+
+func (i CorrelationFilterArgs) ToCorrelationFilterOutputWithContext(ctx context.Context) CorrelationFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorrelationFilterOutput)
+}
+
+func (i CorrelationFilterArgs) ToCorrelationFilterPtrOutput() CorrelationFilterPtrOutput {
+	return i.ToCorrelationFilterPtrOutputWithContext(context.Background())
+}
+
+func (i CorrelationFilterArgs) ToCorrelationFilterPtrOutputWithContext(ctx context.Context) CorrelationFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorrelationFilterOutput).ToCorrelationFilterPtrOutputWithContext(ctx)
+}
+
+// CorrelationFilterPtrInput is an input type that accepts CorrelationFilterArgs, CorrelationFilterPtr and CorrelationFilterPtrOutput values.
+// You can construct a concrete instance of `CorrelationFilterPtrInput` via:
+//
+//          CorrelationFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type CorrelationFilterPtrInput interface {
+	pulumi.Input
+
+	ToCorrelationFilterPtrOutput() CorrelationFilterPtrOutput
+	ToCorrelationFilterPtrOutputWithContext(context.Context) CorrelationFilterPtrOutput
+}
+
+type correlationFilterPtrType CorrelationFilterArgs
+
+func CorrelationFilterPtr(v *CorrelationFilterArgs) CorrelationFilterPtrInput {
+	return (*correlationFilterPtrType)(v)
+}
+
+func (*correlationFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorrelationFilter)(nil)).Elem()
+}
+
+func (i *correlationFilterPtrType) ToCorrelationFilterPtrOutput() CorrelationFilterPtrOutput {
+	return i.ToCorrelationFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *correlationFilterPtrType) ToCorrelationFilterPtrOutputWithContext(ctx context.Context) CorrelationFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorrelationFilterPtrOutput)
+}
+
+// Represents the correlation filter expression.
+type CorrelationFilterOutput struct{ *pulumi.OutputState }
+
+func (CorrelationFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorrelationFilter)(nil)).Elem()
+}
+
+func (o CorrelationFilterOutput) ToCorrelationFilterOutput() CorrelationFilterOutput {
+	return o
+}
+
+func (o CorrelationFilterOutput) ToCorrelationFilterOutputWithContext(ctx context.Context) CorrelationFilterOutput {
+	return o
+}
+
+func (o CorrelationFilterOutput) ToCorrelationFilterPtrOutput() CorrelationFilterPtrOutput {
+	return o.ToCorrelationFilterPtrOutputWithContext(context.Background())
+}
+
+func (o CorrelationFilterOutput) ToCorrelationFilterPtrOutputWithContext(ctx context.Context) CorrelationFilterPtrOutput {
+	return o.ApplyT(func(v CorrelationFilter) *CorrelationFilter {
+		return &v
+	}).(CorrelationFilterPtrOutput)
+}
+
+// Content type of the message.
+func (o CorrelationFilterOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the correlation.
+func (o CorrelationFilterOutput) CorrelationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+}
+
+// Application specific label.
+func (o CorrelationFilterOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the message.
+func (o CorrelationFilterOutput) MessageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+}
+
+// dictionary object for custom filters
+func (o CorrelationFilterOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CorrelationFilter) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Address of the queue to reply to.
+func (o CorrelationFilterOutput) ReplyTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
+}
+
+// Session identifier to reply to.
+func (o CorrelationFilterOutput) ReplyToSessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o CorrelationFilterOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CorrelationFilter) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
+}
+
+// Session identifier.
+func (o CorrelationFilterOutput) SessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
+}
+
+// Address to send to.
+func (o CorrelationFilterOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
+}
+
+type CorrelationFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (CorrelationFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorrelationFilter)(nil)).Elem()
+}
+
+func (o CorrelationFilterPtrOutput) ToCorrelationFilterPtrOutput() CorrelationFilterPtrOutput {
+	return o
+}
+
+func (o CorrelationFilterPtrOutput) ToCorrelationFilterPtrOutputWithContext(ctx context.Context) CorrelationFilterPtrOutput {
+	return o
+}
+
+func (o CorrelationFilterPtrOutput) Elem() CorrelationFilterOutput {
+	return o.ApplyT(func(v *CorrelationFilter) CorrelationFilter { return *v }).(CorrelationFilterOutput)
+}
+
+// Content type of the message.
+func (o CorrelationFilterPtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the correlation.
+func (o CorrelationFilterPtrOutput) CorrelationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CorrelationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application specific label.
+func (o CorrelationFilterPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the message.
+func (o CorrelationFilterPtrOutput) MessageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageId
+	}).(pulumi.StringPtrOutput)
+}
+
+// dictionary object for custom filters
+func (o CorrelationFilterPtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CorrelationFilter) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+// Address of the queue to reply to.
+func (o CorrelationFilterPtrOutput) ReplyTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyTo
+	}).(pulumi.StringPtrOutput)
+}
+
+// Session identifier to reply to.
+func (o CorrelationFilterPtrOutput) ReplyToSessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyToSessionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o CorrelationFilterPtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiresPreprocessing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Session identifier.
+func (o CorrelationFilterPtrOutput) SessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Address to send to.
+func (o CorrelationFilterPtrOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.To
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represents the correlation filter expression.
+type CorrelationFilterResponse struct {
+	// Content type of the message.
+	ContentType *string `pulumi:"contentType"`
+	// Identifier of the correlation.
+	CorrelationId *string `pulumi:"correlationId"`
+	// Application specific label.
+	Label *string `pulumi:"label"`
+	// Identifier of the message.
+	MessageId *string `pulumi:"messageId"`
+	// dictionary object for custom filters
+	Properties map[string]string `pulumi:"properties"`
+	// Address of the queue to reply to.
+	ReplyTo *string `pulumi:"replyTo"`
+	// Session identifier to reply to.
+	ReplyToSessionId *string `pulumi:"replyToSessionId"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
+	// Session identifier.
+	SessionId *string `pulumi:"sessionId"`
+	// Address to send to.
+	To *string `pulumi:"to"`
+}
+
+// CorrelationFilterResponseInput is an input type that accepts CorrelationFilterResponseArgs and CorrelationFilterResponseOutput values.
+// You can construct a concrete instance of `CorrelationFilterResponseInput` via:
+//
+//          CorrelationFilterResponseArgs{...}
+type CorrelationFilterResponseInput interface {
+	pulumi.Input
+
+	ToCorrelationFilterResponseOutput() CorrelationFilterResponseOutput
+	ToCorrelationFilterResponseOutputWithContext(context.Context) CorrelationFilterResponseOutput
+}
+
+// Represents the correlation filter expression.
+type CorrelationFilterResponseArgs struct {
+	// Content type of the message.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// Identifier of the correlation.
+	CorrelationId pulumi.StringPtrInput `pulumi:"correlationId"`
+	// Application specific label.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Identifier of the message.
+	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
+	// dictionary object for custom filters
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Address of the queue to reply to.
+	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
+	// Session identifier to reply to.
+	ReplyToSessionId pulumi.StringPtrInput `pulumi:"replyToSessionId"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
+	// Session identifier.
+	SessionId pulumi.StringPtrInput `pulumi:"sessionId"`
+	// Address to send to.
+	To pulumi.StringPtrInput `pulumi:"to"`
+}
+
+func (CorrelationFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorrelationFilterResponse)(nil)).Elem()
+}
+
+func (i CorrelationFilterResponseArgs) ToCorrelationFilterResponseOutput() CorrelationFilterResponseOutput {
+	return i.ToCorrelationFilterResponseOutputWithContext(context.Background())
+}
+
+func (i CorrelationFilterResponseArgs) ToCorrelationFilterResponseOutputWithContext(ctx context.Context) CorrelationFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorrelationFilterResponseOutput)
+}
+
+func (i CorrelationFilterResponseArgs) ToCorrelationFilterResponsePtrOutput() CorrelationFilterResponsePtrOutput {
+	return i.ToCorrelationFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CorrelationFilterResponseArgs) ToCorrelationFilterResponsePtrOutputWithContext(ctx context.Context) CorrelationFilterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorrelationFilterResponseOutput).ToCorrelationFilterResponsePtrOutputWithContext(ctx)
+}
+
+// CorrelationFilterResponsePtrInput is an input type that accepts CorrelationFilterResponseArgs, CorrelationFilterResponsePtr and CorrelationFilterResponsePtrOutput values.
+// You can construct a concrete instance of `CorrelationFilterResponsePtrInput` via:
+//
+//          CorrelationFilterResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CorrelationFilterResponsePtrInput interface {
+	pulumi.Input
+
+	ToCorrelationFilterResponsePtrOutput() CorrelationFilterResponsePtrOutput
+	ToCorrelationFilterResponsePtrOutputWithContext(context.Context) CorrelationFilterResponsePtrOutput
+}
+
+type correlationFilterResponsePtrType CorrelationFilterResponseArgs
+
+func CorrelationFilterResponsePtr(v *CorrelationFilterResponseArgs) CorrelationFilterResponsePtrInput {
+	return (*correlationFilterResponsePtrType)(v)
+}
+
+func (*correlationFilterResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorrelationFilterResponse)(nil)).Elem()
+}
+
+func (i *correlationFilterResponsePtrType) ToCorrelationFilterResponsePtrOutput() CorrelationFilterResponsePtrOutput {
+	return i.ToCorrelationFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *correlationFilterResponsePtrType) ToCorrelationFilterResponsePtrOutputWithContext(ctx context.Context) CorrelationFilterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorrelationFilterResponsePtrOutput)
+}
+
+// Represents the correlation filter expression.
+type CorrelationFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (CorrelationFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorrelationFilterResponse)(nil)).Elem()
+}
+
+func (o CorrelationFilterResponseOutput) ToCorrelationFilterResponseOutput() CorrelationFilterResponseOutput {
+	return o
+}
+
+func (o CorrelationFilterResponseOutput) ToCorrelationFilterResponseOutputWithContext(ctx context.Context) CorrelationFilterResponseOutput {
+	return o
+}
+
+func (o CorrelationFilterResponseOutput) ToCorrelationFilterResponsePtrOutput() CorrelationFilterResponsePtrOutput {
+	return o.ToCorrelationFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CorrelationFilterResponseOutput) ToCorrelationFilterResponsePtrOutputWithContext(ctx context.Context) CorrelationFilterResponsePtrOutput {
+	return o.ApplyT(func(v CorrelationFilterResponse) *CorrelationFilterResponse {
+		return &v
+	}).(CorrelationFilterResponsePtrOutput)
+}
+
+// Content type of the message.
+func (o CorrelationFilterResponseOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the correlation.
+func (o CorrelationFilterResponseOutput) CorrelationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+}
+
+// Application specific label.
+func (o CorrelationFilterResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the message.
+func (o CorrelationFilterResponseOutput) MessageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+}
+
+// dictionary object for custom filters
+func (o CorrelationFilterResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CorrelationFilterResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Address of the queue to reply to.
+func (o CorrelationFilterResponseOutput) ReplyTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
+}
+
+// Session identifier to reply to.
+func (o CorrelationFilterResponseOutput) ReplyToSessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o CorrelationFilterResponseOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterResponse) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
+}
+
+// Session identifier.
+func (o CorrelationFilterResponseOutput) SessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.SessionId }).(pulumi.StringPtrOutput)
+}
+
+// Address to send to.
+func (o CorrelationFilterResponseOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterResponse) *string { return v.To }).(pulumi.StringPtrOutput)
+}
+
+type CorrelationFilterResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CorrelationFilterResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorrelationFilterResponse)(nil)).Elem()
+}
+
+func (o CorrelationFilterResponsePtrOutput) ToCorrelationFilterResponsePtrOutput() CorrelationFilterResponsePtrOutput {
+	return o
+}
+
+func (o CorrelationFilterResponsePtrOutput) ToCorrelationFilterResponsePtrOutputWithContext(ctx context.Context) CorrelationFilterResponsePtrOutput {
+	return o
+}
+
+func (o CorrelationFilterResponsePtrOutput) Elem() CorrelationFilterResponseOutput {
+	return o.ApplyT(func(v *CorrelationFilterResponse) CorrelationFilterResponse { return *v }).(CorrelationFilterResponseOutput)
+}
+
+// Content type of the message.
+func (o CorrelationFilterResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the correlation.
+func (o CorrelationFilterResponsePtrOutput) CorrelationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CorrelationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application specific label.
+func (o CorrelationFilterResponsePtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the message.
+func (o CorrelationFilterResponsePtrOutput) MessageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageId
+	}).(pulumi.StringPtrOutput)
+}
+
+// dictionary object for custom filters
+func (o CorrelationFilterResponsePtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CorrelationFilterResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+// Address of the queue to reply to.
+func (o CorrelationFilterResponsePtrOutput) ReplyTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyTo
+	}).(pulumi.StringPtrOutput)
+}
+
+// Session identifier to reply to.
+func (o CorrelationFilterResponsePtrOutput) ReplyToSessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyToSessionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o CorrelationFilterResponsePtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilterResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiresPreprocessing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Session identifier.
+func (o CorrelationFilterResponsePtrOutput) SessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Address to send to.
+func (o CorrelationFilterResponsePtrOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CorrelationFilterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.To
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -622,7 +1576,217 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The response from the List namespace operation.
+// Message Count Details.
+type MessageCountDetailsResponse struct {
+	// Number of active messages in the queue, topic, or subscription.
+	ActiveMessageCount int `pulumi:"activeMessageCount"`
+	// Number of messages that are dead lettered.
+	DeadLetterMessageCount int `pulumi:"deadLetterMessageCount"`
+	// Number of scheduled messages.
+	ScheduledMessageCount int `pulumi:"scheduledMessageCount"`
+	// Number of messages transferred into dead letters.
+	TransferDeadLetterMessageCount int `pulumi:"transferDeadLetterMessageCount"`
+	// Number of messages transferred to another queue, topic, or subscription.
+	TransferMessageCount int `pulumi:"transferMessageCount"`
+}
+
+// MessageCountDetailsResponseInput is an input type that accepts MessageCountDetailsResponseArgs and MessageCountDetailsResponseOutput values.
+// You can construct a concrete instance of `MessageCountDetailsResponseInput` via:
+//
+//          MessageCountDetailsResponseArgs{...}
+type MessageCountDetailsResponseInput interface {
+	pulumi.Input
+
+	ToMessageCountDetailsResponseOutput() MessageCountDetailsResponseOutput
+	ToMessageCountDetailsResponseOutputWithContext(context.Context) MessageCountDetailsResponseOutput
+}
+
+// Message Count Details.
+type MessageCountDetailsResponseArgs struct {
+	// Number of active messages in the queue, topic, or subscription.
+	ActiveMessageCount pulumi.IntInput `pulumi:"activeMessageCount"`
+	// Number of messages that are dead lettered.
+	DeadLetterMessageCount pulumi.IntInput `pulumi:"deadLetterMessageCount"`
+	// Number of scheduled messages.
+	ScheduledMessageCount pulumi.IntInput `pulumi:"scheduledMessageCount"`
+	// Number of messages transferred into dead letters.
+	TransferDeadLetterMessageCount pulumi.IntInput `pulumi:"transferDeadLetterMessageCount"`
+	// Number of messages transferred to another queue, topic, or subscription.
+	TransferMessageCount pulumi.IntInput `pulumi:"transferMessageCount"`
+}
+
+func (MessageCountDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageCountDetailsResponse)(nil)).Elem()
+}
+
+func (i MessageCountDetailsResponseArgs) ToMessageCountDetailsResponseOutput() MessageCountDetailsResponseOutput {
+	return i.ToMessageCountDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i MessageCountDetailsResponseArgs) ToMessageCountDetailsResponseOutputWithContext(ctx context.Context) MessageCountDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageCountDetailsResponseOutput)
+}
+
+func (i MessageCountDetailsResponseArgs) ToMessageCountDetailsResponsePtrOutput() MessageCountDetailsResponsePtrOutput {
+	return i.ToMessageCountDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MessageCountDetailsResponseArgs) ToMessageCountDetailsResponsePtrOutputWithContext(ctx context.Context) MessageCountDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageCountDetailsResponseOutput).ToMessageCountDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// MessageCountDetailsResponsePtrInput is an input type that accepts MessageCountDetailsResponseArgs, MessageCountDetailsResponsePtr and MessageCountDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `MessageCountDetailsResponsePtrInput` via:
+//
+//          MessageCountDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MessageCountDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToMessageCountDetailsResponsePtrOutput() MessageCountDetailsResponsePtrOutput
+	ToMessageCountDetailsResponsePtrOutputWithContext(context.Context) MessageCountDetailsResponsePtrOutput
+}
+
+type messageCountDetailsResponsePtrType MessageCountDetailsResponseArgs
+
+func MessageCountDetailsResponsePtr(v *MessageCountDetailsResponseArgs) MessageCountDetailsResponsePtrInput {
+	return (*messageCountDetailsResponsePtrType)(v)
+}
+
+func (*messageCountDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageCountDetailsResponse)(nil)).Elem()
+}
+
+func (i *messageCountDetailsResponsePtrType) ToMessageCountDetailsResponsePtrOutput() MessageCountDetailsResponsePtrOutput {
+	return i.ToMessageCountDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *messageCountDetailsResponsePtrType) ToMessageCountDetailsResponsePtrOutputWithContext(ctx context.Context) MessageCountDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageCountDetailsResponsePtrOutput)
+}
+
+// Message Count Details.
+type MessageCountDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (MessageCountDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageCountDetailsResponse)(nil)).Elem()
+}
+
+func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponseOutput() MessageCountDetailsResponseOutput {
+	return o
+}
+
+func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponseOutputWithContext(ctx context.Context) MessageCountDetailsResponseOutput {
+	return o
+}
+
+func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponsePtrOutput() MessageCountDetailsResponsePtrOutput {
+	return o.ToMessageCountDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponsePtrOutputWithContext(ctx context.Context) MessageCountDetailsResponsePtrOutput {
+	return o.ApplyT(func(v MessageCountDetailsResponse) *MessageCountDetailsResponse {
+		return &v
+	}).(MessageCountDetailsResponsePtrOutput)
+}
+
+// Number of active messages in the queue, topic, or subscription.
+func (o MessageCountDetailsResponseOutput) ActiveMessageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v MessageCountDetailsResponse) int { return v.ActiveMessageCount }).(pulumi.IntOutput)
+}
+
+// Number of messages that are dead lettered.
+func (o MessageCountDetailsResponseOutput) DeadLetterMessageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v MessageCountDetailsResponse) int { return v.DeadLetterMessageCount }).(pulumi.IntOutput)
+}
+
+// Number of scheduled messages.
+func (o MessageCountDetailsResponseOutput) ScheduledMessageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v MessageCountDetailsResponse) int { return v.ScheduledMessageCount }).(pulumi.IntOutput)
+}
+
+// Number of messages transferred into dead letters.
+func (o MessageCountDetailsResponseOutput) TransferDeadLetterMessageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v MessageCountDetailsResponse) int { return v.TransferDeadLetterMessageCount }).(pulumi.IntOutput)
+}
+
+// Number of messages transferred to another queue, topic, or subscription.
+func (o MessageCountDetailsResponseOutput) TransferMessageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v MessageCountDetailsResponse) int { return v.TransferMessageCount }).(pulumi.IntOutput)
+}
+
+type MessageCountDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MessageCountDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageCountDetailsResponse)(nil)).Elem()
+}
+
+func (o MessageCountDetailsResponsePtrOutput) ToMessageCountDetailsResponsePtrOutput() MessageCountDetailsResponsePtrOutput {
+	return o
+}
+
+func (o MessageCountDetailsResponsePtrOutput) ToMessageCountDetailsResponsePtrOutputWithContext(ctx context.Context) MessageCountDetailsResponsePtrOutput {
+	return o
+}
+
+func (o MessageCountDetailsResponsePtrOutput) Elem() MessageCountDetailsResponseOutput {
+	return o.ApplyT(func(v *MessageCountDetailsResponse) MessageCountDetailsResponse { return *v }).(MessageCountDetailsResponseOutput)
+}
+
+// Number of active messages in the queue, topic, or subscription.
+func (o MessageCountDetailsResponsePtrOutput) ActiveMessageCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MessageCountDetailsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ActiveMessageCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of messages that are dead lettered.
+func (o MessageCountDetailsResponsePtrOutput) DeadLetterMessageCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MessageCountDetailsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DeadLetterMessageCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of scheduled messages.
+func (o MessageCountDetailsResponsePtrOutput) ScheduledMessageCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MessageCountDetailsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ScheduledMessageCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of messages transferred into dead letters.
+func (o MessageCountDetailsResponsePtrOutput) TransferDeadLetterMessageCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MessageCountDetailsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TransferDeadLetterMessageCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of messages transferred to another queue, topic, or subscription.
+func (o MessageCountDetailsResponsePtrOutput) TransferMessageCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MessageCountDetailsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TransferMessageCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRules struct {
 	// The IP Filter Action
 	Action *string `pulumi:"action"`
@@ -641,7 +1805,7 @@ type NWRuleSetIpRulesInput interface {
 	ToNWRuleSetIpRulesOutputWithContext(context.Context) NWRuleSetIpRulesOutput
 }
 
-// The response from the List namespace operation.
+// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesArgs struct {
 	// The IP Filter Action
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -686,7 +1850,7 @@ func (i NWRuleSetIpRulesArray) ToNWRuleSetIpRulesArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesArrayOutput)
 }
 
-// The response from the List namespace operation.
+// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesOutput) ElementType() reflect.Type {
@@ -731,7 +1895,7 @@ func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOu
 	}).(NWRuleSetIpRulesOutput)
 }
 
-// The response from the List namespace operation.
+// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponse struct {
 	// The IP Filter Action
 	Action *string `pulumi:"action"`
@@ -750,7 +1914,7 @@ type NWRuleSetIpRulesResponseInput interface {
 	ToNWRuleSetIpRulesResponseOutputWithContext(context.Context) NWRuleSetIpRulesResponseOutput
 }
 
-// The response from the List namespace operation.
+// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponseArgs struct {
 	// The IP Filter Action
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -795,7 +1959,7 @@ func (i NWRuleSetIpRulesResponseArray) ToNWRuleSetIpRulesResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesResponseArrayOutput)
 }
 
-// The response from the List namespace operation.
+// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesResponseOutput) ElementType() reflect.Type {
@@ -840,9 +2004,9 @@ func (o NWRuleSetIpRulesResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetI
 	}).(NWRuleSetIpRulesResponseOutput)
 }
 
-// The response from the List namespace operation.
+// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRules struct {
-	// Value that indicates whether to ignore missing Vnet Service Endpoint
+	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// Subnet properties
 	Subnet *Subnet `pulumi:"subnet"`
@@ -859,9 +2023,9 @@ type NWRuleSetVirtualNetworkRulesInput interface {
 	ToNWRuleSetVirtualNetworkRulesOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesOutput
 }
 
-// The response from the List namespace operation.
+// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesArgs struct {
-	// Value that indicates whether to ignore missing Vnet Service Endpoint
+	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// Subnet properties
 	Subnet SubnetPtrInput `pulumi:"subnet"`
@@ -904,7 +2068,7 @@ func (i NWRuleSetVirtualNetworkRulesArray) ToNWRuleSetVirtualNetworkRulesArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesArrayOutput)
 }
 
-// The response from the List namespace operation.
+// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesOutput) ElementType() reflect.Type {
@@ -919,7 +2083,7 @@ func (o NWRuleSetVirtualNetworkRulesOutput) ToNWRuleSetVirtualNetworkRulesOutput
 	return o
 }
 
-// Value that indicates whether to ignore missing Vnet Service Endpoint
+// Value that indicates whether to ignore missing VNet Service Endpoint
 func (o NWRuleSetVirtualNetworkRulesOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRules) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
@@ -949,9 +2113,9 @@ func (o NWRuleSetVirtualNetworkRulesArrayOutput) Index(i pulumi.IntInput) NWRule
 	}).(NWRuleSetVirtualNetworkRulesOutput)
 }
 
-// The response from the List namespace operation.
+// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponse struct {
-	// Value that indicates whether to ignore missing Vnet Service Endpoint
+	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// Subnet properties
 	Subnet *SubnetResponse `pulumi:"subnet"`
@@ -968,9 +2132,9 @@ type NWRuleSetVirtualNetworkRulesResponseInput interface {
 	ToNWRuleSetVirtualNetworkRulesResponseOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesResponseOutput
 }
 
-// The response from the List namespace operation.
+// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponseArgs struct {
-	// Value that indicates whether to ignore missing Vnet Service Endpoint
+	// Value that indicates whether to ignore missing VNet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// Subnet properties
 	Subnet SubnetResponsePtrInput `pulumi:"subnet"`
@@ -1013,7 +2177,7 @@ func (i NWRuleSetVirtualNetworkRulesResponseArray) ToNWRuleSetVirtualNetworkRule
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesResponseArrayOutput)
 }
 
-// The response from the List namespace operation.
+// Description of VirtualNetworkRules - NetworkRules resource.
 type NWRuleSetVirtualNetworkRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesResponseOutput) ElementType() reflect.Type {
@@ -1028,7 +2192,7 @@ func (o NWRuleSetVirtualNetworkRulesResponseOutput) ToNWRuleSetVirtualNetworkRul
 	return o
 }
 
-// Value that indicates whether to ignore missing Vnet Service Endpoint
+// Value that indicates whether to ignore missing VNet Service Endpoint
 func (o NWRuleSetVirtualNetworkRulesResponseOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesResponse) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
@@ -1670,10 +2834,354 @@ func (o SBSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+type SqlFilter struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
+	// The SQL expression. e.g. MyProperty='ABC'
+	SqlExpression *string `pulumi:"sqlExpression"`
+}
+
+// SqlFilterInput is an input type that accepts SqlFilterArgs and SqlFilterOutput values.
+// You can construct a concrete instance of `SqlFilterInput` via:
+//
+//          SqlFilterArgs{...}
+type SqlFilterInput interface {
+	pulumi.Input
+
+	ToSqlFilterOutput() SqlFilterOutput
+	ToSqlFilterOutputWithContext(context.Context) SqlFilterOutput
+}
+
+// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+type SqlFilterArgs struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
+	// The SQL expression. e.g. MyProperty='ABC'
+	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
+}
+
+func (SqlFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlFilter)(nil)).Elem()
+}
+
+func (i SqlFilterArgs) ToSqlFilterOutput() SqlFilterOutput {
+	return i.ToSqlFilterOutputWithContext(context.Background())
+}
+
+func (i SqlFilterArgs) ToSqlFilterOutputWithContext(ctx context.Context) SqlFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlFilterOutput)
+}
+
+func (i SqlFilterArgs) ToSqlFilterPtrOutput() SqlFilterPtrOutput {
+	return i.ToSqlFilterPtrOutputWithContext(context.Background())
+}
+
+func (i SqlFilterArgs) ToSqlFilterPtrOutputWithContext(ctx context.Context) SqlFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlFilterOutput).ToSqlFilterPtrOutputWithContext(ctx)
+}
+
+// SqlFilterPtrInput is an input type that accepts SqlFilterArgs, SqlFilterPtr and SqlFilterPtrOutput values.
+// You can construct a concrete instance of `SqlFilterPtrInput` via:
+//
+//          SqlFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlFilterPtrInput interface {
+	pulumi.Input
+
+	ToSqlFilterPtrOutput() SqlFilterPtrOutput
+	ToSqlFilterPtrOutputWithContext(context.Context) SqlFilterPtrOutput
+}
+
+type sqlFilterPtrType SqlFilterArgs
+
+func SqlFilterPtr(v *SqlFilterArgs) SqlFilterPtrInput {
+	return (*sqlFilterPtrType)(v)
+}
+
+func (*sqlFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlFilter)(nil)).Elem()
+}
+
+func (i *sqlFilterPtrType) ToSqlFilterPtrOutput() SqlFilterPtrOutput {
+	return i.ToSqlFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlFilterPtrType) ToSqlFilterPtrOutputWithContext(ctx context.Context) SqlFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlFilterPtrOutput)
+}
+
+// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+type SqlFilterOutput struct{ *pulumi.OutputState }
+
+func (SqlFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlFilter)(nil)).Elem()
+}
+
+func (o SqlFilterOutput) ToSqlFilterOutput() SqlFilterOutput {
+	return o
+}
+
+func (o SqlFilterOutput) ToSqlFilterOutputWithContext(ctx context.Context) SqlFilterOutput {
+	return o
+}
+
+func (o SqlFilterOutput) ToSqlFilterPtrOutput() SqlFilterPtrOutput {
+	return o.ToSqlFilterPtrOutputWithContext(context.Background())
+}
+
+func (o SqlFilterOutput) ToSqlFilterPtrOutputWithContext(ctx context.Context) SqlFilterPtrOutput {
+	return o.ApplyT(func(v SqlFilter) *SqlFilter {
+		return &v
+	}).(SqlFilterPtrOutput)
+}
+
+// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+func (o SqlFilterOutput) CompatibilityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlFilter) *int { return v.CompatibilityLevel }).(pulumi.IntPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o SqlFilterOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlFilter) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
+}
+
+// The SQL expression. e.g. MyProperty='ABC'
+func (o SqlFilterOutput) SqlExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlFilter) *string { return v.SqlExpression }).(pulumi.StringPtrOutput)
+}
+
+type SqlFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlFilter)(nil)).Elem()
+}
+
+func (o SqlFilterPtrOutput) ToSqlFilterPtrOutput() SqlFilterPtrOutput {
+	return o
+}
+
+func (o SqlFilterPtrOutput) ToSqlFilterPtrOutputWithContext(ctx context.Context) SqlFilterPtrOutput {
+	return o
+}
+
+func (o SqlFilterPtrOutput) Elem() SqlFilterOutput {
+	return o.ApplyT(func(v *SqlFilter) SqlFilter { return *v }).(SqlFilterOutput)
+}
+
+// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+func (o SqlFilterPtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlFilter) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CompatibilityLevel
+	}).(pulumi.IntPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o SqlFilterPtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SqlFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiresPreprocessing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The SQL expression. e.g. MyProperty='ABC'
+func (o SqlFilterPtrOutput) SqlExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SqlExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+type SqlFilterResponse struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
+	// The SQL expression. e.g. MyProperty='ABC'
+	SqlExpression *string `pulumi:"sqlExpression"`
+}
+
+// SqlFilterResponseInput is an input type that accepts SqlFilterResponseArgs and SqlFilterResponseOutput values.
+// You can construct a concrete instance of `SqlFilterResponseInput` via:
+//
+//          SqlFilterResponseArgs{...}
+type SqlFilterResponseInput interface {
+	pulumi.Input
+
+	ToSqlFilterResponseOutput() SqlFilterResponseOutput
+	ToSqlFilterResponseOutputWithContext(context.Context) SqlFilterResponseOutput
+}
+
+// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+type SqlFilterResponseArgs struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
+	// The SQL expression. e.g. MyProperty='ABC'
+	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
+}
+
+func (SqlFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlFilterResponse)(nil)).Elem()
+}
+
+func (i SqlFilterResponseArgs) ToSqlFilterResponseOutput() SqlFilterResponseOutput {
+	return i.ToSqlFilterResponseOutputWithContext(context.Background())
+}
+
+func (i SqlFilterResponseArgs) ToSqlFilterResponseOutputWithContext(ctx context.Context) SqlFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlFilterResponseOutput)
+}
+
+func (i SqlFilterResponseArgs) ToSqlFilterResponsePtrOutput() SqlFilterResponsePtrOutput {
+	return i.ToSqlFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SqlFilterResponseArgs) ToSqlFilterResponsePtrOutputWithContext(ctx context.Context) SqlFilterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlFilterResponseOutput).ToSqlFilterResponsePtrOutputWithContext(ctx)
+}
+
+// SqlFilterResponsePtrInput is an input type that accepts SqlFilterResponseArgs, SqlFilterResponsePtr and SqlFilterResponsePtrOutput values.
+// You can construct a concrete instance of `SqlFilterResponsePtrInput` via:
+//
+//          SqlFilterResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlFilterResponsePtrInput interface {
+	pulumi.Input
+
+	ToSqlFilterResponsePtrOutput() SqlFilterResponsePtrOutput
+	ToSqlFilterResponsePtrOutputWithContext(context.Context) SqlFilterResponsePtrOutput
+}
+
+type sqlFilterResponsePtrType SqlFilterResponseArgs
+
+func SqlFilterResponsePtr(v *SqlFilterResponseArgs) SqlFilterResponsePtrInput {
+	return (*sqlFilterResponsePtrType)(v)
+}
+
+func (*sqlFilterResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlFilterResponse)(nil)).Elem()
+}
+
+func (i *sqlFilterResponsePtrType) ToSqlFilterResponsePtrOutput() SqlFilterResponsePtrOutput {
+	return i.ToSqlFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlFilterResponsePtrType) ToSqlFilterResponsePtrOutputWithContext(ctx context.Context) SqlFilterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlFilterResponsePtrOutput)
+}
+
+// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+type SqlFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlFilterResponse)(nil)).Elem()
+}
+
+func (o SqlFilterResponseOutput) ToSqlFilterResponseOutput() SqlFilterResponseOutput {
+	return o
+}
+
+func (o SqlFilterResponseOutput) ToSqlFilterResponseOutputWithContext(ctx context.Context) SqlFilterResponseOutput {
+	return o
+}
+
+func (o SqlFilterResponseOutput) ToSqlFilterResponsePtrOutput() SqlFilterResponsePtrOutput {
+	return o.ToSqlFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SqlFilterResponseOutput) ToSqlFilterResponsePtrOutputWithContext(ctx context.Context) SqlFilterResponsePtrOutput {
+	return o.ApplyT(func(v SqlFilterResponse) *SqlFilterResponse {
+		return &v
+	}).(SqlFilterResponsePtrOutput)
+}
+
+// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+func (o SqlFilterResponseOutput) CompatibilityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlFilterResponse) *int { return v.CompatibilityLevel }).(pulumi.IntPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o SqlFilterResponseOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlFilterResponse) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
+}
+
+// The SQL expression. e.g. MyProperty='ABC'
+func (o SqlFilterResponseOutput) SqlExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlFilterResponse) *string { return v.SqlExpression }).(pulumi.StringPtrOutput)
+}
+
+type SqlFilterResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlFilterResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlFilterResponse)(nil)).Elem()
+}
+
+func (o SqlFilterResponsePtrOutput) ToSqlFilterResponsePtrOutput() SqlFilterResponsePtrOutput {
+	return o
+}
+
+func (o SqlFilterResponsePtrOutput) ToSqlFilterResponsePtrOutputWithContext(ctx context.Context) SqlFilterResponsePtrOutput {
+	return o
+}
+
+func (o SqlFilterResponsePtrOutput) Elem() SqlFilterResponseOutput {
+	return o.ApplyT(func(v *SqlFilterResponse) SqlFilterResponse { return *v }).(SqlFilterResponseOutput)
+}
+
+// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+func (o SqlFilterResponsePtrOutput) CompatibilityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlFilterResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CompatibilityLevel
+	}).(pulumi.IntPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o SqlFilterResponsePtrOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SqlFilterResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiresPreprocessing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The SQL expression. e.g. MyProperty='ABC'
+func (o SqlFilterResponsePtrOutput) SqlExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlFilterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SqlExpression
+	}).(pulumi.StringPtrOutput)
+}
+
 // Properties supplied for Subnet
 type Subnet struct {
 	// Resource ID of Virtual Network Subnet
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 // SubnetInput is an input type that accepts SubnetArgs and SubnetOutput values.
@@ -1690,7 +3198,7 @@ type SubnetInput interface {
 // Properties supplied for Subnet
 type SubnetArgs struct {
 	// Resource ID of Virtual Network Subnet
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (SubnetArgs) ElementType() reflect.Type {
@@ -1772,8 +3280,8 @@ func (o SubnetOutput) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPt
 }
 
 // Resource ID of Virtual Network Subnet
-func (o SubnetOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Subnet) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o SubnetOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v Subnet) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type SubnetPtrOutput struct{ *pulumi.OutputState }
@@ -1800,14 +3308,14 @@ func (o SubnetPtrOutput) Id() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Id
+		return &v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
 // Properties supplied for Subnet
 type SubnetResponse struct {
 	// Resource ID of Virtual Network Subnet
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 // SubnetResponseInput is an input type that accepts SubnetResponseArgs and SubnetResponseOutput values.
@@ -1824,7 +3332,7 @@ type SubnetResponseInput interface {
 // Properties supplied for Subnet
 type SubnetResponseArgs struct {
 	// Resource ID of Virtual Network Subnet
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (SubnetResponseArgs) ElementType() reflect.Type {
@@ -1906,8 +3414,8 @@ func (o SubnetResponseOutput) ToSubnetResponsePtrOutputWithContext(ctx context.C
 }
 
 // Resource ID of Virtual Network Subnet
-func (o SubnetResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubnetResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o SubnetResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type SubnetResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1934,19 +3442,29 @@ func (o SubnetResponsePtrOutput) Id() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Id
+		return &v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
+	pulumi.RegisterOutputType(ActionOutput{})
+	pulumi.RegisterOutputType(ActionPtrOutput{})
+	pulumi.RegisterOutputType(ActionResponseOutput{})
+	pulumi.RegisterOutputType(ActionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionStateOutput{})
 	pulumi.RegisterOutputType(ConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(CorrelationFilterOutput{})
+	pulumi.RegisterOutputType(CorrelationFilterPtrOutput{})
+	pulumi.RegisterOutputType(CorrelationFilterResponseOutput{})
+	pulumi.RegisterOutputType(CorrelationFilterResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(MessageCountDetailsResponseOutput{})
+	pulumi.RegisterOutputType(MessageCountDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesArrayOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesResponseOutput{})
@@ -1963,6 +3481,10 @@ func init() {
 	pulumi.RegisterOutputType(SBSkuPtrOutput{})
 	pulumi.RegisterOutputType(SBSkuResponseOutput{})
 	pulumi.RegisterOutputType(SBSkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlFilterOutput{})
+	pulumi.RegisterOutputType(SqlFilterPtrOutput{})
+	pulumi.RegisterOutputType(SqlFilterResponseOutput{})
+	pulumi.RegisterOutputType(SqlFilterResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubnetOutput{})
 	pulumi.RegisterOutputType(SubnetPtrOutput{})
 	pulumi.RegisterOutputType(SubnetResponseOutput{})

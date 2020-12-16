@@ -157,6 +157,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Subscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Subscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

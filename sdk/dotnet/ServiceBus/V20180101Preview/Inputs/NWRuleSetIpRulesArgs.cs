@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview.Inputs
 {
 
     /// <summary>
-    /// The response from the List namespace operation.
+    /// Description of NetWorkRuleSet - IpRules resource.
     /// </summary>
     public sealed class NWRuleSetIpRulesArgs : Pulumi.ResourceArgs
     {

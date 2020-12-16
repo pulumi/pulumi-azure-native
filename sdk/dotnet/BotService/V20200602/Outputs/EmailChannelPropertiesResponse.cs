@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
         /// <summary>
         /// The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        public readonly string Password;
+        public readonly string? Password;
 
         [OutputConstructor]
         private EmailChannelPropertiesResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
 
             bool isEnabled,
 
-            string password)
+            string? password)
         {
             EmailAddress = emailAddress;
             IsEnabled = isEnabled;

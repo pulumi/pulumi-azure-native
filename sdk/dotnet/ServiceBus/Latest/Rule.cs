@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Rule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Rule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

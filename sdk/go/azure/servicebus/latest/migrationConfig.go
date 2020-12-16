@@ -58,6 +58,9 @@ func NewMigrationConfig(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:MigrationConfig"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:MigrationConfig"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MigrationConfig

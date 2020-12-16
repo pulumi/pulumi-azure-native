@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DigitalTwinsEndpoint']
@@ -26,7 +27,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
                  __opts__=None):
         """
         DigitalTwinsInstance endpoint resource.
-        Latest API Version: 2020-10-31.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -66,7 +67,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DigitalTwinsEndpoint, __self__).__init__(
             'azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint',

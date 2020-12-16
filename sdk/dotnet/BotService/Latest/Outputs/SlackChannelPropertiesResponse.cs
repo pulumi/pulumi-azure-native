@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Outputs
         /// <summary>
         /// The Slack client id
         /// </summary>
-        public readonly string ClientId;
+        public readonly string? ClientId;
         /// <summary>
         /// The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        public readonly string ClientSecret;
+        public readonly string? ClientSecret;
         /// <summary>
         /// Whether this channel is enabled for the bot
         /// </summary>
@@ -52,13 +52,13 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Outputs
         /// <summary>
         /// The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        public readonly string VerificationToken;
+        public readonly string? VerificationToken;
 
         [OutputConstructor]
         private SlackChannelPropertiesResponse(
-            string clientId,
+            string? clientId,
 
-            string clientSecret,
+            string? clientSecret,
 
             bool isEnabled,
 
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Outputs
 
             string? signingSecret,
 
-            string verificationToken)
+            string? verificationToken)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;

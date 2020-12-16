@@ -23,7 +23,7 @@ type LookupNamespaceNetworkRuleSetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Description of topic resource.
+// Description of NetworkRuleSet resource.
 type LookupNamespaceNetworkRuleSetResult struct {
 	// Default Action for Network Rule Set
 	DefaultAction *string `pulumi:"defaultAction"`

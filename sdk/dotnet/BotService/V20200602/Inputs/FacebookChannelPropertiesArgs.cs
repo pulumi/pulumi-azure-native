@@ -24,8 +24,8 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Inputs
         /// <summary>
         /// Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        [Input("appSecret", required: true)]
-        public Input<string> AppSecret { get; set; } = null!;
+        [Input("appSecret")]
+        public Input<string>? AppSecret { get; set; }
 
         /// <summary>
         /// Whether this channel is enabled for the bot

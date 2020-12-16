@@ -8,6 +8,8 @@ from .digital_twin import *
 from .digital_twins_endpoint import *
 from .get_digital_twin import *
 from .get_digital_twins_endpoint import *
+from .get_private_endpoint_connection import *
+from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
 
@@ -27,6 +29,8 @@ def _register_module():
                 return DigitalTwin(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint":
                 return DigitalTwinsEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:digitaltwins/latest:PrivateEndpointConnection":
+                return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

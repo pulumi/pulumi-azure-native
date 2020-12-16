@@ -27,7 +27,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Description of topic resource.
+        Description of NetworkRuleSet resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

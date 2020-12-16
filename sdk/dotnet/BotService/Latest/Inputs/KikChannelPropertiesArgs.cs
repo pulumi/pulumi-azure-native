@@ -18,8 +18,8 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Inputs
         /// <summary>
         /// Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        [Input("apiKey", required: true)]
-        public Input<string> ApiKey { get; set; } = null!;
+        [Input("apiKey")]
+        public Input<string>? ApiKey { get; set; }
 
         /// <summary>
         /// Whether this channel is enabled for the bot

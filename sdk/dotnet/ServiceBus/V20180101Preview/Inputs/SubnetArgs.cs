@@ -18,8 +18,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview.Inputs
         /// <summary>
         /// Resource ID of Virtual Network Subnet
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public SubnetArgs()
         {

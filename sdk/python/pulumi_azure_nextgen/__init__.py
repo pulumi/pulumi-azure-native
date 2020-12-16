@@ -123,6 +123,7 @@ from . import (
     powerbidedicated,
     powerplatform,
     providerhub,
+    purview,
     recoveryservices,
     redhatopenshift,
     relay,

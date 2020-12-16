@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
         /// <summary>
         /// Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        public readonly string ApiKey;
+        public readonly string? ApiKey;
         /// <summary>
         /// Whether this channel is enabled for the bot
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
 
         [OutputConstructor]
         private KikChannelPropertiesResponse(
-            string apiKey,
+            string? apiKey,
 
             bool isEnabled,
 
