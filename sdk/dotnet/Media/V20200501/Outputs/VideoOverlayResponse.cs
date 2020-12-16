@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
         public readonly string InputLabel;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.VideoOverlay'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

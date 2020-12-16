@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         public readonly string EnableMultiVmSync;
         /// <summary>
         /// Gets the class type. Overridden in derived classes.
+        /// Expected value is 'InMageRcm'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

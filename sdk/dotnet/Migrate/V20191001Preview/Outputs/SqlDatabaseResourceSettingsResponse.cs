@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
     {
         /// <summary>
         /// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        /// Expected value is 'Microsoft.Sql/servers/databases'.
         /// </summary>
         public readonly string ResourceType;
         /// <summary>

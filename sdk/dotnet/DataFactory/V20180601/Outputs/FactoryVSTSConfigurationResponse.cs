@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly string? TenantId;
         /// <summary>
         /// Type of repo configuration.
+        /// Expected value is 'FactoryVSTSConfiguration'.
         /// </summary>
         public readonly string Type;
 

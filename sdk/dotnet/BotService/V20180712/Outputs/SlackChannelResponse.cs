@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.BotService.V20180712.Outputs
     {
         /// <summary>
         /// The channel name
+        /// Expected value is 'SlackChannel'.
         /// </summary>
         public readonly string ChannelName;
         /// <summary>

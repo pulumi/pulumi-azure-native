@@ -205,6 +205,7 @@ class AlertingActionArgs:
         """
         Specify action need to be taken when rule type is Alert
         :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
+               Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
         :param pulumi.Input[Union[str, 'AlertSeverity']] severity: Severity of the alert
         :param pulumi.Input['TriggerConditionArgs'] trigger: The trigger condition that results in the alert rule being.
         :param pulumi.Input['AzNsActionGroupArgs'] azns_action: Azure action group reference.
@@ -223,6 +224,7 @@ class AlertingActionArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -970,6 +972,7 @@ class DynamicMetricCriteriaArgs:
         Criterion for dynamic threshold.
         :param pulumi.Input[Union[str, 'DynamicThresholdSensitivity']] alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
         :param pulumi.Input[str] criterion_type: Specifies the type of threshold criteria
+               Expected value is 'DynamicThresholdCriterion'.
         :param pulumi.Input['DynamicThresholdFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[str] name: Name of the criteria.
@@ -1013,6 +1016,7 @@ class DynamicMetricCriteriaArgs:
     def criterion_type(self) -> pulumi.Input[str]:
         """
         Specifies the type of threshold criteria
+        Expected value is 'DynamicThresholdCriterion'.
         """
         return pulumi.get(self, "criterion_type")
 
@@ -1370,6 +1374,7 @@ class LocationThresholdRuleConditionArgs:
         A rule condition based on a certain number of locations failing.
         :param pulumi.Input[int] failed_location_count: the number of locations that must fail to activate the alert.
         :param pulumi.Input[str] odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+               Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
         :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
@@ -1397,6 +1402,7 @@ class LocationThresholdRuleConditionArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1510,6 +1516,7 @@ class LogToMetricActionArgs:
         Specify action need to be taken when rule type is converting log to metric
         :param pulumi.Input[Sequence[pulumi.Input['CriteriaArgs']]] criteria: Criteria of Metric
         :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
+               Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
         """
         pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction')
@@ -1531,6 +1538,7 @@ class LogToMetricActionArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1696,6 +1704,7 @@ class ManagementEventRuleConditionArgs:
         """
         A management event rule condition.
         :param pulumi.Input[str] odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+               Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
         :param pulumi.Input['ManagementEventAggregationConditionArgs'] aggregation: How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
         :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         """
@@ -1710,6 +1719,7 @@ class ManagementEventRuleConditionArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1790,6 +1800,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
         """
         Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
         :param pulumi.Input[str] odata_type: specifies the type of the alert criteria.
+               Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]] all_of: the list of multiple metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
@@ -1801,6 +1812,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of the alert criteria.
+        Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1829,6 +1841,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
         """
         Specifies the metric alert criteria for a single resource that has multiple metric criteria.
         :param pulumi.Input[str] odata_type: specifies the type of the alert criteria.
+               Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
         :param pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]] all_of: The list of metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
@@ -1840,6 +1853,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of the alert criteria.
+        Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1875,6 +1889,7 @@ class MetricCriteriaArgs:
         """
         Criterion to filter metrics.
         :param pulumi.Input[str] criterion_type: Specifies the type of threshold criteria
+               Expected value is 'StaticThresholdCriterion'.
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[str] name: Name of the criteria.
         :param pulumi.Input[Union[str, 'Operator']] operator: the criteria operator.
@@ -1902,6 +1917,7 @@ class MetricCriteriaArgs:
     def criterion_type(self) -> pulumi.Input[str]:
         """
         Specifies the type of threshold criteria
+        Expected value is 'StaticThresholdCriterion'.
         """
         return pulumi.get(self, "criterion_type")
 
@@ -2372,6 +2388,7 @@ class RuleEmailActionArgs:
         """
         Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
         :param pulumi.Input[str] odata_type: specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+               Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_emails: the list of administrator's custom email addresses to notify of the activation of the alert.
         :param pulumi.Input[bool] send_to_service_owners: Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
         """
@@ -2386,6 +2403,7 @@ class RuleEmailActionArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -2459,6 +2477,7 @@ class RuleManagementEventDataSourceArgs:
         """
         A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
         :param pulumi.Input[str] odata_type: specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+               Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
         :param pulumi.Input['RuleManagementEventClaimsDataSourceArgs'] claims: the claims.
         :param pulumi.Input[str] event_name: the event name.
         :param pulumi.Input[str] event_source: the event source.
@@ -2497,6 +2516,7 @@ class RuleManagementEventDataSourceArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -2634,6 +2654,7 @@ class RuleMetricDataSourceArgs:
         """
         A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
         :param pulumi.Input[str] odata_type: specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+               Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
         :param pulumi.Input[str] metric_name: the name of the metric that defines what the rule monitors.
         :param pulumi.Input[str] resource_uri: the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
         """
@@ -2648,6 +2669,7 @@ class RuleMetricDataSourceArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -2689,6 +2711,7 @@ class RuleWebhookActionArgs:
         """
         Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
         :param pulumi.Input[str] odata_type: specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+               Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         :param pulumi.Input[str] service_uri: the service uri to Post the notification when the alert activates or resolves.
         """
@@ -2703,6 +2726,7 @@ class RuleWebhookActionArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -3122,6 +3146,7 @@ class ThresholdRuleConditionArgs:
         """
         A rule condition based on a metric crossing a threshold.
         :param pulumi.Input[str] odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+               Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
         :param pulumi.Input['ConditionOperator'] operator: the operator used to compare the data and the threshold.
         :param pulumi.Input[float] threshold: the threshold value that activates the alert.
         :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
@@ -3143,6 +3168,7 @@ class ThresholdRuleConditionArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -3589,6 +3615,7 @@ class WebtestLocationAvailabilityCriteriaArgs:
         :param pulumi.Input[str] component_id: The Application Insights resource Id.
         :param pulumi.Input[float] failed_location_count: The number of failed locations.
         :param pulumi.Input[str] odata_type: specifies the type of the alert criteria.
+               Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
         :param pulumi.Input[str] web_test_id: The Application Insights web test Id.
         """
         pulumi.set(__self__, "component_id", component_id)
@@ -3625,6 +3652,7 @@ class WebtestLocationAvailabilityCriteriaArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of the alert criteria.
+        Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
         """
         return pulumi.get(self, "odata_type")
 

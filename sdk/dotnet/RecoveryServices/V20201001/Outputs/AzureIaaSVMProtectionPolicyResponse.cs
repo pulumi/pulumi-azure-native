@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Outputs
     {
         /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// Expected value is 'AzureIaasVM'.
         /// </summary>
         public readonly string BackupManagementType;
         public readonly Outputs.InstantRPAdditionalDetailsResponse? InstantRPDetails;

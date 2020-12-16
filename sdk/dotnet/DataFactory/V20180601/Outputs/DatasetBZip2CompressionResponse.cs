@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
     {
         /// <summary>
         /// Type of dataset compression.
+        /// Expected value is 'BZip2'.
         /// </summary>
         public readonly string Type;
 

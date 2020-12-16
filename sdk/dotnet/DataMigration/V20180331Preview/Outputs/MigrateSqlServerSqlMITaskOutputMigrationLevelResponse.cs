@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
         public readonly ImmutableDictionary<string, string> OrphanedUsers;
         /// <summary>
         /// Result type
+        /// Expected value is 'MigrationLevelOutput'.
         /// </summary>
         public readonly string ResultType;
         /// <summary>

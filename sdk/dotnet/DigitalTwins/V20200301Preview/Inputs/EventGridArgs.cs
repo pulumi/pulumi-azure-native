@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview.Inputs
 
         /// <summary>
         /// The type of Digital Twins endpoint
+        /// Expected value is 'EventGrid'.
         /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;

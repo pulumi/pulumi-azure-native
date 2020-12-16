@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20180301Preview.Inputs
 
         /// <summary>
         /// The type of compute
+        /// Expected value is 'AKS'.
         /// </summary>
         [Input("computeType", required: true)]
         public Input<string> ComputeType { get; set; } = null!;

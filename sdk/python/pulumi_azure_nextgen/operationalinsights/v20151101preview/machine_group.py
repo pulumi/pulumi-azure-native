@@ -40,6 +40,7 @@ class MachineGroup(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Resource ETAG.
         :param pulumi.Input[Union[str, 'MachineGroupType']] group_type: Type of the machine group
         :param pulumi.Input[str] kind: Additional resource type qualifier.
+               Expected value is 'machineGroup'.
         :param pulumi.Input[str] machine_group_name: Machine Group resource name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineReferenceWithHintsArgs']]]] machines: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
         :param pulumi.Input[str] resource_group_name: Resource group name within the specified subscriptionId.
@@ -144,6 +145,7 @@ class MachineGroup(pulumi.CustomResource):
     def kind(self) -> pulumi.Output[str]:
         """
         Additional resource type qualifier.
+        Expected value is 'machineGroup'.
         """
         return pulumi.get(self, "kind")
 

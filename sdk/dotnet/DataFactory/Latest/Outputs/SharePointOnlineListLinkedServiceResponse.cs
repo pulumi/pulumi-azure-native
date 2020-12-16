@@ -51,6 +51,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object TenantId;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'SharePointOnlineList'.
         /// </summary>
         public readonly string Type;
 

@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview.Outputs
         public readonly string Name;
         /// <summary>
         /// The authentication type.
+        /// Expected value is 'ApiKey'.
         /// </summary>
         public readonly string Type;
         /// <summary>

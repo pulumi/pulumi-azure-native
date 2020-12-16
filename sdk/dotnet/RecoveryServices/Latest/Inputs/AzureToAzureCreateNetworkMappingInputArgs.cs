@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
     {
         /// <summary>
         /// The instance type.
+        /// Expected value is 'AzureToAzure'.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }

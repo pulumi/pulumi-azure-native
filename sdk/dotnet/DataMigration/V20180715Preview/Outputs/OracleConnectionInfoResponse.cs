@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         public readonly string? Password;
         /// <summary>
         /// Type of connection info
+        /// Expected value is 'OracleConnectionInfo'.
         /// </summary>
         public readonly string Type;
         /// <summary>

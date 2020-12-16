@@ -55,6 +55,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly string StartTime;
         /// <summary>
         /// Trigger type.
+        /// Expected value is 'TumblingWindowTrigger'.
         /// </summary>
         public readonly string Type;
 

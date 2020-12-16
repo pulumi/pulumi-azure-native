@@ -253,6 +253,7 @@ class DynamicMetricCriteriaArgs:
         Criterion for dynamic threshold.
         :param pulumi.Input[Union[str, 'DynamicThresholdSensitivity']] alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
         :param pulumi.Input[str] criterion_type: Specifies the type of threshold criteria
+               Expected value is 'DynamicThresholdCriterion'.
         :param pulumi.Input['DynamicThresholdFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[str] name: Name of the criteria.
@@ -296,6 +297,7 @@ class DynamicMetricCriteriaArgs:
     def criterion_type(self) -> pulumi.Input[str]:
         """
         Specifies the type of threshold criteria
+        Expected value is 'DynamicThresholdCriterion'.
         """
         return pulumi.get(self, "criterion_type")
 
@@ -672,6 +674,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
         """
         Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
         :param pulumi.Input[str] odata_type: specifies the type of the alert criteria.
+               Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]] all_of: the list of multiple metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
@@ -683,6 +686,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of the alert criteria.
+        Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -711,6 +715,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
         """
         Specifies the metric alert criteria for a single resource that has multiple metric criteria.
         :param pulumi.Input[str] odata_type: specifies the type of the alert criteria.
+               Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
         :param pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]] all_of: The list of metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
@@ -722,6 +727,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of the alert criteria.
+        Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -757,6 +763,7 @@ class MetricCriteriaArgs:
         """
         Criterion to filter metrics.
         :param pulumi.Input[str] criterion_type: Specifies the type of threshold criteria
+               Expected value is 'StaticThresholdCriterion'.
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[str] name: Name of the criteria.
         :param pulumi.Input[Union[str, 'Operator']] operator: the criteria operator.
@@ -784,6 +791,7 @@ class MetricCriteriaArgs:
     def criterion_type(self) -> pulumi.Input[str]:
         """
         Specifies the type of threshold criteria
+        Expected value is 'StaticThresholdCriterion'.
         """
         return pulumi.get(self, "criterion_type")
 
@@ -1097,6 +1105,7 @@ class WebtestLocationAvailabilityCriteriaArgs:
         :param pulumi.Input[str] component_id: The Application Insights resource Id.
         :param pulumi.Input[float] failed_location_count: The number of failed locations.
         :param pulumi.Input[str] odata_type: specifies the type of the alert criteria.
+               Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
         :param pulumi.Input[str] web_test_id: The Application Insights web test Id.
         """
         pulumi.set(__self__, "component_id", component_id)
@@ -1133,6 +1142,7 @@ class WebtestLocationAvailabilityCriteriaArgs:
     def odata_type(self) -> pulumi.Input[str]:
         """
         specifies the type of the alert criteria.
+        Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
         """
         return pulumi.get(self, "odata_type")
 

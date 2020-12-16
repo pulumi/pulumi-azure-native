@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Inputs
 
         /// <summary>
         /// Type of connection info
+        /// Expected value is 'SqlConnectionInfo'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

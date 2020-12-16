@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Outputs
         public readonly string TaskId;
         /// <summary>
         /// The type of the run request.
+        /// Expected value is 'TaskRunRequest'.
         /// </summary>
         public readonly string Type;
 

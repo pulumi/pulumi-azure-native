@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? SasUri;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AzureStorage'.
         /// </summary>
         public readonly string Type;
 

@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Inputs
 
         /// <summary>
         /// The type of the rule.
+        /// Expected value is 'FirewallPolicyFilterRule'.
         /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;

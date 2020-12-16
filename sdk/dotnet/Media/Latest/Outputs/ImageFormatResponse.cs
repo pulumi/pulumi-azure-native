@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Outputs
         public readonly string FilenamePattern;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.ImageFormat'.
         /// </summary>
         public readonly string OdataType;
 

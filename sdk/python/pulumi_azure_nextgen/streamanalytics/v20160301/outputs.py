@@ -57,6 +57,7 @@ class AvroSerializationResponse(dict):
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
         :param str type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Avro'.
         """
         if type is not None:
             pulumi.set(__self__, "type", 'Avro')
@@ -66,6 +67,7 @@ class AvroSerializationResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Avro'.
         """
         return pulumi.get(self, "type")
 
@@ -99,6 +101,7 @@ class AzureDataLakeStoreOutputDataSourceResponse(dict):
         :param str token_user_display_name: The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
         :param str token_user_principal_name: The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.DataLake/Accounts'.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -188,6 +191,7 @@ class AzureDataLakeStoreOutputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.DataLake/Accounts'.
         """
         return pulumi.get(self, "type")
 
@@ -215,6 +219,7 @@ class AzureMachineLearningWebServiceFunctionBindingResponse(dict):
         :param 'AzureMachineLearningWebServiceInputsResponseArgs' inputs: The inputs for the Azure Machine Learning web service endpoint.
         :param Sequence['AzureMachineLearningWebServiceOutputColumnResponseArgs'] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
         :param str type: Indicates the function binding type.
+               Expected value is 'Microsoft.MachineLearning/WebService'.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -274,6 +279,7 @@ class AzureMachineLearningWebServiceFunctionBindingResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the function binding type.
+        Expected value is 'Microsoft.MachineLearning/WebService'.
         """
         return pulumi.get(self, "type")
 
@@ -426,6 +432,7 @@ class AzureSqlDatabaseOutputDataSourceResponse(dict):
         :param str server: The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         :param str table: The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Sql/Server/Database'.
         :param str user: The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         """
         if database is not None:
@@ -478,6 +485,7 @@ class AzureSqlDatabaseOutputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Sql/Server/Database'.
         """
         return pulumi.get(self, "type")
 
@@ -517,6 +525,7 @@ class AzureTableOutputDataSourceResponse(dict):
         :param str row_key: This element indicates the name of a column from the SELECT statement in the query that will be used as the row key for the Azure Table. Required on PUT (CreateOrReplace) requests.
         :param str table: The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Storage/Table'.
         """
         if account_key is not None:
             pulumi.set(__self__, "account_key", account_key)
@@ -596,6 +605,7 @@ class AzureTableOutputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Storage/Table'.
         """
         return pulumi.get(self, "type")
 
@@ -623,6 +633,7 @@ class BlobOutputDataSourceResponse(dict):
         :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Storage/Blob'.
         """
         if container is not None:
             pulumi.set(__self__, "container", container)
@@ -682,6 +693,7 @@ class BlobOutputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Storage/Blob'.
         """
         return pulumi.get(self, "type")
 
@@ -709,6 +721,7 @@ class BlobReferenceInputDataSourceResponse(dict):
         :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Storage/Blob'.
         """
         if container is not None:
             pulumi.set(__self__, "container", container)
@@ -768,6 +781,7 @@ class BlobReferenceInputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Storage/Blob'.
         """
         return pulumi.get(self, "type")
 
@@ -797,6 +811,7 @@ class BlobStreamInputDataSourceResponse(dict):
         :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Storage/Blob'.
         """
         if container is not None:
             pulumi.set(__self__, "container", container)
@@ -866,6 +881,7 @@ class BlobStreamInputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Storage/Blob'.
         """
         return pulumi.get(self, "type")
 
@@ -887,6 +903,7 @@ class CsvSerializationResponse(dict):
         :param str encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         :param str field_delimiter: Specifies the delimiter that will be used to separate comma-separated value (CSV) records. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a list of supported values. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Csv'.
         """
         if encoding is not None:
             pulumi.set(__self__, "encoding", encoding)
@@ -916,6 +933,7 @@ class CsvSerializationResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Csv'.
         """
         return pulumi.get(self, "type")
 
@@ -1017,6 +1035,7 @@ class DocumentDbOutputDataSourceResponse(dict):
         :param str document_id: The name of the field in output events used to specify the primary key which insert or update operations are based on.
         :param str partition_key: The name of the field in output events used to specify the key for partitioning output across collections. If 'collectionNamePattern' contains the {partition} token, this property is required to be specified.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Storage/DocumentDB'.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -1086,6 +1105,7 @@ class DocumentDbOutputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Storage/DocumentDB'.
         """
         return pulumi.get(self, "type")
 
@@ -1113,6 +1133,7 @@ class EventHubOutputDataSourceResponse(dict):
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.ServiceBus/EventHub'.
         """
         if event_hub_name is not None:
             pulumi.set(__self__, "event_hub_name", event_hub_name)
@@ -1172,6 +1193,7 @@ class EventHubOutputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.ServiceBus/EventHub'.
         """
         return pulumi.get(self, "type")
 
@@ -1199,6 +1221,7 @@ class EventHubStreamInputDataSourceResponse(dict):
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.ServiceBus/EventHub'.
         """
         if consumer_group_name is not None:
             pulumi.set(__self__, "consumer_group_name", consumer_group_name)
@@ -1258,6 +1281,7 @@ class EventHubStreamInputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.ServiceBus/EventHub'.
         """
         return pulumi.get(self, "type")
 
@@ -1469,6 +1493,7 @@ class IoTHubStreamInputDataSourceResponse(dict):
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_name: The shared access policy name for the IoT Hub. This policy must contain at least the Service connect permission. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Devices/IotHubs'.
         """
         if consumer_group_name is not None:
             pulumi.set(__self__, "consumer_group_name", consumer_group_name)
@@ -1528,6 +1553,7 @@ class IoTHubStreamInputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Devices/IotHubs'.
         """
         return pulumi.get(self, "type")
 
@@ -1547,6 +1573,7 @@ class JavaScriptFunctionBindingResponse(dict):
         The binding to a JavaScript function.
         :param str script: The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
         :param str type: Indicates the function binding type.
+               Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
         """
         if script is not None:
             pulumi.set(__self__, "script", script)
@@ -1566,6 +1593,7 @@ class JavaScriptFunctionBindingResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the function binding type.
+        Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
         """
         return pulumi.get(self, "type")
 
@@ -1587,6 +1615,7 @@ class JsonSerializationResponse(dict):
         :param str encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         :param str format: This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
         :param str type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Json'.
         """
         if encoding is not None:
             pulumi.set(__self__, "encoding", encoding)
@@ -1616,6 +1645,7 @@ class JsonSerializationResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Json'.
         """
         return pulumi.get(self, "type")
 
@@ -1741,6 +1771,7 @@ class PowerBIOutputDataSourceResponse(dict):
         :param str token_user_display_name: The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
         :param str token_user_principal_name: The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'PowerBI'.
         """
         if dataset is not None:
             pulumi.set(__self__, "dataset", dataset)
@@ -1820,6 +1851,7 @@ class PowerBIOutputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'PowerBI'.
         """
         return pulumi.get(self, "type")
 
@@ -1845,6 +1877,7 @@ class ReferenceInputPropertiesResponse(dict):
         :param 'BlobReferenceInputDataSourceResponseArgs' datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         :param Union['AvroSerializationResponseArgs', 'CsvSerializationResponseArgs', 'JsonSerializationResponseArgs'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Reference'.
         """
         pulumi.set(__self__, "diagnostics", diagnostics)
         pulumi.set(__self__, "etag", etag)
@@ -1892,6 +1925,7 @@ class ReferenceInputPropertiesResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Reference'.
         """
         return pulumi.get(self, "type")
 
@@ -1917,6 +1951,7 @@ class ScalarFunctionPropertiesResponse(dict):
         :param Sequence['FunctionInputResponseArgs'] inputs: A list of inputs describing the parameters of the function.
         :param 'FunctionOutputResponseArgs' output: The output of the function.
         :param str type: Indicates the type of function.
+               Expected value is 'Scalar'.
         """
         pulumi.set(__self__, "etag", etag)
         if binding is not None:
@@ -1965,6 +2000,7 @@ class ScalarFunctionPropertiesResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of function.
+        Expected value is 'Scalar'.
         """
         return pulumi.get(self, "type")
 
@@ -1992,6 +2028,7 @@ class ServiceBusQueueOutputDataSourceResponse(dict):
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.ServiceBus/Queue'.
         """
         if property_columns is not None:
             pulumi.set(__self__, "property_columns", property_columns)
@@ -2051,6 +2088,7 @@ class ServiceBusQueueOutputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.ServiceBus/Queue'.
         """
         return pulumi.get(self, "type")
 
@@ -2078,6 +2116,7 @@ class ServiceBusTopicOutputDataSourceResponse(dict):
         :param str shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param str topic_name: The name of the Service Bus Topic. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.ServiceBus/Topic'.
         """
         if property_columns is not None:
             pulumi.set(__self__, "property_columns", property_columns)
@@ -2137,6 +2176,7 @@ class ServiceBusTopicOutputDataSourceResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.ServiceBus/Topic'.
         """
         return pulumi.get(self, "type")
 
@@ -2226,6 +2266,7 @@ class StreamInputPropertiesResponse(dict):
         :param Union['BlobStreamInputDataSourceResponseArgs', 'EventHubStreamInputDataSourceResponseArgs', 'IoTHubStreamInputDataSourceResponseArgs'] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         :param Union['AvroSerializationResponseArgs', 'CsvSerializationResponseArgs', 'JsonSerializationResponseArgs'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Stream'.
         """
         pulumi.set(__self__, "diagnostics", diagnostics)
         pulumi.set(__self__, "etag", etag)
@@ -2273,6 +2314,7 @@ class StreamInputPropertiesResponse(dict):
     def type(self) -> Optional[str]:
         """
         Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Stream'.
         """
         return pulumi.get(self, "type")
 

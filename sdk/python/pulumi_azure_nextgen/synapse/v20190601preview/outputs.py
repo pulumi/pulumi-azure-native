@@ -165,6 +165,7 @@ class CmdkeySetupResponse(dict):
         :param 'SecureStringResponseArgs' password: The password of data source access.
         :param Any target_name: The server name of data source access.
         :param str type: The type of custom setup.
+               Expected value is 'CmdkeySetup'.
         :param Any user_name: The user name of data source access.
         """
         pulumi.set(__self__, "password", password)
@@ -193,6 +194,7 @@ class CmdkeySetupResponse(dict):
     def type(self) -> str:
         """
         The type of custom setup.
+        Expected value is 'CmdkeySetup'.
         """
         return pulumi.get(self, "type")
 
@@ -221,6 +223,7 @@ class ComponentSetupResponse(dict):
         The custom setup of installing 3rd party components.
         :param str component_name: The name of the 3rd party component.
         :param str type: The type of custom setup.
+               Expected value is 'ComponentSetup'.
         :param 'SecureStringResponseArgs' license_key: The license key to activate the component.
         """
         pulumi.set(__self__, "component_name", component_name)
@@ -241,6 +244,7 @@ class ComponentSetupResponse(dict):
     def type(self) -> str:
         """
         The type of custom setup.
+        Expected value is 'ComponentSetup'.
         """
         return pulumi.get(self, "type")
 
@@ -418,6 +422,7 @@ class EnvironmentVariableSetupResponse(dict):
         """
         The custom setup of setting environment variable.
         :param str type: The type of custom setup.
+               Expected value is 'EnvironmentVariableSetup'.
         :param str variable_name: The name of the environment variable.
         :param str variable_value: The value of the environment variable.
         """
@@ -430,6 +435,7 @@ class EnvironmentVariableSetupResponse(dict):
     def type(self) -> str:
         """
         The type of custom setup.
+        Expected value is 'EnvironmentVariableSetup'.
         """
         return pulumi.get(self, "type")
 
@@ -935,6 +941,7 @@ class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
         """
         The key authorization type integration runtime.
         :param str authorization_type: The authorization type for integration runtime sharing.
+               Expected value is 'Key'.
         :param 'SecureStringResponseArgs' key: The key used for authorization.
         """
         pulumi.set(__self__, "authorization_type", 'Key')
@@ -945,6 +952,7 @@ class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
     def authorization_type(self) -> str:
         """
         The authorization type for integration runtime sharing.
+        Expected value is 'Key'.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -971,6 +979,7 @@ class LinkedIntegrationRuntimeRbacAuthorizationResponse(dict):
         """
         The role based access control (RBAC) authorization type integration runtime.
         :param str authorization_type: The authorization type for integration runtime sharing.
+               Expected value is 'RBAC'.
         :param str resource_id: The resource identifier of the integration runtime to be shared.
         """
         pulumi.set(__self__, "authorization_type", 'RBAC')
@@ -981,6 +990,7 @@ class LinkedIntegrationRuntimeRbacAuthorizationResponse(dict):
     def authorization_type(self) -> str:
         """
         The authorization type for integration runtime sharing.
+        Expected value is 'RBAC'.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -1302,6 +1312,7 @@ class ManagedIntegrationRuntimeResponse(dict):
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
         :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param str type: Type of integration runtime.
+               Expected value is 'Managed'.
         :param 'IntegrationRuntimeComputePropertiesResponseArgs' compute_properties: The compute resource for managed integration runtime.
         :param str description: Integration runtime description.
         :param 'IntegrationRuntimeSsisPropertiesResponseArgs' ssis_properties: SSIS properties for managed integration runtime.
@@ -1328,6 +1339,7 @@ class ManagedIntegrationRuntimeResponse(dict):
     def type(self) -> str:
         """
         Type of integration runtime.
+        Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
 
@@ -1381,6 +1393,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
         :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] other_errors: The errors that occurred on this integration runtime.
         :param str state: The state of integration runtime.
         :param str type: Type of integration runtime.
+               Expected value is 'Managed'.
         """
         pulumi.set(__self__, "create_time", create_time)
         pulumi.set(__self__, "data_factory_name", data_factory_name)
@@ -1443,6 +1456,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
     def type(self) -> str:
         """
         Type of integration runtime.
+        Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
 
@@ -1750,6 +1764,7 @@ class SecureStringResponse(dict):
         """
         Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
         :param str type: Type of the secret.
+               Expected value is 'SecureString'.
         :param str value: Value of secure string.
         """
         pulumi.set(__self__, "type", 'SecureString')
@@ -1760,6 +1775,7 @@ class SecureStringResponse(dict):
     def type(self) -> str:
         """
         Type of the secret.
+        Expected value is 'SecureString'.
         """
         return pulumi.get(self, "type")
 
@@ -1996,6 +2012,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
         """
         Self-hosted integration runtime.
         :param str type: Type of integration runtime.
+               Expected value is 'SelfHosted'.
         :param str description: Integration runtime description.
         :param Union['LinkedIntegrationRuntimeKeyAuthorizationResponseArgs', 'LinkedIntegrationRuntimeRbacAuthorizationResponseArgs'] linked_info: Linked integration runtime type from data factory
         """
@@ -2010,6 +2027,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
     def type(self) -> str:
         """
         Type of integration runtime.
+        Expected value is 'SelfHosted'.
         """
         return pulumi.get(self, "type")
 
@@ -2076,6 +2094,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         :param str state: The state of integration runtime.
         :param str task_queue_id: The task queue id of the integration runtime.
         :param str type: Type of integration runtime.
+               Expected value is 'SelfHosted'.
         :param str update_delay_offset: The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
         :param str version: Version of the integration runtime.
         :param str version_status: Status of the integration runtime version.
@@ -2222,6 +2241,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
     def type(self) -> str:
         """
         Type of integration runtime.
+        Expected value is 'SelfHosted'.
         """
         return pulumi.get(self, "type")
 
@@ -2415,6 +2435,7 @@ class SsisEnvironmentResponseResult(dict):
         """
         Ssis environment.
         :param str type: Type of metadata.
+               Expected value is 'Environment'.
         :param str description: Metadata description.
         :param int folder_id: Folder id which contains environment.
         :param int id: Metadata id.
@@ -2438,6 +2459,7 @@ class SsisEnvironmentResponseResult(dict):
     def type(self) -> str:
         """
         Type of metadata.
+        Expected value is 'Environment'.
         """
         return pulumi.get(self, "type")
 
@@ -2495,6 +2517,7 @@ class SsisFolderResponseResult(dict):
         """
         Ssis folder.
         :param str type: Type of metadata.
+               Expected value is 'Folder'.
         :param str description: Metadata description.
         :param int id: Metadata id.
         :param str name: Metadata name.
@@ -2512,6 +2535,7 @@ class SsisFolderResponseResult(dict):
     def type(self) -> str:
         """
         Type of metadata.
+        Expected value is 'Folder'.
         """
         return pulumi.get(self, "type")
 
@@ -2557,6 +2581,7 @@ class SsisPackageResponseResult(dict):
         """
         Ssis Package.
         :param str type: Type of metadata.
+               Expected value is 'Package'.
         :param str description: Metadata description.
         :param int folder_id: Folder id which contains package.
         :param int id: Metadata id.
@@ -2586,6 +2611,7 @@ class SsisPackageResponseResult(dict):
     def type(self) -> str:
         """
         Type of metadata.
+        Expected value is 'Package'.
         """
         return pulumi.get(self, "type")
 
@@ -2818,6 +2844,7 @@ class SsisProjectResponseResult(dict):
         """
         Ssis project.
         :param str type: Type of metadata.
+               Expected value is 'Project'.
         :param str description: Metadata description.
         :param Sequence['SsisEnvironmentReferenceResponseArgs'] environment_refs: Environment reference in project
         :param int folder_id: Folder id which contains project.
@@ -2847,6 +2874,7 @@ class SsisProjectResponseResult(dict):
     def type(self) -> str:
         """
         Type of metadata.
+        Expected value is 'Project'.
         """
         return pulumi.get(self, "type")
 

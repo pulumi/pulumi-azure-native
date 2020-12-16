@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         public readonly string State;
         /// <summary>
         /// Task type.
+        /// Expected value is 'GetUserTables.AzureSqlDb.Sync'.
         /// </summary>
         public readonly string TaskType;
 

@@ -30,6 +30,7 @@ class EventHubEventSubscriptionDestinationResponse(dict):
         """
         Information about the event hub destination for an event subscription
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+               Expected value is 'EventHub'.
         :param str resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'EventHub')
@@ -41,6 +42,7 @@ class EventHubEventSubscriptionDestinationResponse(dict):
     def endpoint_type(self) -> str:
         """
         Type of the endpoint for the event subscription destination
+        Expected value is 'EventHub'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -139,6 +141,7 @@ class HybridConnectionEventSubscriptionDestinationResponse(dict):
         """
         Information about the HybridConnection destination for an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+               Expected value is 'HybridConnection'.
         :param str resource_id: The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'HybridConnection')
@@ -150,6 +153,7 @@ class HybridConnectionEventSubscriptionDestinationResponse(dict):
     def endpoint_type(self) -> str:
         """
         Type of the endpoint for the event subscription destination
+        Expected value is 'HybridConnection'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -215,6 +219,7 @@ class StorageBlobDeadLetterDestinationResponse(dict):
         """
         Information about the storage blob based dead letter destination.
         :param str endpoint_type: Type of the endpoint for the dead letter destination
+               Expected value is 'StorageBlob'.
         :param str blob_container_name: The name of the Storage blob container that is the destination of the deadletter events
         :param str resource_id: The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
         """
@@ -229,6 +234,7 @@ class StorageBlobDeadLetterDestinationResponse(dict):
     def endpoint_type(self) -> str:
         """
         Type of the endpoint for the dead letter destination
+        Expected value is 'StorageBlob'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -264,6 +270,7 @@ class StorageQueueEventSubscriptionDestinationResponse(dict):
         """
         Information about the storage queue destination for an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+               Expected value is 'StorageQueue'.
         :param str queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
         :param str resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
         """
@@ -278,6 +285,7 @@ class StorageQueueEventSubscriptionDestinationResponse(dict):
     def endpoint_type(self) -> str:
         """
         Type of the endpoint for the event subscription destination
+        Expected value is 'StorageQueue'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -314,6 +322,7 @@ class WebHookEventSubscriptionDestinationResponse(dict):
         Information about the webhook destination for an event subscription
         :param str endpoint_base_url: The base URL that represents the endpoint of the destination of an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+               Expected value is 'WebHook'.
         :param str endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
@@ -334,6 +343,7 @@ class WebHookEventSubscriptionDestinationResponse(dict):
     def endpoint_type(self) -> str:
         """
         Type of the endpoint for the event subscription destination
+        Expected value is 'WebHook'.
         """
         return pulumi.get(self, "endpoint_type")
 

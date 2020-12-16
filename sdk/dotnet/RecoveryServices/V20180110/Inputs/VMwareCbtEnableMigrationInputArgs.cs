@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110.Inputs
 
         /// <summary>
         /// The class type.
+        /// Expected value is 'VMwareCbt'.
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;

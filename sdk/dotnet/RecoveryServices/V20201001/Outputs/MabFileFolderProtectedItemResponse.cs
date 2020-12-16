@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Outputs
         public readonly string? PolicyId;
         /// <summary>
         /// backup item type.
+        /// Expected value is 'MabFileFolderProtectedItem'.
         /// </summary>
         public readonly string ProtectedItemType;
         /// <summary>

@@ -67,6 +67,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? Snapshot;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AzureFileStorage'.
         /// </summary>
         public readonly string Type;
         /// <summary>

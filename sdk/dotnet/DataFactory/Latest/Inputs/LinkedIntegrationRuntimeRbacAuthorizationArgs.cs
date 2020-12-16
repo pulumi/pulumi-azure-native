@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     {
         /// <summary>
         /// The authorization type for integration runtime sharing.
+        /// Expected value is 'RBAC'.
         /// </summary>
         [Input("authorizationType", required: true)]
         public Input<string> AuthorizationType { get; set; } = null!;

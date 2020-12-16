@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AzureDatabricksDeltaLake'.
         /// </summary>
         public readonly string Type;
 

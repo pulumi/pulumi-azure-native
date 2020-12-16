@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview.Inputs
     {
         /// <summary>
         /// The type of the action that will be triggered by the Automation
+        /// Expected value is 'LogicApp'.
         /// </summary>
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;

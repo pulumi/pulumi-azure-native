@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
     {
         /// <summary>
         /// Describes the mode of backups.
+        /// Expected value is 'Continuous'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

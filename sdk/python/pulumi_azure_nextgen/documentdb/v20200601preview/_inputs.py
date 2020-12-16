@@ -596,6 +596,7 @@ class ContinuousModeBackupPolicyArgs:
         """
         The object representing continuous mode backup policy.
         :param pulumi.Input[str] type: Describes the mode of backups.
+               Expected value is 'Continuous'.
         """
         pulumi.set(__self__, "type", 'Continuous')
 
@@ -604,6 +605,7 @@ class ContinuousModeBackupPolicyArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Describes the mode of backups.
+        Expected value is 'Continuous'.
         """
         return pulumi.get(self, "type")
 
@@ -804,6 +806,7 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
         """
         Properties for non-restore Azure Cosmos DB database account requests.
         :param pulumi.Input[str] create_mode: Enum to indicate the mode of account creation.
+               Expected value is 'Default'.
         :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
         :param pulumi.Input[Sequence[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
         :param pulumi.Input['ApiPropertiesArgs'] api_properties: API specific properties. Currently, supported only for MongoDB API.
@@ -864,6 +867,7 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
     def create_mode(self) -> pulumi.Input[str]:
         """
         Enum to indicate the mode of account creation.
+        Expected value is 'Default'.
         """
         return pulumi.get(self, "create_mode")
 
@@ -1763,6 +1767,7 @@ class PeriodicModeBackupPolicyArgs:
         """
         The object representing periodic mode backup policy.
         :param pulumi.Input[str] type: Describes the mode of backups.
+               Expected value is 'Periodic'.
         :param pulumi.Input['PeriodicModePropertiesArgs'] periodic_mode_properties: Configuration values for periodic mode backup
         """
         pulumi.set(__self__, "type", 'Periodic')
@@ -1774,6 +1779,7 @@ class PeriodicModeBackupPolicyArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Describes the mode of backups.
+        Expected value is 'Periodic'.
         """
         return pulumi.get(self, "type")
 
@@ -1972,6 +1978,7 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
         """
         Properties to restore Azure Cosmos DB database account.
         :param pulumi.Input[str] create_mode: Enum to indicate the mode of account creation.
+               Expected value is 'Restore'.
         :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
         :param pulumi.Input[Sequence[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
         :param pulumi.Input['ApiPropertiesArgs'] api_properties: API specific properties. Currently, supported only for MongoDB API.
@@ -2035,6 +2042,7 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
     def create_mode(self) -> pulumi.Input[str]:
         """
         Enum to indicate the mode of account creation.
+        Expected value is 'Restore'.
         """
         return pulumi.get(self, "create_mode")
 

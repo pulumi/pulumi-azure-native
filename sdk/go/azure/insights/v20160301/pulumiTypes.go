@@ -17,6 +17,7 @@ type LocationThresholdRuleCondition struct {
 	// the number of locations that must fail to activate the alert.
 	FailedLocationCount int `pulumi:"failedLocationCount"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
 	OdataType string `pulumi:"odataType"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize *string `pulumi:"windowSize"`
@@ -40,6 +41,7 @@ type LocationThresholdRuleConditionArgs struct {
 	// the number of locations that must fail to activate the alert.
 	FailedLocationCount pulumi.IntInput `pulumi:"failedLocationCount"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
@@ -83,6 +85,7 @@ func (o LocationThresholdRuleConditionOutput) FailedLocationCount() pulumi.IntOu
 }
 
 // specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
 func (o LocationThresholdRuleConditionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationThresholdRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -99,6 +102,7 @@ type LocationThresholdRuleConditionResponse struct {
 	// the number of locations that must fail to activate the alert.
 	FailedLocationCount int `pulumi:"failedLocationCount"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
 	OdataType string `pulumi:"odataType"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize *string `pulumi:"windowSize"`
@@ -122,6 +126,7 @@ type LocationThresholdRuleConditionResponseArgs struct {
 	// the number of locations that must fail to activate the alert.
 	FailedLocationCount pulumi.IntInput `pulumi:"failedLocationCount"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
@@ -165,6 +170,7 @@ func (o LocationThresholdRuleConditionResponseOutput) FailedLocationCount() pulu
 }
 
 // specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
 func (o LocationThresholdRuleConditionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationThresholdRuleConditionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -527,6 +533,7 @@ type ManagementEventRuleCondition struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource interface{} `pulumi:"dataSource"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -548,6 +555,7 @@ type ManagementEventRuleConditionArgs struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource pulumi.Input `pulumi:"dataSource"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -589,6 +597,7 @@ func (o ManagementEventRuleConditionOutput) DataSource() pulumi.AnyOutput {
 }
 
 // specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
 func (o ManagementEventRuleConditionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementEventRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -600,6 +609,7 @@ type ManagementEventRuleConditionResponse struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource interface{} `pulumi:"dataSource"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -621,6 +631,7 @@ type ManagementEventRuleConditionResponseArgs struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource pulumi.Input `pulumi:"dataSource"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -664,6 +675,7 @@ func (o ManagementEventRuleConditionResponseOutput) DataSource() pulumi.AnyOutpu
 }
 
 // specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
 func (o ManagementEventRuleConditionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementEventRuleConditionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -979,6 +991,7 @@ type RuleEmailAction struct {
 	// the list of administrator's custom email addresses to notify of the activation of the alert.
 	CustomEmails []string `pulumi:"customEmails"`
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
 	OdataType string `pulumi:"odataType"`
 	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
 	SendToServiceOwners *bool `pulumi:"sendToServiceOwners"`
@@ -1000,6 +1013,7 @@ type RuleEmailActionArgs struct {
 	// the list of administrator's custom email addresses to notify of the activation of the alert.
 	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
 	SendToServiceOwners pulumi.BoolPtrInput `pulumi:"sendToServiceOwners"`
@@ -1038,6 +1052,7 @@ func (o RuleEmailActionOutput) CustomEmails() pulumi.StringArrayOutput {
 }
 
 // specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
 func (o RuleEmailActionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleEmailAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1052,6 +1067,7 @@ type RuleEmailActionResponse struct {
 	// the list of administrator's custom email addresses to notify of the activation of the alert.
 	CustomEmails []string `pulumi:"customEmails"`
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
 	OdataType string `pulumi:"odataType"`
 	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
 	SendToServiceOwners *bool `pulumi:"sendToServiceOwners"`
@@ -1073,6 +1089,7 @@ type RuleEmailActionResponseArgs struct {
 	// the list of administrator's custom email addresses to notify of the activation of the alert.
 	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
 	SendToServiceOwners pulumi.BoolPtrInput `pulumi:"sendToServiceOwners"`
@@ -1111,6 +1128,7 @@ func (o RuleEmailActionResponseOutput) CustomEmails() pulumi.StringArrayOutput {
 }
 
 // specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
 func (o RuleEmailActionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleEmailActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1401,6 +1419,7 @@ type RuleManagementEventDataSource struct {
 	// the level.
 	Level *string `pulumi:"level"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 	OdataType string `pulumi:"odataType"`
 	// The name of the operation that should be checked for. If no name is provided, any operation will match.
 	OperationName *string `pulumi:"operationName"`
@@ -1438,6 +1457,7 @@ type RuleManagementEventDataSourceArgs struct {
 	// the level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The name of the operation that should be checked for. If no name is provided, any operation will match.
 	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
@@ -1501,6 +1521,7 @@ func (o RuleManagementEventDataSourceOutput) Level() pulumi.StringPtrOutput {
 }
 
 // specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 func (o RuleManagementEventDataSourceOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1546,6 +1567,7 @@ type RuleManagementEventDataSourceResponse struct {
 	// the level.
 	Level *string `pulumi:"level"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 	OdataType string `pulumi:"odataType"`
 	// The name of the operation that should be checked for. If no name is provided, any operation will match.
 	OperationName *string `pulumi:"operationName"`
@@ -1583,6 +1605,7 @@ type RuleManagementEventDataSourceResponseArgs struct {
 	// the level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The name of the operation that should be checked for. If no name is provided, any operation will match.
 	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
@@ -1648,6 +1671,7 @@ func (o RuleManagementEventDataSourceResponseOutput) Level() pulumi.StringPtrOut
 }
 
 // specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 func (o RuleManagementEventDataSourceResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1687,6 +1711,7 @@ type RuleMetricDataSource struct {
 	// the name of the metric that defines what the rule monitors.
 	MetricName *string `pulumi:"metricName"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 	OdataType string `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri *string `pulumi:"resourceUri"`
@@ -1708,6 +1733,7 @@ type RuleMetricDataSourceArgs struct {
 	// the name of the metric that defines what the rule monitors.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
@@ -1746,6 +1772,7 @@ func (o RuleMetricDataSourceOutput) MetricName() pulumi.StringPtrOutput {
 }
 
 // specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 func (o RuleMetricDataSourceOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleMetricDataSource) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1760,6 +1787,7 @@ type RuleMetricDataSourceResponse struct {
 	// the name of the metric that defines what the rule monitors.
 	MetricName *string `pulumi:"metricName"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 	OdataType string `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri *string `pulumi:"resourceUri"`
@@ -1781,6 +1809,7 @@ type RuleMetricDataSourceResponseArgs struct {
 	// the name of the metric that defines what the rule monitors.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
@@ -1819,6 +1848,7 @@ func (o RuleMetricDataSourceResponseOutput) MetricName() pulumi.StringPtrOutput 
 }
 
 // specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 func (o RuleMetricDataSourceResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleMetricDataSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1831,6 +1861,7 @@ func (o RuleMetricDataSourceResponseOutput) ResourceUri() pulumi.StringPtrOutput
 // Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
 type RuleWebhookAction struct {
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
 	OdataType string `pulumi:"odataType"`
 	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 	Properties map[string]string `pulumi:"properties"`
@@ -1852,6 +1883,7 @@ type RuleWebhookActionInput interface {
 // Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
 type RuleWebhookActionArgs struct {
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
@@ -1887,6 +1919,7 @@ func (o RuleWebhookActionOutput) ToRuleWebhookActionOutputWithContext(ctx contex
 }
 
 // specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
 func (o RuleWebhookActionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleWebhookAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1904,6 +1937,7 @@ func (o RuleWebhookActionOutput) ServiceUri() pulumi.StringPtrOutput {
 // Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
 type RuleWebhookActionResponse struct {
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
 	OdataType string `pulumi:"odataType"`
 	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 	Properties map[string]string `pulumi:"properties"`
@@ -1925,6 +1959,7 @@ type RuleWebhookActionResponseInput interface {
 // Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
 type RuleWebhookActionResponseArgs struct {
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
@@ -1960,6 +1995,7 @@ func (o RuleWebhookActionResponseOutput) ToRuleWebhookActionResponseOutputWithCo
 }
 
 // specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
 func (o RuleWebhookActionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleWebhookActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1979,6 +2015,7 @@ type ThresholdRuleCondition struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource interface{} `pulumi:"dataSource"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 	OdataType string `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
 	Operator string `pulumi:"operator"`
@@ -2006,6 +2043,7 @@ type ThresholdRuleConditionArgs struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource pulumi.Input `pulumi:"dataSource"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
 	Operator ConditionOperator `pulumi:"operator"`
@@ -2050,6 +2088,7 @@ func (o ThresholdRuleConditionOutput) DataSource() pulumi.AnyOutput {
 }
 
 // specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 func (o ThresholdRuleConditionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ThresholdRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2079,6 +2118,7 @@ type ThresholdRuleConditionResponse struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource interface{} `pulumi:"dataSource"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 	OdataType string `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
 	Operator string `pulumi:"operator"`
@@ -2106,6 +2146,7 @@ type ThresholdRuleConditionResponseArgs struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource pulumi.Input `pulumi:"dataSource"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -2150,6 +2191,7 @@ func (o ThresholdRuleConditionResponseOutput) DataSource() pulumi.AnyOutput {
 }
 
 // specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 func (o ThresholdRuleConditionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ThresholdRuleConditionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }

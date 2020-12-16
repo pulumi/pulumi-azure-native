@@ -79,6 +79,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         public readonly string TaskQueueId;
         /// <summary>
         /// Type of integration runtime.
+        /// Expected value is 'SelfHosted'.
         /// </summary>
         public readonly string Type;
         /// <summary>

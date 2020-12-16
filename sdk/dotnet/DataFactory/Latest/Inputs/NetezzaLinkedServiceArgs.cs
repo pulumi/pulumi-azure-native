@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
 
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Netezza'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

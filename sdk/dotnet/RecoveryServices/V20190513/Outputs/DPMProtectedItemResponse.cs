@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Outputs
         public readonly string? PolicyId;
         /// <summary>
         /// backup item type.
+        /// Expected value is 'DPMProtectedItem'.
         /// </summary>
         public readonly string? ProtectedItemType;
         /// <summary>

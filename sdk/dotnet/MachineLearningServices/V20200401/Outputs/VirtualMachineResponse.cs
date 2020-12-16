@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200401.Outputs
         public readonly string? ComputeLocation;
         /// <summary>
         /// The type of compute
+        /// Expected value is 'VirtualMachine'.
         /// </summary>
         public readonly string ComputeType;
         /// <summary>

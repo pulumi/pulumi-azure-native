@@ -44,6 +44,7 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgs:
         """
         Diagnostics settings for Geneva.
         :param pulumi.Input[str] kind: The kind of DiagnosticsSink.
+               Expected value is 'AzureInternalMonitoringPipeline'.
         :param pulumi.Input[str] account_name: Azure Internal monitoring pipeline account.
         :param pulumi.Input[str] auto_key_config_url: Azure Internal monitoring pipeline autokey associated with the certificate.
         :param pulumi.Input[str] description: A description of the sink.
@@ -73,6 +74,7 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgs:
     def kind(self) -> pulumi.Input[str]:
         """
         The kind of DiagnosticsSink.
+        Expected value is 'AzureInternalMonitoringPipeline'.
         """
         return pulumi.get(self, "kind")
 

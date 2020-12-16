@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         public readonly string ProjectName;
         /// <summary>
         /// Result type
+        /// Expected value is 'SsisProjectLevelOutput'.
         /// </summary>
         public readonly string ResultType;
         /// <summary>

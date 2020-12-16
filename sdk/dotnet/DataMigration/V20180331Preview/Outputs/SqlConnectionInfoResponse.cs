@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
         public readonly bool? TrustServerCertificate;
         /// <summary>
         /// Type of connection info
+        /// Expected value is 'SqlConnectionInfo'.
         /// </summary>
         public readonly string Type;
         /// <summary>

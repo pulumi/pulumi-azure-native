@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? Tenant;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AzureMLService'.
         /// </summary>
         public readonly string Type;
 

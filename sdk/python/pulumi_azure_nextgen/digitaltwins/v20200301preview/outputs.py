@@ -60,6 +60,7 @@ class EventGridResponse(dict):
         :param str access_key2: EventGrid secondary accesskey. Will be obfuscated during read
         :param str created_time: Time when the Endpoint was added to DigitalTwinsInstance.
         :param str endpoint_type: The type of Digital Twins endpoint
+               Expected value is 'EventGrid'.
         :param str provisioning_state: The provisioning state.
         :param Mapping[str, str] tags: The resource tags.
         :param str topic_endpoint: EventGrid Topic Endpoint
@@ -103,6 +104,7 @@ class EventGridResponse(dict):
     def endpoint_type(self) -> str:
         """
         The type of Digital Twins endpoint
+        Expected value is 'EventGrid'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -152,6 +154,7 @@ class EventHubResponse(dict):
         :param str connection_string_secondary_key: SecondaryConnectionString of the endpoint. Will be obfuscated during read
         :param str created_time: Time when the Endpoint was added to DigitalTwinsInstance.
         :param str endpoint_type: The type of Digital Twins endpoint
+               Expected value is 'EventHub'.
         :param str provisioning_state: The provisioning state.
         :param Mapping[str, str] tags: The resource tags.
         """
@@ -192,6 +195,7 @@ class EventHubResponse(dict):
     def endpoint_type(self) -> str:
         """
         The type of Digital Twins endpoint
+        Expected value is 'EventHub'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -231,6 +235,7 @@ class ServiceBusResponse(dict):
         properties related to servicebus.
         :param str created_time: Time when the Endpoint was added to DigitalTwinsInstance.
         :param str endpoint_type: The type of Digital Twins endpoint
+               Expected value is 'ServiceBus'.
         :param str primary_connection_string: PrimaryConnectionString of the endpoint. Will be obfuscated during read
         :param str provisioning_state: The provisioning state.
         :param str secondary_connection_string: SecondaryConnectionString of the endpoint. Will be obfuscated during read
@@ -257,6 +262,7 @@ class ServiceBusResponse(dict):
     def endpoint_type(self) -> str:
         """
         The type of Digital Twins endpoint
+        Expected value is 'ServiceBus'.
         """
         return pulumi.get(self, "endpoint_type")
 

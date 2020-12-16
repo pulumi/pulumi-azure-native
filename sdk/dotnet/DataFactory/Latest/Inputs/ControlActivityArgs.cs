@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
 
         /// <summary>
         /// Type of activity.
+        /// Expected value is 'Container'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

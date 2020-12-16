@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110.Outputs
     {
         /// <summary>
         /// Gets the class type. Overridden in derived classes.
+        /// Expected value is 'HyperVSite'.
         /// </summary>
         public readonly string InstanceType;
 

@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview.Outputs
         public readonly string? Sha256Checksum;
         /// <summary>
         /// The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        /// Expected value is 'PowerShell'.
         /// </summary>
         public readonly string Type;
         /// <summary>

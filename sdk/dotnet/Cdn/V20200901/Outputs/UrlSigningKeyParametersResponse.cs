@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Outputs
         public readonly string? SecretVersion;
         /// <summary>
         /// The type of the Secret to create.
+        /// Expected value is 'UrlSigningKey'.
         /// </summary>
         public readonly string Type;
 

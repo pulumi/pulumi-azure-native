@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Outputs
         public readonly string? FabricObjectId;
         /// <summary>
         /// Gets the Instance type.
+        /// Expected value is 'A2A'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

@@ -51,6 +51,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Outputs
         public readonly string? Target;
         /// <summary>
         /// The type of the step.
+        /// Expected value is 'Docker'.
         /// </summary>
         public readonly string Type;
 

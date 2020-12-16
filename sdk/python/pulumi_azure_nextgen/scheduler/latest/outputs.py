@@ -42,6 +42,7 @@ class BasicAuthenticationResponse(dict):
                  username: Optional[str] = None):
         """
         :param str type: Gets or sets the HTTP authentication type.
+               Expected value is 'Basic'.
         :param str password: Gets or sets the password, return value will always be empty.
         :param str username: Gets or sets the username.
         """
@@ -56,6 +57,7 @@ class BasicAuthenticationResponse(dict):
     def type(self) -> str:
         """
         Gets or sets the HTTP authentication type.
+        Expected value is 'Basic'.
         """
         return pulumi.get(self, "type")
 
@@ -90,6 +92,7 @@ class ClientCertAuthenticationResponse(dict):
                  pfx: Optional[str] = None):
         """
         :param str type: Gets or sets the HTTP authentication type.
+               Expected value is 'ClientCertificate'.
         :param str certificate_expiration_date: Gets or sets the certificate expiration date.
         :param str certificate_subject_name: Gets or sets the certificate subject name.
         :param str certificate_thumbprint: Gets or sets the certificate thumbprint.
@@ -113,6 +116,7 @@ class ClientCertAuthenticationResponse(dict):
     def type(self) -> str:
         """
         Gets or sets the HTTP authentication type.
+        Expected value is 'ClientCertificate'.
         """
         return pulumi.get(self, "type")
 
@@ -846,6 +850,7 @@ class OAuthAuthenticationResponse(dict):
                  tenant: Optional[str] = None):
         """
         :param str type: Gets or sets the HTTP authentication type.
+               Expected value is 'ActiveDirectoryOAuth'.
         :param str audience: Gets or sets the audience.
         :param str client_id: Gets or sets the client identifier.
         :param str secret: Gets or sets the secret, return value will always be empty.
@@ -866,6 +871,7 @@ class OAuthAuthenticationResponse(dict):
     def type(self) -> str:
         """
         Gets or sets the HTTP authentication type.
+        Expected value is 'ActiveDirectoryOAuth'.
         """
         return pulumi.get(self, "type")
 

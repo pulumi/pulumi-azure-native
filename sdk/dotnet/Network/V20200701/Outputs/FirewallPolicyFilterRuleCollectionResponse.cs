@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701.Outputs
         public readonly int? Priority;
         /// <summary>
         /// The type of the rule collection.
+        /// Expected value is 'FirewallPolicyFilterRuleCollection'.
         /// </summary>
         public readonly string RuleCollectionType;
         /// <summary>

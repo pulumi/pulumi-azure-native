@@ -21,6 +21,7 @@ type AzureInternalMonitoringPipelineSinkDescription struct {
 	// Azure Internal monitoring agent fluentd configuration.
 	FluentdConfigUrl interface{} `pulumi:"fluentdConfigUrl"`
 	// The kind of DiagnosticsSink.
+	// Expected value is 'AzureInternalMonitoringPipeline'.
 	Kind string `pulumi:"kind"`
 	// Azure Internal monitoring agent configuration.
 	MaConfigUrl *string `pulumi:"maConfigUrl"`
@@ -52,6 +53,7 @@ type AzureInternalMonitoringPipelineSinkDescriptionArgs struct {
 	// Azure Internal monitoring agent fluentd configuration.
 	FluentdConfigUrl pulumi.Input `pulumi:"fluentdConfigUrl"`
 	// The kind of DiagnosticsSink.
+	// Expected value is 'AzureInternalMonitoringPipeline'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Azure Internal monitoring agent configuration.
 	MaConfigUrl pulumi.StringPtrInput `pulumi:"maConfigUrl"`
@@ -134,6 +136,7 @@ func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) FluentdConfigUrl()
 }
 
 // The kind of DiagnosticsSink.
+// Expected value is 'AzureInternalMonitoringPipeline'.
 func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -184,6 +187,7 @@ type AzureInternalMonitoringPipelineSinkDescriptionResponse struct {
 	// Azure Internal monitoring agent fluentd configuration.
 	FluentdConfigUrl interface{} `pulumi:"fluentdConfigUrl"`
 	// The kind of DiagnosticsSink.
+	// Expected value is 'AzureInternalMonitoringPipeline'.
 	Kind string `pulumi:"kind"`
 	// Azure Internal monitoring agent configuration.
 	MaConfigUrl *string `pulumi:"maConfigUrl"`
@@ -215,6 +219,7 @@ type AzureInternalMonitoringPipelineSinkDescriptionResponseArgs struct {
 	// Azure Internal monitoring agent fluentd configuration.
 	FluentdConfigUrl pulumi.Input `pulumi:"fluentdConfigUrl"`
 	// The kind of DiagnosticsSink.
+	// Expected value is 'AzureInternalMonitoringPipeline'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Azure Internal monitoring agent configuration.
 	MaConfigUrl pulumi.StringPtrInput `pulumi:"maConfigUrl"`
@@ -297,6 +302,7 @@ func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) FluentdCon
 }
 
 // The kind of DiagnosticsSink.
+// Expected value is 'AzureInternalMonitoringPipeline'.
 func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) string { return v.Kind }).(pulumi.StringOutput)
 }

@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview.Inputs
 
         /// <summary>
         /// The type of health check.
+        /// Expected value is 'REST'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -19,6 +19,7 @@ type MediaGraphAssetSink struct {
 	// Sink name.
 	Name string `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -42,6 +43,7 @@ type MediaGraphAssetSinkArgs struct {
 	// Sink name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -113,6 +115,7 @@ func (o MediaGraphAssetSinkOutput) Name() pulumi.StringOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 func (o MediaGraphAssetSinkOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSink) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -146,6 +149,7 @@ type MediaGraphAssetSinkResponse struct {
 	// Sink name.
 	Name string `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -169,6 +173,7 @@ type MediaGraphAssetSinkResponseArgs struct {
 	// Sink name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -240,6 +245,7 @@ func (o MediaGraphAssetSinkResponseOutput) Name() pulumi.StringOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 func (o MediaGraphAssetSinkResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSinkResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -269,6 +275,7 @@ type MediaGraphClearEndpoint struct {
 	// Polymorphic credentials to present to the endpoint.
 	Credentials *MediaGraphUsernamePasswordCredentials `pulumi:"credentials"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
 	OdataType string `pulumi:"odataType"`
 	// Url for the endpoint.
 	Url string `pulumi:"url"`
@@ -290,6 +297,7 @@ type MediaGraphClearEndpointArgs struct {
 	// Polymorphic credentials to present to the endpoint.
 	Credentials MediaGraphUsernamePasswordCredentialsPtrInput `pulumi:"credentials"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Url for the endpoint.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -328,6 +336,7 @@ func (o MediaGraphClearEndpointOutput) Credentials() MediaGraphUsernamePasswordC
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
 func (o MediaGraphClearEndpointOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphClearEndpoint) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -342,6 +351,7 @@ type MediaGraphClearEndpointResponse struct {
 	// Polymorphic credentials to present to the endpoint.
 	Credentials *MediaGraphUsernamePasswordCredentialsResponse `pulumi:"credentials"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
 	OdataType string `pulumi:"odataType"`
 	// Url for the endpoint.
 	Url string `pulumi:"url"`
@@ -363,6 +373,7 @@ type MediaGraphClearEndpointResponseArgs struct {
 	// Polymorphic credentials to present to the endpoint.
 	Credentials MediaGraphUsernamePasswordCredentialsResponsePtrInput `pulumi:"credentials"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Url for the endpoint.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -403,6 +414,7 @@ func (o MediaGraphClearEndpointResponseOutput) Credentials() MediaGraphUsernameP
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
 func (o MediaGraphClearEndpointResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphClearEndpointResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -417,6 +429,7 @@ type MediaGraphPemCertificateList struct {
 	// PEM formatted public certificates, one per entry.
 	Certificates []string `pulumi:"certificates"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -436,6 +449,7 @@ type MediaGraphPemCertificateListArgs struct {
 	// PEM formatted public certificates, one per entry.
 	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -523,6 +537,7 @@ func (o MediaGraphPemCertificateListOutput) Certificates() pulumi.StringArrayOut
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 func (o MediaGraphPemCertificateListOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphPemCertificateList) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -556,6 +571,7 @@ func (o MediaGraphPemCertificateListPtrOutput) Certificates() pulumi.StringArray
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 func (o MediaGraphPemCertificateListPtrOutput) OdataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphPemCertificateList) *string {
 		if v == nil {
@@ -570,6 +586,7 @@ type MediaGraphPemCertificateListResponse struct {
 	// PEM formatted public certificates, one per entry.
 	Certificates []string `pulumi:"certificates"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -589,6 +606,7 @@ type MediaGraphPemCertificateListResponseArgs struct {
 	// PEM formatted public certificates, one per entry.
 	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -676,6 +694,7 @@ func (o MediaGraphPemCertificateListResponseOutput) Certificates() pulumi.String
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 func (o MediaGraphPemCertificateListResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphPemCertificateListResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -709,6 +728,7 @@ func (o MediaGraphPemCertificateListResponsePtrOutput) Certificates() pulumi.Str
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 func (o MediaGraphPemCertificateListResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphPemCertificateListResponse) *string {
 		if v == nil {
@@ -725,6 +745,7 @@ type MediaGraphRtspSource struct {
 	// Source name.
 	Name string `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 	OdataType string `pulumi:"odataType"`
 	// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
 	Transport string `pulumi:"transport"`
@@ -748,6 +769,7 @@ type MediaGraphRtspSourceArgs struct {
 	// Source name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
 	Transport pulumi.StringInput `pulumi:"transport"`
@@ -816,6 +838,7 @@ func (o MediaGraphRtspSourceOutput) Name() pulumi.StringOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 func (o MediaGraphRtspSourceOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSource) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -852,6 +875,7 @@ type MediaGraphRtspSourceResponse struct {
 	// Source name.
 	Name string `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 	OdataType string `pulumi:"odataType"`
 	// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
 	Transport string `pulumi:"transport"`
@@ -875,6 +899,7 @@ type MediaGraphRtspSourceResponseArgs struct {
 	// Source name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
 	Transport pulumi.StringInput `pulumi:"transport"`
@@ -943,6 +968,7 @@ func (o MediaGraphRtspSourceResponseOutput) Name() pulumi.StringOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 func (o MediaGraphRtspSourceResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -977,6 +1003,7 @@ type MediaGraphTlsEndpoint struct {
 	// Polymorphic credentials to present to the endpoint.
 	Credentials *MediaGraphUsernamePasswordCredentials `pulumi:"credentials"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
 	OdataType string `pulumi:"odataType"`
 	// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
 	TrustedCertificates *MediaGraphPemCertificateList `pulumi:"trustedCertificates"`
@@ -1002,6 +1029,7 @@ type MediaGraphTlsEndpointArgs struct {
 	// Polymorphic credentials to present to the endpoint.
 	Credentials MediaGraphUsernamePasswordCredentialsPtrInput `pulumi:"credentials"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
 	TrustedCertificates MediaGraphPemCertificateListPtrInput `pulumi:"trustedCertificates"`
@@ -1044,6 +1072,7 @@ func (o MediaGraphTlsEndpointOutput) Credentials() MediaGraphUsernamePasswordCre
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
 func (o MediaGraphTlsEndpointOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpoint) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1068,6 +1097,7 @@ type MediaGraphTlsEndpointResponse struct {
 	// Polymorphic credentials to present to the endpoint.
 	Credentials *MediaGraphUsernamePasswordCredentialsResponse `pulumi:"credentials"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
 	OdataType string `pulumi:"odataType"`
 	// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
 	TrustedCertificates *MediaGraphPemCertificateListResponse `pulumi:"trustedCertificates"`
@@ -1093,6 +1123,7 @@ type MediaGraphTlsEndpointResponseArgs struct {
 	// Polymorphic credentials to present to the endpoint.
 	Credentials MediaGraphUsernamePasswordCredentialsResponsePtrInput `pulumi:"credentials"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
 	TrustedCertificates MediaGraphPemCertificateListResponsePtrInput `pulumi:"trustedCertificates"`
@@ -1137,6 +1168,7 @@ func (o MediaGraphTlsEndpointResponseOutput) Credentials() MediaGraphUsernamePas
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
 func (o MediaGraphTlsEndpointResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpointResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1469,6 +1501,7 @@ func (o MediaGraphTlsValidationOptionsResponsePtrOutput) IgnoreSignature() pulum
 // Username/password credential pair.
 type MediaGraphUsernamePasswordCredentials struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 	OdataType string `pulumi:"odataType"`
 	// Password for a username/password pair.
 	Password string `pulumi:"password"`
@@ -1490,6 +1523,7 @@ type MediaGraphUsernamePasswordCredentialsInput interface {
 // Username/password credential pair.
 type MediaGraphUsernamePasswordCredentialsArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Password for a username/password pair.
 	Password pulumi.StringInput `pulumi:"password"`
@@ -1576,6 +1610,7 @@ func (o MediaGraphUsernamePasswordCredentialsOutput) ToMediaGraphUsernamePasswor
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 func (o MediaGraphUsernamePasswordCredentialsOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentials) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1609,6 +1644,7 @@ func (o MediaGraphUsernamePasswordCredentialsPtrOutput) Elem() MediaGraphUsernam
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 func (o MediaGraphUsernamePasswordCredentialsPtrOutput) OdataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentials) *string {
 		if v == nil {
@@ -1641,6 +1677,7 @@ func (o MediaGraphUsernamePasswordCredentialsPtrOutput) Username() pulumi.String
 // Username/password credential pair.
 type MediaGraphUsernamePasswordCredentialsResponse struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 	OdataType string `pulumi:"odataType"`
 	// Password for a username/password pair.
 	Password string `pulumi:"password"`
@@ -1662,6 +1699,7 @@ type MediaGraphUsernamePasswordCredentialsResponseInput interface {
 // Username/password credential pair.
 type MediaGraphUsernamePasswordCredentialsResponseArgs struct {
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Password for a username/password pair.
 	Password pulumi.StringInput `pulumi:"password"`
@@ -1748,6 +1786,7 @@ func (o MediaGraphUsernamePasswordCredentialsResponseOutput) ToMediaGraphUsernam
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 func (o MediaGraphUsernamePasswordCredentialsResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentialsResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1783,6 +1822,7 @@ func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) Elem() MediaGrap
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentialsResponse) *string {
 		if v == nil {

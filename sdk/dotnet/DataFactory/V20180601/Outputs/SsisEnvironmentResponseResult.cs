@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly string? Name;
         /// <summary>
         /// Type of metadata.
+        /// Expected value is 'Environment'.
         /// </summary>
         public readonly string Type;
         /// <summary>

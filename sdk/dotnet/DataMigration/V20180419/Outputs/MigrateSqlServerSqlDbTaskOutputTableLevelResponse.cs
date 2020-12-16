@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
         public readonly string ResultPrefix;
         /// <summary>
         /// Result type
+        /// Expected value is 'TableLevelOutput'.
         /// </summary>
         public readonly string ResultType;
         /// <summary>

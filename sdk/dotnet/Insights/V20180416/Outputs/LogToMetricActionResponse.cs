@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416.Outputs
         public readonly ImmutableArray<Outputs.CriteriaResponse> Criteria;
         /// <summary>
         /// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        /// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
         /// </summary>
         public readonly string OdataType;
 

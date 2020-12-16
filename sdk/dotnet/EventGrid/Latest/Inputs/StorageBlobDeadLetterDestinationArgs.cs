@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest.Inputs
 
         /// <summary>
         /// Type of the endpoint for the dead letter destination
+        /// Expected value is 'StorageBlob'.
         /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;

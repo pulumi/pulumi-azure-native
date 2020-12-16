@@ -91,6 +91,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Outputs
         public readonly string? ProtectedItemDataId;
         /// <summary>
         /// backup item type.
+        /// Expected value is 'AzureIaaSVMProtectedItem'.
         /// </summary>
         public readonly string? ProtectedItemType;
         /// <summary>

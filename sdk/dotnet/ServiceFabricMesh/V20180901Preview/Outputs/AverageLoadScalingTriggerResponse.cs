@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Outputs
     {
         /// <summary>
         /// The type of auto scaling trigger
+        /// Expected value is 'AverageLoad'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

@@ -17,6 +17,7 @@ type ApiKeyAuthentication struct {
 	// The key name of the authentication key/value pair.
 	Name string `pulumi:"name"`
 	// The authentication type.
+	// Expected value is 'ApiKey'.
 	Type string `pulumi:"type"`
 	// The value of the authentication key/value pair.
 	Value string `pulumi:"value"`
@@ -40,6 +41,7 @@ type ApiKeyAuthenticationArgs struct {
 	// The key name of the authentication key/value pair.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The authentication type.
+	// Expected value is 'ApiKey'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The value of the authentication key/value pair.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -83,6 +85,7 @@ func (o ApiKeyAuthenticationOutput) Name() pulumi.StringOutput {
 }
 
 // The authentication type.
+// Expected value is 'ApiKey'.
 func (o ApiKeyAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -99,6 +102,7 @@ type ApiKeyAuthenticationResponse struct {
 	// The key name of the authentication key/value pair.
 	Name string `pulumi:"name"`
 	// The authentication type.
+	// Expected value is 'ApiKey'.
 	Type string `pulumi:"type"`
 	// The value of the authentication key/value pair.
 	Value string `pulumi:"value"`
@@ -122,6 +126,7 @@ type ApiKeyAuthenticationResponseArgs struct {
 	// The key name of the authentication key/value pair.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The authentication type.
+	// Expected value is 'ApiKey'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The value of the authentication key/value pair.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -165,6 +170,7 @@ func (o ApiKeyAuthenticationResponseOutput) Name() pulumi.StringOutput {
 }
 
 // The authentication type.
+// Expected value is 'ApiKey'.
 func (o ApiKeyAuthenticationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -415,6 +421,7 @@ type HealthCheckStepProperties struct {
 	// The health check step attributes
 	Attributes RestHealthCheckStepAttributes `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'HealthCheck'.
 	StepType string `pulumi:"stepType"`
 }
 
@@ -434,6 +441,7 @@ type HealthCheckStepPropertiesArgs struct {
 	// The health check step attributes
 	Attributes RestHealthCheckStepAttributesInput `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'HealthCheck'.
 	StepType pulumi.StringInput `pulumi:"stepType"`
 }
 
@@ -470,6 +478,7 @@ func (o HealthCheckStepPropertiesOutput) Attributes() RestHealthCheckStepAttribu
 }
 
 // The type of step.
+// Expected value is 'HealthCheck'.
 func (o HealthCheckStepPropertiesOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthCheckStepProperties) string { return v.StepType }).(pulumi.StringOutput)
 }
@@ -479,6 +488,7 @@ type HealthCheckStepPropertiesResponse struct {
 	// The health check step attributes
 	Attributes RestHealthCheckStepAttributesResponse `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'HealthCheck'.
 	StepType string `pulumi:"stepType"`
 }
 
@@ -498,6 +508,7 @@ type HealthCheckStepPropertiesResponseArgs struct {
 	// The health check step attributes
 	Attributes RestHealthCheckStepAttributesResponseInput `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'HealthCheck'.
 	StepType pulumi.StringInput `pulumi:"stepType"`
 }
 
@@ -534,6 +545,7 @@ func (o HealthCheckStepPropertiesResponseOutput) Attributes() RestHealthCheckSte
 }
 
 // The type of step.
+// Expected value is 'HealthCheck'.
 func (o HealthCheckStepPropertiesResponseOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthCheckStepPropertiesResponse) string { return v.StepType }).(pulumi.StringOutput)
 }
@@ -1543,6 +1555,7 @@ type RestHealthCheckStepAttributes struct {
 	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
 	MaxElasticDuration *string `pulumi:"maxElasticDuration"`
 	// The type of health check.
+	// Expected value is 'REST'.
 	Type string `pulumi:"type"`
 	// The duration in ISO 8601 format for which health check waits idly without any checks.
 	WaitDuration *string `pulumi:"waitDuration"`
@@ -1568,6 +1581,7 @@ type RestHealthCheckStepAttributesArgs struct {
 	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
 	MaxElasticDuration pulumi.StringPtrInput `pulumi:"maxElasticDuration"`
 	// The type of health check.
+	// Expected value is 'REST'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The duration in ISO 8601 format for which health check waits idly without any checks.
 	WaitDuration pulumi.StringPtrInput `pulumi:"waitDuration"`
@@ -1616,6 +1630,7 @@ func (o RestHealthCheckStepAttributesOutput) MaxElasticDuration() pulumi.StringP
 }
 
 // The type of health check.
+// Expected value is 'REST'.
 func (o RestHealthCheckStepAttributesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributes) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1634,6 +1649,7 @@ type RestHealthCheckStepAttributesResponse struct {
 	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
 	MaxElasticDuration *string `pulumi:"maxElasticDuration"`
 	// The type of health check.
+	// Expected value is 'REST'.
 	Type string `pulumi:"type"`
 	// The duration in ISO 8601 format for which health check waits idly without any checks.
 	WaitDuration *string `pulumi:"waitDuration"`
@@ -1659,6 +1675,7 @@ type RestHealthCheckStepAttributesResponseArgs struct {
 	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
 	MaxElasticDuration pulumi.StringPtrInput `pulumi:"maxElasticDuration"`
 	// The type of health check.
+	// Expected value is 'REST'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The duration in ISO 8601 format for which health check waits idly without any checks.
 	WaitDuration pulumi.StringPtrInput `pulumi:"waitDuration"`
@@ -1707,6 +1724,7 @@ func (o RestHealthCheckStepAttributesResponseOutput) MaxElasticDuration() pulumi
 }
 
 // The type of health check.
+// Expected value is 'REST'.
 func (o RestHealthCheckStepAttributesResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2477,6 +2495,7 @@ func (o RestResponseResponseRegexPtrOutput) Matches() pulumi.StringArrayOutput {
 // RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
 type RolloutIdentityAuthentication struct {
 	// The authentication type.
+	// Expected value is 'RolloutIdentity'.
 	Type string `pulumi:"type"`
 }
 
@@ -2494,6 +2513,7 @@ type RolloutIdentityAuthenticationInput interface {
 // RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
 type RolloutIdentityAuthenticationArgs struct {
 	// The authentication type.
+	// Expected value is 'RolloutIdentity'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2525,6 +2545,7 @@ func (o RolloutIdentityAuthenticationOutput) ToRolloutIdentityAuthenticationOutp
 }
 
 // The authentication type.
+// Expected value is 'RolloutIdentity'.
 func (o RolloutIdentityAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RolloutIdentityAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2532,6 +2553,7 @@ func (o RolloutIdentityAuthenticationOutput) Type() pulumi.StringOutput {
 // RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
 type RolloutIdentityAuthenticationResponse struct {
 	// The authentication type.
+	// Expected value is 'RolloutIdentity'.
 	Type string `pulumi:"type"`
 }
 
@@ -2549,6 +2571,7 @@ type RolloutIdentityAuthenticationResponseInput interface {
 // RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
 type RolloutIdentityAuthenticationResponseArgs struct {
 	// The authentication type.
+	// Expected value is 'RolloutIdentity'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2580,6 +2603,7 @@ func (o RolloutIdentityAuthenticationResponseOutput) ToRolloutIdentityAuthentica
 }
 
 // The authentication type.
+// Expected value is 'RolloutIdentity'.
 func (o RolloutIdentityAuthenticationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RolloutIdentityAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2825,6 +2849,7 @@ type SasAuthentication struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri string `pulumi:"sasUri"`
 	// The authentication type
+	// Expected value is 'Sas'.
 	Type string `pulumi:"type"`
 }
 
@@ -2844,6 +2869,7 @@ type SasAuthenticationArgs struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri pulumi.StringInput `pulumi:"sasUri"`
 	// The authentication type
+	// Expected value is 'Sas'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2931,6 +2957,7 @@ func (o SasAuthenticationOutput) SasUri() pulumi.StringOutput {
 }
 
 // The authentication type
+// Expected value is 'Sas'.
 func (o SasAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SasAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2964,6 +2991,7 @@ func (o SasAuthenticationPtrOutput) SasUri() pulumi.StringPtrOutput {
 }
 
 // The authentication type
+// Expected value is 'Sas'.
 func (o SasAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasAuthentication) *string {
 		if v == nil {
@@ -2978,6 +3006,7 @@ type SasAuthenticationResponse struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri string `pulumi:"sasUri"`
 	// The authentication type
+	// Expected value is 'Sas'.
 	Type string `pulumi:"type"`
 }
 
@@ -2997,6 +3026,7 @@ type SasAuthenticationResponseArgs struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri pulumi.StringInput `pulumi:"sasUri"`
 	// The authentication type
+	// Expected value is 'Sas'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3084,6 +3114,7 @@ func (o SasAuthenticationResponseOutput) SasUri() pulumi.StringOutput {
 }
 
 // The authentication type
+// Expected value is 'Sas'.
 func (o SasAuthenticationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SasAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3117,6 +3148,7 @@ func (o SasAuthenticationResponsePtrOutput) SasUri() pulumi.StringPtrOutput {
 }
 
 // The authentication type
+// Expected value is 'Sas'.
 func (o SasAuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasAuthenticationResponse) *string {
 		if v == nil {
@@ -4258,6 +4290,7 @@ type WaitStepProperties struct {
 	// The Wait attributes
 	Attributes WaitStepAttributes `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'Wait'.
 	StepType string `pulumi:"stepType"`
 }
 
@@ -4277,6 +4310,7 @@ type WaitStepPropertiesArgs struct {
 	// The Wait attributes
 	Attributes WaitStepAttributesInput `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'Wait'.
 	StepType pulumi.StringInput `pulumi:"stepType"`
 }
 
@@ -4313,6 +4347,7 @@ func (o WaitStepPropertiesOutput) Attributes() WaitStepAttributesOutput {
 }
 
 // The type of step.
+// Expected value is 'Wait'.
 func (o WaitStepPropertiesOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitStepProperties) string { return v.StepType }).(pulumi.StringOutput)
 }
@@ -4322,6 +4357,7 @@ type WaitStepPropertiesResponse struct {
 	// The Wait attributes
 	Attributes WaitStepAttributesResponse `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'Wait'.
 	StepType string `pulumi:"stepType"`
 }
 
@@ -4341,6 +4377,7 @@ type WaitStepPropertiesResponseArgs struct {
 	// The Wait attributes
 	Attributes WaitStepAttributesResponseInput `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'Wait'.
 	StepType pulumi.StringInput `pulumi:"stepType"`
 }
 
@@ -4377,6 +4414,7 @@ func (o WaitStepPropertiesResponseOutput) Attributes() WaitStepAttributesRespons
 }
 
 // The type of step.
+// Expected value is 'Wait'.
 func (o WaitStepPropertiesResponseOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitStepPropertiesResponse) string { return v.StepType }).(pulumi.StringOutput)
 }

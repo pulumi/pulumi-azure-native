@@ -19,6 +19,7 @@ type MediaGraphAssetSink struct {
 	// Sink name
 	Name string `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -42,6 +43,7 @@ type MediaGraphAssetSinkArgs struct {
 	// Sink name
 	Name pulumi.StringInput `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -113,6 +115,7 @@ func (o MediaGraphAssetSinkOutput) Name() pulumi.StringOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 func (o MediaGraphAssetSinkOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSink) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -146,6 +149,7 @@ type MediaGraphAssetSinkResponse struct {
 	// Sink name
 	Name string `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -169,6 +173,7 @@ type MediaGraphAssetSinkResponseArgs struct {
 	// Sink name
 	Name pulumi.StringInput `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -240,6 +245,7 @@ func (o MediaGraphAssetSinkResponseOutput) Name() pulumi.StringOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 func (o MediaGraphAssetSinkResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSinkResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -271,6 +277,7 @@ type MediaGraphRtspSource struct {
 	// Source name
 	Name string `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 	OdataType string `pulumi:"odataType"`
 	// RTSP URL
 	RtspUrl string `pulumi:"rtspUrl"`
@@ -294,6 +301,7 @@ type MediaGraphRtspSourceArgs struct {
 	// Source name
 	Name pulumi.StringInput `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// RTSP URL
 	RtspUrl pulumi.StringInput `pulumi:"rtspUrl"`
@@ -362,6 +370,7 @@ func (o MediaGraphRtspSourceOutput) Name() pulumi.StringOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 func (o MediaGraphRtspSourceOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSource) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -398,6 +407,7 @@ type MediaGraphRtspSourceResponse struct {
 	// Source name
 	Name string `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 	OdataType string `pulumi:"odataType"`
 	// RTSP URL
 	RtspUrl string `pulumi:"rtspUrl"`
@@ -421,6 +431,7 @@ type MediaGraphRtspSourceResponseArgs struct {
 	// Source name
 	Name pulumi.StringInput `pulumi:"name"`
 	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// RTSP URL
 	RtspUrl pulumi.StringInput `pulumi:"rtspUrl"`
@@ -489,6 +500,7 @@ func (o MediaGraphRtspSourceResponseOutput) Name() pulumi.StringOutput {
 }
 
 // The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 func (o MediaGraphRtspSourceResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }

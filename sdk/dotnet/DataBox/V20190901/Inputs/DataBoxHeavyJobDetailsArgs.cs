@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901.Inputs
 
         /// <summary>
         /// Indicates the type of job details.
+        /// Expected value is 'DataBoxHeavy'.
         /// </summary>
         [Input("jobDetailsType", required: true)]
         public Input<string> JobDetailsType { get; set; } = null!;

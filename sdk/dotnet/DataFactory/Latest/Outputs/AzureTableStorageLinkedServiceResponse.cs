@@ -51,6 +51,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? SasUri;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AzureTableStorage'.
         /// </summary>
         public readonly string Type;
 

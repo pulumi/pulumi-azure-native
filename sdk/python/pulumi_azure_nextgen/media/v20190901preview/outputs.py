@@ -31,6 +31,7 @@ class MediaGraphAssetSinkResponse(dict):
         :param Sequence[str] inputs: Sink inputs
         :param str name: Sink name
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
         """
         pulumi.set(__self__, "asset_name", asset_name)
         pulumi.set(__self__, "inputs", inputs)
@@ -66,6 +67,7 @@ class MediaGraphAssetSinkResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -87,6 +89,7 @@ class MediaGraphRtspSourceResponse(dict):
         RTSP source
         :param str name: Source name
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
         :param str rtsp_url: RTSP URL
         :param 'MediaGraphUserCredentialsResponseArgs' credentials: RTSP Credentials
         """
@@ -109,6 +112,7 @@ class MediaGraphRtspSourceResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
         """
         return pulumi.get(self, "odata_type")
 

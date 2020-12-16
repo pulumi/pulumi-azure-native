@@ -29,6 +29,7 @@ class AzureRecoveryServiceVaultProtectionIntentArgs:
         :param pulumi.Input[str] item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
+               Expected value is 'RecoveryServiceVaultItem'.
         :param pulumi.Input[Union[str, 'ProtectionStatus']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
@@ -86,6 +87,7 @@ class AzureRecoveryServiceVaultProtectionIntentArgs:
     def protection_intent_item_type(self) -> Optional[pulumi.Input[str]]:
         """
         backup protectionIntent type.
+        Expected value is 'RecoveryServiceVaultItem'.
         """
         return pulumi.get(self, "protection_intent_item_type")
 
@@ -135,6 +137,7 @@ class AzureResourceProtectionIntentArgs:
         :param pulumi.Input[str] item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
+               Expected value is 'AzureResourceItem'.
         :param pulumi.Input[Union[str, 'ProtectionStatus']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
@@ -206,6 +209,7 @@ class AzureResourceProtectionIntentArgs:
     def protection_intent_item_type(self) -> Optional[pulumi.Input[str]]:
         """
         backup protectionIntent type.
+        Expected value is 'AzureResourceItem'.
         """
         return pulumi.get(self, "protection_intent_item_type")
 

@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701.Outputs
         public readonly ImmutableArray<Union<Outputs.ImageFormatResponse, Outputs.MultiBitrateFormatResponse>> Formats;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
         /// </summary>
         public readonly string OdataType;
 

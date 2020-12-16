@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
 
         /// <summary>
         /// The type of custom setup.
+        /// Expected value is 'CmdkeySetup'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

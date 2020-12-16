@@ -51,6 +51,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly object Tenant;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AzureDataExplorer'.
         /// </summary>
         public readonly string Type;
 

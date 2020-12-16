@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview.Outputs
     {
         /// <summary>
         /// The type of the action that will be triggered by the Automation
+        /// Expected value is 'Workspace'.
         /// </summary>
         public readonly string ActionType;
         /// <summary>

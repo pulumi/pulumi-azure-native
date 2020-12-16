@@ -170,6 +170,7 @@ class AudioAnalyzerPresetResponse(dict):
         """
         The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
         :param str audio_language: The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioAnalyzerPreset')
@@ -181,6 +182,7 @@ class AudioAnalyzerPresetResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -212,6 +214,7 @@ class AudioOverlayResponse(dict):
         """
         Describes the properties of an audio overlay.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.AudioOverlay'.
         :param float audio_gain_level: The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
         :param str end: The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
         :param str fade_in_duration: The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
@@ -238,6 +241,7 @@ class AudioOverlayResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.AudioOverlay'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -307,6 +311,7 @@ class AudioResponse(dict):
         """
         Defines the common properties for all audio codecs.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.Audio'.
         :param int bitrate: The bitrate, in bits per second, of the output encoded audio.
         :param int channels: The number of channels in the audio.
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
@@ -327,6 +332,7 @@ class AudioResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.Audio'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -377,6 +383,7 @@ class BuiltInStandardEncoderPresetResponse(dict):
         """
         Describes a built-in preset for encoding the input video with the Standard Encoder.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
         :param str preset_name: The built-in preset to be used for encoding videos.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.BuiltInStandardEncoderPreset')
@@ -387,6 +394,7 @@ class BuiltInStandardEncoderPresetResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -624,6 +632,7 @@ class ContentKeyPolicyClearKeyConfigurationResponse(dict):
         """
         Represents a configuration for non-DRM keys.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration')
 
@@ -632,6 +641,7 @@ class ContentKeyPolicyClearKeyConfigurationResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -657,6 +667,7 @@ class ContentKeyPolicyFairPlayConfigurationResponse(dict):
         :param str fair_play_pfx: The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
         :param str fair_play_pfx_password: The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
         :param str rental_and_lease_key_type: The rental and lease key type.
         :param int rental_duration: The rental duration. Must be greater than or equal to 0.
         """
@@ -696,6 +707,7 @@ class ContentKeyPolicyFairPlayConfigurationResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -729,6 +741,7 @@ class ContentKeyPolicyOpenRestrictionResponse(dict):
         """
         Represents an open restriction. License or key will be delivered on every request.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyOpenRestriction')
 
@@ -737,6 +750,7 @@ class ContentKeyPolicyOpenRestrictionResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -816,6 +830,7 @@ class ContentKeyPolicyPlayReadyConfigurationResponse(dict):
         Specifies a configuration for PlayReady licenses.
         :param Sequence['ContentKeyPolicyPlayReadyLicenseResponseArgs'] licenses: The PlayReady licenses.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
         :param str response_custom_data: The custom response data.
         """
         pulumi.set(__self__, "licenses", licenses)
@@ -836,6 +851,7 @@ class ContentKeyPolicyPlayReadyConfigurationResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -861,6 +877,7 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse(dict):
         """
         Specifies that the content key ID is in the PlayReady header.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader')
 
@@ -869,6 +886,7 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -888,6 +906,7 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse(dic
         Specifies that the content key ID is specified in the PlayReady configuration.
         :param str key_id: The content key ID.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier')
@@ -905,6 +924,7 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse(dic
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1258,6 +1278,7 @@ class ContentKeyPolicyRsaTokenKeyResponse(dict):
         :param str exponent: The RSA Parameter exponent
         :param str modulus: The RSA Parameter modulus
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
         """
         pulumi.set(__self__, "exponent", exponent)
         pulumi.set(__self__, "modulus", modulus)
@@ -1284,6 +1305,7 @@ class ContentKeyPolicyRsaTokenKeyResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1303,6 +1325,7 @@ class ContentKeyPolicySymmetricTokenKeyResponse(dict):
         Specifies a symmetric key for token validation.
         :param str key_value: The key value of the key
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
         """
         pulumi.set(__self__, "key_value", key_value)
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey')
@@ -1320,6 +1343,7 @@ class ContentKeyPolicySymmetricTokenKeyResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1384,6 +1408,7 @@ class ContentKeyPolicyTokenRestrictionResponse(dict):
         :param str audience: The audience for the token.
         :param str issuer: The token issuer.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
         :param Union['ContentKeyPolicyRsaTokenKeyResponseArgs', 'ContentKeyPolicySymmetricTokenKeyResponseArgs', 'ContentKeyPolicyX509CertificateTokenKeyResponseArgs'] primary_verification_key: The primary verification key.
         :param str restriction_token_type: The type of token.
         :param Sequence[Union['ContentKeyPolicyRsaTokenKeyResponseArgs', 'ContentKeyPolicySymmetricTokenKeyResponseArgs', 'ContentKeyPolicyX509CertificateTokenKeyResponseArgs']] alternate_verification_keys: A list of alternative verification keys.
@@ -1423,6 +1448,7 @@ class ContentKeyPolicyTokenRestrictionResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1480,6 +1506,7 @@ class ContentKeyPolicyUnknownConfigurationResponse(dict):
         """
         Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration')
 
@@ -1488,6 +1515,7 @@ class ContentKeyPolicyUnknownConfigurationResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1505,6 +1533,7 @@ class ContentKeyPolicyUnknownRestrictionResponse(dict):
         """
         Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownRestriction')
 
@@ -1513,6 +1542,7 @@ class ContentKeyPolicyUnknownRestrictionResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1531,6 +1561,7 @@ class ContentKeyPolicyWidevineConfigurationResponse(dict):
         """
         Specifies a configuration for Widevine licenses.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
         :param str widevine_template: The Widevine template.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration')
@@ -1541,6 +1572,7 @@ class ContentKeyPolicyWidevineConfigurationResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1567,6 +1599,7 @@ class ContentKeyPolicyX509CertificateTokenKeyResponse(dict):
         """
         Specifies a certificate for token validation.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
         :param str raw_body: The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey')
@@ -1577,6 +1610,7 @@ class ContentKeyPolicyX509CertificateTokenKeyResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1603,6 +1637,7 @@ class CopyAudioResponse(dict):
         """
         A codec flag, which tells the encoder to copy the input audio bitstream.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.CopyAudio'.
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.CopyAudio')
@@ -1614,6 +1649,7 @@ class CopyAudioResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.CopyAudio'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -1640,6 +1676,7 @@ class CopyVideoResponse(dict):
         """
         A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.CopyVideo'.
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.CopyVideo')
@@ -1651,6 +1688,7 @@ class CopyVideoResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.CopyVideo'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -2075,6 +2113,7 @@ class ImageFormatResponse(dict):
         """
         Describes the properties for an output image file.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ImageFormat'.
         :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.ImageFormat')
@@ -2086,6 +2125,7 @@ class ImageFormatResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ImageFormat'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -2218,6 +2258,7 @@ class JobInputClipResponse(dict):
         """
         Represents input files for a Job.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.JobInputClip'.
         :param Sequence[str] files: List of files. Required for JobInputHttp.
         :param str label: A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         """
@@ -2232,6 +2273,7 @@ class JobInputClipResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.JobInputClip'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -2267,6 +2309,7 @@ class JobInputsResponse(dict):
         """
         Describes a list of inputs to a Job.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.JobInputs'.
         :param Sequence[Union['JobInputClipResponseArgs', 'JobInputsResponseArgs']] inputs: List of inputs to a Job.
         :param str label: A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         """
@@ -2281,6 +2324,7 @@ class JobInputsResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.JobInputs'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -2320,6 +2364,7 @@ class JobOutputAssetResponse(dict):
         :param str asset_name: The name of the output Asset.
         :param 'JobErrorResponseArgs' error: If the JobOutput is in the Error state, it contains the details of the error.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.JobOutputAsset'.
         :param int progress: If the JobOutput is in a Processing state, this contains the job completion percentage.  The value is an estimate and not intended to be used to predict job completion times. To determine if the JobOutput is complete, use the State property.
         :param str state: Describes the state of the JobOutput.
         """
@@ -2350,6 +2395,7 @@ class JobOutputAssetResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.JobOutputAsset'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -2610,6 +2656,7 @@ class MultiBitrateFormatResponse(dict):
         """
         Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MultiBitrateFormat'.
         :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
         :param Sequence['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
@@ -2624,6 +2671,7 @@ class MultiBitrateFormatResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MultiBitrateFormat'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -2774,6 +2822,7 @@ class StandardEncoderPresetResponse(dict):
         """
         Describes all the settings to be used when encoding the input video with the Standard Encoder.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.StandardEncoderPreset'.
         :param Sequence[Union['AudioResponseArgs', 'CopyAudioResponseArgs', 'CopyVideoResponseArgs', 'VideoResponseArgs']] codecs: The list of codecs to be used when encoding the input video.
         :param 'FiltersResponseArgs' filters: One or more filtering operations that are applied to the input media before encoding.
         :param Sequence[Union['ImageFormatResponseArgs', 'MultiBitrateFormatResponseArgs']] formats: The list of outputs to be produced by the encoder.
@@ -2791,6 +2840,7 @@ class StandardEncoderPresetResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.StandardEncoderPreset'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -3403,6 +3453,7 @@ class VideoOverlayResponse(dict):
         """
         Describes the properties of a video overlay.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.VideoOverlay'.
         :param float audio_gain_level: The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
         :param 'RectangleResponseArgs' crop_rectangle: An optional rectangular window used to crop the overlay image or video.
         :param str end: The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
@@ -3438,6 +3489,7 @@ class VideoOverlayResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.VideoOverlay'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -3530,6 +3582,7 @@ class VideoResponse(dict):
         """
         Describes the basic properties for encoding the input video.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.Video'.
         :param str key_frame_interval: The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
@@ -3547,6 +3600,7 @@ class VideoResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.Video'.
         """
         return pulumi.get(self, "odata_type")
 

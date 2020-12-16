@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Outputs
         public readonly string? Description;
         /// <summary>
         /// Describes the kind of secret.
+        /// Expected value is 'SecretResourceProperties'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

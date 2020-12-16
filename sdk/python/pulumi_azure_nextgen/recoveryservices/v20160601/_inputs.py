@@ -39,6 +39,7 @@ class AzureIaaSVMProtectionPolicyArgs:
         """
         Azure VM (also known as IaaS VM) workload-specific backup policy.
         :param pulumi.Input[str] backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureIaasVM'.
         :param pulumi.Input[int] protected_items_count: The number of items associated with this policy.
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: The retention policy with the details on backup copy retention ranges.
         :param pulumi.Input[Union['LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs']] schedule_policy: The backup schedule specified as part of backup policy.
@@ -57,6 +58,7 @@ class AzureIaaSVMProtectionPolicyArgs:
     def backup_management_type(self) -> Optional[pulumi.Input[str]]:
         """
         This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureIaasVM'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -110,6 +112,7 @@ class AzureSqlProtectionPolicyArgs:
         """
          The Azure SQL workload-specific backup policy.
         :param pulumi.Input[str] backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureSql'.
         :param pulumi.Input[int] protected_items_count: The number of items associated with this policy.
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: The retention policy details.
         """
@@ -125,6 +128,7 @@ class AzureSqlProtectionPolicyArgs:
     def backup_management_type(self) -> Optional[pulumi.Input[str]]:
         """
         This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureSql'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -289,6 +293,7 @@ class LongTermRetentionPolicyArgs:
         :param pulumi.Input['DailyRetentionScheduleArgs'] daily_schedule: Daily retention schedule of the backup policy.
         :param pulumi.Input['MonthlyRetentionScheduleArgs'] monthly_schedule: Monthly retention schedule of the backup policy.
         :param pulumi.Input[str] retention_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'LongTermRetentionPolicy'.
         :param pulumi.Input['WeeklyRetentionScheduleArgs'] weekly_schedule: Weekly retention schedule of the backup policy.
         :param pulumi.Input['YearlyRetentionScheduleArgs'] yearly_schedule: Yearly retention schedule of the backup policy.
         """
@@ -332,6 +337,7 @@ class LongTermRetentionPolicyArgs:
     def retention_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LongTermRetentionPolicy'.
         """
         return pulumi.get(self, "retention_policy_type")
 
@@ -371,6 +377,7 @@ class LongTermSchedulePolicyArgs:
         """
         Long-term policy schedule.
         :param pulumi.Input[str] schedule_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'LongTermSchedulePolicy'.
         """
         if schedule_policy_type is not None:
             pulumi.set(__self__, "schedule_policy_type", 'LongTermSchedulePolicy')
@@ -380,6 +387,7 @@ class LongTermSchedulePolicyArgs:
     def schedule_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LongTermSchedulePolicy'.
         """
         return pulumi.get(self, "schedule_policy_type")
 
@@ -398,6 +406,7 @@ class MabProtectionPolicyArgs:
         """
         The backup policy for the file or folder container.
         :param pulumi.Input[str] backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'MAB'.
         :param pulumi.Input[int] protected_items_count: The number of items associated with this policy.
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: The details specified in the Retention policy.
         :param pulumi.Input[Union['LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs']] schedule_policy: The schedule specified in the backup policy.
@@ -416,6 +425,7 @@ class MabProtectionPolicyArgs:
     def backup_management_type(self) -> Optional[pulumi.Input[str]]:
         """
         This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'MAB'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -599,6 +609,7 @@ class SimpleRetentionPolicyArgs:
         Simple policy retention.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of the protection policy.
         :param pulumi.Input[str] retention_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'SimpleRetentionPolicy'.
         """
         if retention_duration is not None:
             pulumi.set(__self__, "retention_duration", retention_duration)
@@ -622,6 +633,7 @@ class SimpleRetentionPolicyArgs:
     def retention_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleRetentionPolicy'.
         """
         return pulumi.get(self, "retention_policy_type")
 
@@ -641,6 +653,7 @@ class SimpleSchedulePolicyArgs:
         """
         Simple policy schedule.
         :param pulumi.Input[str] schedule_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'SimpleSchedulePolicy'.
         :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] schedule_run_days: This list is the days of the week when the schedule runs.
         :param pulumi.Input['ScheduleRunType'] schedule_run_frequency: Defines the frequency interval (daily or weekly) for the schedule policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedule_run_times: List of times, during a day, when the schedule runs.
@@ -662,6 +675,7 @@ class SimpleSchedulePolicyArgs:
     def schedule_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleSchedulePolicy'.
         """
         return pulumi.get(self, "schedule_policy_type")
 

@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Media.V20200201Preview.Inputs
 
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
         /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

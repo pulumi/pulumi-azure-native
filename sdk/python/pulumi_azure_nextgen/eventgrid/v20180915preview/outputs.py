@@ -47,6 +47,7 @@ class BoolEqualsAdvancedFilterResponse(dict):
         """
         BoolEquals Filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'BoolEquals'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param bool value: The filter value
         """
@@ -61,6 +62,7 @@ class BoolEqualsAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'BoolEquals'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -95,6 +97,7 @@ class EventHubEventSubscriptionDestinationResponse(dict):
         """
         Information about the event hub destination for an event subscription
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+               Expected value is 'EventHub'.
         :param str resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'EventHub')
@@ -106,6 +109,7 @@ class EventHubEventSubscriptionDestinationResponse(dict):
     def endpoint_type(self) -> str:
         """
         Type of the endpoint for the event subscription destination
+        Expected value is 'EventHub'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -216,6 +220,7 @@ class HybridConnectionEventSubscriptionDestinationResponse(dict):
         """
         Information about the HybridConnection destination for an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+               Expected value is 'HybridConnection'.
         :param str resource_id: The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'HybridConnection')
@@ -227,6 +232,7 @@ class HybridConnectionEventSubscriptionDestinationResponse(dict):
     def endpoint_type(self) -> str:
         """
         Type of the endpoint for the event subscription destination
+        Expected value is 'HybridConnection'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -326,6 +332,7 @@ class JsonInputSchemaMappingResponse(dict):
         :param 'JsonFieldWithDefaultResponseArgs' event_type: The mapping information for the EventType property of the Event Grid Event.
         :param 'JsonFieldResponseArgs' id: The mapping information for the Id property of the Event Grid Event.
         :param str input_schema_mapping_type: Type of the custom mapping
+               Expected value is 'Json'.
         :param 'JsonFieldWithDefaultResponseArgs' subject: The mapping information for the Subject property of the Event Grid Event.
         :param 'JsonFieldResponseArgs' topic: The mapping information for the Topic property of the Event Grid Event.
         """
@@ -381,6 +388,7 @@ class JsonInputSchemaMappingResponse(dict):
     def input_schema_mapping_type(self) -> Optional[str]:
         """
         Type of the custom mapping
+        Expected value is 'Json'.
         """
         return pulumi.get(self, "input_schema_mapping_type")
 
@@ -416,6 +424,7 @@ class NumberGreaterThanAdvancedFilterResponse(dict):
         """
         NumberGreaterThan Filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'NumberGreaterThan'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param float value: The filter value
         """
@@ -430,6 +439,7 @@ class NumberGreaterThanAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'NumberGreaterThan'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -465,6 +475,7 @@ class NumberGreaterThanOrEqualsAdvancedFilterResponse(dict):
         """
         NumberGreaterThanOrEquals Filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'NumberGreaterThanOrEquals'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param float value: The filter value
         """
@@ -479,6 +490,7 @@ class NumberGreaterThanOrEqualsAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'NumberGreaterThanOrEquals'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -514,6 +526,7 @@ class NumberInAdvancedFilterResponse(dict):
         """
         NumberIn filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'NumberIn'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param Sequence[float] values: The set of filter values
         """
@@ -528,6 +541,7 @@ class NumberInAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'NumberIn'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -563,6 +577,7 @@ class NumberLessThanAdvancedFilterResponse(dict):
         """
         NumberLessThan Filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'NumberLessThan'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param float value: The filter value
         """
@@ -577,6 +592,7 @@ class NumberLessThanAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'NumberLessThan'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -612,6 +628,7 @@ class NumberLessThanOrEqualsAdvancedFilterResponse(dict):
         """
         NumberLessThanOrEquals Filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'NumberLessThanOrEquals'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param float value: The filter value
         """
@@ -626,6 +643,7 @@ class NumberLessThanOrEqualsAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'NumberLessThanOrEquals'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -661,6 +679,7 @@ class NumberNotInAdvancedFilterResponse(dict):
         """
         NumberNotIn Filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'NumberNotIn'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param Sequence[float] values: The set of filter values
         """
@@ -675,6 +694,7 @@ class NumberNotInAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'NumberNotIn'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -748,6 +768,7 @@ class StorageBlobDeadLetterDestinationResponse(dict):
         """
         Information about the storage blob based dead letter destination.
         :param str endpoint_type: Type of the endpoint for the dead letter destination
+               Expected value is 'StorageBlob'.
         :param str blob_container_name: The name of the Storage blob container that is the destination of the deadletter events
         :param str resource_id: The Azure Resource ID of the storage account that is the destination of the deadletter events
         """
@@ -762,6 +783,7 @@ class StorageBlobDeadLetterDestinationResponse(dict):
     def endpoint_type(self) -> str:
         """
         Type of the endpoint for the dead letter destination
+        Expected value is 'StorageBlob'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -797,6 +819,7 @@ class StorageQueueEventSubscriptionDestinationResponse(dict):
         """
         Information about the storage queue destination for an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+               Expected value is 'StorageQueue'.
         :param str queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
         :param str resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
         """
@@ -811,6 +834,7 @@ class StorageQueueEventSubscriptionDestinationResponse(dict):
     def endpoint_type(self) -> str:
         """
         Type of the endpoint for the event subscription destination
+        Expected value is 'StorageQueue'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -846,6 +870,7 @@ class StringBeginsWithAdvancedFilterResponse(dict):
         """
         StringBeginsWith Filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'StringBeginsWith'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param Sequence[str] values: The set of filter values
         """
@@ -860,6 +885,7 @@ class StringBeginsWithAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'StringBeginsWith'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -895,6 +921,7 @@ class StringContainsAdvancedFilterResponse(dict):
         """
         StringContains Filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'StringContains'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param Sequence[str] values: The set of filter values
         """
@@ -909,6 +936,7 @@ class StringContainsAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'StringContains'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -944,6 +972,7 @@ class StringEndsWithAdvancedFilterResponse(dict):
         """
         StringEndsWith Filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'StringEndsWith'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param Sequence[str] values: The set of filter values
         """
@@ -958,6 +987,7 @@ class StringEndsWithAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'StringEndsWith'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -993,6 +1023,7 @@ class StringInAdvancedFilterResponse(dict):
         """
         StringIn Filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'StringIn'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param Sequence[str] values: The set of filter values
         """
@@ -1007,6 +1038,7 @@ class StringInAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'StringIn'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1042,6 +1074,7 @@ class StringNotInAdvancedFilterResponse(dict):
         """
         StringNotIn Filter
         :param str operator_type: Represents the filter operator
+               Expected value is 'StringNotIn'.
         :param str key: The filter key. Represents an event property with up to two levels of nesting.
         :param Sequence[str] values: The set of filter values
         """
@@ -1056,6 +1089,7 @@ class StringNotInAdvancedFilterResponse(dict):
     def operator_type(self) -> str:
         """
         Represents the filter operator
+        Expected value is 'StringNotIn'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1092,6 +1126,7 @@ class WebHookEventSubscriptionDestinationResponse(dict):
         Information about the webhook destination for an event subscription
         :param str endpoint_base_url: The base URL that represents the endpoint of the destination of an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+               Expected value is 'WebHook'.
         :param str endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
@@ -1112,6 +1147,7 @@ class WebHookEventSubscriptionDestinationResponse(dict):
     def endpoint_type(self) -> str:
         """
         Type of the endpoint for the event subscription destination
+        Expected value is 'WebHook'.
         """
         return pulumi.get(self, "endpoint_type")
 

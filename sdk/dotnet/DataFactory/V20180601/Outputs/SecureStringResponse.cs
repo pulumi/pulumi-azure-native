@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
     {
         /// <summary>
         /// Type of the secret.
+        /// Expected value is 'SecureString'.
         /// </summary>
         public readonly string Type;
         /// <summary>

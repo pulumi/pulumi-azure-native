@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest.Outputs
         public readonly string LowKey;
         /// <summary>
         /// Specifies how the service is partitioned.
+        /// Expected value is 'UniformInt64Range'.
         /// </summary>
         public readonly string PartitionScheme;
 

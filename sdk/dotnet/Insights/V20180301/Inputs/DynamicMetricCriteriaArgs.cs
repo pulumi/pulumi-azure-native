@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Inputs
 
         /// <summary>
         /// Specifies the type of threshold criteria
+        /// Expected value is 'DynamicThresholdCriterion'.
         /// </summary>
         [Input("criterionType", required: true)]
         public Input<string> CriterionType { get; set; } = null!;

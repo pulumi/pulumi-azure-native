@@ -49,6 +49,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview.Inputs
 
         /// <summary>
         /// Type of distribution.
+        /// Expected value is 'SharedImage'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

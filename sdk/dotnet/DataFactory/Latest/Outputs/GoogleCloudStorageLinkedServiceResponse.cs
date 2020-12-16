@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? ServiceUrl;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'GoogleCloudStorage'.
         /// </summary>
         public readonly string Type;
 

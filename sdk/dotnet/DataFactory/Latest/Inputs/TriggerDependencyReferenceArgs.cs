@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
 
         /// <summary>
         /// The type of dependency reference.
+        /// Expected value is 'TriggerDependencyReference'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

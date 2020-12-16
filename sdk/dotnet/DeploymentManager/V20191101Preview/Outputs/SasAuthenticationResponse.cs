@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview.Outputs
         public readonly string SasUri;
         /// <summary>
         /// The authentication type
+        /// Expected value is 'Sas'.
         /// </summary>
         public readonly string Type;
 

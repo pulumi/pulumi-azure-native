@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Inputs
 
         /// <summary>
         /// Task type.
+        /// Expected value is 'ConnectToTarget.AzureSqlDbMI'.
         /// </summary>
         [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;

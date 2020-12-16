@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20191101Preview.Inputs
 
         /// <summary>
         /// Specifies how the service is partitioned.
+        /// Expected value is 'Named'.
         /// </summary>
         [Input("partitionScheme", required: true)]
         public Input<string> PartitionScheme { get; set; } = null!;

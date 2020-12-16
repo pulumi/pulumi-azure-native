@@ -131,6 +131,7 @@ class VmGuestHealthAlertCriterionResponse(dict):
         Specifies the health alert criteria to alert on.
         :param Sequence['HealthStateResponseArgs'] health_states: Health states to alert on
         :param str namespace: specifies the type of the alert criterion.
+               Expected value is 'GuestVmHealth'.
         :param Sequence[str] monitor_names: Names of health monitor on which to define alert
         :param Sequence[str] monitor_types: Names of health monitor type on which to define alert
         """
@@ -154,6 +155,7 @@ class VmGuestHealthAlertCriterionResponse(dict):
     def namespace(self) -> str:
         """
         specifies the type of the alert criterion.
+        Expected value is 'GuestVmHealth'.
         """
         return pulumi.get(self, "namespace")
 

@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Inputs
 
         /// <summary>
         /// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        /// Expected value is 'gcpCredentials'.
         /// </summary>
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;

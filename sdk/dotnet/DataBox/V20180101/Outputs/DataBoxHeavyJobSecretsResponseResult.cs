@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101.Outputs
         public readonly ImmutableArray<Outputs.DataBoxHeavySecretResponseResult> CabinetPodSecrets;
         /// <summary>
         /// Used to indicate what type of job secrets object.
+        /// Expected value is 'DataBoxHeavy'.
         /// </summary>
         public readonly string JobSecretsType;
 

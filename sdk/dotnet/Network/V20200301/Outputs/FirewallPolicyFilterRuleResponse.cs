@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Outputs
         public readonly ImmutableArray<Union<Outputs.ApplicationRuleConditionResponse, Union<Outputs.NatRuleConditionResponse, Outputs.NetworkRuleConditionResponse>>> RuleConditions;
         /// <summary>
         /// The type of the rule.
+        /// Expected value is 'FirewallPolicyFilterRule'.
         /// </summary>
         public readonly string RuleType;
 

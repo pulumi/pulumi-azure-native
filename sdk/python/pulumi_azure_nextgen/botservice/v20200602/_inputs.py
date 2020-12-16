@@ -54,6 +54,7 @@ class AlexaChannelArgs:
         """
         Alexa channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'AlexaChannel'.
         :param pulumi.Input['AlexaChannelPropertiesArgs'] properties: The set of properties specific to Alexa channel resource
         """
         pulumi.set(__self__, "channel_name", 'AlexaChannel')
@@ -65,6 +66,7 @@ class AlexaChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'AlexaChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -440,6 +442,7 @@ class DirectLineChannelArgs:
         """
         Direct Line channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'DirectLineChannel'.
         :param pulumi.Input['DirectLineChannelPropertiesArgs'] properties: The set of properties specific to Direct Line channel resource
         """
         pulumi.set(__self__, "channel_name", 'DirectLineChannel')
@@ -451,6 +454,7 @@ class DirectLineChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'DirectLineChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -603,6 +607,7 @@ class DirectLineSpeechChannelArgs:
         """
         DirectLine Speech channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'DirectLineSpeechChannel'.
         :param pulumi.Input['DirectLineSpeechChannelPropertiesArgs'] properties: The set of properties specific to DirectLine Speech channel resource
         """
         pulumi.set(__self__, "channel_name", 'DirectLineSpeechChannel')
@@ -614,6 +619,7 @@ class DirectLineSpeechChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'DirectLineSpeechChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -729,6 +735,7 @@ class EmailChannelArgs:
         """
         Email channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'EmailChannel'.
         :param pulumi.Input['EmailChannelPropertiesArgs'] properties: The set of properties specific to email channel resource
         """
         pulumi.set(__self__, "channel_name", 'EmailChannel')
@@ -740,6 +747,7 @@ class EmailChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'EmailChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -821,6 +829,7 @@ class FacebookChannelArgs:
         """
         Facebook channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'FacebookChannel'.
         :param pulumi.Input['FacebookChannelPropertiesArgs'] properties: The set of properties specific to bot facebook channel
         """
         pulumi.set(__self__, "channel_name", 'FacebookChannel')
@@ -832,6 +841,7 @@ class FacebookChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'FacebookChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -967,6 +977,7 @@ class KikChannelArgs:
         """
         Kik channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'KikChannel'.
         :param pulumi.Input['KikChannelPropertiesArgs'] properties: The set of properties specific to Kik channel resource
         """
         pulumi.set(__self__, "channel_name", 'KikChannel')
@@ -978,6 +989,7 @@ class KikChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'KikChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1075,6 +1087,7 @@ class LineChannelArgs:
         """
         Line channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'LineChannel'.
         :param pulumi.Input['LineChannelPropertiesArgs'] properties: The set of properties specific to line channel resource
         """
         pulumi.set(__self__, "channel_name", 'LineChannel')
@@ -1086,6 +1099,7 @@ class LineChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'LineChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1177,6 +1191,7 @@ class MsTeamsChannelArgs:
         """
         Microsoft Teams channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'MsTeamsChannel'.
         :param pulumi.Input['MsTeamsChannelPropertiesArgs'] properties: The set of properties specific to Microsoft Teams channel resource
         """
         pulumi.set(__self__, "channel_name", 'MsTeamsChannel')
@@ -1188,6 +1203,7 @@ class MsTeamsChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'MsTeamsChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1294,6 +1310,7 @@ class SkypeChannelArgs:
         """
         Skype channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'SkypeChannel'.
         :param pulumi.Input['SkypeChannelPropertiesArgs'] properties: The set of properties specific to Skype channel resource
         """
         pulumi.set(__self__, "channel_name", 'SkypeChannel')
@@ -1305,6 +1322,7 @@ class SkypeChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'SkypeChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1484,6 +1502,7 @@ class SlackChannelArgs:
         """
         Slack channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'SlackChannel'.
         :param pulumi.Input['SlackChannelPropertiesArgs'] properties: The set of properties specific to Slack channel resource
         """
         pulumi.set(__self__, "channel_name", 'SlackChannel')
@@ -1495,6 +1514,7 @@ class SlackChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'SlackChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1623,6 +1643,7 @@ class SmsChannelArgs:
         """
         Sms channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'SmsChannel'.
         :param pulumi.Input['SmsChannelPropertiesArgs'] properties: The set of properties specific to Sms channel resource
         """
         pulumi.set(__self__, "channel_name", 'SmsChannel')
@@ -1634,6 +1655,7 @@ class SmsChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'SmsChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1746,6 +1768,7 @@ class TelegramChannelArgs:
         """
         Telegram channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'TelegramChannel'.
         :param pulumi.Input['TelegramChannelPropertiesArgs'] properties: The set of properties specific to Telegram channel resource
         """
         pulumi.set(__self__, "channel_name", 'TelegramChannel')
@@ -1757,6 +1780,7 @@ class TelegramChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'TelegramChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1839,6 +1863,7 @@ class WebChatChannelArgs:
         """
         Web Chat channel definition
         :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'WebChatChannel'.
         :param pulumi.Input['WebChatChannelPropertiesArgs'] properties: The set of properties specific to Web Chat channel resource
         """
         pulumi.set(__self__, "channel_name", 'WebChatChannel')
@@ -1850,6 +1875,7 @@ class WebChatChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
+        Expected value is 'WebChatChannel'.
         """
         return pulumi.get(self, "channel_name")
 

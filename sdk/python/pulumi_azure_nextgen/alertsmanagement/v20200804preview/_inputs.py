@@ -129,6 +129,7 @@ class VmGuestHealthAlertCriterionArgs:
         Specifies the health alert criteria to alert on.
         :param pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]] health_states: Health states to alert on
         :param pulumi.Input[str] namespace: specifies the type of the alert criterion.
+               Expected value is 'GuestVmHealth'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_names: Names of health monitor on which to define alert
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_types: Names of health monitor type on which to define alert
         """
@@ -156,6 +157,7 @@ class VmGuestHealthAlertCriterionArgs:
     def namespace(self) -> pulumi.Input[str]:
         """
         specifies the type of the alert criterion.
+        Expected value is 'GuestVmHealth'.
         """
         return pulumi.get(self, "namespace")
 

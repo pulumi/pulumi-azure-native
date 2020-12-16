@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Inputs
 
         /// <summary>
         /// Task type.
+        /// Expected value is 'GetTDECertificates.Sql'.
         /// </summary>
         [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;

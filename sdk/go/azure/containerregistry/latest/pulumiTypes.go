@@ -2039,6 +2039,7 @@ type DockerBuildStepResponse struct {
 	// The name of the target build stage for the docker build.
 	Target *string `pulumi:"target"`
 	// The type of the step.
+	// Expected value is 'Docker'.
 	Type string `pulumi:"type"`
 }
 
@@ -2074,6 +2075,7 @@ type DockerBuildStepResponseArgs struct {
 	// The name of the target build stage for the docker build.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 	// The type of the step.
+	// Expected value is 'Docker'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2150,6 +2152,7 @@ func (o DockerBuildStepResponseOutput) Target() pulumi.StringPtrOutput {
 }
 
 // The type of the step.
+// Expected value is 'Docker'.
 func (o DockerBuildStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2167,6 +2170,7 @@ type EncodedTaskStepResponse struct {
 	// Base64 encoded value of the parameters/values file content.
 	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
 	// The type of the step.
+	// Expected value is 'EncodedTask'.
 	Type string `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values []SetValueResponse `pulumi:"values"`
@@ -2196,6 +2200,7 @@ type EncodedTaskStepResponseArgs struct {
 	// Base64 encoded value of the parameters/values file content.
 	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
 	// The type of the step.
+	// Expected value is 'EncodedTask'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values SetValueResponseArrayInput `pulumi:"values"`
@@ -2254,6 +2259,7 @@ func (o EncodedTaskStepResponseOutput) EncodedValuesContent() pulumi.StringPtrOu
 }
 
 // The type of the step.
+// Expected value is 'EncodedTask'.
 func (o EncodedTaskStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3060,6 +3066,7 @@ type FileTaskStepResponse struct {
 	// The task template/definition file path relative to the source context.
 	TaskFilePath string `pulumi:"taskFilePath"`
 	// The type of the step.
+	// Expected value is 'FileTask'.
 	Type string `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values []SetValueResponse `pulumi:"values"`
@@ -3089,6 +3096,7 @@ type FileTaskStepResponseArgs struct {
 	// The task template/definition file path relative to the source context.
 	TaskFilePath pulumi.StringInput `pulumi:"taskFilePath"`
 	// The type of the step.
+	// Expected value is 'FileTask'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values SetValueResponseArrayInput `pulumi:"values"`
@@ -3144,6 +3152,7 @@ func (o FileTaskStepResponseOutput) TaskFilePath() pulumi.StringOutput {
 }
 
 // The type of the step.
+// Expected value is 'FileTask'.
 func (o FileTaskStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }

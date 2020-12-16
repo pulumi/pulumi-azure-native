@@ -2110,6 +2110,7 @@ type DockerBuildRequest struct {
 	// Run timeout in seconds.
 	Timeout *int `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'DockerBuildRequest'.
 	Type string `pulumi:"type"`
 }
 
@@ -2156,6 +2157,7 @@ type DockerBuildRequestArgs struct {
 	// Run timeout in seconds.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'DockerBuildRequest'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2258,6 +2260,7 @@ func (o DockerBuildRequestOutput) Timeout() pulumi.IntPtrOutput {
 }
 
 // The type of the run request.
+// Expected value is 'DockerBuildRequest'.
 func (o DockerBuildRequestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildRequest) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2294,6 +2297,7 @@ type DockerBuildRequestResponse struct {
 	// Run timeout in seconds.
 	Timeout *int `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'DockerBuildRequest'.
 	Type string `pulumi:"type"`
 }
 
@@ -2340,6 +2344,7 @@ type DockerBuildRequestResponseArgs struct {
 	// Run timeout in seconds.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'DockerBuildRequest'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2442,6 +2447,7 @@ func (o DockerBuildRequestResponseOutput) Timeout() pulumi.IntPtrOutput {
 }
 
 // The type of the run request.
+// Expected value is 'DockerBuildRequest'.
 func (o DockerBuildRequestResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2465,6 +2471,7 @@ type DockerBuildStep struct {
 	// The name of the target build stage for the docker build.
 	Target *string `pulumi:"target"`
 	// The type of the step.
+	// Expected value is 'Docker'.
 	Type string `pulumi:"type"`
 }
 
@@ -2498,6 +2505,7 @@ type DockerBuildStepArgs struct {
 	// The name of the target build stage for the docker build.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 	// The type of the step.
+	// Expected value is 'Docker'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2569,6 +2577,7 @@ func (o DockerBuildStepOutput) Target() pulumi.StringPtrOutput {
 }
 
 // The type of the step.
+// Expected value is 'Docker'.
 func (o DockerBuildStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStep) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2594,6 +2603,7 @@ type DockerBuildStepResponse struct {
 	// The name of the target build stage for the docker build.
 	Target *string `pulumi:"target"`
 	// The type of the step.
+	// Expected value is 'Docker'.
 	Type string `pulumi:"type"`
 }
 
@@ -2629,6 +2639,7 @@ type DockerBuildStepResponseArgs struct {
 	// The name of the target build stage for the docker build.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 	// The type of the step.
+	// Expected value is 'Docker'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2705,6 +2716,7 @@ func (o DockerBuildStepResponseOutput) Target() pulumi.StringPtrOutput {
 }
 
 // The type of the step.
+// Expected value is 'Docker'.
 func (o DockerBuildStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2733,6 +2745,7 @@ type EncodedTaskRunRequest struct {
 	// Run timeout in seconds.
 	Timeout *int `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'EncodedTaskRunRequest'.
 	Type string `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values []SetValue `pulumi:"values"`
@@ -2773,6 +2786,7 @@ type EncodedTaskRunRequestArgs struct {
 	// Run timeout in seconds.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'EncodedTaskRunRequest'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values SetValueArrayInput `pulumi:"values"`
@@ -2857,6 +2871,7 @@ func (o EncodedTaskRunRequestOutput) Timeout() pulumi.IntPtrOutput {
 }
 
 // The type of the run request.
+// Expected value is 'EncodedTaskRunRequest'.
 func (o EncodedTaskRunRequestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2890,6 +2905,7 @@ type EncodedTaskRunRequestResponse struct {
 	// Run timeout in seconds.
 	Timeout *int `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'EncodedTaskRunRequest'.
 	Type string `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values []SetValueResponse `pulumi:"values"`
@@ -2930,6 +2946,7 @@ type EncodedTaskRunRequestResponseArgs struct {
 	// Run timeout in seconds.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'EncodedTaskRunRequest'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values SetValueResponseArrayInput `pulumi:"values"`
@@ -3014,6 +3031,7 @@ func (o EncodedTaskRunRequestResponseOutput) Timeout() pulumi.IntPtrOutput {
 }
 
 // The type of the run request.
+// Expected value is 'EncodedTaskRunRequest'.
 func (o EncodedTaskRunRequestResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3034,6 +3052,7 @@ type EncodedTaskStep struct {
 	// Base64 encoded value of the parameters/values file content.
 	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
 	// The type of the step.
+	// Expected value is 'EncodedTask'.
 	Type string `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values []SetValue `pulumi:"values"`
@@ -3061,6 +3080,7 @@ type EncodedTaskStepArgs struct {
 	// Base64 encoded value of the parameters/values file content.
 	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
 	// The type of the step.
+	// Expected value is 'EncodedTask'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values SetValueArrayInput `pulumi:"values"`
@@ -3114,6 +3134,7 @@ func (o EncodedTaskStepOutput) EncodedValuesContent() pulumi.StringPtrOutput {
 }
 
 // The type of the step.
+// Expected value is 'EncodedTask'.
 func (o EncodedTaskStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskStep) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3136,6 +3157,7 @@ type EncodedTaskStepResponse struct {
 	// Base64 encoded value of the parameters/values file content.
 	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
 	// The type of the step.
+	// Expected value is 'EncodedTask'.
 	Type string `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values []SetValueResponse `pulumi:"values"`
@@ -3165,6 +3187,7 @@ type EncodedTaskStepResponseArgs struct {
 	// Base64 encoded value of the parameters/values file content.
 	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
 	// The type of the step.
+	// Expected value is 'EncodedTask'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values SetValueResponseArrayInput `pulumi:"values"`
@@ -3223,6 +3246,7 @@ func (o EncodedTaskStepResponseOutput) EncodedValuesContent() pulumi.StringPtrOu
 }
 
 // The type of the step.
+// Expected value is 'EncodedTask'.
 func (o EncodedTaskStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3254,6 +3278,7 @@ type FileTaskRunRequest struct {
 	// Run timeout in seconds.
 	Timeout *int `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'FileTaskRunRequest'.
 	Type string `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values []SetValue `pulumi:"values"`
@@ -3294,6 +3319,7 @@ type FileTaskRunRequestArgs struct {
 	// Run timeout in seconds.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'FileTaskRunRequest'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values SetValueArrayInput `pulumi:"values"`
@@ -3375,6 +3401,7 @@ func (o FileTaskRunRequestOutput) Timeout() pulumi.IntPtrOutput {
 }
 
 // The type of the run request.
+// Expected value is 'FileTaskRunRequest'.
 func (o FileTaskRunRequestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3411,6 +3438,7 @@ type FileTaskRunRequestResponse struct {
 	// Run timeout in seconds.
 	Timeout *int `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'FileTaskRunRequest'.
 	Type string `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values []SetValueResponse `pulumi:"values"`
@@ -3451,6 +3479,7 @@ type FileTaskRunRequestResponseArgs struct {
 	// Run timeout in seconds.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// The type of the run request.
+	// Expected value is 'FileTaskRunRequest'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values SetValueResponseArrayInput `pulumi:"values"`
@@ -3532,6 +3561,7 @@ func (o FileTaskRunRequestResponseOutput) Timeout() pulumi.IntPtrOutput {
 }
 
 // The type of the run request.
+// Expected value is 'FileTaskRunRequest'.
 func (o FileTaskRunRequestResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3555,6 +3585,7 @@ type FileTaskStep struct {
 	// The task template/definition file path relative to the source context.
 	TaskFilePath string `pulumi:"taskFilePath"`
 	// The type of the step.
+	// Expected value is 'FileTask'.
 	Type string `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values []SetValue `pulumi:"values"`
@@ -3582,6 +3613,7 @@ type FileTaskStepArgs struct {
 	// The task template/definition file path relative to the source context.
 	TaskFilePath pulumi.StringInput `pulumi:"taskFilePath"`
 	// The type of the step.
+	// Expected value is 'FileTask'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values SetValueArrayInput `pulumi:"values"`
@@ -3632,6 +3664,7 @@ func (o FileTaskStepOutput) TaskFilePath() pulumi.StringOutput {
 }
 
 // The type of the step.
+// Expected value is 'FileTask'.
 func (o FileTaskStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskStep) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3657,6 +3690,7 @@ type FileTaskStepResponse struct {
 	// The task template/definition file path relative to the source context.
 	TaskFilePath string `pulumi:"taskFilePath"`
 	// The type of the step.
+	// Expected value is 'FileTask'.
 	Type string `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values []SetValueResponse `pulumi:"values"`
@@ -3686,6 +3720,7 @@ type FileTaskStepResponseArgs struct {
 	// The task template/definition file path relative to the source context.
 	TaskFilePath pulumi.StringInput `pulumi:"taskFilePath"`
 	// The type of the step.
+	// Expected value is 'FileTask'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The collection of overridable values that can be passed when running a task.
 	Values SetValueResponseArrayInput `pulumi:"values"`
@@ -3741,6 +3776,7 @@ func (o FileTaskStepResponseOutput) TaskFilePath() pulumi.StringOutput {
 }
 
 // The type of the step.
+// Expected value is 'FileTask'.
 func (o FileTaskStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7748,6 +7784,7 @@ type TaskRunRequest struct {
 	// The resource ID of task against which run has to be queued.
 	TaskId string `pulumi:"taskId"`
 	// The type of the run request.
+	// Expected value is 'TaskRunRequest'.
 	Type string `pulumi:"type"`
 }
 
@@ -7775,6 +7812,7 @@ type TaskRunRequestArgs struct {
 	// The resource ID of task against which run has to be queued.
 	TaskId pulumi.StringInput `pulumi:"taskId"`
 	// The type of the run request.
+	// Expected value is 'TaskRunRequest'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7831,6 +7869,7 @@ func (o TaskRunRequestOutput) TaskId() pulumi.StringOutput {
 }
 
 // The type of the run request.
+// Expected value is 'TaskRunRequest'.
 func (o TaskRunRequestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskRunRequest) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7848,6 +7887,7 @@ type TaskRunRequestResponse struct {
 	// The resource ID of task against which run has to be queued.
 	TaskId string `pulumi:"taskId"`
 	// The type of the run request.
+	// Expected value is 'TaskRunRequest'.
 	Type string `pulumi:"type"`
 }
 
@@ -7875,6 +7915,7 @@ type TaskRunRequestResponseArgs struct {
 	// The resource ID of task against which run has to be queued.
 	TaskId pulumi.StringInput `pulumi:"taskId"`
 	// The type of the run request.
+	// Expected value is 'TaskRunRequest'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7933,6 +7974,7 @@ func (o TaskRunRequestResponseOutput) TaskId() pulumi.StringOutput {
 }
 
 // The type of the run request.
+// Expected value is 'TaskRunRequest'.
 func (o TaskRunRequestResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskRunRequestResponse) string { return v.Type }).(pulumi.StringOutput)
 }

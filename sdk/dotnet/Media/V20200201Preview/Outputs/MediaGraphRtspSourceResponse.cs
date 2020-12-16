@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Media.V20200201Preview.Outputs
         public readonly string Name;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

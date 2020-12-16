@@ -112,6 +112,7 @@ func (o ControllerConnectionDetailsResponseArrayOutput) Index(i pulumi.IntInput)
 // Contains information used to connect to a Kubernetes cluster
 type KubernetesConnectionDetailsResponse struct {
 	// Gets the Instance type.
+	// Expected value is 'Kubernetes'.
 	InstanceType string `pulumi:"instanceType"`
 	// Gets the kubeconfig for the cluster.
 	KubeConfig *string `pulumi:"kubeConfig"`
@@ -131,6 +132,7 @@ type KubernetesConnectionDetailsResponseInput interface {
 // Contains information used to connect to a Kubernetes cluster
 type KubernetesConnectionDetailsResponseArgs struct {
 	// Gets the Instance type.
+	// Expected value is 'Kubernetes'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// Gets the kubeconfig for the cluster.
 	KubeConfig pulumi.StringPtrInput `pulumi:"kubeConfig"`
@@ -215,6 +217,7 @@ func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetails
 }
 
 // Gets the Instance type.
+// Expected value is 'Kubernetes'.
 func (o KubernetesConnectionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesConnectionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -243,6 +246,7 @@ func (o KubernetesConnectionDetailsResponsePtrOutput) Elem() KubernetesConnectio
 }
 
 // Gets the Instance type.
+// Expected value is 'Kubernetes'.
 func (o KubernetesConnectionDetailsResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) *string {
 		if v == nil {

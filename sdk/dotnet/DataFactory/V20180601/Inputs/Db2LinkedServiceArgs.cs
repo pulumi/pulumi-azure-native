@@ -101,6 +101,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
 
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Db2'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

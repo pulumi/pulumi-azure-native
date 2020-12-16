@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview.Outputs
         public readonly string? Sku;
         /// <summary>
         /// Specifies the type of source image you want to start with.
+        /// Expected value is 'PlatformImage'.
         /// </summary>
         public readonly string Type;
         /// <summary>

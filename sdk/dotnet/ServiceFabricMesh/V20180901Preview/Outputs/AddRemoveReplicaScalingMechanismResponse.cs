@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Outputs
     {
         /// <summary>
         /// The type of auto scaling mechanism.
+        /// Expected value is 'AddRemoveReplica'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

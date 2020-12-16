@@ -1267,6 +1267,7 @@ type ServerPropertiesForDefaultCreate struct {
 	// The password of the administrator login.
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
 	// The mode to create a new server.
+	// Expected value is 'Default'.
 	CreateMode string `pulumi:"createMode"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
@@ -1300,6 +1301,7 @@ type ServerPropertiesForDefaultCreateArgs struct {
 	// The password of the administrator login.
 	AdministratorLoginPassword pulumi.StringInput `pulumi:"administratorLoginPassword"`
 	// The mode to create a new server.
+	// Expected value is 'Default'.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption pulumi.StringPtrInput `pulumi:"infrastructureEncryption"`
@@ -1353,6 +1355,7 @@ func (o ServerPropertiesForDefaultCreateOutput) AdministratorLoginPassword() pul
 }
 
 // The mode to create a new server.
+// Expected value is 'Default'.
 func (o ServerPropertiesForDefaultCreateOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) string { return v.CreateMode }).(pulumi.StringOutput)
 }
@@ -1390,6 +1393,7 @@ func (o ServerPropertiesForDefaultCreateOutput) Version() pulumi.StringPtrOutput
 // The properties used to create a new server by restoring to a different region from a geo replicated backup.
 type ServerPropertiesForGeoRestore struct {
 	// The mode to create a new server.
+	// Expected value is 'GeoRestore'.
 	CreateMode string `pulumi:"createMode"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
@@ -1421,6 +1425,7 @@ type ServerPropertiesForGeoRestoreInput interface {
 // The properties used to create a new server by restoring to a different region from a geo replicated backup.
 type ServerPropertiesForGeoRestoreArgs struct {
 	// The mode to create a new server.
+	// Expected value is 'GeoRestore'.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption pulumi.StringPtrInput `pulumi:"infrastructureEncryption"`
@@ -1466,6 +1471,7 @@ func (o ServerPropertiesForGeoRestoreOutput) ToServerPropertiesForGeoRestoreOutp
 }
 
 // The mode to create a new server.
+// Expected value is 'GeoRestore'.
 func (o ServerPropertiesForGeoRestoreOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) string { return v.CreateMode }).(pulumi.StringOutput)
 }
@@ -1508,6 +1514,7 @@ func (o ServerPropertiesForGeoRestoreOutput) Version() pulumi.StringPtrOutput {
 // The properties to create a new replica.
 type ServerPropertiesForReplica struct {
 	// The mode to create a new server.
+	// Expected value is 'Replica'.
 	CreateMode string `pulumi:"createMode"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
@@ -1539,6 +1546,7 @@ type ServerPropertiesForReplicaInput interface {
 // The properties to create a new replica.
 type ServerPropertiesForReplicaArgs struct {
 	// The mode to create a new server.
+	// Expected value is 'Replica'.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption pulumi.StringPtrInput `pulumi:"infrastructureEncryption"`
@@ -1584,6 +1592,7 @@ func (o ServerPropertiesForReplicaOutput) ToServerPropertiesForReplicaOutputWith
 }
 
 // The mode to create a new server.
+// Expected value is 'Replica'.
 func (o ServerPropertiesForReplicaOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) string { return v.CreateMode }).(pulumi.StringOutput)
 }
@@ -1626,6 +1635,7 @@ func (o ServerPropertiesForReplicaOutput) Version() pulumi.StringPtrOutput {
 // The properties used to create a new server by restoring from a backup.
 type ServerPropertiesForRestore struct {
 	// The mode to create a new server.
+	// Expected value is 'PointInTimeRestore'.
 	CreateMode string `pulumi:"createMode"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
@@ -1659,6 +1669,7 @@ type ServerPropertiesForRestoreInput interface {
 // The properties used to create a new server by restoring from a backup.
 type ServerPropertiesForRestoreArgs struct {
 	// The mode to create a new server.
+	// Expected value is 'PointInTimeRestore'.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption pulumi.StringPtrInput `pulumi:"infrastructureEncryption"`
@@ -1706,6 +1717,7 @@ func (o ServerPropertiesForRestoreOutput) ToServerPropertiesForRestoreOutputWith
 }
 
 // The mode to create a new server.
+// Expected value is 'PointInTimeRestore'.
 func (o ServerPropertiesForRestoreOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) string { return v.CreateMode }).(pulumi.StringOutput)
 }

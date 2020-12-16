@@ -36,6 +36,7 @@ class ImageTemplateIsoSourceResponse(dict):
         :param str sha256_checksum: SHA256 Checksum of the ISO image.
         :param str source_uri: URI to get the ISO image. This URI has to be accessible to the resource provider at the time of the image template creation.
         :param str type: Specifies the type of source image you want to start with.
+               Expected value is 'ISO'.
         """
         pulumi.set(__self__, "sha256_checksum", sha256_checksum)
         pulumi.set(__self__, "source_uri", source_uri)
@@ -62,6 +63,7 @@ class ImageTemplateIsoSourceResponse(dict):
     def type(self) -> str:
         """
         Specifies the type of source image you want to start with.
+        Expected value is 'ISO'.
         """
         return pulumi.get(self, "type")
 
@@ -156,6 +158,7 @@ class ImageTemplateManagedImageDistributorResponse(dict):
         :param str location: Azure location for the image, should match if image already exists
         :param str run_output_name: The name to be used for the associated RunOutput.
         :param str type: Type of distribution.
+               Expected value is 'ManagedImage'.
         :param Mapping[str, str] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         """
         pulumi.set(__self__, "image_id", image_id)
@@ -194,6 +197,7 @@ class ImageTemplateManagedImageDistributorResponse(dict):
     def type(self) -> str:
         """
         Type of distribution.
+        Expected value is 'ManagedImage'.
         """
         return pulumi.get(self, "type")
 
@@ -221,6 +225,7 @@ class ImageTemplateManagedImageSourceResponse(dict):
         Describes an image source that is a managed image in customer subscription.
         :param str image_id: ARM resource id of the managed image in customer subscription
         :param str type: Specifies the type of source image you want to start with.
+               Expected value is 'ManagedImage'.
         """
         pulumi.set(__self__, "image_id", image_id)
         pulumi.set(__self__, "type", 'ManagedImage')
@@ -238,6 +243,7 @@ class ImageTemplateManagedImageSourceResponse(dict):
     def type(self) -> str:
         """
         Specifies the type of source image you want to start with.
+        Expected value is 'ManagedImage'.
         """
         return pulumi.get(self, "type")
 
@@ -259,6 +265,7 @@ class ImageTemplatePlatformImageSourceResponse(dict):
         """
         Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param str type: Specifies the type of source image you want to start with.
+               Expected value is 'PlatformImage'.
         :param str offer: Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param str publisher: Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param str sku: Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
@@ -279,6 +286,7 @@ class ImageTemplatePlatformImageSourceResponse(dict):
     def type(self) -> str:
         """
         Specifies the type of source image you want to start with.
+        Expected value is 'PlatformImage'.
         """
         return pulumi.get(self, "type")
 
@@ -332,6 +340,7 @@ class ImageTemplatePowerShellCustomizerResponse(dict):
         """
         Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'script' or 'inline' can be specified.
         :param str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'PowerShell'.
         :param Sequence[str] inline: Array of PowerShell commands to execute
         :param str name: Friendly Name to provide context on what this customization step does
         :param str script: The PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
@@ -352,6 +361,7 @@ class ImageTemplatePowerShellCustomizerResponse(dict):
     def type(self) -> str:
         """
         The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'PowerShell'.
         """
         return pulumi.get(self, "type")
 
@@ -405,6 +415,7 @@ class ImageTemplateRestartCustomizerResponse(dict):
         """
         Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
         :param str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'WindowsRestart'.
         :param str name: Friendly Name to provide context on what this customization step does
         :param str restart_check_command: Command to check if restart succeeded [Default: '']
         :param str restart_command: Command to execute the restart [Default: 'shutdown /r /f /t 0 /c "packer restart"']
@@ -425,6 +436,7 @@ class ImageTemplateRestartCustomizerResponse(dict):
     def type(self) -> str:
         """
         The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'WindowsRestart'.
         """
         return pulumi.get(self, "type")
 
@@ -480,6 +492,7 @@ class ImageTemplateSharedImageDistributorResponse(dict):
         :param str gallery_image_id: Resource Id of the Shared Image Gallery image
         :param str run_output_name: The name to be used for the associated RunOutput.
         :param str type: Type of distribution.
+               Expected value is 'SharedImage'.
         :param Mapping[str, str] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         """
         pulumi.set(__self__, "gallery_image_id", gallery_image_id)
@@ -515,6 +528,7 @@ class ImageTemplateSharedImageDistributorResponse(dict):
     def type(self) -> str:
         """
         Type of distribution.
+        Expected value is 'SharedImage'.
         """
         return pulumi.get(self, "type")
 
@@ -543,6 +557,7 @@ class ImageTemplateShellCustomizerResponse(dict):
         """
         Runs a shell script during the customization phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'script' or 'inline' can be specified.
         :param str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'Shell'.
         :param Sequence[str] inline: Array of shell commands to execute
         :param str name: Friendly Name to provide context on what this customization step does
         :param str script: The shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
@@ -560,6 +575,7 @@ class ImageTemplateShellCustomizerResponse(dict):
     def type(self) -> str:
         """
         The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'Shell'.
         """
         return pulumi.get(self, "type")
 
@@ -604,6 +620,7 @@ class ImageTemplateVhdDistributorResponse(dict):
         Distribute via VHD in a storage account.
         :param str run_output_name: The name to be used for the associated RunOutput.
         :param str type: Type of distribution.
+               Expected value is 'VHD'.
         :param Mapping[str, str] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         """
         pulumi.set(__self__, "run_output_name", run_output_name)
@@ -624,6 +641,7 @@ class ImageTemplateVhdDistributorResponse(dict):
     def type(self) -> str:
         """
         Type of distribution.
+        Expected value is 'VHD'.
         """
         return pulumi.get(self, "type")
 

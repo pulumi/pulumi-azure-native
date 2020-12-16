@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly object? Serializer;
         /// <summary>
         /// Type of dataset storage format.
+        /// Expected value is 'AvroFormat'.
         /// </summary>
         public readonly string Type;
 

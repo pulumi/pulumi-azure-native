@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Outputs
     {
         /// <summary>
         /// Specifies the type of threshold criteria
+        /// Expected value is 'StaticThresholdCriterion'.
         /// </summary>
         public readonly string CriterionType;
         /// <summary>

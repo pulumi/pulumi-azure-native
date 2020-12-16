@@ -63,6 +63,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly object Tenant;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AzureDataLakeAnalytics'.
         /// </summary>
         public readonly string Type;
 

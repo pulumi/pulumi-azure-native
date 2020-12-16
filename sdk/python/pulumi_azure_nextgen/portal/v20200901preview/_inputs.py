@@ -203,6 +203,7 @@ class MarkdownPartMetadataArgs:
         """
         Markdown part metadata.
         :param pulumi.Input[str] type: The type of dashboard part.
+               Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         :param pulumi.Input[Sequence[Any]] inputs: Input to dashboard part.
         :param pulumi.Input['MarkdownPartMetadataSettingsArgs'] settings: Markdown part settings.
         """
@@ -217,6 +218,7 @@ class MarkdownPartMetadataArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of dashboard part.
+        Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         """
         return pulumi.get(self, "type")
 

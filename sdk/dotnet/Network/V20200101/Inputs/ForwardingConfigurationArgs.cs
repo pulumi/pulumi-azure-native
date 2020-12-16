@@ -39,6 +39,10 @@ namespace Pulumi.AzureNextGen.Network.V20200101.Inputs
         [Input("forwardingProtocol")]
         public InputUnion<string, Pulumi.AzureNextGen.Network.V20200101.FrontDoorForwardingProtocol>? ForwardingProtocol { get; set; }
 
+        /// <summary>
+        /// 
+        /// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
+        /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;
 

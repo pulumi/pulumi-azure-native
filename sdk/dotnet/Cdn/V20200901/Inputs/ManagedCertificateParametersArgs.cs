@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
 
         /// <summary>
         /// The type of the Secret to create.
+        /// Expected value is 'ManagedCertificate'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

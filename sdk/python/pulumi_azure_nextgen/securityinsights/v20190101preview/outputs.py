@@ -46,6 +46,7 @@ class ActivityTimelineItemResponseResult(dict):
         :param str content: The activity timeline content.
         :param str first_activity_time_utc: The time of the first activity in the grouping bucket.
         :param str kind: The entity query kind type.
+               Expected value is 'Activity'.
         :param str last_activity_time_utc: The time of the last activity in the grouping bucket.
         :param str query_id: The activity query id.
         :param str title: The activity timeline title.
@@ -96,6 +97,7 @@ class ActivityTimelineItemResponseResult(dict):
     def kind(self) -> str:
         """
         The entity query kind type.
+        Expected value is 'Activity'.
         """
         return pulumi.get(self, "kind")
 
@@ -146,6 +148,7 @@ class BookmarkTimelineItemResponseResult(dict):
         :param str display_name: The bookmark display name.
         :param str end_time_utc: The bookmark end time.
         :param str kind: The entity query kind type.
+               Expected value is 'Bookmark'.
         :param Sequence[str] labels: List of labels relevant to this bookmark
         :param str notes: The notes of the bookmark
         :param str start_time_utc: TThe bookmark start time.
@@ -199,6 +202,7 @@ class BookmarkTimelineItemResponseResult(dict):
     def kind(self) -> str:
         """
         The entity query kind type.
+        Expected value is 'Bookmark'.
         """
         return pulumi.get(self, "kind")
 
@@ -544,6 +548,7 @@ class SecurityAlertTimelineItemResponseResult(dict):
         :param str display_name: The alert name.
         :param str end_time_utc: The alert end time.
         :param str kind: The entity query kind type.
+               Expected value is 'SecurityAlert'.
         :param str product_name: The alert product name.
         :param str severity: The alert severity.
         :param str start_time_utc: The alert start time.
@@ -596,6 +601,7 @@ class SecurityAlertTimelineItemResponseResult(dict):
     def kind(self) -> str:
         """
         The entity query kind type.
+        Expected value is 'SecurityAlert'.
         """
         return pulumi.get(self, "kind")
 

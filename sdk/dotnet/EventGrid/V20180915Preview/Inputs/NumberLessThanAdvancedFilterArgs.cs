@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview.Inputs
 
         /// <summary>
         /// Represents the filter operator
+        /// Expected value is 'NumberLessThan'.
         /// </summary>
         [Input("operatorType", required: true)]
         public Input<string> OperatorType { get; set; } = null!;

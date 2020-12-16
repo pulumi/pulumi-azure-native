@@ -56,6 +56,7 @@ class AddRemoveReplicaScalingMechanismArgs:
         """
         Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
         :param pulumi.Input[str] kind: The type of auto scaling mechanism.
+               Expected value is 'AddRemoveReplica'.
         :param pulumi.Input[int] max_count: Maximum number of containers (scale up won't be performed above this number).
         :param pulumi.Input[int] min_count: Minimum number of containers (scale down won't be performed below this number).
         :param pulumi.Input[int] scale_increment: Each time auto scaling is performed, this number of containers will be added or removed.
@@ -70,6 +71,7 @@ class AddRemoveReplicaScalingMechanismArgs:
     def kind(self) -> pulumi.Input[str]:
         """
         The type of auto scaling mechanism.
+        Expected value is 'AddRemoveReplica'.
         """
         return pulumi.get(self, "kind")
 
@@ -192,6 +194,7 @@ class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
         """
         Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
         :param pulumi.Input[str] kind: Specifies the application-scoped volume kind.
+               Expected value is 'ServiceFabricVolumeDisk'.
         :param pulumi.Input[Union[str, 'SizeTypes']] size_disk: Volume size
         :param pulumi.Input[str] description: User readable description of the volume.
         """
@@ -205,6 +208,7 @@ class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
     def kind(self) -> pulumi.Input[str]:
         """
         Specifies the application-scoped volume kind.
+        Expected value is 'ServiceFabricVolumeDisk'.
         """
         return pulumi.get(self, "kind")
 
@@ -298,6 +302,7 @@ class AutoScalingResourceMetricArgs:
         """
         Describes the resource that is used for triggering auto scaling.
         :param pulumi.Input[str] kind: The type of auto scaling metric
+               Expected value is 'Resource'.
         :param pulumi.Input[Union[str, 'AutoScalingResourceMetricName']] name: Name of the resource.
         """
         pulumi.set(__self__, "kind", 'Resource')
@@ -308,6 +313,7 @@ class AutoScalingResourceMetricArgs:
     def kind(self) -> pulumi.Input[str]:
         """
         The type of auto scaling metric
+        Expected value is 'Resource'.
         """
         return pulumi.get(self, "kind")
 
@@ -339,6 +345,7 @@ class AverageLoadScalingTriggerArgs:
         """
         Describes the average load trigger used for auto scaling.
         :param pulumi.Input[str] kind: The type of auto scaling trigger
+               Expected value is 'AverageLoad'.
         :param pulumi.Input[float] lower_load_threshold: Lower load threshold (if average load is below this threshold, service will scale down).
         :param pulumi.Input['AutoScalingResourceMetricArgs'] metric: Description of the metric that is used for scaling.
         :param pulumi.Input[int] scale_interval_in_seconds: Scale interval that indicates how often will this trigger be checked.
@@ -355,6 +362,7 @@ class AverageLoadScalingTriggerArgs:
     def kind(self) -> pulumi.Input[str]:
         """
         The type of auto scaling trigger
+        Expected value is 'AverageLoad'.
         """
         return pulumi.get(self, "kind")
 
@@ -425,6 +433,7 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgs:
         """
         Diagnostics settings for Geneva.
         :param pulumi.Input[str] kind: The kind of DiagnosticsSink.
+               Expected value is 'AzureInternalMonitoringPipeline'.
         :param pulumi.Input[str] account_name: Azure Internal monitoring pipeline account.
         :param pulumi.Input[str] auto_key_config_url: Azure Internal monitoring pipeline autokey associated with the certificate.
         :param pulumi.Input[str] description: A description of the sink.
@@ -454,6 +463,7 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgs:
     def kind(self) -> pulumi.Input[str]:
         """
         The kind of DiagnosticsSink.
+        Expected value is 'AzureInternalMonitoringPipeline'.
         """
         return pulumi.get(self, "kind")
 
@@ -1459,6 +1469,7 @@ class NetworkResourcePropertiesArgs:
         """
         Describes properties of a network resource.
         :param pulumi.Input[str] kind: The type of a Service Fabric container network.
+               Expected value is 'NetworkResourceProperties'.
         :param pulumi.Input[str] description: User readable description of the network.
         """
         pulumi.set(__self__, "kind", 'NetworkResourceProperties')
@@ -1470,6 +1481,7 @@ class NetworkResourcePropertiesArgs:
     def kind(self) -> pulumi.Input[str]:
         """
         The type of a Service Fabric container network.
+        Expected value is 'NetworkResourceProperties'.
         """
         return pulumi.get(self, "kind")
 
@@ -1655,6 +1667,7 @@ class SecretResourcePropertiesArgs:
         """
         Describes the properties of a secret resource.
         :param pulumi.Input[str] kind: Describes the kind of secret.
+               Expected value is 'SecretResourceProperties'.
         :param pulumi.Input[str] content_type: The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
         :param pulumi.Input[str] description: User readable description of the secret.
         """
@@ -1669,6 +1682,7 @@ class SecretResourcePropertiesArgs:
     def kind(self) -> pulumi.Input[str]:
         """
         Describes the kind of secret.
+        Expected value is 'SecretResourceProperties'.
         """
         return pulumi.get(self, "kind")
 

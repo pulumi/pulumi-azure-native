@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Outputs
         public readonly ImmutableArray<Outputs.AzureManagedOverrideRuleGroupResponse> RuleGroupOverrides;
         /// <summary>
         /// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+        /// Expected value is 'AzureManagedRuleSet'.
         /// </summary>
         public readonly string RuleSetType;
         /// <summary>

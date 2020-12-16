@@ -3145,6 +3145,7 @@ class ApplicationRuleArgs:
         """
         Rule of type application.
         :param pulumi.Input[str] rule_type: Rule Type.
+               Expected value is 'ApplicationRule'.
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: List of destination IP addresses or Service Tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdn_tags: List of FQDN Tags for this rule.
@@ -3177,6 +3178,7 @@ class ApplicationRuleArgs:
     def rule_type(self) -> pulumi.Input[str]:
         """
         Rule Type.
+        Expected value is 'ApplicationRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -7025,6 +7027,7 @@ class FirewallPolicyFilterRuleCollectionArgs:
         """
         Firewall Policy Filter Rule Collection.
         :param pulumi.Input[str] rule_collection_type: The type of the rule collection.
+               Expected value is 'FirewallPolicyFilterRuleCollection'.
         :param pulumi.Input['FirewallPolicyFilterRuleCollectionActionArgs'] action: The action type of a Filter rule collection.
         :param pulumi.Input[str] name: The name of the rule collection.
         :param pulumi.Input[int] priority: Priority of the Firewall Policy Rule Collection resource.
@@ -7045,6 +7048,7 @@ class FirewallPolicyFilterRuleCollectionArgs:
     def rule_collection_type(self) -> pulumi.Input[str]:
         """
         The type of the rule collection.
+        Expected value is 'FirewallPolicyFilterRuleCollection'.
         """
         return pulumi.get(self, "rule_collection_type")
 
@@ -7136,6 +7140,7 @@ class FirewallPolicyNatRuleCollectionArgs:
         """
         Firewall Policy NAT Rule Collection.
         :param pulumi.Input[str] rule_collection_type: The type of the rule collection.
+               Expected value is 'FirewallPolicyNatRuleCollection'.
         :param pulumi.Input['FirewallPolicyNatRuleCollectionActionArgs'] action: The action type of a Nat rule collection.
         :param pulumi.Input[str] name: The name of the rule collection.
         :param pulumi.Input[int] priority: Priority of the Firewall Policy Rule Collection resource.
@@ -7156,6 +7161,7 @@ class FirewallPolicyNatRuleCollectionArgs:
     def rule_collection_type(self) -> pulumi.Input[str]:
         """
         The type of the rule collection.
+        Expected value is 'FirewallPolicyNatRuleCollection'.
         """
         return pulumi.get(self, "rule_collection_type")
 
@@ -7366,6 +7372,8 @@ class ForwardingConfigurationArgs:
                  forwarding_protocol: Optional[pulumi.Input[Union[str, 'FrontDoorForwardingProtocol']]] = None):
         """
         Describes Forwarding Route.
+        :param pulumi.Input[str] odata_type: 
+               Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
         :param pulumi.Input['SubResourceArgs'] backend_pool: A reference to the BackendPool which this rule routes to.
         :param pulumi.Input['CacheConfigurationArgs'] cache_configuration: The caching configuration associated with this rule.
         :param pulumi.Input[str] custom_forwarding_path: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
@@ -7384,6 +7392,10 @@ class ForwardingConfigurationArgs:
     @property
     @pulumi.getter(name="odataType")
     def odata_type(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
+        """
         return pulumi.get(self, "odata_type")
 
     @odata_type.setter
@@ -9665,6 +9677,7 @@ class NatRuleArgs:
         """
         Rule of type nat.
         :param pulumi.Input[str] rule_type: Rule Type.
+               Expected value is 'NatRule'.
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: List of destination IP addresses or Service Tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ports: List of destination ports.
@@ -9700,6 +9713,7 @@ class NatRuleArgs:
     def rule_type(self) -> pulumi.Input[str]:
         """
         Rule Type.
+        Expected value is 'NatRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -10088,6 +10102,7 @@ class NetworkRuleArgs:
         """
         Rule of type network.
         :param pulumi.Input[str] rule_type: Rule Type.
+               Expected value is 'NetworkRule'.
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: List of destination IP addresses or Service Tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: List of destination FQDNs.
@@ -10123,6 +10138,7 @@ class NetworkRuleArgs:
     def rule_type(self) -> pulumi.Input[str]:
         """
         Rule Type.
+        Expected value is 'NetworkRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -11810,6 +11826,8 @@ class RedirectConfigurationArgs:
                  redirect_type: Optional[pulumi.Input[Union[str, 'FrontDoorRedirectType']]] = None):
         """
         Describes Redirect Route.
+        :param pulumi.Input[str] odata_type: 
+               Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
         :param pulumi.Input[str] custom_fragment: Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
         :param pulumi.Input[str] custom_host: Host to redirect. Leave empty to use the incoming host as the destination host.
         :param pulumi.Input[str] custom_path: The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
@@ -11834,6 +11852,10 @@ class RedirectConfigurationArgs:
     @property
     @pulumi.getter(name="odataType")
     def odata_type(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
+        """
         return pulumi.get(self, "odata_type")
 
     @odata_type.setter

@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest.Outputs
         public readonly ImmutableArray<Outputs.AzureMachineLearningWebServiceOutputColumnResponse> Outputs;
         /// <summary>
         /// Indicates the function binding type.
+        /// Expected value is 'Microsoft.MachineLearning/WebService'.
         /// </summary>
         public readonly string? Type;
 

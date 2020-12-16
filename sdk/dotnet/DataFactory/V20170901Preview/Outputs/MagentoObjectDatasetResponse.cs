@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly object? Structure;
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'MagentoObject'.
         /// </summary>
         public readonly string Type;
 

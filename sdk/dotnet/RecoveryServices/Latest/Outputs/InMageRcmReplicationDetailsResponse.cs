@@ -55,6 +55,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         public readonly int InitialReplicationTransferredBytes;
         /// <summary>
         /// Gets the Instance type.
+        /// Expected value is 'InMageRcm'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

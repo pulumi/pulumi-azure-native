@@ -141,6 +141,7 @@ class DataBoxDiskJobDetailsArgs:
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxDisk'.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input[str] passkey: User entered passkey for DataBox Disk job.
@@ -189,6 +190,7 @@ class DataBoxDiskJobDetailsArgs:
     def job_details_type(self) -> pulumi.Input[str]:
         """
         Indicates the type of job details.
+        Expected value is 'DataBoxDisk'.
         """
         return pulumi.get(self, "job_details_type")
 
@@ -272,6 +274,7 @@ class DataBoxHeavyJobDetailsArgs:
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxHeavy'.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox Heavy
         :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
@@ -317,6 +320,7 @@ class DataBoxHeavyJobDetailsArgs:
     def job_details_type(self) -> pulumi.Input[str]:
         """
         Indicates the type of job details.
+        Expected value is 'DataBoxHeavy'.
         """
         return pulumi.get(self, "job_details_type")
 
@@ -388,6 +392,7 @@ class DataBoxJobDetailsArgs:
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+               Expected value is 'DataBox'.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox
         :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
@@ -433,6 +438,7 @@ class DataBoxJobDetailsArgs:
     def job_details_type(self) -> pulumi.Input[str]:
         """
         Indicates the type of job details.
+        Expected value is 'DataBox'.
         """
         return pulumi.get(self, "job_details_type")
 
@@ -500,6 +506,7 @@ class DestinationManagedDiskDetailsArgs:
         """
         Details for the destination compute disks.
         :param pulumi.Input[str] data_destination_type: Data Destination Type.
+               Expected value is 'ManagedDisk'.
         :param pulumi.Input[str] resource_group_id: Destination Resource Group Id where the Compute disks should be created.
         :param pulumi.Input[str] staging_storage_account_id: Arm Id of the storage account that can be used to copy the vhd for staging.
         :param pulumi.Input[str] account_id: Arm Id of the destination where the data has to be moved.
@@ -518,6 +525,7 @@ class DestinationManagedDiskDetailsArgs:
     def data_destination_type(self) -> pulumi.Input[str]:
         """
         Data Destination Type.
+        Expected value is 'ManagedDisk'.
         """
         return pulumi.get(self, "data_destination_type")
 
@@ -584,6 +592,7 @@ class DestinationStorageAccountDetailsArgs:
         """
         Details for the destination storage account.
         :param pulumi.Input[str] data_destination_type: Data Destination Type.
+               Expected value is 'StorageAccount'.
         :param pulumi.Input[str] storage_account_id: Destination Storage Account Arm Id.
         :param pulumi.Input[str] account_id: Arm Id of the destination where the data has to be moved.
         :param pulumi.Input[str] share_password: Share password to be shared by all shares in SA.
@@ -600,6 +609,7 @@ class DestinationStorageAccountDetailsArgs:
     def data_destination_type(self) -> pulumi.Input[str]:
         """
         Data Destination Type.
+        Expected value is 'StorageAccount'.
         """
         return pulumi.get(self, "data_destination_type")
 

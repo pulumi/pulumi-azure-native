@@ -101,6 +101,7 @@ class A2APolicyDetailsResponse(dict):
         """
         A2A specific policy details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'A2A'.
         :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
         :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         :param str multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled.
@@ -124,6 +125,7 @@ class A2APolicyDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'A2A'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -693,6 +695,7 @@ class A2AProtectionContainerMappingDetailsResponse(dict):
         """
         A2A provider specific settings.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'A2A'.
         :param str agent_auto_update_status: A value indicating whether the auto update is enabled.
         :param str automation_account_arm_id: The automation account arm id.
         :param str job_schedule_name: The job schedule arm name.
@@ -713,6 +716,7 @@ class A2AProtectionContainerMappingDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'A2A'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -793,6 +797,7 @@ class A2AReplicationDetailsResponse(dict):
         """
         A2A provider specific settings.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'A2A'.
         :param str agent_version: The agent version.
         :param str fabric_object_id: The fabric specific object Id of the virtual machine.
         :param bool is_replication_agent_update_required: A value indicating whether replication agent update is required.
@@ -894,6 +899,7 @@ class A2AReplicationDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'A2A'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1161,6 +1167,7 @@ class AzureFabricSpecificDetailsResponse(dict):
         """
         Azure Fabric Specific Details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'Azure'.
         :param Sequence[str] container_ids: The container Ids for the Azure fabric.
         :param str location: The Location for the Azure fabric.
         """
@@ -1175,6 +1182,7 @@ class AzureFabricSpecificDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'Azure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1210,6 +1218,7 @@ class AzureToAzureNetworkMappingSettingsResponse(dict):
         """
         A2A Network Mapping fabric specific settings.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'AzureToAzure'.
         :param str primary_fabric_location: The primary fabric location.
         :param str recovery_fabric_location: The recovery fabric location.
         """
@@ -1224,6 +1233,7 @@ class AzureToAzureNetworkMappingSettingsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'AzureToAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1977,6 +1987,7 @@ class HyperVReplicaAzurePolicyDetailsResponse(dict):
         """
         Hyper-V Replica Azure specific protection profile details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'HyperVReplicaAzure'.
         :param str active_storage_account_id: The active storage account Id.
         :param int application_consistent_snapshot_frequency_in_hours: The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
         :param str encryption: A value indicating whether encryption is enabled for virtual machines in this cloud.
@@ -2003,6 +2014,7 @@ class HyperVReplicaAzurePolicyDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'HyperVReplicaAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2092,6 +2104,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         """
         Hyper V Replica Azure provider specific settings.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'HyperVReplicaAzure'.
         :param Sequence['AzureVmDiskDetailsResponseArgs'] azure_vm_disk_details: Azure VM Disk details.
         :param str enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param str encryption: The encryption info.
@@ -2172,6 +2185,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'HyperVReplicaAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2391,6 +2405,7 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
         """
         Base class for HyperVReplica policy details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'HyperVReplicaBasePolicyDetails'.
         :param int allowed_authentication_type: A value indicating the authentication type.
         :param int application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
         :param str compression: A value indicating whether compression has to be enabled.
@@ -2429,6 +2444,7 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'HyperVReplicaBasePolicyDetails'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2533,6 +2549,7 @@ class HyperVReplicaBaseReplicationDetailsResponse(dict):
         """
         Hyper V replica provider specific settings base class.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'HyperVReplicaBaseReplicationDetails'.
         :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
         :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
@@ -2562,6 +2579,7 @@ class HyperVReplicaBaseReplicationDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'HyperVReplicaBaseReplicationDetails'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2646,6 +2664,7 @@ class HyperVReplicaBluePolicyDetailsResponse(dict):
         """
         Hyper-V Replica Blue specific protection profile details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'HyperVReplica2012R2'.
         :param int allowed_authentication_type: A value indicating the authentication type.
         :param int application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
         :param str compression: A value indicating whether compression has to be enabled.
@@ -2687,6 +2706,7 @@ class HyperVReplicaBluePolicyDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'HyperVReplica2012R2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2799,6 +2819,7 @@ class HyperVReplicaBlueReplicationDetailsResponse(dict):
         """
         HyperV replica 2012 R2 (Blue) replication details.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'HyperVReplica2012R2'.
         :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
         :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
@@ -2828,6 +2849,7 @@ class HyperVReplicaBlueReplicationDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'HyperVReplica2012R2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2911,6 +2933,7 @@ class HyperVReplicaPolicyDetailsResponse(dict):
         """
         Hyper-V Replica Blue specific protection profile details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'HyperVReplica2012'.
         :param int allowed_authentication_type: A value indicating the authentication type.
         :param int application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
         :param str compression: A value indicating whether compression has to be enabled.
@@ -2949,6 +2972,7 @@ class HyperVReplicaPolicyDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'HyperVReplica2012'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -3053,6 +3077,7 @@ class HyperVReplicaReplicationDetailsResponse(dict):
         """
         HyperV replica 2012 replication details.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'HyperVReplica2012'.
         :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
         :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
@@ -3082,6 +3107,7 @@ class HyperVReplicaReplicationDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'HyperVReplica2012'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -3155,6 +3181,7 @@ class HyperVSiteDetailsResponse(dict):
         """
         HyperVSite fabric specific details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'HyperVSite'.
         """
         pulumi.set(__self__, "instance_type", 'HyperVSite')
 
@@ -3163,6 +3190,7 @@ class HyperVSiteDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'HyperVSite'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -3321,6 +3349,7 @@ class InMageAzureV2PolicyDetailsResponse(dict):
         """
         InMage Azure v2 specific protection profile details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'InMageAzureV2'.
         :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
         :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         :param str multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled.
@@ -3344,6 +3373,7 @@ class InMageAzureV2PolicyDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'InMageAzureV2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -3644,6 +3674,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         """
         InMageAzureV2 provider specific settings
         :param str instance_type: Gets the Instance type.
+               Expected value is 'InMageAzureV2'.
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The agent version.
         :param Sequence['AzureVmDiskDetailsResponseArgs'] azure_vm_disk_details: Azure VM Disk details.
@@ -3799,6 +3830,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'InMageAzureV2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -4212,6 +4244,7 @@ class InMageBasePolicyDetailsResponse(dict):
         """
         Base class for the policies of providers using InMage replication.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'InMageBasePolicyDetails'.
         :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
         :param str multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled.
         :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
@@ -4232,6 +4265,7 @@ class InMageBasePolicyDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'InMageBasePolicyDetails'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -4285,6 +4319,7 @@ class InMagePolicyDetailsResponse(dict):
         """
         InMage specific protection profile details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'InMage'.
         :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
         :param str multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled.
         :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
@@ -4305,6 +4340,7 @@ class InMagePolicyDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'InMage'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -4585,6 +4621,7 @@ class InMageReplicationDetailsResponse(dict):
         """
         InMage provider specific settings
         :param str instance_type: Gets the Instance type.
+               Expected value is 'InMage'.
         :param str active_site_type: The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
         :param 'InMageAgentDetailsResponseArgs' agent_details: The agent details.
         :param str azure_storage_account_id: A value indicating the underlying Azure storage account. If the VM is not running in Azure, this value shall be set to null.
@@ -4704,6 +4741,7 @@ class InMageReplicationDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'InMage'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -6532,6 +6570,7 @@ class RcmAzureMigrationPolicyDetailsResponse(dict):
         """
         RCM based Azure migration specific policy details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'RcmAzureMigration'.
         :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
         :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         :param str multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled.
@@ -6555,6 +6594,7 @@ class RcmAzureMigrationPolicyDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'RcmAzureMigration'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -6674,6 +6714,7 @@ class RecoveryPlanAutomationRunbookActionDetailsResponse(dict):
         Recovery plan Automation runbook action details.
         :param str fabric_location: The fabric location.
         :param str instance_type: Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+               Expected value is 'AutomationRunbookActionDetails'.
         :param str runbook_id: The runbook ARM Id.
         :param str timeout: The runbook timeout.
         """
@@ -6697,6 +6738,7 @@ class RecoveryPlanAutomationRunbookActionDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+        Expected value is 'AutomationRunbookActionDetails'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -6792,6 +6834,7 @@ class RecoveryPlanManualActionDetailsResponse(dict):
         """
         Recovery plan manual action details.
         :param str instance_type: Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+               Expected value is 'ManualActionDetails'.
         :param str description: The manual action description.
         """
         pulumi.set(__self__, "instance_type", 'ManualActionDetails')
@@ -6803,6 +6846,7 @@ class RecoveryPlanManualActionDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+        Expected value is 'ManualActionDetails'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -7064,6 +7108,7 @@ class RecoveryPlanScriptActionDetailsResponse(dict):
         Recovery plan script action details.
         :param str fabric_location: The fabric location.
         :param str instance_type: Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+               Expected value is 'ScriptActionDetails'.
         :param str path: The script path.
         :param str timeout: The script timeout.
         """
@@ -7086,6 +7131,7 @@ class RecoveryPlanScriptActionDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+        Expected value is 'ScriptActionDetails'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -8208,6 +8254,7 @@ class VMwareCbtMigrationDetailsResponse(dict):
         :param str firmware_type: The firmware type.
         :param int initial_seeding_progress_percentage: The initial seeding progress percentage.
         :param str instance_type: Gets the instance type.
+               Expected value is 'VMwareCbt'.
         :param str last_recovery_point_id: The last recovery point Id.
         :param str last_recovery_point_received: The last recovery point received time.
         :param int migration_progress_percentage: The migration progress percentage.
@@ -8300,6 +8347,7 @@ class VMwareCbtMigrationDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the instance type.
+        Expected value is 'VMwareCbt'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -8761,6 +8809,7 @@ class VMwareCbtProtectionContainerMappingDetailsResponse(dict):
         """
         VMwareCbt provider specific container mapping details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'VMwareCbt'.
         :param str key_vault_id: The target key vault ARM Id.
         :param str key_vault_uri: The target key vault URI.
         :param str service_bus_connection_string_secret_name: The secret name of the service bus connection string.
@@ -8781,6 +8830,7 @@ class VMwareCbtProtectionContainerMappingDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'VMwareCbt'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -8878,6 +8928,7 @@ class VMwareDetailsResponse(dict):
         """
         Store the fabric details specific to the VMware fabric.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'VMware'.
         :param str agent_count: The number of source and target servers configured to talk to this CS.
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The agent Version.
@@ -8982,6 +9033,7 @@ class VMwareDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'VMware'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -9260,6 +9312,7 @@ class VMwareV2FabricSpecificDetailsResponse(dict):
         """
         VMwareV2 fabric specific details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'VMwareV2'.
         :param str migration_solution_id: The Migration solution ARM Id.
         :param str physical_site_id: The ARM Id of the physical site.
         :param str service_endpoint: The service endpoint.
@@ -9278,6 +9331,7 @@ class VMwareV2FabricSpecificDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'VMwareV2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -9385,6 +9439,7 @@ class VmmDetailsResponse(dict):
         """
         VMM fabric specific details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'VMM'.
         """
         pulumi.set(__self__, "instance_type", 'VMM')
 
@@ -9393,6 +9448,7 @@ class VmmDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'VMM'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -9410,6 +9466,7 @@ class VmmToAzureNetworkMappingSettingsResponse(dict):
         """
         E2A Network Mapping fabric specific settings.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'VmmToAzure'.
         """
         pulumi.set(__self__, "instance_type", 'VmmToAzure')
 
@@ -9418,6 +9475,7 @@ class VmmToAzureNetworkMappingSettingsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'VmmToAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -9435,6 +9493,7 @@ class VmmToVmmNetworkMappingSettingsResponse(dict):
         """
         E2E Network Mapping fabric specific settings.
         :param str instance_type: Gets the Instance type.
+               Expected value is 'VmmToVmm'.
         """
         pulumi.set(__self__, "instance_type", 'VmmToVmm')
 
@@ -9443,6 +9502,7 @@ class VmmToVmmNetworkMappingSettingsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the Instance type.
+        Expected value is 'VmmToVmm'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -9463,6 +9523,7 @@ class VmwareCbtPolicyDetailsResponse(dict):
         """
         VMware Cbt specific policy details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'VMwareCbt'.
         :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
         :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         :param int recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
@@ -9480,6 +9541,7 @@ class VmwareCbtPolicyDetailsResponse(dict):
     def instance_type(self) -> str:
         """
         Gets the class type. Overridden in derived classes.
+        Expected value is 'VMwareCbt'.
         """
         return pulumi.get(self, "instance_type")
 

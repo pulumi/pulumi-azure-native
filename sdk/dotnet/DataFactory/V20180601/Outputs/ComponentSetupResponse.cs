@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? LicenseKey;
         /// <summary>
         /// The type of custom setup.
+        /// Expected value is 'ComponentSetup'.
         /// </summary>
         public readonly string Type;
 

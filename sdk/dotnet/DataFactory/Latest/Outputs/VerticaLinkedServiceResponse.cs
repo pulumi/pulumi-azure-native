@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly Outputs.AzureKeyVaultSecretReferenceResponse? Pwd;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Vertica'.
         /// </summary>
         public readonly string Type;
 

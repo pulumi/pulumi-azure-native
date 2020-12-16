@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20200201Preview.Outputs
         public readonly ImmutableArray<string> Certificates;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
         /// </summary>
         public readonly string OdataType;
 

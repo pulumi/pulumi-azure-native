@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
     {
         /// <summary>
         /// The authorization type for integration runtime sharing.
+        /// Expected value is 'RBAC'.
         /// </summary>
         [Input("authorizationType", required: true)]
         public Input<string> AuthorizationType { get; set; } = null!;

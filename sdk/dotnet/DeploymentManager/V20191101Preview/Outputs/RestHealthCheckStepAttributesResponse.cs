@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview.Outputs
         public readonly string? MaxElasticDuration;
         /// <summary>
         /// The type of health check.
+        /// Expected value is 'REST'.
         /// </summary>
         public readonly string Type;
         /// <summary>

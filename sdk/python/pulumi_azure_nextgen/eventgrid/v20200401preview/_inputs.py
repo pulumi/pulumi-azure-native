@@ -60,6 +60,7 @@ class AzureFunctionEventSubscriptionDestinationArgs:
         """
         Information about the azure function destination for an event subscription.
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'AzureFunction'.
         :param pulumi.Input[int] max_events_per_batch: Maximum number of events per batch.
         :param pulumi.Input[int] preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription.
@@ -77,6 +78,7 @@ class AzureFunctionEventSubscriptionDestinationArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         Type of the endpoint for the event subscription destination.
+        Expected value is 'AzureFunction'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -130,6 +132,7 @@ class BoolEqualsAdvancedFilterArgs:
         """
         BoolEquals Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'BoolEquals'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[bool] value: The boolean filter value.
         """
@@ -144,6 +147,7 @@ class BoolEqualsAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'BoolEquals'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -434,6 +438,7 @@ class EventHubEventSubscriptionDestinationArgs:
         """
         Information about the event hub destination for an event subscription.
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'EventHub'.
         :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'EventHub')
@@ -445,6 +450,7 @@ class EventHubEventSubscriptionDestinationArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         Type of the endpoint for the event subscription destination.
+        Expected value is 'EventHub'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -609,6 +615,7 @@ class HybridConnectionEventSubscriptionDestinationArgs:
         """
         Information about the HybridConnection destination for an event subscription.
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'HybridConnection'.
         :param pulumi.Input[str] resource_id: The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'HybridConnection')
@@ -620,6 +627,7 @@ class HybridConnectionEventSubscriptionDestinationArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         Type of the endpoint for the event subscription destination.
+        Expected value is 'HybridConnection'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -835,6 +843,7 @@ class JsonInputSchemaMappingArgs:
         """
         This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
         :param pulumi.Input[str] input_schema_mapping_type: Type of the custom mapping
+               Expected value is 'Json'.
         :param pulumi.Input['JsonFieldWithDefaultArgs'] data_version: The mapping information for the DataVersion property of the Event Grid Event.
         :param pulumi.Input['JsonFieldArgs'] event_time: The mapping information for the EventTime property of the Event Grid Event.
         :param pulumi.Input['JsonFieldWithDefaultArgs'] event_type: The mapping information for the EventType property of the Event Grid Event.
@@ -861,6 +870,7 @@ class JsonInputSchemaMappingArgs:
     def input_schema_mapping_type(self) -> pulumi.Input[str]:
         """
         Type of the custom mapping
+        Expected value is 'Json'.
         """
         return pulumi.get(self, "input_schema_mapping_type")
 
@@ -950,6 +960,7 @@ class NumberGreaterThanAdvancedFilterArgs:
         """
         NumberGreaterThan Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberGreaterThan'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[float] value: The filter value.
         """
@@ -964,6 +975,7 @@ class NumberGreaterThanAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberGreaterThan'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1005,6 +1017,7 @@ class NumberGreaterThanOrEqualsAdvancedFilterArgs:
         """
         NumberGreaterThanOrEquals Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberGreaterThanOrEquals'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[float] value: The filter value.
         """
@@ -1019,6 +1032,7 @@ class NumberGreaterThanOrEqualsAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberGreaterThanOrEquals'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1060,6 +1074,7 @@ class NumberInAdvancedFilterArgs:
         """
         NumberIn Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberIn'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[float]]] values: The set of filter values.
         """
@@ -1074,6 +1089,7 @@ class NumberInAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberIn'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1115,6 +1131,7 @@ class NumberLessThanAdvancedFilterArgs:
         """
         NumberLessThan Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberLessThan'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[float] value: The filter value.
         """
@@ -1129,6 +1146,7 @@ class NumberLessThanAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberLessThan'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1170,6 +1188,7 @@ class NumberLessThanOrEqualsAdvancedFilterArgs:
         """
         NumberLessThanOrEquals Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberLessThanOrEquals'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[float] value: The filter value.
         """
@@ -1184,6 +1203,7 @@ class NumberLessThanOrEqualsAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberLessThanOrEquals'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1225,6 +1245,7 @@ class NumberNotInAdvancedFilterArgs:
         """
         NumberNotIn Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberNotIn'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[float]]] values: The set of filter values.
         """
@@ -1239,6 +1260,7 @@ class NumberNotInAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberNotIn'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1438,6 +1460,7 @@ class ServiceBusQueueEventSubscriptionDestinationArgs:
         """
         Information about the service bus destination for an event subscription.
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'ServiceBusQueue'.
         :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'ServiceBusQueue')
@@ -1449,6 +1472,7 @@ class ServiceBusQueueEventSubscriptionDestinationArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         Type of the endpoint for the event subscription destination.
+        Expected value is 'ServiceBusQueue'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -1477,6 +1501,7 @@ class ServiceBusTopicEventSubscriptionDestinationArgs:
         """
         Information about the service bus topic destination for an event subscription.
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'ServiceBusTopic'.
         :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of the Service Bus Topic destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'ServiceBusTopic')
@@ -1488,6 +1513,7 @@ class ServiceBusTopicEventSubscriptionDestinationArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         Type of the endpoint for the event subscription destination.
+        Expected value is 'ServiceBusTopic'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -1517,6 +1543,7 @@ class StorageBlobDeadLetterDestinationArgs:
         """
         Information about the storage blob based dead letter destination.
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the dead letter destination
+               Expected value is 'StorageBlob'.
         :param pulumi.Input[str] blob_container_name: The name of the Storage blob container that is the destination of the deadletter events
         :param pulumi.Input[str] resource_id: The Azure Resource ID of the storage account that is the destination of the deadletter events
         """
@@ -1531,6 +1558,7 @@ class StorageBlobDeadLetterDestinationArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         Type of the endpoint for the dead letter destination
+        Expected value is 'StorageBlob'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -1572,6 +1600,7 @@ class StorageQueueEventSubscriptionDestinationArgs:
         """
         Information about the storage queue destination for an event subscription.
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'StorageQueue'.
         :param pulumi.Input[str] queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
         :param pulumi.Input[str] resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
         """
@@ -1586,6 +1615,7 @@ class StorageQueueEventSubscriptionDestinationArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         Type of the endpoint for the event subscription destination.
+        Expected value is 'StorageQueue'.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -1627,6 +1657,7 @@ class StringBeginsWithAdvancedFilterArgs:
         """
         StringBeginsWith Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringBeginsWith'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
@@ -1641,6 +1672,7 @@ class StringBeginsWithAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringBeginsWith'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1682,6 +1714,7 @@ class StringContainsAdvancedFilterArgs:
         """
         StringContains Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringContains'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
@@ -1696,6 +1729,7 @@ class StringContainsAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringContains'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1737,6 +1771,7 @@ class StringEndsWithAdvancedFilterArgs:
         """
         StringEndsWith Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringEndsWith'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
@@ -1751,6 +1786,7 @@ class StringEndsWithAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringEndsWith'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1792,6 +1828,7 @@ class StringInAdvancedFilterArgs:
         """
         StringIn Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringIn'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
@@ -1806,6 +1843,7 @@ class StringInAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringIn'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1847,6 +1885,7 @@ class StringNotInAdvancedFilterArgs:
         """
         StringNotIn Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringNotIn'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
@@ -1861,6 +1900,7 @@ class StringNotInAdvancedFilterArgs:
     def operator_type(self) -> pulumi.Input[str]:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotIn'.
         """
         return pulumi.get(self, "operator_type")
 
@@ -1945,6 +1985,7 @@ class WebHookEventSubscriptionDestinationArgs:
         """
         Information about the webhook destination for an event subscription.
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'WebHook'.
         :param pulumi.Input[str] azure_active_directory_application_id_or_uri: The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
         :param pulumi.Input[str] azure_active_directory_tenant_id: The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
         :param pulumi.Input[str] endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
@@ -1968,6 +2009,7 @@ class WebHookEventSubscriptionDestinationArgs:
     def endpoint_type(self) -> pulumi.Input[str]:
         """
         Type of the endpoint for the event subscription destination.
+        Expected value is 'WebHook'.
         """
         return pulumi.get(self, "endpoint_type")
 

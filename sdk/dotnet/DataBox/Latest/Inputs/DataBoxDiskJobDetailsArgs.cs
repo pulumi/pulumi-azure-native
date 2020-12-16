@@ -53,6 +53,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
 
         /// <summary>
         /// Indicates the type of job details.
+        /// Expected value is 'DataBoxDisk'.
         /// </summary>
         [Input("jobDetailsType", required: true)]
         public Input<string> JobDetailsType { get; set; } = null!;

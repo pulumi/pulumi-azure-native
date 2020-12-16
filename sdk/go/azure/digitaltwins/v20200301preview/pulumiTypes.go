@@ -285,6 +285,7 @@ type EventGrid struct {
 	// EventGrid secondary accesskey. Will be obfuscated during read
 	AccessKey2 string `pulumi:"accessKey2"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
 	EndpointType string `pulumi:"endpointType"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -310,6 +311,7 @@ type EventGridArgs struct {
 	// EventGrid secondary accesskey. Will be obfuscated during read
 	AccessKey2 pulumi.StringInput `pulumi:"accessKey2"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -355,6 +357,7 @@ func (o EventGridOutput) AccessKey2() pulumi.StringOutput {
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'EventGrid'.
 func (o EventGridOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGrid) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -378,6 +381,7 @@ type EventGridResponse struct {
 	// Time when the Endpoint was added to DigitalTwinsInstance.
 	CreatedTime string `pulumi:"createdTime"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
 	EndpointType string `pulumi:"endpointType"`
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -407,6 +411,7 @@ type EventGridResponseArgs struct {
 	// Time when the Endpoint was added to DigitalTwinsInstance.
 	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The provisioning state.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
@@ -459,6 +464,7 @@ func (o EventGridResponseOutput) CreatedTime() pulumi.StringOutput {
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'EventGrid'.
 func (o EventGridResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -485,6 +491,7 @@ type EventHub struct {
 	// SecondaryConnectionString of the endpoint. Will be obfuscated during read
 	ConnectionStringSecondaryKey string `pulumi:"connectionStringSecondaryKey"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
 	EndpointType string `pulumi:"endpointType"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -508,6 +515,7 @@ type EventHubArgs struct {
 	// SecondaryConnectionString of the endpoint. Will be obfuscated during read
 	ConnectionStringSecondaryKey pulumi.StringInput `pulumi:"connectionStringSecondaryKey"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -551,6 +559,7 @@ func (o EventHubOutput) ConnectionStringSecondaryKey() pulumi.StringOutput {
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'EventHub'.
 func (o EventHubOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHub) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -569,6 +578,7 @@ type EventHubResponse struct {
 	// Time when the Endpoint was added to DigitalTwinsInstance.
 	CreatedTime string `pulumi:"createdTime"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
 	EndpointType string `pulumi:"endpointType"`
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -596,6 +606,7 @@ type EventHubResponseArgs struct {
 	// Time when the Endpoint was added to DigitalTwinsInstance.
 	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The provisioning state.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
@@ -646,6 +657,7 @@ func (o EventHubResponseOutput) CreatedTime() pulumi.StringOutput {
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'EventHub'.
 func (o EventHubResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -663,6 +675,7 @@ func (o EventHubResponseOutput) Tags() pulumi.StringMapOutput {
 // properties related to servicebus.
 type ServiceBus struct {
 	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
 	EndpointType string `pulumi:"endpointType"`
 	// PrimaryConnectionString of the endpoint. Will be obfuscated during read
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
@@ -686,6 +699,7 @@ type ServiceBusInput interface {
 // properties related to servicebus.
 type ServiceBusArgs struct {
 	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// PrimaryConnectionString of the endpoint. Will be obfuscated during read
 	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
@@ -723,6 +737,7 @@ func (o ServiceBusOutput) ToServiceBusOutputWithContext(ctx context.Context) Ser
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'ServiceBus'.
 func (o ServiceBusOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBus) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -747,6 +762,7 @@ type ServiceBusResponse struct {
 	// Time when the Endpoint was added to DigitalTwinsInstance.
 	CreatedTime string `pulumi:"createdTime"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
 	EndpointType string `pulumi:"endpointType"`
 	// PrimaryConnectionString of the endpoint. Will be obfuscated during read
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
@@ -774,6 +790,7 @@ type ServiceBusResponseArgs struct {
 	// Time when the Endpoint was added to DigitalTwinsInstance.
 	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// PrimaryConnectionString of the endpoint. Will be obfuscated during read
 	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
@@ -818,6 +835,7 @@ func (o ServiceBusResponseOutput) CreatedTime() pulumi.StringOutput {
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'ServiceBus'.
 func (o ServiceBusResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }

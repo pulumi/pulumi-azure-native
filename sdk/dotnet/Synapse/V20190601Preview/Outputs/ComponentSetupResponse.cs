@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         public readonly Outputs.SecureStringResponse? LicenseKey;
         /// <summary>
         /// The type of custom setup.
+        /// Expected value is 'ComponentSetup'.
         /// </summary>
         public readonly string Type;
 

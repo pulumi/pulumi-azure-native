@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly Outputs.TriggerReferenceResponse ReferenceTrigger;
         /// <summary>
         /// The type of dependency reference.
+        /// Expected value is 'TriggerDependencyReference'.
         /// </summary>
         public readonly string Type;
 

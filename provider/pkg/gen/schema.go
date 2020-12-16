@@ -924,6 +924,10 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			propSpec.Type = "string"
 			propSpec.Ref = ""
 			propSpec.OneOf = nil
+
+			// Add the discriminator value to the property description to help users fill it.
+			propSpec.Description = fmt.Sprintf("%s\nExpected value is '%s'.", propSpec.Description, discriminatorValue)
+
 			allOfProperties.specs[sdkDiscriminator] = propSpec
 			prop.Const = discriminatorValue
 			allOfProperties.properties[discriminator] = prop

@@ -31,6 +31,7 @@ class MachineReferenceWithHintsResponse(dict):
         :param str display_name_hint: Last known display name.
         :param str id: Resource URI.
         :param str kind: Specifies the sub-class of the reference.
+               Expected value is 'ref:machinewithhints'.
         :param str name: Resource name.
         :param str os_family_hint: Last known operating system family.
         :param str type: Resource type qualifier.
@@ -63,6 +64,7 @@ class MachineReferenceWithHintsResponse(dict):
     def kind(self) -> str:
         """
         Specifies the sub-class of the reference.
+        Expected value is 'ref:machinewithhints'.
         """
         return pulumi.get(self, "kind")
 

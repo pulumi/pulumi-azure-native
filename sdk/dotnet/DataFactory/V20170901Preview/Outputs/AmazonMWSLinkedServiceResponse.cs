@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly object SellerID;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AmazonMWS'.
         /// </summary>
         public readonly string Type;
         /// <summary>

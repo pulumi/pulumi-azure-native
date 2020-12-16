@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview.Inputs
 
         /// <summary>
         /// The type of dashboard part.
+        /// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

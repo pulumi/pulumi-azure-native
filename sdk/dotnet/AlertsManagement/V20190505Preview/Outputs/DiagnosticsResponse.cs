@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190505Preview.Outputs
         public readonly string? Status;
         /// <summary>
         /// Indicates type of action rule
+        /// Expected value is 'Diagnostics'.
         /// </summary>
         public readonly string Type;
 

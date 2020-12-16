@@ -3404,6 +3404,7 @@ class AzureManagedRuleSetResponse(dict):
         """
         Describes azure managed provider.
         :param str rule_set_type: RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+               Expected value is 'AzureManagedRuleSet'.
         :param int priority: Describes priority of the rule
         :param Sequence['AzureManagedOverrideRuleGroupResponseArgs'] rule_group_overrides: List of azure managed provider override configuration (optional)
         :param int version: defines version of the rule set
@@ -3421,6 +3422,7 @@ class AzureManagedRuleSetResponse(dict):
     def rule_set_type(self) -> str:
         """
         RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+        Expected value is 'AzureManagedRuleSet'.
         """
         return pulumi.get(self, "rule_set_type")
 

@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401.Outputs
     {
         /// <summary>
         /// Account Type of the data to be transferred.
+        /// Expected value is 'ManagedDisk'.
         /// </summary>
         public readonly string DataAccountType;
         /// <summary>

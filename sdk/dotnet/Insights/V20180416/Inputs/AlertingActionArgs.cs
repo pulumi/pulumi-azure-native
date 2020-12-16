@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416.Inputs
 
         /// <summary>
         /// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        /// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
         /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

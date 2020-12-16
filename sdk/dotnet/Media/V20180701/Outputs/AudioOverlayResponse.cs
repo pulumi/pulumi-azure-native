@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701.Outputs
         public readonly string InputLabel;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.AudioOverlay'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

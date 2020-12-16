@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Outputs
         public readonly string? Cname;
         /// <summary>
         /// The compute environment type for the service.
+        /// Expected value is 'ACI'.
         /// </summary>
         public readonly string ComputeType;
         /// <summary>

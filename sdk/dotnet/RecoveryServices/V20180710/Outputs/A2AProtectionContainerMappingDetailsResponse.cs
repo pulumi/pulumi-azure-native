@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         public readonly string? AutomationAccountArmId;
         /// <summary>
         /// Gets the class type. Overridden in derived classes.
+        /// Expected value is 'A2A'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

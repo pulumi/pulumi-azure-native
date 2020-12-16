@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
     {
         /// <summary>
         /// The type of custom setup.
+        /// Expected value is 'EnvironmentVariableSetup'.
         /// </summary>
         public readonly string Type;
         /// <summary>

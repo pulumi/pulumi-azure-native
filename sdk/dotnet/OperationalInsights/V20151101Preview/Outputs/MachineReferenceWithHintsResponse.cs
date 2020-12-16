@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview.Outputs
         public readonly string Id;
         /// <summary>
         /// Specifies the sub-class of the reference.
+        /// Expected value is 'ref:machinewithhints'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

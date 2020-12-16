@@ -75,6 +75,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Outputs
         public readonly int? ProtectedItemId;
         /// <summary>
         /// backup item type.
+        /// Expected value is 'GenericProtectedItem'.
         /// </summary>
         public readonly string? ProtectedItemType;
         /// <summary>

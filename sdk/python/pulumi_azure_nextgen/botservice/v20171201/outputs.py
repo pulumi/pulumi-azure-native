@@ -379,6 +379,7 @@ class DirectLineChannelResponse(dict):
         """
         Direct Line channel definition
         :param str channel_name: The channel name
+               Expected value is 'DirectLineChannel'.
         :param 'DirectLineChannelPropertiesResponseArgs' properties: The set of properties specific to Direct Line channel resource
         """
         pulumi.set(__self__, "channel_name", 'DirectLineChannel')
@@ -390,6 +391,7 @@ class DirectLineChannelResponse(dict):
     def channel_name(self) -> str:
         """
         The channel name
+        Expected value is 'DirectLineChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -554,6 +556,7 @@ class EmailChannelResponse(dict):
         """
         Email channel definition
         :param str channel_name: The channel name
+               Expected value is 'EmailChannel'.
         :param 'EmailChannelPropertiesResponseArgs' properties: The set of properties specific to email channel resource
         """
         pulumi.set(__self__, "channel_name", 'EmailChannel')
@@ -565,6 +568,7 @@ class EmailChannelResponse(dict):
     def channel_name(self) -> str:
         """
         The channel name
+        Expected value is 'EmailChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -672,6 +676,7 @@ class FacebookChannelResponse(dict):
         """
         Facebook channel definition
         :param str channel_name: The channel name
+               Expected value is 'FacebookChannel'.
         :param 'FacebookChannelPropertiesResponseArgs' properties: The set of properties specific to bot facebook channel
         """
         pulumi.set(__self__, "channel_name", 'FacebookChannel')
@@ -683,6 +688,7 @@ class FacebookChannelResponse(dict):
     def channel_name(self) -> str:
         """
         The channel name
+        Expected value is 'FacebookChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -804,6 +810,7 @@ class KikChannelResponse(dict):
         """
         Kik channel definition
         :param str channel_name: The channel name
+               Expected value is 'KikChannel'.
         :param 'KikChannelPropertiesResponseArgs' properties: The set of properties specific to Kik channel resource
         """
         pulumi.set(__self__, "channel_name", 'KikChannel')
@@ -815,6 +822,7 @@ class KikChannelResponse(dict):
     def channel_name(self) -> str:
         """
         The channel name
+        Expected value is 'KikChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -926,6 +934,7 @@ class MsTeamsChannelResponse(dict):
         """
         Microsoft Teams channel definition
         :param str channel_name: The channel name
+               Expected value is 'MsTeamsChannel'.
         :param 'MsTeamsChannelPropertiesResponseArgs' properties: The set of properties specific to Microsoft Teams channel resource
         """
         pulumi.set(__self__, "channel_name", 'MsTeamsChannel')
@@ -937,6 +946,7 @@ class MsTeamsChannelResponse(dict):
     def channel_name(self) -> str:
         """
         The channel name
+        Expected value is 'MsTeamsChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1298,6 +1308,7 @@ class SkypeChannelResponse(dict):
         """
         Skype channel definition
         :param str channel_name: The channel name
+               Expected value is 'SkypeChannel'.
         :param 'SkypeChannelPropertiesResponseArgs' properties: The set of properties specific to Skype channel resource
         """
         pulumi.set(__self__, "channel_name", 'SkypeChannel')
@@ -1309,6 +1320,7 @@ class SkypeChannelResponse(dict):
     def channel_name(self) -> str:
         """
         The channel name
+        Expected value is 'SkypeChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1449,6 +1461,7 @@ class SlackChannelResponse(dict):
         """
         Slack channel definition
         :param str channel_name: The channel name
+               Expected value is 'SlackChannel'.
         :param 'SlackChannelPropertiesResponseArgs' properties: The set of properties specific to Slack channel resource
         """
         pulumi.set(__self__, "channel_name", 'SlackChannel')
@@ -1460,6 +1473,7 @@ class SlackChannelResponse(dict):
     def channel_name(self) -> str:
         """
         The channel name
+        Expected value is 'SlackChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1556,6 +1570,7 @@ class SmsChannelResponse(dict):
         """
         Sms channel definition
         :param str channel_name: The channel name
+               Expected value is 'SmsChannel'.
         :param 'SmsChannelPropertiesResponseArgs' properties: The set of properties specific to Sms channel resource
         """
         pulumi.set(__self__, "channel_name", 'SmsChannel')
@@ -1567,6 +1582,7 @@ class SmsChannelResponse(dict):
     def channel_name(self) -> str:
         """
         The channel name
+        Expected value is 'SmsChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1641,6 +1657,7 @@ class TelegramChannelResponse(dict):
         """
         Telegram channel definition
         :param str channel_name: The channel name
+               Expected value is 'TelegramChannel'.
         :param 'TelegramChannelPropertiesResponseArgs' properties: The set of properties specific to Telegram channel resource
         """
         pulumi.set(__self__, "channel_name", 'TelegramChannel')
@@ -1652,6 +1669,7 @@ class TelegramChannelResponse(dict):
     def channel_name(self) -> str:
         """
         The channel name
+        Expected value is 'TelegramChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1715,6 +1733,7 @@ class WebChatChannelResponse(dict):
         """
         Web Chat channel definition
         :param str channel_name: The channel name
+               Expected value is 'WebChatChannel'.
         :param 'WebChatChannelPropertiesResponseArgs' properties: The set of properties specific to Web Chat channel resource
         """
         pulumi.set(__self__, "channel_name", 'WebChatChannel')
@@ -1726,6 +1745,7 @@ class WebChatChannelResponse(dict):
     def channel_name(self) -> str:
         """
         The channel name
+        Expected value is 'WebChatChannel'.
         """
         return pulumi.get(self, "channel_name")
 

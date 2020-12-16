@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         public readonly ImmutableArray<string> ContainerIds;
         /// <summary>
         /// Gets the class type. Overridden in derived classes.
+        /// Expected value is 'Azure'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

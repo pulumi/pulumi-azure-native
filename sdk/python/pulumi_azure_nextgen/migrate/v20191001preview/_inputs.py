@@ -44,6 +44,7 @@ class AvailabilitySetResourceSettingsArgs:
         """
         Gets or sets the availability set resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Compute/availabilitySets'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[int] fault_domain: Gets or sets the target fault domain.
         :param pulumi.Input[int] update_domain: Gets or sets the target update domain.
@@ -60,6 +61,7 @@ class AvailabilitySetResourceSettingsArgs:
     def resource_type(self) -> pulumi.Input[str]:
         """
         The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Compute/availabilitySets'.
         """
         return pulumi.get(self, "resource_type")
 
@@ -325,6 +327,7 @@ class LoadBalancerResourceSettingsArgs:
         """
         Defines the load balancer resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Network/loadBalancers'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[Sequence[pulumi.Input['LBBackendAddressPoolResourceSettingsArgs']]] backend_address_pools: Gets or sets the backend address pools of the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgs']]] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
@@ -348,6 +351,7 @@ class LoadBalancerResourceSettingsArgs:
     def resource_type(self) -> pulumi.Input[str]:
         """
         The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Network/loadBalancers'.
         """
         return pulumi.get(self, "resource_type")
 
@@ -578,6 +582,7 @@ class NetworkInterfaceResourceSettingsArgs:
         """
         Defines the network interface resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Network/networkInterfaces'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[bool] enable_accelerated_networking: Gets or sets a value indicating whether accelerated networking is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]] ip_configurations: Gets or sets the IP configurations of the NIC.
@@ -594,6 +599,7 @@ class NetworkInterfaceResourceSettingsArgs:
     def resource_type(self) -> pulumi.Input[str]:
         """
         The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Network/networkInterfaces'.
         """
         return pulumi.get(self, "resource_type")
 
@@ -647,6 +653,7 @@ class NetworkSecurityGroupResourceSettingsArgs:
         """
         Defines the NSG resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Network/networkSecurityGroups'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[Sequence[pulumi.Input['NsgSecurityRuleArgs']]] security_rules: Gets or sets Security rules of network security group.
         """
@@ -660,6 +667,7 @@ class NetworkSecurityGroupResourceSettingsArgs:
     def resource_type(self) -> pulumi.Input[str]:
         """
         The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Network/networkSecurityGroups'.
         """
         return pulumi.get(self, "resource_type")
 
@@ -999,6 +1007,7 @@ class PublicIPAddressResourceSettingsArgs:
         """
         Defines the public IP address resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Network/publicIPAddresses'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[str] domain_name_label: Gets or sets the domain name label.
         :param pulumi.Input[str] f_qdn: Gets or sets the fully qualified domain name.
@@ -1024,6 +1033,7 @@ class PublicIPAddressResourceSettingsArgs:
     def resource_type(self) -> pulumi.Input[str]:
         """
         The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Network/publicIPAddresses'.
         """
         return pulumi.get(self, "resource_type")
 
@@ -1112,6 +1122,7 @@ class ResourceGroupResourceSettingsArgs:
         """
         Defines the resource group resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'resourceGroups'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         """
         pulumi.set(__self__, "resource_type", 'resourceGroups')
@@ -1122,6 +1133,7 @@ class ResourceGroupResourceSettingsArgs:
     def resource_type(self) -> pulumi.Input[str]:
         """
         The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'resourceGroups'.
         """
         return pulumi.get(self, "resource_type")
 
@@ -1151,6 +1163,7 @@ class SqlDatabaseResourceSettingsArgs:
         """
         Defines the Sql Database resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Sql/servers/databases'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[Union[str, 'ZoneRedundant']] zone_redundant: Defines the zone redundant resource setting.
         """
@@ -1164,6 +1177,7 @@ class SqlDatabaseResourceSettingsArgs:
     def resource_type(self) -> pulumi.Input[str]:
         """
         The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Sql/servers/databases'.
         """
         return pulumi.get(self, "resource_type")
 
@@ -1205,6 +1219,7 @@ class SqlElasticPoolResourceSettingsArgs:
         """
         Defines the Sql ElasticPool resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Sql/servers/elasticPools'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[Union[str, 'ZoneRedundant']] zone_redundant: Defines the zone redundant resource setting.
         """
@@ -1218,6 +1233,7 @@ class SqlElasticPoolResourceSettingsArgs:
     def resource_type(self) -> pulumi.Input[str]:
         """
         The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Sql/servers/elasticPools'.
         """
         return pulumi.get(self, "resource_type")
 
@@ -1258,6 +1274,7 @@ class SqlServerResourceSettingsArgs:
         """
         Defines the SQL Server resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Sql/servers'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers')
@@ -1268,6 +1285,7 @@ class SqlServerResourceSettingsArgs:
     def resource_type(self) -> pulumi.Input[str]:
         """
         The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Sql/servers'.
         """
         return pulumi.get(self, "resource_type")
 
@@ -1378,6 +1396,7 @@ class VirtualMachineResourceSettingsArgs:
         """
         Gets or sets the virtual machine resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Compute/virtualMachines'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[str] target_availability_set_id: Gets or sets the target availability set id for virtual machines not in an availability set at source.
         :param pulumi.Input[Union[str, 'TargetAvailabilityZone']] target_availability_zone: Gets or sets the target availability zone.
@@ -1397,6 +1416,7 @@ class VirtualMachineResourceSettingsArgs:
     def resource_type(self) -> pulumi.Input[str]:
         """
         The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Compute/virtualMachines'.
         """
         return pulumi.get(self, "resource_type")
 
@@ -1465,6 +1485,7 @@ class VirtualNetworkResourceSettingsArgs:
         """
         Defines the virtual network resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Network/virtualNetworks'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_space: Gets or sets the address prefixes for the virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
@@ -1489,6 +1510,7 @@ class VirtualNetworkResourceSettingsArgs:
     def resource_type(self) -> pulumi.Input[str]:
         """
         The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Network/virtualNetworks'.
         """
         return pulumi.get(self, "resource_type")
 

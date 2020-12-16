@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly string RuntimeState;
         /// <summary>
         /// Trigger type.
+        /// Expected value is 'ChainingTrigger'.
         /// </summary>
         public readonly string Type;
 

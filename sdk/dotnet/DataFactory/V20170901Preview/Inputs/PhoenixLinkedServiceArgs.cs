@@ -113,6 +113,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
 
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Phoenix'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

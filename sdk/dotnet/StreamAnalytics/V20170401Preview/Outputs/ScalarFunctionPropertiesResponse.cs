@@ -28,6 +28,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
         public readonly Outputs.FunctionOutputResponse? Output;
         /// <summary>
         /// Indicates the type of function.
+        /// Expected value is 'Scalar'.
         /// </summary>
         public readonly string Type;
 

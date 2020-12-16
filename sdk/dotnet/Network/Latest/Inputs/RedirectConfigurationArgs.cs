@@ -39,6 +39,10 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         [Input("customQueryString")]
         public Input<string>? CustomQueryString { get; set; }
 
+        /// <summary>
+        /// 
+        /// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
+        /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;
 

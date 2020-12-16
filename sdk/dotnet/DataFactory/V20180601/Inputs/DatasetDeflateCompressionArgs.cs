@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
 
         /// <summary>
         /// Type of dataset compression.
+        /// Expected value is 'Deflate'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

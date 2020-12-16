@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview.Inputs
 
         /// <summary>
         /// The authentication type
+        /// Expected value is 'Sas'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

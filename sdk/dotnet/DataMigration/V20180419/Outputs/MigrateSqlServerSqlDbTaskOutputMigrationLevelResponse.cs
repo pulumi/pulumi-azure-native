@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
         public readonly Outputs.MigrationReportResultResponse MigrationReport;
         /// <summary>
         /// Result type
+        /// Expected value is 'MigrationLevelOutput'.
         /// </summary>
         public readonly string ResultType;
         /// <summary>

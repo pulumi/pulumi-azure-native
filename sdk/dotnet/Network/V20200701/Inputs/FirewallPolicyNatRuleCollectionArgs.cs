@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701.Inputs
 
         /// <summary>
         /// The type of the rule collection.
+        /// Expected value is 'FirewallPolicyNatRuleCollection'.
         /// </summary>
         [Input("ruleCollectionType", required: true)]
         public Input<string> RuleCollectionType { get; set; } = null!;

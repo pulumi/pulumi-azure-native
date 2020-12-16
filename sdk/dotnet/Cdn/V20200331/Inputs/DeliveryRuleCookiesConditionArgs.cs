@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331.Inputs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
+        /// Expected value is 'Cookies'.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

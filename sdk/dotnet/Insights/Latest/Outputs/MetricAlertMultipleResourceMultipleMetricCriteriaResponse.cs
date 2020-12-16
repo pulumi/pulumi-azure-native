@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Outputs
         public readonly ImmutableArray<Union<Outputs.DynamicMetricCriteriaResponse, Outputs.MetricCriteriaResponse>> AllOf;
         /// <summary>
         /// specifies the type of the alert criteria.
+        /// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
         /// </summary>
         public readonly string OdataType;
 

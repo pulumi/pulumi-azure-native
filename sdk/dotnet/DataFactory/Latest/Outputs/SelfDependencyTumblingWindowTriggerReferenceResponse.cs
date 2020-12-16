@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly string? Size;
         /// <summary>
         /// The type of dependency reference.
+        /// Expected value is 'SelfDependencyTumblingWindowTriggerReference'.
         /// </summary>
         public readonly string Type;
 

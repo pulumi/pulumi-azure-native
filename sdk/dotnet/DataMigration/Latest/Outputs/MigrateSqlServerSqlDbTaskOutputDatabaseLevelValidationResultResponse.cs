@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         public readonly Outputs.QueryAnalysisValidationResultResponse QueryAnalysisValidationResult;
         /// <summary>
         /// Result type
+        /// Expected value is 'MigrationDatabaseLevelValidationOutput'.
         /// </summary>
         public readonly string ResultType;
         /// <summary>

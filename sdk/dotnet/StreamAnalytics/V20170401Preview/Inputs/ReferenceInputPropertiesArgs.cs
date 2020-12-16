@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
 
         /// <summary>
         /// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Reference'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

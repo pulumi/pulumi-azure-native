@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview.Outputs
         public readonly string ImageVersionId;
         /// <summary>
         /// Specifies the type of source image you want to start with.
+        /// Expected value is 'SharedImageVersion'.
         /// </summary>
         public readonly string Type;
 

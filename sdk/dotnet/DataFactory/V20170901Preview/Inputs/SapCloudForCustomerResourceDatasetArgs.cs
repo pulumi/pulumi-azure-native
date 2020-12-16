@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
 
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'SapCloudForCustomerResource'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

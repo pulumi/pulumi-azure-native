@@ -107,6 +107,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
 
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AzureDataLakeStore'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119.Outputs
         public readonly string? ComputeLocation;
         /// <summary>
         /// The type of compute
+        /// Expected value is 'DataLakeAnalytics'.
         /// </summary>
         public readonly string ComputeType;
         /// <summary>

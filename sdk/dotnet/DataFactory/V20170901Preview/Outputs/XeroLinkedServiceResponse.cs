@@ -48,6 +48,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? PrivateKey;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Xero'.
         /// </summary>
         public readonly string Type;
         /// <summary>

@@ -77,6 +77,7 @@ class ScheduledSourceSynchronizationSettingResponseResult(dict):
         """
         A type of synchronization setting based on schedule
         :param str kind: Kind of synchronization
+               Expected value is 'ScheduleBased'.
         :param str recurrence_interval: Recurrence Interval
         :param str synchronization_time: Synchronization time
         """
@@ -91,6 +92,7 @@ class ScheduledSourceSynchronizationSettingResponseResult(dict):
     def kind(self) -> str:
         """
         Kind of synchronization
+        Expected value is 'ScheduleBased'.
         """
         return pulumi.get(self, "kind")
 

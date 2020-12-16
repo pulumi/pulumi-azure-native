@@ -79,6 +79,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         public readonly string Id;
         /// <summary>
         /// Additional resource type qualifier.
+        /// Expected value is 'machineGroup'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

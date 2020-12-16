@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         public readonly string Name;
         /// <summary>
         /// Type of result - database level or task level
+        /// Expected value is 'LoginLevelOutput'.
         /// </summary>
         public readonly string ResultType;
 

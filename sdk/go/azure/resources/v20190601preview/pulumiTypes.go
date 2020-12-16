@@ -242,6 +242,7 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 // Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
 type TemplateSpecTemplateArtifact struct {
 	// The kind of artifact.
+	// Expected value is 'template'.
 	Kind string `pulumi:"kind"`
 	// A filesystem safe relative path of the artifact.
 	Path string `pulumi:"path"`
@@ -263,6 +264,7 @@ type TemplateSpecTemplateArtifactInput interface {
 // Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
 type TemplateSpecTemplateArtifactArgs struct {
 	// The kind of artifact.
+	// Expected value is 'template'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// A filesystem safe relative path of the artifact.
 	Path pulumi.StringInput `pulumi:"path"`
@@ -323,6 +325,7 @@ func (o TemplateSpecTemplateArtifactOutput) ToTemplateSpecTemplateArtifactOutput
 }
 
 // The kind of artifact.
+// Expected value is 'template'.
 func (o TemplateSpecTemplateArtifactOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSpecTemplateArtifact) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -360,6 +363,7 @@ func (o TemplateSpecTemplateArtifactArrayOutput) Index(i pulumi.IntInput) Templa
 // Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
 type TemplateSpecTemplateArtifactResponse struct {
 	// The kind of artifact.
+	// Expected value is 'template'.
 	Kind string `pulumi:"kind"`
 	// A filesystem safe relative path of the artifact.
 	Path string `pulumi:"path"`
@@ -381,6 +385,7 @@ type TemplateSpecTemplateArtifactResponseInput interface {
 // Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
 type TemplateSpecTemplateArtifactResponseArgs struct {
 	// The kind of artifact.
+	// Expected value is 'template'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// A filesystem safe relative path of the artifact.
 	Path pulumi.StringInput `pulumi:"path"`
@@ -441,6 +446,7 @@ func (o TemplateSpecTemplateArtifactResponseOutput) ToTemplateSpecTemplateArtifa
 }
 
 // The kind of artifact.
+// Expected value is 'template'.
 func (o TemplateSpecTemplateArtifactResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSpecTemplateArtifactResponse) string { return v.Kind }).(pulumi.StringOutput)
 }

@@ -1734,6 +1734,7 @@ type DataBoxAccountCopyLogDetailsResponse struct {
 	// Account name.
 	AccountName string `pulumi:"accountName"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBox'.
 	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
 	// Link for copy logs.
 	CopyLogLink string `pulumi:"copyLogLink"`
@@ -1757,6 +1758,7 @@ type DataBoxAccountCopyLogDetailsResponseArgs struct {
 	// Account name.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBox'.
 	CopyLogDetailsType pulumi.StringInput `pulumi:"copyLogDetailsType"`
 	// Link for copy logs.
 	CopyLogLink pulumi.StringInput `pulumi:"copyLogLink"`
@@ -1797,6 +1799,7 @@ func (o DataBoxAccountCopyLogDetailsResponseOutput) AccountName() pulumi.StringO
 }
 
 // Indicates the type of job details.
+// Expected value is 'DataBox'.
 func (o DataBoxAccountCopyLogDetailsResponseOutput) CopyLogDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxAccountCopyLogDetailsResponse) string { return v.CopyLogDetailsType }).(pulumi.StringOutput)
 }
@@ -1814,6 +1817,7 @@ func (o DataBoxAccountCopyLogDetailsResponseOutput) CopyVerboseLogLink() pulumi.
 // Copy Log Details for a disk
 type DataBoxDiskCopyLogDetailsResponse struct {
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxDisk'.
 	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
 	// Disk Serial Number.
 	DiskSerialNumber string `pulumi:"diskSerialNumber"`
@@ -1837,6 +1841,7 @@ type DataBoxDiskCopyLogDetailsResponseInput interface {
 // Copy Log Details for a disk
 type DataBoxDiskCopyLogDetailsResponseArgs struct {
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxDisk'.
 	CopyLogDetailsType pulumi.StringInput `pulumi:"copyLogDetailsType"`
 	// Disk Serial Number.
 	DiskSerialNumber pulumi.StringInput `pulumi:"diskSerialNumber"`
@@ -1874,6 +1879,7 @@ func (o DataBoxDiskCopyLogDetailsResponseOutput) ToDataBoxDiskCopyLogDetailsResp
 }
 
 // Indicates the type of job details.
+// Expected value is 'DataBoxDisk'.
 func (o DataBoxDiskCopyLogDetailsResponseOutput) CopyLogDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskCopyLogDetailsResponse) string { return v.CopyLogDetailsType }).(pulumi.StringOutput)
 }
@@ -2031,6 +2037,7 @@ type DataBoxDiskJobDetails struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxDisk'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
 	// User entered passkey for DataBox Disk job.
 	Passkey *string `pulumi:"passkey"`
@@ -2064,6 +2071,7 @@ type DataBoxDiskJobDetailsArgs struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxDisk'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
 	// User entered passkey for DataBox Disk job.
 	Passkey pulumi.StringPtrInput `pulumi:"passkey"`
@@ -2123,6 +2131,7 @@ func (o DataBoxDiskJobDetailsOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtr
 }
 
 // Indicates the type of job details.
+// Expected value is 'DataBoxDisk'.
 func (o DataBoxDiskJobDetailsOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
@@ -2168,6 +2177,7 @@ type DataBoxDiskJobDetailsResponse struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxDisk'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
 	// List of stages that run in the job.
 	JobStages []JobStagesResponse `pulumi:"jobStages"`
@@ -2219,6 +2229,7 @@ type DataBoxDiskJobDetailsResponseArgs struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxDisk'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
 	// List of stages that run in the job.
 	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
@@ -2311,6 +2322,7 @@ func (o DataBoxDiskJobDetailsResponseOutput) ExpectedDataSizeInTerabytes() pulum
 }
 
 // Indicates the type of job details.
+// Expected value is 'DataBoxDisk'.
 func (o DataBoxDiskJobDetailsResponseOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
@@ -2366,6 +2378,7 @@ type DataBoxDiskJobSecretsResponse struct {
 	// Whether passkey was provided by user.
 	IsPasskeyUserDefined bool `pulumi:"isPasskeyUserDefined"`
 	// Used to indicate what type of job secrets object.
+	// Expected value is 'DataBoxDisk'.
 	JobSecretsType string `pulumi:"jobSecretsType"`
 	// PassKey for the disk Job.
 	PassKey string `pulumi:"passKey"`
@@ -2393,6 +2406,7 @@ type DataBoxDiskJobSecretsResponseArgs struct {
 	// Whether passkey was provided by user.
 	IsPasskeyUserDefined pulumi.BoolInput `pulumi:"isPasskeyUserDefined"`
 	// Used to indicate what type of job secrets object.
+	// Expected value is 'DataBoxDisk'.
 	JobSecretsType pulumi.StringInput `pulumi:"jobSecretsType"`
 	// PassKey for the disk Job.
 	PassKey pulumi.StringInput `pulumi:"passKey"`
@@ -2446,6 +2460,7 @@ func (o DataBoxDiskJobSecretsResponseOutput) IsPasskeyUserDefined() pulumi.BoolO
 }
 
 // Used to indicate what type of job secrets object.
+// Expected value is 'DataBoxDisk'.
 func (o DataBoxDiskJobSecretsResponseOutput) JobSecretsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
 }
@@ -2460,6 +2475,7 @@ type DataBoxHeavyAccountCopyLogDetailsResponse struct {
 	// Account name.
 	AccountName string `pulumi:"accountName"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxHeavy'.
 	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
 	// Link for copy logs.
 	CopyLogLink []string `pulumi:"copyLogLink"`
@@ -2483,6 +2499,7 @@ type DataBoxHeavyAccountCopyLogDetailsResponseArgs struct {
 	// Account name.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxHeavy'.
 	CopyLogDetailsType pulumi.StringInput `pulumi:"copyLogDetailsType"`
 	// Link for copy logs.
 	CopyLogLink pulumi.StringArrayInput `pulumi:"copyLogLink"`
@@ -2523,6 +2540,7 @@ func (o DataBoxHeavyAccountCopyLogDetailsResponseOutput) AccountName() pulumi.St
 }
 
 // Indicates the type of job details.
+// Expected value is 'DataBoxHeavy'.
 func (o DataBoxHeavyAccountCopyLogDetailsResponseOutput) CopyLogDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyAccountCopyLogDetailsResponse) string { return v.CopyLogDetailsType }).(pulumi.StringOutput)
 }
@@ -2550,6 +2568,7 @@ type DataBoxHeavyJobDetails struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
 	// Preferences for the order.
 	Preferences *Preferences `pulumi:"preferences"`
@@ -2581,6 +2600,7 @@ type DataBoxHeavyJobDetailsArgs struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
 	// Preferences for the order.
 	Preferences PreferencesPtrInput `pulumi:"preferences"`
@@ -2641,6 +2661,7 @@ func (o DataBoxHeavyJobDetailsOutput) ExpectedDataSizeInTerabytes() pulumi.IntPt
 }
 
 // Indicates the type of job details.
+// Expected value is 'DataBoxHeavy'.
 func (o DataBoxHeavyJobDetailsOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetails) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
@@ -2676,6 +2697,7 @@ type DataBoxHeavyJobDetailsResponse struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
 	// List of stages that run in the job.
 	JobStages []JobStagesResponse `pulumi:"jobStages"`
@@ -2723,6 +2745,7 @@ type DataBoxHeavyJobDetailsResponseArgs struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
 	// List of stages that run in the job.
 	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
@@ -2811,6 +2834,7 @@ func (o DataBoxHeavyJobDetailsResponseOutput) ExpectedDataSizeInTerabytes() pulu
 }
 
 // Indicates the type of job details.
+// Expected value is 'DataBoxHeavy'.
 func (o DataBoxHeavyJobDetailsResponseOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
@@ -2854,6 +2878,7 @@ type DataBoxHeavyJobSecretsResponse struct {
 	// Error while fetching the secrets.
 	Error CloudErrorResponse `pulumi:"error"`
 	// Used to indicate what type of job secrets object.
+	// Expected value is 'DataBoxHeavy'.
 	JobSecretsType string `pulumi:"jobSecretsType"`
 }
 
@@ -2877,6 +2902,7 @@ type DataBoxHeavyJobSecretsResponseArgs struct {
 	// Error while fetching the secrets.
 	Error CloudErrorResponseInput `pulumi:"error"`
 	// Used to indicate what type of job secrets object.
+	// Expected value is 'DataBoxHeavy'.
 	JobSecretsType pulumi.StringInput `pulumi:"jobSecretsType"`
 }
 
@@ -2923,6 +2949,7 @@ func (o DataBoxHeavyJobSecretsResponseOutput) Error() CloudErrorResponseOutput {
 }
 
 // Used to indicate what type of job secrets object.
+// Expected value is 'DataBoxHeavy'.
 func (o DataBoxHeavyJobSecretsResponseOutput) JobSecretsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobSecretsResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
 }
@@ -3080,6 +3107,7 @@ type DataBoxJobDetails struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBox'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
 	// Preferences for the order.
 	Preferences *Preferences `pulumi:"preferences"`
@@ -3111,6 +3139,7 @@ type DataBoxJobDetailsArgs struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBox'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
 	// Preferences for the order.
 	Preferences PreferencesPtrInput `pulumi:"preferences"`
@@ -3171,6 +3200,7 @@ func (o DataBoxJobDetailsOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutp
 }
 
 // Indicates the type of job details.
+// Expected value is 'DataBox'.
 func (o DataBoxJobDetailsOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
@@ -3206,6 +3236,7 @@ type DataBoxJobDetailsResponse struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBox'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
 	// List of stages that run in the job.
 	JobStages []JobStagesResponse `pulumi:"jobStages"`
@@ -3253,6 +3284,7 @@ type DataBoxJobDetailsResponseArgs struct {
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
 	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
 	// Indicates the type of job details.
+	// Expected value is 'DataBox'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
 	// List of stages that run in the job.
 	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
@@ -3341,6 +3373,7 @@ func (o DataBoxJobDetailsResponseOutput) ExpectedDataSizeInTerabytes() pulumi.In
 }
 
 // Indicates the type of job details.
+// Expected value is 'DataBox'.
 func (o DataBoxJobDetailsResponseOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
@@ -3954,6 +3987,7 @@ type DataboxJobSecretsResponse struct {
 	// Error while fetching the secrets.
 	Error CloudErrorResponse `pulumi:"error"`
 	// Used to indicate what type of job secrets object.
+	// Expected value is 'DataBox'.
 	JobSecretsType string `pulumi:"jobSecretsType"`
 	// Contains the list of secret objects for a job.
 	PodSecrets []DataBoxSecretResponse `pulumi:"podSecrets"`
@@ -3977,6 +4011,7 @@ type DataboxJobSecretsResponseArgs struct {
 	// Error while fetching the secrets.
 	Error CloudErrorResponseInput `pulumi:"error"`
 	// Used to indicate what type of job secrets object.
+	// Expected value is 'DataBox'.
 	JobSecretsType pulumi.StringInput `pulumi:"jobSecretsType"`
 	// Contains the list of secret objects for a job.
 	PodSecrets DataBoxSecretResponseArrayInput `pulumi:"podSecrets"`
@@ -4020,6 +4055,7 @@ func (o DataboxJobSecretsResponseOutput) Error() CloudErrorResponseOutput {
 }
 
 // Used to indicate what type of job secrets object.
+// Expected value is 'DataBox'.
 func (o DataboxJobSecretsResponseOutput) JobSecretsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataboxJobSecretsResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
 }
@@ -4900,6 +4936,7 @@ func (o KeyEncryptionKeyResponseOutput) KekVaultResourceID() pulumi.StringPtrOut
 // Details of the managed disks.
 type ManagedDiskDetails struct {
 	// Account Type of the data to be transferred.
+	// Expected value is 'ManagedDisk'.
 	DataAccountType string `pulumi:"dataAccountType"`
 	// Resource Group Id of the compute disks.
 	ResourceGroupId string `pulumi:"resourceGroupId"`
@@ -4923,6 +4960,7 @@ type ManagedDiskDetailsInput interface {
 // Details of the managed disks.
 type ManagedDiskDetailsArgs struct {
 	// Account Type of the data to be transferred.
+	// Expected value is 'ManagedDisk'.
 	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
 	// Resource Group Id of the compute disks.
 	ResourceGroupId pulumi.StringInput `pulumi:"resourceGroupId"`
@@ -4960,6 +4998,7 @@ func (o ManagedDiskDetailsOutput) ToManagedDiskDetailsOutputWithContext(ctx cont
 }
 
 // Account Type of the data to be transferred.
+// Expected value is 'ManagedDisk'.
 func (o ManagedDiskDetailsOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskDetails) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
@@ -4982,6 +5021,7 @@ func (o ManagedDiskDetailsOutput) StagingStorageAccountId() pulumi.StringOutput 
 // Details of the managed disks.
 type ManagedDiskDetailsResponse struct {
 	// Account Type of the data to be transferred.
+	// Expected value is 'ManagedDisk'.
 	DataAccountType string `pulumi:"dataAccountType"`
 	// Resource Group Id of the compute disks.
 	ResourceGroupId string `pulumi:"resourceGroupId"`
@@ -5005,6 +5045,7 @@ type ManagedDiskDetailsResponseInput interface {
 // Details of the managed disks.
 type ManagedDiskDetailsResponseArgs struct {
 	// Account Type of the data to be transferred.
+	// Expected value is 'ManagedDisk'.
 	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
 	// Resource Group Id of the compute disks.
 	ResourceGroupId pulumi.StringInput `pulumi:"resourceGroupId"`
@@ -5042,6 +5083,7 @@ func (o ManagedDiskDetailsResponseOutput) ToManagedDiskDetailsResponseOutputWith
 }
 
 // Account Type of the data to be transferred.
+// Expected value is 'ManagedDisk'.
 func (o ManagedDiskDetailsResponseOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskDetailsResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
@@ -7057,6 +7099,7 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 // Details for the storage account.
 type StorageAccountDetails struct {
 	// Account Type of the data to be transferred.
+	// Expected value is 'StorageAccount'.
 	DataAccountType string `pulumi:"dataAccountType"`
 	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	SharePassword *string `pulumi:"sharePassword"`
@@ -7078,6 +7121,7 @@ type StorageAccountDetailsInput interface {
 // Details for the storage account.
 type StorageAccountDetailsArgs struct {
 	// Account Type of the data to be transferred.
+	// Expected value is 'StorageAccount'.
 	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
 	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	SharePassword pulumi.StringPtrInput `pulumi:"sharePassword"`
@@ -7113,6 +7157,7 @@ func (o StorageAccountDetailsOutput) ToStorageAccountDetailsOutputWithContext(ct
 }
 
 // Account Type of the data to be transferred.
+// Expected value is 'StorageAccount'.
 func (o StorageAccountDetailsOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountDetails) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
@@ -7130,6 +7175,7 @@ func (o StorageAccountDetailsOutput) StorageAccountId() pulumi.StringOutput {
 // Details for the storage account.
 type StorageAccountDetailsResponse struct {
 	// Account Type of the data to be transferred.
+	// Expected value is 'StorageAccount'.
 	DataAccountType string `pulumi:"dataAccountType"`
 	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	SharePassword *string `pulumi:"sharePassword"`
@@ -7151,6 +7197,7 @@ type StorageAccountDetailsResponseInput interface {
 // Details for the storage account.
 type StorageAccountDetailsResponseArgs struct {
 	// Account Type of the data to be transferred.
+	// Expected value is 'StorageAccount'.
 	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
 	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	SharePassword pulumi.StringPtrInput `pulumi:"sharePassword"`
@@ -7186,6 +7233,7 @@ func (o StorageAccountDetailsResponseOutput) ToStorageAccountDetailsResponseOutp
 }
 
 // Account Type of the data to be transferred.
+// Expected value is 'StorageAccount'.
 func (o StorageAccountDetailsResponseOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountDetailsResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
 }

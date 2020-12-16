@@ -72,6 +72,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Inputs
 
         /// <summary>
         /// The type of the run request.
+        /// Expected value is 'FileTaskRunRequest'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

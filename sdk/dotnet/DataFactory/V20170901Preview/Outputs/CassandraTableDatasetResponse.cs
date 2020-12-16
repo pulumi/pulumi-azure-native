@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly object? TableName;
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'CassandraTable'.
         /// </summary>
         public readonly string Type;
 

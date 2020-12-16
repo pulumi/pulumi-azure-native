@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Outputs
         public readonly string? Label;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.Video'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

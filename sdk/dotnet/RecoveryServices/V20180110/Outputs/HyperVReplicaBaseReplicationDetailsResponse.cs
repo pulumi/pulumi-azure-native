@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110.Outputs
         public readonly Outputs.InitialReplicationDetailsResponse? InitialReplicationDetails;
         /// <summary>
         /// Gets the Instance type.
+        /// Expected value is 'HyperVReplicaBaseReplicationDetails'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

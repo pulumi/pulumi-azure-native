@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Outputs
         public readonly Outputs.CloudErrorResponse Error;
         /// <summary>
         /// Used to indicate what type of job secrets object.
+        /// Expected value is 'DataBoxHeavy'.
         /// </summary>
         public readonly string JobSecretsType;
 

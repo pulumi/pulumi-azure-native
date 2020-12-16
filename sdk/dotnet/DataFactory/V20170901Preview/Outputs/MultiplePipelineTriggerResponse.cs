@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly string RuntimeState;
         /// <summary>
         /// Trigger type.
+        /// Expected value is 'MultiplePipelineTrigger'.
         /// </summary>
         public readonly string Type;
 

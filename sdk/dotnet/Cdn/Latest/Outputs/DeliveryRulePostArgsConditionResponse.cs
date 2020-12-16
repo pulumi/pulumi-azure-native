@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Outputs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
+        /// Expected value is 'PostArgs'.
         /// </summary>
         public readonly string Name;
         /// <summary>

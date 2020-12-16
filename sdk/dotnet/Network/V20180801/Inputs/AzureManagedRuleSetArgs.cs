@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
 
         /// <summary>
         /// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+        /// Expected value is 'AzureManagedRuleSet'.
         /// </summary>
         [Input("ruleSetType", required: true)]
         public Input<string> RuleSetType { get; set; } = null!;

@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101.Outputs
     {
         /// <summary>
         /// Indicates the type of job details.
+        /// Expected value is 'DataBoxDisk'.
         /// </summary>
         public readonly string CopyLogDetailsType;
         /// <summary>

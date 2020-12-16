@@ -147,6 +147,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly object TimeToLive;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'HDInsightOnDemand'.
         /// </summary>
         public readonly string Type;
         /// <summary>

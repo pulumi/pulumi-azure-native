@@ -51,6 +51,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly object? TableName;
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'AzurePostgreSqlTable'.
         /// </summary>
         public readonly string Type;
 

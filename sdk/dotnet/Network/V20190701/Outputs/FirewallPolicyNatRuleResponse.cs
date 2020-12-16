@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         public readonly Union<Outputs.ApplicationRuleConditionResponse, Outputs.NetworkRuleConditionResponse>? RuleCondition;
         /// <summary>
         /// The type of the rule.
+        /// Expected value is 'FirewallPolicyNatRule'.
         /// </summary>
         public readonly string RuleType;
         /// <summary>

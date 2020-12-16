@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701.Outputs
         public readonly ImmutableArray<Outputs.ContentKeyPolicyPlayReadyLicenseResponse> Licenses;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

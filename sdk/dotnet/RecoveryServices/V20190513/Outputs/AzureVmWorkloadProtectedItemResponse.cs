@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Outputs
         public readonly string? ProtectedItemHealthStatus;
         /// <summary>
         /// backup item type.
+        /// Expected value is 'AzureVmWorkloadProtectedItem'.
         /// </summary>
         public readonly string? ProtectedItemType;
         /// <summary>

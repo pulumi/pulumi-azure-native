@@ -135,6 +135,7 @@ class A2AContainerMappingInputArgs:
         :param pulumi.Input[Union[str, 'AgentAutoUpdateStatus']] agent_auto_update_status: A value indicating whether the auto update is enabled.
         :param pulumi.Input[str] automation_account_arm_id: The automation account arm id.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'A2A'.
         """
         if agent_auto_update_status is not None:
             pulumi.set(__self__, "agent_auto_update_status", agent_auto_update_status)
@@ -172,6 +173,7 @@ class A2AContainerMappingInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'A2A'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -203,6 +205,7 @@ class A2AEnableProtectionInputArgs:
         :param pulumi.Input['DiskEncryptionInfoArgs'] disk_encryption_info: The recovery disk encryption information.
         :param pulumi.Input[str] fabric_object_id: The fabric specific object Id of the virtual machine.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'A2A'.
         :param pulumi.Input[str] multi_vm_group_name: The multi vm group name.
         :param pulumi.Input[str] recovery_availability_set_id: The recovery availability set Id.
         :param pulumi.Input[str] recovery_availability_zone: The recovery availability zone.
@@ -276,6 +279,7 @@ class A2AEnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'A2A'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -442,6 +446,7 @@ class A2APolicyCreationInputArgs:
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'A2A'.
         :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         """
         pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
@@ -495,6 +500,7 @@ class A2APolicyCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'A2A'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -872,6 +878,7 @@ class AzureFabricCreationInputArgs:
         """
         Fabric provider specific settings.
         :param pulumi.Input[str] instance_type: Gets the class type.
+               Expected value is 'Azure'.
         :param pulumi.Input[str] location: The Location.
         """
         if instance_type is not None:
@@ -884,6 +891,7 @@ class AzureFabricCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         Gets the class type.
+        Expected value is 'Azure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -916,6 +924,7 @@ class AzureFileShareProtectionPolicyArgs:
         """
         AzureStorage backup policy.
         :param pulumi.Input[str] backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureStorage'.
         :param pulumi.Input[int] protected_items_count: Number of items associated with this policy.
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: Retention policy with the details on backup copy retention ranges.
         :param pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs']] schedule_policy: Backup schedule specified as part of backup policy.
@@ -939,6 +948,7 @@ class AzureFileShareProtectionPolicyArgs:
     def backup_management_type(self) -> pulumi.Input[str]:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureStorage'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -1034,6 +1044,7 @@ class AzureFileshareProtectedItemArgs:
         """
         Azure File Share workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureFileShareProtectedItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -1102,6 +1113,7 @@ class AzureFileshareProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'AzureFileShareProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1437,6 +1449,7 @@ class AzureIaaSVMProtectedItemArgs:
         """
         IaaS VM workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureIaaSVMProtectedItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -1517,6 +1530,7 @@ class AzureIaaSVMProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'AzureIaaSVMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1882,6 +1896,7 @@ class AzureIaaSVMProtectionPolicyArgs:
         """
         IaaS VM workload-specific backup policy.
         :param pulumi.Input[str] backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureIaasVM'.
         :param pulumi.Input[int] instant_rp_retention_range_in_days: Instant RP retention policy range in days
         :param pulumi.Input[int] protected_items_count: Number of items associated with this policy.
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: Retention policy with the details on backup copy retention ranges.
@@ -1907,6 +1922,7 @@ class AzureIaaSVMProtectionPolicyArgs:
     def backup_management_type(self) -> pulumi.Input[str]:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureIaasVM'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -1999,6 +2015,7 @@ class AzureRecoveryServiceVaultProtectionIntentArgs:
         :param pulumi.Input[str] item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
+               Expected value is 'RecoveryServiceVaultItem'.
         :param pulumi.Input[Union[str, 'ProtectionStatus']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
@@ -2056,6 +2073,7 @@ class AzureRecoveryServiceVaultProtectionIntentArgs:
     def protection_intent_item_type(self) -> Optional[pulumi.Input[str]]:
         """
         backup protectionIntent type.
+        Expected value is 'RecoveryServiceVaultItem'.
         """
         return pulumi.get(self, "protection_intent_item_type")
 
@@ -2105,6 +2123,7 @@ class AzureResourceProtectionIntentArgs:
         :param pulumi.Input[str] item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
+               Expected value is 'AzureResourceItem'.
         :param pulumi.Input[Union[str, 'ProtectionStatus']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
@@ -2176,6 +2195,7 @@ class AzureResourceProtectionIntentArgs:
     def protection_intent_item_type(self) -> Optional[pulumi.Input[str]]:
         """
         backup protectionIntent type.
+        Expected value is 'AzureResourceItem'.
         """
         return pulumi.get(self, "protection_intent_item_type")
 
@@ -2222,6 +2242,7 @@ class AzureSqlContainerArgs:
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'AzureSqlContainer'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
@@ -2245,6 +2266,7 @@ class AzureSqlContainerArgs:
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'AzureSqlContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -2324,6 +2346,7 @@ class AzureSqlProtectedItemArgs:
         """
         Azure SQL workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'Microsoft.Sql/servers/databases'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -2380,6 +2403,7 @@ class AzureSqlProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'Microsoft.Sql/servers/databases'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2645,6 +2669,7 @@ class AzureSqlProtectionPolicyArgs:
         """
         Azure SQL workload-specific backup policy.
         :param pulumi.Input[str] backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureSql'.
         :param pulumi.Input[int] protected_items_count: Number of items associated with this policy.
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: Retention policy details.
         """
@@ -2659,6 +2684,7 @@ class AzureSqlProtectionPolicyArgs:
     def backup_management_type(self) -> pulumi.Input[str]:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureSql'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -2709,6 +2735,7 @@ class AzureStorageContainerArgs:
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'StorageContainer'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
@@ -2744,6 +2771,7 @@ class AzureStorageContainerArgs:
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'StorageContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -2856,6 +2884,7 @@ class AzureToAzureCreateNetworkMappingInputArgs:
         """
         Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
         :param pulumi.Input[str] instance_type: The instance type.
+               Expected value is 'AzureToAzure'.
         :param pulumi.Input[str] primary_network_id: The primary azure vnet Id.
         """
         if instance_type is not None:
@@ -2868,6 +2897,7 @@ class AzureToAzureCreateNetworkMappingInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The instance type.
+        Expected value is 'AzureToAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2920,6 +2950,7 @@ class AzureVmWorkloadProtectedItemArgs:
         """
         Azure VM workload-specific protected item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureVmWorkloadProtectedItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -3003,6 +3034,7 @@ class AzureVmWorkloadProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'AzureVmWorkloadProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -3379,6 +3411,7 @@ class AzureVmWorkloadProtectionPolicyArgs:
         """
         Azure VM (Mercury) workload-specific backup policy.
         :param pulumi.Input[str] backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'AzureWorkload'.
         :param pulumi.Input[bool] make_policy_consistent: Fix the policy inconsistency
         :param pulumi.Input[int] protected_items_count: Number of items associated with this policy.
         :param pulumi.Input['SettingsArgs'] settings: Common settings for the backup management
@@ -3402,6 +3435,7 @@ class AzureVmWorkloadProtectionPolicyArgs:
     def backup_management_type(self) -> pulumi.Input[str]:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureWorkload'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -3489,6 +3523,7 @@ class AzureWorkloadContainerArgs:
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'AzureWorkloadContainer'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input['AzureWorkloadContainerExtendedInfoArgs'] extended_info: Additional details of a workload container.
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
@@ -3527,6 +3562,7 @@ class AzureWorkloadContainerArgs:
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'AzureWorkloadContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -4040,6 +4076,7 @@ class DPMProtectedItemArgs:
         """
         Additional information on Backup engine specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'DPMProtectedItem'.
         :param pulumi.Input[str] backup_engine_name: Backup Management server protecting this backup item
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
@@ -4099,6 +4136,7 @@ class DPMProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'DPMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -4830,6 +4868,7 @@ class DpmContainerArgs:
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'DPMContainer'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[bool] can_re_register: Specifies whether the container is re-registrable.
         :param pulumi.Input[str] container_id: ID of container.
@@ -4877,6 +4916,7 @@ class DpmContainerArgs:
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'DPMContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -5187,6 +5227,7 @@ class GenericContainerArgs:
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'GenericContainer'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input['GenericContainerExtendedInfoArgs'] extended_information: Extended information (not returned in List container API calls)
         :param pulumi.Input[str] fabric_name: Name of the container's fabric
@@ -5216,6 +5257,7 @@ class GenericContainerArgs:
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'GenericContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -5378,6 +5420,7 @@ class GenericProtectedItemArgs:
         """
         Base class for backup items.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'GenericProtectedItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -5443,6 +5486,7 @@ class GenericProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'GenericProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -5690,6 +5734,7 @@ class GenericProtectionPolicyArgs:
         """
         Azure VM (Mercury) workload-specific backup policy.
         :param pulumi.Input[str] backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'GenericProtectionPolicy'.
         :param pulumi.Input[str] fabric_name: Name of this policy's fabric.
         :param pulumi.Input[int] protected_items_count: Number of items associated with this policy.
         :param pulumi.Input[Sequence[pulumi.Input['SubProtectionPolicyArgs']]] sub_protection_policy: List of sub-protection policies which includes schedule and retention
@@ -5710,6 +5755,7 @@ class GenericProtectionPolicyArgs:
     def backup_management_type(self) -> pulumi.Input[str]:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'GenericProtectionPolicy'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -5792,6 +5838,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
         :param pulumi.Input[str] enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param pulumi.Input[str] hv_host_vm_id: The Hyper-V host Vm Id.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'HyperVReplicaAzure'.
         :param pulumi.Input[str] log_storage_account_id: The storage account to be used for logging during replication.
         :param pulumi.Input[str] os_type: The OS type associated with vm.
         :param pulumi.Input[str] target_availability_zone: The target availability zone.
@@ -5882,6 +5929,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'HyperVReplicaAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -6059,6 +6107,7 @@ class HyperVReplicaAzurePolicyInputArgs:
         Hyper-V Replica Azure specific input for creating a protection profile.
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'HyperVReplicaAzure'.
         :param pulumi.Input[str] online_replication_start_time: The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
         :param pulumi.Input[int] recovery_point_history_duration: The duration (in hours) to which point the recovery history needs to be maintained.
         :param pulumi.Input[int] replication_interval: The replication interval.
@@ -6094,6 +6143,7 @@ class HyperVReplicaAzurePolicyInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'HyperVReplicaAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -6172,6 +6222,7 @@ class HyperVReplicaBluePolicyInputArgs:
         :param pulumi.Input[str] compression: A value indicating whether compression has to be enabled.
         :param pulumi.Input[str] initial_replication_method: A value indicating whether IR is online.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'HyperVReplica2012R2'.
         :param pulumi.Input[str] offline_replication_export_path: A value indicating the offline IR export path.
         :param pulumi.Input[str] offline_replication_import_path: A value indicating the offline IR import path.
         :param pulumi.Input[str] online_replication_start_time: A value indicating the online IR start time.
@@ -6258,6 +6309,7 @@ class HyperVReplicaBluePolicyInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'HyperVReplica2012R2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -6371,6 +6423,7 @@ class HyperVReplicaPolicyInputArgs:
         :param pulumi.Input[str] compression: A value indicating whether compression has to be enabled.
         :param pulumi.Input[str] initial_replication_method: A value indicating whether IR is online.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'HyperVReplica2012'.
         :param pulumi.Input[str] offline_replication_export_path: A value indicating the offline IR export path.
         :param pulumi.Input[str] offline_replication_import_path: A value indicating the offline IR import path.
         :param pulumi.Input[str] online_replication_start_time: A value indicating the online IR start time.
@@ -6454,6 +6507,7 @@ class HyperVReplicaPolicyInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'HyperVReplica2012'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -6551,6 +6605,7 @@ class IaaSVMContainerArgs:
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'IaaSVMContainer'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
@@ -6583,6 +6638,7 @@ class IaaSVMContainerArgs:
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'IaaSVMContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -6882,6 +6938,7 @@ class InMageAzureV2EnableProtectionInputArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMageAzureV2'.
         :param pulumi.Input[str] log_storage_account_id: The storage account to be used for logging during replication.
         :param pulumi.Input[str] master_target_id: The Master target Id.
         :param pulumi.Input[str] multi_vm_group_id: The multi vm group Id.
@@ -6989,6 +7046,7 @@ class InMageAzureV2EnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMageAzureV2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -7180,6 +7238,7 @@ class InMageAzureV2PolicyInputArgs:
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMageAzureV2'.
         :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param pulumi.Input[int] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
@@ -7236,6 +7295,7 @@ class InMageAzureV2PolicyInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMageAzureV2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -7357,6 +7417,7 @@ class InMageEnableProtectionInputArgs:
         :param pulumi.Input['InMageDiskExclusionInputArgs'] disk_exclusion_input: The enable disk exclusion input.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMage'.
         :param pulumi.Input[str] run_as_account_id: The CS account Id.
         :param pulumi.Input[str] vm_friendly_name: The Vm Name.
         """
@@ -7479,6 +7540,7 @@ class InMageEnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMage'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -7524,6 +7586,7 @@ class InMagePolicyInputArgs:
         :param pulumi.Input[Union[str, 'SetMultiVmSyncStatus']] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMage'.
         :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param pulumi.Input[int] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
@@ -7566,6 +7629,7 @@ class InMagePolicyInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMage'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -7754,6 +7818,7 @@ class InMageRcmEnableProtectionInputArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InMageRcmDiskInputArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] fabric_discovery_machine_id: The ARM Id of discovered machine.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMageRcm'.
         :param pulumi.Input[Union[str, 'LicenseType']] license_type: The license type.
         :param pulumi.Input[str] multi_vm_group_name: The multi VM group name.
         :param pulumi.Input[str] process_server_id: The process server Id.
@@ -7850,6 +7915,7 @@ class InMageRcmEnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMageRcm'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -8050,6 +8116,7 @@ class InMageRcmFabricCreationInputArgs:
         InMageRcm fabric provider specific settings.
         :param pulumi.Input[str] auth_certificate: The certificate to be used for AAD authentication.
         :param pulumi.Input[str] instance_type: Gets the class type.
+               Expected value is 'InMageRcm'.
         :param pulumi.Input[str] physical_site_id: The ARM Id of the physical site.
         :param pulumi.Input['IdentityProviderInputArgs'] source_agent_identity: The identity provider input for source agent authentication.
         :param pulumi.Input[str] vmware_site_id: The ARM Id of the VMware site.
@@ -8082,6 +8149,7 @@ class InMageRcmFabricCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         Gets the class type.
+        Expected value is 'InMageRcm'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -8140,6 +8208,7 @@ class InMageRcmPolicyCreationInputArgs:
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] enable_multi_vm_sync: A value indicating whether multi-VM sync has to be enabled.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'InMageRcm'.
         :param pulumi.Input[int] recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
         if app_consistent_frequency_in_minutes is not None:
@@ -8194,6 +8263,7 @@ class InMageRcmPolicyCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'InMageRcm'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -8423,6 +8493,7 @@ class LogSchedulePolicyArgs:
         """
         Log policy schedule.
         :param pulumi.Input[str] schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'LogSchedulePolicy'.
         :param pulumi.Input[int] schedule_frequency_in_mins: Frequency of the log schedule operation of this policy in minutes.
         """
         pulumi.set(__self__, "schedule_policy_type", 'LogSchedulePolicy')
@@ -8434,6 +8505,7 @@ class LogSchedulePolicyArgs:
     def schedule_policy_type(self) -> pulumi.Input[str]:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LogSchedulePolicy'.
         """
         return pulumi.get(self, "schedule_policy_type")
 
@@ -8465,6 +8537,7 @@ class LongTermRetentionPolicyArgs:
         """
         Long term retention policy.
         :param pulumi.Input[str] retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'LongTermRetentionPolicy'.
         :param pulumi.Input['DailyRetentionScheduleArgs'] daily_schedule: Daily retention schedule of the protection policy.
         :param pulumi.Input['MonthlyRetentionScheduleArgs'] monthly_schedule: Monthly retention schedule of the protection policy.
         :param pulumi.Input['WeeklyRetentionScheduleArgs'] weekly_schedule: Weekly retention schedule of the protection policy.
@@ -8485,6 +8558,7 @@ class LongTermRetentionPolicyArgs:
     def retention_policy_type(self) -> pulumi.Input[str]:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LongTermRetentionPolicy'.
         """
         return pulumi.get(self, "retention_policy_type")
 
@@ -8548,6 +8622,7 @@ class LongTermSchedulePolicyArgs:
         """
         Long term policy schedule.
         :param pulumi.Input[str] schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'LongTermSchedulePolicy'.
         """
         pulumi.set(__self__, "schedule_policy_type", 'LongTermSchedulePolicy')
 
@@ -8556,6 +8631,7 @@ class LongTermSchedulePolicyArgs:
     def schedule_policy_type(self) -> pulumi.Input[str]:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LongTermSchedulePolicy'.
         """
         return pulumi.get(self, "schedule_policy_type")
 
@@ -8657,6 +8733,7 @@ class MabContainerArgs:
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+               Expected value is 'Windows'.
         :param pulumi.Input[str] agent_version: Agent version of this container.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[bool] can_re_register: Can the container be registered one more time.
@@ -8701,6 +8778,7 @@ class MabContainerArgs:
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
+        Expected value is 'Windows'.
         """
         return pulumi.get(self, "container_type")
 
@@ -8956,6 +9034,7 @@ class MabFileFolderProtectedItemArgs:
         """
         MAB workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'MabFileFolderProtectedItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] computer_name: Name of the computer associated with this backup item.
@@ -9024,6 +9103,7 @@ class MabFileFolderProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'MabFileFolderProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -9338,6 +9418,7 @@ class MabProtectionPolicyArgs:
         """
         Mab container-specific backup policy.
         :param pulumi.Input[str] backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'MAB'.
         :param pulumi.Input[int] protected_items_count: Number of items associated with this policy.
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: Retention policy details.
         :param pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs']] schedule_policy: Backup schedule of backup policy.
@@ -9355,6 +9436,7 @@ class MabProtectionPolicyArgs:
     def backup_management_type(self) -> pulumi.Input[str]:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'MAB'.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -9632,6 +9714,7 @@ class RecoveryPlanA2AInputArgs:
         """
         Recovery plan A2A input.
         :param pulumi.Input[str] instance_type: Gets the Instance type.
+               Expected value is 'A2A'.
         :param pulumi.Input[str] primary_zone: The primary zone.
         :param pulumi.Input[str] recovery_zone: The recovery zone.
         """
@@ -9647,6 +9730,7 @@ class RecoveryPlanA2AInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         Gets the Instance type.
+        Expected value is 'A2A'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -9892,6 +9976,7 @@ class SanEnableProtectionInputArgs:
         """
         San enable protection provider specific input.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'San'.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", 'San')
@@ -9901,6 +9986,7 @@ class SanEnableProtectionInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'San'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -9975,6 +10061,7 @@ class SimpleRetentionPolicyArgs:
         """
         Simple policy retention.
         :param pulumi.Input[str] retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'SimpleRetentionPolicy'.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of the protection policy.
         """
         pulumi.set(__self__, "retention_policy_type", 'SimpleRetentionPolicy')
@@ -9986,6 +10073,7 @@ class SimpleRetentionPolicyArgs:
     def retention_policy_type(self) -> pulumi.Input[str]:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleRetentionPolicy'.
         """
         return pulumi.get(self, "retention_policy_type")
 
@@ -10017,6 +10105,7 @@ class SimpleSchedulePolicyArgs:
         """
         Simple policy schedule.
         :param pulumi.Input[str] schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'SimpleSchedulePolicy'.
         :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] schedule_run_days: List of days of week this schedule has to be run.
         :param pulumi.Input[Union[str, 'ScheduleRunType']] schedule_run_frequency: Frequency of the schedule operation of this policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedule_run_times: List of times of day this schedule has to be run.
@@ -10037,6 +10126,7 @@ class SimpleSchedulePolicyArgs:
     def schedule_policy_type(self) -> pulumi.Input[str]:
         """
         This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleSchedulePolicy'.
         """
         return pulumi.get(self, "schedule_policy_type")
 
@@ -10215,6 +10305,7 @@ class VMwareCbtContainerMappingInputArgs:
         :param pulumi.Input[str] storage_account_sas_secret_name: The secret name of the storage account.
         :param pulumi.Input[str] target_location: The target location.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'VMwareCbt'.
         """
         pulumi.set(__self__, "key_vault_id", key_vault_id)
         pulumi.set(__self__, "key_vault_uri", key_vault_uri)
@@ -10302,6 +10393,7 @@ class VMwareCbtContainerMappingInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'VMwareCbt'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -10415,6 +10507,7 @@ class VMwareCbtEnableMigrationInputArgs:
         :param pulumi.Input[str] data_mover_run_as_account_id: The data mover RunAs account Id.
         :param pulumi.Input[Sequence[pulumi.Input['VMwareCbtDiskInputArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'VMwareCbt'.
         :param pulumi.Input[str] snapshot_run_as_account_id: The snapshot RunAs account Id.
         :param pulumi.Input[str] target_network_id: The target network ARM Id.
         :param pulumi.Input[str] target_resource_group_id: The target resource group ARM Id.
@@ -10475,6 +10568,7 @@ class VMwareCbtEnableMigrationInputArgs:
     def instance_type(self) -> pulumi.Input[str]:
         """
         The class type.
+        Expected value is 'VMwareCbt'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -10615,6 +10709,7 @@ class VMwareCbtPolicyCreationInputArgs:
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
+               Expected value is 'VMwareCbt'.
         :param pulumi.Input[int] recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
         if app_consistent_frequency_in_minutes is not None:
@@ -10655,6 +10750,7 @@ class VMwareCbtPolicyCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The class type.
+        Expected value is 'VMwareCbt'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -10686,6 +10782,7 @@ class VMwareV2FabricCreationInputArgs:
         :param pulumi.Input[str] migration_solution_id: The ARM Id of the migration solution.
         :param pulumi.Input[str] vmware_site_id: The ARM Id of the VMware site.
         :param pulumi.Input[str] instance_type: Gets the class type.
+               Expected value is 'VMwareV2'.
         """
         pulumi.set(__self__, "migration_solution_id", migration_solution_id)
         pulumi.set(__self__, "vmware_site_id", vmware_site_id)
@@ -10721,6 +10818,7 @@ class VMwareV2FabricCreationInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         Gets the class type.
+        Expected value is 'VMwareV2'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -10736,6 +10834,7 @@ class VmmToAzureCreateNetworkMappingInputArgs:
         """
         Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
         :param pulumi.Input[str] instance_type: The instance type.
+               Expected value is 'VmmToAzure'.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", 'VmmToAzure')
@@ -10745,6 +10844,7 @@ class VmmToAzureCreateNetworkMappingInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The instance type.
+        Expected value is 'VmmToAzure'.
         """
         return pulumi.get(self, "instance_type")
 
@@ -10760,6 +10860,7 @@ class VmmToVmmCreateNetworkMappingInputArgs:
         """
         Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
         :param pulumi.Input[str] instance_type: The instance type.
+               Expected value is 'VmmToVmm'.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", 'VmmToVmm')
@@ -10769,6 +10870,7 @@ class VmmToVmmCreateNetworkMappingInputArgs:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The instance type.
+        Expected value is 'VmmToVmm'.
         """
         return pulumi.get(self, "instance_type")
 

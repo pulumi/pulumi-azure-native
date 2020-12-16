@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly object? RelativeUrl;
         /// <summary>
         /// Type of dataset storage location.
+        /// Expected value is 'HttpServerLocation'.
         /// </summary>
         public readonly string Type;
 

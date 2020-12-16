@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
         public readonly ImmutableArray<Union<Outputs.JobInputClipResponse, Outputs.JobInputsResponse>> Inputs;
         /// <summary>
         /// The discriminator for derived types.
+        /// Expected value is '#Microsoft.Media.JobInputs'.
         /// </summary>
         public readonly string OdataType;
 

@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101.Inputs
 
         /// <summary>
         /// Data Destination Type.
+        /// Expected value is 'StorageAccount'.
         /// </summary>
         [Input("dataDestinationType", required: true)]
         public Input<string> DataDestinationType { get; set; } = null!;

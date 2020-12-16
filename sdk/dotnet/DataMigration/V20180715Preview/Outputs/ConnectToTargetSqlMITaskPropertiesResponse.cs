@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         public readonly string State;
         /// <summary>
         /// Task type.
+        /// Expected value is 'ConnectToTarget.AzureSqlDbMI'.
         /// </summary>
         public readonly string TaskType;
 

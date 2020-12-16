@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly object? Table;
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'SapHanaTable'.
         /// </summary>
         public readonly string Type;
 

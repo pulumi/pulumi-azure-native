@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615.Outputs
     {
         /// <summary>
         /// Defines the source of the SSL certificate.
+        /// Expected value is 'Cdn'.
         /// </summary>
         public readonly string CertificateSource;
         /// <summary>

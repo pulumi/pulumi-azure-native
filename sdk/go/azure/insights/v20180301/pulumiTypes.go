@@ -777,6 +777,7 @@ type DynamicMetricCriteria struct {
 	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
 	AlertSensitivity string `pulumi:"alertSensitivity"`
 	// Specifies the type of threshold criteria
+	// Expected value is 'DynamicThresholdCriterion'.
 	CriterionType string `pulumi:"criterionType"`
 	// List of dimension conditions.
 	Dimensions []MetricDimension `pulumi:"dimensions"`
@@ -814,6 +815,7 @@ type DynamicMetricCriteriaArgs struct {
 	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
 	AlertSensitivity pulumi.StringInput `pulumi:"alertSensitivity"`
 	// Specifies the type of threshold criteria
+	// Expected value is 'DynamicThresholdCriterion'.
 	CriterionType pulumi.StringInput `pulumi:"criterionType"`
 	// List of dimension conditions.
 	Dimensions MetricDimensionArrayInput `pulumi:"dimensions"`
@@ -868,6 +870,7 @@ func (o DynamicMetricCriteriaOutput) AlertSensitivity() pulumi.StringOutput {
 }
 
 // Specifies the type of threshold criteria
+// Expected value is 'DynamicThresholdCriterion'.
 func (o DynamicMetricCriteriaOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.CriterionType }).(pulumi.StringOutput)
 }
@@ -922,6 +925,7 @@ type DynamicMetricCriteriaResponse struct {
 	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
 	AlertSensitivity string `pulumi:"alertSensitivity"`
 	// Specifies the type of threshold criteria
+	// Expected value is 'DynamicThresholdCriterion'.
 	CriterionType string `pulumi:"criterionType"`
 	// List of dimension conditions.
 	Dimensions []MetricDimensionResponse `pulumi:"dimensions"`
@@ -959,6 +963,7 @@ type DynamicMetricCriteriaResponseArgs struct {
 	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
 	AlertSensitivity pulumi.StringInput `pulumi:"alertSensitivity"`
 	// Specifies the type of threshold criteria
+	// Expected value is 'DynamicThresholdCriterion'.
 	CriterionType pulumi.StringInput `pulumi:"criterionType"`
 	// List of dimension conditions.
 	Dimensions MetricDimensionResponseArrayInput `pulumi:"dimensions"`
@@ -1013,6 +1018,7 @@ func (o DynamicMetricCriteriaResponseOutput) AlertSensitivity() pulumi.StringOut
 }
 
 // Specifies the type of threshold criteria
+// Expected value is 'DynamicThresholdCriterion'.
 func (o DynamicMetricCriteriaResponseOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.CriterionType }).(pulumi.StringOutput)
 }
@@ -2148,6 +2154,7 @@ type MetricAlertMultipleResourceMultipleMetricCriteria struct {
 	// the list of multiple metric criteria for this 'all of' operation.
 	AllOf []interface{} `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -2167,6 +2174,7 @@ type MetricAlertMultipleResourceMultipleMetricCriteriaArgs struct {
 	// the list of multiple metric criteria for this 'all of' operation.
 	AllOf pulumi.ArrayInput `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -2203,6 +2211,7 @@ func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) AllOf() pulumi.
 }
 
 // specifies the type of the alert criteria.
+// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
 func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteria) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2212,6 +2221,7 @@ type MetricAlertMultipleResourceMultipleMetricCriteriaResponse struct {
 	// the list of multiple metric criteria for this 'all of' operation.
 	AllOf []interface{} `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -2231,6 +2241,7 @@ type MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs struct {
 	// the list of multiple metric criteria for this 'all of' operation.
 	AllOf pulumi.ArrayInput `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -2267,6 +2278,7 @@ func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) AllOf()
 }
 
 // specifies the type of the alert criteria.
+// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
 func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2276,6 +2288,7 @@ type MetricAlertSingleResourceMultipleMetricCriteria struct {
 	// The list of metric criteria for this 'all of' operation.
 	AllOf []MetricCriteria `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -2295,6 +2308,7 @@ type MetricAlertSingleResourceMultipleMetricCriteriaArgs struct {
 	// The list of metric criteria for this 'all of' operation.
 	AllOf MetricCriteriaArrayInput `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -2331,6 +2345,7 @@ func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) AllOf() MetricCri
 }
 
 // specifies the type of the alert criteria.
+// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
 func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteria) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2340,6 +2355,7 @@ type MetricAlertSingleResourceMultipleMetricCriteriaResponse struct {
 	// The list of metric criteria for this 'all of' operation.
 	AllOf []MetricCriteriaResponse `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -2359,6 +2375,7 @@ type MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs struct {
 	// The list of metric criteria for this 'all of' operation.
 	AllOf MetricCriteriaResponseArrayInput `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -2397,6 +2414,7 @@ func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) AllOf() M
 }
 
 // specifies the type of the alert criteria.
+// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
 func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2404,6 +2422,7 @@ func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) OdataType
 // Criterion to filter metrics.
 type MetricCriteria struct {
 	// Specifies the type of threshold criteria
+	// Expected value is 'StaticThresholdCriterion'.
 	CriterionType string `pulumi:"criterionType"`
 	// List of dimension conditions.
 	Dimensions []MetricDimension `pulumi:"dimensions"`
@@ -2437,6 +2456,7 @@ type MetricCriteriaInput interface {
 // Criterion to filter metrics.
 type MetricCriteriaArgs struct {
 	// Specifies the type of threshold criteria
+	// Expected value is 'StaticThresholdCriterion'.
 	CriterionType pulumi.StringInput `pulumi:"criterionType"`
 	// List of dimension conditions.
 	Dimensions MetricDimensionArrayInput `pulumi:"dimensions"`
@@ -2509,6 +2529,7 @@ func (o MetricCriteriaOutput) ToMetricCriteriaOutputWithContext(ctx context.Cont
 }
 
 // Specifies the type of threshold criteria
+// Expected value is 'StaticThresholdCriterion'.
 func (o MetricCriteriaOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.CriterionType }).(pulumi.StringOutput)
 }
@@ -2576,6 +2597,7 @@ func (o MetricCriteriaArrayOutput) Index(i pulumi.IntInput) MetricCriteriaOutput
 // Criterion to filter metrics.
 type MetricCriteriaResponse struct {
 	// Specifies the type of threshold criteria
+	// Expected value is 'StaticThresholdCriterion'.
 	CriterionType string `pulumi:"criterionType"`
 	// List of dimension conditions.
 	Dimensions []MetricDimensionResponse `pulumi:"dimensions"`
@@ -2609,6 +2631,7 @@ type MetricCriteriaResponseInput interface {
 // Criterion to filter metrics.
 type MetricCriteriaResponseArgs struct {
 	// Specifies the type of threshold criteria
+	// Expected value is 'StaticThresholdCriterion'.
 	CriterionType pulumi.StringInput `pulumi:"criterionType"`
 	// List of dimension conditions.
 	Dimensions MetricDimensionResponseArrayInput `pulumi:"dimensions"`
@@ -2681,6 +2704,7 @@ func (o MetricCriteriaResponseOutput) ToMetricCriteriaResponseOutputWithContext(
 }
 
 // Specifies the type of threshold criteria
+// Expected value is 'StaticThresholdCriterion'.
 func (o MetricCriteriaResponseOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.CriterionType }).(pulumi.StringOutput)
 }
@@ -3687,6 +3711,7 @@ type WebtestLocationAvailabilityCriteria struct {
 	// The number of failed locations.
 	FailedLocationCount float64 `pulumi:"failedLocationCount"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
 	OdataType string `pulumi:"odataType"`
 	// The Application Insights web test Id.
 	WebTestId string `pulumi:"webTestId"`
@@ -3710,6 +3735,7 @@ type WebtestLocationAvailabilityCriteriaArgs struct {
 	// The number of failed locations.
 	FailedLocationCount pulumi.Float64Input `pulumi:"failedLocationCount"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The Application Insights web test Id.
 	WebTestId pulumi.StringInput `pulumi:"webTestId"`
@@ -3753,6 +3779,7 @@ func (o WebtestLocationAvailabilityCriteriaOutput) FailedLocationCount() pulumi.
 }
 
 // specifies the type of the alert criteria.
+// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
 func (o WebtestLocationAvailabilityCriteriaOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -3769,6 +3796,7 @@ type WebtestLocationAvailabilityCriteriaResponse struct {
 	// The number of failed locations.
 	FailedLocationCount float64 `pulumi:"failedLocationCount"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
 	OdataType string `pulumi:"odataType"`
 	// The Application Insights web test Id.
 	WebTestId string `pulumi:"webTestId"`
@@ -3792,6 +3820,7 @@ type WebtestLocationAvailabilityCriteriaResponseArgs struct {
 	// The number of failed locations.
 	FailedLocationCount pulumi.Float64Input `pulumi:"failedLocationCount"`
 	// specifies the type of the alert criteria.
+	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The Application Insights web test Id.
 	WebTestId pulumi.StringInput `pulumi:"webTestId"`
@@ -3835,6 +3864,7 @@ func (o WebtestLocationAvailabilityCriteriaResponseOutput) FailedLocationCount()
 }
 
 // specifies the type of the alert criteria.
+// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
 func (o WebtestLocationAvailabilityCriteriaResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }

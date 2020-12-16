@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly string? Name;
         /// <summary>
         /// Type of metadata.
+        /// Expected value is 'Folder'.
         /// </summary>
         public readonly string Type;
 

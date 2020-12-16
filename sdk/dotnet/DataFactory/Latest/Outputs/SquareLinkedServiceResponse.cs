@@ -55,6 +55,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? RedirectUri;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Square'.
         /// </summary>
         public readonly string Type;
         /// <summary>

@@ -1247,6 +1247,7 @@ type SasAuthentication struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri string `pulumi:"sasUri"`
 	// The authentication type
+	// Expected value is 'Sas'.
 	Type string `pulumi:"type"`
 }
 
@@ -1266,6 +1267,7 @@ type SasAuthenticationArgs struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri pulumi.StringInput `pulumi:"sasUri"`
 	// The authentication type
+	// Expected value is 'Sas'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1353,6 +1355,7 @@ func (o SasAuthenticationOutput) SasUri() pulumi.StringOutput {
 }
 
 // The authentication type
+// Expected value is 'Sas'.
 func (o SasAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SasAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1386,6 +1389,7 @@ func (o SasAuthenticationPtrOutput) SasUri() pulumi.StringPtrOutput {
 }
 
 // The authentication type
+// Expected value is 'Sas'.
 func (o SasAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasAuthentication) *string {
 		if v == nil {
@@ -1400,6 +1404,7 @@ type SasAuthenticationResponse struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri string `pulumi:"sasUri"`
 	// The authentication type
+	// Expected value is 'Sas'.
 	Type string `pulumi:"type"`
 }
 
@@ -1419,6 +1424,7 @@ type SasAuthenticationResponseArgs struct {
 	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
 	SasUri pulumi.StringInput `pulumi:"sasUri"`
 	// The authentication type
+	// Expected value is 'Sas'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1506,6 +1512,7 @@ func (o SasAuthenticationResponseOutput) SasUri() pulumi.StringOutput {
 }
 
 // The authentication type
+// Expected value is 'Sas'.
 func (o SasAuthenticationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SasAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1539,6 +1546,7 @@ func (o SasAuthenticationResponsePtrOutput) SasUri() pulumi.StringPtrOutput {
 }
 
 // The authentication type
+// Expected value is 'Sas'.
 func (o SasAuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SasAuthenticationResponse) *string {
 		if v == nil {
@@ -2838,6 +2846,7 @@ type WaitStepProperties struct {
 	// The Wait attributes
 	Attributes *WaitStepAttributes `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'Wait'.
 	StepType string `pulumi:"stepType"`
 }
 
@@ -2857,6 +2866,7 @@ type WaitStepPropertiesArgs struct {
 	// The Wait attributes
 	Attributes WaitStepAttributesPtrInput `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'Wait'.
 	StepType pulumi.StringInput `pulumi:"stepType"`
 }
 
@@ -2944,6 +2954,7 @@ func (o WaitStepPropertiesOutput) Attributes() WaitStepAttributesPtrOutput {
 }
 
 // The type of step.
+// Expected value is 'Wait'.
 func (o WaitStepPropertiesOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitStepProperties) string { return v.StepType }).(pulumi.StringOutput)
 }
@@ -2977,6 +2988,7 @@ func (o WaitStepPropertiesPtrOutput) Attributes() WaitStepAttributesPtrOutput {
 }
 
 // The type of step.
+// Expected value is 'Wait'.
 func (o WaitStepPropertiesPtrOutput) StepType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WaitStepProperties) *string {
 		if v == nil {
@@ -2991,6 +3003,7 @@ type WaitStepPropertiesResponse struct {
 	// The Wait attributes
 	Attributes *WaitStepAttributesResponse `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'Wait'.
 	StepType string `pulumi:"stepType"`
 }
 
@@ -3010,6 +3023,7 @@ type WaitStepPropertiesResponseArgs struct {
 	// The Wait attributes
 	Attributes WaitStepAttributesResponsePtrInput `pulumi:"attributes"`
 	// The type of step.
+	// Expected value is 'Wait'.
 	StepType pulumi.StringInput `pulumi:"stepType"`
 }
 
@@ -3097,6 +3111,7 @@ func (o WaitStepPropertiesResponseOutput) Attributes() WaitStepAttributesRespons
 }
 
 // The type of step.
+// Expected value is 'Wait'.
 func (o WaitStepPropertiesResponseOutput) StepType() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitStepPropertiesResponse) string { return v.StepType }).(pulumi.StringOutput)
 }
@@ -3130,6 +3145,7 @@ func (o WaitStepPropertiesResponsePtrOutput) Attributes() WaitStepAttributesResp
 }
 
 // The type of step.
+// Expected value is 'Wait'.
 func (o WaitStepPropertiesResponsePtrOutput) StepType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WaitStepPropertiesResponse) *string {
 		if v == nil {

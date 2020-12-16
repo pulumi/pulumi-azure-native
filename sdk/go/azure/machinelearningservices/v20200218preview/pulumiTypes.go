@@ -15,6 +15,7 @@ type AKS struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'AKS'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
@@ -40,6 +41,7 @@ type AKSArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'AKS'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -82,6 +84,7 @@ func (o AKSOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'AKS'.
 func (o AKSOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v AKS) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -316,6 +319,7 @@ type AKSResponse struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'AKS'.
 	ComputeType string `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn string `pulumi:"createdOn"`
@@ -351,6 +355,7 @@ type AKSResponseArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'AKS'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
@@ -403,6 +408,7 @@ func (o AKSResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'AKS'.
 func (o AKSResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v AKSResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -1063,6 +1069,7 @@ type AmlCompute struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'AmlCompute'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
@@ -1088,6 +1095,7 @@ type AmlComputeArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'AmlCompute'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -1130,6 +1138,7 @@ func (o AmlComputeOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'AmlCompute'.
 func (o AmlComputeOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v AmlCompute) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -1566,6 +1575,7 @@ type AmlComputeResponse struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'AmlCompute'.
 	ComputeType string `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn string `pulumi:"createdOn"`
@@ -1601,6 +1611,7 @@ type AmlComputeResponseArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'AmlCompute'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
@@ -1653,6 +1664,7 @@ func (o AmlComputeResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'AmlCompute'.
 func (o AmlComputeResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v AmlComputeResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -2389,6 +2401,7 @@ type ComputeInstance struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'ComputeInstance'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
@@ -2414,6 +2427,7 @@ type ComputeInstanceArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'ComputeInstance'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -2456,6 +2470,7 @@ func (o ComputeInstanceOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'ComputeInstance'.
 func (o ComputeInstanceOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeInstance) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -3147,6 +3162,7 @@ type ComputeInstanceResponse struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'ComputeInstance'.
 	ComputeType string `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn string `pulumi:"createdOn"`
@@ -3182,6 +3198,7 @@ type ComputeInstanceResponseArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'ComputeInstance'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
@@ -3234,6 +3251,7 @@ func (o ComputeInstanceResponseOutput) ComputeLocation() pulumi.StringPtrOutput 
 }
 
 // The type of compute
+// Expected value is 'ComputeInstance'.
 func (o ComputeInstanceResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeInstanceResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -3955,6 +3973,7 @@ type DataFactory struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'DataFactory'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
@@ -3978,6 +3997,7 @@ type DataFactoryArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'DataFactory'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -4018,6 +4038,7 @@ func (o DataFactoryOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'DataFactory'.
 func (o DataFactoryOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataFactory) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -4037,6 +4058,7 @@ type DataFactoryResponse struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'DataFactory'.
 	ComputeType string `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn string `pulumi:"createdOn"`
@@ -4070,6 +4092,7 @@ type DataFactoryResponseArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'DataFactory'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
@@ -4120,6 +4143,7 @@ func (o DataFactoryResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'DataFactory'.
 func (o DataFactoryResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataFactoryResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -4164,6 +4188,7 @@ type DataLakeAnalytics struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'DataLakeAnalytics'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string                      `pulumi:"description"`
@@ -4188,6 +4213,7 @@ type DataLakeAnalyticsArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'DataLakeAnalytics'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description pulumi.StringPtrInput               `pulumi:"description"`
@@ -4229,6 +4255,7 @@ func (o DataLakeAnalyticsOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'DataLakeAnalytics'.
 func (o DataLakeAnalyticsOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeAnalytics) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -4383,6 +4410,7 @@ type DataLakeAnalyticsResponse struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'DataLakeAnalytics'.
 	ComputeType string `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn string `pulumi:"createdOn"`
@@ -4417,6 +4445,7 @@ type DataLakeAnalyticsResponseArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'DataLakeAnalytics'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
@@ -4468,6 +4497,7 @@ func (o DataLakeAnalyticsResponseOutput) ComputeLocation() pulumi.StringPtrOutpu
 }
 
 // The type of compute
+// Expected value is 'DataLakeAnalytics'.
 func (o DataLakeAnalyticsResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeAnalyticsResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -4647,6 +4677,7 @@ type Databricks struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'Databricks'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string               `pulumi:"description"`
@@ -4671,6 +4702,7 @@ type DatabricksArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'Databricks'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description pulumi.StringPtrInput        `pulumi:"description"`
@@ -4712,6 +4744,7 @@ func (o DatabricksOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'Databricks'.
 func (o DatabricksOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v Databricks) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -4866,6 +4899,7 @@ type DatabricksResponse struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'Databricks'.
 	ComputeType string `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn string `pulumi:"createdOn"`
@@ -4900,6 +4934,7 @@ type DatabricksResponseArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'Databricks'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
@@ -4951,6 +4986,7 @@ func (o DatabricksResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'Databricks'.
 func (o DatabricksResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabricksResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -5612,6 +5648,7 @@ type HDInsight struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'HDInsight'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string              `pulumi:"description"`
@@ -5636,6 +5673,7 @@ type HDInsightArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'HDInsight'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description pulumi.StringPtrInput       `pulumi:"description"`
@@ -5677,6 +5715,7 @@ func (o HDInsightOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'HDInsight'.
 func (o HDInsightOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsight) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -5869,6 +5908,7 @@ type HDInsightResponse struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'HDInsight'.
 	ComputeType string `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn string `pulumi:"createdOn"`
@@ -5903,6 +5943,7 @@ type HDInsightResponseArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'HDInsight'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
@@ -5954,6 +5995,7 @@ func (o HDInsightResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'HDInsight'.
 func (o HDInsightResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -9817,6 +9859,7 @@ type VirtualMachine struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'VirtualMachine'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string                   `pulumi:"description"`
@@ -9841,6 +9884,7 @@ type VirtualMachineArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'VirtualMachine'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description pulumi.StringPtrInput            `pulumi:"description"`
@@ -9882,6 +9926,7 @@ func (o VirtualMachineOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'VirtualMachine'.
 func (o VirtualMachineOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachine) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -10093,6 +10138,7 @@ type VirtualMachineResponse struct {
 	// Location for the underlying compute
 	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'VirtualMachine'.
 	ComputeType string `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn string `pulumi:"createdOn"`
@@ -10127,6 +10173,7 @@ type VirtualMachineResponseArgs struct {
 	// Location for the underlying compute
 	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
 	// The type of compute
+	// Expected value is 'VirtualMachine'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The date and time when the compute was created.
 	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
@@ -10178,6 +10225,7 @@ func (o VirtualMachineResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
 }
 
 // The type of compute
+// Expected value is 'VirtualMachine'.
 func (o VirtualMachineResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }

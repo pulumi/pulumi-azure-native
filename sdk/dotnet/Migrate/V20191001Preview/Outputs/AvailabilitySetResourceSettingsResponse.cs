@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         public readonly int? FaultDomain;
         /// <summary>
         /// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        /// Expected value is 'Microsoft.Compute/availabilitySets'.
         /// </summary>
         public readonly string ResourceType;
         /// <summary>

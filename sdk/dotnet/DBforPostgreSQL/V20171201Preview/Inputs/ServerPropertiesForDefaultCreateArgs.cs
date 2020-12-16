@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview.Inputs
 
         /// <summary>
         /// The mode to create a new server.
+        /// Expected value is 'Default'.
         /// </summary>
         [Input("createMode", required: true)]
         public Input<string> CreateMode { get; set; } = null!;

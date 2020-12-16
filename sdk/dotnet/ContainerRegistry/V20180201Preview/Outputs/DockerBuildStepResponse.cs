@@ -55,6 +55,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview.Outputs
         public readonly string ProvisioningState;
         /// <summary>
         /// The type of the step.
+        /// Expected value is 'Docker'.
         /// </summary>
         public readonly string Type;
 

@@ -51,6 +51,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Outputs
         public readonly int? ExpectedDataSizeInTerabytes;
         /// <summary>
         /// Indicates the type of job details.
+        /// Expected value is 'DataBoxDisk'.
         /// </summary>
         public readonly string JobDetailsType;
         /// <summary>

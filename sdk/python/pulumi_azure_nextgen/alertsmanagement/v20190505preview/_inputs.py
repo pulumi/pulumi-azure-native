@@ -33,6 +33,7 @@ class ActionGroupArgs:
         Action rule with action group configuration
         :param pulumi.Input[str] action_group_id: Action group to trigger if action rule matches
         :param pulumi.Input[str] type: Indicates type of action rule
+               Expected value is 'ActionGroup'.
         :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
         :param pulumi.Input[str] description: Description of action rule
         :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
@@ -66,6 +67,7 @@ class ActionGroupArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates type of action rule
+        Expected value is 'ActionGroup'.
         """
         return pulumi.get(self, "type")
 
@@ -293,6 +295,7 @@ class DiagnosticsArgs:
         """
         Action rule with diagnostics configuration
         :param pulumi.Input[str] type: Indicates type of action rule
+               Expected value is 'Diagnostics'.
         :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
         :param pulumi.Input[str] description: Description of action rule
         :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
@@ -313,6 +316,7 @@ class DiagnosticsArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates type of action rule
+        Expected value is 'Diagnostics'.
         """
         return pulumi.get(self, "type")
 
@@ -422,6 +426,7 @@ class SuppressionArgs:
         Action rule with suppression configuration
         :param pulumi.Input['SuppressionConfigArgs'] suppression_config: suppression configuration for the action rule
         :param pulumi.Input[str] type: Indicates type of action rule
+               Expected value is 'Suppression'.
         :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
         :param pulumi.Input[str] description: Description of action rule
         :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
@@ -455,6 +460,7 @@ class SuppressionArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Indicates type of action rule
+        Expected value is 'Suppression'.
         """
         return pulumi.get(self, "type")
 

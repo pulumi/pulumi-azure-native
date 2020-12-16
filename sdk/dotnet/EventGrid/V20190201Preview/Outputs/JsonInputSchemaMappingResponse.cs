@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190201Preview.Outputs
         public readonly Outputs.JsonFieldResponse? Id;
         /// <summary>
         /// Type of the custom mapping
+        /// Expected value is 'Json'.
         /// </summary>
         public readonly string? InputSchemaMappingType;
         /// <summary>

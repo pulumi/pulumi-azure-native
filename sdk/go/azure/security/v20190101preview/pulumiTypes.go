@@ -491,6 +491,7 @@ func (o AssessmentStatusResponsePtrOutput) Description() pulumi.StringPtrOutput 
 // The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHub struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'EventHub'.
 	ActionType string `pulumi:"actionType"`
 	// The target Event Hub connection string (it will not be included in any response).
 	ConnectionString *string `pulumi:"connectionString"`
@@ -512,6 +513,7 @@ type AutomationActionEventHubInput interface {
 // The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubArgs struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'EventHub'.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
 	// The target Event Hub connection string (it will not be included in any response).
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
@@ -547,6 +549,7 @@ func (o AutomationActionEventHubOutput) ToAutomationActionEventHubOutputWithCont
 }
 
 // The type of the action that will be triggered by the Automation
+// Expected value is 'EventHub'.
 func (o AutomationActionEventHubOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionEventHub) string { return v.ActionType }).(pulumi.StringOutput)
 }
@@ -564,6 +567,7 @@ func (o AutomationActionEventHubOutput) EventHubResourceId() pulumi.StringPtrOut
 // The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubResponse struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'EventHub'.
 	ActionType string `pulumi:"actionType"`
 	// The target Event Hub connection string (it will not be included in any response).
 	ConnectionString *string `pulumi:"connectionString"`
@@ -587,6 +591,7 @@ type AutomationActionEventHubResponseInput interface {
 // The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubResponseArgs struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'EventHub'.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
 	// The target Event Hub connection string (it will not be included in any response).
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
@@ -624,6 +629,7 @@ func (o AutomationActionEventHubResponseOutput) ToAutomationActionEventHubRespon
 }
 
 // The type of the action that will be triggered by the Automation
+// Expected value is 'EventHub'.
 func (o AutomationActionEventHubResponseOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionEventHubResponse) string { return v.ActionType }).(pulumi.StringOutput)
 }
@@ -646,6 +652,7 @@ func (o AutomationActionEventHubResponseOutput) SasPolicyName() pulumi.StringOut
 // The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicApp struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'LogicApp'.
 	ActionType string `pulumi:"actionType"`
 	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
 	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
@@ -667,6 +674,7 @@ type AutomationActionLogicAppInput interface {
 // The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppArgs struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'LogicApp'.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
 	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
 	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
@@ -702,6 +710,7 @@ func (o AutomationActionLogicAppOutput) ToAutomationActionLogicAppOutputWithCont
 }
 
 // The type of the action that will be triggered by the Automation
+// Expected value is 'LogicApp'.
 func (o AutomationActionLogicAppOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionLogicApp) string { return v.ActionType }).(pulumi.StringOutput)
 }
@@ -719,6 +728,7 @@ func (o AutomationActionLogicAppOutput) Uri() pulumi.StringPtrOutput {
 // The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppResponse struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'LogicApp'.
 	ActionType string `pulumi:"actionType"`
 	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
 	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
@@ -740,6 +750,7 @@ type AutomationActionLogicAppResponseInput interface {
 // The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppResponseArgs struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'LogicApp'.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
 	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
 	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
@@ -775,6 +786,7 @@ func (o AutomationActionLogicAppResponseOutput) ToAutomationActionLogicAppRespon
 }
 
 // The type of the action that will be triggered by the Automation
+// Expected value is 'LogicApp'.
 func (o AutomationActionLogicAppResponseOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionLogicAppResponse) string { return v.ActionType }).(pulumi.StringOutput)
 }
@@ -792,6 +804,7 @@ func (o AutomationActionLogicAppResponseOutput) Uri() pulumi.StringPtrOutput {
 // The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspace struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'Workspace'.
 	ActionType string `pulumi:"actionType"`
 	// The fully qualified Log Analytics Workspace Azure Resource ID.
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
@@ -811,6 +824,7 @@ type AutomationActionWorkspaceInput interface {
 // The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceArgs struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'Workspace'.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
 	// The fully qualified Log Analytics Workspace Azure Resource ID.
 	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
@@ -844,6 +858,7 @@ func (o AutomationActionWorkspaceOutput) ToAutomationActionWorkspaceOutputWithCo
 }
 
 // The type of the action that will be triggered by the Automation
+// Expected value is 'Workspace'.
 func (o AutomationActionWorkspaceOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionWorkspace) string { return v.ActionType }).(pulumi.StringOutput)
 }
@@ -856,6 +871,7 @@ func (o AutomationActionWorkspaceOutput) WorkspaceResourceId() pulumi.StringPtrO
 // The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceResponse struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'Workspace'.
 	ActionType string `pulumi:"actionType"`
 	// The fully qualified Log Analytics Workspace Azure Resource ID.
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
@@ -875,6 +891,7 @@ type AutomationActionWorkspaceResponseInput interface {
 // The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceResponseArgs struct {
 	// The type of the action that will be triggered by the Automation
+	// Expected value is 'Workspace'.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
 	// The fully qualified Log Analytics Workspace Azure Resource ID.
 	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
@@ -908,6 +925,7 @@ func (o AutomationActionWorkspaceResponseOutput) ToAutomationActionWorkspaceResp
 }
 
 // The type of the action that will be triggered by the Automation
+// Expected value is 'Workspace'.
 func (o AutomationActionWorkspaceResponseOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionWorkspaceResponse) string { return v.ActionType }).(pulumi.StringOutput)
 }
@@ -1804,6 +1822,7 @@ func (o AutomationTriggeringRuleResponseArrayOutput) Index(i pulumi.IntInput) Au
 // Details of the Azure resource that was assessed
 type AzureResourceDetails struct {
 	// The platform where the assessed resource resides
+	// Expected value is 'Azure'.
 	Source string `pulumi:"source"`
 }
 
@@ -1821,6 +1840,7 @@ type AzureResourceDetailsInput interface {
 // Details of the Azure resource that was assessed
 type AzureResourceDetailsArgs struct {
 	// The platform where the assessed resource resides
+	// Expected value is 'Azure'.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -1852,6 +1872,7 @@ func (o AzureResourceDetailsOutput) ToAzureResourceDetailsOutputWithContext(ctx 
 }
 
 // The platform where the assessed resource resides
+// Expected value is 'Azure'.
 func (o AzureResourceDetailsOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureResourceDetails) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -1861,6 +1882,7 @@ type AzureResourceDetailsResponse struct {
 	// Azure resource Id of the assessed resource
 	Id string `pulumi:"id"`
 	// The platform where the assessed resource resides
+	// Expected value is 'Azure'.
 	Source string `pulumi:"source"`
 }
 
@@ -1880,6 +1902,7 @@ type AzureResourceDetailsResponseArgs struct {
 	// Azure resource Id of the assessed resource
 	Id pulumi.StringInput `pulumi:"id"`
 	// The platform where the assessed resource resides
+	// Expected value is 'Azure'.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -1916,6 +1939,7 @@ func (o AzureResourceDetailsResponseOutput) Id() pulumi.StringOutput {
 }
 
 // The platform where the assessed resource resides
+// Expected value is 'Azure'.
 func (o AzureResourceDetailsResponseOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -1925,6 +1949,7 @@ type OnPremiseResourceDetails struct {
 	// The name of the machine
 	MachineName string `pulumi:"machineName"`
 	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
 	Source string `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId string `pulumi:"sourceComputerId"`
@@ -1950,6 +1975,7 @@ type OnPremiseResourceDetailsArgs struct {
 	// The name of the machine
 	MachineName pulumi.StringInput `pulumi:"machineName"`
 	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
 	Source pulumi.StringInput `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
@@ -1992,6 +2018,7 @@ func (o OnPremiseResourceDetailsOutput) MachineName() pulumi.StringOutput {
 }
 
 // The platform where the assessed resource resides
+// Expected value is 'OnPremise'.
 func (o OnPremiseResourceDetailsOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -2016,6 +2043,7 @@ type OnPremiseResourceDetailsResponse struct {
 	// The name of the machine
 	MachineName string `pulumi:"machineName"`
 	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
 	Source string `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId string `pulumi:"sourceComputerId"`
@@ -2041,6 +2069,7 @@ type OnPremiseResourceDetailsResponseArgs struct {
 	// The name of the machine
 	MachineName pulumi.StringInput `pulumi:"machineName"`
 	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
 	Source pulumi.StringInput `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
@@ -2083,6 +2112,7 @@ func (o OnPremiseResourceDetailsResponseOutput) MachineName() pulumi.StringOutpu
 }
 
 // The platform where the assessed resource resides
+// Expected value is 'OnPremise'.
 func (o OnPremiseResourceDetailsResponseOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
 }

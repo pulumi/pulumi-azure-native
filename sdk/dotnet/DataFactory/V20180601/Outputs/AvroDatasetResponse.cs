@@ -49,6 +49,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly object? Structure;
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'Avro'.
         /// </summary>
         public readonly string Type;
 

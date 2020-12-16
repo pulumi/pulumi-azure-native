@@ -63,6 +63,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? Structure;
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'RestResource'.
         /// </summary>
         public readonly string Type;
 

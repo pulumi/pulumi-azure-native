@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DevSpaces.V20190401.Outputs
     {
         /// <summary>
         /// Gets the Instance type.
+        /// Expected value is 'Kubernetes'.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

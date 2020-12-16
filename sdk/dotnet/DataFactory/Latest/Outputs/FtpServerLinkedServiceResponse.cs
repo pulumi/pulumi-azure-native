@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? Port;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'FtpServer'.
         /// </summary>
         public readonly string Type;
         /// <summary>

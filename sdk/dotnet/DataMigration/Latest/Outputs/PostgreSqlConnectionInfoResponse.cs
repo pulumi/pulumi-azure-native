@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         public readonly string ServerName;
         /// <summary>
         /// Type of connection info
+        /// Expected value is 'PostgreSqlConnectionInfo'.
         /// </summary>
         public readonly string Type;
         /// <summary>

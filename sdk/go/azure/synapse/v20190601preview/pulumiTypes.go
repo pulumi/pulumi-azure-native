@@ -667,6 +667,7 @@ type CmdkeySetup struct {
 	// The server name of data source access.
 	TargetName interface{} `pulumi:"targetName"`
 	// The type of custom setup.
+	// Expected value is 'CmdkeySetup'.
 	Type string `pulumi:"type"`
 	// The user name of data source access.
 	UserName interface{} `pulumi:"userName"`
@@ -690,6 +691,7 @@ type CmdkeySetupArgs struct {
 	// The server name of data source access.
 	TargetName pulumi.Input `pulumi:"targetName"`
 	// The type of custom setup.
+	// Expected value is 'CmdkeySetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The user name of data source access.
 	UserName pulumi.Input `pulumi:"userName"`
@@ -733,6 +735,7 @@ func (o CmdkeySetupOutput) TargetName() pulumi.AnyOutput {
 }
 
 // The type of custom setup.
+// Expected value is 'CmdkeySetup'.
 func (o CmdkeySetupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CmdkeySetup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -749,6 +752,7 @@ type CmdkeySetupResponse struct {
 	// The server name of data source access.
 	TargetName interface{} `pulumi:"targetName"`
 	// The type of custom setup.
+	// Expected value is 'CmdkeySetup'.
 	Type string `pulumi:"type"`
 	// The user name of data source access.
 	UserName interface{} `pulumi:"userName"`
@@ -772,6 +776,7 @@ type CmdkeySetupResponseArgs struct {
 	// The server name of data source access.
 	TargetName pulumi.Input `pulumi:"targetName"`
 	// The type of custom setup.
+	// Expected value is 'CmdkeySetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The user name of data source access.
 	UserName pulumi.Input `pulumi:"userName"`
@@ -815,6 +820,7 @@ func (o CmdkeySetupResponseOutput) TargetName() pulumi.AnyOutput {
 }
 
 // The type of custom setup.
+// Expected value is 'CmdkeySetup'.
 func (o CmdkeySetupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CmdkeySetupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -831,6 +837,7 @@ type ComponentSetup struct {
 	// The license key to activate the component.
 	LicenseKey *SecureString `pulumi:"licenseKey"`
 	// The type of custom setup.
+	// Expected value is 'ComponentSetup'.
 	Type string `pulumi:"type"`
 }
 
@@ -852,6 +859,7 @@ type ComponentSetupArgs struct {
 	// The license key to activate the component.
 	LicenseKey SecureStringPtrInput `pulumi:"licenseKey"`
 	// The type of custom setup.
+	// Expected value is 'ComponentSetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -893,6 +901,7 @@ func (o ComponentSetupOutput) LicenseKey() SecureStringPtrOutput {
 }
 
 // The type of custom setup.
+// Expected value is 'ComponentSetup'.
 func (o ComponentSetupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentSetup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -904,6 +913,7 @@ type ComponentSetupResponse struct {
 	// The license key to activate the component.
 	LicenseKey *SecureStringResponse `pulumi:"licenseKey"`
 	// The type of custom setup.
+	// Expected value is 'ComponentSetup'.
 	Type string `pulumi:"type"`
 }
 
@@ -925,6 +935,7 @@ type ComponentSetupResponseArgs struct {
 	// The license key to activate the component.
 	LicenseKey SecureStringResponsePtrInput `pulumi:"licenseKey"`
 	// The type of custom setup.
+	// Expected value is 'ComponentSetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -966,6 +977,7 @@ func (o ComponentSetupResponseOutput) LicenseKey() SecureStringResponsePtrOutput
 }
 
 // The type of custom setup.
+// Expected value is 'ComponentSetup'.
 func (o ComponentSetupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentSetupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2159,6 +2171,7 @@ func (o EntityReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // The custom setup of setting environment variable.
 type EnvironmentVariableSetup struct {
 	// The type of custom setup.
+	// Expected value is 'EnvironmentVariableSetup'.
 	Type string `pulumi:"type"`
 	// The name of the environment variable.
 	VariableName string `pulumi:"variableName"`
@@ -2180,6 +2193,7 @@ type EnvironmentVariableSetupInput interface {
 // The custom setup of setting environment variable.
 type EnvironmentVariableSetupArgs struct {
 	// The type of custom setup.
+	// Expected value is 'EnvironmentVariableSetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The name of the environment variable.
 	VariableName pulumi.StringInput `pulumi:"variableName"`
@@ -2215,6 +2229,7 @@ func (o EnvironmentVariableSetupOutput) ToEnvironmentVariableSetupOutputWithCont
 }
 
 // The type of custom setup.
+// Expected value is 'EnvironmentVariableSetup'.
 func (o EnvironmentVariableSetupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentVariableSetup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2232,6 +2247,7 @@ func (o EnvironmentVariableSetupOutput) VariableValue() pulumi.StringOutput {
 // The custom setup of setting environment variable.
 type EnvironmentVariableSetupResponse struct {
 	// The type of custom setup.
+	// Expected value is 'EnvironmentVariableSetup'.
 	Type string `pulumi:"type"`
 	// The name of the environment variable.
 	VariableName string `pulumi:"variableName"`
@@ -2253,6 +2269,7 @@ type EnvironmentVariableSetupResponseInput interface {
 // The custom setup of setting environment variable.
 type EnvironmentVariableSetupResponseArgs struct {
 	// The type of custom setup.
+	// Expected value is 'EnvironmentVariableSetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The name of the environment variable.
 	VariableName pulumi.StringInput `pulumi:"variableName"`
@@ -2288,6 +2305,7 @@ func (o EnvironmentVariableSetupResponseOutput) ToEnvironmentVariableSetupRespon
 }
 
 // The type of custom setup.
+// Expected value is 'EnvironmentVariableSetup'.
 func (o EnvironmentVariableSetupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentVariableSetupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5296,6 +5314,7 @@ func (o LibraryRequirementsResponsePtrOutput) Time() pulumi.StringPtrOutput {
 // The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorization struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'Key'.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// The key used for authorization.
 	Key SecureString `pulumi:"key"`
@@ -5315,6 +5334,7 @@ type LinkedIntegrationRuntimeKeyAuthorizationInput interface {
 // The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorizationArgs struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'Key'.
 	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
 	// The key used for authorization.
 	Key SecureStringInput `pulumi:"key"`
@@ -5348,6 +5368,7 @@ func (o LinkedIntegrationRuntimeKeyAuthorizationOutput) ToLinkedIntegrationRunti
 }
 
 // The authorization type for integration runtime sharing.
+// Expected value is 'Key'.
 func (o LinkedIntegrationRuntimeKeyAuthorizationOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedIntegrationRuntimeKeyAuthorization) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
@@ -5360,6 +5381,7 @@ func (o LinkedIntegrationRuntimeKeyAuthorizationOutput) Key() SecureStringOutput
 // The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorizationResponse struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'Key'.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// The key used for authorization.
 	Key SecureStringResponse `pulumi:"key"`
@@ -5379,6 +5401,7 @@ type LinkedIntegrationRuntimeKeyAuthorizationResponseInput interface {
 // The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorizationResponseArgs struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'Key'.
 	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
 	// The key used for authorization.
 	Key SecureStringResponseInput `pulumi:"key"`
@@ -5412,6 +5435,7 @@ func (o LinkedIntegrationRuntimeKeyAuthorizationResponseOutput) ToLinkedIntegrat
 }
 
 // The authorization type for integration runtime sharing.
+// Expected value is 'Key'.
 func (o LinkedIntegrationRuntimeKeyAuthorizationResponseOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedIntegrationRuntimeKeyAuthorizationResponse) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
@@ -5424,6 +5448,7 @@ func (o LinkedIntegrationRuntimeKeyAuthorizationResponseOutput) Key() SecureStri
 // The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorization struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'RBAC'.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// The resource identifier of the integration runtime to be shared.
 	ResourceId string `pulumi:"resourceId"`
@@ -5443,6 +5468,7 @@ type LinkedIntegrationRuntimeRbacAuthorizationInput interface {
 // The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorizationArgs struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'RBAC'.
 	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
 	// The resource identifier of the integration runtime to be shared.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
@@ -5476,6 +5502,7 @@ func (o LinkedIntegrationRuntimeRbacAuthorizationOutput) ToLinkedIntegrationRunt
 }
 
 // The authorization type for integration runtime sharing.
+// Expected value is 'RBAC'.
 func (o LinkedIntegrationRuntimeRbacAuthorizationOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedIntegrationRuntimeRbacAuthorization) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
@@ -5488,6 +5515,7 @@ func (o LinkedIntegrationRuntimeRbacAuthorizationOutput) ResourceId() pulumi.Str
 // The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorizationResponse struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'RBAC'.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// The resource identifier of the integration runtime to be shared.
 	ResourceId string `pulumi:"resourceId"`
@@ -5507,6 +5535,7 @@ type LinkedIntegrationRuntimeRbacAuthorizationResponseInput interface {
 // The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorizationResponseArgs struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'RBAC'.
 	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
 	// The resource identifier of the integration runtime to be shared.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
@@ -5540,6 +5569,7 @@ func (o LinkedIntegrationRuntimeRbacAuthorizationResponseOutput) ToLinkedIntegra
 }
 
 // The authorization type for integration runtime sharing.
+// Expected value is 'RBAC'.
 func (o LinkedIntegrationRuntimeRbacAuthorizationResponseOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedIntegrationRuntimeRbacAuthorizationResponse) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
@@ -6000,6 +6030,7 @@ type ManagedIntegrationRuntime struct {
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisProperties `pulumi:"ssisProperties"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
 }
 
@@ -6023,6 +6054,7 @@ type ManagedIntegrationRuntimeArgs struct {
 	// SSIS properties for managed integration runtime.
 	SsisProperties IntegrationRuntimeSsisPropertiesPtrInput `pulumi:"ssisProperties"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6069,6 +6101,7 @@ func (o ManagedIntegrationRuntimeOutput) SsisProperties() IntegrationRuntimeSsis
 }
 
 // Type of integration runtime.
+// Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6431,6 +6464,7 @@ type ManagedIntegrationRuntimeResponse struct {
 	// Integration runtime state, only valid for managed dedicated integration runtime.
 	State string `pulumi:"state"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
 }
 
@@ -6456,6 +6490,7 @@ type ManagedIntegrationRuntimeResponseArgs struct {
 	// Integration runtime state, only valid for managed dedicated integration runtime.
 	State pulumi.StringInput `pulumi:"state"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6511,6 +6546,7 @@ func (o ManagedIntegrationRuntimeResponseOutput) State() pulumi.StringOutput {
 }
 
 // Type of integration runtime.
+// Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6530,6 +6566,7 @@ type ManagedIntegrationRuntimeStatusResponse struct {
 	// The state of integration runtime.
 	State string `pulumi:"state"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
 }
 
@@ -6559,6 +6596,7 @@ type ManagedIntegrationRuntimeStatusResponseArgs struct {
 	// The state of integration runtime.
 	State pulumi.StringInput `pulumi:"state"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6626,6 +6664,7 @@ func (o ManagedIntegrationRuntimeStatusResponseOutput) State() pulumi.StringOutp
 }
 
 // Type of integration runtime.
+// Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8086,6 +8125,7 @@ func (o PurviewConfigurationResponsePtrOutput) PurviewResourceId() pulumi.String
 // Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureString struct {
 	// Type of the secret.
+	// Expected value is 'SecureString'.
 	Type string `pulumi:"type"`
 	// Value of secure string.
 	Value string `pulumi:"value"`
@@ -8105,6 +8145,7 @@ type SecureStringInput interface {
 // Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringArgs struct {
 	// Type of the secret.
+	// Expected value is 'SecureString'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Value of secure string.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -8189,6 +8230,7 @@ func (o SecureStringOutput) ToSecureStringPtrOutputWithContext(ctx context.Conte
 }
 
 // Type of the secret.
+// Expected value is 'SecureString'.
 func (o SecureStringOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SecureString) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8217,6 +8259,7 @@ func (o SecureStringPtrOutput) Elem() SecureStringOutput {
 }
 
 // Type of the secret.
+// Expected value is 'SecureString'.
 func (o SecureStringPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecureString) *string {
 		if v == nil {
@@ -8239,6 +8282,7 @@ func (o SecureStringPtrOutput) Value() pulumi.StringPtrOutput {
 // Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringResponse struct {
 	// Type of the secret.
+	// Expected value is 'SecureString'.
 	Type string `pulumi:"type"`
 	// Value of secure string.
 	Value string `pulumi:"value"`
@@ -8258,6 +8302,7 @@ type SecureStringResponseInput interface {
 // Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringResponseArgs struct {
 	// Type of the secret.
+	// Expected value is 'SecureString'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Value of secure string.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -8342,6 +8387,7 @@ func (o SecureStringResponseOutput) ToSecureStringResponsePtrOutputWithContext(c
 }
 
 // Type of the secret.
+// Expected value is 'SecureString'.
 func (o SecureStringResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SecureStringResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8370,6 +8416,7 @@ func (o SecureStringResponsePtrOutput) Elem() SecureStringResponseOutput {
 }
 
 // Type of the secret.
+// Expected value is 'SecureString'.
 func (o SecureStringResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecureStringResponse) *string {
 		if v == nil {
@@ -8396,6 +8443,7 @@ type SelfHostedIntegrationRuntime struct {
 	// Linked integration runtime type from data factory
 	LinkedInfo interface{} `pulumi:"linkedInfo"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type string `pulumi:"type"`
 }
 
@@ -8417,6 +8465,7 @@ type SelfHostedIntegrationRuntimeArgs struct {
 	// Linked integration runtime type from data factory
 	LinkedInfo pulumi.Input `pulumi:"linkedInfo"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8458,6 +8507,7 @@ func (o SelfHostedIntegrationRuntimeOutput) LinkedInfo() pulumi.AnyOutput {
 }
 
 // Type of integration runtime.
+// Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8722,6 +8772,7 @@ type SelfHostedIntegrationRuntimeResponse struct {
 	// Linked integration runtime type from data factory
 	LinkedInfo interface{} `pulumi:"linkedInfo"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type string `pulumi:"type"`
 }
 
@@ -8743,6 +8794,7 @@ type SelfHostedIntegrationRuntimeResponseArgs struct {
 	// Linked integration runtime type from data factory
 	LinkedInfo pulumi.Input `pulumi:"linkedInfo"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8784,6 +8836,7 @@ func (o SelfHostedIntegrationRuntimeResponseOutput) LinkedInfo() pulumi.AnyOutpu
 }
 
 // Type of integration runtime.
+// Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8823,6 +8876,7 @@ type SelfHostedIntegrationRuntimeStatusResponse struct {
 	// The task queue id of the integration runtime.
 	TaskQueueId string `pulumi:"taskQueueId"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type string `pulumi:"type"`
 	// The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
 	UpdateDelayOffset string `pulumi:"updateDelayOffset"`
@@ -8878,6 +8932,7 @@ type SelfHostedIntegrationRuntimeStatusResponseArgs struct {
 	// The task queue id of the integration runtime.
 	TaskQueueId pulumi.StringInput `pulumi:"taskQueueId"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
 	UpdateDelayOffset pulumi.StringInput `pulumi:"updateDelayOffset"`
@@ -8999,6 +9054,7 @@ func (o SelfHostedIntegrationRuntimeStatusResponseOutput) TaskQueueId() pulumi.S
 }
 
 // Type of integration runtime.
+// Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9700,6 +9756,7 @@ type SsisEnvironmentResponse struct {
 	// Metadata name.
 	Name *string `pulumi:"name"`
 	// Type of metadata.
+	// Expected value is 'Environment'.
 	Type string `pulumi:"type"`
 	// Variable in environment
 	Variables []SsisVariableResponse `pulumi:"variables"`
@@ -9727,6 +9784,7 @@ type SsisEnvironmentResponseArgs struct {
 	// Metadata name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of metadata.
+	// Expected value is 'Environment'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Variable in environment
 	Variables SsisVariableResponseArrayInput `pulumi:"variables"`
@@ -9780,6 +9838,7 @@ func (o SsisEnvironmentResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Type of metadata.
+// Expected value is 'Environment'.
 func (o SsisEnvironmentResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisEnvironmentResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9798,6 +9857,7 @@ type SsisFolderResponse struct {
 	// Metadata name.
 	Name *string `pulumi:"name"`
 	// Type of metadata.
+	// Expected value is 'Folder'.
 	Type string `pulumi:"type"`
 }
 
@@ -9821,6 +9881,7 @@ type SsisFolderResponseArgs struct {
 	// Metadata name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of metadata.
+	// Expected value is 'Folder'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9867,6 +9928,7 @@ func (o SsisFolderResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Type of metadata.
+// Expected value is 'Folder'.
 func (o SsisFolderResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisFolderResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9888,6 +9950,7 @@ type SsisPackageResponse struct {
 	// Project version which contains package.
 	ProjectVersion *int `pulumi:"projectVersion"`
 	// Type of metadata.
+	// Expected value is 'Package'.
 	Type string `pulumi:"type"`
 }
 
@@ -9919,6 +9982,7 @@ type SsisPackageResponseArgs struct {
 	// Project version which contains package.
 	ProjectVersion pulumi.IntPtrInput `pulumi:"projectVersion"`
 	// Type of metadata.
+	// Expected value is 'Package'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9985,6 +10049,7 @@ func (o SsisPackageResponseOutput) ProjectVersion() pulumi.IntPtrOutput {
 }
 
 // Type of metadata.
+// Expected value is 'Package'.
 func (o SsisPackageResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisPackageResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10203,6 +10268,7 @@ type SsisProjectResponse struct {
 	// Parameters in project
 	Parameters []SsisParameterResponse `pulumi:"parameters"`
 	// Type of metadata.
+	// Expected value is 'Project'.
 	Type string `pulumi:"type"`
 	// Project version.
 	Version *int `pulumi:"version"`
@@ -10234,6 +10300,7 @@ type SsisProjectResponseArgs struct {
 	// Parameters in project
 	Parameters SsisParameterResponseArrayInput `pulumi:"parameters"`
 	// Type of metadata.
+	// Expected value is 'Project'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Project version.
 	Version pulumi.IntPtrInput `pulumi:"version"`
@@ -10297,6 +10364,7 @@ func (o SsisProjectResponseOutput) Parameters() SsisParameterResponseArrayOutput
 }
 
 // Type of metadata.
+// Expected value is 'Project'.
 func (o SsisProjectResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisProjectResponse) string { return v.Type }).(pulumi.StringOutput)
 }

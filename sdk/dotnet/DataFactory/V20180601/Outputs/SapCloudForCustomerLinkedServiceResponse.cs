@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'SapCloudForCustomer'.
         /// </summary>
         public readonly string Type;
         /// <summary>

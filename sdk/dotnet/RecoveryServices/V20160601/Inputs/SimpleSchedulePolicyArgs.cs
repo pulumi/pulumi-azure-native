@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601.Inputs
     {
         /// <summary>
         /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// Expected value is 'SimpleSchedulePolicy'.
         /// </summary>
         [Input("schedulePolicyType")]
         public Input<string>? SchedulePolicyType { get; set; }

@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301.Outputs
         public readonly string? Format;
         /// <summary>
         /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Json'.
         /// </summary>
         public readonly string? Type;
 

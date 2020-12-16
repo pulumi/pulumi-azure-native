@@ -36,6 +36,7 @@ class ListMachineLearningComputeNodesResult:
     def compute_type(self) -> str:
         """
         The type of compute
+        Expected value is 'AmlCompute'.
         """
         return pulumi.get(self, "compute_type")
 

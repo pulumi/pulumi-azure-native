@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest.Outputs
         public readonly string? Script;
         /// <summary>
         /// Indicates the function binding type.
+        /// Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
         /// </summary>
         public readonly string? Type;
 

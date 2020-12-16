@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190430.Outputs
         public readonly string? CustomerAdminGroupId;
         /// <summary>
         /// The kind of the provider.
+        /// Expected value is 'AADIdentityProvider'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

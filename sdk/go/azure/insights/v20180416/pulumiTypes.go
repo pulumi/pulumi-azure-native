@@ -15,6 +15,7 @@ type AlertingAction struct {
 	// Azure action group reference.
 	AznsAction *AzNsActionGroup `pulumi:"aznsAction"`
 	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
 	OdataType string `pulumi:"odataType"`
 	// Severity of the alert
 	Severity string `pulumi:"severity"`
@@ -40,6 +41,7 @@ type AlertingActionArgs struct {
 	// Azure action group reference.
 	AznsAction AzNsActionGroupPtrInput `pulumi:"aznsAction"`
 	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Severity of the alert
 	Severity pulumi.StringInput `pulumi:"severity"`
@@ -82,6 +84,7 @@ func (o AlertingActionOutput) AznsAction() AzNsActionGroupPtrOutput {
 }
 
 // Specifies the action. Supported values - AlertingAction, LogToMetricAction
+// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
 func (o AlertingActionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertingAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -106,6 +109,7 @@ type AlertingActionResponse struct {
 	// Azure action group reference.
 	AznsAction *AzNsActionGroupResponse `pulumi:"aznsAction"`
 	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
 	OdataType string `pulumi:"odataType"`
 	// Severity of the alert
 	Severity string `pulumi:"severity"`
@@ -131,6 +135,7 @@ type AlertingActionResponseArgs struct {
 	// Azure action group reference.
 	AznsAction AzNsActionGroupResponsePtrInput `pulumi:"aznsAction"`
 	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Severity of the alert
 	Severity pulumi.StringInput `pulumi:"severity"`
@@ -173,6 +178,7 @@ func (o AlertingActionResponseOutput) AznsAction() AzNsActionGroupResponsePtrOut
 }
 
 // Specifies the action. Supported values - AlertingAction, LogToMetricAction
+// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
 func (o AlertingActionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertingActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1377,6 +1383,7 @@ type LogToMetricAction struct {
 	// Criteria of Metric
 	Criteria []Criteria `pulumi:"criteria"`
 	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -1396,6 +1403,7 @@ type LogToMetricActionArgs struct {
 	// Criteria of Metric
 	Criteria CriteriaArrayInput `pulumi:"criteria"`
 	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -1432,6 +1440,7 @@ func (o LogToMetricActionOutput) Criteria() CriteriaArrayOutput {
 }
 
 // Specifies the action. Supported values - AlertingAction, LogToMetricAction
+// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
 func (o LogToMetricActionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogToMetricAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -1441,6 +1450,7 @@ type LogToMetricActionResponse struct {
 	// Criteria of Metric
 	Criteria []CriteriaResponse `pulumi:"criteria"`
 	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -1460,6 +1470,7 @@ type LogToMetricActionResponseArgs struct {
 	// Criteria of Metric
 	Criteria CriteriaResponseArrayInput `pulumi:"criteria"`
 	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -1496,6 +1507,7 @@ func (o LogToMetricActionResponseOutput) Criteria() CriteriaResponseArrayOutput 
 }
 
 // Specifies the action. Supported values - AlertingAction, LogToMetricAction
+// Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
 func (o LogToMetricActionResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogToMetricActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }

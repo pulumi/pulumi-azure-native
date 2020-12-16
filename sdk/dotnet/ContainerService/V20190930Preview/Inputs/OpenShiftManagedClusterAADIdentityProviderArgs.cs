@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190930Preview.Inputs
 
         /// <summary>
         /// The kind of the provider.
+        /// Expected value is 'AADIdentityProvider'.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;

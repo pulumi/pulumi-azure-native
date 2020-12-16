@@ -55,6 +55,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object PoolName;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AzureBatch'.
         /// </summary>
         public readonly string Type;
 

@@ -1277,6 +1277,7 @@ class WebServicePropertiesForGraphResponse(dict):
         :param str created_on: Read Only: The date and time when the web service was created.
         :param str modified_on: Read Only: The date and time when the web service was last modified.
         :param str package_type: Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+               Expected value is 'Graph'.
         :param str provisioning_state: Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
         :param str swagger_location: Read Only: Contains the URI of the swagger spec associated with this web service.
         :param Mapping[str, 'AssetItemResponseArgs'] assets: Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
@@ -1355,6 +1356,7 @@ class WebServicePropertiesForGraphResponse(dict):
     def package_type(self) -> str:
         """
         Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+        Expected value is 'Graph'.
         """
         return pulumi.get(self, "package_type")
 

@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
 
         /// <summary>
         /// Describes the kind of secret.
+        /// Expected value is 'SecretResourceProperties'.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;

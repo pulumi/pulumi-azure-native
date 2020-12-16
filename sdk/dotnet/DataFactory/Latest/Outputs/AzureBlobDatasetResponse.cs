@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? TableRootLocation;
         /// <summary>
         /// Type of dataset.
+        /// Expected value is 'AzureBlob'.
         /// </summary>
         public readonly string Type;
 

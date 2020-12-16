@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.Outputs
         public readonly string FirstActivityTimeUTC;
         /// <summary>
         /// The entity query kind type.
+        /// Expected value is 'Activity'.
         /// </summary>
         public readonly string Kind;
         /// <summary>

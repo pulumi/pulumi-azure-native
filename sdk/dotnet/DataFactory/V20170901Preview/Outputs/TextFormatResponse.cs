@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         public readonly object? TreatEmptyAsNull;
         /// <summary>
         /// Type of dataset storage format.
+        /// Expected value is 'TextFormat'.
         /// </summary>
         public readonly string Type;
 

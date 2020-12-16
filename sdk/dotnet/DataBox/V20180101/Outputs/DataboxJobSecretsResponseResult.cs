@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101.Outputs
     {
         /// <summary>
         /// Used to indicate what type of job secrets object.
+        /// Expected value is 'DataBox'.
         /// </summary>
         public readonly string JobSecretsType;
         /// <summary>

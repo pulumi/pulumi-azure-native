@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Outputs
         public readonly string? EncodedValuesContent;
         /// <summary>
         /// The type of the step.
+        /// Expected value is 'EncodedTask'.
         /// </summary>
         public readonly string Type;
         /// <summary>

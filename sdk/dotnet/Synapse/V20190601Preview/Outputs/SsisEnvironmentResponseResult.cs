@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         public readonly string? Name;
         /// <summary>
         /// Type of metadata.
+        /// Expected value is 'Environment'.
         /// </summary>
         public readonly string Type;
         /// <summary>

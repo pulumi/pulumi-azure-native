@@ -148,6 +148,7 @@ class AzureFileshareProtectedItemResponse(dict):
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str protected_item_type: backup item type.
+               Expected value is 'AzureFileShareProtectedItem'.
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
         :param str source_resource_id: ARM ID of the resource to be backed up.
@@ -329,6 +330,7 @@ class AzureFileshareProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
+        Expected value is 'AzureFileShareProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -529,6 +531,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str protected_item_data_id: Data ID of the protected item.
         :param str protected_item_type: backup item type.
+               Expected value is 'AzureIaaSVMProtectedItem'.
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
         :param str source_resource_id: ARM ID of the resource to be backed up.
@@ -743,6 +746,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
+        Expected value is 'AzureIaaSVMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -879,6 +883,7 @@ class AzureSqlProtectedItemResponse(dict):
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str protected_item_data_id: Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
         :param str protected_item_type: backup item type.
+               Expected value is 'Microsoft.Sql/servers/databases'.
         :param str protection_state: Backup state of the backed up item.
         :param str source_resource_id: ARM ID of the resource to be backed up.
         :param str workload_type: Type of workload this item represents.
@@ -1027,6 +1032,7 @@ class AzureSqlProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
+        Expected value is 'Microsoft.Sql/servers/databases'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1163,6 +1169,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protected_item_type: backup item type.
+               Expected value is 'AzureVmWorkloadProtectedItem'.
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
         :param str server_name: Host/Cluster Name for instance or AG
@@ -1387,6 +1394,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
+        Expected value is 'AzureVmWorkloadProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1657,6 +1665,7 @@ class DPMProtectedItemResponse(dict):
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str protected_item_type: backup item type.
+               Expected value is 'DPMProtectedItem'.
         :param str protection_state: Protection state of the backup engine
         :param str source_resource_id: ARM ID of the resource to be backed up.
         :param str workload_type: Type of workload this item represents.
@@ -1815,6 +1824,7 @@ class DPMProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
+        Expected value is 'DPMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1997,6 +2007,7 @@ class GenericProtectedItemResponse(dict):
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
         :param int protected_item_id: Data Plane Service ID of the protected item.
         :param str protected_item_type: backup item type.
+               Expected value is 'GenericProtectedItem'.
         :param str protection_state: Backup state of this backup item.
         :param Mapping[str, str] source_associations: Loosely coupled (type, value) associations (example - parent of a protected item)
         :param str source_resource_id: ARM ID of the resource to be backed up.
@@ -2168,6 +2179,7 @@ class GenericProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
+        Expected value is 'GenericProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2304,6 +2316,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str protected_item_type: backup item type.
+               Expected value is 'MabFileFolderProtectedItem'.
         :param str protection_state: Protected, ProtectionStopped, IRPending or ProtectionError
         :param str source_resource_id: ARM ID of the resource to be backed up.
         :param str workload_type: Type of workload this item represents.
@@ -2492,6 +2505,7 @@ class MabFileFolderProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
+        Expected value is 'MabFileFolderProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 

@@ -20,6 +20,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
 
         /// <summary>
         /// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Microsoft.Sql/Server/Database'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

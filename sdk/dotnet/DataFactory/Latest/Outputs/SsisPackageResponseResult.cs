@@ -43,6 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly int? ProjectVersion;
         /// <summary>
         /// Type of metadata.
+        /// Expected value is 'Package'.
         /// </summary>
         public readonly string Type;
 

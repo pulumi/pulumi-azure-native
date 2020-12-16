@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901.Outputs
         public readonly bool IsPasskeyUserDefined;
         /// <summary>
         /// Used to indicate what type of job secrets object.
+        /// Expected value is 'DataBoxDisk'.
         /// </summary>
         public readonly string JobSecretsType;
         /// <summary>

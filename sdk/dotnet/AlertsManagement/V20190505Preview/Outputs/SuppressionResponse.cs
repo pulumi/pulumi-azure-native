@@ -51,6 +51,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190505Preview.Outputs
         public readonly Outputs.SuppressionConfigResponse SuppressionConfig;
         /// <summary>
         /// Indicates type of action rule
+        /// Expected value is 'Suppression'.
         /// </summary>
         public readonly string Type;
 

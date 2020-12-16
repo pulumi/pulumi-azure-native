@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
     {
         /// <summary>
         /// Account Type of the data to be transferred.
+        /// Expected value is 'StorageAccount'.
         /// </summary>
         [Input("dataAccountType", required: true)]
         public Input<string> DataAccountType { get; set; } = null!;

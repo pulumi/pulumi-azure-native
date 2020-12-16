@@ -36,6 +36,7 @@ class MediaGraphAssetSinkResponse(dict):
         :param Sequence[str] inputs: Sink inputs.
         :param str name: Sink name.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
         """
         pulumi.set(__self__, "asset_name", asset_name)
         pulumi.set(__self__, "inputs", inputs)
@@ -71,6 +72,7 @@ class MediaGraphAssetSinkResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -90,6 +92,7 @@ class MediaGraphClearEndpointResponse(dict):
         """
         An endpoint to connect to with no encryption in transit.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
         :param str url: Url for the endpoint.
         :param 'MediaGraphUsernamePasswordCredentialsResponseArgs' credentials: Polymorphic credentials to present to the endpoint.
         """
@@ -103,6 +106,7 @@ class MediaGraphClearEndpointResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -138,6 +142,7 @@ class MediaGraphPemCertificateListResponse(dict):
         A list of PEM formatted certificates.
         :param Sequence[str] certificates: PEM formatted public certificates, one per entry.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
         """
         pulumi.set(__self__, "certificates", certificates)
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphPemCertificateList')
@@ -155,6 +160,7 @@ class MediaGraphPemCertificateListResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -177,6 +183,7 @@ class MediaGraphRtspSourceResponse(dict):
         :param Union['MediaGraphClearEndpointResponseArgs', 'MediaGraphTlsEndpointResponseArgs'] endpoint: RTSP endpoint of the stream being connected to.
         :param str name: Source name.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
         :param str transport: Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -205,6 +212,7 @@ class MediaGraphRtspSourceResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -234,6 +242,7 @@ class MediaGraphTlsEndpointResponse(dict):
         """
         An endpoint which must be connected over TLS/SSL.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
         :param str url: Url for the endpoint.
         :param 'MediaGraphUsernamePasswordCredentialsResponseArgs' credentials: Polymorphic credentials to present to the endpoint.
         :param 'MediaGraphPemCertificateListResponseArgs' trusted_certificates: What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
@@ -253,6 +262,7 @@ class MediaGraphTlsEndpointResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
         """
         return pulumi.get(self, "odata_type")
 
@@ -340,6 +350,7 @@ class MediaGraphUsernamePasswordCredentialsResponse(dict):
         """
         Username/password credential pair.
         :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
         :param str password: Password for a username/password pair.
         :param str username: Username for a username/password pair.
         """
@@ -352,6 +363,7 @@ class MediaGraphUsernamePasswordCredentialsResponse(dict):
     def odata_type(self) -> str:
         """
         The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
         """
         return pulumi.get(self, "odata_type")
 

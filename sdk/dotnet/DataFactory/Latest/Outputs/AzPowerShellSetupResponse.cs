@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
     {
         /// <summary>
         /// The type of custom setup.
+        /// Expected value is 'AzPowerShellSetup'.
         /// </summary>
         public readonly string Type;
         /// <summary>

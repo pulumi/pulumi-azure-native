@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200218Preview.Inputs
 
         /// <summary>
         /// The type of compute
+        /// Expected value is 'Databricks'.
         /// </summary>
         [Input("computeType", required: true)]
         public Input<string> ComputeType { get; set; } = null!;

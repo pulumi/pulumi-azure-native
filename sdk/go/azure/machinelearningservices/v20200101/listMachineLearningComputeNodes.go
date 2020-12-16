@@ -28,6 +28,7 @@ type ListMachineLearningComputeNodesArgs struct {
 // Compute node information related to a AmlCompute.
 type ListMachineLearningComputeNodesResult struct {
 	// The type of compute
+	// Expected value is 'AmlCompute'.
 	ComputeType string `pulumi:"computeType"`
 	// The continuation token.
 	NextLink string `pulumi:"nextLink"`

@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest.Outputs
         public readonly string? Key;
         /// <summary>
         /// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        /// Expected value is 'StringBeginsWith'.
         /// </summary>
         public readonly string OperatorType;
         /// <summary>

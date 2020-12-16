@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301.Outputs
         public readonly string? TimeFormat;
         /// <summary>
         /// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'Microsoft.Storage/Blob'.
         /// </summary>
         public readonly string? Type;
 

@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         public readonly string ServerName;
         /// <summary>
         /// Type of connection info
+        /// Expected value is 'MySqlConnectionInfo'.
         /// </summary>
         public readonly string Type;
         /// <summary>

@@ -176,6 +176,7 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesArgs:
         """
         Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ConnectToSource.PostgreSql.Sync'.
         :param pulumi.Input['ConnectToSourcePostgreSqlSyncTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ConnectToSource.PostgreSql.Sync')
@@ -187,6 +188,7 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ConnectToSource.PostgreSql.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -215,6 +217,7 @@ class ConnectToSourceSqlServerSyncTaskPropertiesArgs:
         """
         Properties for the task that validates connection to SQL Server and source server requirements for online migration
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ConnectToSource.SqlServer.Sync'.
         :param pulumi.Input['ConnectToSourceSqlServerTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ConnectToSource.SqlServer.Sync')
@@ -226,6 +229,7 @@ class ConnectToSourceSqlServerSyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ConnectToSource.SqlServer.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -325,6 +329,7 @@ class ConnectToSourceSqlServerTaskPropertiesArgs:
         """
         Properties for the task that validates connection to SQL Server and also validates source server requirements
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ConnectToSource.SqlServer'.
         :param pulumi.Input['ConnectToSourceSqlServerTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ConnectToSource.SqlServer')
@@ -336,6 +341,7 @@ class ConnectToSourceSqlServerTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ConnectToSource.SqlServer'.
         """
         return pulumi.get(self, "task_type")
 
@@ -402,6 +408,7 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesArgs:
         """
         Properties for the task that validates connection to Azure Database for MySQL and target server requirements
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ConnectToTarget.AzureDbForMySql'.
         :param pulumi.Input['ConnectToTargetAzureDbForMySqlTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureDbForMySql')
@@ -413,6 +420,7 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ConnectToTarget.AzureDbForMySql'.
         """
         return pulumi.get(self, "task_type")
 
@@ -479,6 +487,7 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs:
         """
         Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ConnectToTarget.AzureDbForPostgreSql.Sync'.
         :param pulumi.Input['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureDbForPostgreSql.Sync')
@@ -490,6 +499,7 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ConnectToTarget.AzureDbForPostgreSql.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -541,6 +551,7 @@ class ConnectToTargetSqlDbTaskPropertiesArgs:
         """
         Properties for the task that validates connection to SQL DB and target server requirements
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ConnectToTarget.SqlDb'.
         :param pulumi.Input['ConnectToTargetSqlDbTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ConnectToTarget.SqlDb')
@@ -552,6 +563,7 @@ class ConnectToTargetSqlDbTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ConnectToTarget.SqlDb'.
         """
         return pulumi.get(self, "task_type")
 
@@ -618,6 +630,7 @@ class ConnectToTargetSqlMISyncTaskPropertiesArgs:
         """
         Properties for the task that validates connection to Azure SQL Database Managed Instance
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ConnectToTarget.AzureSqlDbMI.Sync.LRS'.
         :param pulumi.Input['ConnectToTargetSqlMISyncTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureSqlDbMI.Sync.LRS')
@@ -629,6 +642,7 @@ class ConnectToTargetSqlMISyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ConnectToTarget.AzureSqlDbMI.Sync.LRS'.
         """
         return pulumi.get(self, "task_type")
 
@@ -680,6 +694,7 @@ class ConnectToTargetSqlMITaskPropertiesArgs:
         """
         Properties for the task that validates connection to Azure SQL Database Managed Instance
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ConnectToTarget.AzureSqlDbMI'.
         :param pulumi.Input['ConnectToTargetSqlMITaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureSqlDbMI')
@@ -691,6 +706,7 @@ class ConnectToTargetSqlMITaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ConnectToTarget.AzureSqlDbMI'.
         """
         return pulumi.get(self, "task_type")
 
@@ -757,6 +773,7 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs:
         """
         Properties for the task that validates connection to SQL DB and target server requirements for online migration
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ConnectToTarget.SqlDb.Sync'.
         :param pulumi.Input['ConnectToTargetSqlSqlDbSyncTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ConnectToTarget.SqlDb.Sync')
@@ -768,6 +785,7 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ConnectToTarget.SqlDb.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -927,6 +945,7 @@ class GetTdeCertificatesSqlTaskPropertiesArgs:
         """
         Properties for the task that gets TDE certificates in Base64 encoded format.
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'GetTDECertificates.Sql'.
         :param pulumi.Input['GetTdeCertificatesSqlTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'GetTDECertificates.Sql')
@@ -938,6 +957,7 @@ class GetTdeCertificatesSqlTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'GetTDECertificates.Sql'.
         """
         return pulumi.get(self, "task_type")
 
@@ -1034,6 +1054,7 @@ class GetUserTablesSqlSyncTaskPropertiesArgs:
         """
         Properties for the task that collects user tables for the given list of databases
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'GetUserTables.AzureSqlDb.Sync'.
         :param pulumi.Input['GetUserTablesSqlSyncTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'GetUserTables.AzureSqlDb.Sync')
@@ -1045,6 +1066,7 @@ class GetUserTablesSqlSyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'GetUserTables.AzureSqlDb.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -1111,6 +1133,7 @@ class GetUserTablesSqlTaskPropertiesArgs:
         """
         Properties for the task that collects user tables for the given list of databases
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'GetUserTables.Sql'.
         :param pulumi.Input['GetUserTablesSqlTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'GetUserTables.Sql')
@@ -1122,6 +1145,7 @@ class GetUserTablesSqlTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'GetUserTables.Sql'.
         """
         return pulumi.get(self, "task_type")
 
@@ -1153,6 +1177,7 @@ class MiSqlConnectionInfoArgs:
         Properties required to create a connection to Azure SQL database Managed instance
         :param pulumi.Input[str] managed_instance_resource_id: Resource id for Azure SQL database Managed instance
         :param pulumi.Input[str] type: Type of connection info
+               Expected value is 'MiSqlConnectionInfo'.
         :param pulumi.Input[str] password: Password credential.
         :param pulumi.Input[str] user_name: User name
         """
@@ -1180,6 +1205,7 @@ class MiSqlConnectionInfoArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of connection info
+        Expected value is 'MiSqlConnectionInfo'.
         """
         return pulumi.get(self, "type")
 
@@ -1361,6 +1387,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs:
         """
         Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'Migrate.MySql.AzureDbForMySql.Sync'.
         :param pulumi.Input['MigrateMySqlAzureDbForMySqlSyncTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'Migrate.MySql.AzureDbForMySql.Sync')
@@ -1372,6 +1399,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'Migrate.MySql.AzureDbForMySql.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -1541,6 +1569,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs:
         """
         Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.Sync'.
         :param pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'Migrate.PostgreSql.AzureDbForPostgreSql.Sync')
@@ -1552,6 +1581,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -1857,6 +1887,7 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesArgs:
         """
         Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'Migrate.SqlServer.AzureSqlDb.Sync'.
         :param pulumi.Input['MigrateSqlServerSqlDbSyncTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDb.Sync')
@@ -1868,6 +1899,7 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'Migrate.SqlServer.AzureSqlDb.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -1969,6 +2001,7 @@ class MigrateSqlServerSqlDbTaskPropertiesArgs:
         """
         Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'Migrate.SqlServer.SqlDb'.
         :param pulumi.Input['MigrateSqlServerSqlDbTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'Migrate.SqlServer.SqlDb')
@@ -1980,6 +2013,7 @@ class MigrateSqlServerSqlDbTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'Migrate.SqlServer.SqlDb'.
         """
         return pulumi.get(self, "task_type")
 
@@ -2177,6 +2211,7 @@ class MigrateSqlServerSqlMISyncTaskPropertiesArgs:
         """
         Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS'.
         :param pulumi.Input['MigrateSqlServerSqlMISyncTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS')
@@ -2188,6 +2223,7 @@ class MigrateSqlServerSqlMISyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS'.
         """
         return pulumi.get(self, "task_type")
 
@@ -2348,6 +2384,7 @@ class MigrateSqlServerSqlMITaskPropertiesArgs:
         """
         Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
         :param pulumi.Input['MigrateSqlServerSqlMITaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDbMI')
@@ -2359,6 +2396,7 @@ class MigrateSqlServerSqlMITaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
         """
         return pulumi.get(self, "task_type")
 
@@ -2448,6 +2486,7 @@ class MySqlConnectionInfoArgs:
         :param pulumi.Input[int] port: Port for Server
         :param pulumi.Input[str] server_name: Name of the server
         :param pulumi.Input[str] type: Type of connection info
+               Expected value is 'MySqlConnectionInfo'.
         :param pulumi.Input[str] password: Password credential.
         :param pulumi.Input[str] user_name: User name
         """
@@ -2488,6 +2527,7 @@ class MySqlConnectionInfoArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of connection info
+        Expected value is 'MySqlConnectionInfo'.
         """
         return pulumi.get(self, "type")
 
@@ -2534,6 +2574,7 @@ class PostgreSqlConnectionInfoArgs:
         :param pulumi.Input[int] port: Port for Server
         :param pulumi.Input[str] server_name: Name of the server
         :param pulumi.Input[str] type: Type of connection info
+               Expected value is 'PostgreSqlConnectionInfo'.
         :param pulumi.Input[str] database_name: Name of the database
         :param pulumi.Input[str] password: Password credential.
         :param pulumi.Input[str] user_name: User name
@@ -2577,6 +2618,7 @@ class PostgreSqlConnectionInfoArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of connection info
+        Expected value is 'PostgreSqlConnectionInfo'.
         """
         return pulumi.get(self, "type")
 
@@ -2763,6 +2805,7 @@ class SqlConnectionInfoArgs:
         Information for connecting to SQL database server
         :param pulumi.Input[str] data_source: Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
         :param pulumi.Input[str] type: Type of connection info
+               Expected value is 'SqlConnectionInfo'.
         :param pulumi.Input[str] additional_settings: Additional connection settings
         :param pulumi.Input[Union[str, 'AuthenticationType']] authentication: Authentication type to use for connection
         :param pulumi.Input[bool] encrypt_connection: Whether to encrypt the connection
@@ -2805,6 +2848,7 @@ class SqlConnectionInfoArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of connection info
+        Expected value is 'SqlConnectionInfo'.
         """
         return pulumi.get(self, "type")
 
@@ -2905,6 +2949,7 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs:
         """
         Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ValidateMigrationInput.SqlServer.SqlDb.Sync'.
         :param pulumi.Input['ValidateSyncMigrationInputSqlServerTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.SqlDb.Sync')
@@ -2916,6 +2961,7 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ValidateMigrationInput.SqlServer.SqlDb.Sync'.
         """
         return pulumi.get(self, "task_type")
 
@@ -3043,6 +3089,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs:
         """
         Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS'.
         :param pulumi.Input['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS')
@@ -3054,6 +3101,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS'.
         """
         return pulumi.get(self, "task_type")
 
@@ -3198,6 +3246,7 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs:
         """
         Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
         :param pulumi.Input[str] task_type: Task type.
+               Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
         :param pulumi.Input['ValidateMigrationInputSqlServerSqlMITaskInputArgs'] input: Task input
         """
         pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI')
@@ -3209,6 +3258,7 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs:
     def task_type(self) -> pulumi.Input[str]:
         """
         Task type.
+        Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
         """
         return pulumi.get(self, "task_type")
 

@@ -2130,7 +2130,8 @@ type ForwardingConfiguration struct {
 	CustomForwardingPath *string `pulumi:"customForwardingPath"`
 	// Protocol this rule will use when forwarding traffic to backends.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
-	OdataType          string  `pulumi:"odataType"`
+	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
+	OdataType string `pulumi:"odataType"`
 }
 
 // ForwardingConfigurationInput is an input type that accepts ForwardingConfigurationArgs and ForwardingConfigurationOutput values.
@@ -2154,7 +2155,8 @@ type ForwardingConfigurationArgs struct {
 	CustomForwardingPath pulumi.StringPtrInput `pulumi:"customForwardingPath"`
 	// Protocol this rule will use when forwarding traffic to backends.
 	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
-	OdataType          pulumi.StringInput    `pulumi:"odataType"`
+	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
 func (ForwardingConfigurationArgs) ElementType() reflect.Type {
@@ -2204,6 +2206,7 @@ func (o ForwardingConfigurationOutput) ForwardingProtocol() pulumi.StringPtrOutp
 	return o.ApplyT(func(v ForwardingConfiguration) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }
 
+// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
 func (o ForwardingConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ForwardingConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -2218,7 +2221,8 @@ type ForwardingConfigurationResponse struct {
 	CustomForwardingPath *string `pulumi:"customForwardingPath"`
 	// Protocol this rule will use when forwarding traffic to backends.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
-	OdataType          string  `pulumi:"odataType"`
+	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
+	OdataType string `pulumi:"odataType"`
 }
 
 // ForwardingConfigurationResponseInput is an input type that accepts ForwardingConfigurationResponseArgs and ForwardingConfigurationResponseOutput values.
@@ -2242,7 +2246,8 @@ type ForwardingConfigurationResponseArgs struct {
 	CustomForwardingPath pulumi.StringPtrInput `pulumi:"customForwardingPath"`
 	// Protocol this rule will use when forwarding traffic to backends.
 	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
-	OdataType          pulumi.StringInput    `pulumi:"odataType"`
+	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
 func (ForwardingConfigurationResponseArgs) ElementType() reflect.Type {
@@ -2292,6 +2297,7 @@ func (o ForwardingConfigurationResponseOutput) ForwardingProtocol() pulumi.Strin
 	return o.ApplyT(func(v ForwardingConfigurationResponse) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }
 
+// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
 func (o ForwardingConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ForwardingConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -4323,7 +4329,8 @@ type RedirectConfiguration struct {
 	CustomPath *string `pulumi:"customPath"`
 	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
 	CustomQueryString *string `pulumi:"customQueryString"`
-	OdataType         string  `pulumi:"odataType"`
+	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
+	OdataType string `pulumi:"odataType"`
 	// The protocol of the destination to where the traffic is redirected
 	RedirectProtocol *string `pulumi:"redirectProtocol"`
 	// The redirect type the rule will use when redirecting traffic.
@@ -4351,7 +4358,8 @@ type RedirectConfigurationArgs struct {
 	CustomPath pulumi.StringPtrInput `pulumi:"customPath"`
 	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
 	CustomQueryString pulumi.StringPtrInput `pulumi:"customQueryString"`
-	OdataType         pulumi.StringInput    `pulumi:"odataType"`
+	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The protocol of the destination to where the traffic is redirected
 	RedirectProtocol pulumi.StringPtrInput `pulumi:"redirectProtocol"`
 	// The redirect type the rule will use when redirecting traffic.
@@ -4405,6 +4413,7 @@ func (o RedirectConfigurationOutput) CustomQueryString() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v RedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
 }
 
+// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
 func (o RedirectConfigurationOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RedirectConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -4429,7 +4438,8 @@ type RedirectConfigurationResponse struct {
 	CustomPath *string `pulumi:"customPath"`
 	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
 	CustomQueryString *string `pulumi:"customQueryString"`
-	OdataType         string  `pulumi:"odataType"`
+	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
+	OdataType string `pulumi:"odataType"`
 	// The protocol of the destination to where the traffic is redirected
 	RedirectProtocol *string `pulumi:"redirectProtocol"`
 	// The redirect type the rule will use when redirecting traffic.
@@ -4457,7 +4467,8 @@ type RedirectConfigurationResponseArgs struct {
 	CustomPath pulumi.StringPtrInput `pulumi:"customPath"`
 	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
 	CustomQueryString pulumi.StringPtrInput `pulumi:"customQueryString"`
-	OdataType         pulumi.StringInput    `pulumi:"odataType"`
+	// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The protocol of the destination to where the traffic is redirected
 	RedirectProtocol pulumi.StringPtrInput `pulumi:"redirectProtocol"`
 	// The redirect type the rule will use when redirecting traffic.
@@ -4511,6 +4522,7 @@ func (o RedirectConfigurationResponseOutput) CustomQueryString() pulumi.StringPt
 	return o.ApplyT(func(v RedirectConfigurationResponse) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
 }
 
+// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
 func (o RedirectConfigurationResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RedirectConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }

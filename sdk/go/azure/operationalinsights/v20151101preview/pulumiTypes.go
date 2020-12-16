@@ -15,6 +15,7 @@ type MachineReferenceWithHints struct {
 	// Resource URI.
 	Id string `pulumi:"id"`
 	// Specifies the sub-class of the reference.
+	// Expected value is 'ref:machinewithhints'.
 	Kind string `pulumi:"kind"`
 }
 
@@ -34,6 +35,7 @@ type MachineReferenceWithHintsArgs struct {
 	// Resource URI.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Specifies the sub-class of the reference.
+	// Expected value is 'ref:machinewithhints'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 }
 
@@ -95,6 +97,7 @@ func (o MachineReferenceWithHintsOutput) Id() pulumi.StringOutput {
 }
 
 // Specifies the sub-class of the reference.
+// Expected value is 'ref:machinewithhints'.
 func (o MachineReferenceWithHintsOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHints) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -126,6 +129,7 @@ type MachineReferenceWithHintsResponse struct {
 	// Resource URI.
 	Id string `pulumi:"id"`
 	// Specifies the sub-class of the reference.
+	// Expected value is 'ref:machinewithhints'.
 	Kind string `pulumi:"kind"`
 	// Resource name.
 	Name string `pulumi:"name"`
@@ -153,6 +157,7 @@ type MachineReferenceWithHintsResponseArgs struct {
 	// Resource URI.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Specifies the sub-class of the reference.
+	// Expected value is 'ref:machinewithhints'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Resource name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -225,6 +230,7 @@ func (o MachineReferenceWithHintsResponseOutput) Id() pulumi.StringOutput {
 }
 
 // Specifies the sub-class of the reference.
+// Expected value is 'ref:machinewithhints'.
 func (o MachineReferenceWithHintsResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineReferenceWithHintsResponse) string { return v.Kind }).(pulumi.StringOutput)
 }

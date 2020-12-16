@@ -1236,6 +1236,7 @@ func (o DeliveryRuleArrayOutput) Index(i pulumi.IntInput) DeliveryRuleOutput {
 // Defines the cache expiration action for the delivery rule.
 type DeliveryRuleCacheExpirationAction struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'CacheExpiration'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters CacheExpirationActionParameters `pulumi:"parameters"`
@@ -1255,6 +1256,7 @@ type DeliveryRuleCacheExpirationActionInput interface {
 // Defines the cache expiration action for the delivery rule.
 type DeliveryRuleCacheExpirationActionArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'CacheExpiration'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters CacheExpirationActionParametersInput `pulumi:"parameters"`
@@ -1288,6 +1290,7 @@ func (o DeliveryRuleCacheExpirationActionOutput) ToDeliveryRuleCacheExpirationAc
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'CacheExpiration'.
 func (o DeliveryRuleCacheExpirationActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleCacheExpirationAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1300,6 +1303,7 @@ func (o DeliveryRuleCacheExpirationActionOutput) Parameters() CacheExpirationAct
 // Defines the cache expiration action for the delivery rule.
 type DeliveryRuleCacheExpirationActionResponse struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'CacheExpiration'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters CacheExpirationActionParametersResponse `pulumi:"parameters"`
@@ -1319,6 +1323,7 @@ type DeliveryRuleCacheExpirationActionResponseInput interface {
 // Defines the cache expiration action for the delivery rule.
 type DeliveryRuleCacheExpirationActionResponseArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'CacheExpiration'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters CacheExpirationActionParametersResponseInput `pulumi:"parameters"`
@@ -1352,6 +1357,7 @@ func (o DeliveryRuleCacheExpirationActionResponseOutput) ToDeliveryRuleCacheExpi
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'CacheExpiration'.
 func (o DeliveryRuleCacheExpirationActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleCacheExpirationActionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1366,6 +1372,7 @@ func (o DeliveryRuleCacheExpirationActionResponseOutput) Parameters() CacheExpir
 // Defines the cache-key query string action for the delivery rule.
 type DeliveryRuleCacheKeyQueryStringAction struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'CacheKeyQueryString'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters CacheKeyQueryStringActionParameters `pulumi:"parameters"`
@@ -1385,6 +1392,7 @@ type DeliveryRuleCacheKeyQueryStringActionInput interface {
 // Defines the cache-key query string action for the delivery rule.
 type DeliveryRuleCacheKeyQueryStringActionArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'CacheKeyQueryString'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters CacheKeyQueryStringActionParametersInput `pulumi:"parameters"`
@@ -1418,6 +1426,7 @@ func (o DeliveryRuleCacheKeyQueryStringActionOutput) ToDeliveryRuleCacheKeyQuery
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'CacheKeyQueryString'.
 func (o DeliveryRuleCacheKeyQueryStringActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleCacheKeyQueryStringAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1430,6 +1439,7 @@ func (o DeliveryRuleCacheKeyQueryStringActionOutput) Parameters() CacheKeyQueryS
 // Defines the cache-key query string action for the delivery rule.
 type DeliveryRuleCacheKeyQueryStringActionResponse struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'CacheKeyQueryString'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters CacheKeyQueryStringActionParametersResponse `pulumi:"parameters"`
@@ -1449,6 +1459,7 @@ type DeliveryRuleCacheKeyQueryStringActionResponseInput interface {
 // Defines the cache-key query string action for the delivery rule.
 type DeliveryRuleCacheKeyQueryStringActionResponseArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'CacheKeyQueryString'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters CacheKeyQueryStringActionParametersResponseInput `pulumi:"parameters"`
@@ -1482,6 +1493,7 @@ func (o DeliveryRuleCacheKeyQueryStringActionResponseOutput) ToDeliveryRuleCache
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'CacheKeyQueryString'.
 func (o DeliveryRuleCacheKeyQueryStringActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleCacheKeyQueryStringActionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1496,6 +1508,7 @@ func (o DeliveryRuleCacheKeyQueryStringActionResponseOutput) Parameters() CacheK
 // Defines the Cookies condition for the delivery rule.
 type DeliveryRuleCookiesCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'Cookies'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters CookiesMatchConditionParameters `pulumi:"parameters"`
@@ -1515,6 +1528,7 @@ type DeliveryRuleCookiesConditionInput interface {
 // Defines the Cookies condition for the delivery rule.
 type DeliveryRuleCookiesConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'Cookies'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters CookiesMatchConditionParametersInput `pulumi:"parameters"`
@@ -1548,6 +1562,7 @@ func (o DeliveryRuleCookiesConditionOutput) ToDeliveryRuleCookiesConditionOutput
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'Cookies'.
 func (o DeliveryRuleCookiesConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleCookiesCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1560,6 +1575,7 @@ func (o DeliveryRuleCookiesConditionOutput) Parameters() CookiesMatchConditionPa
 // Defines the Cookies condition for the delivery rule.
 type DeliveryRuleCookiesConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'Cookies'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters CookiesMatchConditionParametersResponse `pulumi:"parameters"`
@@ -1579,6 +1595,7 @@ type DeliveryRuleCookiesConditionResponseInput interface {
 // Defines the Cookies condition for the delivery rule.
 type DeliveryRuleCookiesConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'Cookies'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters CookiesMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -1612,6 +1629,7 @@ func (o DeliveryRuleCookiesConditionResponseOutput) ToDeliveryRuleCookiesConditi
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'Cookies'.
 func (o DeliveryRuleCookiesConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleCookiesConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1626,6 +1644,7 @@ func (o DeliveryRuleCookiesConditionResponseOutput) Parameters() CookiesMatchCon
 // Defines the HttpVersion condition for the delivery rule.
 type DeliveryRuleHttpVersionCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'HttpVersion'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters HttpVersionMatchConditionParameters `pulumi:"parameters"`
@@ -1645,6 +1664,7 @@ type DeliveryRuleHttpVersionConditionInput interface {
 // Defines the HttpVersion condition for the delivery rule.
 type DeliveryRuleHttpVersionConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'HttpVersion'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters HttpVersionMatchConditionParametersInput `pulumi:"parameters"`
@@ -1678,6 +1698,7 @@ func (o DeliveryRuleHttpVersionConditionOutput) ToDeliveryRuleHttpVersionConditi
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'HttpVersion'.
 func (o DeliveryRuleHttpVersionConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleHttpVersionCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1690,6 +1711,7 @@ func (o DeliveryRuleHttpVersionConditionOutput) Parameters() HttpVersionMatchCon
 // Defines the HttpVersion condition for the delivery rule.
 type DeliveryRuleHttpVersionConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'HttpVersion'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters HttpVersionMatchConditionParametersResponse `pulumi:"parameters"`
@@ -1709,6 +1731,7 @@ type DeliveryRuleHttpVersionConditionResponseInput interface {
 // Defines the HttpVersion condition for the delivery rule.
 type DeliveryRuleHttpVersionConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'HttpVersion'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters HttpVersionMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -1742,6 +1765,7 @@ func (o DeliveryRuleHttpVersionConditionResponseOutput) ToDeliveryRuleHttpVersio
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'HttpVersion'.
 func (o DeliveryRuleHttpVersionConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleHttpVersionConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1756,6 +1780,7 @@ func (o DeliveryRuleHttpVersionConditionResponseOutput) Parameters() HttpVersion
 // Defines the IsDevice condition for the delivery rule.
 type DeliveryRuleIsDeviceCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'IsDevice'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters IsDeviceMatchConditionParameters `pulumi:"parameters"`
@@ -1775,6 +1800,7 @@ type DeliveryRuleIsDeviceConditionInput interface {
 // Defines the IsDevice condition for the delivery rule.
 type DeliveryRuleIsDeviceConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'IsDevice'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters IsDeviceMatchConditionParametersInput `pulumi:"parameters"`
@@ -1808,6 +1834,7 @@ func (o DeliveryRuleIsDeviceConditionOutput) ToDeliveryRuleIsDeviceConditionOutp
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'IsDevice'.
 func (o DeliveryRuleIsDeviceConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleIsDeviceCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1820,6 +1847,7 @@ func (o DeliveryRuleIsDeviceConditionOutput) Parameters() IsDeviceMatchCondition
 // Defines the IsDevice condition for the delivery rule.
 type DeliveryRuleIsDeviceConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'IsDevice'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters IsDeviceMatchConditionParametersResponse `pulumi:"parameters"`
@@ -1839,6 +1867,7 @@ type DeliveryRuleIsDeviceConditionResponseInput interface {
 // Defines the IsDevice condition for the delivery rule.
 type DeliveryRuleIsDeviceConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'IsDevice'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters IsDeviceMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -1872,6 +1901,7 @@ func (o DeliveryRuleIsDeviceConditionResponseOutput) ToDeliveryRuleIsDeviceCondi
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'IsDevice'.
 func (o DeliveryRuleIsDeviceConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleIsDeviceConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1886,6 +1916,7 @@ func (o DeliveryRuleIsDeviceConditionResponseOutput) Parameters() IsDeviceMatchC
 // Defines the PostArgs condition for the delivery rule.
 type DeliveryRulePostArgsCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'PostArgs'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters PostArgsMatchConditionParameters `pulumi:"parameters"`
@@ -1905,6 +1936,7 @@ type DeliveryRulePostArgsConditionInput interface {
 // Defines the PostArgs condition for the delivery rule.
 type DeliveryRulePostArgsConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'PostArgs'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters PostArgsMatchConditionParametersInput `pulumi:"parameters"`
@@ -1938,6 +1970,7 @@ func (o DeliveryRulePostArgsConditionOutput) ToDeliveryRulePostArgsConditionOutp
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'PostArgs'.
 func (o DeliveryRulePostArgsConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRulePostArgsCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1950,6 +1983,7 @@ func (o DeliveryRulePostArgsConditionOutput) Parameters() PostArgsMatchCondition
 // Defines the PostArgs condition for the delivery rule.
 type DeliveryRulePostArgsConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'PostArgs'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters PostArgsMatchConditionParametersResponse `pulumi:"parameters"`
@@ -1969,6 +2003,7 @@ type DeliveryRulePostArgsConditionResponseInput interface {
 // Defines the PostArgs condition for the delivery rule.
 type DeliveryRulePostArgsConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'PostArgs'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters PostArgsMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -2002,6 +2037,7 @@ func (o DeliveryRulePostArgsConditionResponseOutput) ToDeliveryRulePostArgsCondi
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'PostArgs'.
 func (o DeliveryRulePostArgsConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRulePostArgsConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2016,6 +2052,7 @@ func (o DeliveryRulePostArgsConditionResponseOutput) Parameters() PostArgsMatchC
 // Defines the QueryString condition for the delivery rule.
 type DeliveryRuleQueryStringCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'QueryString'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters QueryStringMatchConditionParameters `pulumi:"parameters"`
@@ -2035,6 +2072,7 @@ type DeliveryRuleQueryStringConditionInput interface {
 // Defines the QueryString condition for the delivery rule.
 type DeliveryRuleQueryStringConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'QueryString'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters QueryStringMatchConditionParametersInput `pulumi:"parameters"`
@@ -2068,6 +2106,7 @@ func (o DeliveryRuleQueryStringConditionOutput) ToDeliveryRuleQueryStringConditi
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'QueryString'.
 func (o DeliveryRuleQueryStringConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleQueryStringCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2080,6 +2119,7 @@ func (o DeliveryRuleQueryStringConditionOutput) Parameters() QueryStringMatchCon
 // Defines the QueryString condition for the delivery rule.
 type DeliveryRuleQueryStringConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'QueryString'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters QueryStringMatchConditionParametersResponse `pulumi:"parameters"`
@@ -2099,6 +2139,7 @@ type DeliveryRuleQueryStringConditionResponseInput interface {
 // Defines the QueryString condition for the delivery rule.
 type DeliveryRuleQueryStringConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'QueryString'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters QueryStringMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -2132,6 +2173,7 @@ func (o DeliveryRuleQueryStringConditionResponseOutput) ToDeliveryRuleQueryStrin
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'QueryString'.
 func (o DeliveryRuleQueryStringConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleQueryStringConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2146,6 +2188,7 @@ func (o DeliveryRuleQueryStringConditionResponseOutput) Parameters() QueryString
 // Defines the RemoteAddress condition for the delivery rule.
 type DeliveryRuleRemoteAddressCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RemoteAddress'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RemoteAddressMatchConditionParameters `pulumi:"parameters"`
@@ -2165,6 +2208,7 @@ type DeliveryRuleRemoteAddressConditionInput interface {
 // Defines the RemoteAddress condition for the delivery rule.
 type DeliveryRuleRemoteAddressConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RemoteAddress'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RemoteAddressMatchConditionParametersInput `pulumi:"parameters"`
@@ -2198,6 +2242,7 @@ func (o DeliveryRuleRemoteAddressConditionOutput) ToDeliveryRuleRemoteAddressCon
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RemoteAddress'.
 func (o DeliveryRuleRemoteAddressConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRemoteAddressCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2210,6 +2255,7 @@ func (o DeliveryRuleRemoteAddressConditionOutput) Parameters() RemoteAddressMatc
 // Defines the RemoteAddress condition for the delivery rule.
 type DeliveryRuleRemoteAddressConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RemoteAddress'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RemoteAddressMatchConditionParametersResponse `pulumi:"parameters"`
@@ -2229,6 +2275,7 @@ type DeliveryRuleRemoteAddressConditionResponseInput interface {
 // Defines the RemoteAddress condition for the delivery rule.
 type DeliveryRuleRemoteAddressConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RemoteAddress'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RemoteAddressMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -2262,6 +2309,7 @@ func (o DeliveryRuleRemoteAddressConditionResponseOutput) ToDeliveryRuleRemoteAd
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RemoteAddress'.
 func (o DeliveryRuleRemoteAddressConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRemoteAddressConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2276,6 +2324,7 @@ func (o DeliveryRuleRemoteAddressConditionResponseOutput) Parameters() RemoteAdd
 // Defines the RequestBody condition for the delivery rule.
 type DeliveryRuleRequestBodyCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestBody'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestBodyMatchConditionParameters `pulumi:"parameters"`
@@ -2295,6 +2344,7 @@ type DeliveryRuleRequestBodyConditionInput interface {
 // Defines the RequestBody condition for the delivery rule.
 type DeliveryRuleRequestBodyConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestBody'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestBodyMatchConditionParametersInput `pulumi:"parameters"`
@@ -2328,6 +2378,7 @@ func (o DeliveryRuleRequestBodyConditionOutput) ToDeliveryRuleRequestBodyConditi
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RequestBody'.
 func (o DeliveryRuleRequestBodyConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestBodyCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2340,6 +2391,7 @@ func (o DeliveryRuleRequestBodyConditionOutput) Parameters() RequestBodyMatchCon
 // Defines the RequestBody condition for the delivery rule.
 type DeliveryRuleRequestBodyConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestBody'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestBodyMatchConditionParametersResponse `pulumi:"parameters"`
@@ -2359,6 +2411,7 @@ type DeliveryRuleRequestBodyConditionResponseInput interface {
 // Defines the RequestBody condition for the delivery rule.
 type DeliveryRuleRequestBodyConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestBody'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestBodyMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -2392,6 +2445,7 @@ func (o DeliveryRuleRequestBodyConditionResponseOutput) ToDeliveryRuleRequestBod
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RequestBody'.
 func (o DeliveryRuleRequestBodyConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestBodyConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2406,6 +2460,7 @@ func (o DeliveryRuleRequestBodyConditionResponseOutput) Parameters() RequestBody
 // Defines the request header action for the delivery rule.
 type DeliveryRuleRequestHeaderAction struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyRequestHeader'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters HeaderActionParameters `pulumi:"parameters"`
@@ -2425,6 +2480,7 @@ type DeliveryRuleRequestHeaderActionInput interface {
 // Defines the request header action for the delivery rule.
 type DeliveryRuleRequestHeaderActionArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyRequestHeader'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters HeaderActionParametersInput `pulumi:"parameters"`
@@ -2458,6 +2514,7 @@ func (o DeliveryRuleRequestHeaderActionOutput) ToDeliveryRuleRequestHeaderAction
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'ModifyRequestHeader'.
 func (o DeliveryRuleRequestHeaderActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestHeaderAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2470,6 +2527,7 @@ func (o DeliveryRuleRequestHeaderActionOutput) Parameters() HeaderActionParamete
 // Defines the request header action for the delivery rule.
 type DeliveryRuleRequestHeaderActionResponse struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyRequestHeader'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters HeaderActionParametersResponse `pulumi:"parameters"`
@@ -2489,6 +2547,7 @@ type DeliveryRuleRequestHeaderActionResponseInput interface {
 // Defines the request header action for the delivery rule.
 type DeliveryRuleRequestHeaderActionResponseArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyRequestHeader'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters HeaderActionParametersResponseInput `pulumi:"parameters"`
@@ -2522,6 +2581,7 @@ func (o DeliveryRuleRequestHeaderActionResponseOutput) ToDeliveryRuleRequestHead
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'ModifyRequestHeader'.
 func (o DeliveryRuleRequestHeaderActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestHeaderActionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2534,6 +2594,7 @@ func (o DeliveryRuleRequestHeaderActionResponseOutput) Parameters() HeaderAction
 // Defines the RequestHeader condition for the delivery rule.
 type DeliveryRuleRequestHeaderCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestHeader'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestHeaderMatchConditionParameters `pulumi:"parameters"`
@@ -2553,6 +2614,7 @@ type DeliveryRuleRequestHeaderConditionInput interface {
 // Defines the RequestHeader condition for the delivery rule.
 type DeliveryRuleRequestHeaderConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestHeader'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestHeaderMatchConditionParametersInput `pulumi:"parameters"`
@@ -2586,6 +2648,7 @@ func (o DeliveryRuleRequestHeaderConditionOutput) ToDeliveryRuleRequestHeaderCon
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RequestHeader'.
 func (o DeliveryRuleRequestHeaderConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestHeaderCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2598,6 +2661,7 @@ func (o DeliveryRuleRequestHeaderConditionOutput) Parameters() RequestHeaderMatc
 // Defines the RequestHeader condition for the delivery rule.
 type DeliveryRuleRequestHeaderConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestHeader'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestHeaderMatchConditionParametersResponse `pulumi:"parameters"`
@@ -2617,6 +2681,7 @@ type DeliveryRuleRequestHeaderConditionResponseInput interface {
 // Defines the RequestHeader condition for the delivery rule.
 type DeliveryRuleRequestHeaderConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestHeader'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestHeaderMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -2650,6 +2715,7 @@ func (o DeliveryRuleRequestHeaderConditionResponseOutput) ToDeliveryRuleRequestH
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RequestHeader'.
 func (o DeliveryRuleRequestHeaderConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestHeaderConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2664,6 +2730,7 @@ func (o DeliveryRuleRequestHeaderConditionResponseOutput) Parameters() RequestHe
 // Defines the RequestMethod condition for the delivery rule.
 type DeliveryRuleRequestMethodCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestMethod'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestMethodMatchConditionParameters `pulumi:"parameters"`
@@ -2683,6 +2750,7 @@ type DeliveryRuleRequestMethodConditionInput interface {
 // Defines the RequestMethod condition for the delivery rule.
 type DeliveryRuleRequestMethodConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestMethod'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestMethodMatchConditionParametersInput `pulumi:"parameters"`
@@ -2716,6 +2784,7 @@ func (o DeliveryRuleRequestMethodConditionOutput) ToDeliveryRuleRequestMethodCon
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RequestMethod'.
 func (o DeliveryRuleRequestMethodConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestMethodCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2728,6 +2797,7 @@ func (o DeliveryRuleRequestMethodConditionOutput) Parameters() RequestMethodMatc
 // Defines the RequestMethod condition for the delivery rule.
 type DeliveryRuleRequestMethodConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestMethod'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestMethodMatchConditionParametersResponse `pulumi:"parameters"`
@@ -2747,6 +2817,7 @@ type DeliveryRuleRequestMethodConditionResponseInput interface {
 // Defines the RequestMethod condition for the delivery rule.
 type DeliveryRuleRequestMethodConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestMethod'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestMethodMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -2780,6 +2851,7 @@ func (o DeliveryRuleRequestMethodConditionResponseOutput) ToDeliveryRuleRequestM
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RequestMethod'.
 func (o DeliveryRuleRequestMethodConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestMethodConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2794,6 +2866,7 @@ func (o DeliveryRuleRequestMethodConditionResponseOutput) Parameters() RequestMe
 // Defines the RequestScheme condition for the delivery rule.
 type DeliveryRuleRequestSchemeCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestScheme'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestSchemeMatchConditionParameters `pulumi:"parameters"`
@@ -2813,6 +2886,7 @@ type DeliveryRuleRequestSchemeConditionInput interface {
 // Defines the RequestScheme condition for the delivery rule.
 type DeliveryRuleRequestSchemeConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestScheme'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestSchemeMatchConditionParametersInput `pulumi:"parameters"`
@@ -2846,6 +2920,7 @@ func (o DeliveryRuleRequestSchemeConditionOutput) ToDeliveryRuleRequestSchemeCon
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RequestScheme'.
 func (o DeliveryRuleRequestSchemeConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestSchemeCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2858,6 +2933,7 @@ func (o DeliveryRuleRequestSchemeConditionOutput) Parameters() RequestSchemeMatc
 // Defines the RequestScheme condition for the delivery rule.
 type DeliveryRuleRequestSchemeConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestScheme'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestSchemeMatchConditionParametersResponse `pulumi:"parameters"`
@@ -2877,6 +2953,7 @@ type DeliveryRuleRequestSchemeConditionResponseInput interface {
 // Defines the RequestScheme condition for the delivery rule.
 type DeliveryRuleRequestSchemeConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestScheme'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestSchemeMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -2910,6 +2987,7 @@ func (o DeliveryRuleRequestSchemeConditionResponseOutput) ToDeliveryRuleRequestS
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RequestScheme'.
 func (o DeliveryRuleRequestSchemeConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestSchemeConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2924,6 +3002,7 @@ func (o DeliveryRuleRequestSchemeConditionResponseOutput) Parameters() RequestSc
 // Defines the RequestUri condition for the delivery rule.
 type DeliveryRuleRequestUriCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestUri'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestUriMatchConditionParameters `pulumi:"parameters"`
@@ -2943,6 +3022,7 @@ type DeliveryRuleRequestUriConditionInput interface {
 // Defines the RequestUri condition for the delivery rule.
 type DeliveryRuleRequestUriConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestUri'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestUriMatchConditionParametersInput `pulumi:"parameters"`
@@ -2976,6 +3056,7 @@ func (o DeliveryRuleRequestUriConditionOutput) ToDeliveryRuleRequestUriCondition
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RequestUri'.
 func (o DeliveryRuleRequestUriConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestUriCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2988,6 +3069,7 @@ func (o DeliveryRuleRequestUriConditionOutput) Parameters() RequestUriMatchCondi
 // Defines the RequestUri condition for the delivery rule.
 type DeliveryRuleRequestUriConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestUri'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestUriMatchConditionParametersResponse `pulumi:"parameters"`
@@ -3007,6 +3089,7 @@ type DeliveryRuleRequestUriConditionResponseInput interface {
 // Defines the RequestUri condition for the delivery rule.
 type DeliveryRuleRequestUriConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestUri'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters RequestUriMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -3040,6 +3123,7 @@ func (o DeliveryRuleRequestUriConditionResponseOutput) ToDeliveryRuleRequestUriC
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'RequestUri'.
 func (o DeliveryRuleRequestUriConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestUriConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3181,6 +3265,7 @@ func (o DeliveryRuleResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleRe
 // Defines the response header action for the delivery rule.
 type DeliveryRuleResponseHeaderAction struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyResponseHeader'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters HeaderActionParameters `pulumi:"parameters"`
@@ -3200,6 +3285,7 @@ type DeliveryRuleResponseHeaderActionInput interface {
 // Defines the response header action for the delivery rule.
 type DeliveryRuleResponseHeaderActionArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyResponseHeader'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters HeaderActionParametersInput `pulumi:"parameters"`
@@ -3233,6 +3319,7 @@ func (o DeliveryRuleResponseHeaderActionOutput) ToDeliveryRuleResponseHeaderActi
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'ModifyResponseHeader'.
 func (o DeliveryRuleResponseHeaderActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleResponseHeaderAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3245,6 +3332,7 @@ func (o DeliveryRuleResponseHeaderActionOutput) Parameters() HeaderActionParamet
 // Defines the response header action for the delivery rule.
 type DeliveryRuleResponseHeaderActionResponse struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyResponseHeader'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters HeaderActionParametersResponse `pulumi:"parameters"`
@@ -3264,6 +3352,7 @@ type DeliveryRuleResponseHeaderActionResponseInput interface {
 // Defines the response header action for the delivery rule.
 type DeliveryRuleResponseHeaderActionResponseArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyResponseHeader'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters HeaderActionParametersResponseInput `pulumi:"parameters"`
@@ -3297,6 +3386,7 @@ func (o DeliveryRuleResponseHeaderActionResponseOutput) ToDeliveryRuleResponseHe
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'ModifyResponseHeader'.
 func (o DeliveryRuleResponseHeaderActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleResponseHeaderActionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3309,6 +3399,7 @@ func (o DeliveryRuleResponseHeaderActionResponseOutput) Parameters() HeaderActio
 // Defines the UrlFileExtension condition for the delivery rule.
 type DeliveryRuleUrlFileExtensionCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileExtension'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlFileExtensionMatchConditionParameters `pulumi:"parameters"`
@@ -3328,6 +3419,7 @@ type DeliveryRuleUrlFileExtensionConditionInput interface {
 // Defines the UrlFileExtension condition for the delivery rule.
 type DeliveryRuleUrlFileExtensionConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileExtension'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlFileExtensionMatchConditionParametersInput `pulumi:"parameters"`
@@ -3361,6 +3453,7 @@ func (o DeliveryRuleUrlFileExtensionConditionOutput) ToDeliveryRuleUrlFileExtens
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'UrlFileExtension'.
 func (o DeliveryRuleUrlFileExtensionConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3375,6 +3468,7 @@ func (o DeliveryRuleUrlFileExtensionConditionOutput) Parameters() UrlFileExtensi
 // Defines the UrlFileExtension condition for the delivery rule.
 type DeliveryRuleUrlFileExtensionConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileExtension'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlFileExtensionMatchConditionParametersResponse `pulumi:"parameters"`
@@ -3394,6 +3488,7 @@ type DeliveryRuleUrlFileExtensionConditionResponseInput interface {
 // Defines the UrlFileExtension condition for the delivery rule.
 type DeliveryRuleUrlFileExtensionConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileExtension'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlFileExtensionMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -3427,6 +3522,7 @@ func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) ToDeliveryRuleUrlFi
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'UrlFileExtension'.
 func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3441,6 +3537,7 @@ func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) Parameters() UrlFil
 // Defines the UrlFileName condition for the delivery rule.
 type DeliveryRuleUrlFileNameCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileName'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlFileNameMatchConditionParameters `pulumi:"parameters"`
@@ -3460,6 +3557,7 @@ type DeliveryRuleUrlFileNameConditionInput interface {
 // Defines the UrlFileName condition for the delivery rule.
 type DeliveryRuleUrlFileNameConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileName'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlFileNameMatchConditionParametersInput `pulumi:"parameters"`
@@ -3493,6 +3591,7 @@ func (o DeliveryRuleUrlFileNameConditionOutput) ToDeliveryRuleUrlFileNameConditi
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'UrlFileName'.
 func (o DeliveryRuleUrlFileNameConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlFileNameCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3505,6 +3604,7 @@ func (o DeliveryRuleUrlFileNameConditionOutput) Parameters() UrlFileNameMatchCon
 // Defines the UrlFileName condition for the delivery rule.
 type DeliveryRuleUrlFileNameConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileName'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlFileNameMatchConditionParametersResponse `pulumi:"parameters"`
@@ -3524,6 +3624,7 @@ type DeliveryRuleUrlFileNameConditionResponseInput interface {
 // Defines the UrlFileName condition for the delivery rule.
 type DeliveryRuleUrlFileNameConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileName'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlFileNameMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -3557,6 +3658,7 @@ func (o DeliveryRuleUrlFileNameConditionResponseOutput) ToDeliveryRuleUrlFileNam
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'UrlFileName'.
 func (o DeliveryRuleUrlFileNameConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlFileNameConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3571,6 +3673,7 @@ func (o DeliveryRuleUrlFileNameConditionResponseOutput) Parameters() UrlFileName
 // Defines the UrlPath condition for the delivery rule.
 type DeliveryRuleUrlPathCondition struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlPath'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlPathMatchConditionParameters `pulumi:"parameters"`
@@ -3590,6 +3693,7 @@ type DeliveryRuleUrlPathConditionInput interface {
 // Defines the UrlPath condition for the delivery rule.
 type DeliveryRuleUrlPathConditionArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlPath'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlPathMatchConditionParametersInput `pulumi:"parameters"`
@@ -3623,6 +3727,7 @@ func (o DeliveryRuleUrlPathConditionOutput) ToDeliveryRuleUrlPathConditionOutput
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'UrlPath'.
 func (o DeliveryRuleUrlPathConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlPathCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3635,6 +3740,7 @@ func (o DeliveryRuleUrlPathConditionOutput) Parameters() UrlPathMatchConditionPa
 // Defines the UrlPath condition for the delivery rule.
 type DeliveryRuleUrlPathConditionResponse struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlPath'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlPathMatchConditionParametersResponse `pulumi:"parameters"`
@@ -3654,6 +3760,7 @@ type DeliveryRuleUrlPathConditionResponseInput interface {
 // Defines the UrlPath condition for the delivery rule.
 type DeliveryRuleUrlPathConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlPath'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the condition.
 	Parameters UrlPathMatchConditionParametersResponseInput `pulumi:"parameters"`
@@ -3687,6 +3794,7 @@ func (o DeliveryRuleUrlPathConditionResponseOutput) ToDeliveryRuleUrlPathConditi
 }
 
 // The name of the condition for the delivery rule.
+// Expected value is 'UrlPath'.
 func (o DeliveryRuleUrlPathConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlPathConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5341,6 +5449,7 @@ func (o IsDeviceMatchConditionParametersResponseOutput) Transforms() pulumi.Stri
 // Defines the Origin Group override action for the delivery rule.
 type OriginGroupOverrideAction struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'OriginGroupOverride'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters OriginGroupOverrideActionParameters `pulumi:"parameters"`
@@ -5360,6 +5469,7 @@ type OriginGroupOverrideActionInput interface {
 // Defines the Origin Group override action for the delivery rule.
 type OriginGroupOverrideActionArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'OriginGroupOverride'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters OriginGroupOverrideActionParametersInput `pulumi:"parameters"`
@@ -5393,6 +5503,7 @@ func (o OriginGroupOverrideActionOutput) ToOriginGroupOverrideActionOutputWithCo
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'OriginGroupOverride'.
 func (o OriginGroupOverrideActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginGroupOverrideAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5527,6 +5638,7 @@ func (o OriginGroupOverrideActionParametersResponseOutput) OriginGroup() Resourc
 // Defines the Origin Group override action for the delivery rule.
 type OriginGroupOverrideActionResponse struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'OriginGroupOverride'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters OriginGroupOverrideActionParametersResponse `pulumi:"parameters"`
@@ -5546,6 +5658,7 @@ type OriginGroupOverrideActionResponseInput interface {
 // Defines the Origin Group override action for the delivery rule.
 type OriginGroupOverrideActionResponseArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'OriginGroupOverride'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters OriginGroupOverrideActionParametersResponseInput `pulumi:"parameters"`
@@ -5579,6 +5692,7 @@ func (o OriginGroupOverrideActionResponseOutput) ToOriginGroupOverrideActionResp
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'OriginGroupOverride'.
 func (o OriginGroupOverrideActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginGroupOverrideActionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8513,6 +8627,7 @@ func (o UrlPathMatchConditionParametersResponseOutput) Transforms() pulumi.Strin
 // Defines the url redirect action for the delivery rule.
 type UrlRedirectAction struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRedirect'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters UrlRedirectActionParameters `pulumi:"parameters"`
@@ -8532,6 +8647,7 @@ type UrlRedirectActionInput interface {
 // Defines the url redirect action for the delivery rule.
 type UrlRedirectActionArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRedirect'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters UrlRedirectActionParametersInput `pulumi:"parameters"`
@@ -8565,6 +8681,7 @@ func (o UrlRedirectActionOutput) ToUrlRedirectActionOutputWithContext(ctx contex
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'UrlRedirect'.
 func (o UrlRedirectActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlRedirectAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8789,6 +8906,7 @@ func (o UrlRedirectActionParametersResponseOutput) RedirectType() pulumi.StringO
 // Defines the url redirect action for the delivery rule.
 type UrlRedirectActionResponse struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRedirect'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters UrlRedirectActionParametersResponse `pulumi:"parameters"`
@@ -8808,6 +8926,7 @@ type UrlRedirectActionResponseInput interface {
 // Defines the url redirect action for the delivery rule.
 type UrlRedirectActionResponseArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRedirect'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters UrlRedirectActionParametersResponseInput `pulumi:"parameters"`
@@ -8841,6 +8960,7 @@ func (o UrlRedirectActionResponseOutput) ToUrlRedirectActionResponseOutputWithCo
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'UrlRedirect'.
 func (o UrlRedirectActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlRedirectActionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8853,6 +8973,7 @@ func (o UrlRedirectActionResponseOutput) Parameters() UrlRedirectActionParameter
 // Defines the url rewrite action for the delivery rule.
 type UrlRewriteAction struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRewrite'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters UrlRewriteActionParameters `pulumi:"parameters"`
@@ -8872,6 +8993,7 @@ type UrlRewriteActionInput interface {
 // Defines the url rewrite action for the delivery rule.
 type UrlRewriteActionArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRewrite'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters UrlRewriteActionParametersInput `pulumi:"parameters"`
@@ -8905,6 +9027,7 @@ func (o UrlRewriteActionOutput) ToUrlRewriteActionOutputWithContext(ctx context.
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'UrlRewrite'.
 func (o UrlRewriteActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlRewriteAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -9075,6 +9198,7 @@ func (o UrlRewriteActionParametersResponseOutput) SourcePattern() pulumi.StringO
 // Defines the url rewrite action for the delivery rule.
 type UrlRewriteActionResponse struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRewrite'.
 	Name string `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters UrlRewriteActionParametersResponse `pulumi:"parameters"`
@@ -9094,6 +9218,7 @@ type UrlRewriteActionResponseInput interface {
 // Defines the url rewrite action for the delivery rule.
 type UrlRewriteActionResponseArgs struct {
 	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRewrite'.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the parameters for the action.
 	Parameters UrlRewriteActionParametersResponseInput `pulumi:"parameters"`
@@ -9127,6 +9252,7 @@ func (o UrlRewriteActionResponseOutput) ToUrlRewriteActionResponseOutputWithCont
 }
 
 // The name of the action for the delivery rule.
+// Expected value is 'UrlRewrite'.
 func (o UrlRewriteActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlRewriteActionResponse) string { return v.Name }).(pulumi.StringOutput)
 }

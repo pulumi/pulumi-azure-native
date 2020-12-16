@@ -19,6 +19,7 @@ type EventGrid struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
 	EndpointType string `pulumi:"endpointType"`
 	// EventGrid Topic Endpoint
 	TopicEndpoint string `pulumi:"topicEndpoint"`
@@ -44,6 +45,7 @@ type EventGridArgs struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// EventGrid Topic Endpoint
 	TopicEndpoint pulumi.StringInput `pulumi:"topicEndpoint"`
@@ -92,6 +94,7 @@ func (o EventGridOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'EventGrid'.
 func (o EventGridOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGrid) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -112,6 +115,7 @@ type EventGridResponse struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
 	EndpointType string `pulumi:"endpointType"`
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -141,6 +145,7 @@ type EventGridResponseArgs struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The provisioning state.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
@@ -196,6 +201,7 @@ func (o EventGridResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'EventGrid'.
 func (o EventGridResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -219,6 +225,7 @@ type EventHub struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
 	EndpointType string `pulumi:"endpointType"`
 }
 
@@ -242,6 +249,7 @@ type EventHubArgs struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 }
 
@@ -288,6 +296,7 @@ func (o EventHubOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'EventHub'.
 func (o EventHubOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHub) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -303,6 +312,7 @@ type EventHubResponse struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
 	EndpointType string `pulumi:"endpointType"`
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -330,6 +340,7 @@ type EventHubResponseArgs struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The provisioning state.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
@@ -383,6 +394,7 @@ func (o EventHubResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'EventHub'.
 func (o EventHubResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -397,6 +409,7 @@ type ServiceBus struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
 	EndpointType string `pulumi:"endpointType"`
 	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
@@ -420,6 +433,7 @@ type ServiceBusArgs struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
 	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
@@ -460,6 +474,7 @@ func (o ServiceBusOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'ServiceBus'.
 func (o ServiceBusOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBus) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -481,6 +496,7 @@ type ServiceBusResponse struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
 	EndpointType string `pulumi:"endpointType"`
 	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
@@ -508,6 +524,7 @@ type ServiceBusResponseArgs struct {
 	// Dead letter storage secret. Will be obfuscated during read.
 	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
 	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
 	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
@@ -555,6 +572,7 @@ func (o ServiceBusResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 }
 
 // The type of Digital Twins endpoint
+// Expected value is 'ServiceBus'.
 func (o ServiceBusResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }

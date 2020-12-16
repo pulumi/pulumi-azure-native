@@ -39,6 +39,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest.Outputs
         public readonly string? StorageAccountType;
         /// <summary>
         /// Type of distribution.
+        /// Expected value is 'SharedImage'.
         /// </summary>
         public readonly string Type;
 

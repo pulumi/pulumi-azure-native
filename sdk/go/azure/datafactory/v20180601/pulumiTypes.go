@@ -673,6 +673,7 @@ type AmazonMWSLinkedService struct {
 	// The Amazon seller ID.
 	SellerID interface{} `pulumi:"sellerID"`
 	// Type of linked service.
+	// Expected value is 'AmazonMWS'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -718,6 +719,7 @@ type AmazonMWSLinkedServiceArgs struct {
 	// The Amazon seller ID.
 	SellerID pulumi.Input `pulumi:"sellerID"`
 	// Type of linked service.
+	// Expected value is 'AmazonMWS'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -810,6 +812,7 @@ func (o AmazonMWSLinkedServiceOutput) SellerID() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AmazonMWS'.
 func (o AmazonMWSLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonMWSLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -854,6 +857,7 @@ type AmazonMWSLinkedServiceResponse struct {
 	// The Amazon seller ID.
 	SellerID interface{} `pulumi:"sellerID"`
 	// Type of linked service.
+	// Expected value is 'AmazonMWS'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -899,6 +903,7 @@ type AmazonMWSLinkedServiceResponseArgs struct {
 	// The Amazon seller ID.
 	SellerID pulumi.Input `pulumi:"sellerID"`
 	// Type of linked service.
+	// Expected value is 'AmazonMWS'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -991,6 +996,7 @@ func (o AmazonMWSLinkedServiceResponseOutput) SellerID() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AmazonMWS'.
 func (o AmazonMWSLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonMWSLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1029,6 +1035,7 @@ type AmazonMWSObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AmazonMWSObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -1062,6 +1069,7 @@ type AmazonMWSObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AmazonMWSObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1133,6 +1141,7 @@ func (o AmazonMWSObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AmazonMWSObject'.
 func (o AmazonMWSObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonMWSObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1156,6 +1165,7 @@ type AmazonMWSObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AmazonMWSObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -1189,6 +1199,7 @@ type AmazonMWSObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AmazonMWSObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1260,6 +1271,7 @@ func (o AmazonMWSObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AmazonMWSObject'.
 func (o AmazonMWSObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonMWSObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1285,6 +1297,7 @@ type AmazonRedshiftLinkedService struct {
 	// The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'AmazonRedshift'.
 	Type string `pulumi:"type"`
 	// The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -1322,6 +1335,7 @@ type AmazonRedshiftLinkedServiceArgs struct {
 	// The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'AmazonRedshift'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -1400,6 +1414,7 @@ func (o AmazonRedshiftLinkedServiceOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AmazonRedshift'.
 func (o AmazonRedshiftLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonRedshiftLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1430,6 +1445,7 @@ type AmazonRedshiftLinkedServiceResponse struct {
 	// The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'AmazonRedshift'.
 	Type string `pulumi:"type"`
 	// The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -1467,6 +1483,7 @@ type AmazonRedshiftLinkedServiceResponseArgs struct {
 	// The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'AmazonRedshift'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -1547,6 +1564,7 @@ func (o AmazonRedshiftLinkedServiceResponseOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AmazonRedshift'.
 func (o AmazonRedshiftLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonRedshiftLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1577,6 +1595,7 @@ type AmazonRedshiftTableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AmazonRedshiftTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -1612,6 +1631,7 @@ type AmazonRedshiftTableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AmazonRedshiftTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1688,6 +1708,7 @@ func (o AmazonRedshiftTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AmazonRedshiftTable'.
 func (o AmazonRedshiftTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonRedshiftTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1713,6 +1734,7 @@ type AmazonRedshiftTableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AmazonRedshiftTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -1748,6 +1770,7 @@ type AmazonRedshiftTableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AmazonRedshiftTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1826,6 +1849,7 @@ func (o AmazonRedshiftTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AmazonRedshiftTable'.
 func (o AmazonRedshiftTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonRedshiftTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1861,6 +1885,7 @@ type AmazonS3Dataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AmazonS3Object'.
 	Type string `pulumi:"type"`
 	// The version for the S3 object. Type: string (or Expression with resultType string).
 	Version interface{} `pulumi:"version"`
@@ -1908,6 +1933,7 @@ type AmazonS3DatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AmazonS3Object'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The version for the S3 object. Type: string (or Expression with resultType string).
 	Version pulumi.Input `pulumi:"version"`
@@ -2011,6 +2037,7 @@ func (o AmazonS3DatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AmazonS3Object'.
 func (o AmazonS3DatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonS3Dataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2051,6 +2078,7 @@ type AmazonS3DatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AmazonS3Object'.
 	Type string `pulumi:"type"`
 	// The version for the S3 object. Type: string (or Expression with resultType string).
 	Version interface{} `pulumi:"version"`
@@ -2098,6 +2126,7 @@ type AmazonS3DatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AmazonS3Object'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The version for the S3 object. Type: string (or Expression with resultType string).
 	Version pulumi.Input `pulumi:"version"`
@@ -2201,6 +2230,7 @@ func (o AmazonS3DatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AmazonS3Object'.
 func (o AmazonS3DatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonS3DatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2233,6 +2263,7 @@ type AmazonS3LinkedService struct {
 	// The session token for the S3 temporary security credential.
 	SessionToken interface{} `pulumi:"sessionToken"`
 	// Type of linked service.
+	// Expected value is 'AmazonS3'.
 	Type string `pulumi:"type"`
 }
 
@@ -2270,6 +2301,7 @@ type AmazonS3LinkedServiceArgs struct {
 	// The session token for the S3 temporary security credential.
 	SessionToken pulumi.Input `pulumi:"sessionToken"`
 	// Type of linked service.
+	// Expected value is 'AmazonS3'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2351,6 +2383,7 @@ func (o AmazonS3LinkedServiceOutput) SessionToken() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AmazonS3'.
 func (o AmazonS3LinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonS3LinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2378,6 +2411,7 @@ type AmazonS3LinkedServiceResponse struct {
 	// The session token for the S3 temporary security credential.
 	SessionToken interface{} `pulumi:"sessionToken"`
 	// Type of linked service.
+	// Expected value is 'AmazonS3'.
 	Type string `pulumi:"type"`
 }
 
@@ -2415,6 +2449,7 @@ type AmazonS3LinkedServiceResponseArgs struct {
 	// The session token for the S3 temporary security credential.
 	SessionToken pulumi.Input `pulumi:"sessionToken"`
 	// Type of linked service.
+	// Expected value is 'AmazonS3'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2496,6 +2531,7 @@ func (o AmazonS3LinkedServiceResponseOutput) SessionToken() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AmazonS3'.
 func (o AmazonS3LinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonS3LinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2509,6 +2545,7 @@ type AmazonS3Location struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AmazonS3Location'.
 	Type string `pulumi:"type"`
 	// Specify the version of amazon S3. Type: string (or Expression with resultType string).
 	Version interface{} `pulumi:"version"`
@@ -2534,6 +2571,7 @@ type AmazonS3LocationArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AmazonS3Location'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specify the version of amazon S3. Type: string (or Expression with resultType string).
 	Version pulumi.Input `pulumi:"version"`
@@ -2582,6 +2620,7 @@ func (o AmazonS3LocationOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'AmazonS3Location'.
 func (o AmazonS3LocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonS3Location) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2600,6 +2639,7 @@ type AmazonS3LocationResponse struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AmazonS3Location'.
 	Type string `pulumi:"type"`
 	// Specify the version of amazon S3. Type: string (or Expression with resultType string).
 	Version interface{} `pulumi:"version"`
@@ -2625,6 +2665,7 @@ type AmazonS3LocationResponseArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AmazonS3Location'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specify the version of amazon S3. Type: string (or Expression with resultType string).
 	Version pulumi.Input `pulumi:"version"`
@@ -2673,6 +2714,7 @@ func (o AmazonS3LocationResponseOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'AmazonS3Location'.
 func (o AmazonS3LocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonS3LocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2703,6 +2745,7 @@ type AvroDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Avro'.
 	Type string `pulumi:"type"`
 }
 
@@ -2738,6 +2781,7 @@ type AvroDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Avro'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2817,6 +2861,7 @@ func (o AvroDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Avro'.
 func (o AvroDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AvroDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2842,6 +2887,7 @@ type AvroDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Avro'.
 	Type string `pulumi:"type"`
 }
 
@@ -2877,6 +2923,7 @@ type AvroDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Avro'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2956,6 +3003,7 @@ func (o AvroDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Avro'.
 func (o AvroDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AvroDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2967,6 +3015,7 @@ type AvroFormat struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'AvroFormat'.
 	Type string `pulumi:"type"`
 }
 
@@ -2988,6 +3037,7 @@ type AvroFormatArgs struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer pulumi.Input `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'AvroFormat'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3029,6 +3079,7 @@ func (o AvroFormatOutput) Serializer() pulumi.AnyOutput {
 }
 
 // Type of dataset storage format.
+// Expected value is 'AvroFormat'.
 func (o AvroFormatOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AvroFormat) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3040,6 +3091,7 @@ type AvroFormatResponse struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'AvroFormat'.
 	Type string `pulumi:"type"`
 }
 
@@ -3061,6 +3113,7 @@ type AvroFormatResponseArgs struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer pulumi.Input `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'AvroFormat'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3102,6 +3155,7 @@ func (o AvroFormatResponseOutput) Serializer() pulumi.AnyOutput {
 }
 
 // Type of dataset storage format.
+// Expected value is 'AvroFormat'.
 func (o AvroFormatResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AvroFormatResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3109,6 +3163,7 @@ func (o AvroFormatResponseOutput) Type() pulumi.StringOutput {
 // The express custom setup of installing Azure PowerShell.
 type AzPowerShellSetup struct {
 	// The type of custom setup.
+	// Expected value is 'AzPowerShellSetup'.
 	Type string `pulumi:"type"`
 	// The required version of Azure PowerShell to install.
 	Version string `pulumi:"version"`
@@ -3128,6 +3183,7 @@ type AzPowerShellSetupInput interface {
 // The express custom setup of installing Azure PowerShell.
 type AzPowerShellSetupArgs struct {
 	// The type of custom setup.
+	// Expected value is 'AzPowerShellSetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The required version of Azure PowerShell to install.
 	Version pulumi.StringInput `pulumi:"version"`
@@ -3161,6 +3217,7 @@ func (o AzPowerShellSetupOutput) ToAzPowerShellSetupOutputWithContext(ctx contex
 }
 
 // The type of custom setup.
+// Expected value is 'AzPowerShellSetup'.
 func (o AzPowerShellSetupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzPowerShellSetup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3173,6 +3230,7 @@ func (o AzPowerShellSetupOutput) Version() pulumi.StringOutput {
 // The express custom setup of installing Azure PowerShell.
 type AzPowerShellSetupResponse struct {
 	// The type of custom setup.
+	// Expected value is 'AzPowerShellSetup'.
 	Type string `pulumi:"type"`
 	// The required version of Azure PowerShell to install.
 	Version string `pulumi:"version"`
@@ -3192,6 +3250,7 @@ type AzPowerShellSetupResponseInput interface {
 // The express custom setup of installing Azure PowerShell.
 type AzPowerShellSetupResponseArgs struct {
 	// The type of custom setup.
+	// Expected value is 'AzPowerShellSetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The required version of Azure PowerShell to install.
 	Version pulumi.StringInput `pulumi:"version"`
@@ -3225,6 +3284,7 @@ func (o AzPowerShellSetupResponseOutput) ToAzPowerShellSetupResponseOutputWithCo
 }
 
 // The type of custom setup.
+// Expected value is 'AzPowerShellSetup'.
 func (o AzPowerShellSetupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzPowerShellSetupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3257,6 +3317,7 @@ type AzureBatchLinkedService struct {
 	// The Azure Batch pool name. Type: string (or Expression with resultType string).
 	PoolName interface{} `pulumi:"poolName"`
 	// Type of linked service.
+	// Expected value is 'AzureBatch'.
 	Type string `pulumi:"type"`
 }
 
@@ -3294,6 +3355,7 @@ type AzureBatchLinkedServiceArgs struct {
 	// The Azure Batch pool name. Type: string (or Expression with resultType string).
 	PoolName pulumi.Input `pulumi:"poolName"`
 	// Type of linked service.
+	// Expected value is 'AzureBatch'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3375,6 +3437,7 @@ func (o AzureBatchLinkedServiceOutput) PoolName() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureBatch'.
 func (o AzureBatchLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBatchLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3402,6 +3465,7 @@ type AzureBatchLinkedServiceResponse struct {
 	// The Azure Batch pool name. Type: string (or Expression with resultType string).
 	PoolName interface{} `pulumi:"poolName"`
 	// Type of linked service.
+	// Expected value is 'AzureBatch'.
 	Type string `pulumi:"type"`
 }
 
@@ -3439,6 +3503,7 @@ type AzureBatchLinkedServiceResponseArgs struct {
 	// The Azure Batch pool name. Type: string (or Expression with resultType string).
 	PoolName pulumi.Input `pulumi:"poolName"`
 	// Type of linked service.
+	// Expected value is 'AzureBatch'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3520,6 +3585,7 @@ func (o AzureBatchLinkedServiceResponseOutput) PoolName() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureBatch'.
 func (o AzureBatchLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBatchLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3555,6 +3621,7 @@ type AzureBlobDataset struct {
 	// The root of blob path. Type: string (or Expression with resultType string).
 	TableRootLocation interface{} `pulumi:"tableRootLocation"`
 	// Type of dataset.
+	// Expected value is 'AzureBlob'.
 	Type string `pulumi:"type"`
 }
 
@@ -3600,6 +3667,7 @@ type AzureBlobDatasetArgs struct {
 	// The root of blob path. Type: string (or Expression with resultType string).
 	TableRootLocation pulumi.Input `pulumi:"tableRootLocation"`
 	// Type of dataset.
+	// Expected value is 'AzureBlob'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3701,6 +3769,7 @@ func (o AzureBlobDatasetOutput) TableRootLocation() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureBlob'.
 func (o AzureBlobDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3736,6 +3805,7 @@ type AzureBlobDatasetResponse struct {
 	// The root of blob path. Type: string (or Expression with resultType string).
 	TableRootLocation interface{} `pulumi:"tableRootLocation"`
 	// Type of dataset.
+	// Expected value is 'AzureBlob'.
 	Type string `pulumi:"type"`
 }
 
@@ -3781,6 +3851,7 @@ type AzureBlobDatasetResponseArgs struct {
 	// The root of blob path. Type: string (or Expression with resultType string).
 	TableRootLocation pulumi.Input `pulumi:"tableRootLocation"`
 	// Type of dataset.
+	// Expected value is 'AzureBlob'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3882,6 +3953,7 @@ func (o AzureBlobDatasetResponseOutput) TableRootLocation() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureBlob'.
 func (o AzureBlobDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3911,6 +3983,7 @@ type AzureBlobFSDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureBlobFSFile'.
 	Type string `pulumi:"type"`
 }
 
@@ -3950,6 +4023,7 @@ type AzureBlobFSDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureBlobFSFile'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4036,6 +4110,7 @@ func (o AzureBlobFSDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureBlobFSFile'.
 func (o AzureBlobFSDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobFSDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4065,6 +4140,7 @@ type AzureBlobFSDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureBlobFSFile'.
 	Type string `pulumi:"type"`
 }
 
@@ -4104,6 +4180,7 @@ type AzureBlobFSDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureBlobFSFile'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4190,6 +4267,7 @@ func (o AzureBlobFSDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureBlobFSFile'.
 func (o AzureBlobFSDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobFSDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4217,6 +4295,7 @@ type AzureBlobFSLinkedService struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureBlobFS'.
 	Type string `pulumi:"type"`
 	// Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -4256,6 +4335,7 @@ type AzureBlobFSLinkedServiceArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureBlobFS'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -4339,6 +4419,7 @@ func (o AzureBlobFSLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureBlobFS'.
 func (o AzureBlobFSLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobFSLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4371,6 +4452,7 @@ type AzureBlobFSLinkedServiceResponse struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureBlobFS'.
 	Type string `pulumi:"type"`
 	// Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -4410,6 +4492,7 @@ type AzureBlobFSLinkedServiceResponseArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureBlobFS'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -4495,6 +4578,7 @@ func (o AzureBlobFSLinkedServiceResponseOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureBlobFS'.
 func (o AzureBlobFSLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobFSLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4513,6 +4597,7 @@ type AzureBlobFSLocation struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureBlobFSLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -4536,6 +4621,7 @@ type AzureBlobFSLocationArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureBlobFSLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4582,6 +4668,7 @@ func (o AzureBlobFSLocationOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'AzureBlobFSLocation'.
 func (o AzureBlobFSLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobFSLocation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4595,6 +4682,7 @@ type AzureBlobFSLocationResponse struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureBlobFSLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -4618,6 +4706,7 @@ type AzureBlobFSLocationResponseArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureBlobFSLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4664,6 +4753,7 @@ func (o AzureBlobFSLocationResponseOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'AzureBlobFSLocation'.
 func (o AzureBlobFSLocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobFSLocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4699,6 +4789,7 @@ type AzureBlobStorageLinkedService struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureBlobStorage'.
 	Type string `pulumi:"type"`
 }
 
@@ -4744,6 +4835,7 @@ type AzureBlobStorageLinkedServiceArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureBlobStorage'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4845,6 +4937,7 @@ func (o AzureBlobStorageLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureBlobStorage'.
 func (o AzureBlobStorageLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobStorageLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4880,6 +4973,7 @@ type AzureBlobStorageLinkedServiceResponse struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureBlobStorage'.
 	Type string `pulumi:"type"`
 }
 
@@ -4925,6 +5019,7 @@ type AzureBlobStorageLinkedServiceResponseArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureBlobStorage'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5032,6 +5127,7 @@ func (o AzureBlobStorageLinkedServiceResponseOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureBlobStorage'.
 func (o AzureBlobStorageLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobStorageLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5045,6 +5141,7 @@ type AzureBlobStorageLocation struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureBlobStorageLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -5068,6 +5165,7 @@ type AzureBlobStorageLocationArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureBlobStorageLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5114,6 +5212,7 @@ func (o AzureBlobStorageLocationOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'AzureBlobStorageLocation'.
 func (o AzureBlobStorageLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobStorageLocation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5127,6 +5226,7 @@ type AzureBlobStorageLocationResponse struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureBlobStorageLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -5150,6 +5250,7 @@ type AzureBlobStorageLocationResponseArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureBlobStorageLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5196,6 +5297,7 @@ func (o AzureBlobStorageLocationResponseOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'AzureBlobStorageLocation'.
 func (o AzureBlobStorageLocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobStorageLocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5221,6 +5323,7 @@ type AzureDataExplorerLinkedService struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataExplorer'.
 	Type string `pulumi:"type"`
 }
 
@@ -5256,6 +5359,7 @@ type AzureDataExplorerLinkedServiceArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataExplorer'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5332,6 +5436,7 @@ func (o AzureDataExplorerLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureDataExplorer'.
 func (o AzureDataExplorerLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataExplorerLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5357,6 +5462,7 @@ type AzureDataExplorerLinkedServiceResponse struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataExplorer'.
 	Type string `pulumi:"type"`
 }
 
@@ -5392,6 +5498,7 @@ type AzureDataExplorerLinkedServiceResponseArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataExplorer'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5472,6 +5579,7 @@ func (o AzureDataExplorerLinkedServiceResponseOutput) Tenant() pulumi.AnyOutput 
 }
 
 // Type of linked service.
+// Expected value is 'AzureDataExplorer'.
 func (o AzureDataExplorerLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataExplorerLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5495,6 +5603,7 @@ type AzureDataExplorerTableDataset struct {
 	// The table name of the Azure Data Explorer database. Type: string (or Expression with resultType string).
 	Table interface{} `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'AzureDataExplorerTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -5528,6 +5637,7 @@ type AzureDataExplorerTableDatasetArgs struct {
 	// The table name of the Azure Data Explorer database. Type: string (or Expression with resultType string).
 	Table pulumi.Input `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'AzureDataExplorerTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5599,6 +5709,7 @@ func (o AzureDataExplorerTableDatasetOutput) Table() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureDataExplorerTable'.
 func (o AzureDataExplorerTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataExplorerTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5622,6 +5733,7 @@ type AzureDataExplorerTableDatasetResponse struct {
 	// The table name of the Azure Data Explorer database. Type: string (or Expression with resultType string).
 	Table interface{} `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'AzureDataExplorerTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -5655,6 +5767,7 @@ type AzureDataExplorerTableDatasetResponseArgs struct {
 	// The table name of the Azure Data Explorer database. Type: string (or Expression with resultType string).
 	Table pulumi.Input `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'AzureDataExplorerTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5730,6 +5843,7 @@ func (o AzureDataExplorerTableDatasetResponseOutput) Table() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureDataExplorerTable'.
 func (o AzureDataExplorerTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataExplorerTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5761,6 +5875,7 @@ type AzureDataLakeAnalyticsLinkedService struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataLakeAnalytics'.
 	Type string `pulumi:"type"`
 }
 
@@ -5802,6 +5917,7 @@ type AzureDataLakeAnalyticsLinkedServiceArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataLakeAnalytics'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5893,6 +6009,7 @@ func (o AzureDataLakeAnalyticsLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureDataLakeAnalytics'.
 func (o AzureDataLakeAnalyticsLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5924,6 +6041,7 @@ type AzureDataLakeAnalyticsLinkedServiceResponse struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataLakeAnalytics'.
 	Type string `pulumi:"type"`
 }
 
@@ -5965,6 +6083,7 @@ type AzureDataLakeAnalyticsLinkedServiceResponseArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataLakeAnalytics'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6060,6 +6179,7 @@ func (o AzureDataLakeAnalyticsLinkedServiceResponseOutput) Tenant() pulumi.AnyOu
 }
 
 // Type of linked service.
+// Expected value is 'AzureDataLakeAnalytics'.
 func (o AzureDataLakeAnalyticsLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6089,6 +6209,7 @@ type AzureDataLakeStoreDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureDataLakeStoreFile'.
 	Type string `pulumi:"type"`
 }
 
@@ -6128,6 +6249,7 @@ type AzureDataLakeStoreDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureDataLakeStoreFile'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6214,6 +6336,7 @@ func (o AzureDataLakeStoreDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureDataLakeStoreFile'.
 func (o AzureDataLakeStoreDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataLakeStoreDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6243,6 +6366,7 @@ type AzureDataLakeStoreDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureDataLakeStoreFile'.
 	Type string `pulumi:"type"`
 }
 
@@ -6282,6 +6406,7 @@ type AzureDataLakeStoreDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureDataLakeStoreFile'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6370,6 +6495,7 @@ func (o AzureDataLakeStoreDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureDataLakeStoreFile'.
 func (o AzureDataLakeStoreDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataLakeStoreDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6403,6 +6529,7 @@ type AzureDataLakeStoreLinkedService struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataLakeStore'.
 	Type string `pulumi:"type"`
 }
 
@@ -6446,6 +6573,7 @@ type AzureDataLakeStoreLinkedServiceArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataLakeStore'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6542,6 +6670,7 @@ func (o AzureDataLakeStoreLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureDataLakeStore'.
 func (o AzureDataLakeStoreLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6575,6 +6704,7 @@ type AzureDataLakeStoreLinkedServiceResponse struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataLakeStore'.
 	Type string `pulumi:"type"`
 }
 
@@ -6618,6 +6748,7 @@ type AzureDataLakeStoreLinkedServiceResponseArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureDataLakeStore'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6718,6 +6849,7 @@ func (o AzureDataLakeStoreLinkedServiceResponseOutput) Tenant() pulumi.AnyOutput
 }
 
 // Type of linked service.
+// Expected value is 'AzureDataLakeStore'.
 func (o AzureDataLakeStoreLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataLakeStoreLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6729,6 +6861,7 @@ type AzureDataLakeStoreLocation struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureDataLakeStoreLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -6750,6 +6883,7 @@ type AzureDataLakeStoreLocationArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureDataLakeStoreLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6791,6 +6925,7 @@ func (o AzureDataLakeStoreLocationOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'AzureDataLakeStoreLocation'.
 func (o AzureDataLakeStoreLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataLakeStoreLocation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6802,6 +6937,7 @@ type AzureDataLakeStoreLocationResponse struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureDataLakeStoreLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -6823,6 +6959,7 @@ type AzureDataLakeStoreLocationResponseArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureDataLakeStoreLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6864,6 +7001,7 @@ func (o AzureDataLakeStoreLocationResponseOutput) FolderPath() pulumi.AnyOutput 
 }
 
 // Type of dataset storage location.
+// Expected value is 'AzureDataLakeStoreLocation'.
 func (o AzureDataLakeStoreLocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataLakeStoreLocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6889,6 +7027,7 @@ type AzureDatabricksDeltaLakeDataset struct {
 	// The name of delta table. Type: string (or Expression with resultType string).
 	Table interface{} `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'AzureDatabricksDeltaLakeDataset'.
 	Type string `pulumi:"type"`
 }
 
@@ -6924,6 +7063,7 @@ type AzureDatabricksDeltaLakeDatasetArgs struct {
 	// The name of delta table. Type: string (or Expression with resultType string).
 	Table pulumi.Input `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'AzureDatabricksDeltaLakeDataset'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7000,6 +7140,7 @@ func (o AzureDatabricksDeltaLakeDatasetOutput) Table() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureDatabricksDeltaLakeDataset'.
 func (o AzureDatabricksDeltaLakeDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDatabricksDeltaLakeDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7025,6 +7166,7 @@ type AzureDatabricksDeltaLakeDatasetResponse struct {
 	// The name of delta table. Type: string (or Expression with resultType string).
 	Table interface{} `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'AzureDatabricksDeltaLakeDataset'.
 	Type string `pulumi:"type"`
 }
 
@@ -7060,6 +7202,7 @@ type AzureDatabricksDeltaLakeDatasetResponseArgs struct {
 	// The name of delta table. Type: string (or Expression with resultType string).
 	Table pulumi.Input `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'AzureDatabricksDeltaLakeDataset'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7140,6 +7283,7 @@ func (o AzureDatabricksDeltaLakeDatasetResponseOutput) Table() pulumi.AnyOutput 
 }
 
 // Type of dataset.
+// Expected value is 'AzureDatabricksDeltaLakeDataset'.
 func (o AzureDatabricksDeltaLakeDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDatabricksDeltaLakeDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7163,6 +7307,7 @@ type AzureDatabricksDeltaLakeLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureDatabricksDeltaLake'.
 	Type string `pulumi:"type"`
 }
 
@@ -7196,6 +7341,7 @@ type AzureDatabricksDeltaLakeLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureDatabricksDeltaLake'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7267,6 +7413,7 @@ func (o AzureDatabricksDeltaLakeLinkedServiceOutput) Parameters() ParameterSpeci
 }
 
 // Type of linked service.
+// Expected value is 'AzureDatabricksDeltaLake'.
 func (o AzureDatabricksDeltaLakeLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7290,6 +7437,7 @@ type AzureDatabricksDeltaLakeLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureDatabricksDeltaLake'.
 	Type string `pulumi:"type"`
 }
 
@@ -7323,6 +7471,7 @@ type AzureDatabricksDeltaLakeLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureDatabricksDeltaLake'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7398,6 +7547,7 @@ func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) Parameters() Parame
 }
 
 // Type of linked service.
+// Expected value is 'AzureDatabricksDeltaLake'.
 func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7443,6 +7593,7 @@ type AzureDatabricksLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureDatabricks'.
 	Type string `pulumi:"type"`
 }
 
@@ -7498,6 +7649,7 @@ type AzureDatabricksLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureDatabricks'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7624,6 +7776,7 @@ func (o AzureDatabricksLinkedServiceOutput) Parameters() ParameterSpecificationM
 }
 
 // Type of linked service.
+// Expected value is 'AzureDatabricks'.
 func (o AzureDatabricksLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDatabricksLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7669,6 +7822,7 @@ type AzureDatabricksLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureDatabricks'.
 	Type string `pulumi:"type"`
 }
 
@@ -7724,6 +7878,7 @@ type AzureDatabricksLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureDatabricks'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7852,6 +8007,7 @@ func (o AzureDatabricksLinkedServiceResponseOutput) Parameters() ParameterSpecif
 }
 
 // Type of linked service.
+// Expected value is 'AzureDatabricks'.
 func (o AzureDatabricksLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDatabricksLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7885,6 +8041,7 @@ type AzureFileStorageLinkedService struct {
 	// The azure file share snapshot version. Type: string (or Expression with resultType string).
 	Snapshot interface{} `pulumi:"snapshot"`
 	// Type of linked service.
+	// Expected value is 'AzureFileStorage'.
 	Type string `pulumi:"type"`
 	// User ID to logon the server. Type: string (or Expression with resultType string).
 	UserId interface{} `pulumi:"userId"`
@@ -7930,6 +8087,7 @@ type AzureFileStorageLinkedServiceArgs struct {
 	// The azure file share snapshot version. Type: string (or Expression with resultType string).
 	Snapshot pulumi.Input `pulumi:"snapshot"`
 	// Type of linked service.
+	// Expected value is 'AzureFileStorage'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User ID to logon the server. Type: string (or Expression with resultType string).
 	UserId pulumi.Input `pulumi:"userId"`
@@ -8028,6 +8186,7 @@ func (o AzureFileStorageLinkedServiceOutput) Snapshot() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureFileStorage'.
 func (o AzureFileStorageLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileStorageLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8066,6 +8225,7 @@ type AzureFileStorageLinkedServiceResponse struct {
 	// The azure file share snapshot version. Type: string (or Expression with resultType string).
 	Snapshot interface{} `pulumi:"snapshot"`
 	// Type of linked service.
+	// Expected value is 'AzureFileStorage'.
 	Type string `pulumi:"type"`
 	// User ID to logon the server. Type: string (or Expression with resultType string).
 	UserId interface{} `pulumi:"userId"`
@@ -8111,6 +8271,7 @@ type AzureFileStorageLinkedServiceResponseArgs struct {
 	// The azure file share snapshot version. Type: string (or Expression with resultType string).
 	Snapshot pulumi.Input `pulumi:"snapshot"`
 	// Type of linked service.
+	// Expected value is 'AzureFileStorage'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User ID to logon the server. Type: string (or Expression with resultType string).
 	UserId pulumi.Input `pulumi:"userId"`
@@ -8215,6 +8376,7 @@ func (o AzureFileStorageLinkedServiceResponseOutput) Snapshot() pulumi.AnyOutput
 }
 
 // Type of linked service.
+// Expected value is 'AzureFileStorage'.
 func (o AzureFileStorageLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileStorageLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8231,6 +8393,7 @@ type AzureFileStorageLocation struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureFileStorageLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -8252,6 +8415,7 @@ type AzureFileStorageLocationArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureFileStorageLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8293,6 +8457,7 @@ func (o AzureFileStorageLocationOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'AzureFileStorageLocation'.
 func (o AzureFileStorageLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileStorageLocation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8304,6 +8469,7 @@ type AzureFileStorageLocationResponse struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureFileStorageLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -8325,6 +8491,7 @@ type AzureFileStorageLocationResponseArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'AzureFileStorageLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8366,6 +8533,7 @@ func (o AzureFileStorageLocationResponseOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'AzureFileStorageLocation'.
 func (o AzureFileStorageLocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileStorageLocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8387,6 +8555,7 @@ type AzureFunctionLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureFunction'.
 	Type string `pulumi:"type"`
 }
 
@@ -8418,6 +8587,7 @@ type AzureFunctionLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureFunction'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8484,6 +8654,7 @@ func (o AzureFunctionLinkedServiceOutput) Parameters() ParameterSpecificationMap
 }
 
 // Type of linked service.
+// Expected value is 'AzureFunction'.
 func (o AzureFunctionLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8505,6 +8676,7 @@ type AzureFunctionLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureFunction'.
 	Type string `pulumi:"type"`
 }
 
@@ -8536,6 +8708,7 @@ type AzureFunctionLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureFunction'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8604,6 +8777,7 @@ func (o AzureFunctionLinkedServiceResponseOutput) Parameters() ParameterSpecific
 }
 
 // Type of linked service.
+// Expected value is 'AzureFunction'.
 func (o AzureFunctionLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8621,6 +8795,7 @@ type AzureKeyVaultLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureKeyVault'.
 	Type string `pulumi:"type"`
 }
 
@@ -8648,6 +8823,7 @@ type AzureKeyVaultLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureKeyVault'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8704,6 +8880,7 @@ func (o AzureKeyVaultLinkedServiceOutput) Parameters() ParameterSpecificationMap
 }
 
 // Type of linked service.
+// Expected value is 'AzureKeyVault'.
 func (o AzureKeyVaultLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureKeyVaultLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8721,6 +8898,7 @@ type AzureKeyVaultLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureKeyVault'.
 	Type string `pulumi:"type"`
 }
 
@@ -8748,6 +8926,7 @@ type AzureKeyVaultLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureKeyVault'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8806,6 +8985,7 @@ func (o AzureKeyVaultLinkedServiceResponseOutput) Parameters() ParameterSpecific
 }
 
 // Type of linked service.
+// Expected value is 'AzureKeyVault'.
 func (o AzureKeyVaultLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureKeyVaultLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8819,6 +8999,7 @@ type AzureKeyVaultSecretReference struct {
 	// The Azure Key Vault linked service reference.
 	Store LinkedServiceReference `pulumi:"store"`
 	// Type of the secret.
+	// Expected value is 'AzureKeyVaultSecret'.
 	Type string `pulumi:"type"`
 }
 
@@ -8842,6 +9023,7 @@ type AzureKeyVaultSecretReferenceArgs struct {
 	// The Azure Key Vault linked service reference.
 	Store LinkedServiceReferenceInput `pulumi:"store"`
 	// Type of the secret.
+	// Expected value is 'AzureKeyVaultSecret'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8939,6 +9121,7 @@ func (o AzureKeyVaultSecretReferenceOutput) Store() LinkedServiceReferenceOutput
 }
 
 // Type of the secret.
+// Expected value is 'AzureKeyVaultSecret'.
 func (o AzureKeyVaultSecretReferenceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureKeyVaultSecretReference) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8992,6 +9175,7 @@ func (o AzureKeyVaultSecretReferencePtrOutput) Store() LinkedServiceReferencePtr
 }
 
 // Type of the secret.
+// Expected value is 'AzureKeyVaultSecret'.
 func (o AzureKeyVaultSecretReferencePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureKeyVaultSecretReference) *string {
 		if v == nil {
@@ -9010,6 +9194,7 @@ type AzureKeyVaultSecretReferenceResponse struct {
 	// The Azure Key Vault linked service reference.
 	Store LinkedServiceReferenceResponse `pulumi:"store"`
 	// Type of the secret.
+	// Expected value is 'AzureKeyVaultSecret'.
 	Type string `pulumi:"type"`
 }
 
@@ -9033,6 +9218,7 @@ type AzureKeyVaultSecretReferenceResponseArgs struct {
 	// The Azure Key Vault linked service reference.
 	Store LinkedServiceReferenceResponseInput `pulumi:"store"`
 	// Type of the secret.
+	// Expected value is 'AzureKeyVaultSecret'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9130,6 +9316,7 @@ func (o AzureKeyVaultSecretReferenceResponseOutput) Store() LinkedServiceReferen
 }
 
 // Type of the secret.
+// Expected value is 'AzureKeyVaultSecret'.
 func (o AzureKeyVaultSecretReferenceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureKeyVaultSecretReferenceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9183,6 +9370,7 @@ func (o AzureKeyVaultSecretReferenceResponsePtrOutput) Store() LinkedServiceRefe
 }
 
 // Type of the secret.
+// Expected value is 'AzureKeyVaultSecret'.
 func (o AzureKeyVaultSecretReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureKeyVaultSecretReferenceResponse) *string {
 		if v == nil {
@@ -9215,6 +9403,7 @@ type AzureMLLinkedService struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureML'.
 	Type string `pulumi:"type"`
 	// The Update Resource REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
 	UpdateResourceEndpoint interface{} `pulumi:"updateResourceEndpoint"`
@@ -9254,6 +9443,7 @@ type AzureMLLinkedServiceArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureML'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The Update Resource REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
 	UpdateResourceEndpoint pulumi.Input `pulumi:"updateResourceEndpoint"`
@@ -9337,6 +9527,7 @@ func (o AzureMLLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureML'.
 func (o AzureMLLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMLLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9369,6 +9560,7 @@ type AzureMLLinkedServiceResponse struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureML'.
 	Type string `pulumi:"type"`
 	// The Update Resource REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
 	UpdateResourceEndpoint interface{} `pulumi:"updateResourceEndpoint"`
@@ -9408,6 +9600,7 @@ type AzureMLLinkedServiceResponseArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureML'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The Update Resource REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
 	UpdateResourceEndpoint pulumi.Input `pulumi:"updateResourceEndpoint"`
@@ -9491,6 +9684,7 @@ func (o AzureMLLinkedServiceResponseOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureML'.
 func (o AzureMLLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMLLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9525,6 +9719,7 @@ type AzureMLServiceLinkedService struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureMLService'.
 	Type string `pulumi:"type"`
 }
 
@@ -9564,6 +9759,7 @@ type AzureMLServiceLinkedServiceArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureMLService'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9650,6 +9846,7 @@ func (o AzureMLServiceLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureMLService'.
 func (o AzureMLServiceLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMLServiceLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9679,6 +9876,7 @@ type AzureMLServiceLinkedServiceResponse struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureMLService'.
 	Type string `pulumi:"type"`
 }
 
@@ -9718,6 +9916,7 @@ type AzureMLServiceLinkedServiceResponseArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureMLService'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9806,6 +10005,7 @@ func (o AzureMLServiceLinkedServiceResponseOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureMLService'.
 func (o AzureMLServiceLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMLServiceLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9827,6 +10027,7 @@ type AzureMariaDBLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReference `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'AzureMariaDB'.
 	Type string `pulumi:"type"`
 }
 
@@ -9858,6 +10059,7 @@ type AzureMariaDBLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferencePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'AzureMariaDB'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9924,6 +10126,7 @@ func (o AzureMariaDBLinkedServiceOutput) Pwd() AzureKeyVaultSecretReferencePtrOu
 }
 
 // Type of linked service.
+// Expected value is 'AzureMariaDB'.
 func (o AzureMariaDBLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMariaDBLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9945,6 +10148,7 @@ type AzureMariaDBLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReferenceResponse `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'AzureMariaDB'.
 	Type string `pulumi:"type"`
 }
 
@@ -9976,6 +10180,7 @@ type AzureMariaDBLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'AzureMariaDB'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10044,6 +10249,7 @@ func (o AzureMariaDBLinkedServiceResponseOutput) Pwd() AzureKeyVaultSecretRefere
 }
 
 // Type of linked service.
+// Expected value is 'AzureMariaDB'.
 func (o AzureMariaDBLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMariaDBLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10067,6 +10273,7 @@ type AzureMariaDBTableDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureMariaDBTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -10100,6 +10307,7 @@ type AzureMariaDBTableDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureMariaDBTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10171,6 +10379,7 @@ func (o AzureMariaDBTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureMariaDBTable'.
 func (o AzureMariaDBTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMariaDBTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10194,6 +10403,7 @@ type AzureMariaDBTableDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureMariaDBTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -10227,6 +10437,7 @@ type AzureMariaDBTableDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureMariaDBTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10300,6 +10511,7 @@ func (o AzureMariaDBTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureMariaDBTable'.
 func (o AzureMariaDBTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMariaDBTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10321,6 +10533,7 @@ type AzureMySqlLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReference `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'AzureMySql'.
 	Type string `pulumi:"type"`
 }
 
@@ -10352,6 +10565,7 @@ type AzureMySqlLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferencePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'AzureMySql'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10418,6 +10632,7 @@ func (o AzureMySqlLinkedServiceOutput) Password() AzureKeyVaultSecretReferencePt
 }
 
 // Type of linked service.
+// Expected value is 'AzureMySql'.
 func (o AzureMySqlLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMySqlLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10439,6 +10654,7 @@ type AzureMySqlLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReferenceResponse `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'AzureMySql'.
 	Type string `pulumi:"type"`
 }
 
@@ -10470,6 +10686,7 @@ type AzureMySqlLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'AzureMySql'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10536,6 +10753,7 @@ func (o AzureMySqlLinkedServiceResponseOutput) Password() AzureKeyVaultSecretRef
 }
 
 // Type of linked service.
+// Expected value is 'AzureMySql'.
 func (o AzureMySqlLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMySqlLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10561,6 +10779,7 @@ type AzureMySqlTableDataset struct {
 	// The Azure MySQL database table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureMySqlTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -10596,6 +10815,7 @@ type AzureMySqlTableDatasetArgs struct {
 	// The Azure MySQL database table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureMySqlTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10672,6 +10892,7 @@ func (o AzureMySqlTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureMySqlTable'.
 func (o AzureMySqlTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMySqlTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10697,6 +10918,7 @@ type AzureMySqlTableDatasetResponse struct {
 	// The Azure MySQL database table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureMySqlTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -10732,6 +10954,7 @@ type AzureMySqlTableDatasetResponseArgs struct {
 	// The Azure MySQL database table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureMySqlTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10808,6 +11031,7 @@ func (o AzureMySqlTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureMySqlTable'.
 func (o AzureMySqlTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMySqlTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10829,6 +11053,7 @@ type AzurePostgreSqlLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReference `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'AzurePostgreSql'.
 	Type string `pulumi:"type"`
 }
 
@@ -10860,6 +11085,7 @@ type AzurePostgreSqlLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferencePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'AzurePostgreSql'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10926,6 +11152,7 @@ func (o AzurePostgreSqlLinkedServiceOutput) Password() AzureKeyVaultSecretRefere
 }
 
 // Type of linked service.
+// Expected value is 'AzurePostgreSql'.
 func (o AzurePostgreSqlLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzurePostgreSqlLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10947,6 +11174,7 @@ type AzurePostgreSqlLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReferenceResponse `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'AzurePostgreSql'.
 	Type string `pulumi:"type"`
 }
 
@@ -10978,6 +11206,7 @@ type AzurePostgreSqlLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'AzurePostgreSql'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11046,6 +11275,7 @@ func (o AzurePostgreSqlLinkedServiceResponseOutput) Password() AzureKeyVaultSecr
 }
 
 // Type of linked service.
+// Expected value is 'AzurePostgreSql'.
 func (o AzurePostgreSqlLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzurePostgreSqlLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11071,6 +11301,7 @@ type AzurePostgreSqlTableDataset struct {
 	// The table name of the Azure PostgreSQL database which includes both schema and table. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzurePostgreSqlTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -11106,6 +11337,7 @@ type AzurePostgreSqlTableDatasetArgs struct {
 	// The table name of the Azure PostgreSQL database which includes both schema and table. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzurePostgreSqlTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11182,6 +11414,7 @@ func (o AzurePostgreSqlTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzurePostgreSqlTable'.
 func (o AzurePostgreSqlTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzurePostgreSqlTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11207,6 +11440,7 @@ type AzurePostgreSqlTableDatasetResponse struct {
 	// The table name of the Azure PostgreSQL database which includes both schema and table. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzurePostgreSqlTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -11242,6 +11476,7 @@ type AzurePostgreSqlTableDatasetResponseArgs struct {
 	// The table name of the Azure PostgreSQL database which includes both schema and table. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzurePostgreSqlTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11320,6 +11555,7 @@ func (o AzurePostgreSqlTableDatasetResponseOutput) TableName() pulumi.AnyOutput 
 }
 
 // Type of dataset.
+// Expected value is 'AzurePostgreSqlTable'.
 func (o AzurePostgreSqlTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzurePostgreSqlTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11343,6 +11579,7 @@ type AzureSearchIndexDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureSearchIndex'.
 	Type string `pulumi:"type"`
 }
 
@@ -11376,6 +11613,7 @@ type AzureSearchIndexDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureSearchIndex'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11447,6 +11685,7 @@ func (o AzureSearchIndexDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureSearchIndex'.
 func (o AzureSearchIndexDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSearchIndexDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11470,6 +11709,7 @@ type AzureSearchIndexDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureSearchIndex'.
 	Type string `pulumi:"type"`
 }
 
@@ -11503,6 +11743,7 @@ type AzureSearchIndexDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'AzureSearchIndex'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11574,6 +11815,7 @@ func (o AzureSearchIndexDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureSearchIndex'.
 func (o AzureSearchIndexDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSearchIndexDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11593,6 +11835,7 @@ type AzureSearchLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureSearch'.
 	Type string `pulumi:"type"`
 	// URL for Azure Search service. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -11624,6 +11867,7 @@ type AzureSearchLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureSearch'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// URL for Azure Search service. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -11687,6 +11931,7 @@ func (o AzureSearchLinkedServiceOutput) Parameters() ParameterSpecificationMapOu
 }
 
 // Type of linked service.
+// Expected value is 'AzureSearch'.
 func (o AzureSearchLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSearchLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11711,6 +11956,7 @@ type AzureSearchLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureSearch'.
 	Type string `pulumi:"type"`
 	// URL for Azure Search service. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -11742,6 +11988,7 @@ type AzureSearchLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'AzureSearch'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// URL for Azure Search service. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -11807,6 +12054,7 @@ func (o AzureSearchLinkedServiceResponseOutput) Parameters() ParameterSpecificat
 }
 
 // Type of linked service.
+// Expected value is 'AzureSearch'.
 func (o AzureSearchLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSearchLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11841,6 +12089,7 @@ type AzureSqlDWLinkedService struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlDW'.
 	Type string `pulumi:"type"`
 }
 
@@ -11880,6 +12129,7 @@ type AzureSqlDWLinkedServiceArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlDW'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11966,6 +12216,7 @@ func (o AzureSqlDWLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureSqlDW'.
 func (o AzureSqlDWLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlDWLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11995,6 +12246,7 @@ type AzureSqlDWLinkedServiceResponse struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlDW'.
 	Type string `pulumi:"type"`
 }
 
@@ -12034,6 +12286,7 @@ type AzureSqlDWLinkedServiceResponseArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlDW'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -12120,6 +12373,7 @@ func (o AzureSqlDWLinkedServiceResponseOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureSqlDW'.
 func (o AzureSqlDWLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlDWLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -12145,6 +12399,7 @@ type AzureSqlDWTableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlDWTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -12180,6 +12435,7 @@ type AzureSqlDWTableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlDWTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -12256,6 +12512,7 @@ func (o AzureSqlDWTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureSqlDWTable'.
 func (o AzureSqlDWTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlDWTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -12281,6 +12538,7 @@ type AzureSqlDWTableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlDWTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -12316,6 +12574,7 @@ type AzureSqlDWTableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlDWTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -12392,6 +12651,7 @@ func (o AzureSqlDWTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureSqlDWTable'.
 func (o AzureSqlDWTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlDWTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -12421,6 +12681,7 @@ type AzureSqlDatabaseLinkedService struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlDatabase'.
 	Type string `pulumi:"type"`
 }
 
@@ -12460,6 +12721,7 @@ type AzureSqlDatabaseLinkedServiceArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlDatabase'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -12546,6 +12808,7 @@ func (o AzureSqlDatabaseLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureSqlDatabase'.
 func (o AzureSqlDatabaseLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlDatabaseLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -12575,6 +12838,7 @@ type AzureSqlDatabaseLinkedServiceResponse struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlDatabase'.
 	Type string `pulumi:"type"`
 }
 
@@ -12614,6 +12878,7 @@ type AzureSqlDatabaseLinkedServiceResponseArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlDatabase'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -12704,6 +12969,7 @@ func (o AzureSqlDatabaseLinkedServiceResponseOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureSqlDatabase'.
 func (o AzureSqlDatabaseLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlDatabaseLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -12733,6 +12999,7 @@ type AzureSqlMILinkedService struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlMI'.
 	Type string `pulumi:"type"`
 }
 
@@ -12772,6 +13039,7 @@ type AzureSqlMILinkedServiceArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlMI'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -12858,6 +13126,7 @@ func (o AzureSqlMILinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureSqlMI'.
 func (o AzureSqlMILinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlMILinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -12887,6 +13156,7 @@ type AzureSqlMILinkedServiceResponse struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlMI'.
 	Type string `pulumi:"type"`
 }
 
@@ -12926,6 +13196,7 @@ type AzureSqlMILinkedServiceResponseArgs struct {
 	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'AzureSqlMI'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13012,6 +13283,7 @@ func (o AzureSqlMILinkedServiceResponseOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureSqlMI'.
 func (o AzureSqlMILinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlMILinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13037,6 +13309,7 @@ type AzureSqlMITableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlMITable'.
 	Type string `pulumi:"type"`
 }
 
@@ -13072,6 +13345,7 @@ type AzureSqlMITableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlMITable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13148,6 +13422,7 @@ func (o AzureSqlMITableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureSqlMITable'.
 func (o AzureSqlMITableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlMITableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13173,6 +13448,7 @@ type AzureSqlMITableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlMITable'.
 	Type string `pulumi:"type"`
 }
 
@@ -13208,6 +13484,7 @@ type AzureSqlMITableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlMITable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13284,6 +13561,7 @@ func (o AzureSqlMITableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureSqlMITable'.
 func (o AzureSqlMITableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlMITableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13309,6 +13587,7 @@ type AzureSqlTableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -13344,6 +13623,7 @@ type AzureSqlTableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13420,6 +13700,7 @@ func (o AzureSqlTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureSqlTable'.
 func (o AzureSqlTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13445,6 +13726,7 @@ type AzureSqlTableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -13480,6 +13762,7 @@ type AzureSqlTableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureSqlTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13556,6 +13839,7 @@ func (o AzureSqlTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureSqlTable'.
 func (o AzureSqlTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13581,6 +13865,7 @@ type AzureStorageLinkedService struct {
 	// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
 	SasUri interface{} `pulumi:"sasUri"`
 	// Type of linked service.
+	// Expected value is 'AzureStorage'.
 	Type string `pulumi:"type"`
 }
 
@@ -13616,6 +13901,7 @@ type AzureStorageLinkedServiceArgs struct {
 	// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
 	SasUri pulumi.Input `pulumi:"sasUri"`
 	// Type of linked service.
+	// Expected value is 'AzureStorage'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13692,6 +13978,7 @@ func (o AzureStorageLinkedServiceOutput) SasUri() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureStorage'.
 func (o AzureStorageLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureStorageLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13717,6 +14004,7 @@ type AzureStorageLinkedServiceResponse struct {
 	// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
 	SasUri interface{} `pulumi:"sasUri"`
 	// Type of linked service.
+	// Expected value is 'AzureStorage'.
 	Type string `pulumi:"type"`
 }
 
@@ -13752,6 +14040,7 @@ type AzureStorageLinkedServiceResponseArgs struct {
 	// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
 	SasUri pulumi.Input `pulumi:"sasUri"`
 	// Type of linked service.
+	// Expected value is 'AzureStorage'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13830,6 +14119,7 @@ func (o AzureStorageLinkedServiceResponseOutput) SasUri() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureStorage'.
 func (o AzureStorageLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureStorageLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13853,6 +14143,7 @@ type AzureTableDataset struct {
 	// The table name of the Azure Table storage. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -13886,6 +14177,7 @@ type AzureTableDatasetArgs struct {
 	// The table name of the Azure Table storage. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13957,6 +14249,7 @@ func (o AzureTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureTable'.
 func (o AzureTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13980,6 +14273,7 @@ type AzureTableDatasetResponse struct {
 	// The table name of the Azure Table storage. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -14013,6 +14307,7 @@ type AzureTableDatasetResponseArgs struct {
 	// The table name of the Azure Table storage. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'AzureTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14084,6 +14379,7 @@ func (o AzureTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'AzureTable'.
 func (o AzureTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14109,6 +14405,7 @@ type AzureTableStorageLinkedService struct {
 	// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
 	SasUri interface{} `pulumi:"sasUri"`
 	// Type of linked service.
+	// Expected value is 'AzureTableStorage'.
 	Type string `pulumi:"type"`
 }
 
@@ -14144,6 +14441,7 @@ type AzureTableStorageLinkedServiceArgs struct {
 	// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
 	SasUri pulumi.Input `pulumi:"sasUri"`
 	// Type of linked service.
+	// Expected value is 'AzureTableStorage'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14220,6 +14518,7 @@ func (o AzureTableStorageLinkedServiceOutput) SasUri() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'AzureTableStorage'.
 func (o AzureTableStorageLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureTableStorageLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14245,6 +14544,7 @@ type AzureTableStorageLinkedServiceResponse struct {
 	// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
 	SasUri interface{} `pulumi:"sasUri"`
 	// Type of linked service.
+	// Expected value is 'AzureTableStorage'.
 	Type string `pulumi:"type"`
 }
 
@@ -14280,6 +14580,7 @@ type AzureTableStorageLinkedServiceResponseArgs struct {
 	// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
 	SasUri pulumi.Input `pulumi:"sasUri"`
 	// Type of linked service.
+	// Expected value is 'AzureTableStorage'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14364,6 +14665,7 @@ func (o AzureTableStorageLinkedServiceResponseOutput) SasUri() pulumi.AnyOutput 
 }
 
 // Type of linked service.
+// Expected value is 'AzureTableStorage'.
 func (o AzureTableStorageLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureTableStorageLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14389,6 +14691,7 @@ type BinaryDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Binary'.
 	Type string `pulumi:"type"`
 }
 
@@ -14424,6 +14727,7 @@ type BinaryDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Binary'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14500,6 +14804,7 @@ func (o BinaryDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Binary'.
 func (o BinaryDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BinaryDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14525,6 +14830,7 @@ type BinaryDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Binary'.
 	Type string `pulumi:"type"`
 }
 
@@ -14560,6 +14866,7 @@ type BinaryDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Binary'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14636,6 +14943,7 @@ func (o BinaryDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Binary'.
 func (o BinaryDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BinaryDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14929,6 +15237,7 @@ type CassandraLinkedService struct {
 	// The port for the connection. Type: integer (or Expression with resultType integer).
 	Port interface{} `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'Cassandra'.
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -14966,6 +15275,7 @@ type CassandraLinkedServiceArgs struct {
 	// The port for the connection. Type: integer (or Expression with resultType integer).
 	Port pulumi.Input `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'Cassandra'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -15044,6 +15354,7 @@ func (o CassandraLinkedServiceOutput) Port() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Cassandra'.
 func (o CassandraLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15074,6 +15385,7 @@ type CassandraLinkedServiceResponse struct {
 	// The port for the connection. Type: integer (or Expression with resultType integer).
 	Port interface{} `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'Cassandra'.
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -15111,6 +15423,7 @@ type CassandraLinkedServiceResponseArgs struct {
 	// The port for the connection. Type: integer (or Expression with resultType integer).
 	Port pulumi.Input `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'Cassandra'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -15189,6 +15502,7 @@ func (o CassandraLinkedServiceResponseOutput) Port() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Cassandra'.
 func (o CassandraLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15219,6 +15533,7 @@ type CassandraTableDataset struct {
 	// The table name of the Cassandra database. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'CassandraTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -15254,6 +15569,7 @@ type CassandraTableDatasetArgs struct {
 	// The table name of the Cassandra database. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'CassandraTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15330,6 +15646,7 @@ func (o CassandraTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'CassandraTable'.
 func (o CassandraTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15355,6 +15672,7 @@ type CassandraTableDatasetResponse struct {
 	// The table name of the Cassandra database. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'CassandraTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -15390,6 +15708,7 @@ type CassandraTableDatasetResponseArgs struct {
 	// The table name of the Cassandra database. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'CassandraTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15466,6 +15785,7 @@ func (o CassandraTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'CassandraTable'.
 func (o CassandraTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15483,6 +15803,7 @@ type ChainingTrigger struct {
 	// Run Dimension property that needs to be emitted by upstream pipelines.
 	RunDimension string `pulumi:"runDimension"`
 	// Trigger type.
+	// Expected value is 'ChainingTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -15510,6 +15831,7 @@ type ChainingTriggerArgs struct {
 	// Run Dimension property that needs to be emitted by upstream pipelines.
 	RunDimension pulumi.StringInput `pulumi:"runDimension"`
 	// Trigger type.
+	// Expected value is 'ChainingTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15566,6 +15888,7 @@ func (o ChainingTriggerOutput) RunDimension() pulumi.StringOutput {
 }
 
 // Trigger type.
+// Expected value is 'ChainingTrigger'.
 func (o ChainingTriggerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ChainingTrigger) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15585,6 +15908,7 @@ type ChainingTriggerResponse struct {
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
 	RuntimeState string `pulumi:"runtimeState"`
 	// Trigger type.
+	// Expected value is 'ChainingTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -15614,6 +15938,7 @@ type ChainingTriggerResponseArgs struct {
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
 	RuntimeState pulumi.StringInput `pulumi:"runtimeState"`
 	// Trigger type.
+	// Expected value is 'ChainingTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15675,6 +16000,7 @@ func (o ChainingTriggerResponseOutput) RuntimeState() pulumi.StringOutput {
 }
 
 // Trigger type.
+// Expected value is 'ChainingTrigger'.
 func (o ChainingTriggerResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ChainingTriggerResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15686,6 +16012,7 @@ type CmdkeySetup struct {
 	// The server name of data source access.
 	TargetName interface{} `pulumi:"targetName"`
 	// The type of custom setup.
+	// Expected value is 'CmdkeySetup'.
 	Type string `pulumi:"type"`
 	// The user name of data source access.
 	UserName interface{} `pulumi:"userName"`
@@ -15709,6 +16036,7 @@ type CmdkeySetupArgs struct {
 	// The server name of data source access.
 	TargetName pulumi.Input `pulumi:"targetName"`
 	// The type of custom setup.
+	// Expected value is 'CmdkeySetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The user name of data source access.
 	UserName pulumi.Input `pulumi:"userName"`
@@ -15752,6 +16080,7 @@ func (o CmdkeySetupOutput) TargetName() pulumi.AnyOutput {
 }
 
 // The type of custom setup.
+// Expected value is 'CmdkeySetup'.
 func (o CmdkeySetupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CmdkeySetup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15768,6 +16097,7 @@ type CmdkeySetupResponse struct {
 	// The server name of data source access.
 	TargetName interface{} `pulumi:"targetName"`
 	// The type of custom setup.
+	// Expected value is 'CmdkeySetup'.
 	Type string `pulumi:"type"`
 	// The user name of data source access.
 	UserName interface{} `pulumi:"userName"`
@@ -15791,6 +16121,7 @@ type CmdkeySetupResponseArgs struct {
 	// The server name of data source access.
 	TargetName pulumi.Input `pulumi:"targetName"`
 	// The type of custom setup.
+	// Expected value is 'CmdkeySetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The user name of data source access.
 	UserName pulumi.Input `pulumi:"userName"`
@@ -15834,6 +16165,7 @@ func (o CmdkeySetupResponseOutput) TargetName() pulumi.AnyOutput {
 }
 
 // The type of custom setup.
+// Expected value is 'CmdkeySetup'.
 func (o CmdkeySetupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CmdkeySetupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15862,6 +16194,7 @@ type CommonDataServiceForAppsEntityDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CommonDataServiceForAppsEntity'.
 	Type string `pulumi:"type"`
 }
 
@@ -15895,6 +16228,7 @@ type CommonDataServiceForAppsEntityDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CommonDataServiceForAppsEntity'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15966,6 +16300,7 @@ func (o CommonDataServiceForAppsEntityDatasetOutput) Structure() pulumi.AnyOutpu
 }
 
 // Type of dataset.
+// Expected value is 'CommonDataServiceForAppsEntity'.
 func (o CommonDataServiceForAppsEntityDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CommonDataServiceForAppsEntityDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15989,6 +16324,7 @@ type CommonDataServiceForAppsEntityDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CommonDataServiceForAppsEntity'.
 	Type string `pulumi:"type"`
 }
 
@@ -16022,6 +16358,7 @@ type CommonDataServiceForAppsEntityDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CommonDataServiceForAppsEntity'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -16097,6 +16434,7 @@ func (o CommonDataServiceForAppsEntityDatasetResponseOutput) Structure() pulumi.
 }
 
 // Type of dataset.
+// Expected value is 'CommonDataServiceForAppsEntity'.
 func (o CommonDataServiceForAppsEntityDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CommonDataServiceForAppsEntityDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16134,6 +16472,7 @@ type CommonDataServiceForAppsLinkedService struct {
 	// The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri interface{} `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'CommonDataServiceForApps'.
 	Type string `pulumi:"type"`
 	// User name to access the Common Data Service for Apps instance. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -16183,6 +16522,7 @@ type CommonDataServiceForAppsLinkedServiceArgs struct {
 	// The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri pulumi.Input `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'CommonDataServiceForApps'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name to access the Common Data Service for Apps instance. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -16291,6 +16631,7 @@ func (o CommonDataServiceForAppsLinkedServiceOutput) ServiceUri() pulumi.AnyOutp
 }
 
 // Type of linked service.
+// Expected value is 'CommonDataServiceForApps'.
 func (o CommonDataServiceForAppsLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CommonDataServiceForAppsLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16333,6 +16674,7 @@ type CommonDataServiceForAppsLinkedServiceResponse struct {
 	// The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri interface{} `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'CommonDataServiceForApps'.
 	Type string `pulumi:"type"`
 	// User name to access the Common Data Service for Apps instance. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -16382,6 +16724,7 @@ type CommonDataServiceForAppsLinkedServiceResponseArgs struct {
 	// The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri pulumi.Input `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'CommonDataServiceForApps'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name to access the Common Data Service for Apps instance. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -16494,6 +16837,7 @@ func (o CommonDataServiceForAppsLinkedServiceResponseOutput) ServiceUri() pulumi
 }
 
 // Type of linked service.
+// Expected value is 'CommonDataServiceForApps'.
 func (o CommonDataServiceForAppsLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CommonDataServiceForAppsLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16510,6 +16854,7 @@ type ComponentSetup struct {
 	// The license key to activate the component.
 	LicenseKey interface{} `pulumi:"licenseKey"`
 	// The type of custom setup.
+	// Expected value is 'ComponentSetup'.
 	Type string `pulumi:"type"`
 }
 
@@ -16531,6 +16876,7 @@ type ComponentSetupArgs struct {
 	// The license key to activate the component.
 	LicenseKey pulumi.Input `pulumi:"licenseKey"`
 	// The type of custom setup.
+	// Expected value is 'ComponentSetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -16572,6 +16918,7 @@ func (o ComponentSetupOutput) LicenseKey() pulumi.AnyOutput {
 }
 
 // The type of custom setup.
+// Expected value is 'ComponentSetup'.
 func (o ComponentSetupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentSetup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16583,6 +16930,7 @@ type ComponentSetupResponse struct {
 	// The license key to activate the component.
 	LicenseKey interface{} `pulumi:"licenseKey"`
 	// The type of custom setup.
+	// Expected value is 'ComponentSetup'.
 	Type string `pulumi:"type"`
 }
 
@@ -16604,6 +16952,7 @@ type ComponentSetupResponseArgs struct {
 	// The license key to activate the component.
 	LicenseKey pulumi.Input `pulumi:"licenseKey"`
 	// The type of custom setup.
+	// Expected value is 'ComponentSetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -16645,6 +16994,7 @@ func (o ComponentSetupResponseOutput) LicenseKey() pulumi.AnyOutput {
 }
 
 // The type of custom setup.
+// Expected value is 'ComponentSetup'.
 func (o ComponentSetupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentSetupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16668,6 +17018,7 @@ type ConcurLinkedService struct {
 	// The password corresponding to the user name that you provided in the username field.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Concur'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -16709,6 +17060,7 @@ type ConcurLinkedServiceArgs struct {
 	// The password corresponding to the user name that you provided in the username field.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Concur'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -16788,6 +17140,7 @@ func (o ConcurLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Concur'.
 func (o ConcurLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConcurLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16831,6 +17184,7 @@ type ConcurLinkedServiceResponse struct {
 	// The password corresponding to the user name that you provided in the username field.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Concur'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -16872,6 +17226,7 @@ type ConcurLinkedServiceResponseArgs struct {
 	// The password corresponding to the user name that you provided in the username field.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Concur'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -16951,6 +17306,7 @@ func (o ConcurLinkedServiceResponseOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Concur'.
 func (o ConcurLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConcurLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16994,6 +17350,7 @@ type ConcurObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ConcurObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -17027,6 +17384,7 @@ type ConcurObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ConcurObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -17098,6 +17456,7 @@ func (o ConcurObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ConcurObject'.
 func (o ConcurObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConcurObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17121,6 +17480,7 @@ type ConcurObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ConcurObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -17154,6 +17514,7 @@ type ConcurObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ConcurObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -17225,6 +17586,7 @@ func (o ConcurObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ConcurObject'.
 func (o ConcurObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConcurObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17410,6 +17772,7 @@ type ControlActivity struct {
 	// Activity name.
 	Name string `pulumi:"name"`
 	// Type of activity.
+	// Expected value is 'Container'.
 	Type string `pulumi:"type"`
 	// Activity user properties.
 	UserProperties []UserProperty `pulumi:"userProperties"`
@@ -17435,6 +17798,7 @@ type ControlActivityArgs struct {
 	// Activity name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of activity.
+	// Expected value is 'Container'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Activity user properties.
 	UserProperties UserPropertyArrayInput `pulumi:"userProperties"`
@@ -17483,6 +17847,7 @@ func (o ControlActivityOutput) Name() pulumi.StringOutput {
 }
 
 // Type of activity.
+// Expected value is 'Container'.
 func (o ControlActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17501,6 +17866,7 @@ type ControlActivityResponse struct {
 	// Activity name.
 	Name string `pulumi:"name"`
 	// Type of activity.
+	// Expected value is 'Container'.
 	Type string `pulumi:"type"`
 	// Activity user properties.
 	UserProperties []UserPropertyResponse `pulumi:"userProperties"`
@@ -17526,6 +17892,7 @@ type ControlActivityResponseArgs struct {
 	// Activity name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of activity.
+	// Expected value is 'Container'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Activity user properties.
 	UserProperties UserPropertyResponseArrayInput `pulumi:"userProperties"`
@@ -17574,6 +17941,7 @@ func (o ControlActivityResponseOutput) Name() pulumi.StringOutput {
 }
 
 // Type of activity.
+// Expected value is 'Container'.
 func (o ControlActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17604,6 +17972,7 @@ type CosmosDbLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CosmosDb'.
 	Type string `pulumi:"type"`
 }
 
@@ -17639,6 +18008,7 @@ type CosmosDbLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CosmosDb'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -17715,6 +18085,7 @@ func (o CosmosDbLinkedServiceOutput) Parameters() ParameterSpecificationMapOutpu
 }
 
 // Type of linked service.
+// Expected value is 'CosmosDb'.
 func (o CosmosDbLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CosmosDbLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17740,6 +18111,7 @@ type CosmosDbLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CosmosDb'.
 	Type string `pulumi:"type"`
 }
 
@@ -17775,6 +18147,7 @@ type CosmosDbLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CosmosDb'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -17851,6 +18224,7 @@ func (o CosmosDbLinkedServiceResponseOutput) Parameters() ParameterSpecification
 }
 
 // Type of linked service.
+// Expected value is 'CosmosDb'.
 func (o CosmosDbLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CosmosDbLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17874,6 +18248,7 @@ type CosmosDbMongoDbApiCollectionDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CosmosDbMongoDbApiCollection'.
 	Type string `pulumi:"type"`
 }
 
@@ -17907,6 +18282,7 @@ type CosmosDbMongoDbApiCollectionDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CosmosDbMongoDbApiCollection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -17978,6 +18354,7 @@ func (o CosmosDbMongoDbApiCollectionDatasetOutput) Structure() pulumi.AnyOutput 
 }
 
 // Type of dataset.
+// Expected value is 'CosmosDbMongoDbApiCollection'.
 func (o CosmosDbMongoDbApiCollectionDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CosmosDbMongoDbApiCollectionDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18001,6 +18378,7 @@ type CosmosDbMongoDbApiCollectionDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CosmosDbMongoDbApiCollection'.
 	Type string `pulumi:"type"`
 }
 
@@ -18034,6 +18412,7 @@ type CosmosDbMongoDbApiCollectionDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CosmosDbMongoDbApiCollection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18109,6 +18488,7 @@ func (o CosmosDbMongoDbApiCollectionDatasetResponseOutput) Structure() pulumi.An
 }
 
 // Type of dataset.
+// Expected value is 'CosmosDbMongoDbApiCollection'.
 func (o CosmosDbMongoDbApiCollectionDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CosmosDbMongoDbApiCollectionDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18128,6 +18508,7 @@ type CosmosDbMongoDbApiLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CosmosDbMongoDbApi'.
 	Type string `pulumi:"type"`
 }
 
@@ -18157,6 +18538,7 @@ type CosmosDbMongoDbApiLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CosmosDbMongoDbApi'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18218,6 +18600,7 @@ func (o CosmosDbMongoDbApiLinkedServiceOutput) Parameters() ParameterSpecificati
 }
 
 // Type of linked service.
+// Expected value is 'CosmosDbMongoDbApi'.
 func (o CosmosDbMongoDbApiLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CosmosDbMongoDbApiLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18237,6 +18620,7 @@ type CosmosDbMongoDbApiLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CosmosDbMongoDbApi'.
 	Type string `pulumi:"type"`
 }
 
@@ -18266,6 +18650,7 @@ type CosmosDbMongoDbApiLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CosmosDbMongoDbApi'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18331,6 +18716,7 @@ func (o CosmosDbMongoDbApiLinkedServiceResponseOutput) Parameters() ParameterSpe
 }
 
 // Type of linked service.
+// Expected value is 'CosmosDbMongoDbApi'.
 func (o CosmosDbMongoDbApiLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CosmosDbMongoDbApiLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18354,6 +18740,7 @@ type CosmosDbSqlApiCollectionDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CosmosDbSqlApiCollection'.
 	Type string `pulumi:"type"`
 }
 
@@ -18387,6 +18774,7 @@ type CosmosDbSqlApiCollectionDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CosmosDbSqlApiCollection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18458,6 +18846,7 @@ func (o CosmosDbSqlApiCollectionDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'CosmosDbSqlApiCollection'.
 func (o CosmosDbSqlApiCollectionDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CosmosDbSqlApiCollectionDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18481,6 +18870,7 @@ type CosmosDbSqlApiCollectionDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CosmosDbSqlApiCollection'.
 	Type string `pulumi:"type"`
 }
 
@@ -18514,6 +18904,7 @@ type CosmosDbSqlApiCollectionDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CosmosDbSqlApiCollection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18589,6 +18980,7 @@ func (o CosmosDbSqlApiCollectionDatasetResponseOutput) Structure() pulumi.AnyOut
 }
 
 // Type of dataset.
+// Expected value is 'CosmosDbSqlApiCollection'.
 func (o CosmosDbSqlApiCollectionDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CosmosDbSqlApiCollectionDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18610,6 +19002,7 @@ type CouchbaseLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Couchbase'.
 	Type string `pulumi:"type"`
 }
 
@@ -18641,6 +19034,7 @@ type CouchbaseLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Couchbase'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18707,6 +19101,7 @@ func (o CouchbaseLinkedServiceOutput) Parameters() ParameterSpecificationMapOutp
 }
 
 // Type of linked service.
+// Expected value is 'Couchbase'.
 func (o CouchbaseLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CouchbaseLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18728,6 +19123,7 @@ type CouchbaseLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Couchbase'.
 	Type string `pulumi:"type"`
 }
 
@@ -18759,6 +19155,7 @@ type CouchbaseLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Couchbase'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18825,6 +19222,7 @@ func (o CouchbaseLinkedServiceResponseOutput) Parameters() ParameterSpecificatio
 }
 
 // Type of linked service.
+// Expected value is 'Couchbase'.
 func (o CouchbaseLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CouchbaseLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18848,6 +19246,7 @@ type CouchbaseTableDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'CouchbaseTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -18881,6 +19280,7 @@ type CouchbaseTableDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'CouchbaseTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18952,6 +19352,7 @@ func (o CouchbaseTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'CouchbaseTable'.
 func (o CouchbaseTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CouchbaseTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18975,6 +19376,7 @@ type CouchbaseTableDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'CouchbaseTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -19008,6 +19410,7 @@ type CouchbaseTableDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'CouchbaseTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -19079,6 +19482,7 @@ func (o CouchbaseTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'CouchbaseTable'.
 func (o CouchbaseTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CouchbaseTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -19094,6 +19498,7 @@ type CustomDataSourceLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CustomDataSource'.
 	Type string `pulumi:"type"`
 }
 
@@ -19119,6 +19524,7 @@ type CustomDataSourceLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CustomDataSource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -19170,6 +19576,7 @@ func (o CustomDataSourceLinkedServiceOutput) Parameters() ParameterSpecification
 }
 
 // Type of linked service.
+// Expected value is 'CustomDataSource'.
 func (o CustomDataSourceLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDataSourceLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -19185,6 +19592,7 @@ type CustomDataSourceLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CustomDataSource'.
 	Type string `pulumi:"type"`
 }
 
@@ -19210,6 +19618,7 @@ type CustomDataSourceLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'CustomDataSource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -19265,6 +19674,7 @@ func (o CustomDataSourceLinkedServiceResponseOutput) Parameters() ParameterSpeci
 }
 
 // Type of linked service.
+// Expected value is 'CustomDataSource'.
 func (o CustomDataSourceLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDataSourceLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -19286,6 +19696,7 @@ type CustomDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CustomDataset'.
 	Type string `pulumi:"type"`
 }
 
@@ -19317,6 +19728,7 @@ type CustomDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CustomDataset'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -19383,6 +19795,7 @@ func (o CustomDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'CustomDataset'.
 func (o CustomDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -19404,6 +19817,7 @@ type CustomDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CustomDataset'.
 	Type string `pulumi:"type"`
 }
 
@@ -19435,6 +19849,7 @@ type CustomDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'CustomDataset'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -19501,6 +19916,7 @@ func (o CustomDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'CustomDataset'.
 func (o CustomDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20320,6 +20736,7 @@ func (o DataFlowSourceResponseArrayOutput) Index(i pulumi.IntInput) DataFlowSour
 // The BZip2 compression method used on a dataset.
 type DatasetBZip2Compression struct {
 	// Type of dataset compression.
+	// Expected value is 'BZip2'.
 	Type string `pulumi:"type"`
 }
 
@@ -20337,6 +20754,7 @@ type DatasetBZip2CompressionInput interface {
 // The BZip2 compression method used on a dataset.
 type DatasetBZip2CompressionArgs struct {
 	// Type of dataset compression.
+	// Expected value is 'BZip2'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20368,6 +20786,7 @@ func (o DatasetBZip2CompressionOutput) ToDatasetBZip2CompressionOutputWithContex
 }
 
 // Type of dataset compression.
+// Expected value is 'BZip2'.
 func (o DatasetBZip2CompressionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetBZip2Compression) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20375,6 +20794,7 @@ func (o DatasetBZip2CompressionOutput) Type() pulumi.StringOutput {
 // The BZip2 compression method used on a dataset.
 type DatasetBZip2CompressionResponse struct {
 	// Type of dataset compression.
+	// Expected value is 'BZip2'.
 	Type string `pulumi:"type"`
 }
 
@@ -20392,6 +20812,7 @@ type DatasetBZip2CompressionResponseInput interface {
 // The BZip2 compression method used on a dataset.
 type DatasetBZip2CompressionResponseArgs struct {
 	// Type of dataset compression.
+	// Expected value is 'BZip2'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20423,6 +20844,7 @@ func (o DatasetBZip2CompressionResponseOutput) ToDatasetBZip2CompressionResponse
 }
 
 // Type of dataset compression.
+// Expected value is 'BZip2'.
 func (o DatasetBZip2CompressionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetBZip2CompressionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20432,6 +20854,7 @@ type DatasetDeflateCompression struct {
 	// The Deflate compression level.
 	Level *string `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'Deflate'.
 	Type string `pulumi:"type"`
 }
 
@@ -20451,6 +20874,7 @@ type DatasetDeflateCompressionArgs struct {
 	// The Deflate compression level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'Deflate'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20487,6 +20911,7 @@ func (o DatasetDeflateCompressionOutput) Level() pulumi.StringPtrOutput {
 }
 
 // Type of dataset compression.
+// Expected value is 'Deflate'.
 func (o DatasetDeflateCompressionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetDeflateCompression) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20496,6 +20921,7 @@ type DatasetDeflateCompressionResponse struct {
 	// The Deflate compression level.
 	Level *string `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'Deflate'.
 	Type string `pulumi:"type"`
 }
 
@@ -20515,6 +20941,7 @@ type DatasetDeflateCompressionResponseArgs struct {
 	// The Deflate compression level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'Deflate'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20551,6 +20978,7 @@ func (o DatasetDeflateCompressionResponseOutput) Level() pulumi.StringPtrOutput 
 }
 
 // Type of dataset compression.
+// Expected value is 'Deflate'.
 func (o DatasetDeflateCompressionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetDeflateCompressionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20694,6 +21122,7 @@ type DatasetGZipCompression struct {
 	// The GZip compression level.
 	Level *string `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'GZip'.
 	Type string `pulumi:"type"`
 }
 
@@ -20713,6 +21142,7 @@ type DatasetGZipCompressionArgs struct {
 	// The GZip compression level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'GZip'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20749,6 +21179,7 @@ func (o DatasetGZipCompressionOutput) Level() pulumi.StringPtrOutput {
 }
 
 // Type of dataset compression.
+// Expected value is 'GZip'.
 func (o DatasetGZipCompressionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetGZipCompression) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20758,6 +21189,7 @@ type DatasetGZipCompressionResponse struct {
 	// The GZip compression level.
 	Level *string `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'GZip'.
 	Type string `pulumi:"type"`
 }
 
@@ -20777,6 +21209,7 @@ type DatasetGZipCompressionResponseArgs struct {
 	// The GZip compression level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'GZip'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20813,6 +21246,7 @@ func (o DatasetGZipCompressionResponseOutput) Level() pulumi.StringPtrOutput {
 }
 
 // Type of dataset compression.
+// Expected value is 'GZip'.
 func (o DatasetGZipCompressionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetGZipCompressionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -21298,6 +21732,7 @@ func (o DatasetResponseFolderPtrOutput) Name() pulumi.StringPtrOutput {
 // The Tar archive method used on a dataset.
 type DatasetTarCompression struct {
 	// Type of dataset compression.
+	// Expected value is 'Tar'.
 	Type string `pulumi:"type"`
 }
 
@@ -21315,6 +21750,7 @@ type DatasetTarCompressionInput interface {
 // The Tar archive method used on a dataset.
 type DatasetTarCompressionArgs struct {
 	// Type of dataset compression.
+	// Expected value is 'Tar'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -21346,6 +21782,7 @@ func (o DatasetTarCompressionOutput) ToDatasetTarCompressionOutputWithContext(ct
 }
 
 // Type of dataset compression.
+// Expected value is 'Tar'.
 func (o DatasetTarCompressionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetTarCompression) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -21353,6 +21790,7 @@ func (o DatasetTarCompressionOutput) Type() pulumi.StringOutput {
 // The Tar archive method used on a dataset.
 type DatasetTarCompressionResponse struct {
 	// Type of dataset compression.
+	// Expected value is 'Tar'.
 	Type string `pulumi:"type"`
 }
 
@@ -21370,6 +21808,7 @@ type DatasetTarCompressionResponseInput interface {
 // The Tar archive method used on a dataset.
 type DatasetTarCompressionResponseArgs struct {
 	// Type of dataset compression.
+	// Expected value is 'Tar'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -21401,6 +21840,7 @@ func (o DatasetTarCompressionResponseOutput) ToDatasetTarCompressionResponseOutp
 }
 
 // Type of dataset compression.
+// Expected value is 'Tar'.
 func (o DatasetTarCompressionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetTarCompressionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -21410,6 +21850,7 @@ type DatasetTarGZipCompression struct {
 	// The TarGZip compression level.
 	Level *string `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'TarGZip'.
 	Type string `pulumi:"type"`
 }
 
@@ -21429,6 +21870,7 @@ type DatasetTarGZipCompressionArgs struct {
 	// The TarGZip compression level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'TarGZip'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -21465,6 +21907,7 @@ func (o DatasetTarGZipCompressionOutput) Level() pulumi.StringPtrOutput {
 }
 
 // Type of dataset compression.
+// Expected value is 'TarGZip'.
 func (o DatasetTarGZipCompressionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetTarGZipCompression) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -21474,6 +21917,7 @@ type DatasetTarGZipCompressionResponse struct {
 	// The TarGZip compression level.
 	Level *string `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'TarGZip'.
 	Type string `pulumi:"type"`
 }
 
@@ -21493,6 +21937,7 @@ type DatasetTarGZipCompressionResponseArgs struct {
 	// The TarGZip compression level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'TarGZip'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -21529,6 +21974,7 @@ func (o DatasetTarGZipCompressionResponseOutput) Level() pulumi.StringPtrOutput 
 }
 
 // Type of dataset compression.
+// Expected value is 'TarGZip'.
 func (o DatasetTarGZipCompressionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetTarGZipCompressionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -21538,6 +21984,7 @@ type DatasetZipDeflateCompression struct {
 	// The ZipDeflate compression level.
 	Level *string `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'ZipDeflate'.
 	Type string `pulumi:"type"`
 }
 
@@ -21557,6 +22004,7 @@ type DatasetZipDeflateCompressionArgs struct {
 	// The ZipDeflate compression level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'ZipDeflate'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -21593,6 +22041,7 @@ func (o DatasetZipDeflateCompressionOutput) Level() pulumi.StringPtrOutput {
 }
 
 // Type of dataset compression.
+// Expected value is 'ZipDeflate'.
 func (o DatasetZipDeflateCompressionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetZipDeflateCompression) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -21602,6 +22051,7 @@ type DatasetZipDeflateCompressionResponse struct {
 	// The ZipDeflate compression level.
 	Level *string `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'ZipDeflate'.
 	Type string `pulumi:"type"`
 }
 
@@ -21621,6 +22071,7 @@ type DatasetZipDeflateCompressionResponseArgs struct {
 	// The ZipDeflate compression level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
+	// Expected value is 'ZipDeflate'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -21657,6 +22108,7 @@ func (o DatasetZipDeflateCompressionResponseOutput) Level() pulumi.StringPtrOutp
 }
 
 // Type of dataset compression.
+// Expected value is 'ZipDeflate'.
 func (o DatasetZipDeflateCompressionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetZipDeflateCompressionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -21688,6 +22140,7 @@ type Db2LinkedService struct {
 	// Server name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Db2'.
 	Type string `pulumi:"type"`
 	// Username for authentication. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -21731,6 +22184,7 @@ type Db2LinkedServiceArgs struct {
 	// Server name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Db2'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username for authentication. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -21824,6 +22278,7 @@ func (o Db2LinkedServiceOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Db2'.
 func (o Db2LinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Db2LinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -21860,6 +22315,7 @@ type Db2LinkedServiceResponse struct {
 	// Server name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Db2'.
 	Type string `pulumi:"type"`
 	// Username for authentication. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -21903,6 +22359,7 @@ type Db2LinkedServiceResponseArgs struct {
 	// Server name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Db2'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username for authentication. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -21996,6 +22453,7 @@ func (o Db2LinkedServiceResponseOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Db2'.
 func (o Db2LinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Db2LinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -22026,6 +22484,7 @@ type Db2TableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'Db2Table'.
 	Type string `pulumi:"type"`
 }
 
@@ -22061,6 +22520,7 @@ type Db2TableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'Db2Table'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -22137,6 +22597,7 @@ func (o Db2TableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Db2Table'.
 func (o Db2TableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Db2TableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -22162,6 +22623,7 @@ type Db2TableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'Db2Table'.
 	Type string `pulumi:"type"`
 }
 
@@ -22197,6 +22659,7 @@ type Db2TableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'Db2Table'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -22273,6 +22736,7 @@ func (o Db2TableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Db2Table'.
 func (o Db2TableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Db2TableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -22313,6 +22777,7 @@ type DelimitedTextDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DelimitedText'.
 	Type string `pulumi:"type"`
 }
 
@@ -22363,6 +22828,7 @@ type DelimitedTextDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DelimitedText'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -22478,6 +22944,7 @@ func (o DelimitedTextDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'DelimitedText'.
 func (o DelimitedTextDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DelimitedTextDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -22518,6 +22985,7 @@ type DelimitedTextDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DelimitedText'.
 	Type string `pulumi:"type"`
 }
 
@@ -22568,6 +23036,7 @@ type DelimitedTextDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DelimitedText'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -22683,6 +23152,7 @@ func (o DelimitedTextDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'DelimitedText'.
 func (o DelimitedTextDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DelimitedTextDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -22706,6 +23176,7 @@ type DocumentDbCollectionDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DocumentDbCollection'.
 	Type string `pulumi:"type"`
 }
 
@@ -22739,6 +23210,7 @@ type DocumentDbCollectionDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DocumentDbCollection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -22810,6 +23282,7 @@ func (o DocumentDbCollectionDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'DocumentDbCollection'.
 func (o DocumentDbCollectionDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentDbCollectionDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -22833,6 +23306,7 @@ type DocumentDbCollectionDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DocumentDbCollection'.
 	Type string `pulumi:"type"`
 }
 
@@ -22866,6 +23340,7 @@ type DocumentDbCollectionDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DocumentDbCollection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -22939,6 +23414,7 @@ func (o DocumentDbCollectionDatasetResponseOutput) Structure() pulumi.AnyOutput 
 }
 
 // Type of dataset.
+// Expected value is 'DocumentDbCollection'.
 func (o DocumentDbCollectionDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentDbCollectionDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -22960,6 +23436,7 @@ type DrillLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReference `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Drill'.
 	Type string `pulumi:"type"`
 }
 
@@ -22991,6 +23468,7 @@ type DrillLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferencePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Drill'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23057,6 +23535,7 @@ func (o DrillLinkedServiceOutput) Pwd() AzureKeyVaultSecretReferencePtrOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Drill'.
 func (o DrillLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DrillLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23078,6 +23557,7 @@ type DrillLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReferenceResponse `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Drill'.
 	Type string `pulumi:"type"`
 }
 
@@ -23109,6 +23589,7 @@ type DrillLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Drill'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23175,6 +23656,7 @@ func (o DrillLinkedServiceResponseOutput) Pwd() AzureKeyVaultSecretReferenceResp
 }
 
 // Type of linked service.
+// Expected value is 'Drill'.
 func (o DrillLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DrillLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23200,6 +23682,7 @@ type DrillTableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'DrillTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -23235,6 +23718,7 @@ type DrillTableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'DrillTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23311,6 +23795,7 @@ func (o DrillTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'DrillTable'.
 func (o DrillTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DrillTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23336,6 +23821,7 @@ type DrillTableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'DrillTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -23371,6 +23857,7 @@ type DrillTableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'DrillTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23447,6 +23934,7 @@ func (o DrillTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'DrillTable'.
 func (o DrillTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DrillTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23472,6 +23960,7 @@ type DynamicsAXLinkedService struct {
 	// Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'DynamicsAX'.
 	Type string `pulumi:"type"`
 	// The Dynamics AX (or Dynamics 365 Finance and Operations) instance OData endpoint.
 	Url interface{} `pulumi:"url"`
@@ -23509,6 +23998,7 @@ type DynamicsAXLinkedServiceArgs struct {
 	// Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'DynamicsAX'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The Dynamics AX (or Dynamics 365 Finance and Operations) instance OData endpoint.
 	Url pulumi.Input `pulumi:"url"`
@@ -23587,6 +24077,7 @@ func (o DynamicsAXLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'DynamicsAX'.
 func (o DynamicsAXLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsAXLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23617,6 +24108,7 @@ type DynamicsAXLinkedServiceResponse struct {
 	// Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'DynamicsAX'.
 	Type string `pulumi:"type"`
 	// The Dynamics AX (or Dynamics 365 Finance and Operations) instance OData endpoint.
 	Url interface{} `pulumi:"url"`
@@ -23654,6 +24146,7 @@ type DynamicsAXLinkedServiceResponseArgs struct {
 	// Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'DynamicsAX'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The Dynamics AX (or Dynamics 365 Finance and Operations) instance OData endpoint.
 	Url pulumi.Input `pulumi:"url"`
@@ -23732,6 +24225,7 @@ func (o DynamicsAXLinkedServiceResponseOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'DynamicsAX'.
 func (o DynamicsAXLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsAXLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23760,6 +24254,7 @@ type DynamicsAXResourceDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsAXResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -23793,6 +24288,7 @@ type DynamicsAXResourceDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsAXResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23864,6 +24360,7 @@ func (o DynamicsAXResourceDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'DynamicsAXResource'.
 func (o DynamicsAXResourceDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsAXResourceDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23887,6 +24384,7 @@ type DynamicsAXResourceDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsAXResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -23920,6 +24418,7 @@ type DynamicsAXResourceDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsAXResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23993,6 +24492,7 @@ func (o DynamicsAXResourceDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'DynamicsAXResource'.
 func (o DynamicsAXResourceDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsAXResourceDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -24016,6 +24516,7 @@ type DynamicsCrmEntityDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsCrmEntity'.
 	Type string `pulumi:"type"`
 }
 
@@ -24049,6 +24550,7 @@ type DynamicsCrmEntityDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsCrmEntity'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -24120,6 +24622,7 @@ func (o DynamicsCrmEntityDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'DynamicsCrmEntity'.
 func (o DynamicsCrmEntityDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsCrmEntityDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -24143,6 +24646,7 @@ type DynamicsCrmEntityDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsCrmEntity'.
 	Type string `pulumi:"type"`
 }
 
@@ -24176,6 +24680,7 @@ type DynamicsCrmEntityDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsCrmEntity'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -24249,6 +24754,7 @@ func (o DynamicsCrmEntityDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'DynamicsCrmEntity'.
 func (o DynamicsCrmEntityDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsCrmEntityDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -24286,6 +24792,7 @@ type DynamicsCrmLinkedService struct {
 	// The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri interface{} `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'DynamicsCrm'.
 	Type string `pulumi:"type"`
 	// User name to access the Dynamics CRM instance. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -24335,6 +24842,7 @@ type DynamicsCrmLinkedServiceArgs struct {
 	// The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri pulumi.Input `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'DynamicsCrm'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name to access the Dynamics CRM instance. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -24443,6 +24951,7 @@ func (o DynamicsCrmLinkedServiceOutput) ServiceUri() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'DynamicsCrm'.
 func (o DynamicsCrmLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsCrmLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -24485,6 +24994,7 @@ type DynamicsCrmLinkedServiceResponse struct {
 	// The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri interface{} `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'DynamicsCrm'.
 	Type string `pulumi:"type"`
 	// User name to access the Dynamics CRM instance. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -24534,6 +25044,7 @@ type DynamicsCrmLinkedServiceResponseArgs struct {
 	// The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri pulumi.Input `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'DynamicsCrm'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name to access the Dynamics CRM instance. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -24644,6 +25155,7 @@ func (o DynamicsCrmLinkedServiceResponseOutput) ServiceUri() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'DynamicsCrm'.
 func (o DynamicsCrmLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsCrmLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -24672,6 +25184,7 @@ type DynamicsEntityDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsEntity'.
 	Type string `pulumi:"type"`
 }
 
@@ -24705,6 +25218,7 @@ type DynamicsEntityDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsEntity'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -24776,6 +25290,7 @@ func (o DynamicsEntityDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'DynamicsEntity'.
 func (o DynamicsEntityDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsEntityDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -24799,6 +25314,7 @@ type DynamicsEntityDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsEntity'.
 	Type string `pulumi:"type"`
 }
 
@@ -24832,6 +25348,7 @@ type DynamicsEntityDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'DynamicsEntity'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -24903,6 +25420,7 @@ func (o DynamicsEntityDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'DynamicsEntity'.
 func (o DynamicsEntityDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsEntityDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -24940,6 +25458,7 @@ type DynamicsLinkedService struct {
 	// The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri interface{} `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'Dynamics'.
 	Type string `pulumi:"type"`
 	// User name to access the Dynamics instance. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -24989,6 +25508,7 @@ type DynamicsLinkedServiceArgs struct {
 	// The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri pulumi.Input `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'Dynamics'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name to access the Dynamics instance. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -25097,6 +25617,7 @@ func (o DynamicsLinkedServiceOutput) ServiceUri() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Dynamics'.
 func (o DynamicsLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -25139,6 +25660,7 @@ type DynamicsLinkedServiceResponse struct {
 	// The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri interface{} `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'Dynamics'.
 	Type string `pulumi:"type"`
 	// User name to access the Dynamics instance. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -25188,6 +25710,7 @@ type DynamicsLinkedServiceResponseArgs struct {
 	// The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
 	ServiceUri pulumi.Input `pulumi:"serviceUri"`
 	// Type of linked service.
+	// Expected value is 'Dynamics'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name to access the Dynamics instance. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -25296,6 +25819,7 @@ func (o DynamicsLinkedServiceResponseOutput) ServiceUri() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Dynamics'.
 func (o DynamicsLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicsLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -25322,6 +25846,7 @@ type EloquaLinkedService struct {
 	// The password corresponding to the user name.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Eloqua'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -25361,6 +25886,7 @@ type EloquaLinkedServiceArgs struct {
 	// The password corresponding to the user name.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Eloqua'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -25435,6 +25961,7 @@ func (o EloquaLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Eloqua'.
 func (o EloquaLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EloquaLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -25476,6 +26003,7 @@ type EloquaLinkedServiceResponse struct {
 	// The password corresponding to the user name.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Eloqua'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -25515,6 +26043,7 @@ type EloquaLinkedServiceResponseArgs struct {
 	// The password corresponding to the user name.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Eloqua'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -25589,6 +26118,7 @@ func (o EloquaLinkedServiceResponseOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Eloqua'.
 func (o EloquaLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EloquaLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -25632,6 +26162,7 @@ type EloquaObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'EloquaObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -25665,6 +26196,7 @@ type EloquaObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'EloquaObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -25736,6 +26268,7 @@ func (o EloquaObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'EloquaObject'.
 func (o EloquaObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EloquaObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -25759,6 +26292,7 @@ type EloquaObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'EloquaObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -25792,6 +26326,7 @@ type EloquaObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'EloquaObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -25863,6 +26398,7 @@ func (o EloquaObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'EloquaObject'.
 func (o EloquaObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EloquaObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -26558,6 +27094,7 @@ func (o EntityReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // The custom setup of setting environment variable.
 type EnvironmentVariableSetup struct {
 	// The type of custom setup.
+	// Expected value is 'EnvironmentVariableSetup'.
 	Type string `pulumi:"type"`
 	// The name of the environment variable.
 	VariableName string `pulumi:"variableName"`
@@ -26579,6 +27116,7 @@ type EnvironmentVariableSetupInput interface {
 // The custom setup of setting environment variable.
 type EnvironmentVariableSetupArgs struct {
 	// The type of custom setup.
+	// Expected value is 'EnvironmentVariableSetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The name of the environment variable.
 	VariableName pulumi.StringInput `pulumi:"variableName"`
@@ -26614,6 +27152,7 @@ func (o EnvironmentVariableSetupOutput) ToEnvironmentVariableSetupOutputWithCont
 }
 
 // The type of custom setup.
+// Expected value is 'EnvironmentVariableSetup'.
 func (o EnvironmentVariableSetupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentVariableSetup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -26631,6 +27170,7 @@ func (o EnvironmentVariableSetupOutput) VariableValue() pulumi.StringOutput {
 // The custom setup of setting environment variable.
 type EnvironmentVariableSetupResponse struct {
 	// The type of custom setup.
+	// Expected value is 'EnvironmentVariableSetup'.
 	Type string `pulumi:"type"`
 	// The name of the environment variable.
 	VariableName string `pulumi:"variableName"`
@@ -26652,6 +27192,7 @@ type EnvironmentVariableSetupResponseInput interface {
 // The custom setup of setting environment variable.
 type EnvironmentVariableSetupResponseArgs struct {
 	// The type of custom setup.
+	// Expected value is 'EnvironmentVariableSetup'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The name of the environment variable.
 	VariableName pulumi.StringInput `pulumi:"variableName"`
@@ -26687,6 +27228,7 @@ func (o EnvironmentVariableSetupResponseOutput) ToEnvironmentVariableSetupRespon
 }
 
 // The type of custom setup.
+// Expected value is 'EnvironmentVariableSetup'.
 func (o EnvironmentVariableSetupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentVariableSetupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -26730,6 +27272,7 @@ type ExcelDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Excel'.
 	Type string `pulumi:"type"`
 }
 
@@ -26773,6 +27316,7 @@ type ExcelDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Excel'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -26869,6 +27413,7 @@ func (o ExcelDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Excel'.
 func (o ExcelDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExcelDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -26902,6 +27447,7 @@ type ExcelDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Excel'.
 	Type string `pulumi:"type"`
 }
 
@@ -26945,6 +27491,7 @@ type ExcelDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Excel'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -27041,6 +27588,7 @@ func (o ExcelDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Excel'.
 func (o ExcelDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExcelDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -27058,6 +27606,7 @@ type ExecutionActivity struct {
 	// Activity policy.
 	Policy *ActivityPolicy `pulumi:"policy"`
 	// Type of activity.
+	// Expected value is 'Execution'.
 	Type string `pulumi:"type"`
 	// Activity user properties.
 	UserProperties []UserProperty `pulumi:"userProperties"`
@@ -27087,6 +27636,7 @@ type ExecutionActivityArgs struct {
 	// Activity policy.
 	Policy ActivityPolicyPtrInput `pulumi:"policy"`
 	// Type of activity.
+	// Expected value is 'Execution'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Activity user properties.
 	UserProperties UserPropertyArrayInput `pulumi:"userProperties"`
@@ -27145,6 +27695,7 @@ func (o ExecutionActivityOutput) Policy() ActivityPolicyPtrOutput {
 }
 
 // Type of activity.
+// Expected value is 'Execution'.
 func (o ExecutionActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExecutionActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -27167,6 +27718,7 @@ type ExecutionActivityResponse struct {
 	// Activity policy.
 	Policy *ActivityPolicyResponse `pulumi:"policy"`
 	// Type of activity.
+	// Expected value is 'Execution'.
 	Type string `pulumi:"type"`
 	// Activity user properties.
 	UserProperties []UserPropertyResponse `pulumi:"userProperties"`
@@ -27196,6 +27748,7 @@ type ExecutionActivityResponseArgs struct {
 	// Activity policy.
 	Policy ActivityPolicyResponsePtrInput `pulumi:"policy"`
 	// Type of activity.
+	// Expected value is 'Execution'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Activity user properties.
 	UserProperties UserPropertyResponseArrayInput `pulumi:"userProperties"`
@@ -27254,6 +27807,7 @@ func (o ExecutionActivityResponseOutput) Policy() ActivityPolicyResponsePtrOutpu
 }
 
 // Type of activity.
+// Expected value is 'Execution'.
 func (o ExecutionActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExecutionActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -27278,6 +27832,7 @@ type FactoryGitHubConfiguration struct {
 	// Root folder.
 	RootFolder string `pulumi:"rootFolder"`
 	// Type of repo configuration.
+	// Expected value is 'FactoryGitHubConfiguration'.
 	Type string `pulumi:"type"`
 }
 
@@ -27307,6 +27862,7 @@ type FactoryGitHubConfigurationArgs struct {
 	// Root folder.
 	RootFolder pulumi.StringInput `pulumi:"rootFolder"`
 	// Type of repo configuration.
+	// Expected value is 'FactoryGitHubConfiguration'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -27368,6 +27924,7 @@ func (o FactoryGitHubConfigurationOutput) RootFolder() pulumi.StringOutput {
 }
 
 // Type of repo configuration.
+// Expected value is 'FactoryGitHubConfiguration'.
 func (o FactoryGitHubConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryGitHubConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -27387,6 +27944,7 @@ type FactoryGitHubConfigurationResponse struct {
 	// Root folder.
 	RootFolder string `pulumi:"rootFolder"`
 	// Type of repo configuration.
+	// Expected value is 'FactoryGitHubConfiguration'.
 	Type string `pulumi:"type"`
 }
 
@@ -27416,6 +27974,7 @@ type FactoryGitHubConfigurationResponseArgs struct {
 	// Root folder.
 	RootFolder pulumi.StringInput `pulumi:"rootFolder"`
 	// Type of repo configuration.
+	// Expected value is 'FactoryGitHubConfiguration'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -27477,6 +28036,7 @@ func (o FactoryGitHubConfigurationResponseOutput) RootFolder() pulumi.StringOutp
 }
 
 // Type of repo configuration.
+// Expected value is 'FactoryGitHubConfiguration'.
 func (o FactoryGitHubConfigurationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryGitHubConfigurationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -27842,6 +28402,7 @@ type FactoryVSTSConfiguration struct {
 	// VSTS tenant id.
 	TenantId *string `pulumi:"tenantId"`
 	// Type of repo configuration.
+	// Expected value is 'FactoryVSTSConfiguration'.
 	Type string `pulumi:"type"`
 }
 
@@ -27873,6 +28434,7 @@ type FactoryVSTSConfigurationArgs struct {
 	// VSTS tenant id.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Type of repo configuration.
+	// Expected value is 'FactoryVSTSConfiguration'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -27939,6 +28501,7 @@ func (o FactoryVSTSConfigurationOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Type of repo configuration.
+// Expected value is 'FactoryVSTSConfiguration'.
 func (o FactoryVSTSConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryVSTSConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -27960,6 +28523,7 @@ type FactoryVSTSConfigurationResponse struct {
 	// VSTS tenant id.
 	TenantId *string `pulumi:"tenantId"`
 	// Type of repo configuration.
+	// Expected value is 'FactoryVSTSConfiguration'.
 	Type string `pulumi:"type"`
 }
 
@@ -27991,6 +28555,7 @@ type FactoryVSTSConfigurationResponseArgs struct {
 	// VSTS tenant id.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Type of repo configuration.
+	// Expected value is 'FactoryVSTSConfiguration'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -28057,6 +28622,7 @@ func (o FactoryVSTSConfigurationResponseOutput) TenantId() pulumi.StringPtrOutpu
 }
 
 // Type of repo configuration.
+// Expected value is 'FactoryVSTSConfiguration'.
 func (o FactoryVSTSConfigurationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryVSTSConfigurationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -28078,6 +28644,7 @@ type FileServerLinkedService struct {
 	// Password to logon the server.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'FileServer'.
 	Type string `pulumi:"type"`
 	// User ID to logon the server. Type: string (or Expression with resultType string).
 	UserId interface{} `pulumi:"userId"`
@@ -28111,6 +28678,7 @@ type FileServerLinkedServiceArgs struct {
 	// Password to logon the server.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'FileServer'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User ID to logon the server. Type: string (or Expression with resultType string).
 	UserId pulumi.Input `pulumi:"userId"`
@@ -28179,6 +28747,7 @@ func (o FileServerLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'FileServer'.
 func (o FileServerLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileServerLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -28205,6 +28774,7 @@ type FileServerLinkedServiceResponse struct {
 	// Password to logon the server.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'FileServer'.
 	Type string `pulumi:"type"`
 	// User ID to logon the server. Type: string (or Expression with resultType string).
 	UserId interface{} `pulumi:"userId"`
@@ -28238,6 +28808,7 @@ type FileServerLinkedServiceResponseArgs struct {
 	// Password to logon the server.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'FileServer'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User ID to logon the server. Type: string (or Expression with resultType string).
 	UserId pulumi.Input `pulumi:"userId"`
@@ -28306,6 +28877,7 @@ func (o FileServerLinkedServiceResponseOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'FileServer'.
 func (o FileServerLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileServerLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -28322,6 +28894,7 @@ type FileServerLocation struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'FileServerLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -28343,6 +28916,7 @@ type FileServerLocationArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'FileServerLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -28384,6 +28958,7 @@ func (o FileServerLocationOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'FileServerLocation'.
 func (o FileServerLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileServerLocation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -28395,6 +28970,7 @@ type FileServerLocationResponse struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'FileServerLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -28416,6 +28992,7 @@ type FileServerLocationResponseArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'FileServerLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -28457,6 +29034,7 @@ func (o FileServerLocationResponseOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'FileServerLocation'.
 func (o FileServerLocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileServerLocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -28492,6 +29070,7 @@ type FileShareDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'FileShare'.
 	Type string `pulumi:"type"`
 }
 
@@ -28537,6 +29116,7 @@ type FileShareDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'FileShare'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -28638,6 +29218,7 @@ func (o FileShareDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'FileShare'.
 func (o FileShareDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileShareDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -28673,6 +29254,7 @@ type FileShareDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'FileShare'.
 	Type string `pulumi:"type"`
 }
 
@@ -28718,6 +29300,7 @@ type FileShareDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'FileShare'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -28819,6 +29402,7 @@ func (o FileShareDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'FileShare'.
 func (o FileShareDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileShareDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -28848,6 +29432,7 @@ type FtpServerLinkedService struct {
 	// The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
 	Port interface{} `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'FtpServer'.
 	Type string `pulumi:"type"`
 	// Username to logon the FTP server. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -28889,6 +29474,7 @@ type FtpServerLinkedServiceArgs struct {
 	// The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
 	Port pulumi.Input `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'FtpServer'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username to logon the FTP server. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -28977,6 +29563,7 @@ func (o FtpServerLinkedServiceOutput) Port() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'FtpServer'.
 func (o FtpServerLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FtpServerLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29011,6 +29598,7 @@ type FtpServerLinkedServiceResponse struct {
 	// The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
 	Port interface{} `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'FtpServer'.
 	Type string `pulumi:"type"`
 	// Username to logon the FTP server. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -29052,6 +29640,7 @@ type FtpServerLinkedServiceResponseArgs struct {
 	// The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
 	Port pulumi.Input `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'FtpServer'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username to logon the FTP server. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -29140,6 +29729,7 @@ func (o FtpServerLinkedServiceResponseOutput) Port() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'FtpServer'.
 func (o FtpServerLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FtpServerLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29156,6 +29746,7 @@ type FtpServerLocation struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'FtpServerLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -29177,6 +29768,7 @@ type FtpServerLocationArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'FtpServerLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -29218,6 +29810,7 @@ func (o FtpServerLocationOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'FtpServerLocation'.
 func (o FtpServerLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FtpServerLocation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29229,6 +29822,7 @@ type FtpServerLocationResponse struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'FtpServerLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -29250,6 +29844,7 @@ type FtpServerLocationResponseArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'FtpServerLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -29291,6 +29886,7 @@ func (o FtpServerLocationResponseOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'FtpServerLocation'.
 func (o FtpServerLocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FtpServerLocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29544,6 +30140,7 @@ type GoogleAdWordsLinkedService struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'GoogleAdWords'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -29591,6 +30188,7 @@ type GoogleAdWordsLinkedServiceArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'GoogleAdWords'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -29694,6 +30292,7 @@ func (o GoogleAdWordsLinkedServiceOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'GoogleAdWords'.
 func (o GoogleAdWordsLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleAdWordsLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29734,6 +30333,7 @@ type GoogleAdWordsLinkedServiceResponse struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'GoogleAdWords'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -29781,6 +30381,7 @@ type GoogleAdWordsLinkedServiceResponseArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'GoogleAdWords'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -29886,6 +30487,7 @@ func (o GoogleAdWordsLinkedServiceResponseOutput) TrustedCertPath() pulumi.AnyOu
 }
 
 // Type of linked service.
+// Expected value is 'GoogleAdWords'.
 func (o GoogleAdWordsLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleAdWordsLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29914,6 +30516,7 @@ type GoogleAdWordsObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GoogleAdWordsObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -29947,6 +30550,7 @@ type GoogleAdWordsObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GoogleAdWordsObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -30018,6 +30622,7 @@ func (o GoogleAdWordsObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'GoogleAdWordsObject'.
 func (o GoogleAdWordsObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleAdWordsObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -30041,6 +30646,7 @@ type GoogleAdWordsObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GoogleAdWordsObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -30074,6 +30680,7 @@ type GoogleAdWordsObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GoogleAdWordsObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -30147,6 +30754,7 @@ func (o GoogleAdWordsObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'GoogleAdWordsObject'.
 func (o GoogleAdWordsObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleAdWordsObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -30184,6 +30792,7 @@ type GoogleBigQueryLinkedService struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'GoogleBigQuery'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -30233,6 +30842,7 @@ type GoogleBigQueryLinkedServiceArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'GoogleBigQuery'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -30341,6 +30951,7 @@ func (o GoogleBigQueryLinkedServiceOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'GoogleBigQuery'.
 func (o GoogleBigQueryLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleBigQueryLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -30383,6 +30994,7 @@ type GoogleBigQueryLinkedServiceResponse struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'GoogleBigQuery'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -30432,6 +31044,7 @@ type GoogleBigQueryLinkedServiceResponseArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'GoogleBigQuery'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -30542,6 +31155,7 @@ func (o GoogleBigQueryLinkedServiceResponseOutput) TrustedCertPath() pulumi.AnyO
 }
 
 // Type of linked service.
+// Expected value is 'GoogleBigQuery'.
 func (o GoogleBigQueryLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleBigQueryLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -30574,6 +31188,7 @@ type GoogleBigQueryObjectDataset struct {
 	// This property will be retired. Please consider using database + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GoogleBigQueryObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -30611,6 +31226,7 @@ type GoogleBigQueryObjectDatasetArgs struct {
 	// This property will be retired. Please consider using database + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GoogleBigQueryObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -30692,6 +31308,7 @@ func (o GoogleBigQueryObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'GoogleBigQueryObject'.
 func (o GoogleBigQueryObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleBigQueryObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -30719,6 +31336,7 @@ type GoogleBigQueryObjectDatasetResponse struct {
 	// This property will be retired. Please consider using database + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GoogleBigQueryObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -30756,6 +31374,7 @@ type GoogleBigQueryObjectDatasetResponseArgs struct {
 	// This property will be retired. Please consider using database + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GoogleBigQueryObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -30839,6 +31458,7 @@ func (o GoogleBigQueryObjectDatasetResponseOutput) TableName() pulumi.AnyOutput 
 }
 
 // Type of dataset.
+// Expected value is 'GoogleBigQueryObject'.
 func (o GoogleBigQueryObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleBigQueryObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -30862,6 +31482,7 @@ type GoogleCloudStorageLinkedService struct {
 	// This value specifies the endpoint to access with the Google Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
 	ServiceUrl interface{} `pulumi:"serviceUrl"`
 	// Type of linked service.
+	// Expected value is 'GoogleCloudStorage'.
 	Type string `pulumi:"type"`
 }
 
@@ -30895,6 +31516,7 @@ type GoogleCloudStorageLinkedServiceArgs struct {
 	// This value specifies the endpoint to access with the Google Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
 	ServiceUrl pulumi.Input `pulumi:"serviceUrl"`
 	// Type of linked service.
+	// Expected value is 'GoogleCloudStorage'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -30966,6 +31588,7 @@ func (o GoogleCloudStorageLinkedServiceOutput) ServiceUrl() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'GoogleCloudStorage'.
 func (o GoogleCloudStorageLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleCloudStorageLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -30989,6 +31612,7 @@ type GoogleCloudStorageLinkedServiceResponse struct {
 	// This value specifies the endpoint to access with the Google Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
 	ServiceUrl interface{} `pulumi:"serviceUrl"`
 	// Type of linked service.
+	// Expected value is 'GoogleCloudStorage'.
 	Type string `pulumi:"type"`
 }
 
@@ -31022,6 +31646,7 @@ type GoogleCloudStorageLinkedServiceResponseArgs struct {
 	// This value specifies the endpoint to access with the Google Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
 	ServiceUrl pulumi.Input `pulumi:"serviceUrl"`
 	// Type of linked service.
+	// Expected value is 'GoogleCloudStorage'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -31097,6 +31722,7 @@ func (o GoogleCloudStorageLinkedServiceResponseOutput) ServiceUrl() pulumi.AnyOu
 }
 
 // Type of linked service.
+// Expected value is 'GoogleCloudStorage'.
 func (o GoogleCloudStorageLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleCloudStorageLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -31110,6 +31736,7 @@ type GoogleCloudStorageLocation struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'GoogleCloudStorageLocation'.
 	Type string `pulumi:"type"`
 	// Specify the version of Google Cloud Storage. Type: string (or Expression with resultType string).
 	Version interface{} `pulumi:"version"`
@@ -31135,6 +31762,7 @@ type GoogleCloudStorageLocationArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'GoogleCloudStorageLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specify the version of Google Cloud Storage. Type: string (or Expression with resultType string).
 	Version pulumi.Input `pulumi:"version"`
@@ -31183,6 +31811,7 @@ func (o GoogleCloudStorageLocationOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'GoogleCloudStorageLocation'.
 func (o GoogleCloudStorageLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleCloudStorageLocation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -31201,6 +31830,7 @@ type GoogleCloudStorageLocationResponse struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'GoogleCloudStorageLocation'.
 	Type string `pulumi:"type"`
 	// Specify the version of Google Cloud Storage. Type: string (or Expression with resultType string).
 	Version interface{} `pulumi:"version"`
@@ -31226,6 +31856,7 @@ type GoogleCloudStorageLocationResponseArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'GoogleCloudStorageLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specify the version of Google Cloud Storage. Type: string (or Expression with resultType string).
 	Version pulumi.Input `pulumi:"version"`
@@ -31274,6 +31905,7 @@ func (o GoogleCloudStorageLocationResponseOutput) FolderPath() pulumi.AnyOutput 
 }
 
 // Type of dataset storage location.
+// Expected value is 'GoogleCloudStorageLocation'.
 func (o GoogleCloudStorageLocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleCloudStorageLocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -31300,6 +31932,7 @@ type GreenplumLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReference `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Greenplum'.
 	Type string `pulumi:"type"`
 }
 
@@ -31331,6 +31964,7 @@ type GreenplumLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferencePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Greenplum'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -31397,6 +32031,7 @@ func (o GreenplumLinkedServiceOutput) Pwd() AzureKeyVaultSecretReferencePtrOutpu
 }
 
 // Type of linked service.
+// Expected value is 'Greenplum'.
 func (o GreenplumLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GreenplumLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -31418,6 +32053,7 @@ type GreenplumLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReferenceResponse `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Greenplum'.
 	Type string `pulumi:"type"`
 }
 
@@ -31449,6 +32085,7 @@ type GreenplumLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Greenplum'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -31515,6 +32152,7 @@ func (o GreenplumLinkedServiceResponseOutput) Pwd() AzureKeyVaultSecretReference
 }
 
 // Type of linked service.
+// Expected value is 'Greenplum'.
 func (o GreenplumLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GreenplumLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -31540,6 +32178,7 @@ type GreenplumTableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GreenplumTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -31575,6 +32214,7 @@ type GreenplumTableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GreenplumTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -31651,6 +32291,7 @@ func (o GreenplumTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'GreenplumTable'.
 func (o GreenplumTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GreenplumTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -31676,6 +32317,7 @@ type GreenplumTableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GreenplumTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -31711,6 +32353,7 @@ type GreenplumTableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'GreenplumTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -31787,6 +32430,7 @@ func (o GreenplumTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'GreenplumTable'.
 func (o GreenplumTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GreenplumTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -31822,6 +32466,7 @@ type HBaseLinkedService struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'HBase'.
 	Type string `pulumi:"type"`
 	// The user name used to connect to the HBase instance.
 	Username interface{} `pulumi:"username"`
@@ -31869,6 +32514,7 @@ type HBaseLinkedServiceArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'HBase'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The user name used to connect to the HBase instance.
 	Username pulumi.Input `pulumi:"username"`
@@ -31972,6 +32618,7 @@ func (o HBaseLinkedServiceOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'HBase'.
 func (o HBaseLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -32012,6 +32659,7 @@ type HBaseLinkedServiceResponse struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'HBase'.
 	Type string `pulumi:"type"`
 	// The user name used to connect to the HBase instance.
 	Username interface{} `pulumi:"username"`
@@ -32059,6 +32707,7 @@ type HBaseLinkedServiceResponseArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'HBase'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The user name used to connect to the HBase instance.
 	Username pulumi.Input `pulumi:"username"`
@@ -32162,6 +32811,7 @@ func (o HBaseLinkedServiceResponseOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'HBase'.
 func (o HBaseLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -32190,6 +32840,7 @@ type HBaseObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HBaseObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -32223,6 +32874,7 @@ type HBaseObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HBaseObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -32294,6 +32946,7 @@ func (o HBaseObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'HBaseObject'.
 func (o HBaseObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -32317,6 +32970,7 @@ type HBaseObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HBaseObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -32350,6 +33004,7 @@ type HBaseObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HBaseObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -32421,6 +33076,7 @@ func (o HBaseObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'HBaseObject'.
 func (o HBaseObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -32450,6 +33106,7 @@ type HDInsightLinkedService struct {
 	// HDInsight cluster password.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'HDInsight'.
 	Type string `pulumi:"type"`
 	// HDInsight cluster user name. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -32491,6 +33148,7 @@ type HDInsightLinkedServiceArgs struct {
 	// HDInsight cluster password.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'HDInsight'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// HDInsight cluster user name. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -32579,6 +33237,7 @@ func (o HDInsightLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'HDInsight'.
 func (o HDInsightLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -32613,6 +33272,7 @@ type HDInsightLinkedServiceResponse struct {
 	// HDInsight cluster password.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'HDInsight'.
 	Type string `pulumi:"type"`
 	// HDInsight cluster user name. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -32654,6 +33314,7 @@ type HDInsightLinkedServiceResponseArgs struct {
 	// HDInsight cluster password.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'HDInsight'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// HDInsight cluster user name. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -32744,6 +33405,7 @@ func (o HDInsightLinkedServiceResponseOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'HDInsight'.
 func (o HDInsightLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -32822,6 +33484,7 @@ type HDInsightOnDemandLinkedService struct {
 	// The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
 	TimeToLive interface{} `pulumi:"timeToLive"`
 	// Type of linked service.
+	// Expected value is 'HDInsightOnDemand'.
 	Type string `pulumi:"type"`
 	// Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
 	Version interface{} `pulumi:"version"`
@@ -32913,6 +33576,7 @@ type HDInsightOnDemandLinkedServiceArgs struct {
 	// The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
 	TimeToLive pulumi.Input `pulumi:"timeToLive"`
 	// Type of linked service.
+	// Expected value is 'HDInsightOnDemand'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
 	Version pulumi.Input `pulumi:"version"`
@@ -33117,6 +33781,7 @@ func (o HDInsightOnDemandLinkedServiceOutput) TimeToLive() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'HDInsightOnDemand'.
 func (o HDInsightOnDemandLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightOnDemandLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -33210,6 +33875,7 @@ type HDInsightOnDemandLinkedServiceResponse struct {
 	// The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
 	TimeToLive interface{} `pulumi:"timeToLive"`
 	// Type of linked service.
+	// Expected value is 'HDInsightOnDemand'.
 	Type string `pulumi:"type"`
 	// Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
 	Version interface{} `pulumi:"version"`
@@ -33301,6 +33967,7 @@ type HDInsightOnDemandLinkedServiceResponseArgs struct {
 	// The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
 	TimeToLive pulumi.Input `pulumi:"timeToLive"`
 	// Type of linked service.
+	// Expected value is 'HDInsightOnDemand'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
 	Version pulumi.Input `pulumi:"version"`
@@ -33515,6 +34182,7 @@ func (o HDInsightOnDemandLinkedServiceResponseOutput) TimeToLive() pulumi.AnyOut
 }
 
 // Type of linked service.
+// Expected value is 'HDInsightOnDemand'.
 func (o HDInsightOnDemandLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightOnDemandLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -33556,6 +34224,7 @@ type HdfsLinkedService struct {
 	// Password for Windows authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Hdfs'.
 	Type string `pulumi:"type"`
 	// The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -33591,6 +34260,7 @@ type HdfsLinkedServiceArgs struct {
 	// Password for Windows authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Hdfs'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -33661,6 +34331,7 @@ func (o HdfsLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Hdfs'.
 func (o HdfsLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HdfsLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -33692,6 +34363,7 @@ type HdfsLinkedServiceResponse struct {
 	// Password for Windows authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Hdfs'.
 	Type string `pulumi:"type"`
 	// The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -33727,6 +34399,7 @@ type HdfsLinkedServiceResponseArgs struct {
 	// Password for Windows authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Hdfs'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -33797,6 +34470,7 @@ func (o HdfsLinkedServiceResponseOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Hdfs'.
 func (o HdfsLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HdfsLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -33818,6 +34492,7 @@ type HdfsLocation struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'HdfsLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -33839,6 +34514,7 @@ type HdfsLocationArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'HdfsLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -33880,6 +34556,7 @@ func (o HdfsLocationOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'HdfsLocation'.
 func (o HdfsLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HdfsLocation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -33891,6 +34568,7 @@ type HdfsLocationResponse struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'HdfsLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -33912,6 +34590,7 @@ type HdfsLocationResponseArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'HdfsLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -33953,6 +34632,7 @@ func (o HdfsLocationResponseOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'HdfsLocation'.
 func (o HdfsLocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HdfsLocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -33994,6 +34674,7 @@ type HiveLinkedService struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Hive'.
 	Type string `pulumi:"type"`
 	// Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
 	UseNativeQuery interface{} `pulumi:"useNativeQuery"`
@@ -34053,6 +34734,7 @@ type HiveLinkedServiceArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Hive'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
 	UseNativeQuery pulumi.Input `pulumi:"useNativeQuery"`
@@ -34177,6 +34859,7 @@ func (o HiveLinkedServiceOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Hive'.
 func (o HiveLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -34238,6 +34921,7 @@ type HiveLinkedServiceResponse struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Hive'.
 	Type string `pulumi:"type"`
 	// Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
 	UseNativeQuery interface{} `pulumi:"useNativeQuery"`
@@ -34297,6 +34981,7 @@ type HiveLinkedServiceResponseArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Hive'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
 	UseNativeQuery pulumi.Input `pulumi:"useNativeQuery"`
@@ -34421,6 +35106,7 @@ func (o HiveLinkedServiceResponseOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Hive'.
 func (o HiveLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -34466,6 +35152,7 @@ type HiveObjectDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HiveObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -34501,6 +35188,7 @@ type HiveObjectDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HiveObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -34577,6 +35265,7 @@ func (o HiveObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'HiveObject'.
 func (o HiveObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -34602,6 +35291,7 @@ type HiveObjectDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HiveObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -34637,6 +35327,7 @@ type HiveObjectDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HiveObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -34713,6 +35404,7 @@ func (o HiveObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'HiveObject'.
 func (o HiveObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HiveObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -34748,6 +35440,7 @@ type HttpDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'HttpFile'.
 	Type string `pulumi:"type"`
 }
 
@@ -34793,6 +35486,7 @@ type HttpDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'HttpFile'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -34891,6 +35585,7 @@ func (o HttpDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'HttpFile'.
 func (o HttpDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -34926,6 +35621,7 @@ type HttpDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'HttpFile'.
 	Type string `pulumi:"type"`
 }
 
@@ -34971,6 +35667,7 @@ type HttpDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'HttpFile'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -35069,6 +35766,7 @@ func (o HttpDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'HttpFile'.
 func (o HttpDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -35096,6 +35794,7 @@ type HttpLinkedService struct {
 	// Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'HttpServer'.
 	Type string `pulumi:"type"`
 	// The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -35137,6 +35836,7 @@ type HttpLinkedServiceArgs struct {
 	// Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'HttpServer'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -35222,6 +35922,7 @@ func (o HttpLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'HttpServer'.
 func (o HttpLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -35259,6 +35960,7 @@ type HttpLinkedServiceResponse struct {
 	// Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'HttpServer'.
 	Type string `pulumi:"type"`
 	// The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -35300,6 +36002,7 @@ type HttpLinkedServiceResponseArgs struct {
 	// Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'HttpServer'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -35385,6 +36088,7 @@ func (o HttpLinkedServiceResponseOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'HttpServer'.
 func (o HttpLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -35408,6 +36112,7 @@ type HttpServerLocation struct {
 	// Specify the relativeUrl of http server. Type: string (or Expression with resultType string)
 	RelativeUrl interface{} `pulumi:"relativeUrl"`
 	// Type of dataset storage location.
+	// Expected value is 'HttpServerLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -35431,6 +36136,7 @@ type HttpServerLocationArgs struct {
 	// Specify the relativeUrl of http server. Type: string (or Expression with resultType string)
 	RelativeUrl pulumi.Input `pulumi:"relativeUrl"`
 	// Type of dataset storage location.
+	// Expected value is 'HttpServerLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -35477,6 +36183,7 @@ func (o HttpServerLocationOutput) RelativeUrl() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'HttpServerLocation'.
 func (o HttpServerLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpServerLocation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -35490,6 +36197,7 @@ type HttpServerLocationResponse struct {
 	// Specify the relativeUrl of http server. Type: string (or Expression with resultType string)
 	RelativeUrl interface{} `pulumi:"relativeUrl"`
 	// Type of dataset storage location.
+	// Expected value is 'HttpServerLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -35513,6 +36221,7 @@ type HttpServerLocationResponseArgs struct {
 	// Specify the relativeUrl of http server. Type: string (or Expression with resultType string)
 	RelativeUrl pulumi.Input `pulumi:"relativeUrl"`
 	// Type of dataset storage location.
+	// Expected value is 'HttpServerLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -35559,6 +36268,7 @@ func (o HttpServerLocationResponseOutput) RelativeUrl() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'HttpServerLocation'.
 func (o HttpServerLocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpServerLocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -35584,6 +36294,7 @@ type HubspotLinkedService struct {
 	// The refresh token obtained when initially authenticating your OAuth integration.
 	RefreshToken interface{} `pulumi:"refreshToken"`
 	// Type of linked service.
+	// Expected value is 'Hubspot'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -35625,6 +36336,7 @@ type HubspotLinkedServiceArgs struct {
 	// The refresh token obtained when initially authenticating your OAuth integration.
 	RefreshToken pulumi.Input `pulumi:"refreshToken"`
 	// Type of linked service.
+	// Expected value is 'Hubspot'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -35707,6 +36419,7 @@ func (o HubspotLinkedServiceOutput) RefreshToken() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Hubspot'.
 func (o HubspotLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HubspotLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -35747,6 +36460,7 @@ type HubspotLinkedServiceResponse struct {
 	// The refresh token obtained when initially authenticating your OAuth integration.
 	RefreshToken interface{} `pulumi:"refreshToken"`
 	// Type of linked service.
+	// Expected value is 'Hubspot'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -35788,6 +36502,7 @@ type HubspotLinkedServiceResponseArgs struct {
 	// The refresh token obtained when initially authenticating your OAuth integration.
 	RefreshToken pulumi.Input `pulumi:"refreshToken"`
 	// Type of linked service.
+	// Expected value is 'Hubspot'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -35870,6 +36585,7 @@ func (o HubspotLinkedServiceResponseOutput) RefreshToken() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Hubspot'.
 func (o HubspotLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HubspotLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -35908,6 +36624,7 @@ type HubspotObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HubspotObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -35941,6 +36658,7 @@ type HubspotObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HubspotObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -36012,6 +36730,7 @@ func (o HubspotObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'HubspotObject'.
 func (o HubspotObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HubspotObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -36035,6 +36754,7 @@ type HubspotObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HubspotObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -36068,6 +36788,7 @@ type HubspotObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'HubspotObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -36139,6 +36860,7 @@ func (o HubspotObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'HubspotObject'.
 func (o HubspotObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HubspotObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -36172,6 +36894,7 @@ type ImpalaLinkedService struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Impala'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -36219,6 +36942,7 @@ type ImpalaLinkedServiceArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Impala'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -36319,6 +37043,7 @@ func (o ImpalaLinkedServiceOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Impala'.
 func (o ImpalaLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ImpalaLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -36362,6 +37087,7 @@ type ImpalaLinkedServiceResponse struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Impala'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -36409,6 +37135,7 @@ type ImpalaLinkedServiceResponseArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Impala'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -36509,6 +37236,7 @@ func (o ImpalaLinkedServiceResponseOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Impala'.
 func (o ImpalaLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ImpalaLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -36544,6 +37272,7 @@ type ImpalaObjectDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ImpalaObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -36579,6 +37308,7 @@ type ImpalaObjectDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ImpalaObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -36655,6 +37385,7 @@ func (o ImpalaObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ImpalaObject'.
 func (o ImpalaObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ImpalaObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -36680,6 +37411,7 @@ type ImpalaObjectDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ImpalaObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -36715,6 +37447,7 @@ type ImpalaObjectDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ImpalaObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -36791,6 +37524,7 @@ func (o ImpalaObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ImpalaObject'.
 func (o ImpalaObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ImpalaObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -36816,6 +37550,7 @@ type InformixLinkedService struct {
 	// Password for Basic authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Informix'.
 	Type string `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -36853,6 +37588,7 @@ type InformixLinkedServiceArgs struct {
 	// Password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Informix'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -36931,6 +37667,7 @@ func (o InformixLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Informix'.
 func (o InformixLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InformixLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -36961,6 +37698,7 @@ type InformixLinkedServiceResponse struct {
 	// Password for Basic authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Informix'.
 	Type string `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -36998,6 +37736,7 @@ type InformixLinkedServiceResponseArgs struct {
 	// Password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Informix'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -37076,6 +37815,7 @@ func (o InformixLinkedServiceResponseOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Informix'.
 func (o InformixLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InformixLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -37104,6 +37844,7 @@ type InformixTableDataset struct {
 	// The Informix table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'InformixTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -37137,6 +37878,7 @@ type InformixTableDatasetArgs struct {
 	// The Informix table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'InformixTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -37208,6 +37950,7 @@ func (o InformixTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'InformixTable'.
 func (o InformixTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InformixTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -37231,6 +37974,7 @@ type InformixTableDatasetResponse struct {
 	// The Informix table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'InformixTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -37264,6 +38008,7 @@ type InformixTableDatasetResponseArgs struct {
 	// The Informix table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'InformixTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -37335,6 +38080,7 @@ func (o InformixTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'InformixTable'.
 func (o InformixTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InformixTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -40406,6 +41152,7 @@ type JiraLinkedService struct {
 	// The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
 	Port interface{} `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'Jira'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -40447,6 +41194,7 @@ type JiraLinkedServiceArgs struct {
 	// The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
 	Port pulumi.Input `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'Jira'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -40526,6 +41274,7 @@ func (o JiraLinkedServiceOutput) Port() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Jira'.
 func (o JiraLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JiraLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -40569,6 +41318,7 @@ type JiraLinkedServiceResponse struct {
 	// The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
 	Port interface{} `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'Jira'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -40610,6 +41360,7 @@ type JiraLinkedServiceResponseArgs struct {
 	// The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
 	Port pulumi.Input `pulumi:"port"`
 	// Type of linked service.
+	// Expected value is 'Jira'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -40689,6 +41440,7 @@ func (o JiraLinkedServiceResponseOutput) Port() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Jira'.
 func (o JiraLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JiraLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -40732,6 +41484,7 @@ type JiraObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'JiraObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -40765,6 +41518,7 @@ type JiraObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'JiraObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -40836,6 +41590,7 @@ func (o JiraObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'JiraObject'.
 func (o JiraObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JiraObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -40859,6 +41614,7 @@ type JiraObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'JiraObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -40892,6 +41648,7 @@ type JiraObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'JiraObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -40963,6 +41720,7 @@ func (o JiraObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'JiraObject'.
 func (o JiraObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JiraObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -40990,6 +41748,7 @@ type JsonDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Json'.
 	Type string `pulumi:"type"`
 }
 
@@ -41027,6 +41786,7 @@ type JsonDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Json'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -41108,6 +41868,7 @@ func (o JsonDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Json'.
 func (o JsonDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JsonDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -41135,6 +41896,7 @@ type JsonDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Json'.
 	Type string `pulumi:"type"`
 }
 
@@ -41172,6 +41934,7 @@ type JsonDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Json'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -41253,6 +42016,7 @@ func (o JsonDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Json'.
 func (o JsonDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JsonDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -41274,6 +42038,7 @@ type JsonFormat struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'JsonFormat'.
 	Type string `pulumi:"type"`
 }
 
@@ -41305,6 +42070,7 @@ type JsonFormatArgs struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer pulumi.Input `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'JsonFormat'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -41371,6 +42137,7 @@ func (o JsonFormatOutput) Serializer() pulumi.AnyOutput {
 }
 
 // Type of dataset storage format.
+// Expected value is 'JsonFormat'.
 func (o JsonFormatOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JsonFormat) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -41392,6 +42159,7 @@ type JsonFormatResponse struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'JsonFormat'.
 	Type string `pulumi:"type"`
 }
 
@@ -41423,6 +42191,7 @@ type JsonFormatResponseArgs struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer pulumi.Input `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'JsonFormat'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -41489,6 +42258,7 @@ func (o JsonFormatResponseOutput) Serializer() pulumi.AnyOutput {
 }
 
 // Type of dataset storage format.
+// Expected value is 'JsonFormat'.
 func (o JsonFormatResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JsonFormatResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -41496,6 +42266,7 @@ func (o JsonFormatResponseOutput) Type() pulumi.StringOutput {
 // The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorization struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'Key'.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// The key used for authorization.
 	Key SecureString `pulumi:"key"`
@@ -41515,6 +42286,7 @@ type LinkedIntegrationRuntimeKeyAuthorizationInput interface {
 // The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorizationArgs struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'Key'.
 	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
 	// The key used for authorization.
 	Key SecureStringInput `pulumi:"key"`
@@ -41548,6 +42320,7 @@ func (o LinkedIntegrationRuntimeKeyAuthorizationOutput) ToLinkedIntegrationRunti
 }
 
 // The authorization type for integration runtime sharing.
+// Expected value is 'Key'.
 func (o LinkedIntegrationRuntimeKeyAuthorizationOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedIntegrationRuntimeKeyAuthorization) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
@@ -41560,6 +42333,7 @@ func (o LinkedIntegrationRuntimeKeyAuthorizationOutput) Key() SecureStringOutput
 // The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorizationResponse struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'Key'.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// The key used for authorization.
 	Key SecureStringResponse `pulumi:"key"`
@@ -41579,6 +42353,7 @@ type LinkedIntegrationRuntimeKeyAuthorizationResponseInput interface {
 // The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorizationResponseArgs struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'Key'.
 	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
 	// The key used for authorization.
 	Key SecureStringResponseInput `pulumi:"key"`
@@ -41612,6 +42387,7 @@ func (o LinkedIntegrationRuntimeKeyAuthorizationResponseOutput) ToLinkedIntegrat
 }
 
 // The authorization type for integration runtime sharing.
+// Expected value is 'Key'.
 func (o LinkedIntegrationRuntimeKeyAuthorizationResponseOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedIntegrationRuntimeKeyAuthorizationResponse) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
@@ -41624,6 +42400,7 @@ func (o LinkedIntegrationRuntimeKeyAuthorizationResponseOutput) Key() SecureStri
 // The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorization struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'RBAC'.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// The resource identifier of the integration runtime to be shared.
 	ResourceId string `pulumi:"resourceId"`
@@ -41643,6 +42420,7 @@ type LinkedIntegrationRuntimeRbacAuthorizationInput interface {
 // The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorizationArgs struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'RBAC'.
 	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
 	// The resource identifier of the integration runtime to be shared.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
@@ -41676,6 +42454,7 @@ func (o LinkedIntegrationRuntimeRbacAuthorizationOutput) ToLinkedIntegrationRunt
 }
 
 // The authorization type for integration runtime sharing.
+// Expected value is 'RBAC'.
 func (o LinkedIntegrationRuntimeRbacAuthorizationOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedIntegrationRuntimeRbacAuthorization) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
@@ -41688,6 +42467,7 @@ func (o LinkedIntegrationRuntimeRbacAuthorizationOutput) ResourceId() pulumi.Str
 // The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorizationResponse struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'RBAC'.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// The resource identifier of the integration runtime to be shared.
 	ResourceId string `pulumi:"resourceId"`
@@ -41707,6 +42487,7 @@ type LinkedIntegrationRuntimeRbacAuthorizationResponseInput interface {
 // The role based access control (RBAC) authorization type integration runtime.
 type LinkedIntegrationRuntimeRbacAuthorizationResponseArgs struct {
 	// The authorization type for integration runtime sharing.
+	// Expected value is 'RBAC'.
 	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
 	// The resource identifier of the integration runtime to be shared.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
@@ -41740,6 +42521,7 @@ func (o LinkedIntegrationRuntimeRbacAuthorizationResponseOutput) ToLinkedIntegra
 }
 
 // The authorization type for integration runtime sharing.
+// Expected value is 'RBAC'.
 func (o LinkedIntegrationRuntimeRbacAuthorizationResponseOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedIntegrationRuntimeRbacAuthorizationResponse) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
@@ -42336,6 +43118,7 @@ type MagentoLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Magento'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -42373,6 +43156,7 @@ type MagentoLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Magento'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -42445,6 +43229,7 @@ func (o MagentoLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput
 }
 
 // Type of linked service.
+// Expected value is 'Magento'.
 func (o MagentoLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MagentoLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -42481,6 +43266,7 @@ type MagentoLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Magento'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -42518,6 +43304,7 @@ type MagentoLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Magento'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -42590,6 +43377,7 @@ func (o MagentoLinkedServiceResponseOutput) Parameters() ParameterSpecificationR
 }
 
 // Type of linked service.
+// Expected value is 'Magento'.
 func (o MagentoLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MagentoLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -42628,6 +43416,7 @@ type MagentoObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MagentoObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -42661,6 +43450,7 @@ type MagentoObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MagentoObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -42732,6 +43522,7 @@ func (o MagentoObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MagentoObject'.
 func (o MagentoObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MagentoObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -42755,6 +43546,7 @@ type MagentoObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MagentoObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -42788,6 +43580,7 @@ type MagentoObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MagentoObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -42859,6 +43652,7 @@ func (o MagentoObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MagentoObject'.
 func (o MagentoObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MagentoObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -42872,6 +43666,7 @@ type ManagedIntegrationRuntime struct {
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisProperties `pulumi:"ssisProperties"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
 }
 
@@ -42895,6 +43690,7 @@ type ManagedIntegrationRuntimeArgs struct {
 	// SSIS properties for managed integration runtime.
 	SsisProperties IntegrationRuntimeSsisPropertiesPtrInput `pulumi:"ssisProperties"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -42941,6 +43737,7 @@ func (o ManagedIntegrationRuntimeOutput) SsisProperties() IntegrationRuntimeSsis
 }
 
 // Type of integration runtime.
+// Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -43303,6 +44100,7 @@ type ManagedIntegrationRuntimeResponse struct {
 	// Integration runtime state, only valid for managed dedicated integration runtime.
 	State string `pulumi:"state"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
 }
 
@@ -43328,6 +44126,7 @@ type ManagedIntegrationRuntimeResponseArgs struct {
 	// Integration runtime state, only valid for managed dedicated integration runtime.
 	State pulumi.StringInput `pulumi:"state"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -43383,6 +44182,7 @@ func (o ManagedIntegrationRuntimeResponseOutput) State() pulumi.StringOutput {
 }
 
 // Type of integration runtime.
+// Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -43402,6 +44202,7 @@ type ManagedIntegrationRuntimeStatusResponse struct {
 	// The state of integration runtime.
 	State string `pulumi:"state"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
 }
 
@@ -43431,6 +44232,7 @@ type ManagedIntegrationRuntimeStatusResponseArgs struct {
 	// The state of integration runtime.
 	State pulumi.StringInput `pulumi:"state"`
 	// Type of integration runtime.
+	// Expected value is 'Managed'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -43498,6 +44300,7 @@ func (o ManagedIntegrationRuntimeStatusResponseOutput) State() pulumi.StringOutp
 }
 
 // Type of integration runtime.
+// Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -43920,6 +44723,7 @@ type MappingDataFlow struct {
 	// List of transformations in data flow.
 	Transformations []Transformation `pulumi:"transformations"`
 	// Type of data flow.
+	// Expected value is 'MappingDataFlow'.
 	Type *string `pulumi:"type"`
 }
 
@@ -43951,6 +44755,7 @@ type MappingDataFlowArgs struct {
 	// List of transformations in data flow.
 	Transformations TransformationArrayInput `pulumi:"transformations"`
 	// Type of data flow.
+	// Expected value is 'MappingDataFlow'.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -44068,6 +44873,7 @@ func (o MappingDataFlowOutput) Transformations() TransformationArrayOutput {
 }
 
 // Type of data flow.
+// Expected value is 'MappingDataFlow'.
 func (o MappingDataFlowOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MappingDataFlow) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -44161,6 +44967,7 @@ func (o MappingDataFlowPtrOutput) Transformations() TransformationArrayOutput {
 }
 
 // Type of data flow.
+// Expected value is 'MappingDataFlow'.
 func (o MappingDataFlowPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MappingDataFlow) *string {
 		if v == nil {
@@ -44187,6 +44994,7 @@ type MappingDataFlowResponse struct {
 	// List of transformations in data flow.
 	Transformations []TransformationResponse `pulumi:"transformations"`
 	// Type of data flow.
+	// Expected value is 'MappingDataFlow'.
 	Type *string `pulumi:"type"`
 }
 
@@ -44218,6 +45026,7 @@ type MappingDataFlowResponseArgs struct {
 	// List of transformations in data flow.
 	Transformations TransformationResponseArrayInput `pulumi:"transformations"`
 	// Type of data flow.
+	// Expected value is 'MappingDataFlow'.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -44335,6 +45144,7 @@ func (o MappingDataFlowResponseOutput) Transformations() TransformationResponseA
 }
 
 // Type of data flow.
+// Expected value is 'MappingDataFlow'.
 func (o MappingDataFlowResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MappingDataFlowResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -44428,6 +45238,7 @@ func (o MappingDataFlowResponsePtrOutput) Transformations() TransformationRespon
 }
 
 // Type of data flow.
+// Expected value is 'MappingDataFlow'.
 func (o MappingDataFlowResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MappingDataFlowResponse) *string {
 		if v == nil {
@@ -44454,6 +45265,7 @@ type MariaDBLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReference `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'MariaDB'.
 	Type string `pulumi:"type"`
 }
 
@@ -44485,6 +45297,7 @@ type MariaDBLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferencePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'MariaDB'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -44551,6 +45364,7 @@ func (o MariaDBLinkedServiceOutput) Pwd() AzureKeyVaultSecretReferencePtrOutput 
 }
 
 // Type of linked service.
+// Expected value is 'MariaDB'.
 func (o MariaDBLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MariaDBLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -44572,6 +45386,7 @@ type MariaDBLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReferenceResponse `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'MariaDB'.
 	Type string `pulumi:"type"`
 }
 
@@ -44603,6 +45418,7 @@ type MariaDBLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'MariaDB'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -44669,6 +45485,7 @@ func (o MariaDBLinkedServiceResponseOutput) Pwd() AzureKeyVaultSecretReferenceRe
 }
 
 // Type of linked service.
+// Expected value is 'MariaDB'.
 func (o MariaDBLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MariaDBLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -44692,6 +45509,7 @@ type MariaDBTableDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MariaDBTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -44725,6 +45543,7 @@ type MariaDBTableDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MariaDBTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -44796,6 +45615,7 @@ func (o MariaDBTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MariaDBTable'.
 func (o MariaDBTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MariaDBTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -44819,6 +45639,7 @@ type MariaDBTableDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MariaDBTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -44852,6 +45673,7 @@ type MariaDBTableDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MariaDBTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -44923,6 +45745,7 @@ func (o MariaDBTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MariaDBTable'.
 func (o MariaDBTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MariaDBTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -44946,6 +45769,7 @@ type MarketoLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Marketo'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -44985,6 +45809,7 @@ type MarketoLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Marketo'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -45062,6 +45887,7 @@ func (o MarketoLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput
 }
 
 // Type of linked service.
+// Expected value is 'Marketo'.
 func (o MarketoLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MarketoLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -45100,6 +45926,7 @@ type MarketoLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Marketo'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -45139,6 +45966,7 @@ type MarketoLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Marketo'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -45216,6 +46044,7 @@ func (o MarketoLinkedServiceResponseOutput) Parameters() ParameterSpecificationR
 }
 
 // Type of linked service.
+// Expected value is 'Marketo'.
 func (o MarketoLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MarketoLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -45254,6 +46083,7 @@ type MarketoObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MarketoObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -45287,6 +46117,7 @@ type MarketoObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MarketoObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -45358,6 +46189,7 @@ func (o MarketoObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MarketoObject'.
 func (o MarketoObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MarketoObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -45381,6 +46213,7 @@ type MarketoObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MarketoObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -45414,6 +46247,7 @@ type MarketoObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MarketoObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -45485,6 +46319,7 @@ func (o MarketoObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MarketoObject'.
 func (o MarketoObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MarketoObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -45510,6 +46345,7 @@ type MicrosoftAccessLinkedService struct {
 	// Password for Basic authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'MicrosoftAccess'.
 	Type string `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -45547,6 +46383,7 @@ type MicrosoftAccessLinkedServiceArgs struct {
 	// Password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'MicrosoftAccess'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -45625,6 +46462,7 @@ func (o MicrosoftAccessLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'MicrosoftAccess'.
 func (o MicrosoftAccessLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MicrosoftAccessLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -45655,6 +46493,7 @@ type MicrosoftAccessLinkedServiceResponse struct {
 	// Password for Basic authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'MicrosoftAccess'.
 	Type string `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -45692,6 +46531,7 @@ type MicrosoftAccessLinkedServiceResponseArgs struct {
 	// Password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'MicrosoftAccess'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -45772,6 +46612,7 @@ func (o MicrosoftAccessLinkedServiceResponseOutput) Password() pulumi.AnyOutput 
 }
 
 // Type of linked service.
+// Expected value is 'MicrosoftAccess'.
 func (o MicrosoftAccessLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MicrosoftAccessLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -45800,6 +46641,7 @@ type MicrosoftAccessTableDataset struct {
 	// The Microsoft Access table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MicrosoftAccessTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -45833,6 +46675,7 @@ type MicrosoftAccessTableDatasetArgs struct {
 	// The Microsoft Access table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MicrosoftAccessTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -45904,6 +46747,7 @@ func (o MicrosoftAccessTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MicrosoftAccessTable'.
 func (o MicrosoftAccessTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MicrosoftAccessTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -45927,6 +46771,7 @@ type MicrosoftAccessTableDatasetResponse struct {
 	// The Microsoft Access table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MicrosoftAccessTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -45960,6 +46805,7 @@ type MicrosoftAccessTableDatasetResponseArgs struct {
 	// The Microsoft Access table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MicrosoftAccessTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -46033,6 +46879,7 @@ func (o MicrosoftAccessTableDatasetResponseOutput) TableName() pulumi.AnyOutput 
 }
 
 // Type of dataset.
+// Expected value is 'MicrosoftAccessTable'.
 func (o MicrosoftAccessTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MicrosoftAccessTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -46056,6 +46903,7 @@ type MongoDbAtlasCollectionDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbAtlasCollection'.
 	Type string `pulumi:"type"`
 }
 
@@ -46089,6 +46937,7 @@ type MongoDbAtlasCollectionDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbAtlasCollection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -46160,6 +47009,7 @@ func (o MongoDbAtlasCollectionDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MongoDbAtlasCollection'.
 func (o MongoDbAtlasCollectionDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbAtlasCollectionDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -46183,6 +47033,7 @@ type MongoDbAtlasCollectionDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbAtlasCollection'.
 	Type string `pulumi:"type"`
 }
 
@@ -46216,6 +47067,7 @@ type MongoDbAtlasCollectionDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbAtlasCollection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -46291,6 +47143,7 @@ func (o MongoDbAtlasCollectionDatasetResponseOutput) Structure() pulumi.AnyOutpu
 }
 
 // Type of dataset.
+// Expected value is 'MongoDbAtlasCollection'.
 func (o MongoDbAtlasCollectionDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbAtlasCollectionDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -46310,6 +47163,7 @@ type MongoDbAtlasLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'MongoDbAtlas'.
 	Type string `pulumi:"type"`
 }
 
@@ -46339,6 +47193,7 @@ type MongoDbAtlasLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'MongoDbAtlas'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -46400,6 +47255,7 @@ func (o MongoDbAtlasLinkedServiceOutput) Parameters() ParameterSpecificationMapO
 }
 
 // Type of linked service.
+// Expected value is 'MongoDbAtlas'.
 func (o MongoDbAtlasLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbAtlasLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -46419,6 +47275,7 @@ type MongoDbAtlasLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'MongoDbAtlas'.
 	Type string `pulumi:"type"`
 }
 
@@ -46448,6 +47305,7 @@ type MongoDbAtlasLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'MongoDbAtlas'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -46511,6 +47369,7 @@ func (o MongoDbAtlasLinkedServiceResponseOutput) Parameters() ParameterSpecifica
 }
 
 // Type of linked service.
+// Expected value is 'MongoDbAtlas'.
 func (o MongoDbAtlasLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbAtlasLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -46534,6 +47393,7 @@ type MongoDbCollectionDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbCollection'.
 	Type string `pulumi:"type"`
 }
 
@@ -46567,6 +47427,7 @@ type MongoDbCollectionDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbCollection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -46638,6 +47499,7 @@ func (o MongoDbCollectionDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MongoDbCollection'.
 func (o MongoDbCollectionDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbCollectionDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -46661,6 +47523,7 @@ type MongoDbCollectionDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbCollection'.
 	Type string `pulumi:"type"`
 }
 
@@ -46694,6 +47557,7 @@ type MongoDbCollectionDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbCollection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -46767,6 +47631,7 @@ func (o MongoDbCollectionDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MongoDbCollection'.
 func (o MongoDbCollectionDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbCollectionDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -46800,6 +47665,7 @@ type MongoDbLinkedService struct {
 	// The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'MongoDb'.
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -46845,6 +47711,7 @@ type MongoDbLinkedServiceArgs struct {
 	// The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'MongoDb'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -46943,6 +47810,7 @@ func (o MongoDbLinkedServiceOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'MongoDb'.
 func (o MongoDbLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -46981,6 +47849,7 @@ type MongoDbLinkedServiceResponse struct {
 	// The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'MongoDb'.
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -47026,6 +47895,7 @@ type MongoDbLinkedServiceResponseArgs struct {
 	// The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'MongoDb'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -47124,6 +47994,7 @@ func (o MongoDbLinkedServiceResponseOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'MongoDb'.
 func (o MongoDbLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -47152,6 +48023,7 @@ type MongoDbV2CollectionDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbV2Collection'.
 	Type string `pulumi:"type"`
 }
 
@@ -47185,6 +48057,7 @@ type MongoDbV2CollectionDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbV2Collection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -47256,6 +48129,7 @@ func (o MongoDbV2CollectionDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MongoDbV2Collection'.
 func (o MongoDbV2CollectionDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbV2CollectionDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -47279,6 +48153,7 @@ type MongoDbV2CollectionDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbV2Collection'.
 	Type string `pulumi:"type"`
 }
 
@@ -47312,6 +48187,7 @@ type MongoDbV2CollectionDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'MongoDbV2Collection'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -47385,6 +48261,7 @@ func (o MongoDbV2CollectionDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MongoDbV2Collection'.
 func (o MongoDbV2CollectionDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbV2CollectionDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -47404,6 +48281,7 @@ type MongoDbV2LinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'MongoDbV2'.
 	Type string `pulumi:"type"`
 }
 
@@ -47433,6 +48311,7 @@ type MongoDbV2LinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'MongoDbV2'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -47494,6 +48373,7 @@ func (o MongoDbV2LinkedServiceOutput) Parameters() ParameterSpecificationMapOutp
 }
 
 // Type of linked service.
+// Expected value is 'MongoDbV2'.
 func (o MongoDbV2LinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbV2LinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -47513,6 +48393,7 @@ type MongoDbV2LinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'MongoDbV2'.
 	Type string `pulumi:"type"`
 }
 
@@ -47542,6 +48423,7 @@ type MongoDbV2LinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'MongoDbV2'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -47603,6 +48485,7 @@ func (o MongoDbV2LinkedServiceResponseOutput) Parameters() ParameterSpecificatio
 }
 
 // Type of linked service.
+// Expected value is 'MongoDbV2'.
 func (o MongoDbV2LinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDbV2LinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -47616,6 +48499,7 @@ type MultiplePipelineTrigger struct {
 	// Pipelines that need to be started.
 	Pipelines []TriggerPipelineReference `pulumi:"pipelines"`
 	// Trigger type.
+	// Expected value is 'MultiplePipelineTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -47639,6 +48523,7 @@ type MultiplePipelineTriggerArgs struct {
 	// Pipelines that need to be started.
 	Pipelines TriggerPipelineReferenceArrayInput `pulumi:"pipelines"`
 	// Trigger type.
+	// Expected value is 'MultiplePipelineTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -47685,6 +48570,7 @@ func (o MultiplePipelineTriggerOutput) Pipelines() TriggerPipelineReferenceArray
 }
 
 // Trigger type.
+// Expected value is 'MultiplePipelineTrigger'.
 func (o MultiplePipelineTriggerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiplePipelineTrigger) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -47700,6 +48586,7 @@ type MultiplePipelineTriggerResponse struct {
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
 	RuntimeState string `pulumi:"runtimeState"`
 	// Trigger type.
+	// Expected value is 'MultiplePipelineTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -47725,6 +48612,7 @@ type MultiplePipelineTriggerResponseArgs struct {
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
 	RuntimeState pulumi.StringInput `pulumi:"runtimeState"`
 	// Trigger type.
+	// Expected value is 'MultiplePipelineTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -47776,6 +48664,7 @@ func (o MultiplePipelineTriggerResponseOutput) RuntimeState() pulumi.StringOutpu
 }
 
 // Trigger type.
+// Expected value is 'MultiplePipelineTrigger'.
 func (o MultiplePipelineTriggerResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiplePipelineTriggerResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -47797,6 +48686,7 @@ type MySqlLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReference `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'MySql'.
 	Type string `pulumi:"type"`
 }
 
@@ -47828,6 +48718,7 @@ type MySqlLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferencePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'MySql'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -47894,6 +48785,7 @@ func (o MySqlLinkedServiceOutput) Password() AzureKeyVaultSecretReferencePtrOutp
 }
 
 // Type of linked service.
+// Expected value is 'MySql'.
 func (o MySqlLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MySqlLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -47915,6 +48807,7 @@ type MySqlLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReferenceResponse `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'MySql'.
 	Type string `pulumi:"type"`
 }
 
@@ -47946,6 +48839,7 @@ type MySqlLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'MySql'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -48012,6 +48906,7 @@ func (o MySqlLinkedServiceResponseOutput) Password() AzureKeyVaultSecretReferenc
 }
 
 // Type of linked service.
+// Expected value is 'MySql'.
 func (o MySqlLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MySqlLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -48035,6 +48930,7 @@ type MySqlTableDataset struct {
 	// The MySQL table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MySqlTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -48068,6 +48964,7 @@ type MySqlTableDatasetArgs struct {
 	// The MySQL table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MySqlTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -48139,6 +49036,7 @@ func (o MySqlTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MySqlTable'.
 func (o MySqlTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MySqlTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -48162,6 +49060,7 @@ type MySqlTableDatasetResponse struct {
 	// The MySQL table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MySqlTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -48195,6 +49094,7 @@ type MySqlTableDatasetResponseArgs struct {
 	// The MySQL table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'MySqlTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -48266,6 +49166,7 @@ func (o MySqlTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'MySqlTable'.
 func (o MySqlTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MySqlTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -48287,6 +49188,7 @@ type NetezzaLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReference `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Netezza'.
 	Type string `pulumi:"type"`
 }
 
@@ -48318,6 +49220,7 @@ type NetezzaLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferencePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Netezza'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -48384,6 +49287,7 @@ func (o NetezzaLinkedServiceOutput) Pwd() AzureKeyVaultSecretReferencePtrOutput 
 }
 
 // Type of linked service.
+// Expected value is 'Netezza'.
 func (o NetezzaLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NetezzaLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -48405,6 +49309,7 @@ type NetezzaLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReferenceResponse `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Netezza'.
 	Type string `pulumi:"type"`
 }
 
@@ -48436,6 +49341,7 @@ type NetezzaLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Netezza'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -48502,6 +49408,7 @@ func (o NetezzaLinkedServiceResponseOutput) Pwd() AzureKeyVaultSecretReferenceRe
 }
 
 // Type of linked service.
+// Expected value is 'Netezza'.
 func (o NetezzaLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NetezzaLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -48527,6 +49434,7 @@ type NetezzaTableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'NetezzaTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -48562,6 +49470,7 @@ type NetezzaTableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'NetezzaTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -48638,6 +49547,7 @@ func (o NetezzaTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'NetezzaTable'.
 func (o NetezzaTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NetezzaTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -48663,6 +49573,7 @@ type NetezzaTableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'NetezzaTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -48698,6 +49609,7 @@ type NetezzaTableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'NetezzaTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -48774,6 +49686,7 @@ func (o NetezzaTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'NetezzaTable'.
 func (o NetezzaTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NetezzaTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -48811,6 +49724,7 @@ type ODataLinkedService struct {
 	// Specify the tenant information (domain name or tenant ID) under which your application resides. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'OData'.
 	Type string `pulumi:"type"`
 	// The URL of the OData service endpoint. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -48862,6 +49776,7 @@ type ODataLinkedServiceArgs struct {
 	// Specify the tenant information (domain name or tenant ID) under which your application resides. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'OData'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The URL of the OData service endpoint. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -48972,6 +49887,7 @@ func (o ODataLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'OData'.
 func (o ODataLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ODataLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -49019,6 +49935,7 @@ type ODataLinkedServiceResponse struct {
 	// Specify the tenant information (domain name or tenant ID) under which your application resides. Type: string (or Expression with resultType string).
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'OData'.
 	Type string `pulumi:"type"`
 	// The URL of the OData service endpoint. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -49070,6 +49987,7 @@ type ODataLinkedServiceResponseArgs struct {
 	// Specify the tenant information (domain name or tenant ID) under which your application resides. Type: string (or Expression with resultType string).
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'OData'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The URL of the OData service endpoint. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -49180,6 +50098,7 @@ func (o ODataLinkedServiceResponseOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'OData'.
 func (o ODataLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ODataLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -49213,6 +50132,7 @@ type ODataResourceDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'ODataResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -49246,6 +50166,7 @@ type ODataResourceDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'ODataResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -49317,6 +50238,7 @@ func (o ODataResourceDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ODataResource'.
 func (o ODataResourceDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ODataResourceDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -49340,6 +50262,7 @@ type ODataResourceDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'ODataResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -49373,6 +50296,7 @@ type ODataResourceDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'ODataResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -49444,6 +50368,7 @@ func (o ODataResourceDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ODataResource'.
 func (o ODataResourceDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ODataResourceDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -49469,6 +50394,7 @@ type OdbcLinkedService struct {
 	// Password for Basic authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Odbc'.
 	Type string `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -49506,6 +50432,7 @@ type OdbcLinkedServiceArgs struct {
 	// Password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Odbc'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -49584,6 +50511,7 @@ func (o OdbcLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Odbc'.
 func (o OdbcLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OdbcLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -49614,6 +50542,7 @@ type OdbcLinkedServiceResponse struct {
 	// Password for Basic authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Odbc'.
 	Type string `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -49651,6 +50580,7 @@ type OdbcLinkedServiceResponseArgs struct {
 	// Password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Odbc'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -49729,6 +50659,7 @@ func (o OdbcLinkedServiceResponseOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Odbc'.
 func (o OdbcLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OdbcLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -49757,6 +50688,7 @@ type OdbcTableDataset struct {
 	// The ODBC table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OdbcTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -49790,6 +50722,7 @@ type OdbcTableDatasetArgs struct {
 	// The ODBC table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OdbcTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -49861,6 +50794,7 @@ func (o OdbcTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'OdbcTable'.
 func (o OdbcTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OdbcTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -49884,6 +50818,7 @@ type OdbcTableDatasetResponse struct {
 	// The ODBC table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OdbcTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -49917,6 +50852,7 @@ type OdbcTableDatasetResponseArgs struct {
 	// The ODBC table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OdbcTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -49988,6 +50924,7 @@ func (o OdbcTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'OdbcTable'.
 func (o OdbcTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OdbcTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -50013,6 +50950,7 @@ type Office365Dataset struct {
 	// Name of the dataset to extract from Office 365. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'Office365Table'.
 	Type string `pulumi:"type"`
 }
 
@@ -50048,6 +50986,7 @@ type Office365DatasetArgs struct {
 	// Name of the dataset to extract from Office 365. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'Office365Table'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -50124,6 +51063,7 @@ func (o Office365DatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Office365Table'.
 func (o Office365DatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Office365Dataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -50149,6 +51089,7 @@ type Office365DatasetResponse struct {
 	// Name of the dataset to extract from Office 365. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'Office365Table'.
 	Type string `pulumi:"type"`
 }
 
@@ -50184,6 +51125,7 @@ type Office365DatasetResponseArgs struct {
 	// Name of the dataset to extract from Office 365. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'Office365Table'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -50260,6 +51202,7 @@ func (o Office365DatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Office365Table'.
 func (o Office365DatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Office365DatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -50285,6 +51228,7 @@ type Office365LinkedService struct {
 	// Specify the tenant information under which your Azure AD web application resides. Type: string (or Expression with resultType string).
 	ServicePrincipalTenantId interface{} `pulumi:"servicePrincipalTenantId"`
 	// Type of linked service.
+	// Expected value is 'Office365'.
 	Type string `pulumi:"type"`
 }
 
@@ -50320,6 +51264,7 @@ type Office365LinkedServiceArgs struct {
 	// Specify the tenant information under which your Azure AD web application resides. Type: string (or Expression with resultType string).
 	ServicePrincipalTenantId pulumi.Input `pulumi:"servicePrincipalTenantId"`
 	// Type of linked service.
+	// Expected value is 'Office365'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -50396,6 +51341,7 @@ func (o Office365LinkedServiceOutput) ServicePrincipalTenantId() pulumi.AnyOutpu
 }
 
 // Type of linked service.
+// Expected value is 'Office365'.
 func (o Office365LinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Office365LinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -50421,6 +51367,7 @@ type Office365LinkedServiceResponse struct {
 	// Specify the tenant information under which your Azure AD web application resides. Type: string (or Expression with resultType string).
 	ServicePrincipalTenantId interface{} `pulumi:"servicePrincipalTenantId"`
 	// Type of linked service.
+	// Expected value is 'Office365'.
 	Type string `pulumi:"type"`
 }
 
@@ -50456,6 +51403,7 @@ type Office365LinkedServiceResponseArgs struct {
 	// Specify the tenant information under which your Azure AD web application resides. Type: string (or Expression with resultType string).
 	ServicePrincipalTenantId pulumi.Input `pulumi:"servicePrincipalTenantId"`
 	// Type of linked service.
+	// Expected value is 'Office365'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -50532,6 +51480,7 @@ func (o Office365LinkedServiceResponseOutput) ServicePrincipalTenantId() pulumi.
 }
 
 // Type of linked service.
+// Expected value is 'Office365'.
 func (o Office365LinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Office365LinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -50553,6 +51502,7 @@ type OracleLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReference `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Oracle'.
 	Type string `pulumi:"type"`
 }
 
@@ -50584,6 +51534,7 @@ type OracleLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferencePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Oracle'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -50650,6 +51601,7 @@ func (o OracleLinkedServiceOutput) Password() AzureKeyVaultSecretReferencePtrOut
 }
 
 // Type of linked service.
+// Expected value is 'Oracle'.
 func (o OracleLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OracleLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -50671,6 +51623,7 @@ type OracleLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReferenceResponse `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Oracle'.
 	Type string `pulumi:"type"`
 }
 
@@ -50702,6 +51655,7 @@ type OracleLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Oracle'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -50768,6 +51722,7 @@ func (o OracleLinkedServiceResponseOutput) Password() AzureKeyVaultSecretReferen
 }
 
 // Type of linked service.
+// Expected value is 'Oracle'.
 func (o OracleLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OracleLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -50789,6 +51744,7 @@ type OracleServiceCloudLinkedService struct {
 	// The password corresponding to the user name that you provided in the username key.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'OracleServiceCloud'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -50828,6 +51784,7 @@ type OracleServiceCloudLinkedServiceArgs struct {
 	// The password corresponding to the user name that you provided in the username key.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'OracleServiceCloud'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -50902,6 +51859,7 @@ func (o OracleServiceCloudLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'OracleServiceCloud'.
 func (o OracleServiceCloudLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OracleServiceCloudLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -50943,6 +51901,7 @@ type OracleServiceCloudLinkedServiceResponse struct {
 	// The password corresponding to the user name that you provided in the username key.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'OracleServiceCloud'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -50982,6 +51941,7 @@ type OracleServiceCloudLinkedServiceResponseArgs struct {
 	// The password corresponding to the user name that you provided in the username key.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'OracleServiceCloud'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -51060,6 +52020,7 @@ func (o OracleServiceCloudLinkedServiceResponseOutput) Password() pulumi.AnyOutp
 }
 
 // Type of linked service.
+// Expected value is 'OracleServiceCloud'.
 func (o OracleServiceCloudLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OracleServiceCloudLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -51103,6 +52064,7 @@ type OracleServiceCloudObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OracleServiceCloudObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -51136,6 +52098,7 @@ type OracleServiceCloudObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OracleServiceCloudObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -51207,6 +52170,7 @@ func (o OracleServiceCloudObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'OracleServiceCloudObject'.
 func (o OracleServiceCloudObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OracleServiceCloudObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -51230,6 +52194,7 @@ type OracleServiceCloudObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OracleServiceCloudObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -51263,6 +52228,7 @@ type OracleServiceCloudObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OracleServiceCloudObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -51338,6 +52304,7 @@ func (o OracleServiceCloudObjectDatasetResponseOutput) TableName() pulumi.AnyOut
 }
 
 // Type of dataset.
+// Expected value is 'OracleServiceCloudObject'.
 func (o OracleServiceCloudObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OracleServiceCloudObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -51363,6 +52330,7 @@ type OracleTableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OracleTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -51398,6 +52366,7 @@ type OracleTableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OracleTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -51474,6 +52443,7 @@ func (o OracleTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'OracleTable'.
 func (o OracleTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OracleTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -51499,6 +52469,7 @@ type OracleTableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OracleTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -51534,6 +52505,7 @@ type OracleTableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'OracleTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -51610,6 +52582,7 @@ func (o OracleTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'OracleTable'.
 func (o OracleTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OracleTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -51634,6 +52607,7 @@ type OrcDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Orc'.
 	Type string `pulumi:"type"`
 }
 
@@ -51668,6 +52642,7 @@ type OrcDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Orc'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -51743,6 +52718,7 @@ func (o OrcDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Orc'.
 func (o OrcDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OrcDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -51767,6 +52743,7 @@ type OrcDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Orc'.
 	Type string `pulumi:"type"`
 }
 
@@ -51801,6 +52778,7 @@ type OrcDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Orc'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -51876,6 +52854,7 @@ func (o OrcDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Orc'.
 func (o OrcDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OrcDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -51887,6 +52866,7 @@ type OrcFormat struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'OrcFormat'.
 	Type string `pulumi:"type"`
 }
 
@@ -51908,6 +52888,7 @@ type OrcFormatArgs struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer pulumi.Input `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'OrcFormat'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -51949,6 +52930,7 @@ func (o OrcFormatOutput) Serializer() pulumi.AnyOutput {
 }
 
 // Type of dataset storage format.
+// Expected value is 'OrcFormat'.
 func (o OrcFormatOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OrcFormat) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -51960,6 +52942,7 @@ type OrcFormatResponse struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'OrcFormat'.
 	Type string `pulumi:"type"`
 }
 
@@ -51981,6 +52964,7 @@ type OrcFormatResponseArgs struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer pulumi.Input `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'OrcFormat'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -52022,6 +53006,7 @@ func (o OrcFormatResponseOutput) Serializer() pulumi.AnyOutput {
 }
 
 // Type of dataset storage format.
+// Expected value is 'OrcFormat'.
 func (o OrcFormatResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OrcFormatResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -52482,6 +53467,7 @@ type ParquetDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Parquet'.
 	Type string `pulumi:"type"`
 }
 
@@ -52516,6 +53502,7 @@ type ParquetDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Parquet'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -52591,6 +53578,7 @@ func (o ParquetDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Parquet'.
 func (o ParquetDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ParquetDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -52615,6 +53603,7 @@ type ParquetDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Parquet'.
 	Type string `pulumi:"type"`
 }
 
@@ -52649,6 +53638,7 @@ type ParquetDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Parquet'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -52724,6 +53714,7 @@ func (o ParquetDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Parquet'.
 func (o ParquetDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ParquetDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -52735,6 +53726,7 @@ type ParquetFormat struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'ParquetFormat'.
 	Type string `pulumi:"type"`
 }
 
@@ -52756,6 +53748,7 @@ type ParquetFormatArgs struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer pulumi.Input `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'ParquetFormat'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -52797,6 +53790,7 @@ func (o ParquetFormatOutput) Serializer() pulumi.AnyOutput {
 }
 
 // Type of dataset storage format.
+// Expected value is 'ParquetFormat'.
 func (o ParquetFormatOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ParquetFormat) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -52808,6 +53802,7 @@ type ParquetFormatResponse struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'ParquetFormat'.
 	Type string `pulumi:"type"`
 }
 
@@ -52829,6 +53824,7 @@ type ParquetFormatResponseArgs struct {
 	// Serializer. Type: string (or Expression with resultType string).
 	Serializer pulumi.Input `pulumi:"serializer"`
 	// Type of dataset storage format.
+	// Expected value is 'ParquetFormat'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -52870,6 +53866,7 @@ func (o ParquetFormatResponseOutput) Serializer() pulumi.AnyOutput {
 }
 
 // Type of dataset storage format.
+// Expected value is 'ParquetFormat'.
 func (o ParquetFormatResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ParquetFormatResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -52893,6 +53890,7 @@ type PaypalLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Paypal'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -52932,6 +53930,7 @@ type PaypalLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Paypal'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -53009,6 +54008,7 @@ func (o PaypalLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput 
 }
 
 // Type of linked service.
+// Expected value is 'Paypal'.
 func (o PaypalLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PaypalLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -53047,6 +54047,7 @@ type PaypalLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Paypal'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -53086,6 +54087,7 @@ type PaypalLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Paypal'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -53163,6 +54165,7 @@ func (o PaypalLinkedServiceResponseOutput) Parameters() ParameterSpecificationRe
 }
 
 // Type of linked service.
+// Expected value is 'Paypal'.
 func (o PaypalLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PaypalLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -53201,6 +54204,7 @@ type PaypalObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PaypalObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -53234,6 +54238,7 @@ type PaypalObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PaypalObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -53305,6 +54310,7 @@ func (o PaypalObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'PaypalObject'.
 func (o PaypalObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PaypalObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -53328,6 +54334,7 @@ type PaypalObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PaypalObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -53361,6 +54368,7 @@ type PaypalObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PaypalObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -53432,6 +54440,7 @@ func (o PaypalObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'PaypalObject'.
 func (o PaypalObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PaypalObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -53467,6 +54476,7 @@ type PhoenixLinkedService struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Phoenix'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -53516,6 +54526,7 @@ type PhoenixLinkedServiceArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Phoenix'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -53621,6 +54632,7 @@ func (o PhoenixLinkedServiceOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Phoenix'.
 func (o PhoenixLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PhoenixLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -53666,6 +54678,7 @@ type PhoenixLinkedServiceResponse struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Phoenix'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -53715,6 +54728,7 @@ type PhoenixLinkedServiceResponseArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Phoenix'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -53820,6 +54834,7 @@ func (o PhoenixLinkedServiceResponseOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Phoenix'.
 func (o PhoenixLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PhoenixLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -53855,6 +54870,7 @@ type PhoenixObjectDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PhoenixObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -53890,6 +54906,7 @@ type PhoenixObjectDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PhoenixObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -53966,6 +54983,7 @@ func (o PhoenixObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'PhoenixObject'.
 func (o PhoenixObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PhoenixObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -53991,6 +55009,7 @@ type PhoenixObjectDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PhoenixObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -54026,6 +55045,7 @@ type PhoenixObjectDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PhoenixObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -54102,6 +55122,7 @@ func (o PhoenixObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'PhoenixObject'.
 func (o PhoenixObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PhoenixObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -54825,6 +55846,7 @@ type PostgreSqlLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReference `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'PostgreSql'.
 	Type string `pulumi:"type"`
 }
 
@@ -54856,6 +55878,7 @@ type PostgreSqlLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferencePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'PostgreSql'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -54922,6 +55945,7 @@ func (o PostgreSqlLinkedServiceOutput) Password() AzureKeyVaultSecretReferencePt
 }
 
 // Type of linked service.
+// Expected value is 'PostgreSql'.
 func (o PostgreSqlLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PostgreSqlLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -54943,6 +55967,7 @@ type PostgreSqlLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReferenceResponse `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'PostgreSql'.
 	Type string `pulumi:"type"`
 }
 
@@ -54974,6 +55999,7 @@ type PostgreSqlLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'PostgreSql'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -55040,6 +56066,7 @@ func (o PostgreSqlLinkedServiceResponseOutput) Password() AzureKeyVaultSecretRef
 }
 
 // Type of linked service.
+// Expected value is 'PostgreSql'.
 func (o PostgreSqlLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PostgreSqlLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -55065,6 +56092,7 @@ type PostgreSqlTableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PostgreSqlTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -55100,6 +56128,7 @@ type PostgreSqlTableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PostgreSqlTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -55176,6 +56205,7 @@ func (o PostgreSqlTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'PostgreSqlTable'.
 func (o PostgreSqlTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PostgreSqlTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -55201,6 +56231,7 @@ type PostgreSqlTableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PostgreSqlTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -55236,6 +56267,7 @@ type PostgreSqlTableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PostgreSqlTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -55312,6 +56344,7 @@ func (o PostgreSqlTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'PostgreSqlTable'.
 func (o PostgreSqlTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PostgreSqlTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -55351,6 +56384,7 @@ type PrestoLinkedService struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Presto'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -55404,6 +56438,7 @@ type PrestoLinkedServiceArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Presto'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -55519,6 +56554,7 @@ func (o PrestoLinkedServiceOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Presto'.
 func (o PrestoLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrestoLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -55568,6 +56604,7 @@ type PrestoLinkedServiceResponse struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Presto'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -55621,6 +56658,7 @@ type PrestoLinkedServiceResponseArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Presto'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -55736,6 +56774,7 @@ func (o PrestoLinkedServiceResponseOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Presto'.
 func (o PrestoLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrestoLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -55771,6 +56810,7 @@ type PrestoObjectDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PrestoObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -55806,6 +56846,7 @@ type PrestoObjectDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PrestoObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -55882,6 +56923,7 @@ func (o PrestoObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'PrestoObject'.
 func (o PrestoObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrestoObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -55907,6 +56949,7 @@ type PrestoObjectDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PrestoObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -55942,6 +56985,7 @@ type PrestoObjectDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'PrestoObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -56018,6 +57062,7 @@ func (o PrestoObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'PrestoObject'.
 func (o PrestoObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrestoObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -56049,6 +57094,7 @@ type QuickBooksLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'QuickBooks'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -56092,6 +57138,7 @@ type QuickBooksLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'QuickBooks'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -56185,6 +57232,7 @@ func (o QuickBooksLinkedServiceOutput) Parameters() ParameterSpecificationMapOut
 }
 
 // Type of linked service.
+// Expected value is 'QuickBooks'.
 func (o QuickBooksLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickBooksLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -56221,6 +57269,7 @@ type QuickBooksLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'QuickBooks'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -56264,6 +57313,7 @@ type QuickBooksLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'QuickBooks'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -56357,6 +57407,7 @@ func (o QuickBooksLinkedServiceResponseOutput) Parameters() ParameterSpecificati
 }
 
 // Type of linked service.
+// Expected value is 'QuickBooks'.
 func (o QuickBooksLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickBooksLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -56385,6 +57436,7 @@ type QuickBooksObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'QuickBooksObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -56418,6 +57470,7 @@ type QuickBooksObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'QuickBooksObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -56489,6 +57542,7 @@ func (o QuickBooksObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'QuickBooksObject'.
 func (o QuickBooksObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickBooksObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -56512,6 +57566,7 @@ type QuickBooksObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'QuickBooksObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -56545,6 +57600,7 @@ type QuickBooksObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'QuickBooksObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -56616,6 +57672,7 @@ func (o QuickBooksObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'QuickBooksObject'.
 func (o QuickBooksObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickBooksObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -56639,6 +57696,7 @@ type RelationalTableDataset struct {
 	// The relational table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'RelationalTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -56672,6 +57730,7 @@ type RelationalTableDatasetArgs struct {
 	// The relational table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'RelationalTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -56743,6 +57802,7 @@ func (o RelationalTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'RelationalTable'.
 func (o RelationalTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RelationalTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -56766,6 +57826,7 @@ type RelationalTableDatasetResponse struct {
 	// The relational table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'RelationalTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -56799,6 +57860,7 @@ type RelationalTableDatasetResponseArgs struct {
 	// The relational table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'RelationalTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -56870,6 +57932,7 @@ func (o RelationalTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'RelationalTable'.
 func (o RelationalTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RelationalTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -56889,6 +57952,7 @@ type RerunTumblingWindowTrigger struct {
 	// The max number of parallel time windows (ready for execution) for which a rerun is triggered.
 	RerunConcurrency int `pulumi:"rerunConcurrency"`
 	// Trigger type.
+	// Expected value is 'RerunTumblingWindowTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -56918,6 +57982,7 @@ type RerunTumblingWindowTriggerArgs struct {
 	// The max number of parallel time windows (ready for execution) for which a rerun is triggered.
 	RerunConcurrency pulumi.IntInput `pulumi:"rerunConcurrency"`
 	// Trigger type.
+	// Expected value is 'RerunTumblingWindowTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -56979,6 +58044,7 @@ func (o RerunTumblingWindowTriggerOutput) RerunConcurrency() pulumi.IntOutput {
 }
 
 // Trigger type.
+// Expected value is 'RerunTumblingWindowTrigger'.
 func (o RerunTumblingWindowTriggerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RerunTumblingWindowTrigger) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -57000,6 +58066,7 @@ type RerunTumblingWindowTriggerResponse struct {
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
 	RuntimeState string `pulumi:"runtimeState"`
 	// Trigger type.
+	// Expected value is 'RerunTumblingWindowTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -57031,6 +58098,7 @@ type RerunTumblingWindowTriggerResponseArgs struct {
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
 	RuntimeState pulumi.StringInput `pulumi:"runtimeState"`
 	// Trigger type.
+	// Expected value is 'RerunTumblingWindowTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -57097,6 +58165,7 @@ func (o RerunTumblingWindowTriggerResponseOutput) RuntimeState() pulumi.StringOu
 }
 
 // Trigger type.
+// Expected value is 'RerunTumblingWindowTrigger'.
 func (o RerunTumblingWindowTriggerResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RerunTumblingWindowTriggerResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -57120,6 +58189,7 @@ type ResponsysLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Responsys'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -57159,6 +58229,7 @@ type ResponsysLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Responsys'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -57236,6 +58307,7 @@ func (o ResponsysLinkedServiceOutput) Parameters() ParameterSpecificationMapOutp
 }
 
 // Type of linked service.
+// Expected value is 'Responsys'.
 func (o ResponsysLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsysLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -57274,6 +58346,7 @@ type ResponsysLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Responsys'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -57313,6 +58386,7 @@ type ResponsysLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Responsys'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -57390,6 +58464,7 @@ func (o ResponsysLinkedServiceResponseOutput) Parameters() ParameterSpecificatio
 }
 
 // Type of linked service.
+// Expected value is 'Responsys'.
 func (o ResponsysLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsysLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -57428,6 +58503,7 @@ type ResponsysObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ResponsysObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -57461,6 +58537,7 @@ type ResponsysObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ResponsysObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -57532,6 +58609,7 @@ func (o ResponsysObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ResponsysObject'.
 func (o ResponsysObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsysObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -57555,6 +58633,7 @@ type ResponsysObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ResponsysObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -57588,6 +58667,7 @@ type ResponsysObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ResponsysObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -57659,6 +58739,7 @@ func (o ResponsysObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ResponsysObject'.
 func (o ResponsysObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsysObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -57690,6 +58771,7 @@ type RestResourceDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'RestResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -57731,6 +58813,7 @@ type RestResourceDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'RestResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -57822,6 +58905,7 @@ func (o RestResourceDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'RestResource'.
 func (o RestResourceDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RestResourceDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -57853,6 +58937,7 @@ type RestResourceDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'RestResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -57894,6 +58979,7 @@ type RestResourceDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'RestResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -57985,6 +59071,7 @@ func (o RestResourceDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'RestResource'.
 func (o RestResourceDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RestResourceDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -58018,6 +59105,7 @@ type RestServiceLinkedService struct {
 	// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'RestService'.
 	Type string `pulumi:"type"`
 	// The base URL of the REST service.
 	Url interface{} `pulumi:"url"`
@@ -58065,6 +59153,7 @@ type RestServiceLinkedServiceArgs struct {
 	// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'RestService'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The base URL of the REST service.
 	Url pulumi.Input `pulumi:"url"`
@@ -58165,6 +59254,7 @@ func (o RestServiceLinkedServiceOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'RestService'.
 func (o RestServiceLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RestServiceLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -58208,6 +59298,7 @@ type RestServiceLinkedServiceResponse struct {
 	// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
 	Tenant interface{} `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'RestService'.
 	Type string `pulumi:"type"`
 	// The base URL of the REST service.
 	Url interface{} `pulumi:"url"`
@@ -58255,6 +59346,7 @@ type RestServiceLinkedServiceResponseArgs struct {
 	// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
 	Tenant pulumi.Input `pulumi:"tenant"`
 	// Type of linked service.
+	// Expected value is 'RestService'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The base URL of the REST service.
 	Url pulumi.Input `pulumi:"url"`
@@ -58357,6 +59449,7 @@ func (o RestServiceLinkedServiceResponseOutput) Tenant() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'RestService'.
 func (o RestServiceLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RestServiceLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -58698,6 +59791,7 @@ type SalesforceLinkedService struct {
 	// The security token is optional to remotely access Salesforce instance.
 	SecurityToken interface{} `pulumi:"securityToken"`
 	// Type of linked service.
+	// Expected value is 'Salesforce'.
 	Type string `pulumi:"type"`
 	// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -58735,6 +59829,7 @@ type SalesforceLinkedServiceArgs struct {
 	// The security token is optional to remotely access Salesforce instance.
 	SecurityToken pulumi.Input `pulumi:"securityToken"`
 	// Type of linked service.
+	// Expected value is 'Salesforce'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -58813,6 +59908,7 @@ func (o SalesforceLinkedServiceOutput) SecurityToken() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Salesforce'.
 func (o SalesforceLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -58843,6 +59939,7 @@ type SalesforceLinkedServiceResponse struct {
 	// The security token is optional to remotely access Salesforce instance.
 	SecurityToken interface{} `pulumi:"securityToken"`
 	// Type of linked service.
+	// Expected value is 'Salesforce'.
 	Type string `pulumi:"type"`
 	// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -58880,6 +59977,7 @@ type SalesforceLinkedServiceResponseArgs struct {
 	// The security token is optional to remotely access Salesforce instance.
 	SecurityToken pulumi.Input `pulumi:"securityToken"`
 	// Type of linked service.
+	// Expected value is 'Salesforce'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -58958,6 +60056,7 @@ func (o SalesforceLinkedServiceResponseOutput) SecurityToken() pulumi.AnyOutput 
 }
 
 // Type of linked service.
+// Expected value is 'Salesforce'.
 func (o SalesforceLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -58986,6 +60085,7 @@ type SalesforceMarketingCloudLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'SalesforceMarketingCloud'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -59025,6 +60125,7 @@ type SalesforceMarketingCloudLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'SalesforceMarketingCloud'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -59102,6 +60203,7 @@ func (o SalesforceMarketingCloudLinkedServiceOutput) Parameters() ParameterSpeci
 }
 
 // Type of linked service.
+// Expected value is 'SalesforceMarketingCloud'.
 func (o SalesforceMarketingCloudLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -59140,6 +60242,7 @@ type SalesforceMarketingCloudLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'SalesforceMarketingCloud'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -59179,6 +60282,7 @@ type SalesforceMarketingCloudLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'SalesforceMarketingCloud'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -59260,6 +60364,7 @@ func (o SalesforceMarketingCloudLinkedServiceResponseOutput) Parameters() Parame
 }
 
 // Type of linked service.
+// Expected value is 'SalesforceMarketingCloud'.
 func (o SalesforceMarketingCloudLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceMarketingCloudLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -59298,6 +60403,7 @@ type SalesforceMarketingCloudObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SalesforceMarketingCloudObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -59331,6 +60437,7 @@ type SalesforceMarketingCloudObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SalesforceMarketingCloudObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -59402,6 +60509,7 @@ func (o SalesforceMarketingCloudObjectDatasetOutput) TableName() pulumi.AnyOutpu
 }
 
 // Type of dataset.
+// Expected value is 'SalesforceMarketingCloudObject'.
 func (o SalesforceMarketingCloudObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceMarketingCloudObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -59425,6 +60533,7 @@ type SalesforceMarketingCloudObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SalesforceMarketingCloudObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -59458,6 +60567,7 @@ type SalesforceMarketingCloudObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SalesforceMarketingCloudObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -59533,6 +60643,7 @@ func (o SalesforceMarketingCloudObjectDatasetResponseOutput) TableName() pulumi.
 }
 
 // Type of dataset.
+// Expected value is 'SalesforceMarketingCloudObject'.
 func (o SalesforceMarketingCloudObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceMarketingCloudObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -59556,6 +60667,7 @@ type SalesforceObjectDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SalesforceObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -59589,6 +60701,7 @@ type SalesforceObjectDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SalesforceObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -59660,6 +60773,7 @@ func (o SalesforceObjectDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SalesforceObject'.
 func (o SalesforceObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -59683,6 +60797,7 @@ type SalesforceObjectDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SalesforceObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -59716,6 +60831,7 @@ type SalesforceObjectDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SalesforceObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -59787,6 +60903,7 @@ func (o SalesforceObjectDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SalesforceObject'.
 func (o SalesforceObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -59814,6 +60931,7 @@ type SalesforceServiceCloudLinkedService struct {
 	// The security token is optional to remotely access Salesforce instance.
 	SecurityToken interface{} `pulumi:"securityToken"`
 	// Type of linked service.
+	// Expected value is 'SalesforceServiceCloud'.
 	Type string `pulumi:"type"`
 	// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -59853,6 +60971,7 @@ type SalesforceServiceCloudLinkedServiceArgs struct {
 	// The security token is optional to remotely access Salesforce instance.
 	SecurityToken pulumi.Input `pulumi:"securityToken"`
 	// Type of linked service.
+	// Expected value is 'SalesforceServiceCloud'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -59936,6 +61055,7 @@ func (o SalesforceServiceCloudLinkedServiceOutput) SecurityToken() pulumi.AnyOut
 }
 
 // Type of linked service.
+// Expected value is 'SalesforceServiceCloud'.
 func (o SalesforceServiceCloudLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceServiceCloudLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -59968,6 +61088,7 @@ type SalesforceServiceCloudLinkedServiceResponse struct {
 	// The security token is optional to remotely access Salesforce instance.
 	SecurityToken interface{} `pulumi:"securityToken"`
 	// Type of linked service.
+	// Expected value is 'SalesforceServiceCloud'.
 	Type string `pulumi:"type"`
 	// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -60007,6 +61128,7 @@ type SalesforceServiceCloudLinkedServiceResponseArgs struct {
 	// The security token is optional to remotely access Salesforce instance.
 	SecurityToken pulumi.Input `pulumi:"securityToken"`
 	// Type of linked service.
+	// Expected value is 'SalesforceServiceCloud'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -60094,6 +61216,7 @@ func (o SalesforceServiceCloudLinkedServiceResponseOutput) SecurityToken() pulum
 }
 
 // Type of linked service.
+// Expected value is 'SalesforceServiceCloud'.
 func (o SalesforceServiceCloudLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceServiceCloudLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -60122,6 +61245,7 @@ type SalesforceServiceCloudObjectDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SalesforceServiceCloudObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -60155,6 +61279,7 @@ type SalesforceServiceCloudObjectDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SalesforceServiceCloudObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -60226,6 +61351,7 @@ func (o SalesforceServiceCloudObjectDatasetOutput) Structure() pulumi.AnyOutput 
 }
 
 // Type of dataset.
+// Expected value is 'SalesforceServiceCloudObject'.
 func (o SalesforceServiceCloudObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceServiceCloudObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -60249,6 +61375,7 @@ type SalesforceServiceCloudObjectDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SalesforceServiceCloudObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -60282,6 +61409,7 @@ type SalesforceServiceCloudObjectDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SalesforceServiceCloudObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -60357,6 +61485,7 @@ func (o SalesforceServiceCloudObjectDatasetResponseOutput) Structure() pulumi.An
 }
 
 // Type of dataset.
+// Expected value is 'SalesforceServiceCloudObject'.
 func (o SalesforceServiceCloudObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SalesforceServiceCloudObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -60382,6 +61511,7 @@ type SapBWLinkedService struct {
 	// System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber interface{} `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapBW'.
 	Type string `pulumi:"type"`
 	// Username to access the SAP BW server. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -60419,6 +61549,7 @@ type SapBWLinkedServiceArgs struct {
 	// System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber pulumi.Input `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapBW'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username to access the SAP BW server. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -60497,6 +61628,7 @@ func (o SapBWLinkedServiceOutput) SystemNumber() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SapBW'.
 func (o SapBWLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapBWLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -60527,6 +61659,7 @@ type SapBWLinkedServiceResponse struct {
 	// System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber interface{} `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapBW'.
 	Type string `pulumi:"type"`
 	// Username to access the SAP BW server. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -60564,6 +61697,7 @@ type SapBWLinkedServiceResponseArgs struct {
 	// System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber pulumi.Input `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapBW'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username to access the SAP BW server. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -60642,6 +61776,7 @@ func (o SapBWLinkedServiceResponseOutput) SystemNumber() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SapBW'.
 func (o SapBWLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapBWLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -60668,6 +61803,7 @@ type SapBwCubeDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapBwCube'.
 	Type string `pulumi:"type"`
 }
 
@@ -60699,6 +61835,7 @@ type SapBwCubeDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapBwCube'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -60765,6 +61902,7 @@ func (o SapBwCubeDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SapBwCube'.
 func (o SapBwCubeDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapBwCubeDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -60786,6 +61924,7 @@ type SapBwCubeDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapBwCube'.
 	Type string `pulumi:"type"`
 }
 
@@ -60817,6 +61956,7 @@ type SapBwCubeDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapBwCube'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -60883,6 +62023,7 @@ func (o SapBwCubeDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SapBwCube'.
 func (o SapBwCubeDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapBwCubeDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -60902,6 +62043,7 @@ type SapCloudForCustomerLinkedService struct {
 	// The password for Basic authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SapCloudForCustomer'.
 	Type string `pulumi:"type"`
 	// The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -60935,6 +62077,7 @@ type SapCloudForCustomerLinkedServiceArgs struct {
 	// The password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SapCloudForCustomer'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -61000,6 +62143,7 @@ func (o SapCloudForCustomerLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SapCloudForCustomer'.
 func (o SapCloudForCustomerLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapCloudForCustomerLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -61029,6 +62173,7 @@ type SapCloudForCustomerLinkedServiceResponse struct {
 	// The password for Basic authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SapCloudForCustomer'.
 	Type string `pulumi:"type"`
 	// The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -61062,6 +62207,7 @@ type SapCloudForCustomerLinkedServiceResponseArgs struct {
 	// The password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SapCloudForCustomer'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -61131,6 +62277,7 @@ func (o SapCloudForCustomerLinkedServiceResponseOutput) Password() pulumi.AnyOut
 }
 
 // Type of linked service.
+// Expected value is 'SapCloudForCustomer'.
 func (o SapCloudForCustomerLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapCloudForCustomerLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -61164,6 +62311,7 @@ type SapCloudForCustomerResourceDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapCloudForCustomerResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -61197,6 +62345,7 @@ type SapCloudForCustomerResourceDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapCloudForCustomerResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -61268,6 +62417,7 @@ func (o SapCloudForCustomerResourceDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SapCloudForCustomerResource'.
 func (o SapCloudForCustomerResourceDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapCloudForCustomerResourceDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -61291,6 +62441,7 @@ type SapCloudForCustomerResourceDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapCloudForCustomerResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -61324,6 +62475,7 @@ type SapCloudForCustomerResourceDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapCloudForCustomerResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -61399,6 +62551,7 @@ func (o SapCloudForCustomerResourceDatasetResponseOutput) Structure() pulumi.Any
 }
 
 // Type of dataset.
+// Expected value is 'SapCloudForCustomerResource'.
 func (o SapCloudForCustomerResourceDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapCloudForCustomerResourceDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -61418,6 +62571,7 @@ type SapEccLinkedService struct {
 	// The password for Basic authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SapEcc'.
 	Type string `pulumi:"type"`
 	// The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
 	Url string `pulumi:"url"`
@@ -61451,6 +62605,7 @@ type SapEccLinkedServiceArgs struct {
 	// The password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SapEcc'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
 	Url pulumi.StringInput `pulumi:"url"`
@@ -61516,6 +62671,7 @@ func (o SapEccLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SapEcc'.
 func (o SapEccLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapEccLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -61545,6 +62701,7 @@ type SapEccLinkedServiceResponse struct {
 	// The password for Basic authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SapEcc'.
 	Type string `pulumi:"type"`
 	// The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
 	Url string `pulumi:"url"`
@@ -61578,6 +62735,7 @@ type SapEccLinkedServiceResponseArgs struct {
 	// The password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SapEcc'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
 	Url pulumi.StringInput `pulumi:"url"`
@@ -61643,6 +62801,7 @@ func (o SapEccLinkedServiceResponseOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SapEcc'.
 func (o SapEccLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapEccLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -61676,6 +62835,7 @@ type SapEccResourceDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapEccResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -61709,6 +62869,7 @@ type SapEccResourceDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapEccResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -61780,6 +62941,7 @@ func (o SapEccResourceDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SapEccResource'.
 func (o SapEccResourceDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapEccResourceDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -61803,6 +62965,7 @@ type SapEccResourceDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapEccResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -61836,6 +62999,7 @@ type SapEccResourceDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapEccResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -61907,6 +63071,7 @@ func (o SapEccResourceDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SapEccResource'.
 func (o SapEccResourceDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapEccResourceDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -61932,6 +63097,7 @@ type SapHanaLinkedService struct {
 	// Host name of the SAP HANA server. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'SapHana'.
 	Type string `pulumi:"type"`
 	// Username to access the SAP HANA server. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -61969,6 +63135,7 @@ type SapHanaLinkedServiceArgs struct {
 	// Host name of the SAP HANA server. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'SapHana'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username to access the SAP HANA server. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -62047,6 +63214,7 @@ func (o SapHanaLinkedServiceOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SapHana'.
 func (o SapHanaLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapHanaLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -62077,6 +63245,7 @@ type SapHanaLinkedServiceResponse struct {
 	// Host name of the SAP HANA server. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'SapHana'.
 	Type string `pulumi:"type"`
 	// Username to access the SAP HANA server. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -62114,6 +63283,7 @@ type SapHanaLinkedServiceResponseArgs struct {
 	// Host name of the SAP HANA server. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'SapHana'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username to access the SAP HANA server. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -62192,6 +63362,7 @@ func (o SapHanaLinkedServiceResponseOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SapHana'.
 func (o SapHanaLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapHanaLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -62220,6 +63391,7 @@ type SapHanaTableDataset struct {
 	// The table name of SAP HANA. Type: string (or Expression with resultType string).
 	Table interface{} `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'SapHanaTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -62253,6 +63425,7 @@ type SapHanaTableDatasetArgs struct {
 	// The table name of SAP HANA. Type: string (or Expression with resultType string).
 	Table pulumi.Input `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'SapHanaTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -62324,6 +63497,7 @@ func (o SapHanaTableDatasetOutput) Table() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SapHanaTable'.
 func (o SapHanaTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapHanaTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -62347,6 +63521,7 @@ type SapHanaTableDatasetResponse struct {
 	// The table name of SAP HANA. Type: string (or Expression with resultType string).
 	Table interface{} `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'SapHanaTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -62380,6 +63555,7 @@ type SapHanaTableDatasetResponseArgs struct {
 	// The table name of SAP HANA. Type: string (or Expression with resultType string).
 	Table pulumi.Input `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'SapHanaTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -62451,6 +63627,7 @@ func (o SapHanaTableDatasetResponseOutput) Table() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SapHanaTable'.
 func (o SapHanaTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapHanaTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -62486,6 +63663,7 @@ type SapOpenHubLinkedService struct {
 	// System number of the BW system where the open hub destination is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber interface{} `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapOpenHub'.
 	Type string `pulumi:"type"`
 	// Username to access the SAP BW server where the open hub destination is located. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -62533,6 +63711,7 @@ type SapOpenHubLinkedServiceArgs struct {
 	// System number of the BW system where the open hub destination is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber pulumi.Input `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapOpenHub'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username to access the SAP BW server where the open hub destination is located. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -62636,6 +63815,7 @@ func (o SapOpenHubLinkedServiceOutput) SystemNumber() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SapOpenHub'.
 func (o SapOpenHubLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapOpenHubLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -62676,6 +63856,7 @@ type SapOpenHubLinkedServiceResponse struct {
 	// System number of the BW system where the open hub destination is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber interface{} `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapOpenHub'.
 	Type string `pulumi:"type"`
 	// Username to access the SAP BW server where the open hub destination is located. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -62723,6 +63904,7 @@ type SapOpenHubLinkedServiceResponseArgs struct {
 	// System number of the BW system where the open hub destination is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber pulumi.Input `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapOpenHub'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username to access the SAP BW server where the open hub destination is located. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -62826,6 +64008,7 @@ func (o SapOpenHubLinkedServiceResponseOutput) SystemNumber() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SapOpenHub'.
 func (o SapOpenHubLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapOpenHubLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -62858,6 +64041,7 @@ type SapOpenHubTableDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapOpenHubTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -62895,6 +64079,7 @@ type SapOpenHubTableDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapOpenHubTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -62976,6 +64161,7 @@ func (o SapOpenHubTableDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SapOpenHubTable'.
 func (o SapOpenHubTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapOpenHubTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -63003,6 +64189,7 @@ type SapOpenHubTableDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapOpenHubTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -63040,6 +64227,7 @@ type SapOpenHubTableDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SapOpenHubTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -63121,6 +64309,7 @@ func (o SapOpenHubTableDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SapOpenHubTable'.
 func (o SapOpenHubTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapOpenHubTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -63166,6 +64355,7 @@ type SapTableLinkedService struct {
 	// System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber interface{} `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapTable'.
 	Type string `pulumi:"type"`
 	// Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -63223,6 +64413,7 @@ type SapTableLinkedServiceArgs struct {
 	// System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber pulumi.Input `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -63351,6 +64542,7 @@ func (o SapTableLinkedServiceOutput) SystemNumber() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SapTable'.
 func (o SapTableLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapTableLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -63401,6 +64593,7 @@ type SapTableLinkedServiceResponse struct {
 	// System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber interface{} `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapTable'.
 	Type string `pulumi:"type"`
 	// Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -63458,6 +64651,7 @@ type SapTableLinkedServiceResponseArgs struct {
 	// System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
 	SystemNumber pulumi.Input `pulumi:"systemNumber"`
 	// Type of linked service.
+	// Expected value is 'SapTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -63586,6 +64780,7 @@ func (o SapTableLinkedServiceResponseOutput) SystemNumber() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SapTable'.
 func (o SapTableLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapTableLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -63614,6 +64809,7 @@ type SapTableResourceDataset struct {
 	// The name of the SAP Table. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SapTableResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -63647,6 +64843,7 @@ type SapTableResourceDatasetArgs struct {
 	// The name of the SAP Table. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SapTableResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -63718,6 +64915,7 @@ func (o SapTableResourceDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SapTableResource'.
 func (o SapTableResourceDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapTableResourceDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -63741,6 +64939,7 @@ type SapTableResourceDatasetResponse struct {
 	// The name of the SAP Table. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SapTableResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -63774,6 +64973,7 @@ type SapTableResourceDatasetResponseArgs struct {
 	// The name of the SAP Table. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SapTableResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -63845,6 +65045,7 @@ func (o SapTableResourceDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SapTableResource'.
 func (o SapTableResourceDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SapTableResourceDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -64106,6 +65307,7 @@ func (o ScriptActionResponseArrayOutput) Index(i pulumi.IntInput) ScriptActionRe
 // Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureString struct {
 	// Type of the secret.
+	// Expected value is 'SecureString'.
 	Type string `pulumi:"type"`
 	// Value of secure string.
 	Value string `pulumi:"value"`
@@ -64125,6 +65327,7 @@ type SecureStringInput interface {
 // Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringArgs struct {
 	// Type of the secret.
+	// Expected value is 'SecureString'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Value of secure string.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -64209,6 +65412,7 @@ func (o SecureStringOutput) ToSecureStringPtrOutputWithContext(ctx context.Conte
 }
 
 // Type of the secret.
+// Expected value is 'SecureString'.
 func (o SecureStringOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SecureString) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -64237,6 +65441,7 @@ func (o SecureStringPtrOutput) Elem() SecureStringOutput {
 }
 
 // Type of the secret.
+// Expected value is 'SecureString'.
 func (o SecureStringPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecureString) *string {
 		if v == nil {
@@ -64259,6 +65464,7 @@ func (o SecureStringPtrOutput) Value() pulumi.StringPtrOutput {
 // Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringResponse struct {
 	// Type of the secret.
+	// Expected value is 'SecureString'.
 	Type string `pulumi:"type"`
 	// Value of secure string.
 	Value string `pulumi:"value"`
@@ -64278,6 +65484,7 @@ type SecureStringResponseInput interface {
 // Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringResponseArgs struct {
 	// Type of the secret.
+	// Expected value is 'SecureString'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Value of secure string.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -64362,6 +65569,7 @@ func (o SecureStringResponseOutput) ToSecureStringResponsePtrOutputWithContext(c
 }
 
 // Type of the secret.
+// Expected value is 'SecureString'.
 func (o SecureStringResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SecureStringResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -64390,6 +65598,7 @@ func (o SecureStringResponsePtrOutput) Elem() SecureStringResponseOutput {
 }
 
 // Type of the secret.
+// Expected value is 'SecureString'.
 func (o SecureStringResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecureStringResponse) *string {
 		if v == nil {
@@ -64416,6 +65625,7 @@ type SelfDependencyTumblingWindowTriggerReference struct {
 	// The size of the window when evaluating the dependency. If undefined the frequency of the tumbling window will be used.
 	Size *string `pulumi:"size"`
 	// The type of dependency reference.
+	// Expected value is 'SelfDependencyTumblingWindowTriggerReference'.
 	Type string `pulumi:"type"`
 }
 
@@ -64437,6 +65647,7 @@ type SelfDependencyTumblingWindowTriggerReferenceArgs struct {
 	// The size of the window when evaluating the dependency. If undefined the frequency of the tumbling window will be used.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// The type of dependency reference.
+	// Expected value is 'SelfDependencyTumblingWindowTriggerReference'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -64478,6 +65689,7 @@ func (o SelfDependencyTumblingWindowTriggerReferenceOutput) Size() pulumi.String
 }
 
 // The type of dependency reference.
+// Expected value is 'SelfDependencyTumblingWindowTriggerReference'.
 func (o SelfDependencyTumblingWindowTriggerReferenceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfDependencyTumblingWindowTriggerReference) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -64489,6 +65701,7 @@ type SelfDependencyTumblingWindowTriggerReferenceResponse struct {
 	// The size of the window when evaluating the dependency. If undefined the frequency of the tumbling window will be used.
 	Size *string `pulumi:"size"`
 	// The type of dependency reference.
+	// Expected value is 'SelfDependencyTumblingWindowTriggerReference'.
 	Type string `pulumi:"type"`
 }
 
@@ -64510,6 +65723,7 @@ type SelfDependencyTumblingWindowTriggerReferenceResponseArgs struct {
 	// The size of the window when evaluating the dependency. If undefined the frequency of the tumbling window will be used.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// The type of dependency reference.
+	// Expected value is 'SelfDependencyTumblingWindowTriggerReference'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -64551,6 +65765,7 @@ func (o SelfDependencyTumblingWindowTriggerReferenceResponseOutput) Size() pulum
 }
 
 // The type of dependency reference.
+// Expected value is 'SelfDependencyTumblingWindowTriggerReference'.
 func (o SelfDependencyTumblingWindowTriggerReferenceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfDependencyTumblingWindowTriggerReferenceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -64562,6 +65777,7 @@ type SelfHostedIntegrationRuntime struct {
 	// The base definition of a linked integration runtime.
 	LinkedInfo interface{} `pulumi:"linkedInfo"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type string `pulumi:"type"`
 }
 
@@ -64583,6 +65799,7 @@ type SelfHostedIntegrationRuntimeArgs struct {
 	// The base definition of a linked integration runtime.
 	LinkedInfo pulumi.Input `pulumi:"linkedInfo"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -64624,6 +65841,7 @@ func (o SelfHostedIntegrationRuntimeOutput) LinkedInfo() pulumi.AnyOutput {
 }
 
 // Type of integration runtime.
+// Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -64888,6 +66106,7 @@ type SelfHostedIntegrationRuntimeResponse struct {
 	// The base definition of a linked integration runtime.
 	LinkedInfo interface{} `pulumi:"linkedInfo"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type string `pulumi:"type"`
 }
 
@@ -64909,6 +66128,7 @@ type SelfHostedIntegrationRuntimeResponseArgs struct {
 	// The base definition of a linked integration runtime.
 	LinkedInfo pulumi.Input `pulumi:"linkedInfo"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -64950,6 +66170,7 @@ func (o SelfHostedIntegrationRuntimeResponseOutput) LinkedInfo() pulumi.AnyOutpu
 }
 
 // Type of integration runtime.
+// Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -64987,6 +66208,7 @@ type SelfHostedIntegrationRuntimeStatusResponse struct {
 	// The task queue id of the integration runtime.
 	TaskQueueId string `pulumi:"taskQueueId"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type string `pulumi:"type"`
 	// The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
 	UpdateDelayOffset string `pulumi:"updateDelayOffset"`
@@ -65040,6 +66262,7 @@ type SelfHostedIntegrationRuntimeStatusResponseArgs struct {
 	// The task queue id of the integration runtime.
 	TaskQueueId pulumi.StringInput `pulumi:"taskQueueId"`
 	// Type of integration runtime.
+	// Expected value is 'SelfHosted'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
 	UpdateDelayOffset pulumi.StringInput `pulumi:"updateDelayOffset"`
@@ -65154,6 +66377,7 @@ func (o SelfHostedIntegrationRuntimeStatusResponseOutput) TaskQueueId() pulumi.S
 }
 
 // Type of integration runtime.
+// Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -65196,6 +66420,7 @@ type ServiceNowLinkedService struct {
 	// The password corresponding to the user name for Basic and OAuth2 authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'ServiceNow'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -65241,6 +66466,7 @@ type ServiceNowLinkedServiceArgs struct {
 	// The password corresponding to the user name for Basic and OAuth2 authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'ServiceNow'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -65330,6 +66556,7 @@ func (o ServiceNowLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'ServiceNow'.
 func (o ServiceNowLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceNowLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -65377,6 +66604,7 @@ type ServiceNowLinkedServiceResponse struct {
 	// The password corresponding to the user name for Basic and OAuth2 authentication.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'ServiceNow'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -65422,6 +66650,7 @@ type ServiceNowLinkedServiceResponseArgs struct {
 	// The password corresponding to the user name for Basic and OAuth2 authentication.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'ServiceNow'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -65511,6 +66740,7 @@ func (o ServiceNowLinkedServiceResponseOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'ServiceNow'.
 func (o ServiceNowLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceNowLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -65554,6 +66784,7 @@ type ServiceNowObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ServiceNowObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -65587,6 +66818,7 @@ type ServiceNowObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ServiceNowObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -65658,6 +66890,7 @@ func (o ServiceNowObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ServiceNowObject'.
 func (o ServiceNowObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceNowObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -65681,6 +66914,7 @@ type ServiceNowObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ServiceNowObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -65714,6 +66948,7 @@ type ServiceNowObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ServiceNowObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -65785,6 +67020,7 @@ func (o ServiceNowObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ServiceNowObject'.
 func (o ServiceNowObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceNowObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -65796,6 +67032,7 @@ type SftpLocation struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'SftpLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -65817,6 +67054,7 @@ type SftpLocationArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'SftpLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -65858,6 +67096,7 @@ func (o SftpLocationOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'SftpLocation'.
 func (o SftpLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SftpLocation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -65869,6 +67108,7 @@ type SftpLocationResponse struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath interface{} `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'SftpLocation'.
 	Type string `pulumi:"type"`
 }
 
@@ -65890,6 +67130,7 @@ type SftpLocationResponseArgs struct {
 	// Specify the folder path of dataset. Type: string (or Expression with resultType string)
 	FolderPath pulumi.Input `pulumi:"folderPath"`
 	// Type of dataset storage location.
+	// Expected value is 'SftpLocation'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -65931,6 +67172,7 @@ func (o SftpLocationResponseOutput) FolderPath() pulumi.AnyOutput {
 }
 
 // Type of dataset storage location.
+// Expected value is 'SftpLocation'.
 func (o SftpLocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SftpLocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -65966,6 +67208,7 @@ type SftpServerLinkedService struct {
 	// If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
 	SkipHostKeyValidation interface{} `pulumi:"skipHostKeyValidation"`
 	// Type of linked service.
+	// Expected value is 'Sftp'.
 	Type string `pulumi:"type"`
 	// The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -66013,6 +67256,7 @@ type SftpServerLinkedServiceArgs struct {
 	// If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
 	SkipHostKeyValidation pulumi.Input `pulumi:"skipHostKeyValidation"`
 	// Type of linked service.
+	// Expected value is 'Sftp'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -66116,6 +67360,7 @@ func (o SftpServerLinkedServiceOutput) SkipHostKeyValidation() pulumi.AnyOutput 
 }
 
 // Type of linked service.
+// Expected value is 'Sftp'.
 func (o SftpServerLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SftpServerLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -66156,6 +67401,7 @@ type SftpServerLinkedServiceResponse struct {
 	// If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
 	SkipHostKeyValidation interface{} `pulumi:"skipHostKeyValidation"`
 	// Type of linked service.
+	// Expected value is 'Sftp'.
 	Type string `pulumi:"type"`
 	// The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -66203,6 +67449,7 @@ type SftpServerLinkedServiceResponseArgs struct {
 	// If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
 	SkipHostKeyValidation pulumi.Input `pulumi:"skipHostKeyValidation"`
 	// Type of linked service.
+	// Expected value is 'Sftp'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -66306,6 +67553,7 @@ func (o SftpServerLinkedServiceResponseOutput) SkipHostKeyValidation() pulumi.An
 }
 
 // Type of linked service.
+// Expected value is 'Sftp'.
 func (o SftpServerLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SftpServerLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -66336,6 +67584,7 @@ type SharePointOnlineListLinkedService struct {
 	// The tenant ID under which your application resides. You can find it from Azure portal Active Directory overview page. Type: string (or Expression with resultType string).
 	TenantId interface{} `pulumi:"tenantId"`
 	// Type of linked service.
+	// Expected value is 'SharePointOnlineList'.
 	Type string `pulumi:"type"`
 }
 
@@ -66371,6 +67620,7 @@ type SharePointOnlineListLinkedServiceArgs struct {
 	// The tenant ID under which your application resides. You can find it from Azure portal Active Directory overview page. Type: string (or Expression with resultType string).
 	TenantId pulumi.Input `pulumi:"tenantId"`
 	// Type of linked service.
+	// Expected value is 'SharePointOnlineList'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -66447,6 +67697,7 @@ func (o SharePointOnlineListLinkedServiceOutput) TenantId() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SharePointOnlineList'.
 func (o SharePointOnlineListLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SharePointOnlineListLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -66472,6 +67723,7 @@ type SharePointOnlineListLinkedServiceResponse struct {
 	// The tenant ID under which your application resides. You can find it from Azure portal Active Directory overview page. Type: string (or Expression with resultType string).
 	TenantId interface{} `pulumi:"tenantId"`
 	// Type of linked service.
+	// Expected value is 'SharePointOnlineList'.
 	Type string `pulumi:"type"`
 }
 
@@ -66507,6 +67759,7 @@ type SharePointOnlineListLinkedServiceResponseArgs struct {
 	// The tenant ID under which your application resides. You can find it from Azure portal Active Directory overview page. Type: string (or Expression with resultType string).
 	TenantId pulumi.Input `pulumi:"tenantId"`
 	// Type of linked service.
+	// Expected value is 'SharePointOnlineList'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -66587,6 +67840,7 @@ func (o SharePointOnlineListLinkedServiceResponseOutput) TenantId() pulumi.AnyOu
 }
 
 // Type of linked service.
+// Expected value is 'SharePointOnlineList'.
 func (o SharePointOnlineListLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SharePointOnlineListLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -66610,6 +67864,7 @@ type SharePointOnlineListResourceDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SharePointOnlineListResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -66643,6 +67898,7 @@ type SharePointOnlineListResourceDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SharePointOnlineListResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -66714,6 +67970,7 @@ func (o SharePointOnlineListResourceDatasetOutput) Structure() pulumi.AnyOutput 
 }
 
 // Type of dataset.
+// Expected value is 'SharePointOnlineListResource'.
 func (o SharePointOnlineListResourceDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SharePointOnlineListResourceDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -66737,6 +67994,7 @@ type SharePointOnlineListResourceDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SharePointOnlineListResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -66770,6 +68028,7 @@ type SharePointOnlineListResourceDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'SharePointOnlineListResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -66845,6 +68104,7 @@ func (o SharePointOnlineListResourceDatasetResponseOutput) Structure() pulumi.An
 }
 
 // Type of dataset.
+// Expected value is 'SharePointOnlineListResource'.
 func (o SharePointOnlineListResourceDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SharePointOnlineListResourceDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -66866,6 +68126,7 @@ type ShopifyLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Shopify'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -66903,6 +68164,7 @@ type ShopifyLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Shopify'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -66975,6 +68237,7 @@ func (o ShopifyLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput
 }
 
 // Type of linked service.
+// Expected value is 'Shopify'.
 func (o ShopifyLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ShopifyLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -67011,6 +68274,7 @@ type ShopifyLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Shopify'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -67048,6 +68312,7 @@ type ShopifyLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Shopify'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -67120,6 +68385,7 @@ func (o ShopifyLinkedServiceResponseOutput) Parameters() ParameterSpecificationR
 }
 
 // Type of linked service.
+// Expected value is 'Shopify'.
 func (o ShopifyLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ShopifyLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -67158,6 +68424,7 @@ type ShopifyObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ShopifyObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -67191,6 +68458,7 @@ type ShopifyObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ShopifyObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -67262,6 +68530,7 @@ func (o ShopifyObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ShopifyObject'.
 func (o ShopifyObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ShopifyObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -67285,6 +68554,7 @@ type ShopifyObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ShopifyObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -67318,6 +68588,7 @@ type ShopifyObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ShopifyObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -67389,6 +68660,7 @@ func (o ShopifyObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ShopifyObject'.
 func (o ShopifyObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ShopifyObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -67412,6 +68684,7 @@ type SnowflakeDataset struct {
 	// The table name of the Snowflake database. Type: string (or Expression with resultType string).
 	Table interface{} `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'SnowflakeTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -67445,6 +68718,7 @@ type SnowflakeDatasetArgs struct {
 	// The table name of the Snowflake database. Type: string (or Expression with resultType string).
 	Table pulumi.Input `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'SnowflakeTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -67516,6 +68790,7 @@ func (o SnowflakeDatasetOutput) Table() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SnowflakeTable'.
 func (o SnowflakeDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SnowflakeDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -67539,6 +68814,7 @@ type SnowflakeDatasetResponse struct {
 	// The table name of the Snowflake database. Type: string (or Expression with resultType string).
 	Table interface{} `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'SnowflakeTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -67572,6 +68848,7 @@ type SnowflakeDatasetResponseArgs struct {
 	// The table name of the Snowflake database. Type: string (or Expression with resultType string).
 	Table pulumi.Input `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'SnowflakeTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -67643,6 +68920,7 @@ func (o SnowflakeDatasetResponseOutput) Table() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SnowflakeTable'.
 func (o SnowflakeDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SnowflakeDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -67664,6 +68942,7 @@ type SnowflakeLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReference `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Snowflake'.
 	Type string `pulumi:"type"`
 }
 
@@ -67695,6 +68974,7 @@ type SnowflakeLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferencePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Snowflake'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -67761,6 +69041,7 @@ func (o SnowflakeLinkedServiceOutput) Password() AzureKeyVaultSecretReferencePtr
 }
 
 // Type of linked service.
+// Expected value is 'Snowflake'.
 func (o SnowflakeLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SnowflakeLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -67782,6 +69063,7 @@ type SnowflakeLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password *AzureKeyVaultSecretReferenceResponse `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Snowflake'.
 	Type string `pulumi:"type"`
 }
 
@@ -67813,6 +69095,7 @@ type SnowflakeLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Password AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'Snowflake'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -67879,6 +69162,7 @@ func (o SnowflakeLinkedServiceResponseOutput) Password() AzureKeyVaultSecretRefe
 }
 
 // Type of linked service.
+// Expected value is 'Snowflake'.
 func (o SnowflakeLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SnowflakeLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -67918,6 +69202,7 @@ type SparkLinkedService struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Spark'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -67971,6 +69256,7 @@ type SparkLinkedServiceArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Spark'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -68086,6 +69372,7 @@ func (o SparkLinkedServiceOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Spark'.
 func (o SparkLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -68135,6 +69422,7 @@ type SparkLinkedServiceResponse struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath interface{} `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Spark'.
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore interface{} `pulumi:"useSystemTrustStore"`
@@ -68188,6 +69476,7 @@ type SparkLinkedServiceResponseArgs struct {
 	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
 	TrustedCertPath pulumi.Input `pulumi:"trustedCertPath"`
 	// Type of linked service.
+	// Expected value is 'Spark'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore pulumi.Input `pulumi:"useSystemTrustStore"`
@@ -68303,6 +69592,7 @@ func (o SparkLinkedServiceResponseOutput) TrustedCertPath() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Spark'.
 func (o SparkLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -68338,6 +69628,7 @@ type SparkObjectDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SparkObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -68373,6 +69664,7 @@ type SparkObjectDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SparkObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -68449,6 +69741,7 @@ func (o SparkObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SparkObject'.
 func (o SparkObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -68474,6 +69767,7 @@ type SparkObjectDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SparkObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -68509,6 +69803,7 @@ type SparkObjectDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SparkObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -68585,6 +69880,7 @@ func (o SparkObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SparkObject'.
 func (o SparkObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -68606,6 +69902,7 @@ type SqlServerLinkedService struct {
 	// The on-premises Windows authentication password.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SqlServer'.
 	Type string `pulumi:"type"`
 	// The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -68639,6 +69936,7 @@ type SqlServerLinkedServiceArgs struct {
 	// The on-premises Windows authentication password.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SqlServer'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -68707,6 +70005,7 @@ func (o SqlServerLinkedServiceOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SqlServer'.
 func (o SqlServerLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -68733,6 +70032,7 @@ type SqlServerLinkedServiceResponse struct {
 	// The on-premises Windows authentication password.
 	Password interface{} `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SqlServer'.
 	Type string `pulumi:"type"`
 	// The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -68766,6 +70066,7 @@ type SqlServerLinkedServiceResponseArgs struct {
 	// The on-premises Windows authentication password.
 	Password pulumi.Input `pulumi:"password"`
 	// Type of linked service.
+	// Expected value is 'SqlServer'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
 	UserName pulumi.Input `pulumi:"userName"`
@@ -68834,6 +70135,7 @@ func (o SqlServerLinkedServiceResponseOutput) Password() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'SqlServer'.
 func (o SqlServerLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -68864,6 +70166,7 @@ type SqlServerTableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SqlServerTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -68899,6 +70202,7 @@ type SqlServerTableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SqlServerTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -68975,6 +70279,7 @@ func (o SqlServerTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SqlServerTable'.
 func (o SqlServerTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -69000,6 +70305,7 @@ type SqlServerTableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SqlServerTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -69035,6 +70341,7 @@ type SqlServerTableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SqlServerTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -69111,6 +70418,7 @@ func (o SqlServerTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SqlServerTable'.
 func (o SqlServerTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -69138,6 +70446,7 @@ type SquareLinkedService struct {
 	// The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
 	RedirectUri interface{} `pulumi:"redirectUri"`
 	// Type of linked service.
+	// Expected value is 'Square'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -69181,6 +70490,7 @@ type SquareLinkedServiceArgs struct {
 	// The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
 	RedirectUri pulumi.Input `pulumi:"redirectUri"`
 	// Type of linked service.
+	// Expected value is 'Square'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -69268,6 +70578,7 @@ func (o SquareLinkedServiceOutput) RedirectUri() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Square'.
 func (o SquareLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SquareLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -69310,6 +70621,7 @@ type SquareLinkedServiceResponse struct {
 	// The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
 	RedirectUri interface{} `pulumi:"redirectUri"`
 	// Type of linked service.
+	// Expected value is 'Square'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -69353,6 +70665,7 @@ type SquareLinkedServiceResponseArgs struct {
 	// The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
 	RedirectUri pulumi.Input `pulumi:"redirectUri"`
 	// Type of linked service.
+	// Expected value is 'Square'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -69440,6 +70753,7 @@ func (o SquareLinkedServiceResponseOutput) RedirectUri() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Square'.
 func (o SquareLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SquareLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -69478,6 +70792,7 @@ type SquareObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SquareObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -69511,6 +70826,7 @@ type SquareObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SquareObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -69582,6 +70898,7 @@ func (o SquareObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SquareObject'.
 func (o SquareObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SquareObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -69605,6 +70922,7 @@ type SquareObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SquareObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -69638,6 +70956,7 @@ type SquareObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SquareObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -69709,6 +71028,7 @@ func (o SquareObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SquareObject'.
 func (o SquareObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SquareObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -69851,6 +71171,7 @@ type SsisEnvironmentResponse struct {
 	// Metadata name.
 	Name *string `pulumi:"name"`
 	// Type of metadata.
+	// Expected value is 'Environment'.
 	Type string `pulumi:"type"`
 	// Variable in environment
 	Variables []SsisVariableResponse `pulumi:"variables"`
@@ -69878,6 +71199,7 @@ type SsisEnvironmentResponseArgs struct {
 	// Metadata name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of metadata.
+	// Expected value is 'Environment'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Variable in environment
 	Variables SsisVariableResponseArrayInput `pulumi:"variables"`
@@ -69931,6 +71253,7 @@ func (o SsisEnvironmentResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Type of metadata.
+// Expected value is 'Environment'.
 func (o SsisEnvironmentResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisEnvironmentResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -69949,6 +71272,7 @@ type SsisFolderResponse struct {
 	// Metadata name.
 	Name *string `pulumi:"name"`
 	// Type of metadata.
+	// Expected value is 'Folder'.
 	Type string `pulumi:"type"`
 }
 
@@ -69972,6 +71296,7 @@ type SsisFolderResponseArgs struct {
 	// Metadata name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of metadata.
+	// Expected value is 'Folder'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -70018,6 +71343,7 @@ func (o SsisFolderResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Type of metadata.
+// Expected value is 'Folder'.
 func (o SsisFolderResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisFolderResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -70039,6 +71365,7 @@ type SsisPackageResponse struct {
 	// Project version which contains package.
 	ProjectVersion *int `pulumi:"projectVersion"`
 	// Type of metadata.
+	// Expected value is 'Package'.
 	Type string `pulumi:"type"`
 }
 
@@ -70070,6 +71397,7 @@ type SsisPackageResponseArgs struct {
 	// Project version which contains package.
 	ProjectVersion pulumi.IntPtrInput `pulumi:"projectVersion"`
 	// Type of metadata.
+	// Expected value is 'Package'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -70136,6 +71464,7 @@ func (o SsisPackageResponseOutput) ProjectVersion() pulumi.IntPtrOutput {
 }
 
 // Type of metadata.
+// Expected value is 'Package'.
 func (o SsisPackageResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisPackageResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -70354,6 +71683,7 @@ type SsisProjectResponse struct {
 	// Parameters in project
 	Parameters []SsisParameterResponse `pulumi:"parameters"`
 	// Type of metadata.
+	// Expected value is 'Project'.
 	Type string `pulumi:"type"`
 	// Project version.
 	Version *int `pulumi:"version"`
@@ -70385,6 +71715,7 @@ type SsisProjectResponseArgs struct {
 	// Parameters in project
 	Parameters SsisParameterResponseArrayInput `pulumi:"parameters"`
 	// Type of metadata.
+	// Expected value is 'Project'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Project version.
 	Version pulumi.IntPtrInput `pulumi:"version"`
@@ -70448,6 +71779,7 @@ func (o SsisProjectResponseOutput) Parameters() SsisParameterResponseArrayOutput
 }
 
 // Type of metadata.
+// Expected value is 'Project'.
 func (o SsisProjectResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisProjectResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -70634,6 +71966,7 @@ type SybaseLinkedService struct {
 	// Server name for connection. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Sybase'.
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -70673,6 +72006,7 @@ type SybaseLinkedServiceArgs struct {
 	// Server name for connection. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Sybase'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -70756,6 +72090,7 @@ func (o SybaseLinkedServiceOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Sybase'.
 func (o SybaseLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SybaseLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -70788,6 +72123,7 @@ type SybaseLinkedServiceResponse struct {
 	// Server name for connection. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Sybase'.
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -70827,6 +72163,7 @@ type SybaseLinkedServiceResponseArgs struct {
 	// Server name for connection. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Sybase'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -70910,6 +72247,7 @@ func (o SybaseLinkedServiceResponseOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Sybase'.
 func (o SybaseLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SybaseLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -70938,6 +72276,7 @@ type SybaseTableDataset struct {
 	// The Sybase table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SybaseTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -70971,6 +72310,7 @@ type SybaseTableDatasetArgs struct {
 	// The Sybase table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SybaseTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -71042,6 +72382,7 @@ func (o SybaseTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SybaseTable'.
 func (o SybaseTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SybaseTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -71065,6 +72406,7 @@ type SybaseTableDatasetResponse struct {
 	// The Sybase table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SybaseTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -71098,6 +72440,7 @@ type SybaseTableDatasetResponseArgs struct {
 	// The Sybase table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'SybaseTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -71169,6 +72512,7 @@ func (o SybaseTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'SybaseTable'.
 func (o SybaseTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SybaseTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -71194,6 +72538,7 @@ type TeradataLinkedService struct {
 	// Server name for connection. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Teradata'.
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -71231,6 +72576,7 @@ type TeradataLinkedServiceArgs struct {
 	// Server name for connection. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Teradata'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -71309,6 +72655,7 @@ func (o TeradataLinkedServiceOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Teradata'.
 func (o TeradataLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TeradataLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -71339,6 +72686,7 @@ type TeradataLinkedServiceResponse struct {
 	// Server name for connection. Type: string (or Expression with resultType string).
 	Server interface{} `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Teradata'.
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -71376,6 +72724,7 @@ type TeradataLinkedServiceResponseArgs struct {
 	// Server name for connection. Type: string (or Expression with resultType string).
 	Server pulumi.Input `pulumi:"server"`
 	// Type of linked service.
+	// Expected value is 'Teradata'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username pulumi.Input `pulumi:"username"`
@@ -71454,6 +72803,7 @@ func (o TeradataLinkedServiceResponseOutput) Server() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Teradata'.
 func (o TeradataLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TeradataLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -71484,6 +72834,7 @@ type TeradataTableDataset struct {
 	// The table name of Teradata. Type: string (or Expression with resultType string).
 	Table interface{} `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'TeradataTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -71519,6 +72870,7 @@ type TeradataTableDatasetArgs struct {
 	// The table name of Teradata. Type: string (or Expression with resultType string).
 	Table pulumi.Input `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'TeradataTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -71595,6 +72947,7 @@ func (o TeradataTableDatasetOutput) Table() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'TeradataTable'.
 func (o TeradataTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TeradataTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -71620,6 +72973,7 @@ type TeradataTableDatasetResponse struct {
 	// The table name of Teradata. Type: string (or Expression with resultType string).
 	Table interface{} `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'TeradataTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -71655,6 +73009,7 @@ type TeradataTableDatasetResponseArgs struct {
 	// The table name of Teradata. Type: string (or Expression with resultType string).
 	Table pulumi.Input `pulumi:"table"`
 	// Type of dataset.
+	// Expected value is 'TeradataTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -71731,6 +73086,7 @@ func (o TeradataTableDatasetResponseOutput) Table() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'TeradataTable'.
 func (o TeradataTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TeradataTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -71760,6 +73116,7 @@ type TextFormat struct {
 	// Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
 	TreatEmptyAsNull interface{} `pulumi:"treatEmptyAsNull"`
 	// Type of dataset storage format.
+	// Expected value is 'TextFormat'.
 	Type string `pulumi:"type"`
 }
 
@@ -71799,6 +73156,7 @@ type TextFormatArgs struct {
 	// Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
 	TreatEmptyAsNull pulumi.Input `pulumi:"treatEmptyAsNull"`
 	// Type of dataset storage format.
+	// Expected value is 'TextFormat'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -71885,6 +73243,7 @@ func (o TextFormatOutput) TreatEmptyAsNull() pulumi.AnyOutput {
 }
 
 // Type of dataset storage format.
+// Expected value is 'TextFormat'.
 func (o TextFormatOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TextFormat) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -71914,6 +73273,7 @@ type TextFormatResponse struct {
 	// Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
 	TreatEmptyAsNull interface{} `pulumi:"treatEmptyAsNull"`
 	// Type of dataset storage format.
+	// Expected value is 'TextFormat'.
 	Type string `pulumi:"type"`
 }
 
@@ -71953,6 +73313,7 @@ type TextFormatResponseArgs struct {
 	// Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
 	TreatEmptyAsNull pulumi.Input `pulumi:"treatEmptyAsNull"`
 	// Type of dataset storage format.
+	// Expected value is 'TextFormat'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -72039,6 +73400,7 @@ func (o TextFormatResponseOutput) TreatEmptyAsNull() pulumi.AnyOutput {
 }
 
 // Type of dataset storage format.
+// Expected value is 'TextFormat'.
 func (o TextFormatResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TextFormatResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -72266,6 +73628,7 @@ type TriggerDependencyReference struct {
 	// Referenced trigger.
 	ReferenceTrigger TriggerReference `pulumi:"referenceTrigger"`
 	// The type of dependency reference.
+	// Expected value is 'TriggerDependencyReference'.
 	Type string `pulumi:"type"`
 }
 
@@ -72285,6 +73648,7 @@ type TriggerDependencyReferenceArgs struct {
 	// Referenced trigger.
 	ReferenceTrigger TriggerReferenceInput `pulumi:"referenceTrigger"`
 	// The type of dependency reference.
+	// Expected value is 'TriggerDependencyReference'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -72321,6 +73685,7 @@ func (o TriggerDependencyReferenceOutput) ReferenceTrigger() TriggerReferenceOut
 }
 
 // The type of dependency reference.
+// Expected value is 'TriggerDependencyReference'.
 func (o TriggerDependencyReferenceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TriggerDependencyReference) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -72330,6 +73695,7 @@ type TriggerDependencyReferenceResponse struct {
 	// Referenced trigger.
 	ReferenceTrigger TriggerReferenceResponse `pulumi:"referenceTrigger"`
 	// The type of dependency reference.
+	// Expected value is 'TriggerDependencyReference'.
 	Type string `pulumi:"type"`
 }
 
@@ -72349,6 +73715,7 @@ type TriggerDependencyReferenceResponseArgs struct {
 	// Referenced trigger.
 	ReferenceTrigger TriggerReferenceResponseInput `pulumi:"referenceTrigger"`
 	// The type of dependency reference.
+	// Expected value is 'TriggerDependencyReference'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -72385,6 +73752,7 @@ func (o TriggerDependencyReferenceResponseOutput) ReferenceTrigger() TriggerRefe
 }
 
 // The type of dependency reference.
+// Expected value is 'TriggerDependencyReference'.
 func (o TriggerDependencyReferenceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TriggerDependencyReferenceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -72760,6 +74128,7 @@ type TumblingWindowTrigger struct {
 	// The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
 	StartTime string `pulumi:"startTime"`
 	// Trigger type.
+	// Expected value is 'TumblingWindowTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -72799,6 +74168,7 @@ type TumblingWindowTriggerArgs struct {
 	// The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
 	StartTime pulumi.StringInput `pulumi:"startTime"`
 	// Trigger type.
+	// Expected value is 'TumblingWindowTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -72885,6 +74255,7 @@ func (o TumblingWindowTriggerOutput) StartTime() pulumi.StringOutput {
 }
 
 // Trigger type.
+// Expected value is 'TumblingWindowTrigger'.
 func (o TumblingWindowTriggerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TumblingWindowTrigger) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -72916,6 +74287,7 @@ type TumblingWindowTriggerResponse struct {
 	// The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
 	StartTime string `pulumi:"startTime"`
 	// Trigger type.
+	// Expected value is 'TumblingWindowTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -72957,6 +74329,7 @@ type TumblingWindowTriggerResponseArgs struct {
 	// The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
 	StartTime pulumi.StringInput `pulumi:"startTime"`
 	// Trigger type.
+	// Expected value is 'TumblingWindowTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -73048,6 +74421,7 @@ func (o TumblingWindowTriggerResponseOutput) StartTime() pulumi.StringOutput {
 }
 
 // Trigger type.
+// Expected value is 'TumblingWindowTrigger'.
 func (o TumblingWindowTriggerResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TumblingWindowTriggerResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -73596,6 +74970,7 @@ type VerticaLinkedService struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReference `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Vertica'.
 	Type string `pulumi:"type"`
 }
 
@@ -73627,6 +75002,7 @@ type VerticaLinkedServiceArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferencePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Vertica'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -73693,6 +75069,7 @@ func (o VerticaLinkedServiceOutput) Pwd() AzureKeyVaultSecretReferencePtrOutput 
 }
 
 // Type of linked service.
+// Expected value is 'Vertica'.
 func (o VerticaLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VerticaLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -73714,6 +75091,7 @@ type VerticaLinkedServiceResponse struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd *AzureKeyVaultSecretReferenceResponse `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Vertica'.
 	Type string `pulumi:"type"`
 }
 
@@ -73745,6 +75123,7 @@ type VerticaLinkedServiceResponseArgs struct {
 	// The Azure key vault secret reference of password in connection string.
 	Pwd AzureKeyVaultSecretReferenceResponsePtrInput `pulumi:"pwd"`
 	// Type of linked service.
+	// Expected value is 'Vertica'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -73811,6 +75190,7 @@ func (o VerticaLinkedServiceResponseOutput) Pwd() AzureKeyVaultSecretReferenceRe
 }
 
 // Type of linked service.
+// Expected value is 'Vertica'.
 func (o VerticaLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VerticaLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -73836,6 +75216,7 @@ type VerticaTableDataset struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'VerticaTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -73871,6 +75252,7 @@ type VerticaTableDatasetArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'VerticaTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -73947,6 +75329,7 @@ func (o VerticaTableDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'VerticaTable'.
 func (o VerticaTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VerticaTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -73972,6 +75355,7 @@ type VerticaTableDatasetResponse struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'VerticaTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -74007,6 +75391,7 @@ type VerticaTableDatasetResponseArgs struct {
 	// This property will be retired. Please consider using schema + table properties instead.
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'VerticaTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -74083,6 +75468,7 @@ func (o VerticaTableDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'VerticaTable'.
 func (o VerticaTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VerticaTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -74090,6 +75476,7 @@ func (o VerticaTableDatasetResponseOutput) Type() pulumi.StringOutput {
 // A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
 type WebAnonymousAuthentication struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'Anonymous'.
 	AuthenticationType string `pulumi:"authenticationType"`
 	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -74109,6 +75496,7 @@ type WebAnonymousAuthenticationInput interface {
 // A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
 type WebAnonymousAuthenticationArgs struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'Anonymous'.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -74142,6 +75530,7 @@ func (o WebAnonymousAuthenticationOutput) ToWebAnonymousAuthenticationOutputWith
 }
 
 // Type of authentication used to connect to the web table source.
+// Expected value is 'Anonymous'.
 func (o WebAnonymousAuthenticationOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAnonymousAuthentication) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
@@ -74154,6 +75543,7 @@ func (o WebAnonymousAuthenticationOutput) Url() pulumi.AnyOutput {
 // A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
 type WebAnonymousAuthenticationResponse struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'Anonymous'.
 	AuthenticationType string `pulumi:"authenticationType"`
 	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -74173,6 +75563,7 @@ type WebAnonymousAuthenticationResponseInput interface {
 // A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
 type WebAnonymousAuthenticationResponseArgs struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'Anonymous'.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -74206,6 +75597,7 @@ func (o WebAnonymousAuthenticationResponseOutput) ToWebAnonymousAuthenticationRe
 }
 
 // Type of authentication used to connect to the web table source.
+// Expected value is 'Anonymous'.
 func (o WebAnonymousAuthenticationResponseOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAnonymousAuthenticationResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
@@ -74218,6 +75610,7 @@ func (o WebAnonymousAuthenticationResponseOutput) Url() pulumi.AnyOutput {
 // A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
 type WebBasicAuthentication struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'Basic'.
 	AuthenticationType string `pulumi:"authenticationType"`
 	// The password for Basic authentication.
 	Password interface{} `pulumi:"password"`
@@ -74241,6 +75634,7 @@ type WebBasicAuthenticationInput interface {
 // A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
 type WebBasicAuthenticationArgs struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'Basic'.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// The password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
@@ -74278,6 +75672,7 @@ func (o WebBasicAuthenticationOutput) ToWebBasicAuthenticationOutputWithContext(
 }
 
 // Type of authentication used to connect to the web table source.
+// Expected value is 'Basic'.
 func (o WebBasicAuthenticationOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebBasicAuthentication) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
@@ -74300,6 +75695,7 @@ func (o WebBasicAuthenticationOutput) Username() pulumi.AnyOutput {
 // A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
 type WebBasicAuthenticationResponse struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'Basic'.
 	AuthenticationType string `pulumi:"authenticationType"`
 	// The password for Basic authentication.
 	Password interface{} `pulumi:"password"`
@@ -74323,6 +75719,7 @@ type WebBasicAuthenticationResponseInput interface {
 // A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
 type WebBasicAuthenticationResponseArgs struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'Basic'.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// The password for Basic authentication.
 	Password pulumi.Input `pulumi:"password"`
@@ -74360,6 +75757,7 @@ func (o WebBasicAuthenticationResponseOutput) ToWebBasicAuthenticationResponseOu
 }
 
 // Type of authentication used to connect to the web table source.
+// Expected value is 'Basic'.
 func (o WebBasicAuthenticationResponseOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebBasicAuthenticationResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
@@ -74382,6 +75780,7 @@ func (o WebBasicAuthenticationResponseOutput) Username() pulumi.AnyOutput {
 // A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
 type WebClientCertificateAuthentication struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'ClientCertificate'.
 	AuthenticationType string `pulumi:"authenticationType"`
 	// Password for the PFX file.
 	Password interface{} `pulumi:"password"`
@@ -74405,6 +75804,7 @@ type WebClientCertificateAuthenticationInput interface {
 // A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
 type WebClientCertificateAuthenticationArgs struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'ClientCertificate'.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// Password for the PFX file.
 	Password pulumi.Input `pulumi:"password"`
@@ -74442,6 +75842,7 @@ func (o WebClientCertificateAuthenticationOutput) ToWebClientCertificateAuthenti
 }
 
 // Type of authentication used to connect to the web table source.
+// Expected value is 'ClientCertificate'.
 func (o WebClientCertificateAuthenticationOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebClientCertificateAuthentication) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
@@ -74464,6 +75865,7 @@ func (o WebClientCertificateAuthenticationOutput) Url() pulumi.AnyOutput {
 // A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
 type WebClientCertificateAuthenticationResponse struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'ClientCertificate'.
 	AuthenticationType string `pulumi:"authenticationType"`
 	// Password for the PFX file.
 	Password interface{} `pulumi:"password"`
@@ -74487,6 +75889,7 @@ type WebClientCertificateAuthenticationResponseInput interface {
 // A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
 type WebClientCertificateAuthenticationResponseArgs struct {
 	// Type of authentication used to connect to the web table source.
+	// Expected value is 'ClientCertificate'.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// Password for the PFX file.
 	Password pulumi.Input `pulumi:"password"`
@@ -74524,6 +75927,7 @@ func (o WebClientCertificateAuthenticationResponseOutput) ToWebClientCertificate
 }
 
 // Type of authentication used to connect to the web table source.
+// Expected value is 'ClientCertificate'.
 func (o WebClientCertificateAuthenticationResponseOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebClientCertificateAuthenticationResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
@@ -74554,6 +75958,7 @@ type WebLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Web'.
 	Type string `pulumi:"type"`
 	// Web linked service properties.
 	TypeProperties interface{} `pulumi:"typeProperties"`
@@ -74581,6 +75986,7 @@ type WebLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Web'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Web linked service properties.
 	TypeProperties pulumi.Input `pulumi:"typeProperties"`
@@ -74634,6 +76040,7 @@ func (o WebLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Web'.
 func (o WebLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -74654,6 +76061,7 @@ type WebLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Web'.
 	Type string `pulumi:"type"`
 	// Web linked service properties.
 	TypeProperties interface{} `pulumi:"typeProperties"`
@@ -74681,6 +76089,7 @@ type WebLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Web'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Web linked service properties.
 	TypeProperties pulumi.Input `pulumi:"typeProperties"`
@@ -74734,6 +76143,7 @@ func (o WebLinkedServiceResponseOutput) Parameters() ParameterSpecificationRespo
 }
 
 // Type of linked service.
+// Expected value is 'Web'.
 func (o WebLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -74764,6 +76174,7 @@ type WebTableDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'WebTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -74799,6 +76210,7 @@ type WebTableDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'WebTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -74875,6 +76287,7 @@ func (o WebTableDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'WebTable'.
 func (o WebTableDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebTableDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -74900,6 +76313,7 @@ type WebTableDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'WebTable'.
 	Type string `pulumi:"type"`
 }
 
@@ -74935,6 +76349,7 @@ type WebTableDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'WebTable'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -75011,6 +76426,7 @@ func (o WebTableDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'WebTable'.
 func (o WebTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -75037,6 +76453,7 @@ type XeroLinkedService struct {
 	// ).
 	PrivateKey interface{} `pulumi:"privateKey"`
 	// Type of linked service.
+	// Expected value is 'Xero'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -75079,6 +76496,7 @@ type XeroLinkedServiceArgs struct {
 	// ).
 	PrivateKey pulumi.Input `pulumi:"privateKey"`
 	// Type of linked service.
+	// Expected value is 'Xero'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -75162,6 +76580,7 @@ func (o XeroLinkedServiceOutput) PrivateKey() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Xero'.
 func (o XeroLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v XeroLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -75203,6 +76622,7 @@ type XeroLinkedServiceResponse struct {
 	// ).
 	PrivateKey interface{} `pulumi:"privateKey"`
 	// Type of linked service.
+	// Expected value is 'Xero'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -75245,6 +76665,7 @@ type XeroLinkedServiceResponseArgs struct {
 	// ).
 	PrivateKey pulumi.Input `pulumi:"privateKey"`
 	// Type of linked service.
+	// Expected value is 'Xero'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -75328,6 +76749,7 @@ func (o XeroLinkedServiceResponseOutput) PrivateKey() pulumi.AnyOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Xero'.
 func (o XeroLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v XeroLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -75366,6 +76788,7 @@ type XeroObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'XeroObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -75399,6 +76822,7 @@ type XeroObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'XeroObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -75470,6 +76894,7 @@ func (o XeroObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'XeroObject'.
 func (o XeroObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v XeroObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -75493,6 +76918,7 @@ type XeroObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'XeroObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -75526,6 +76952,7 @@ type XeroObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'XeroObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -75597,6 +77024,7 @@ func (o XeroObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'XeroObject'.
 func (o XeroObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v XeroObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -75626,6 +77054,7 @@ type XmlDataset struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Xml'.
 	Type string `pulumi:"type"`
 }
 
@@ -75665,6 +77094,7 @@ type XmlDatasetArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Xml'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -75751,6 +77181,7 @@ func (o XmlDatasetOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Xml'.
 func (o XmlDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v XmlDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -75780,6 +77211,7 @@ type XmlDatasetResponse struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure interface{} `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Xml'.
 	Type string `pulumi:"type"`
 }
 
@@ -75819,6 +77251,7 @@ type XmlDatasetResponseArgs struct {
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
 	Structure pulumi.Input `pulumi:"structure"`
 	// Type of dataset.
+	// Expected value is 'Xml'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -75905,6 +77338,7 @@ func (o XmlDatasetResponseOutput) Structure() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'Xml'.
 func (o XmlDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v XmlDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -75928,6 +77362,7 @@ type ZohoLinkedService struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Zoho'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -75967,6 +77402,7 @@ type ZohoLinkedServiceArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Zoho'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -76044,6 +77480,7 @@ func (o ZohoLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
 }
 
 // Type of linked service.
+// Expected value is 'Zoho'.
 func (o ZohoLinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ZohoLinkedService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -76082,6 +77519,7 @@ type ZohoLinkedServiceResponse struct {
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Zoho'.
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints interface{} `pulumi:"useEncryptedEndpoints"`
@@ -76121,6 +77559,7 @@ type ZohoLinkedServiceResponseArgs struct {
 	// Parameters for linked service.
 	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
 	// Type of linked service.
+	// Expected value is 'Zoho'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints pulumi.Input `pulumi:"useEncryptedEndpoints"`
@@ -76198,6 +77637,7 @@ func (o ZohoLinkedServiceResponseOutput) Parameters() ParameterSpecificationResp
 }
 
 // Type of linked service.
+// Expected value is 'Zoho'.
 func (o ZohoLinkedServiceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ZohoLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -76236,6 +77676,7 @@ type ZohoObjectDataset struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ZohoObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -76269,6 +77710,7 @@ type ZohoObjectDatasetArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ZohoObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -76340,6 +77782,7 @@ func (o ZohoObjectDatasetOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ZohoObject'.
 func (o ZohoObjectDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ZohoObjectDataset) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -76363,6 +77806,7 @@ type ZohoObjectDatasetResponse struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName interface{} `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ZohoObject'.
 	Type string `pulumi:"type"`
 }
 
@@ -76396,6 +77840,7 @@ type ZohoObjectDatasetResponseArgs struct {
 	// The table name. Type: string (or Expression with resultType string).
 	TableName pulumi.Input `pulumi:"tableName"`
 	// Type of dataset.
+	// Expected value is 'ZohoObject'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -76467,6 +77912,7 @@ func (o ZohoObjectDatasetResponseOutput) TableName() pulumi.AnyOutput {
 }
 
 // Type of dataset.
+// Expected value is 'ZohoObject'.
 func (o ZohoObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ZohoObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }

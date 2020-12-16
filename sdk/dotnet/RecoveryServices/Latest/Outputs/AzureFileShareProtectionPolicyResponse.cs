@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     {
         /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// Expected value is 'AzureStorage'.
         /// </summary>
         public readonly string BackupManagementType;
         /// <summary>

@@ -53,6 +53,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
 
         /// <summary>
         /// Type of repo configuration.
+        /// Expected value is 'FactoryGitHubConfiguration'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

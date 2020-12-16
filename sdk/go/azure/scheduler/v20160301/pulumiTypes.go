@@ -14,6 +14,7 @@ type BasicAuthentication struct {
 	// Gets or sets the password, return value will always be empty.
 	Password *string `pulumi:"password"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'Basic'.
 	Type string `pulumi:"type"`
 	// Gets or sets the username.
 	Username *string `pulumi:"username"`
@@ -34,6 +35,7 @@ type BasicAuthenticationArgs struct {
 	// Gets or sets the password, return value will always be empty.
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'Basic'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Gets or sets the username.
 	Username pulumi.StringPtrInput `pulumi:"username"`
@@ -71,6 +73,7 @@ func (o BasicAuthenticationOutput) Password() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the HTTP authentication type.
+// Expected value is 'Basic'.
 func (o BasicAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BasicAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -84,6 +87,7 @@ type BasicAuthenticationResponse struct {
 	// Gets or sets the password, return value will always be empty.
 	Password *string `pulumi:"password"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'Basic'.
 	Type string `pulumi:"type"`
 	// Gets or sets the username.
 	Username *string `pulumi:"username"`
@@ -104,6 +108,7 @@ type BasicAuthenticationResponseArgs struct {
 	// Gets or sets the password, return value will always be empty.
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'Basic'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Gets or sets the username.
 	Username pulumi.StringPtrInput `pulumi:"username"`
@@ -141,6 +146,7 @@ func (o BasicAuthenticationResponseOutput) Password() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the HTTP authentication type.
+// Expected value is 'Basic'.
 func (o BasicAuthenticationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BasicAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -162,6 +168,7 @@ type ClientCertAuthentication struct {
 	// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
 	Pfx *string `pulumi:"pfx"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ClientCertificate'.
 	Type string `pulumi:"type"`
 }
 
@@ -188,6 +195,7 @@ type ClientCertAuthenticationArgs struct {
 	// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
 	Pfx pulumi.StringPtrInput `pulumi:"pfx"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ClientCertificate'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -243,6 +251,7 @@ func (o ClientCertAuthenticationOutput) Pfx() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the HTTP authentication type.
+// Expected value is 'ClientCertificate'.
 func (o ClientCertAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClientCertAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -259,6 +268,7 @@ type ClientCertAuthenticationResponse struct {
 	// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
 	Pfx *string `pulumi:"pfx"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ClientCertificate'.
 	Type string `pulumi:"type"`
 }
 
@@ -285,6 +295,7 @@ type ClientCertAuthenticationResponseArgs struct {
 	// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
 	Pfx pulumi.StringPtrInput `pulumi:"pfx"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ClientCertificate'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -340,6 +351,7 @@ func (o ClientCertAuthenticationResponseOutput) Pfx() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the HTTP authentication type.
+// Expected value is 'ClientCertificate'.
 func (o ClientCertAuthenticationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClientCertAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4322,6 +4334,7 @@ type OAuthAuthentication struct {
 	// Gets or sets the tenant.
 	Tenant *string `pulumi:"tenant"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ActiveDirectoryOAuth'.
 	Type string `pulumi:"type"`
 }
 
@@ -4346,6 +4359,7 @@ type OAuthAuthenticationArgs struct {
 	// Gets or sets the tenant.
 	Tenant pulumi.StringPtrInput `pulumi:"tenant"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ActiveDirectoryOAuth'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4396,6 +4410,7 @@ func (o OAuthAuthenticationOutput) Tenant() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the HTTP authentication type.
+// Expected value is 'ActiveDirectoryOAuth'.
 func (o OAuthAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4410,6 +4425,7 @@ type OAuthAuthenticationResponse struct {
 	// Gets or sets the tenant.
 	Tenant *string `pulumi:"tenant"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ActiveDirectoryOAuth'.
 	Type string `pulumi:"type"`
 }
 
@@ -4434,6 +4450,7 @@ type OAuthAuthenticationResponseArgs struct {
 	// Gets or sets the tenant.
 	Tenant pulumi.StringPtrInput `pulumi:"tenant"`
 	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ActiveDirectoryOAuth'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4484,6 +4501,7 @@ func (o OAuthAuthenticationResponseOutput) Tenant() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the HTTP authentication type.
+// Expected value is 'ActiveDirectoryOAuth'.
 func (o OAuthAuthenticationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }

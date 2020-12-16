@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
     {
         /// <summary>
         /// The authorization type for integration runtime sharing.
+        /// Expected value is 'RBAC'.
         /// </summary>
         public readonly string AuthorizationType;
         /// <summary>

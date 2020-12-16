@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Outputs
         public readonly string AlertSensitivity;
         /// <summary>
         /// Specifies the type of threshold criteria
+        /// Expected value is 'DynamicThresholdCriterion'.
         /// </summary>
         public readonly string CriterionType;
         /// <summary>

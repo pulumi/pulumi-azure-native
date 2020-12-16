@@ -31,6 +31,7 @@ namespace Pulumi.AzureNextGen.Security.Latest.Outputs
         public readonly bool IsEnabled;
         /// <summary>
         /// The type of the custom alert rule.
+        /// Expected value is 'ListCustomAlertRule'.
         /// </summary>
         public readonly string RuleType;
         /// <summary>

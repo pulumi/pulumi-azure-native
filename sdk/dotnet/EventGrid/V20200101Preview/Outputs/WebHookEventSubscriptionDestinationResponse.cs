@@ -27,6 +27,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200101Preview.Outputs
         public readonly string EndpointBaseUrl;
         /// <summary>
         /// Type of the endpoint for the event subscription destination
+        /// Expected value is 'WebHook'.
         /// </summary>
         public readonly string EndpointType;
         /// <summary>

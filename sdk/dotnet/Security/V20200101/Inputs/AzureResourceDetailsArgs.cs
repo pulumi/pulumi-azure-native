@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101.Inputs
     {
         /// <summary>
         /// The platform where the assessed resource resides
+        /// Expected value is 'Azure'.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;

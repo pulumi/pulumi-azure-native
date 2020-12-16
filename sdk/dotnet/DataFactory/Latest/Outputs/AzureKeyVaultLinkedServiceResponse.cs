@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'AzureKeyVault'.
         /// </summary>
         public readonly string Type;
 

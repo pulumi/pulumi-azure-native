@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Security.Latest.Inputs
 
         /// <summary>
         /// The type of the custom alert rule.
+        /// Expected value is 'ListCustomAlertRule'.
         /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;

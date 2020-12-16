@@ -32,6 +32,7 @@ class AzureRecoveryServiceVaultProtectionIntentResponse(dict):
         :param str item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str protection_intent_item_type: backup protectionIntent type.
+               Expected value is 'RecoveryServiceVaultItem'.
         :param str protection_state: Backup state of this backup item.
         :param str source_resource_id: ARM ID of the resource to be backed up.
         """
@@ -77,6 +78,7 @@ class AzureRecoveryServiceVaultProtectionIntentResponse(dict):
     def protection_intent_item_type(self) -> Optional[str]:
         """
         backup protectionIntent type.
+        Expected value is 'RecoveryServiceVaultItem'.
         """
         return pulumi.get(self, "protection_intent_item_type")
 
@@ -120,6 +122,7 @@ class AzureResourceProtectionIntentResponse(dict):
         :param str item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str protection_intent_item_type: backup protectionIntent type.
+               Expected value is 'AzureResourceItem'.
         :param str protection_state: Backup state of this backup item.
         :param str source_resource_id: ARM ID of the resource to be backed up.
         """
@@ -175,6 +178,7 @@ class AzureResourceProtectionIntentResponse(dict):
     def protection_intent_item_type(self) -> Optional[str]:
         """
         backup protectionIntent type.
+        Expected value is 'AzureResourceItem'.
         """
         return pulumi.get(self, "protection_intent_item_type")
 

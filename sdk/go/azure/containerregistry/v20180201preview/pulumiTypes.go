@@ -296,6 +296,7 @@ type DockerBuildStepResponse struct {
 	// The provisioning state of the build step.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the step.
+	// Expected value is 'Docker'.
 	Type string `pulumi:"type"`
 }
 
@@ -333,6 +334,7 @@ type DockerBuildStepResponseArgs struct {
 	// The provisioning state of the build step.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The type of the step.
+	// Expected value is 'Docker'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -465,6 +467,7 @@ func (o DockerBuildStepResponseOutput) ProvisioningState() pulumi.StringOutput {
 }
 
 // The type of the step.
+// Expected value is 'Docker'.
 func (o DockerBuildStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -588,6 +591,7 @@ func (o DockerBuildStepResponsePtrOutput) ProvisioningState() pulumi.StringPtrOu
 }
 
 // The type of the step.
+// Expected value is 'Docker'.
 func (o DockerBuildStepResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
 		if v == nil {

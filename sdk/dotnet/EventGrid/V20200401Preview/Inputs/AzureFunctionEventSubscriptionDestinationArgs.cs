@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview.Inputs
     {
         /// <summary>
         /// Type of the endpoint for the event subscription destination.
+        /// Expected value is 'AzureFunction'.
         /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;

@@ -150,6 +150,7 @@ class DeliveryRuleCacheExpirationActionResponse(dict):
         """
         Defines the cache expiration action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
+               Expected value is 'CacheExpiration'.
         :param 'CacheExpirationActionParametersResponseArgs' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'CacheExpiration')
@@ -160,6 +161,7 @@ class DeliveryRuleCacheExpirationActionResponse(dict):
     def name(self) -> str:
         """
         The name of the action for the delivery rule.
+        Expected value is 'CacheExpiration'.
         """
         return pulumi.get(self, "name")
 
@@ -234,6 +236,7 @@ class DeliveryRuleUrlFileExtensionConditionResponse(dict):
         """
         Defines the URL file extension condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'UrlFileExtension'.
         :param 'UrlFileExtensionConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlFileExtension')
@@ -244,6 +247,7 @@ class DeliveryRuleUrlFileExtensionConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'UrlFileExtension'.
         """
         return pulumi.get(self, "name")
 
@@ -270,6 +274,7 @@ class DeliveryRuleUrlPathConditionResponse(dict):
         """
         Defines the URL path condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
+               Expected value is 'UrlPath'.
         :param 'UrlPathConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlPath')
@@ -280,6 +285,7 @@ class DeliveryRuleUrlPathConditionResponse(dict):
     def name(self) -> str:
         """
         The name of the condition for the delivery rule.
+        Expected value is 'UrlPath'.
         """
         return pulumi.get(self, "name")
 

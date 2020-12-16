@@ -15,6 +15,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
     {
         /// <summary>
         /// Command type.
+        /// Expected value is 'Migrate.SqlServer.AzureDbSqlMi.Complete'.
         /// </summary>
         public readonly string CommandType;
         /// <summary>

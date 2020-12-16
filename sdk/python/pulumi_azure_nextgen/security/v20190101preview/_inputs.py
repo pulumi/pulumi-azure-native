@@ -88,6 +88,7 @@ class AutomationActionEventHubArgs:
         """
         The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
         :param pulumi.Input[str] action_type: The type of the action that will be triggered by the Automation
+               Expected value is 'EventHub'.
         :param pulumi.Input[str] connection_string: The target Event Hub connection string (it will not be included in any response).
         :param pulumi.Input[str] event_hub_resource_id: The target Event Hub Azure Resource ID.
         """
@@ -102,6 +103,7 @@ class AutomationActionEventHubArgs:
     def action_type(self) -> pulumi.Input[str]:
         """
         The type of the action that will be triggered by the Automation
+        Expected value is 'EventHub'.
         """
         return pulumi.get(self, "action_type")
 
@@ -143,6 +145,7 @@ class AutomationActionLogicAppArgs:
         """
         The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
         :param pulumi.Input[str] action_type: The type of the action that will be triggered by the Automation
+               Expected value is 'LogicApp'.
         :param pulumi.Input[str] logic_app_resource_id: The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
         :param pulumi.Input[str] uri: The Logic App trigger URI endpoint (it will not be included in any response).
         """
@@ -157,6 +160,7 @@ class AutomationActionLogicAppArgs:
     def action_type(self) -> pulumi.Input[str]:
         """
         The type of the action that will be triggered by the Automation
+        Expected value is 'LogicApp'.
         """
         return pulumi.get(self, "action_type")
 
@@ -197,6 +201,7 @@ class AutomationActionWorkspaceArgs:
         """
         The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
         :param pulumi.Input[str] action_type: The type of the action that will be triggered by the Automation
+               Expected value is 'Workspace'.
         :param pulumi.Input[str] workspace_resource_id: The fully qualified Log Analytics Workspace Azure Resource ID.
         """
         pulumi.set(__self__, "action_type", 'Workspace')
@@ -208,6 +213,7 @@ class AutomationActionWorkspaceArgs:
     def action_type(self) -> pulumi.Input[str]:
         """
         The type of the action that will be triggered by the Automation
+        Expected value is 'Workspace'.
         """
         return pulumi.get(self, "action_type")
 
@@ -407,6 +413,7 @@ class AzureResourceDetailsArgs:
         """
         Details of the Azure resource that was assessed
         :param pulumi.Input[str] source: The platform where the assessed resource resides
+               Expected value is 'Azure'.
         """
         pulumi.set(__self__, "source", 'Azure')
 
@@ -415,6 +422,7 @@ class AzureResourceDetailsArgs:
     def source(self) -> pulumi.Input[str]:
         """
         The platform where the assessed resource resides
+        Expected value is 'Azure'.
         """
         return pulumi.get(self, "source")
 
@@ -435,6 +443,7 @@ class OnPremiseResourceDetailsArgs:
         Details of the On Premise resource that was assessed
         :param pulumi.Input[str] machine_name: The name of the machine
         :param pulumi.Input[str] source: The platform where the assessed resource resides
+               Expected value is 'OnPremise'.
         :param pulumi.Input[str] source_computer_id: The oms agent Id installed on the machine
         :param pulumi.Input[str] vmuuid: The unique Id of the machine
         :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
@@ -462,6 +471,7 @@ class OnPremiseResourceDetailsArgs:
     def source(self) -> pulumi.Input[str]:
         """
         The platform where the assessed resource resides
+        Expected value is 'OnPremise'.
         """
         return pulumi.get(self, "source")
 

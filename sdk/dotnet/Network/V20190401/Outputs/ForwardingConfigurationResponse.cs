@@ -29,6 +29,10 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Outputs
         /// Protocol this rule will use when forwarding traffic to backends.
         /// </summary>
         public readonly string? ForwardingProtocol;
+        /// <summary>
+        /// 
+        /// Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
+        /// </summary>
         public readonly string OdataType;
 
         [OutputConstructor]

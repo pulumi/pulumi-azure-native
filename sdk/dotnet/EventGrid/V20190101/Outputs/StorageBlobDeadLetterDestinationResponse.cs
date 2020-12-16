@@ -19,6 +19,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190101.Outputs
         public readonly string? BlobContainerName;
         /// <summary>
         /// Type of the endpoint for the dead letter destination
+        /// Expected value is 'StorageBlob'.
         /// </summary>
         public readonly string EndpointType;
         /// <summary>

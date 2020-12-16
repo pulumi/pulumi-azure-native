@@ -5357,6 +5357,7 @@ type NamedPartitionSchemeDescription struct {
 	// Array of size specified by the ‘Count’ parameter, for the names of the partitions.
 	Names []string `pulumi:"names"`
 	// Specifies how the service is partitioned.
+	// Expected value is 'Named'.
 	PartitionScheme string `pulumi:"partitionScheme"`
 }
 
@@ -5378,6 +5379,7 @@ type NamedPartitionSchemeDescriptionArgs struct {
 	// Array of size specified by the ‘Count’ parameter, for the names of the partitions.
 	Names pulumi.StringArrayInput `pulumi:"names"`
 	// Specifies how the service is partitioned.
+	// Expected value is 'Named'.
 	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
 }
 
@@ -5419,6 +5421,7 @@ func (o NamedPartitionSchemeDescriptionOutput) Names() pulumi.StringArrayOutput 
 }
 
 // Specifies how the service is partitioned.
+// Expected value is 'Named'.
 func (o NamedPartitionSchemeDescriptionOutput) PartitionScheme() pulumi.StringOutput {
 	return o.ApplyT(func(v NamedPartitionSchemeDescription) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }
@@ -5430,6 +5433,7 @@ type NamedPartitionSchemeDescriptionResponse struct {
 	// Array of size specified by the ‘Count’ parameter, for the names of the partitions.
 	Names []string `pulumi:"names"`
 	// Specifies how the service is partitioned.
+	// Expected value is 'Named'.
 	PartitionScheme string `pulumi:"partitionScheme"`
 }
 
@@ -5451,6 +5455,7 @@ type NamedPartitionSchemeDescriptionResponseArgs struct {
 	// Array of size specified by the ‘Count’ parameter, for the names of the partitions.
 	Names pulumi.StringArrayInput `pulumi:"names"`
 	// Specifies how the service is partitioned.
+	// Expected value is 'Named'.
 	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
 }
 
@@ -5492,6 +5497,7 @@ func (o NamedPartitionSchemeDescriptionResponseOutput) Names() pulumi.StringArra
 }
 
 // Specifies how the service is partitioned.
+// Expected value is 'Named'.
 func (o NamedPartitionSchemeDescriptionResponseOutput) PartitionScheme() pulumi.StringOutput {
 	return o.ApplyT(func(v NamedPartitionSchemeDescriptionResponse) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }
@@ -7029,6 +7035,7 @@ func (o SettingsSectionDescriptionResponseArrayOutput) Index(i pulumi.IntInput) 
 // Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
 type SingletonPartitionSchemeDescription struct {
 	// Specifies how the service is partitioned.
+	// Expected value is 'Singleton'.
 	PartitionScheme string `pulumi:"partitionScheme"`
 }
 
@@ -7046,6 +7053,7 @@ type SingletonPartitionSchemeDescriptionInput interface {
 // Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
 type SingletonPartitionSchemeDescriptionArgs struct {
 	// Specifies how the service is partitioned.
+	// Expected value is 'Singleton'.
 	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
 }
 
@@ -7077,6 +7085,7 @@ func (o SingletonPartitionSchemeDescriptionOutput) ToSingletonPartitionSchemeDes
 }
 
 // Specifies how the service is partitioned.
+// Expected value is 'Singleton'.
 func (o SingletonPartitionSchemeDescriptionOutput) PartitionScheme() pulumi.StringOutput {
 	return o.ApplyT(func(v SingletonPartitionSchemeDescription) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }
@@ -7084,6 +7093,7 @@ func (o SingletonPartitionSchemeDescriptionOutput) PartitionScheme() pulumi.Stri
 // Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
 type SingletonPartitionSchemeDescriptionResponse struct {
 	// Specifies how the service is partitioned.
+	// Expected value is 'Singleton'.
 	PartitionScheme string `pulumi:"partitionScheme"`
 }
 
@@ -7101,6 +7111,7 @@ type SingletonPartitionSchemeDescriptionResponseInput interface {
 // Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
 type SingletonPartitionSchemeDescriptionResponseArgs struct {
 	// Specifies how the service is partitioned.
+	// Expected value is 'Singleton'.
 	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
 }
 
@@ -7132,6 +7143,7 @@ func (o SingletonPartitionSchemeDescriptionResponseOutput) ToSingletonPartitionS
 }
 
 // Specifies how the service is partitioned.
+// Expected value is 'Singleton'.
 func (o SingletonPartitionSchemeDescriptionResponseOutput) PartitionScheme() pulumi.StringOutput {
 	return o.ApplyT(func(v SingletonPartitionSchemeDescriptionResponse) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }
@@ -7147,6 +7159,7 @@ type UniformInt64RangePartitionSchemeDescription struct {
 	// should be split between the partition ‘Count’
 	LowKey string `pulumi:"lowKey"`
 	// Specifies how the service is partitioned.
+	// Expected value is 'UniformInt64Range'.
 	PartitionScheme string `pulumi:"partitionScheme"`
 }
 
@@ -7172,6 +7185,7 @@ type UniformInt64RangePartitionSchemeDescriptionArgs struct {
 	// should be split between the partition ‘Count’
 	LowKey pulumi.StringInput `pulumi:"lowKey"`
 	// Specifies how the service is partitioned.
+	// Expected value is 'UniformInt64Range'.
 	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
 }
 
@@ -7220,6 +7234,7 @@ func (o UniformInt64RangePartitionSchemeDescriptionOutput) LowKey() pulumi.Strin
 }
 
 // Specifies how the service is partitioned.
+// Expected value is 'UniformInt64Range'.
 func (o UniformInt64RangePartitionSchemeDescriptionOutput) PartitionScheme() pulumi.StringOutput {
 	return o.ApplyT(func(v UniformInt64RangePartitionSchemeDescription) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }
@@ -7235,6 +7250,7 @@ type UniformInt64RangePartitionSchemeDescriptionResponse struct {
 	// should be split between the partition ‘Count’
 	LowKey string `pulumi:"lowKey"`
 	// Specifies how the service is partitioned.
+	// Expected value is 'UniformInt64Range'.
 	PartitionScheme string `pulumi:"partitionScheme"`
 }
 
@@ -7260,6 +7276,7 @@ type UniformInt64RangePartitionSchemeDescriptionResponseArgs struct {
 	// should be split between the partition ‘Count’
 	LowKey pulumi.StringInput `pulumi:"lowKey"`
 	// Specifies how the service is partitioned.
+	// Expected value is 'UniformInt64Range'.
 	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
 }
 
@@ -7308,6 +7325,7 @@ func (o UniformInt64RangePartitionSchemeDescriptionResponseOutput) LowKey() pulu
 }
 
 // Specifies how the service is partitioned.
+// Expected value is 'UniformInt64Range'.
 func (o UniformInt64RangePartitionSchemeDescriptionResponseOutput) PartitionScheme() pulumi.StringOutput {
 	return o.ApplyT(func(v UniformInt64RangePartitionSchemeDescriptionResponse) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }

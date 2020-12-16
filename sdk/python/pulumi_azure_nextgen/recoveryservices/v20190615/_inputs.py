@@ -55,6 +55,7 @@ class AzureFileshareProtectedItemArgs:
         """
         Azure File Share workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureFileShareProtectedItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -123,6 +124,7 @@ class AzureFileshareProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'AzureFileShareProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -458,6 +460,7 @@ class AzureIaaSVMProtectedItemArgs:
         """
         IaaS VM workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureIaaSVMProtectedItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -538,6 +541,7 @@ class AzureIaaSVMProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'AzureIaaSVMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -913,6 +917,7 @@ class AzureSqlProtectedItemArgs:
         """
         Azure SQL workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'Microsoft.Sql/servers/databases'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -969,6 +974,7 @@ class AzureSqlProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'Microsoft.Sql/servers/databases'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1257,6 +1263,7 @@ class AzureVmWorkloadProtectedItemArgs:
         """
         Azure VM workload-specific protected item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureVmWorkloadProtectedItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -1340,6 +1347,7 @@ class AzureVmWorkloadProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'AzureVmWorkloadProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -1728,6 +1736,7 @@ class DPMProtectedItemArgs:
         """
         Additional information on Backup engine specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'DPMProtectedItem'.
         :param pulumi.Input[str] backup_engine_name: Backup Management server protecting this backup item
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
@@ -1787,6 +1796,7 @@ class DPMProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'DPMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2320,6 +2330,7 @@ class GenericProtectedItemArgs:
         """
         Base class for backup items.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'GenericProtectedItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -2385,6 +2396,7 @@ class GenericProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'GenericProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2672,6 +2684,7 @@ class MabFileFolderProtectedItemArgs:
         """
         MAB workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'MabFileFolderProtectedItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] computer_name: Name of the computer associated with this backup item.
@@ -2740,6 +2753,7 @@ class MabFileFolderProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
+        Expected value is 'MabFileFolderProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
 

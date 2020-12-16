@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? SkipHostKeyValidation;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'Sftp'.
         /// </summary>
         public readonly string Type;
         /// <summary>

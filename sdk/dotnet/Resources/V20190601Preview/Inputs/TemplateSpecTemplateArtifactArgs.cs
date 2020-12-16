@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview.Inputs
     {
         /// <summary>
         /// The kind of artifact.
+        /// Expected value is 'template'.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;

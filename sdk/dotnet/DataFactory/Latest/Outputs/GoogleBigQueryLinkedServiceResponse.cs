@@ -75,6 +75,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         public readonly object? TrustedCertPath;
         /// <summary>
         /// Type of linked service.
+        /// Expected value is 'GoogleBigQuery'.
         /// </summary>
         public readonly string Type;
         /// <summary>

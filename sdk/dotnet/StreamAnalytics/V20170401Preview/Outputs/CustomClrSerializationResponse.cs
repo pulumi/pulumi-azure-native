@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
         public readonly string? SerializationDllPath;
         /// <summary>
         /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        /// Expected value is 'CustomClr'.
         /// </summary>
         public readonly string Type;
 

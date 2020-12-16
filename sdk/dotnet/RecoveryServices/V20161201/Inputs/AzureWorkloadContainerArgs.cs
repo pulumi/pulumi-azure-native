@@ -26,6 +26,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20161201.Inputs
         /// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         /// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         /// Backup is VMAppContainer
+        /// Expected value is 'AzureWorkloadContainer'.
         /// </summary>
         [Input("containerType")]
         public Input<string>? ContainerType { get; set; }

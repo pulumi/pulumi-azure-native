@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
 
         /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// Expected value is 'SimpleRetentionPolicy'.
         /// </summary>
         [Input("retentionPolicyType", required: true)]
         public Input<string> RetentionPolicyType { get; set; } = null!;
