@@ -12,6 +12,7 @@ import (
 )
 
 // A Streaming Locator resource
+// Latest API Version: 2020-05-01.
 type StreamingLocator struct {
 	pulumi.CustomResourceState
 

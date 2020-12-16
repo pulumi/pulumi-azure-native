@@ -12,6 +12,7 @@ import (
 )
 
 // A formula for creating a VM, specifying an image base and other parameters
+// Latest API Version: 2018-09-15.
 type Formula struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
 {
     /// <summary>
     /// Represents an instance of a Dedicated Capacity resource.
+    /// Latest API Version: 2017-10-01.
     /// </summary>
     public partial class CapacityDetails : Pulumi.CustomResource
     {

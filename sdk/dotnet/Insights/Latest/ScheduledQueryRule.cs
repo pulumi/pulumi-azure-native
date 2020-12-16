@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 {
     /// <summary>
     /// The Log Search Rule resource.
+    /// Latest API Version: 2018-04-16.
     /// </summary>
     public partial class ScheduledQueryRule : Pulumi.CustomResource
     {

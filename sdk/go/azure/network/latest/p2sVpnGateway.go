@@ -12,6 +12,7 @@ import (
 )
 
 // P2SVpnGateway Resource.
+// Latest API Version: 2020-07-01.
 type P2sVpnGateway struct {
 	pulumi.CustomResourceState
 

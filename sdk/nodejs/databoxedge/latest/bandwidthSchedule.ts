@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The bandwidth schedule details.
+ * Latest API Version: 2019-08-01.
  */
 export class BandwidthSchedule extends pulumi.CustomResource {
     /**

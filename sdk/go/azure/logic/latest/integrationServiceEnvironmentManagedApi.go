@@ -12,6 +12,7 @@ import (
 )
 
 // The managed api definition.
+// Latest API Version: 2019-05-01.
 type IntegrationServiceEnvironmentManagedApi struct {
 	pulumi.CustomResourceState
 

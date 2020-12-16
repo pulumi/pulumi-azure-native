@@ -12,6 +12,7 @@ import (
 )
 
 // The description of the IoT hub.
+// Latest API Version: 2020-08-01.
 type IotHubResource struct {
 	pulumi.CustomResourceState
 

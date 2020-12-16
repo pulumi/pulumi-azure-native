@@ -12,6 +12,7 @@ import (
 )
 
 // A notification.
+// Latest API Version: 2018-09-15.
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 

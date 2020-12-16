@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The cluster resource
+ *
+ * Latest API Version: 2020-03-01.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

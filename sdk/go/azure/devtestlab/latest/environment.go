@@ -12,6 +12,7 @@ import (
 )
 
 // An environment, which is essentially an ARM template deployment.
+// Latest API Version: 2018-09-15.
 type Environment struct {
 	pulumi.CustomResourceState
 

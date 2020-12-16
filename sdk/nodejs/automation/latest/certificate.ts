@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the certificate.
+ * Latest API Version: 2015-10-31.
  */
 export class Certificate extends pulumi.CustomResource {
     /**

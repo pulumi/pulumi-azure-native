@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * IpAllocation resource.
+ * Latest API Version: 2020-07-01.
  */
 export class IpAllocation extends pulumi.CustomResource {
     /**

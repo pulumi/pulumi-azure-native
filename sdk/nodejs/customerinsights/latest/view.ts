@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The view resource format.
+ * Latest API Version: 2017-04-26.
  */
 export class View extends pulumi.CustomResource {
     /**

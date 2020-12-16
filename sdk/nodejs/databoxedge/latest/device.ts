@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
+ * Latest API Version: 2019-08-01.
  */
 export class Device extends pulumi.CustomResource {
     /**

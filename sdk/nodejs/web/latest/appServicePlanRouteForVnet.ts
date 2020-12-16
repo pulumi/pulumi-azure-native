@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Network route contract used to pass routing information for a Virtual Network.
+ * Latest API Version: 2020-09-01.
  */
 export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
     /**

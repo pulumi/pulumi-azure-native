@@ -12,6 +12,7 @@ import (
 )
 
 // An assessment created for a group in the Migration project.
+// Latest API Version: 2019-10-01.
 type Assessment struct {
 	pulumi.CustomResourceState
 

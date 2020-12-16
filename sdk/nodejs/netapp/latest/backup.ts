@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Backup of a Volume
+ * Latest API Version: 2020-08-01.
  */
 export class Backup extends pulumi.CustomResource {
     /**

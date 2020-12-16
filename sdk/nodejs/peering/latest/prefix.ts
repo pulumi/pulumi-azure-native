@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The peering service prefix class.
+ * Latest API Version: 2020-10-01.
  */
 export class Prefix extends pulumi.CustomResource {
     /**

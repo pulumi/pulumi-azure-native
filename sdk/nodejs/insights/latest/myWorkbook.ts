@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Application Insights private workbook definition.
+ * Latest API Version: 2020-10-20.
  */
 export class MyWorkbook extends pulumi.CustomResource {
     /**

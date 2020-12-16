@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the DigitalTwins service.
+ * Latest API Version: 2020-10-31.
  */
 export class DigitalTwin extends pulumi.CustomResource {
     /**

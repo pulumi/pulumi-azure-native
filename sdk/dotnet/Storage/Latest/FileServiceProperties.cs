@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 {
     /// <summary>
     /// The properties of File services in storage account.
+    /// Latest API Version: 2019-06-01.
     /// </summary>
     public partial class FileServiceProperties : Pulumi.CustomResource
     {

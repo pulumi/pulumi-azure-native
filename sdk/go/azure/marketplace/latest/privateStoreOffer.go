@@ -12,6 +12,7 @@ import (
 )
 
 // The privateStore offer data structure.
+// Latest API Version: 2020-01-01.
 type PrivateStoreOffer struct {
 	pulumi.CustomResourceState
 

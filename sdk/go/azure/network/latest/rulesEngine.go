@@ -12,6 +12,7 @@ import (
 )
 
 // A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+// Latest API Version: 2020-05-01.
 type RulesEngine struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 {
     /// <summary>
     /// Managed cluster.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     public partial class ManagedCluster : Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ import (
 )
 
 // CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
+// Latest API Version: 2020-09-01.
 type AFDEndpoint struct {
 	pulumi.CustomResourceState
 

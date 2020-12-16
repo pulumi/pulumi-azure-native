@@ -31,6 +31,7 @@ class EnterpriseChannel(pulumi.CustomResource):
                  __opts__=None):
         """
         Enterprise Channel resource definition
+        Latest API Version: 2018-07-12.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

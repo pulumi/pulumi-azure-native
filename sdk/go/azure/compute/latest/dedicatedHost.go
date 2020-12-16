@@ -12,6 +12,7 @@ import (
 )
 
 // Specifies information about the Dedicated host.
+// Latest API Version: 2020-06-01.
 type DedicatedHost struct {
 	pulumi.CustomResourceState
 

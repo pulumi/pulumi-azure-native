@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of NetworkRuleSet resource.
+ * Latest API Version: 2017-04-01.
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**

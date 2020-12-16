@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class WebAppHybridConnection : Pulumi.CustomResource
     {

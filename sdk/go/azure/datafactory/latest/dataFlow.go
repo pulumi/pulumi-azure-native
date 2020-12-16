@@ -12,6 +12,7 @@ import (
 )
 
 // Data flow resource type.
+// Latest API Version: 2018-06-01.
 type DataFlow struct {
 	pulumi.CustomResourceState
 

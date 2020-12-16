@@ -12,6 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB Table.
+// Latest API Version: 2016-03-31.
 type DatabaseAccountTable struct {
 	pulumi.CustomResourceState
 

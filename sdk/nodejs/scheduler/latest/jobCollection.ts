@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Latest API Version: 2016-03-01.
+ */
 export class JobCollection extends pulumi.CustomResource {
     /**
      * Get an existing JobCollection resource's state with the given name, ID, and optional extra

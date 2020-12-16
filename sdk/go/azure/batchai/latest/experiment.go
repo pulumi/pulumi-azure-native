@@ -12,6 +12,7 @@ import (
 )
 
 // Experiment information.
+// Latest API Version: 2018-05-01.
 type Experiment struct {
 	pulumi.CustomResourceState
 

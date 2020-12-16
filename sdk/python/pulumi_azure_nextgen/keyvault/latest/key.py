@@ -28,6 +28,7 @@ class Key(pulumi.CustomResource):
                  __opts__=None):
         """
         The key resource.
+        Latest API Version: 2019-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

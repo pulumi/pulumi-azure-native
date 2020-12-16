@@ -30,6 +30,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  __opts__=None):
         """
         disk encryption set resource.
+        Latest API Version: 2020-06-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

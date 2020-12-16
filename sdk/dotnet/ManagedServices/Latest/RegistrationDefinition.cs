@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.Latest
 {
     /// <summary>
     /// Registration definition.
+    /// Latest API Version: 2019-09-01.
     /// </summary>
     public partial class RegistrationDefinition : Pulumi.CustomResource
     {

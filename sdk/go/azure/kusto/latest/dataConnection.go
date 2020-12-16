@@ -12,6 +12,7 @@ import (
 )
 
 // Class representing an data connection.
+// Latest API Version: 2020-09-18.
 type DataConnection struct {
 	pulumi.CustomResourceState
 

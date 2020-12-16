@@ -12,6 +12,7 @@ import (
 )
 
 // Represents a and external administrator to be created.
+// Latest API Version: 2017-12-01.
 type ServerAdministrator struct {
 	pulumi.CustomResourceState
 

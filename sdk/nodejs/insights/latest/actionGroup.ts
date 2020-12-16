@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An action group resource.
+ * Latest API Version: 2019-06-01.
  */
 export class ActionGroup extends pulumi.CustomResource {
     /**

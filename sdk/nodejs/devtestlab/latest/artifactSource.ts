@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of an artifact source.
+ * Latest API Version: 2018-09-15.
  */
 export class ArtifactSource extends pulumi.CustomResource {
     /**

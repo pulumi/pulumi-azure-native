@@ -12,6 +12,7 @@ import (
 )
 
 // A custom image.
+// Latest API Version: 2018-09-15.
 type CustomImage struct {
 	pulumi.CustomResourceState
 

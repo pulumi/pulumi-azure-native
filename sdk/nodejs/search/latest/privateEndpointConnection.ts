@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+ * Latest API Version: 2020-08-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

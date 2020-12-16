@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account session.
+ * Latest API Version: 2019-05-01.
  */
 export class IntegrationAccountSession extends pulumi.CustomResource {
     /**

@@ -12,6 +12,7 @@ import (
 )
 
 // Specifies information about the SSH public key.
+// Latest API Version: 2020-06-01.
 type SshPublicKey struct {
 	pulumi.CustomResourceState
 

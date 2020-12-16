@@ -12,6 +12,7 @@ import (
 )
 
 // Identity Provider details.
+// Latest API Version: 2019-12-01.
 type IdentityProvider struct {
 	pulumi.CustomResourceState
 

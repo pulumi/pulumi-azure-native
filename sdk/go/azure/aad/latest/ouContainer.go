@@ -12,6 +12,7 @@ import (
 )
 
 // Resource for OuContainer.
+// Latest API Version: 2020-01-01.
 type OuContainer struct {
 	pulumi.CustomResourceState
 

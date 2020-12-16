@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * EventGrid Topic
+ * Latest API Version: 2020-06-01.
  */
 export class Topic extends pulumi.CustomResource {
     /**

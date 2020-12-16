@@ -12,6 +12,7 @@ import (
 )
 
 // Describes a Private DNS zone.
+// Latest API Version: 2020-06-01.
 type PrivateZone struct {
 	pulumi.CustomResourceState
 

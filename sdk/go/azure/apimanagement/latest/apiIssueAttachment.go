@@ -12,6 +12,7 @@ import (
 )
 
 // Issue Attachment Contract details.
+// Latest API Version: 2019-12-01.
 type ApiIssueAttachment struct {
 	pulumi.CustomResourceState
 

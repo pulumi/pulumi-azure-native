@@ -12,6 +12,7 @@ import (
 )
 
 // Data store.
+// Latest API Version: 2019-06-01.
 type DataStore struct {
 	pulumi.CustomResourceState
 

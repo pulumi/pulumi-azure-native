@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the job schedule.
+// Latest API Version: 2015-10-31.
 type JobSchedule struct {
 	pulumi.CustomResourceState
 

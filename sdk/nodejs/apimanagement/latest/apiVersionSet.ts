@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Api Version Set Contract details.
+ * Latest API Version: 2019-12-01.
  */
 export class ApiVersionSet extends pulumi.CustomResource {
     /**

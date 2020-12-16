@@ -12,6 +12,7 @@ import (
 )
 
 // An Application Insights workbook definition.
+// Latest API Version: 2020-10-20.
 type Workbook struct {
 	pulumi.CustomResourceState
 

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A share data transfer object.
+ * Latest API Version: 2019-11-01.
  */
 export class Share extends pulumi.CustomResource {
     /**

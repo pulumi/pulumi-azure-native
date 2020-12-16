@@ -12,6 +12,7 @@ import (
 )
 
 // Represents a bookmark in Azure Security Insights.
+// Latest API Version: 2020-01-01.
 type Bookmark struct {
 	pulumi.CustomResourceState
 

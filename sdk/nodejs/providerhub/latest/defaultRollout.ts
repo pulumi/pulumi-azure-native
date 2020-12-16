@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Default rollout definition.
+ * Latest API Version: 2020-11-20.
  */
 export class DefaultRollout extends pulumi.CustomResource {
     /**

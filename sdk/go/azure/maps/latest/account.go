@@ -12,6 +12,7 @@ import (
 )
 
 // An Azure resource which represents access to a suite of Maps REST APIs.
+// Latest API Version: 2018-05-01.
 type Account struct {
 	pulumi.CustomResourceState
 

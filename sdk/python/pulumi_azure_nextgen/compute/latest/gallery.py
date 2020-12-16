@@ -29,6 +29,7 @@ class Gallery(pulumi.CustomResource):
                  __opts__=None):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
+        Latest API Version: 2020-09-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

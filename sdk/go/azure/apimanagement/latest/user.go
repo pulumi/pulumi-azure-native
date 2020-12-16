@@ -12,6 +12,7 @@ import (
 )
 
 // User details.
+// Latest API Version: 2019-12-01.
 type User struct {
 	pulumi.CustomResourceState
 

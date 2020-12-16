@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a lab account.
+ * Latest API Version: 2018-10-15.
  */
 export class LabAccount extends pulumi.CustomResource {
     /**

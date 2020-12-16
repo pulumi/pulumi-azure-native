@@ -12,6 +12,7 @@ import (
 )
 
 // App Service Environment ARM resource.
+// Latest API Version: 2020-09-01.
 type AppServiceEnvironment struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+// Latest API Version: 2020-08-01.
 type SharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
 

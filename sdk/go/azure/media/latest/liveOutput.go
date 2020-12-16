@@ -12,6 +12,7 @@ import (
 )
 
 // The Live Output.
+// Latest API Version: 2020-05-01.
 type LiveOutput struct {
 	pulumi.CustomResourceState
 

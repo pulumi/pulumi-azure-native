@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about managed application.
+ * Latest API Version: 2019-07-01.
  */
 export class Application extends pulumi.CustomResource {
     /**

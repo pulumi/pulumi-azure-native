@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
     /// <summary>
     /// Protection profile details.
+    /// Latest API Version: 2018-07-10.
     /// </summary>
     public partial class ReplicationPolicy : Pulumi.CustomResource
     {

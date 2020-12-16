@@ -28,6 +28,7 @@ class ReportConfig(pulumi.CustomResource):
                  __opts__=None):
         """
         A report config resource.
+        Latest API Version: 2018-05-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

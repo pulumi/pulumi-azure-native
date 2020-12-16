@@ -12,6 +12,7 @@ import (
 )
 
 // Fabric definition.
+// Latest API Version: 2018-07-10.
 type ReplicationFabric struct {
 	pulumi.CustomResourceState
 

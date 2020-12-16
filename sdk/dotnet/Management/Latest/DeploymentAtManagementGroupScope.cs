@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Management.Latest
 {
     /// <summary>
     /// Deployment information.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     public partial class DeploymentAtManagementGroupScope : Pulumi.CustomResource
     {

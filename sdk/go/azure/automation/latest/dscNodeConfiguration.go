@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the dsc node configuration.
+// Latest API Version: 2018-01-15.
 type DscNodeConfiguration struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Hybrid Connection contract. This is used to configure a Hybrid Connection.
+// Latest API Version: 2020-09-01.
 type WebAppHybridConnection struct {
 	pulumi.CustomResourceState
 

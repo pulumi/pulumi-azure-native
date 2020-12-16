@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Provider details.
+ * Latest API Version: 2018-07-10.
  */
 export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
     /**

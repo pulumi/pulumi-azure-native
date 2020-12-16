@@ -12,6 +12,7 @@ import (
 )
 
 // The profile resource format.
+// Latest API Version: 2017-04-26.
 type Profile struct {
 	pulumi.CustomResourceState
 

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Domain service.
+ * Latest API Version: 2020-01-01.
  */
 export class DomainService extends pulumi.CustomResource {
     /**

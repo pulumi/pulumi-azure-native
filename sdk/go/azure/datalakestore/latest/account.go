@@ -12,6 +12,7 @@ import (
 )
 
 // Data Lake Store account information.
+// Latest API Version: 2016-11-01.
 type Account struct {
 	pulumi.CustomResourceState
 

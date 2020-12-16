@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An activity log alert resource.
+ * Latest API Version: 2017-04-01.
  */
 export class ActivityLogAlert extends pulumi.CustomResource {
     /**

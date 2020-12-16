@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.Latest
 {
     /// <summary>
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+    /// Latest API Version: 2020-06-01.
     /// </summary>
     public partial class ConfigurationStore : Pulumi.CustomResource
     {

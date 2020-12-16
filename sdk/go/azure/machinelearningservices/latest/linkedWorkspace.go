@@ -12,6 +12,7 @@ import (
 )
 
 // Linked workspace.
+// Latest API Version: 2020-03-01.
 type LinkedWorkspace struct {
 	pulumi.CustomResourceState
 

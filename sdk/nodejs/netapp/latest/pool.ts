@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Capacity pool resource
+ * Latest API Version: 2020-08-01.
  */
 export class Pool extends pulumi.CustomResource {
     /**

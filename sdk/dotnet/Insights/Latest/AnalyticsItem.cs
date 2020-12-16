@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 {
     /// <summary>
     /// Properties that define an Analytics item that is associated to an Application Insights component.
+    /// Latest API Version: 2015-05-01.
     /// </summary>
     public partial class AnalyticsItem : Pulumi.CustomResource
     {

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A custom image.
+ * Latest API Version: 2018-09-15.
  */
 export class CustomImage extends pulumi.CustomResource {
     /**

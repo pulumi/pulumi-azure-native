@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The Live Output.
+ * Latest API Version: 2020-05-01.
  */
 export class LiveOutput extends pulumi.CustomResource {
     /**

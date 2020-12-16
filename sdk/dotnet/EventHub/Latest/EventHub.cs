@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
 {
     /// <summary>
     /// Single item in List or Get Event Hub operation
+    /// Latest API Version: 2017-04-01.
     /// </summary>
     public partial class EventHub : Pulumi.CustomResource
     {

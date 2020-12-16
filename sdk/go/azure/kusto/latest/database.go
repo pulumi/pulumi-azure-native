@@ -12,6 +12,7 @@ import (
 )
 
 // Class representing a Kusto database.
+// Latest API Version: 2020-09-18.
 type Database struct {
 	pulumi.CustomResourceState
 

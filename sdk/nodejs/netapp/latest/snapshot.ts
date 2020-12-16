@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Snapshot of a Volume
+ * Latest API Version: 2020-08-01.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine.
+ * Latest API Version: 2020-06-01.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**

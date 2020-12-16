@@ -12,6 +12,7 @@ import (
 )
 
 // Specifies information about the gallery image definition that you want to create or update.
+// Latest API Version: 2020-09-30.
 type GalleryImage struct {
 	pulumi.CustomResourceState
 

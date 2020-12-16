@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Source control configuration for an app.
+ * Latest API Version: 2020-09-01.
  */
 export class WebAppSourceControlSlot extends pulumi.CustomResource {
     /**

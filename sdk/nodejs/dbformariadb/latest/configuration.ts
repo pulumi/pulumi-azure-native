@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Configuration.
+ * Latest API Version: 2018-06-01.
  */
 export class Configuration extends pulumi.CustomResource {
     /**

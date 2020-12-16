@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * ExpressRoute Circuit Authorization
+ * Latest API Version: 2020-03-20.
  */
 export class Authorization extends pulumi.CustomResource {
     /**

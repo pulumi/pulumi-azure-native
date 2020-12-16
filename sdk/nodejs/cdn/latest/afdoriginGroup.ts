@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+ * Latest API Version: 2020-09-01.
  */
 export class AFDOriginGroup extends pulumi.CustomResource {
     /**

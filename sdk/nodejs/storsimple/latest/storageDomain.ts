@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage domain.
+ * Latest API Version: 2016-10-01.
  */
 export class StorageDomain extends pulumi.CustomResource {
     /**

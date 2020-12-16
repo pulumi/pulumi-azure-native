@@ -12,6 +12,7 @@ import (
 )
 
 // A Streaming Policy resource
+// Latest API Version: 2020-05-01.
 type StreamingPolicy struct {
 	pulumi.CustomResourceState
 

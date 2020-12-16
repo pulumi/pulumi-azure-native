@@ -26,6 +26,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
                  __opts__=None):
         """
         Single item in a List or Get AuthorizationRule operation
+        Latest API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

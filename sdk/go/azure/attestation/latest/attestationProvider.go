@@ -12,6 +12,7 @@ import (
 )
 
 // Attestation service response message.
+// Latest API Version: 2020-10-01.
 type AttestationProvider struct {
 	pulumi.CustomResourceState
 

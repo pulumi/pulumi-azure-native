@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an instance of a Dedicated Capacity resource.
+ * Latest API Version: 2017-10-01.
  */
 export class CapacityDetails extends pulumi.CustomResource {
     /**

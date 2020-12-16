@@ -12,6 +12,7 @@ import (
 )
 
 // A network interface in a resource group.
+// Latest API Version: 2020-07-01.
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 

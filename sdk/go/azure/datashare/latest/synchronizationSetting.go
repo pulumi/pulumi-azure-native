@@ -12,6 +12,7 @@ import (
 )
 
 // A Synchronization Setting data transfer object.
+// Latest API Version: 2019-11-01.
 type SynchronizationSetting struct {
 	pulumi.CustomResourceState
 

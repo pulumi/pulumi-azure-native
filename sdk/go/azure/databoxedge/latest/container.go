@@ -12,6 +12,7 @@ import (
 )
 
 // Represents a container on the  Data Box Edge/Gateway device.
+// Latest API Version: 2019-08-01.
 type Container struct {
 	pulumi.CustomResourceState
 

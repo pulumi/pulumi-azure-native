@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Role Assignments
+ * Latest API Version: 2015-07-01.
  */
 export class RoleAssignment extends pulumi.CustomResource {
     /**

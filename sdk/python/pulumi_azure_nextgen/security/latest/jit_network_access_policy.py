@@ -28,7 +28,8 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a JitNetworkAccessPolicy resource with the given unique name, props, and options.
+        Latest API Version: 2020-01-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations

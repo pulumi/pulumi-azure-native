@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Latest API Version: 2020-01-01.
+ */
 export class AdaptiveApplicationControl extends pulumi.CustomResource {
     /**
      * Get an existing AdaptiveApplicationControl resource's state with the given name, ID, and optional extra

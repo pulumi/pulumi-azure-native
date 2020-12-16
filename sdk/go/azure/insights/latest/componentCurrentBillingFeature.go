@@ -12,6 +12,7 @@ import (
 )
 
 // An Application Insights component billing features
+// Latest API Version: 2015-05-01.
 type ComponentCurrentBillingFeature struct {
 	pulumi.CustomResourceState
 

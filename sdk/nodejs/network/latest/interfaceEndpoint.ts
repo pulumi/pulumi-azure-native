@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Interface endpoint resource.
+ * Latest API Version: 2019-02-01.
  */
 export class InterfaceEndpoint extends pulumi.CustomResource {
     /**

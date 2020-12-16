@@ -12,6 +12,7 @@ import (
 )
 
 // The integration account schema.
+// Latest API Version: 2019-05-01.
 type IntegrationAccountSchema struct {
 	pulumi.CustomResourceState
 

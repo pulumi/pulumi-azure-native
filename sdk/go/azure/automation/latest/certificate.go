@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the certificate.
+// Latest API Version: 2015-10-31.
 type Certificate struct {
 	pulumi.CustomResourceState
 

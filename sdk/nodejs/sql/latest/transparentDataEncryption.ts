@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a database transparent data encryption configuration.
+ * Latest API Version: 2014-04-01.
  */
 export class TransparentDataEncryption extends pulumi.CustomResource {
     /**

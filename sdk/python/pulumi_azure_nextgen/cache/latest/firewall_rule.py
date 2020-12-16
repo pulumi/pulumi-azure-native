@@ -25,6 +25,7 @@ class FirewallRule(pulumi.CustomResource):
                  __opts__=None):
         """
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+        Latest API Version: 2020-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

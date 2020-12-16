@@ -12,6 +12,7 @@ import (
 )
 
 // The description of the Windows IoT Device Service.
+// Latest API Version: 2019-06-01.
 type Service struct {
 	pulumi.CustomResourceState
 

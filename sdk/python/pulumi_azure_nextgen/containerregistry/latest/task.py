@@ -37,6 +37,7 @@ class Task(pulumi.CustomResource):
         """
         The task that has the ARM resource and task properties.
         The task will have all information to schedule a run against it.
+        Latest API Version: 2019-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

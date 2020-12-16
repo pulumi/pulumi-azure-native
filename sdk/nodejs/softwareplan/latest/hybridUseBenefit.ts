@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Response on GET of a hybrid use benefit
+ * Latest API Version: 2019-12-01.
  */
 export class HybridUseBenefit extends pulumi.CustomResource {
     /**

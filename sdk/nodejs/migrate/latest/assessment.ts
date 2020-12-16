@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An assessment created for a group in the Migration project.
+ * Latest API Version: 2019-10-01.
  */
 export class Assessment extends pulumi.CustomResource {
     /**

@@ -12,6 +12,7 @@ import (
 )
 
 // Container service.
+// Latest API Version: 2017-01-31.
 type ContainerService struct {
 	pulumi.CustomResourceState
 

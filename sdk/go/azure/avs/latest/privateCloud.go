@@ -12,6 +12,7 @@ import (
 )
 
 // A private cloud resource
+// Latest API Version: 2020-03-20.
 type PrivateCloud struct {
 	pulumi.CustomResourceState
 

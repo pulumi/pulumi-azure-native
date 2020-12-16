@@ -12,6 +12,7 @@ import (
 )
 
 // A streaming job object, containing all information associated with the named streaming job.
+// Latest API Version: 2016-03-01.
 type StreamingJob struct {
 	pulumi.CustomResourceState
 

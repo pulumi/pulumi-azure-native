@@ -12,6 +12,7 @@ import (
 )
 
 // The file server.
+// Latest API Version: 2016-10-01.
 type FileServer struct {
 	pulumi.CustomResourceState
 

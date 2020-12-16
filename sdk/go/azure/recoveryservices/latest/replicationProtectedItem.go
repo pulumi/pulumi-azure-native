@@ -12,6 +12,7 @@ import (
 )
 
 // Replication protected item.
+// Latest API Version: 2018-07-10.
 type ReplicationProtectedItem struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Describes a link to virtual network for a Private DNS zone.
+    /// Latest API Version: 2020-06-01.
     /// </summary>
     public partial class VirtualNetworkLink : Pulumi.CustomResource
     {

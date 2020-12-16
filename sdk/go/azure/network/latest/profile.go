@@ -12,6 +12,7 @@ import (
 )
 
 // Class representing a Traffic Manager profile.
+// Latest API Version: 2018-04-01.
 type Profile struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // HubVirtualNetworkConnection Resource.
+// Latest API Version: 2020-07-01.
 type HubVirtualNetworkConnection struct {
 	pulumi.CustomResourceState
 

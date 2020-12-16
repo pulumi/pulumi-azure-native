@@ -12,6 +12,7 @@ import (
 )
 
 // A custom API
+// Latest API Version: 2016-06-01.
 type CustomApi struct {
 	pulumi.CustomResourceState
 

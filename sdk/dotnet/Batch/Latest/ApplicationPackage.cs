@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
 {
     /// <summary>
     /// An application package which represents a particular version of an application.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class ApplicationPackage : Pulumi.CustomResource
     {

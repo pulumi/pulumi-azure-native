@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a replication for a container registry.
+ * Latest API Version: 2019-05-01.
  */
 export class Replication extends pulumi.CustomResource {
     /**

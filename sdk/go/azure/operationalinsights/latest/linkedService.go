@@ -12,6 +12,7 @@ import (
 )
 
 // The top level Linked service resource container.
+// Latest API Version: 2020-08-01.
 type LinkedService struct {
 	pulumi.CustomResourceState
 

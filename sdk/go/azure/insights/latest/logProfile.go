@@ -12,6 +12,7 @@ import (
 )
 
 // The log profile resource.
+// Latest API Version: 2016-03-01.
 type LogProfile struct {
 	pulumi.CustomResourceState
 

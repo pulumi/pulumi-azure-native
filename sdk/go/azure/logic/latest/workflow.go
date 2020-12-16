@@ -12,6 +12,7 @@ import (
 )
 
 // The workflow type.
+// Latest API Version: 2019-05-01.
 type Workflow struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Peerings in a virtual network resource.
+// Latest API Version: 2020-07-01.
 type VirtualNetworkPeering struct {
 	pulumi.CustomResourceState
 

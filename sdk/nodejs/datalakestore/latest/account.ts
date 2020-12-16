@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Store account information.
+ * Latest API Version: 2016-11-01.
  */
 export class Account extends pulumi.CustomResource {
     /**

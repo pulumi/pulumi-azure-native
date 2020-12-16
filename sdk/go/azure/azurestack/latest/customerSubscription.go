@@ -12,6 +12,7 @@ import (
 )
 
 // Customer subscription.
+// Latest API Version: 2017-06-01.
 type CustomerSubscription struct {
 	pulumi.CustomResourceState
 

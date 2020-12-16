@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a container registry.
+ * Latest API Version: 2019-05-01.
  */
 export class Registry extends pulumi.CustomResource {
     /**

@@ -12,6 +12,7 @@ import (
 )
 
 // Instance of an Azure ML web service resource.
+// Latest API Version: 2017-01-01.
 type WebService struct {
 	pulumi.CustomResourceState
 

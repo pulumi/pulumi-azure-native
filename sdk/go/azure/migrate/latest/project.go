@@ -12,6 +12,7 @@ import (
 )
 
 // Azure Migrate Project.
+// Latest API Version: 2019-10-01.
 type Project struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Registration definition.
+// Latest API Version: 2019-09-01.
 type RegistrationDefinition struct {
 	pulumi.CustomResourceState
 

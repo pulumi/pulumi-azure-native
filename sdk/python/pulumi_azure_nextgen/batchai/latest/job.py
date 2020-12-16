@@ -48,6 +48,7 @@ class Job(pulumi.CustomResource):
                  __opts__=None):
         """
         Information about a Job.
+        Latest API Version: 2018-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+ * Latest API Version: 2020-06-01.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

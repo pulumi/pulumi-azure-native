@@ -12,6 +12,7 @@ import (
 )
 
 // The Get Storage Account ManagementPolicies operation response.
+// Latest API Version: 2019-06-01.
 type ManagementPolicy struct {
 	pulumi.CustomResourceState
 

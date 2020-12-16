@@ -12,6 +12,7 @@ import (
 )
 
 // Site REST Resource.
+// Latest API Version: 2020-07-07.
 type Site struct {
 	pulumi.CustomResourceState
 

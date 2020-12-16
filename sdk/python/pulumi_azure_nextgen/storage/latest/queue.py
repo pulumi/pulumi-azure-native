@@ -23,7 +23,8 @@ class Queue(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a Queue resource with the given unique name, props, and options.
+        Latest API Version: 2019-06-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

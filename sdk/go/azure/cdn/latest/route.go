@@ -12,6 +12,7 @@ import (
 )
 
 // Friendly Routes name mapping to the any Routes or secret related information.
+// Latest API Version: 2020-09-01.
 type Route struct {
 	pulumi.CustomResourceState
 

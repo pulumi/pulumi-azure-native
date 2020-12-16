@@ -12,6 +12,7 @@ import (
 )
 
 // Describes a Virtual Machine run command.
+// Latest API Version: 2020-06-01.
 type VirtualMachineRunCommandByVirtualMachine struct {
 	pulumi.CustomResourceState
 

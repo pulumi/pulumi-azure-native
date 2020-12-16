@@ -12,6 +12,7 @@ import (
 )
 
 // OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+// Latest API Version: 2020-04-30.
 type OpenShiftCluster struct {
 	pulumi.CustomResourceState
 

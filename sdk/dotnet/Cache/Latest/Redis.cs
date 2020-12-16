@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
 {
     /// <summary>
     /// A single Redis item in List or Get Operation.
+    /// Latest API Version: 2020-06-01.
     /// </summary>
     public partial class Redis : Pulumi.CustomResource
     {

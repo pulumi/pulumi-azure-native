@@ -12,6 +12,7 @@ import (
 )
 
 // Api Operation details.
+// Latest API Version: 2019-12-01.
 type ApiOperation struct {
 	pulumi.CustomResourceState
 

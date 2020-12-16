@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the webhook type.
+// Latest API Version: 2015-10-31.
 type Webhook struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
 {
     /// <summary>
     /// Description of subscription resource.
+    /// Latest API Version: 2017-04-01.
     /// </summary>
     public partial class Subscription : Pulumi.CustomResource
     {

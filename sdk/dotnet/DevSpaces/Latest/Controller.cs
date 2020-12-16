@@ -9,6 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevSpaces.Latest
 {
+    /// <summary>
+    /// Latest API Version: 2019-04-01.
+    /// </summary>
     public partial class Controller : Pulumi.CustomResource
     {
         /// <summary>

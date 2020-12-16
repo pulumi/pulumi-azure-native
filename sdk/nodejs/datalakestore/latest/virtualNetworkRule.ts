@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Store virtual network rule information.
+ * Latest API Version: 2016-11-01.
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**

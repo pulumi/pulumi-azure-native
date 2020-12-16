@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties that define an Analytics item that is associated to an Application Insights component.
+ * Latest API Version: 2015-05-01.
  */
 export class AnalyticsItem extends pulumi.CustomResource {
     /**

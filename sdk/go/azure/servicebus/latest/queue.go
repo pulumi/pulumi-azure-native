@@ -12,6 +12,7 @@ import (
 )
 
 // Description of queue Resource.
+// Latest API Version: 2017-04-01.
 type Queue struct {
 	pulumi.CustomResourceState
 

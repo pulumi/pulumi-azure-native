@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The File Share.
+ * Latest API Version: 2016-10-01.
  */
 export class FileShare extends pulumi.CustomResource {
     /**

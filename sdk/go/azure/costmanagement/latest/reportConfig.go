@@ -12,6 +12,7 @@ import (
 )
 
 // A report config resource.
+// Latest API Version: 2018-05-31.
 type ReportConfig struct {
 	pulumi.CustomResourceState
 

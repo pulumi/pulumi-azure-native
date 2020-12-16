@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Class representing Traffic Manager User Metrics.
+    /// Latest API Version: 2018-04-01.
     /// </summary>
     public partial class TrafficManagerUserMetricsKey : Pulumi.CustomResource
     {

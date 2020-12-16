@@ -12,6 +12,7 @@ import (
 )
 
 // Describes a DNS zone.
+// Latest API Version: 2018-05-01.
 type Zone struct {
 	pulumi.CustomResourceState
 

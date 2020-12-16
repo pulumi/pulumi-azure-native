@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Machine Learning compute object wrapped into ARM resource envelope.
+ * Latest API Version: 2020-08-01.
  */
 export class MachineLearningCompute extends pulumi.CustomResource {
     /**

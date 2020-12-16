@@ -12,6 +12,7 @@ import (
 )
 
 // Description of an hostingEnvironment (App Service Environment)
+// Latest API Version: 2015-08-01.
 type ManagedHostingEnvironment struct {
 	pulumi.CustomResourceState
 

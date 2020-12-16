@@ -12,6 +12,7 @@ import (
 )
 
 // Peering Service
+// Latest API Version: 2020-10-01.
 type PeeringService struct {
 	pulumi.CustomResourceState
 

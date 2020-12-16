@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
 {
     /// <summary>
     /// Contains information about a pool.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class Pool : Pulumi.CustomResource
     {

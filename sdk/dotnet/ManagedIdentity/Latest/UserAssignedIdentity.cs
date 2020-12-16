@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.Latest
 {
     /// <summary>
     /// Describes an identity resource.
+    /// Latest API Version: 2018-11-30.
     /// </summary>
     public partial class UserAssignedIdentity : Pulumi.CustomResource
     {

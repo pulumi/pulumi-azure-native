@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 {
     /// <summary>
     /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class AFDOriginGroup : Pulumi.CustomResource
     {

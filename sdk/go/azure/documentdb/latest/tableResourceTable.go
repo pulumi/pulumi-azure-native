@@ -12,6 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB Table.
+// Latest API Version: 2020-09-01.
 type TableResourceTable struct {
 	pulumi.CustomResourceState
 

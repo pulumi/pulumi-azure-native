@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Data Catalog.
+ * Latest API Version: 2016-03-30.
  */
 export class ADCCatalog extends pulumi.CustomResource {
     /**

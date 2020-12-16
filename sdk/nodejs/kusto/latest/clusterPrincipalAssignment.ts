@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a cluster principal assignment.
+ * Latest API Version: 2020-09-18.
  */
 export class ClusterPrincipalAssignment extends pulumi.CustomResource {
     /**

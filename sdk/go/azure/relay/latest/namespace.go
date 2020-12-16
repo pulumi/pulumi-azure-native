@@ -12,6 +12,7 @@ import (
 )
 
 // Description of a namespace resource.
+// Latest API Version: 2017-04-01.
 type Namespace struct {
 	pulumi.CustomResourceState
 

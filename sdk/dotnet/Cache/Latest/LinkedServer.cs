@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
 {
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
+    /// Latest API Version: 2020-06-01.
     /// </summary>
     public partial class LinkedServer : Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ import (
 )
 
 // A secret.
+// Latest API Version: 2018-09-15.
 type Secret struct {
 	pulumi.CustomResourceState
 

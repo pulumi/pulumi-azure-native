@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Peering Service
+ * Latest API Version: 2020-10-01.
  */
 export class PeeringService extends pulumi.CustomResource {
     /**

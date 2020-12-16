@@ -12,6 +12,7 @@ import (
 )
 
 // Class representing a Kusto cluster.
+// Latest API Version: 2020-09-18.
 type Cluster struct {
 	pulumi.CustomResourceState
 

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Site Extension Information.
+ * Latest API Version: 2020-09-01.
  */
 export class WebAppSiteExtension extends pulumi.CustomResource {
     /**

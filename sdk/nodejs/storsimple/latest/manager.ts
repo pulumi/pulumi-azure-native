@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The StorSimple Manager.
+ * Latest API Version: 2017-06-01.
  */
 export class Manager extends pulumi.CustomResource {
     /**

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
 {
     /// <summary>
     /// The alert rule information
+    /// Latest API Version: 2019-06-01.
     /// </summary>
     public partial class SmartDetectorAlertRule : Pulumi.CustomResource
     {

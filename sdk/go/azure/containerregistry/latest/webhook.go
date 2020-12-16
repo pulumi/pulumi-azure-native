@@ -12,6 +12,7 @@ import (
 )
 
 // An object that represents a webhook for a container registry.
+// Latest API Version: 2019-05-01.
 type Webhook struct {
 	pulumi.CustomResourceState
 

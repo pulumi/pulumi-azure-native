@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An application type version resource for the specified application type name resource.
+ * Latest API Version: 2020-03-01.
  */
 export class ApplicationTypeVersion extends pulumi.CustomResource {
     /**

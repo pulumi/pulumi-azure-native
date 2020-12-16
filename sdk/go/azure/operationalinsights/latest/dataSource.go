@@ -12,6 +12,7 @@ import (
 )
 
 // Datasources under OMS Workspace.
+// Latest API Version: 2020-08-01.
 type DataSource struct {
 	pulumi.CustomResourceState
 

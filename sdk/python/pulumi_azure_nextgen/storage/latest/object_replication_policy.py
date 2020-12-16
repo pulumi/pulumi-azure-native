@@ -28,6 +28,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  __opts__=None):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

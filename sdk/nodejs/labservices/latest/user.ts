@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The User registered to a lab
+ * Latest API Version: 2018-10-15.
  */
 export class User extends pulumi.CustomResource {
     /**

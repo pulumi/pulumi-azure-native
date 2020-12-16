@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Storage Sync Service object.
+ * Latest API Version: 2020-09-01.
  */
 export class StorageSyncService extends pulumi.CustomResource {
     /**

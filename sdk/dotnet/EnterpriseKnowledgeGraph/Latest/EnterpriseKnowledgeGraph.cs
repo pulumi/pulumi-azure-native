@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest
 {
     /// <summary>
     /// EnterpriseKnowledgeGraph resource definition
+    /// Latest API Version: 2018-12-03.
     /// </summary>
     public partial class EnterpriseKnowledgeGraph : Pulumi.CustomResource
     {

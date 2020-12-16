@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
     /// <summary>
     /// A notification.
+    /// Latest API Version: 2018-09-15.
     /// </summary>
     public partial class NotificationChannel : Pulumi.CustomResource
     {

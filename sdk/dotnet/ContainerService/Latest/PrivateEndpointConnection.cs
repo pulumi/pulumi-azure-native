@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 {
     /// <summary>
     /// A private endpoint connection
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

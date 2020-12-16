@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Gateway hostname configuration details.
+ * Latest API Version: 2019-12-01.
  */
 export class GatewayHostnameConfiguration extends pulumi.CustomResource {
     /**

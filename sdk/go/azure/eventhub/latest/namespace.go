@@ -12,6 +12,7 @@ import (
 )
 
 // Single Namespace item in List or Get Operation
+// Latest API Version: 2017-04-01.
 type Namespace struct {
 	pulumi.CustomResourceState
 

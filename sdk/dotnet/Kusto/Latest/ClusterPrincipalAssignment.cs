@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
 {
     /// <summary>
     /// Class representing a cluster principal assignment.
+    /// Latest API Version: 2020-09-18.
     /// </summary>
     public partial class ClusterPrincipalAssignment : Pulumi.CustomResource
     {

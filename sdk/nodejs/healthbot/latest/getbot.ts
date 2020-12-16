@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Bot resource definition
+ * Latest API Version: 2020-10-20.
  */
 export class Getbot extends pulumi.CustomResource {
     /**

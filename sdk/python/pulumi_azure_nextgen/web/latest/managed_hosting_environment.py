@@ -60,6 +60,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
                  __opts__=None):
         """
         Description of an hostingEnvironment (App Service Environment)
+        Latest API Version: 2015-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

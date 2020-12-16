@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Data store.
+ * Latest API Version: 2019-06-01.
  */
 export class DataStore extends pulumi.CustomResource {
     /**

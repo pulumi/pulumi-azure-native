@@ -12,6 +12,7 @@ import (
 )
 
 // A DDoS protection plan in a resource group.
+// Latest API Version: 2020-07-01.
 type DdosProtectionPlan struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// Latest API Version: 2020-06-01.
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

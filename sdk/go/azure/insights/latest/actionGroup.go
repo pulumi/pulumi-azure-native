@@ -12,6 +12,7 @@ import (
 )
 
 // An action group resource.
+// Latest API Version: 2019-06-01.
 type ActionGroup struct {
 	pulumi.CustomResourceState
 

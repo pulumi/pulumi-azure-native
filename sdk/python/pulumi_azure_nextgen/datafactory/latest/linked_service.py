@@ -27,6 +27,7 @@ class LinkedService(pulumi.CustomResource):
                  __opts__=None):
         """
         Linked service resource type.
+        Latest API Version: 2018-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

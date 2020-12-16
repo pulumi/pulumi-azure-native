@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A notification.
+ * Latest API Version: 2018-09-15.
  */
 export class NotificationChannel extends pulumi.CustomResource {
     /**

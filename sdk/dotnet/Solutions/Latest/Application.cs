@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
 {
     /// <summary>
     /// Information about managed application.
+    /// Latest API Version: 2019-07-01.
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

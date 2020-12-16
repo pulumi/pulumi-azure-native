@@ -12,6 +12,7 @@ import (
 )
 
 // A private endpoint connection to SignalR resource
+// Latest API Version: 2020-05-01.
 type SignalRPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

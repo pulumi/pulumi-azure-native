@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The metric alert resource.
+ * Latest API Version: 2018-03-01.
  */
 export class MetricAlert extends pulumi.CustomResource {
     /**

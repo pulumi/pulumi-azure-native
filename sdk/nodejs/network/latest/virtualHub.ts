@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * VirtualHub Resource.
+ * Latest API Version: 2020-07-01.
  */
 export class VirtualHub extends pulumi.CustomResource {
     /**

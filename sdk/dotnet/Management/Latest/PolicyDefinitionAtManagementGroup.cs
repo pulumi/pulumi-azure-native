@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Management.Latest
 {
     /// <summary>
     /// The policy definition.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class PolicyDefinitionAtManagementGroup : Pulumi.CustomResource
     {

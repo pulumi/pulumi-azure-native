@@ -35,6 +35,7 @@ class ContainerService(pulumi.CustomResource):
                  __opts__=None):
         """
         Container service.
+        Latest API Version: 2017-01-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

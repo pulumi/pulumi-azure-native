@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set Extension.
+ * Latest API Version: 2020-06-01.
  */
 export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**

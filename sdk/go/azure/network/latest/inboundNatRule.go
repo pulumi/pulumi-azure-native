@@ -12,6 +12,7 @@ import (
 )
 
 // Inbound NAT rule of the load balancer.
+// Latest API Version: 2020-07-01.
 type InboundNatRule struct {
 	pulumi.CustomResourceState
 

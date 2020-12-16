@@ -12,6 +12,7 @@ import (
 )
 
 // Public IP prefix resource.
+// Latest API Version: 2020-07-01.
 type PublicIPPrefix struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Virtual Network information contract.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class WebAppVnetConnectionSlot : Pulumi.CustomResource
     {

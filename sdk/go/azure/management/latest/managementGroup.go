@@ -12,6 +12,7 @@ import (
 )
 
 // The management group details.
+// Latest API Version: 2020-05-01.
 type ManagementGroup struct {
 	pulumi.CustomResourceState
 

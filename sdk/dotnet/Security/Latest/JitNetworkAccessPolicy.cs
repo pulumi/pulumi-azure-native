@@ -9,6 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Security.Latest
 {
+    /// <summary>
+    /// Latest API Version: 2020-01-01.
+    /// </summary>
     public partial class JitNetworkAccessPolicy : Pulumi.CustomResource
     {
         /// <summary>

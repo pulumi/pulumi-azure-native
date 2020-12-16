@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Pool of backend IP addresses.
+ * Latest API Version: 2020-07-01.
  */
 export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     /**

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// disk encryption set resource.
+    /// Latest API Version: 2020-06-30.
     /// </summary>
     public partial class DiskEncryptionSet : Pulumi.CustomResource
     {

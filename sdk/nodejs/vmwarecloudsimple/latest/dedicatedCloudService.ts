@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Dedicated cloud service model
+ * Latest API Version: 2019-04-01.
  */
 export class DedicatedCloudService extends pulumi.CustomResource {
     /**

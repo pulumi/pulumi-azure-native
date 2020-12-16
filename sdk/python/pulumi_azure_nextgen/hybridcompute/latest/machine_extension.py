@@ -33,6 +33,7 @@ class MachineExtension(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes a Machine Extension.
+        Latest API Version: 2020-08-02.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

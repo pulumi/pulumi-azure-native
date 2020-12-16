@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of an hostingEnvironment (App Service Environment)
+ * Latest API Version: 2015-08-01.
  */
 export class ManagedHostingEnvironment extends pulumi.CustomResource {
     /**

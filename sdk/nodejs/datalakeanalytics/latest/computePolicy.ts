@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Analytics compute policy information.
+ * Latest API Version: 2016-11-01.
  */
 export class ComputePolicy extends pulumi.CustomResource {
     /**

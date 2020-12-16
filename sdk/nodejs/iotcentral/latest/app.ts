@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The IoT Central application.
+ * Latest API Version: 2018-09-01.
  */
 export class App extends pulumi.CustomResource {
     /**

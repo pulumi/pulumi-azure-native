@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Contains information about an Azure Batch account.
+ * Latest API Version: 2020-09-01.
  */
 export class BatchAccount extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The backup schedule.
+ * Latest API Version: 2017-06-01.
  */
 export class BackupSchedule extends pulumi.CustomResource {
     /**

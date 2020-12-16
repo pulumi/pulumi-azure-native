@@ -12,6 +12,7 @@ import (
 )
 
 // Describes an Azure Cognitive Search service and its current state.
+// Latest API Version: 2020-08-01.
 type Service struct {
 	pulumi.CustomResourceState
 

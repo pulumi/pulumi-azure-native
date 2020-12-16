@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents settings of an environment, from which environment instances would be created
+ * Latest API Version: 2018-10-15.
  */
 export class EnvironmentSetting extends pulumi.CustomResource {
     /**

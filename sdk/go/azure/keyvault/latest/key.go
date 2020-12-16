@@ -12,6 +12,7 @@ import (
 )
 
 // The key resource.
+// Latest API Version: 2019-09-01.
 type Key struct {
 	pulumi.CustomResourceState
 

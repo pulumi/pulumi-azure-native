@@ -30,7 +30,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a PrivateEndpointConnection resource with the given unique name, props, and options.
+        Latest API Version: 2020-06-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.

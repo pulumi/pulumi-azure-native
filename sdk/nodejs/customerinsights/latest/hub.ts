@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Hub resource.
+ * Latest API Version: 2017-04-26.
  */
 export class Hub extends pulumi.CustomResource {
     /**

@@ -12,6 +12,7 @@ import (
 )
 
 // A Media Services account.
+// Latest API Version: 2020-05-01.
 type MediaService struct {
 	pulumi.CustomResourceState
 

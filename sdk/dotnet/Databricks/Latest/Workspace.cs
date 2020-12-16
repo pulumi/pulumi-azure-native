@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
 {
     /// <summary>
     /// Information about workspace.
+    /// Latest API Version: 2018-04-01.
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

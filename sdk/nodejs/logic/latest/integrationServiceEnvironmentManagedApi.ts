@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The managed api definition.
+ * Latest API Version: 2019-05-01.
  */
 export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResource {
     /**

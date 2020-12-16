@@ -12,6 +12,7 @@ import (
 )
 
 // Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+// Latest API Version: 2020-05-01.
 type FrontDoor struct {
 	pulumi.CustomResourceState
 

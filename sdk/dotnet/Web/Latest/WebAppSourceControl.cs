@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Source control configuration for an app.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class WebAppSourceControl : Pulumi.CustomResource
     {

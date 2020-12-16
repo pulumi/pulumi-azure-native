@@ -9,6 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.PowerBI.Latest
 {
+    /// <summary>
+    /// Latest API Version: 2016-01-29.
+    /// </summary>
     public partial class WorkspaceCollection : Pulumi.CustomResource
     {
         /// <summary>

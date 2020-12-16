@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Asset.
+ * Latest API Version: 2020-05-01.
  */
 export class Asset extends pulumi.CustomResource {
     /**

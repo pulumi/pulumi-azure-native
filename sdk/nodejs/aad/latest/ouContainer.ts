@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource for OuContainer.
+ * Latest API Version: 2020-01-01.
  */
 export class OuContainer extends pulumi.CustomResource {
     /**

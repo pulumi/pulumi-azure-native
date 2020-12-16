@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnConnection Resource.
+ * Latest API Version: 2020-07-01.
  */
 export class VpnConnection extends pulumi.CustomResource {
     /**

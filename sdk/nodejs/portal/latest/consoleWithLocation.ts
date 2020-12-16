@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Cloud shell console
+ * Latest API Version: 2018-10-01.
  */
 export class ConsoleWithLocation extends pulumi.CustomResource {
     /**

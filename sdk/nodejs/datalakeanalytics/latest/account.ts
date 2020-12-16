@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+ * Latest API Version: 2016-11-01.
  */
 export class Account extends pulumi.CustomResource {
     /**

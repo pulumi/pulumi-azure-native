@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Server communication link.
+ * Latest API Version: 2014-04-01.
  */
 export class ServerCommunicationLink extends pulumi.CustomResource {
     /**

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest
 {
     /// <summary>
     /// A private endpoint connection to SignalR resource
+    /// Latest API Version: 2020-05-01.
     /// </summary>
     public partial class SignalRPrivateEndpointConnection : Pulumi.CustomResource
     {

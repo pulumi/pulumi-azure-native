@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The live event.
+ * Latest API Version: 2020-05-01.
  */
 export class LiveEvent extends pulumi.CustomResource {
     /**

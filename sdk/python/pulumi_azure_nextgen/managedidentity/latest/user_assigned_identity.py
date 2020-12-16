@@ -24,6 +24,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes an identity resource.
+        Latest API Version: 2018-11-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

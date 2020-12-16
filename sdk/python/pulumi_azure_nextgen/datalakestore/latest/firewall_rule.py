@@ -25,6 +25,7 @@ class FirewallRule(pulumi.CustomResource):
                  __opts__=None):
         """
         Data Lake Store firewall rule information.
+        Latest API Version: 2016-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

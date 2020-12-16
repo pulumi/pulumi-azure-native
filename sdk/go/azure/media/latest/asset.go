@@ -12,6 +12,7 @@ import (
 )
 
 // An Asset.
+// Latest API Version: 2020-05-01.
 type Asset struct {
 	pulumi.CustomResourceState
 

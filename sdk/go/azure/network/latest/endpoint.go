@@ -12,6 +12,7 @@ import (
 )
 
 // Class representing a Traffic Manager endpoint.
+// Latest API Version: 2018-04-01.
 type Endpoint struct {
 	pulumi.CustomResourceState
 

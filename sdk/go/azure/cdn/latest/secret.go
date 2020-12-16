@@ -12,6 +12,7 @@ import (
 )
 
 // Friendly Secret name mapping to the any Secret or secret related information.
+// Latest API Version: 2020-09-01.
 type Secret struct {
 	pulumi.CustomResourceState
 

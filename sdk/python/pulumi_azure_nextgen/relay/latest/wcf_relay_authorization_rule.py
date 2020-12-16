@@ -26,6 +26,7 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
                  __opts__=None):
         """
         Description of a namespace authorization rule.
+        Latest API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

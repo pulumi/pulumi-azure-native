@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A Database Migration Service resource
+ * Latest API Version: 2018-04-19.
  */
 export class Service extends pulumi.CustomResource {
     /**

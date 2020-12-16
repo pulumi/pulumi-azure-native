@@ -35,6 +35,7 @@ class Cache(pulumi.CustomResource):
                  __opts__=None):
         """
         A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+        Latest API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

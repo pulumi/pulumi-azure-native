@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The status of the Canonical support plan.
+ * Latest API Version: 2018-03-01.
  */
 export class SupportPlanType extends pulumi.CustomResource {
     /**

@@ -12,6 +12,7 @@ import (
 )
 
 // Gateway hostname configuration details.
+// Latest API Version: 2019-12-01.
 type GatewayHostnameConfiguration struct {
 	pulumi.CustomResourceState
 

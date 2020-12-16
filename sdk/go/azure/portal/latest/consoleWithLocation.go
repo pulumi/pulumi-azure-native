@@ -12,6 +12,7 @@ import (
 )
 
 // Cloud shell console
+// Latest API Version: 2018-10-01.
 type ConsoleWithLocation struct {
 	pulumi.CustomResourceState
 

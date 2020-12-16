@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Security assessment on a resource
+ * Latest API Version: 2020-01-01.
  */
 export class Assessment extends pulumi.CustomResource {
     /**

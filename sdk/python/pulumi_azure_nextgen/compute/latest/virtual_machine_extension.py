@@ -37,6 +37,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes a Virtual Machine Extension.
+        Latest API Version: 2020-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

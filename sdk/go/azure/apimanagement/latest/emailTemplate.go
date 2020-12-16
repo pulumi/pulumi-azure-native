@@ -12,6 +12,7 @@ import (
 )
 
 // Email Template details.
+// Latest API Version: 2019-12-01.
 type EmailTemplate struct {
 	pulumi.CustomResourceState
 

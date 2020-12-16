@@ -31,6 +31,7 @@ class Account(pulumi.CustomResource):
                  __opts__=None):
         """
         Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+        Latest API Version: 2017-04-18.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

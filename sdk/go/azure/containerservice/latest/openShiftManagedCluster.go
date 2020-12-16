@@ -12,6 +12,7 @@ import (
 )
 
 // OpenShift Managed cluster.
+// Latest API Version: 2019-04-30.
 type OpenShiftManagedCluster struct {
 	pulumi.CustomResourceState
 

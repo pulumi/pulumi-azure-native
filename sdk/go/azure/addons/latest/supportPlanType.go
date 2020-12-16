@@ -12,6 +12,7 @@ import (
 )
 
 // The status of the Canonical support plan.
+// Latest API Version: 2018-03-01.
 type SupportPlanType struct {
 	pulumi.CustomResourceState
 

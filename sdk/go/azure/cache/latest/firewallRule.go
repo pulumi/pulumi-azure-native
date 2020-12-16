@@ -12,6 +12,7 @@ import (
 )
 
 // A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+// Latest API Version: 2020-06-01.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 

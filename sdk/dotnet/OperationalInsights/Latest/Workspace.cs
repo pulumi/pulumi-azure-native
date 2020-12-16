@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
     /// <summary>
     /// The top level Workspace resource container.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

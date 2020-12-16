@@ -12,6 +12,7 @@ import (
 )
 
 // Event Subscription
+// Latest API Version: 2020-06-01.
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

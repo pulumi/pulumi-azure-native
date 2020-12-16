@@ -12,6 +12,7 @@ import (
 )
 
 // Description of the WCF relay resource.
+// Latest API Version: 2017-04-01.
 type WCFRelay struct {
 	pulumi.CustomResourceState
 

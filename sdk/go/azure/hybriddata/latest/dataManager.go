@@ -12,6 +12,7 @@ import (
 )
 
 // The DataManager resource.
+// Latest API Version: 2019-06-01.
 type DataManager struct {
 	pulumi.CustomResourceState
 

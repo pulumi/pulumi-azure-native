@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// Represents a share on the  Data Box Edge/Gateway device.
+    /// Latest API Version: 2019-08-01.
     /// </summary>
     public partial class Share : Pulumi.CustomResource
     {

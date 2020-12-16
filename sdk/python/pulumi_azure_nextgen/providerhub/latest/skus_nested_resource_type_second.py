@@ -25,7 +25,8 @@ class SkusNestedResourceTypeSecond(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a SkusNestedResourceTypeSecond resource with the given unique name, props, and options.
+        Latest API Version: 2020-11-20.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] nested_resource_type_first: The first child resource type.

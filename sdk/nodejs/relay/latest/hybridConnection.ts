@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of hybrid connection resource.
+ * Latest API Version: 2017-04-01.
  */
 export class HybridConnection extends pulumi.CustomResource {
     /**

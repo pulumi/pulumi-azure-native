@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Compute role.
+ * Latest API Version: 2019-08-01.
  */
 export class Role extends pulumi.CustomResource {
     /**

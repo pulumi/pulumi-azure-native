@@ -12,6 +12,7 @@ import (
 )
 
 // An activity log alert resource.
+// Latest API Version: 2017-04-01.
 type ActivityLogAlert struct {
 	pulumi.CustomResourceState
 

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The extended info of the manager.
+ * Latest API Version: 2017-06-01.
  */
 export class ManagerExtendedInfo extends pulumi.CustomResource {
     /**

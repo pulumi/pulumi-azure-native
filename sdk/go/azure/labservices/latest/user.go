@@ -12,6 +12,7 @@ import (
 )
 
 // The User registered to a lab
+// Latest API Version: 2018-10-15.
 type User struct {
 	pulumi.CustomResourceState
 

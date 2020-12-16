@@ -12,6 +12,7 @@ import (
 )
 
 // Default rollout definition.
+// Latest API Version: 2020-11-20.
 type DefaultRollout struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
 {
     /// <summary>
     /// The device security group resource
+    /// Latest API Version: 2019-08-01.
     /// </summary>
     public partial class DeviceSecurityGroup : Pulumi.CustomResource
     {

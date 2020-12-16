@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+ * Latest API Version: 2018-07-10.
  */
 export class ReplicationNetworkMapping extends pulumi.CustomResource {
     /**

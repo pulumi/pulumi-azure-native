@@ -26,7 +26,8 @@ class HyperVCollector(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a HyperVCollector resource with the given unique name, props, and options.
+        Latest API Version: 2019-10-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hyper_v_collector_name: Unique name of a Hyper-V collector within a project.

@@ -12,6 +12,7 @@ import (
 )
 
 // Backend details.
+// Latest API Version: 2019-12-01.
 type Backend struct {
 	pulumi.CustomResourceState
 

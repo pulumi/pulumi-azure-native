@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The essential information related to the peer's ASN.
+ * Latest API Version: 2020-10-01.
  */
 export class PeerAsn extends pulumi.CustomResource {
     /**

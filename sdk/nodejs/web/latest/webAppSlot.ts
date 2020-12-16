@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A web app, a mobile app backend, or an API app.
+ * Latest API Version: 2020-09-01.
  */
 export class WebAppSlot extends pulumi.CustomResource {
     /**

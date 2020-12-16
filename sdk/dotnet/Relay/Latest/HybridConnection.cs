@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
 {
     /// <summary>
     /// Description of hybrid connection resource.
+    /// Latest API Version: 2017-04-01.
     /// </summary>
     public partial class HybridConnection : Pulumi.CustomResource
     {

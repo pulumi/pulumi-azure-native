@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+ * Latest API Version: 2020-09-01.
  */
 export class Profile extends pulumi.CustomResource {
     /**

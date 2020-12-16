@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
 {
     /// <summary>
     /// Domain service.
+    /// Latest API Version: 2020-01-01.
     /// </summary>
     public partial class DomainService : Pulumi.CustomResource
     {

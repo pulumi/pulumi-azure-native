@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the dsc node configuration.
+ * Latest API Version: 2018-01-15.
  */
 export class DscNodeConfiguration extends pulumi.CustomResource {
     /**

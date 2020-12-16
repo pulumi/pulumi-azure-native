@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.Latest
 {
     /// <summary>
     /// Key Vault container ARM resource for a certificate that is purchased through Azure.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class AppServiceCertificateOrderCertificate : Pulumi.CustomResource
     {

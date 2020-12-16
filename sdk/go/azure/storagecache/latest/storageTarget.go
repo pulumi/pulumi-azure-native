@@ -12,6 +12,7 @@ import (
 )
 
 // Type of the Storage Target.
+// Latest API Version: 2020-03-01.
 type StorageTarget struct {
 	pulumi.CustomResourceState
 

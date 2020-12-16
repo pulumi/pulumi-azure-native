@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the runbook type.
+ * Latest API Version: 2018-06-30.
  */
 export class Runbook extends pulumi.CustomResource {
     /**

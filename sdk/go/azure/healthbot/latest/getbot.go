@@ -12,6 +12,7 @@ import (
 )
 
 // Bot resource definition
+// Latest API Version: 2020-10-20.
 type Getbot struct {
 	pulumi.CustomResourceState
 

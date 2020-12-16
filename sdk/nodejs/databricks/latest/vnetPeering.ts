@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Peerings in a VirtualNetwork resource
+ * Latest API Version: 2018-04-01.
  */
 export class VNetPeering extends pulumi.CustomResource {
     /**

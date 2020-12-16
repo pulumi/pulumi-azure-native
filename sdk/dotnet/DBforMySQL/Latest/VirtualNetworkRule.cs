@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
 {
     /// <summary>
     /// A virtual network rule.
+    /// Latest API Version: 2017-12-01.
     /// </summary>
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {

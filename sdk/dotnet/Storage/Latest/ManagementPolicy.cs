@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 {
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
+    /// Latest API Version: 2019-06-01.
     /// </summary>
     public partial class ManagementPolicy : Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ import (
 )
 
 // Virtual machine model
+// Latest API Version: 2019-04-01.
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
 {
     /// <summary>
     /// Default rollout definition.
+    /// Latest API Version: 2020-11-20.
     /// </summary>
     public partial class DefaultRollout : Pulumi.CustomResource
     {

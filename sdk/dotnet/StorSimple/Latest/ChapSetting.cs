@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
     /// <summary>
     /// Challenge-Handshake Authentication Protocol (CHAP) setting
+    /// Latest API Version: 2016-10-01.
     /// </summary>
     public partial class ChapSetting : Pulumi.CustomResource
     {

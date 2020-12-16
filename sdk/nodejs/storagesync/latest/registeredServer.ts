@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Registered Server resource.
+ * Latest API Version: 2020-09-01.
  */
 export class RegisteredServer extends pulumi.CustomResource {
     /**

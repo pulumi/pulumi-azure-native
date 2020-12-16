@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration of App Service site logs.
+ * Latest API Version: 2020-09-01.
  */
 export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
     /**

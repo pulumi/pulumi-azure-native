@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Managed private endpoint resource type.
+ * Latest API Version: 2018-06-01.
  */
 export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**

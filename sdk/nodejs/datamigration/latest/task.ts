@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A task resource
+ * Latest API Version: 2018-04-19.
  */
 export class Task extends pulumi.CustomResource {
     /**

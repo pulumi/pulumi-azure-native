@@ -12,6 +12,7 @@ import (
 )
 
 // DigitalTwinsInstance endpoint resource.
+// Latest API Version: 2020-10-31.
 type DigitalTwinsEndpoint struct {
 	pulumi.CustomResourceState
 

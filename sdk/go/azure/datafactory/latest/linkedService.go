@@ -12,6 +12,7 @@ import (
 )
 
 // Linked service resource type.
+// Latest API Version: 2018-06-01.
 type LinkedService struct {
 	pulumi.CustomResourceState
 

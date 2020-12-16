@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Data connector.
+ * Latest API Version: 2020-01-01.
  */
 export class DataConnector extends pulumi.CustomResource {
     /**

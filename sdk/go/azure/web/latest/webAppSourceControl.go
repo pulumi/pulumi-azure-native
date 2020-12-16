@@ -12,6 +12,7 @@ import (
 )
 
 // Source control configuration for an app.
+// Latest API Version: 2020-09-01.
 type WebAppSourceControl struct {
 	pulumi.CustomResourceState
 

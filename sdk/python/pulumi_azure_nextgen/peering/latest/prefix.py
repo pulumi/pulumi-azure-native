@@ -26,6 +26,7 @@ class Prefix(pulumi.CustomResource):
                  __opts__=None):
         """
         The peering service prefix class.
+        Latest API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

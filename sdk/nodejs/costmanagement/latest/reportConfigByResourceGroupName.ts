@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A report config resource.
+ * Latest API Version: 2018-05-31.
  */
 export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
     /**

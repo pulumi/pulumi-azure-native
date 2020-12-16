@@ -12,6 +12,7 @@ import (
 )
 
 // The details of subscription under management group.
+// Latest API Version: 2020-05-01.
 type ManagementGroupSubscription struct {
 	pulumi.CustomResourceState
 

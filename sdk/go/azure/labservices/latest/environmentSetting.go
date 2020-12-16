@@ -12,6 +12,7 @@ import (
 )
 
 // Represents settings of an environment, from which environment instances would be created
+// Latest API Version: 2018-10-15.
 type EnvironmentSetting struct {
 	pulumi.CustomResourceState
 

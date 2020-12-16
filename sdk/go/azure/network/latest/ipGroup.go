@@ -12,6 +12,7 @@ import (
 )
 
 // The IpGroups resource information.
+// Latest API Version: 2020-07-01.
 type IpGroup struct {
 	pulumi.CustomResourceState
 

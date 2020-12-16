@@ -46,6 +46,8 @@ class Cluster(pulumi.CustomResource):
         """
         The cluster resource
 
+        Latest API Version: 2020-03-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] add_on_features: The list of add-on features to enable in the cluster.

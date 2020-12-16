@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
 {
     /// <summary>
     /// Wrapper resource for tags API requests and responses.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     public partial class TagAtScope : Pulumi.CustomResource
     {

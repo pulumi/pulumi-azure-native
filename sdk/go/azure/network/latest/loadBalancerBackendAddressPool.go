@@ -12,6 +12,7 @@ import (
 )
 
 // Pool of backend IP addresses.
+// Latest API Version: 2020-07-01.
 type LoadBalancerBackendAddressPool struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
     /// <summary>
     /// Linked storage accounts top level resource container.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     public partial class LinkedStorageAccount : Pulumi.CustomResource
     {

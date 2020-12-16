@@ -12,6 +12,7 @@ import (
 )
 
 // Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+// Latest API Version: 2020-08-01.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

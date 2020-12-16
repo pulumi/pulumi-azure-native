@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
 {
     /// <summary>
     /// The User registered to a lab
+    /// Latest API Version: 2018-10-15.
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

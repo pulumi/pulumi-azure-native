@@ -12,6 +12,7 @@ import (
 )
 
 // Storage mapping object.
+// Latest API Version: 2018-07-10.
 type ReplicationStorageClassificationMapping struct {
 	pulumi.CustomResourceState
 

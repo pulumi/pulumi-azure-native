@@ -12,6 +12,7 @@ import (
 )
 
 // The metric alert resource.
+// Latest API Version: 2018-03-01.
 type MetricAlert struct {
 	pulumi.CustomResourceState
 

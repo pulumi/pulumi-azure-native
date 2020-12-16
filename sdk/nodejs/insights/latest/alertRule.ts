@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The alert rule resource.
+ * Latest API Version: 2016-03-01.
  */
 export class AlertRule extends pulumi.CustomResource {
     /**

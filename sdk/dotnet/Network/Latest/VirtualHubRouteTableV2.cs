@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// VirtualHubRouteTableV2 Resource.
+    /// Latest API Version: 2020-07-01.
     /// </summary>
     public partial class VirtualHubRouteTableV2 : Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ import (
 )
 
 // The storage account credential.
+// Latest API Version: 2017-06-01.
 type StorageAccountCredential struct {
 	pulumi.CustomResourceState
 

@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The customer's ASN that is registered by the peering service provider.
+ * Latest API Version: 2020-10-01.
  */
 export class RegisteredAsn extends pulumi.CustomResource {
     /**

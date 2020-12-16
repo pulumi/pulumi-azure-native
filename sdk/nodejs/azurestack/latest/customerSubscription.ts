@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Customer subscription.
+ * Latest API Version: 2017-06-01.
  */
 export class CustomerSubscription extends pulumi.CustomResource {
     /**

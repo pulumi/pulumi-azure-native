@@ -31,6 +31,7 @@ class ConfigurationStore(pulumi.CustomResource):
                  __opts__=None):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+        Latest API Version: 2020-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

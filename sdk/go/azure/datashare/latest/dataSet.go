@@ -12,6 +12,7 @@ import (
 )
 
 // A DataSet data transfer object.
+// Latest API Version: 2019-11-01.
 type DataSet struct {
 	pulumi.CustomResourceState
 

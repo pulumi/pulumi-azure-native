@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// P2SVpnServerConfiguration Resource.
+    /// Latest API Version: 2019-07-01.
     /// </summary>
     public partial class P2sVpnServerConfiguration : Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ import (
 )
 
 // The alert rule resource.
+// Latest API Version: 2016-03-01.
 type AlertRule struct {
 	pulumi.CustomResourceState
 

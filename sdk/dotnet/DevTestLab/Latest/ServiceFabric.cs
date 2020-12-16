@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
     /// <summary>
     /// A Service Fabric.
+    /// Latest API Version: 2018-09-15.
     /// </summary>
     public partial class ServiceFabric : Pulumi.CustomResource
     {

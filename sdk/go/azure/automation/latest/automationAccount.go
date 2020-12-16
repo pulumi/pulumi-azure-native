@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the automation account type.
+// Latest API Version: 2015-10-31.
 type AutomationAccount struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// App Service Environment ARM resource.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class AppServiceEnvironment : Pulumi.CustomResource
     {

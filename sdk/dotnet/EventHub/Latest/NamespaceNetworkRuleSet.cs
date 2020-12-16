@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
 {
     /// <summary>
     /// Description of NetworkRuleSet resource.
+    /// Latest API Version: 2017-04-01.
     /// </summary>
     public partial class NamespaceNetworkRuleSet : Pulumi.CustomResource
     {

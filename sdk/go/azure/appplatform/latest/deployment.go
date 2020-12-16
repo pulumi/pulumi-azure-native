@@ -12,6 +12,7 @@ import (
 )
 
 // Deployment resource payload
+// Latest API Version: 2020-07-01.
 type Deployment struct {
 	pulumi.CustomResourceState
 

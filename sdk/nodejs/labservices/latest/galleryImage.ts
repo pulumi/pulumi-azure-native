@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an image from the Azure Marketplace
+ * Latest API Version: 2018-10-15.
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**

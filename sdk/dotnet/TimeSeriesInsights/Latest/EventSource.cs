@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
 {
     /// <summary>
     /// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+    /// Latest API Version: 2020-05-15.
     /// </summary>
     public partial class EventSource : Pulumi.CustomResource
     {

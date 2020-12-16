@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a and external administrator to be created.
+ * Latest API Version: 2017-12-01.
  */
 export class ServerAdministrator extends pulumi.CustomResource {
     /**

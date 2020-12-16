@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+ * Latest API Version: 2020-06-01.
  */
 export class Image extends pulumi.CustomResource {
     /**

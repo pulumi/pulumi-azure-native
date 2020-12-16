@@ -12,6 +12,7 @@ import (
 )
 
 // Security assessment on a resource
+// Latest API Version: 2020-01-01.
 type Assessment struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 {
     /// <summary>
     /// Data Lake Analytics firewall rule information.
+    /// Latest API Version: 2016-11-01.
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

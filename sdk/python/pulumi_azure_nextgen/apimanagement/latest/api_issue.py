@@ -30,6 +30,7 @@ class ApiIssue(pulumi.CustomResource):
                  __opts__=None):
         """
         Issue Contract details.
+        Latest API Version: 2019-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

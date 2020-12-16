@@ -33,6 +33,7 @@ class AnalyticsItem(pulumi.CustomResource):
                  __opts__=None):
         """
         Properties that define an Analytics item that is associated to an Application Insights component.
+        Latest API Version: 2015-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

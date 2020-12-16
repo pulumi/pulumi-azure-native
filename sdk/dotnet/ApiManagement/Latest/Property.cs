@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
     /// <summary>
     /// Property details.
+    /// Latest API Version: 2019-01-01.
     /// </summary>
     public partial class Property : Pulumi.CustomResource
     {

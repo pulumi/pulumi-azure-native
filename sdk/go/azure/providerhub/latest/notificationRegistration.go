@@ -12,6 +12,7 @@ import (
 )
 
 // The notification registration definition.
+// Latest API Version: 2020-11-20.
 type NotificationRegistration struct {
 	pulumi.CustomResourceState
 

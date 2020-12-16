@@ -34,6 +34,7 @@ class ArtifactSource(pulumi.CustomResource):
                  __opts__=None):
         """
         Properties of an artifact source.
+        Latest API Version: 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

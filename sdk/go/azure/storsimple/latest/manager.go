@@ -12,6 +12,7 @@ import (
 )
 
 // The StorSimple Manager.
+// Latest API Version: 2017-06-01.
 type Manager struct {
 	pulumi.CustomResourceState
 

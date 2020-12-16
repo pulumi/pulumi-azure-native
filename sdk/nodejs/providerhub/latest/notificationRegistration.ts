@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The notification registration definition.
+ * Latest API Version: 2020-11-20.
  */
 export class NotificationRegistration extends pulumi.CustomResource {
     /**

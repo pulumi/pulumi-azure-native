@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a Namespace AuthorizationRules.
+ * Latest API Version: 2017-04-01.
  */
 export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
     /**

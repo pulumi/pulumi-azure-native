@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account RosettaNet process configuration.
+ * Latest API Version: 2016-06-01.
  */
 export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
     /**

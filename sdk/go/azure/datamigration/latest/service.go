@@ -12,6 +12,7 @@ import (
 )
 
 // A Database Migration Service resource
+// Latest API Version: 2018-04-19.
 type Service struct {
 	pulumi.CustomResourceState
 

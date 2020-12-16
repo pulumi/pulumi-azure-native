@@ -12,6 +12,7 @@ import (
 )
 
 // A Policy.
+// Latest API Version: 2018-09-15.
 type Policy struct {
 	pulumi.CustomResourceState
 

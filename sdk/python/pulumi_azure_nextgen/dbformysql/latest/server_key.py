@@ -26,6 +26,7 @@ class ServerKey(pulumi.CustomResource):
                  __opts__=None):
         """
         A MySQL Server key.
+        Latest API Version: 2020-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

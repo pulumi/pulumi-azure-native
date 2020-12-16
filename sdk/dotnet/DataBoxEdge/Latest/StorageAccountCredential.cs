@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// The storage account credential.
+    /// Latest API Version: 2019-08-01.
     /// </summary>
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {

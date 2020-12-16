@@ -12,6 +12,7 @@ import (
 )
 
 // P2SVpnServerConfiguration Resource.
+// Latest API Version: 2019-07-01.
 type P2sVpnServerConfiguration struct {
 	pulumi.CustomResourceState
 

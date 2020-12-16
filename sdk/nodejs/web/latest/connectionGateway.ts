@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The gateway definition
+ * Latest API Version: 2016-06-01.
  */
 export class ConnectionGateway extends pulumi.CustomResource {
     /**

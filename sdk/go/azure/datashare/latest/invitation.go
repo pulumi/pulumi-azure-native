@@ -12,6 +12,7 @@ import (
 )
 
 // A Invitation data transfer object.
+// Latest API Version: 2019-11-01.
 type Invitation struct {
 	pulumi.CustomResourceState
 

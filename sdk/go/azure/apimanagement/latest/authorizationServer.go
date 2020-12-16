@@ -12,6 +12,7 @@ import (
 )
 
 // External OAuth authorization server settings.
+// Latest API Version: 2019-12-01.
 type AuthorizationServer struct {
 	pulumi.CustomResourceState
 

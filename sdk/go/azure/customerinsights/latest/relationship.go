@@ -12,6 +12,7 @@ import (
 )
 
 // The relationship resource format.
+// Latest API Version: 2017-04-26.
 type Relationship struct {
 	pulumi.CustomResourceState
 

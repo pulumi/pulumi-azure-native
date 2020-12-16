@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
     /// <summary>
     /// A lab.
+    /// Latest API Version: 2018-09-15.
     /// </summary>
     public partial class Lab : Pulumi.CustomResource
     {

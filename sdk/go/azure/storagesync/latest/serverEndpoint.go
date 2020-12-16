@@ -12,6 +12,7 @@ import (
 )
 
 // Server Endpoint object.
+// Latest API Version: 2020-09-01.
 type ServerEndpoint struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // this is the management partner operations response
+// Latest API Version: 2018-02-01.
 type Partner struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Network security rule.
+// Latest API Version: 2020-07-01.
 type SecurityRule struct {
 	pulumi.CustomResourceState
 

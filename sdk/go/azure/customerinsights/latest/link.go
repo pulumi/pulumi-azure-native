@@ -12,6 +12,7 @@ import (
 )
 
 // The link resource format.
+// Latest API Version: 2017-04-26.
 type Link struct {
 	pulumi.CustomResourceState
 

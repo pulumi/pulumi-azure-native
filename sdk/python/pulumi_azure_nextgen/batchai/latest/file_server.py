@@ -30,6 +30,7 @@ class FileServer(pulumi.CustomResource):
                  __opts__=None):
         """
         File Server information.
+        Latest API Version: 2018-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -12,6 +12,7 @@ import (
 )
 
 // An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
+// Latest API Version: 2020-05-15.
 type AccessPolicy struct {
 	pulumi.CustomResourceState
 

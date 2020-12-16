@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Container service.
+ * Latest API Version: 2017-01-31.
  */
 export class ContainerService extends pulumi.CustomResource {
     /**

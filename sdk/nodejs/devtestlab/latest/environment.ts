@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An environment, which is essentially an ARM template deployment.
+ * Latest API Version: 2018-09-15.
  */
 export class Environment extends pulumi.CustomResource {
     /**

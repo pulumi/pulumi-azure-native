@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.Latest
 {
     /// <summary>
     /// SSL certificate purchase order.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class AppServiceCertificateOrder : Pulumi.CustomResource
     {

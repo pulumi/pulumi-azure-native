@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Value object for saved search results.
+ * Latest API Version: 2020-08-01.
  */
 export class SavedSearch extends pulumi.CustomResource {
     /**

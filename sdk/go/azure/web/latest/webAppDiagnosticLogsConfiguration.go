@@ -12,6 +12,7 @@ import (
 )
 
 // Configuration of App Service site logs.
+// Latest API Version: 2020-09-01.
 type WebAppDiagnosticLogsConfiguration struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Latest API Version: 2016-03-01.
 type Job struct {
 	pulumi.CustomResourceState
 

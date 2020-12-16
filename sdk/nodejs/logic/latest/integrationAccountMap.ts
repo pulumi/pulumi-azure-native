@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account map.
+ * Latest API Version: 2019-05-01.
  */
 export class IntegrationAccountMap extends pulumi.CustomResource {
     /**

@@ -36,6 +36,7 @@ class Runbook(pulumi.CustomResource):
                  __opts__=None):
         """
         Definition of the runbook type.
+        Latest API Version: 2018-06-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

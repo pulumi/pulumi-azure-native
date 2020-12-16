@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Defines the properties of an Experiment
+    /// Latest API Version: 2019-11-01.
     /// </summary>
     public partial class Experiment : Pulumi.CustomResource
     {

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Fabric definition.
+ * Latest API Version: 2018-07-10.
  */
 export class ReplicationFabric extends pulumi.CustomResource {
     /**

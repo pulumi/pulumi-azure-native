@@ -31,6 +31,7 @@ class Namespace(pulumi.CustomResource):
                  __opts__=None):
         """
         Single Namespace item in List or Get Operation
+        Latest API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

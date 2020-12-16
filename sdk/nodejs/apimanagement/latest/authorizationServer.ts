@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * External OAuth authorization server settings.
+ * Latest API Version: 2019-12-01.
  */
 export class AuthorizationServer extends pulumi.CustomResource {
     /**

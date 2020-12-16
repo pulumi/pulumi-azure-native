@@ -12,6 +12,7 @@ import (
 )
 
 // The properties of File services in storage account.
+// Latest API Version: 2019-06-01.
 type FileServiceProperties struct {
 	pulumi.CustomResourceState
 

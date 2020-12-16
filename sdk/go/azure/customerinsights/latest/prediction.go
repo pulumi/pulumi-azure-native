@@ -12,6 +12,7 @@ import (
 )
 
 // The prediction resource format.
+// Latest API Version: 2017-04-26.
 type Prediction struct {
 	pulumi.CustomResourceState
 

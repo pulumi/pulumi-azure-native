@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A Media Services account.
+ * Latest API Version: 2020-05-01.
  */
 export class MediaService extends pulumi.CustomResource {
     /**

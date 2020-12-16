@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Response to put/get patch schedules for Redis cache.
+ * Latest API Version: 2020-06-01.
  */
 export class PatchSchedule extends pulumi.CustomResource {
     /**

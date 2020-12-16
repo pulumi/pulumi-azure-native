@@ -28,6 +28,7 @@ class Profile(pulumi.CustomResource):
                  __opts__=None):
         """
         CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

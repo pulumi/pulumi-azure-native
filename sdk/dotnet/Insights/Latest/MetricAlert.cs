@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 {
     /// <summary>
     /// The metric alert resource.
+    /// Latest API Version: 2018-03-01.
     /// </summary>
     public partial class MetricAlert : Pulumi.CustomResource
     {

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * OpenShift Managed cluster.
+ * Latest API Version: 2019-04-30.
  */
 export class OpenShiftManagedCluster extends pulumi.CustomResource {
     /**

@@ -12,6 +12,7 @@ import (
 )
 
 // The batch configuration resource definition.
+// Latest API Version: 2019-05-01.
 type IntegrationAccountBatchConfiguration struct {
 	pulumi.CustomResourceState
 

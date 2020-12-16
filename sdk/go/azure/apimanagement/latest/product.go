@@ -12,6 +12,7 @@ import (
 )
 
 // Product details.
+// Latest API Version: 2019-12-01.
 type Product struct {
 	pulumi.CustomResourceState
 

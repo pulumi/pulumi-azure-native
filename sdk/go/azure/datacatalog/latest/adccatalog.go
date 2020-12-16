@@ -12,6 +12,7 @@ import (
 )
 
 // Azure Data Catalog.
+// Latest API Version: 2016-03-30.
 type ADCCatalog struct {
 	pulumi.CustomResourceState
 

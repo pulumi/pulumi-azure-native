@@ -12,6 +12,7 @@ import (
 )
 
 // A container group.
+// Latest API Version: 2020-11-01.
 type ContainerGroup struct {
 	pulumi.CustomResourceState
 

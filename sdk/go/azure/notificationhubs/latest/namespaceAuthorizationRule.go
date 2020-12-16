@@ -12,6 +12,7 @@ import (
 )
 
 // Description of a Namespace AuthorizationRules.
+// Latest API Version: 2017-04-01.
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 

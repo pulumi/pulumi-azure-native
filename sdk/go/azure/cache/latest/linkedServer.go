@@ -12,6 +12,7 @@ import (
 )
 
 // Response to put/get linked server (with properties) for Redis cache.
+// Latest API Version: 2020-06-01.
 type LinkedServer struct {
 	pulumi.CustomResourceState
 

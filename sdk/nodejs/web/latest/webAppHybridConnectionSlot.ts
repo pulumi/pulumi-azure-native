@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Hybrid Connection contract. This is used to configure a Hybrid Connection.
+ * Latest API Version: 2020-09-01.
  */
 export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
     /**

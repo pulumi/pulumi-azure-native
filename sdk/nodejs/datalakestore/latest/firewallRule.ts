@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Store firewall rule information.
+ * Latest API Version: 2016-11-01.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

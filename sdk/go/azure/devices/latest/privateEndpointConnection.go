@@ -12,6 +12,7 @@ import (
 )
 
 // The private endpoint connection of an IotHub
+// Latest API Version: 2020-08-01.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

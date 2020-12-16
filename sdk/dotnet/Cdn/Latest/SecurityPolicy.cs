@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 {
     /// <summary>
     /// SecurityPolicy association for AzureFrontDoor profile
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class SecurityPolicy : Pulumi.CustomResource
     {

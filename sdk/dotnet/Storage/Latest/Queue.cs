@@ -9,6 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
+    /// <summary>
+    /// Latest API Version: 2019-06-01.
+    /// </summary>
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

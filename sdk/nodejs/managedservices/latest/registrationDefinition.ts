@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Registration definition.
+ * Latest API Version: 2019-09-01.
  */
 export class RegistrationDefinition extends pulumi.CustomResource {
     /**

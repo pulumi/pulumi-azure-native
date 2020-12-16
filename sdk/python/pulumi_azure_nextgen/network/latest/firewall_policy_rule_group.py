@@ -30,6 +30,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
                  __opts__=None):
         """
         Rule Group resource.
+        Latest API Version: 2020-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

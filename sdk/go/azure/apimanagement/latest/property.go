@@ -12,6 +12,7 @@ import (
 )
 
 // Property details.
+// Latest API Version: 2019-01-01.
 type Property struct {
 	pulumi.CustomResourceState
 

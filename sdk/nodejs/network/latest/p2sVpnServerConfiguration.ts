@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * P2SVpnServerConfiguration Resource.
+ * Latest API Version: 2019-07-01.
  */
 export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     /**

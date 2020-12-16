@@ -12,6 +12,7 @@ import (
 )
 
 // Contains information about an Azure Batch account.
+// Latest API Version: 2020-09-01.
 type BatchAccount struct {
 	pulumi.CustomResourceState
 

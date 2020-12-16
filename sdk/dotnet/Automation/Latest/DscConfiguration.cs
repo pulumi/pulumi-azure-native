@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the configuration type.
+    /// Latest API Version: 2015-10-31.
     /// </summary>
     public partial class DscConfiguration : Pulumi.CustomResource
     {

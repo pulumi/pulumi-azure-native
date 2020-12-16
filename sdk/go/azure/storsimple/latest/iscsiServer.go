@@ -12,6 +12,7 @@ import (
 )
 
 // The iSCSI server.
+// Latest API Version: 2016-10-01.
 type IscsiServer struct {
 	pulumi.CustomResourceState
 

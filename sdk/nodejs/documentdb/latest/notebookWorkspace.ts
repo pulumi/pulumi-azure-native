@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A notebook workspace resource
+ * Latest API Version: 2020-09-01.
  */
 export class NotebookWorkspace extends pulumi.CustomResource {
     /**

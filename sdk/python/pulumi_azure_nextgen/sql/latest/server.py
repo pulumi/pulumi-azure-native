@@ -28,6 +28,7 @@ class Server(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents a server.
+        Latest API Version: 2014-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

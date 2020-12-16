@@ -31,6 +31,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                  __opts__=None):
         """
         The extended info of the manager.
+        Latest API Version: 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

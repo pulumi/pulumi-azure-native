@@ -12,6 +12,7 @@ import (
 )
 
 // The diagnostic setting resource.
+// Latest API Version: 2017-04-01.
 type DiagnosticSetting struct {
 	pulumi.CustomResourceState
 

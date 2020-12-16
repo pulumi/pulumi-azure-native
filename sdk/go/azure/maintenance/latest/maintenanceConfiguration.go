@@ -12,6 +12,7 @@ import (
 )
 
 // Maintenance configuration record type
+// Latest API Version: 2020-04-01.
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 

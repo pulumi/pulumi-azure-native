@@ -31,6 +31,7 @@ class Bot(pulumi.CustomResource):
                  __opts__=None):
         """
         Bot resource definition
+        Latest API Version: 2020-06-02.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

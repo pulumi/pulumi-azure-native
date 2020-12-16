@@ -12,6 +12,7 @@ import (
 )
 
 // Protection profile details.
+// Latest API Version: 2018-07-10.
 type ReplicationPolicy struct {
 	pulumi.CustomResourceState
 

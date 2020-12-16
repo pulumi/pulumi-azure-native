@@ -12,6 +12,7 @@ import (
 )
 
 // Registration assignment.
+// Latest API Version: 2019-09-01.
 type RegistrationAssignment struct {
 	pulumi.CustomResourceState
 

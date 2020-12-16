@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 {
     /// <summary>
     /// Friendly Rules name mapping to the any Rules or secret related information.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     public partial class Rule : Pulumi.CustomResource
     {

@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+ * Latest API Version: 2019-06-01.
  */
 export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**

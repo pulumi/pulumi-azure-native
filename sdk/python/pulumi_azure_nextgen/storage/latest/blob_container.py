@@ -29,6 +29,7 @@ class BlobContainer(pulumi.CustomResource):
                  __opts__=None):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

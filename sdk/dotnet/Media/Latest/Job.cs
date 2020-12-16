@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
 {
     /// <summary>
     /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+    /// Latest API Version: 2020-05-01.
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {

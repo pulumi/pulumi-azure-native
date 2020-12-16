@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a database elastic pool.
+ * Latest API Version: 2014-04-01.
  */
 export class ElasticPool extends pulumi.CustomResource {
     /**

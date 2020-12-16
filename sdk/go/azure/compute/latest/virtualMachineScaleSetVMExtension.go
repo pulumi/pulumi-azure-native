@@ -12,6 +12,7 @@ import (
 )
 
 // Describes a VMSS VM Extension.
+// Latest API Version: 2020-06-01.
 type VirtualMachineScaleSetVMExtension struct {
 	pulumi.CustomResourceState
 

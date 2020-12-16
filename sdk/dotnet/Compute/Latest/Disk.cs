@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Disk resource.
+    /// Latest API Version: 2020-06-30.
     /// </summary>
     public partial class Disk : Pulumi.CustomResource
     {

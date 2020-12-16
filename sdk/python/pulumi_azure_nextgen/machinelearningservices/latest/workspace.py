@@ -41,6 +41,7 @@ class Workspace(pulumi.CustomResource):
                  __opts__=None):
         """
         An object that represents a machine learning workspace.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -12,6 +12,7 @@ import (
 )
 
 // An Application Insights component definition.
+// Latest API Version: 2015-05-01.
 type Component struct {
 	pulumi.CustomResourceState
 

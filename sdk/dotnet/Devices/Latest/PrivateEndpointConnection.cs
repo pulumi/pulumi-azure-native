@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
 {
     /// <summary>
     /// The private endpoint connection of an IotHub
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

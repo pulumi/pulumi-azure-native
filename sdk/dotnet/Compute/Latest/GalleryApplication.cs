@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Specifies information about the gallery Application Definition that you want to create or update.
+    /// Latest API Version: 2020-09-30.
     /// </summary>
     public partial class GalleryApplication : Pulumi.CustomResource
     {

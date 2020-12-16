@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+ * Latest API Version: 2020-06-01.
  */
 export class DedicatedHostGroup extends pulumi.CustomResource {
     /**

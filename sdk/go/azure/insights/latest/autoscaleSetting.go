@@ -12,6 +12,7 @@ import (
 )
 
 // The autoscale setting resource.
+// Latest API Version: 2015-04-01.
 type AutoscaleSetting struct {
 	pulumi.CustomResourceState
 

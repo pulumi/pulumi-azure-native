@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Volume resource
+ * Latest API Version: 2020-08-01.
  */
 export class Volume extends pulumi.CustomResource {
     /**

@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 {
     /// <summary>
     /// An Application Insights workbook definition.
+    /// Latest API Version: 2020-10-20.
     /// </summary>
     public partial class Workbook : Pulumi.CustomResource
     {

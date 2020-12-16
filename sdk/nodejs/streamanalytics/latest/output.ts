@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+ * Latest API Version: 2016-03-01.
  */
 export class Output extends pulumi.CustomResource {
     /**

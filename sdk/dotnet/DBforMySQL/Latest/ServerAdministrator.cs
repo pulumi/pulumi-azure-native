@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
 {
     /// <summary>
     /// Represents a and external administrator to be created.
+    /// Latest API Version: 2017-12-01.
     /// </summary>
     public partial class ServerAdministrator : Pulumi.CustomResource
     {

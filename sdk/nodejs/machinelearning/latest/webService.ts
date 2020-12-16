@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Instance of an Azure ML web service resource.
+ * Latest API Version: 2017-01-01.
  */
 export class WebService extends pulumi.CustomResource {
     /**

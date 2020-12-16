@@ -12,6 +12,7 @@ import (
 )
 
 // The connector resource format.
+// Latest API Version: 2017-04-26.
 type Connector struct {
 	pulumi.CustomResourceState
 

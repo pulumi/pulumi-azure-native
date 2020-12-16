@@ -34,6 +34,7 @@ class PrivateLinkService(pulumi.CustomResource):
                  __opts__=None):
         """
         Private link service resource.
+        Latest API Version: 2020-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

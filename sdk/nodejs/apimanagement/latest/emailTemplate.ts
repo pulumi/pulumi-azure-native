@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Email Template details.
+ * Latest API Version: 2019-12-01.
  */
 export class EmailTemplate extends pulumi.CustomResource {
     /**

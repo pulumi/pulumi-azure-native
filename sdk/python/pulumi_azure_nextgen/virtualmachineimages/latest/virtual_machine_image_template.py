@@ -33,6 +33,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  __opts__=None):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+        Latest API Version: 2020-02-14.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

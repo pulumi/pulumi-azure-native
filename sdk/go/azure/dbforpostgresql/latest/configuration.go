@@ -12,6 +12,7 @@ import (
 )
 
 // Represents a Configuration.
+// Latest API Version: 2017-12-01.
 type Configuration struct {
 	pulumi.CustomResourceState
 

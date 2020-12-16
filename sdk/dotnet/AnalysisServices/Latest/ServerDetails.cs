@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
 {
     /// <summary>
     /// Represents an instance of an Analysis Services resource.
+    /// Latest API Version: 2017-08-01.
     /// </summary>
     public partial class ServerDetails : Pulumi.CustomResource
     {

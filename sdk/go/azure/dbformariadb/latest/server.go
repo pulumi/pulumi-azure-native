@@ -12,6 +12,7 @@ import (
 )
 
 // Represents a server.
+// Latest API Version: 2018-06-01.
 type Server struct {
 	pulumi.CustomResourceState
 

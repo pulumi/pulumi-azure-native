@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
 {
     /// <summary>
     /// Represents a server firewall rule.
+    /// Latest API Version: 2017-12-01.
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

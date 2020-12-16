@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Experiment information.
+ * Latest API Version: 2018-05-01.
  */
 export class Experiment extends pulumi.CustomResource {
     /**

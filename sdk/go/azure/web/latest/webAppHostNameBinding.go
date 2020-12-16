@@ -12,6 +12,7 @@ import (
 )
 
 // A hostname binding object.
+// Latest API Version: 2020-09-01.
 type WebAppHostNameBinding struct {
 	pulumi.CustomResourceState
 

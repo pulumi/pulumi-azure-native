@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in List or Get Event Hub operation
+ * Latest API Version: 2017-04-01.
  */
 export class EventHub extends pulumi.CustomResource {
     /**

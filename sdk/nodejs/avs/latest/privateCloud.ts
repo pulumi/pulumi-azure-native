@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A private cloud resource
+ * Latest API Version: 2020-03-20.
  */
 export class PrivateCloud extends pulumi.CustomResource {
     /**

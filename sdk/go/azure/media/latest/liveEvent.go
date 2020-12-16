@@ -12,6 +12,7 @@ import (
 )
 
 // The live event.
+// Latest API Version: 2020-05-01.
 type LiveEvent struct {
 	pulumi.CustomResourceState
 

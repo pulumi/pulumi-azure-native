@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A database geo backup policy.
+ * Latest API Version: 2014-04-01.
  */
 export class GeoBackupPolicy extends pulumi.CustomResource {
     /**

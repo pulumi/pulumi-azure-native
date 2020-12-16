@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of topic resource.
+ * Latest API Version: 2017-04-01.
  */
 export class Topic extends pulumi.CustomResource {
     /**

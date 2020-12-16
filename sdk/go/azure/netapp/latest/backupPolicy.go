@@ -12,6 +12,7 @@ import (
 )
 
 // Backup policy information
+// Latest API Version: 2020-08-01.
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 

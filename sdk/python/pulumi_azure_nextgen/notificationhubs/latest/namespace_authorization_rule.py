@@ -27,6 +27,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  __opts__=None):
         """
         Description of a Namespace AuthorizationRules.
+        Latest API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

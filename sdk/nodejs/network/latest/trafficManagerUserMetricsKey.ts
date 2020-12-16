@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing Traffic Manager User Metrics.
+ * Latest API Version: 2018-04-01.
  */
 export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
     /**

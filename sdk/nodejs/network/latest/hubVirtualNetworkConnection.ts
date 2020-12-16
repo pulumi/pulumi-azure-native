@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * HubVirtualNetworkConnection Resource.
+ * Latest API Version: 2020-07-01.
  */
 export class HubVirtualNetworkConnection extends pulumi.CustomResource {
     /**

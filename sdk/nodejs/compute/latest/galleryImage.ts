@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the gallery image definition that you want to create or update.
+ * Latest API Version: 2020-09-30.
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**

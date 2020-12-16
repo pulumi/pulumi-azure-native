@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The private endpoint connection of a provisioning service
+ * Latest API Version: 2020-03-01.
  */
 export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResource {
     /**

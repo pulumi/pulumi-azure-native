@@ -12,6 +12,7 @@ import (
 )
 
 // Description of topic resource.
+// Latest API Version: 2017-04-01.
 type Topic struct {
 	pulumi.CustomResourceState
 

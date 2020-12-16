@@ -11,6 +11,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
 {
     /// <summary>
     /// The lock information.
+    /// Latest API Version: 2016-09-01.
     /// </summary>
     public partial class ManagementLockByScope : Pulumi.CustomResource
     {

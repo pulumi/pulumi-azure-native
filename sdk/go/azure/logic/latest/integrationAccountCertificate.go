@@ -12,6 +12,7 @@ import (
 )
 
 // The integration account certificate.
+// Latest API Version: 2019-05-01.
 type IntegrationAccountCertificate struct {
 	pulumi.CustomResourceState
 

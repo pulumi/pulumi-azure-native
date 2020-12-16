@@ -12,6 +12,7 @@ import (
 )
 
 // Data connector.
+// Latest API Version: 2020-01-01.
 type DataConnector struct {
 	pulumi.CustomResourceState
 

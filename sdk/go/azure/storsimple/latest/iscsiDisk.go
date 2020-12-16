@@ -12,6 +12,7 @@ import (
 )
 
 // The iSCSI disk.
+// Latest API Version: 2016-10-01.
 type IscsiDisk struct {
 	pulumi.CustomResourceState
 

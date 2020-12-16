@@ -12,6 +12,7 @@ import (
 )
 
 // Settings defined at the Management Group scope.
+// Latest API Version: 2020-05-01.
 type HierarchySetting struct {
 	pulumi.CustomResourceState
 

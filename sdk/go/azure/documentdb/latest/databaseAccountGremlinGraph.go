@@ -12,6 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB Gremlin graph.
+// Latest API Version: 2016-03-31.
 type DatabaseAccountGremlinGraph struct {
 	pulumi.CustomResourceState
 
