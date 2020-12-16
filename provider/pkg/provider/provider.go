@@ -25,8 +25,10 @@ import (
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
 
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/arm2pulumi"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/version"
+	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
@@ -167,45 +169,67 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 		return nil, err
 	}
 
-	res, ok := k.resourceMap.Invokes[req.Tok]
-	if !ok {
-		return nil, errors.Errorf("Resource type %s not found", req.Tok)
-	}
+	var outputs map[string]interface{}
+	switch req.Tok {
+	case "azure-nextgen:armtemplate:decode":
+		var text string
+		if textArg := args["text"]; textArg.HasValue() && textArg.IsString() {
+			text = textArg.StringValue()
+		} else {
+			return nil, errors.New("missing required field 'text' of type 'string'")
+		}
 
-	parameters := res.GetParameters
-	if parameters == nil {
-		parameters = res.PostParameters
-	}
+		var pkgSpec schema.PackageSpec
+		if err = json.NewDecoder(bytes.NewReader(k.schemaBytes)).Decode(&pkgSpec); err != nil {
+			return nil, fmt.Errorf("deserializing schema: %w", err)
+		}
 
-	// Construct ARM REST API path from args.
-	id, body, query, err := k.prepareAzureRESTInputs(
-		res.Path,
-		parameters,
-		args.Mappable(),
-		map[string]interface{}{
-			"subscriptionId": k.subscriptionID,
-			"api-version":    res.APIVersion,
-		},
-	)
-	if err != nil {
-		return nil, err
-	}
+		res, err := arm2pulumi.DecodeTemplate(&pkgSpec, k.resourceMap, text)
+		if err != nil {
+			return nil, fmt.Errorf("rendering template: %w", err)
+		}
+		outputs = map[string]interface{}{"result": res}
+	default:
+		res, ok := k.resourceMap.Invokes[req.Tok]
+		if !ok {
+			return nil, errors.Errorf("Resource type %s not found", req.Tok)
+		}
 
-	var response map[string]interface{}
-	if res.GetParameters != nil {
-		response, err = k.azureGet(ctx, id, res.APIVersion)
-	} else if res.PostParameters != nil {
-		response, err = k.azurePost(ctx, id, body, query)
-	} else {
-		return nil, errors.Errorf("neither GET nor POST is defined for %s", label)
-	}
+		parameters := res.GetParameters
+		if parameters == nil {
+			parameters = res.PostParameters
+		}
 
-	if err != nil {
-		return nil, errors.Wrapf(err, "request failed %v", id)
-	}
+		// Construct ARM REST API path from args.
+		id, body, query, err := k.prepareAzureRESTInputs(
+			res.Path,
+			parameters,
+			args.Mappable(),
+			map[string]interface{}{
+				"subscriptionId": k.subscriptionID,
+				"api-version":    res.APIVersion,
+			},
+		)
+		if err != nil {
+			return nil, err
+		}
 
-	// Map the raw response to the shape of outputs that the SDKs expect.
-	outputs := k.converter.BodyPropertiesToSDK(res.Response, response)
+		var response map[string]interface{}
+		if res.GetParameters != nil {
+			response, err = k.azureGet(ctx, id, res.APIVersion)
+		} else if res.PostParameters != nil {
+			response, err = k.azurePost(ctx, id, body, query)
+		} else {
+			return nil, errors.Errorf("neither GET nor POST is defined for %s", label)
+		}
+
+		if err != nil {
+			return nil, errors.Wrapf(err, "request failed %v", id)
+		}
+
+		// Map the raw response to the shape of outputs that the SDKs expect.
+		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
+	}
 
 	// Serialize and return RPC outputs.
 	result, err := plugin.MarshalProperties(

@@ -153,6 +153,43 @@ func (r *Renderer) RenderFileIR(path string, options ...RenderOption) (*model.Bo
 	return renderTemplate(r.pkgSpec, r.metadata, parseTrees, options...)
 }
 
+// DecodeTemplate parses an ARM Templates to an array of resource property maps. Each map contains four keys:
+// 'name' for resource name, 'token' for resource type token, 'args' for resource inputs, and 'dependsOn' for
+// the names of resources that this resource depends on.
+func DecodeTemplate(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
+	templateJson string) ([]map[string]interface{}, error) {
+	root, err := parseJsonxTree(templateJson)
+	if err != nil {
+		return nil, err
+	}
+
+	templ, err := renderTemplateElements(pkgSpec, metadata, map[string]*jsonx.Node{"default": root})
+	if err != nil {
+		return nil, err
+	}
+
+	var items []map[string]interface{}
+	for _, e := range templ.elements {
+		if r, ok := e.TemplateElement.(*resource); ok {
+			var dependsOn []string
+			for d := range e.dependencies {
+				if dr, ok := d.TemplateElement.(*resource); ok {
+					dependsOn = append(dependsOn, dr.resourceName)
+				}
+			}
+			result := map[string]interface{}{
+				"name":      r.resourceName,
+				"token":     r.resourceToken,
+				"args":      r.resourceParams,
+				"dependsOn": dependsOn,
+			}
+			items = append(items, result)
+		}
+	}
+
+	return items, nil
+}
+
 // renderTemplate renders a parsed ARM template to a PCL program body.
 // If there are errors in the template, the function returns an error.
 // Otherwise partial failures are returned through a map of diagnostics
@@ -167,86 +204,8 @@ func renderTemplate(
 		return &model.Body{}, nil, nil
 	}
 
-	templ := NewTemplateElements(options...)
-
-	for _, root := range templates {
-		rootValue := jsonx.NodeValue(*root).(map[string]interface{})
-		if _, ok := rootValue["$schema"]; !ok {
-			// simple validation for templates.. Skip if no "$schema" field exists
-			continue
-		}
-		if f, ok := rootValue["parameters"]; ok {
-			const key = "parameters"
-			fObj, ok := f.(map[string]interface{})
-			if !ok {
-				return nil, nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
-			}
-
-			for param, f := range fObj {
-				fMap, ok := f.(map[string]interface{})
-				if !ok {
-					return nil, nil, fmt.Errorf("expect param %s to be defined with a map, got %T", param, f)
-				}
-
-				if err := templ.addParameter(param, fMap, true); err != nil {
-					return nil, nil, err
-				}
-			}
-		}
-
-		if f, ok := rootValue["variables"]; ok {
-			const key = "variables"
-			fObj, ok := f.(map[string]interface{})
-			if !ok {
-				return nil, nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
-			}
-
-			for varName, f := range fObj {
-				if _, err := templ.addVariable(varName, f, true); err != nil {
-					return nil, nil, err
-				}
-			}
-		}
-
-		if f, ok := rootValue["resources"]; ok {
-			const key = "resources"
-			fObj, ok := f.([]interface{})
-			if !ok {
-				return nil, nil, fmt.Errorf("expect %s block to be a list, got: %T", key, f)
-			}
-
-			for _, res := range fObj {
-				resMap, ok := res.(map[string]interface{})
-				if !ok {
-					return nil, nil, fmt.Errorf("expect resource body to be a map, got: %T", res)
-				}
-
-				if err := templ.addResource(resMap); err != nil {
-					return nil, nil, err
-				}
-			}
-		}
-
-		if f, ok := rootValue["outputs"]; ok {
-			const key = "outputs"
-			fObj, ok := f.(map[string]interface{})
-			if !ok {
-				return nil, nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
-			}
-
-			for outputName, args := range fObj {
-				if err := templ.addOutput(outputName, args.(map[string]interface{}), true); err != nil {
-					return nil, nil, err
-				}
-			}
-		}
-	}
-
-	if err := templ.EvaluateExpressions(); err != nil {
-		return nil, nil, err
-	}
-
-	if err := templ.Validate(pkgSpec, metadata); err != nil {
+	templ, err := renderTemplateElements(pkgSpec, metadata, templates, options...)
+	if err != nil {
 		return nil, nil, err
 	}
 
@@ -262,6 +221,101 @@ func renderTemplate(
 	}
 	pcl.FormatBody(body)
 	return body, templ.GetDiagnostics(), nil
+}
+
+func renderTemplateElements(
+	pkgSpec *schema.PackageSpec,
+	metadata *resources.AzureAPIMetadata,
+	templates map[string]*jsonx.Node,
+	options ...RenderOption,
+) (*TemplateElements, error) {
+	templ := NewTemplateElements(options...)
+	if len(templates) == 0 {
+		return templ, nil
+	}
+
+	for _, root := range templates {
+		rootValue := jsonx.NodeValue(*root).(map[string]interface{})
+		if _, ok := rootValue["$schema"]; !ok {
+			// simple validation for templates.. Skip if no "$schema" field exists
+			continue
+		}
+		if f, ok := rootValue["parameters"]; ok {
+			const key = "parameters"
+			fObj, ok := f.(map[string]interface{})
+			if !ok {
+				return nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
+			}
+
+			for param, f := range fObj {
+				fMap, ok := f.(map[string]interface{})
+				if !ok {
+					return nil, fmt.Errorf("expect param %s to be defined with a map, got %T", param, f)
+				}
+
+				if err := templ.addParameter(param, fMap, true); err != nil {
+					return nil, err
+				}
+			}
+		}
+
+		if f, ok := rootValue["variables"]; ok {
+			const key = "variables"
+			fObj, ok := f.(map[string]interface{})
+			if !ok {
+				return nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
+			}
+
+			for varName, f := range fObj {
+				if _, err := templ.addVariable(varName, f, true); err != nil {
+					return nil, err
+				}
+			}
+		}
+
+		if f, ok := rootValue["resources"]; ok {
+			const key = "resources"
+			fObj, ok := f.([]interface{})
+			if !ok {
+				return nil, fmt.Errorf("expect %s block to be a list, got: %T", key, f)
+			}
+
+			for _, res := range fObj {
+				resMap, ok := res.(map[string]interface{})
+				if !ok {
+					return nil, fmt.Errorf("expect resource body to be a map, got: %T", res)
+				}
+
+				if err := templ.addResource(resMap); err != nil {
+					return nil, err
+				}
+			}
+		}
+
+		if f, ok := rootValue["outputs"]; ok {
+			const key = "outputs"
+			fObj, ok := f.(map[string]interface{})
+			if !ok {
+				return nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
+			}
+
+			for outputName, args := range fObj {
+				if err := templ.addOutput(outputName, args.(map[string]interface{}), true); err != nil {
+					return nil, err
+				}
+			}
+		}
+	}
+
+	if err := templ.EvaluateExpressions(); err != nil {
+		return nil, err
+	}
+
+	if err := templ.Validate(pkgSpec, metadata); err != nil {
+		return nil, err
+	}
+
+	return templ, nil
 }
 
 func parseJsonxTree(text string) (*jsonx.Node, error) {
