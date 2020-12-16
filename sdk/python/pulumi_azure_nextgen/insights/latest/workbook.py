@@ -35,6 +35,7 @@ class Workbook(pulumi.CustomResource):
                  __opts__=None):
         """
         An Application Insights workbook definition.
+        Latest API Version: 2020-10-20.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

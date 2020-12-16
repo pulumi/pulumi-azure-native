@@ -40,6 +40,7 @@ class Route(pulumi.CustomResource):
                  __opts__=None):
         """
         Friendly Routes name mapping to the any Routes or secret related information.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -26,6 +26,7 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
                  __opts__=None):
         """
         An Application Insights component billing features
+        Latest API Version: 2015-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

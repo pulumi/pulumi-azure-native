@@ -30,6 +30,7 @@ class Image(pulumi.CustomResource):
                  __opts__=None):
         """
         The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+        Latest API Version: 2020-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

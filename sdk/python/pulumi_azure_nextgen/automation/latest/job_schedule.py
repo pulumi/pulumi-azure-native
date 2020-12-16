@@ -29,6 +29,7 @@ class JobSchedule(pulumi.CustomResource):
                  __opts__=None):
         """
         Definition of the job schedule.
+        Latest API Version: 2015-10-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

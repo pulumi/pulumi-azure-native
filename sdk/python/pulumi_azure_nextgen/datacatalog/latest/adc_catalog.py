@@ -34,6 +34,7 @@ class ADCCatalog(pulumi.CustomResource):
                  __opts__=None):
         """
         Azure Data Catalog.
+        Latest API Version: 2016-03-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

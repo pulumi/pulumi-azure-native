@@ -29,6 +29,7 @@ class CapacityDetails(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents an instance of a Dedicated Capacity resource.
+        Latest API Version: 2017-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -29,6 +29,7 @@ class AFDCustomDomain(pulumi.CustomResource):
                  __opts__=None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

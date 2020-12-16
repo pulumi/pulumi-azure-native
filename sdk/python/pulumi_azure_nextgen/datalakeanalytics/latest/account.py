@@ -40,6 +40,7 @@ class Account(pulumi.CustomResource):
                  __opts__=None):
         """
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+        Latest API Version: 2016-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

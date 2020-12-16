@@ -27,6 +27,7 @@ class ServerAdministrator(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents a and external administrator to be created.
+        Latest API Version: 2017-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

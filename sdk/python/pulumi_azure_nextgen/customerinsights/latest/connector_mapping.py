@@ -33,6 +33,7 @@ class ConnectorMapping(pulumi.CustomResource):
                  __opts__=None):
         """
         The connector mapping resource format.
+        Latest API Version: 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

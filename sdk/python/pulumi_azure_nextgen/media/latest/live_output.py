@@ -32,6 +32,7 @@ class LiveOutput(pulumi.CustomResource):
                  __opts__=None):
         """
         The Live Output.
+        Latest API Version: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

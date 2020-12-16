@@ -25,6 +25,7 @@ class RoleAssignment(pulumi.CustomResource):
                  __opts__=None):
         """
         Role Assignments
+        Latest API Version: 2015-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -32,6 +32,7 @@ class VolumeContainer(pulumi.CustomResource):
                  __opts__=None):
         """
         The volume container.
+        Latest API Version: 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

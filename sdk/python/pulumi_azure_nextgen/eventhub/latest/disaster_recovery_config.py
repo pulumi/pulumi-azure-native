@@ -25,6 +25,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  __opts__=None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
+        Latest API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

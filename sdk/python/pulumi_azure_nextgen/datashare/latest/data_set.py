@@ -26,6 +26,7 @@ class DataSet(pulumi.CustomResource):
                  __opts__=None):
         """
         A DataSet data transfer object.
+        Latest API Version: 2019-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -29,6 +29,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
                  __opts__=None):
         """
         An Azure Cosmos DB Gremlin graph.
+        Latest API Version: 2016-03-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

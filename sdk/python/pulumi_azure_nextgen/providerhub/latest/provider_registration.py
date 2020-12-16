@@ -21,7 +21,8 @@ class ProviderRegistration(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a ProviderRegistration resource with the given unique name, props, and options.
+        Latest API Version: 2020-11-20.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.

@@ -27,6 +27,7 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         The private endpoint connection of a provisioning service
+        Latest API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

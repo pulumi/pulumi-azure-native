@@ -26,7 +26,8 @@ class VMwareCollector(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a VMwareCollector resource with the given unique name, props, and options.
+        Latest API Version: 2019-10-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.

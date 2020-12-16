@@ -27,6 +27,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

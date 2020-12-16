@@ -38,6 +38,7 @@ class Subscription(pulumi.CustomResource):
                  __opts__=None):
         """
         Description of subscription resource.
+        Latest API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -41,6 +41,7 @@ class ApiManagementService(pulumi.CustomResource):
                  __opts__=None):
         """
         A single API Management service resource in List or Get response.
+        Latest API Version: 2019-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

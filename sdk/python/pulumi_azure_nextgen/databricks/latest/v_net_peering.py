@@ -33,6 +33,7 @@ class VNetPeering(pulumi.CustomResource):
                  __opts__=None):
         """
         Peerings in a VirtualNetwork resource
+        Latest API Version: 2018-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

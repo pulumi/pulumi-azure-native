@@ -32,6 +32,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
                  __opts__=None):
         """
         The lock information.
+        Latest API Version: 2016-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

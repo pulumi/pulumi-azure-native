@@ -32,6 +32,7 @@ class Peering(pulumi.CustomResource):
                  __opts__=None):
         """
         Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+        Latest API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

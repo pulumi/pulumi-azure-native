@@ -27,6 +27,7 @@ class ManagementPolicy(pulumi.CustomResource):
                  __opts__=None):
         """
         The Get Storage Account ManagementPolicies operation response.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

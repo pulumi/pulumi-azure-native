@@ -33,6 +33,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
                  __opts__=None):
         """
         Dedicated cloud node model
+        Latest API Version: 2019-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

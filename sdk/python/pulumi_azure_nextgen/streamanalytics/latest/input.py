@@ -28,6 +28,7 @@ class Input(pulumi.CustomResource):
                  __opts__=None):
         """
         An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+        Latest API Version: 2016-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

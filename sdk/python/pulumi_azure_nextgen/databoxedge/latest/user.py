@@ -29,6 +29,7 @@ class User(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+        Latest API Version: 2019-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

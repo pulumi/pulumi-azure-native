@@ -32,6 +32,7 @@ class Job(pulumi.CustomResource):
                  __opts__=None):
         """
         A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+        Latest API Version: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

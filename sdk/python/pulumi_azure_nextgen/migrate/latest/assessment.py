@@ -29,6 +29,7 @@ class Assessment(pulumi.CustomResource):
                  __opts__=None):
         """
         An assessment created for a group in the Migration project.
+        Latest API Version: 2019-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

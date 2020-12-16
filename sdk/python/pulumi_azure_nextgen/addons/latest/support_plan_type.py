@@ -22,6 +22,7 @@ class SupportPlanType(pulumi.CustomResource):
                  __opts__=None):
         """
         The status of the Canonical support plan.
+        Latest API Version: 2018-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

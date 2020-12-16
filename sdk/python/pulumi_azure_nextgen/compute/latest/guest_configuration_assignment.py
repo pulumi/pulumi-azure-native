@@ -29,6 +29,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                  __opts__=None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
+        Latest API Version: 2020-06-25.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -29,6 +29,7 @@ class Output(pulumi.CustomResource):
                  __opts__=None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+        Latest API Version: 2016-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

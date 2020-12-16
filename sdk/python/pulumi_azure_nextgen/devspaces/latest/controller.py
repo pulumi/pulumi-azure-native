@@ -29,7 +29,8 @@ class Controller(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a Controller resource with the given unique name, props, and options.
+        Latest API Version: 2019-04-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Region where the Azure resource is located.

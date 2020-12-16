@@ -29,6 +29,7 @@ class StorageDomain(pulumi.CustomResource):
                  __opts__=None):
         """
         The storage domain.
+        Latest API Version: 2016-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
