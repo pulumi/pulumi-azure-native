@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Domain Topic.
+ * Latest API Version: 2020-06-01.
  */
 export class DomainTopic extends pulumi.CustomResource {
     /**

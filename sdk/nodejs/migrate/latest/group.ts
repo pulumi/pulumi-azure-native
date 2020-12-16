@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A group created in a Migration project.
+ * Latest API Version: 2019-10-01.
  */
 export class Group extends pulumi.CustomResource {
     /**

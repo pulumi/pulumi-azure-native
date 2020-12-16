@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * The task that has the ARM resource and task properties.
  * The task will have all information to schedule a run against it.
+ * Latest API Version: 2019-04-01.
  */
 export class Task extends pulumi.CustomResource {
     /**

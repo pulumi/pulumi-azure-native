@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Trigger details.
+ * Latest API Version: 2019-08-01.
  */
 export class Trigger extends pulumi.CustomResource {
     /**

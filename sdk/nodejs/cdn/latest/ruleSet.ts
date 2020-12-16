@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Friendly RuleSet name mapping to the any RuleSet or secret related information.
+ * Latest API Version: 2020-09-01.
  */
 export class RuleSet extends pulumi.CustomResource {
     /**

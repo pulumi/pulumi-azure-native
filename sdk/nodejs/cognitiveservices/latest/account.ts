@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+ * Latest API Version: 2017-04-18.
  */
 export class Account extends pulumi.CustomResource {
     /**

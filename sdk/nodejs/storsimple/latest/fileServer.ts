@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The file server.
+ * Latest API Version: 2016-10-01.
  */
 export class FileServer extends pulumi.CustomResource {
     /**

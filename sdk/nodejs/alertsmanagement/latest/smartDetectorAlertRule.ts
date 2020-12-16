@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The alert rule information
+ * Latest API Version: 2019-06-01.
  */
 export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**

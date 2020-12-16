@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Settings defined at the Management Group scope.
+ * Latest API Version: 2020-05-01.
  */
 export class HierarchySetting extends pulumi.CustomResource {
     /**

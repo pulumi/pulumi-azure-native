@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A data set mapping data transfer object.
+ * Latest API Version: 2019-11-01.
  */
 export class DataSetMapping extends pulumi.CustomResource {
     /**

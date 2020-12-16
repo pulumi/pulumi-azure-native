@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A single Redis item in List or Get Operation.
+ * Latest API Version: 2020-06-01.
  */
 export class Redis extends pulumi.CustomResource {
     /**

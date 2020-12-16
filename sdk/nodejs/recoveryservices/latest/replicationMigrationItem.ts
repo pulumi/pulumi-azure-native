@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Migration item.
+ * Latest API Version: 2018-07-10.
  */
 export class ReplicationMigrationItem extends pulumi.CustomResource {
     /**

@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A virtual network rule.
+ * Latest API Version: 2018-06-01.
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**

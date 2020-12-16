@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account credential.
+ * Latest API Version: 2017-06-01.
  */
 export class StorageAccountCredential extends pulumi.CustomResource {
     /**

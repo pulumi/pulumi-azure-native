@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A Service Fabric.
+ * Latest API Version: 2018-09-15.
  */
 export class ServiceFabric extends pulumi.CustomResource {
     /**

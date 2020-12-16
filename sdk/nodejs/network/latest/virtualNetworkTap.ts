@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Network Tap resource.
+ * Latest API Version: 2020-07-01.
  */
 export class VirtualNetworkTap extends pulumi.CustomResource {
     /**

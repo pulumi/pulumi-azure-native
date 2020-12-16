@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A single API Management service resource in List or Get response.
+ * Latest API Version: 2019-12-01.
  */
 export class ApiManagementService extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Application Insights web test definition.
+ * Latest API Version: 2015-05-01.
  */
 export class WebTest extends pulumi.CustomResource {
     /**

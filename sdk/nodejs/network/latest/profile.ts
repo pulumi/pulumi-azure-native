@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Traffic Manager profile.
+ * Latest API Version: 2018-04-01.
  */
 export class Profile extends pulumi.CustomResource {
     /**

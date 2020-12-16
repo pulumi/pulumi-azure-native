@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Cassandra keyspace.
+ * Latest API Version: 2016-03-31.
  */
 export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {
     /**

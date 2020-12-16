@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an incident in Azure Security Insights.
+ * Latest API Version: 2020-01-01.
  */
 export class Incident extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection to SignalR resource
+ * Latest API Version: 2020-05-01.
  */
 export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     /**

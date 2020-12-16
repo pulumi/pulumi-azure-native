@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Gremlin graph.
+ * Latest API Version: 2016-03-31.
  */
 export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
     /**

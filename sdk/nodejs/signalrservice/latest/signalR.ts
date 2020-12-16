@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A class represent a SignalR service resource.
+ * Latest API Version: 2020-05-01.
  */
 export class SignalR extends pulumi.CustomResource {
     /**

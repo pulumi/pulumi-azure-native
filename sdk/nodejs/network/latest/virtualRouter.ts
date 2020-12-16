@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * VirtualRouter Resource.
+ * Latest API Version: 2020-07-01.
  */
 export class VirtualRouter extends pulumi.CustomResource {
     /**

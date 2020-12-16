@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The remediation definition.
+ * Latest API Version: 2019-07-01.
  */
 export class RemediationAtSubscription extends pulumi.CustomResource {
     /**

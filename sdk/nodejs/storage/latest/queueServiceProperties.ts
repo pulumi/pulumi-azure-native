@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of a storage account’s Queue service.
+ * Latest API Version: 2019-06-01.
  */
 export class QueueServiceProperties extends pulumi.CustomResource {
     /**

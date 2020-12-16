@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Public IP address resource.
+ * Latest API Version: 2020-07-01.
  */
 export class PublicIPAddress extends pulumi.CustomResource {
     /**

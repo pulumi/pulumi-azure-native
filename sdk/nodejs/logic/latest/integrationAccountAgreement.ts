@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account agreement.
+ * Latest API Version: 2019-05-01.
  */
 export class IntegrationAccountAgreement extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace authorization rule.
+ * Latest API Version: 2017-04-01.
  */
 export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
     /**

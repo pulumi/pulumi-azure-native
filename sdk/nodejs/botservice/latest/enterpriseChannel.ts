@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Enterprise Channel resource definition
+ * Latest API Version: 2018-07-12.
  */
 export class EnterpriseChannel extends pulumi.CustomResource {
     /**

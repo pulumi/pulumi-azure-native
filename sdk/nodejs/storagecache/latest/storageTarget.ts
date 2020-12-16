@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Type of the Storage Target.
+ * Latest API Version: 2020-03-01.
  */
 export class StorageTarget extends pulumi.CustomResource {
     /**

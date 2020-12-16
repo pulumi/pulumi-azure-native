@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Single Namespace item in List or Get Operation
+ * Latest API Version: 2017-04-01.
  */
 export class Namespace extends pulumi.CustomResource {
     /**

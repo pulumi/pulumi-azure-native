@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * States and configurations of Cost Analysis.
+ * Latest API Version: 2020-06-01.
  */
 export class View extends pulumi.CustomResource {
     /**

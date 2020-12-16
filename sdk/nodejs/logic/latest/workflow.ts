@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The workflow type.
+ * Latest API Version: 2019-05-01.
  */
 export class Workflow extends pulumi.CustomResource {
     /**

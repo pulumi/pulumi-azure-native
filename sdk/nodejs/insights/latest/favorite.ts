@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties that define a favorite that is associated to an Application Insights component.
+ * Latest API Version: 2015-05-01.
  */
 export class Favorite extends pulumi.CustomResource {
     /**

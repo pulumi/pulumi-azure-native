@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a NotificationHub Resource.
+ * Latest API Version: 2017-04-01.
  */
 export class NotificationHub extends pulumi.CustomResource {
     /**

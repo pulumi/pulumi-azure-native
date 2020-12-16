@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+ * Latest API Version: 2020-06-01.
  */
 export class ConfigurationStore extends pulumi.CustomResource {
     /**

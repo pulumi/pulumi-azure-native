@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Challenge-Handshake Authentication Protocol (CHAP) setting
+ * Latest API Version: 2016-10-01.
  */
 export class ChapSetting extends pulumi.CustomResource {
     /**

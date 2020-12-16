@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Subscription Information with the alias.
+ * Latest API Version: 2020-09-01.
  */
 export class Alias extends pulumi.CustomResource {
     /**

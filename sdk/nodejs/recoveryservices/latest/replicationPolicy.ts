@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Protection profile details.
+ * Latest API Version: 2018-07-10.
  */
 export class ReplicationPolicy extends pulumi.CustomResource {
     /**

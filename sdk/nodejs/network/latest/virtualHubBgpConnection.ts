@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Appliance Site resource.
+ * Latest API Version: 2020-07-01.
  */
 export class VirtualHubBgpConnection extends pulumi.CustomResource {
     /**

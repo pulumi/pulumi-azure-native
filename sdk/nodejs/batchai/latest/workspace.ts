@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Batch AI Workspace information.
+ * Latest API Version: 2018-05-01.
  */
 export class Workspace extends pulumi.CustomResource {
     /**

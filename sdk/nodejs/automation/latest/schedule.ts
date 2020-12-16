@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the schedule.
+ * Latest API Version: 2015-10-31.
  */
 export class Schedule extends pulumi.CustomResource {
     /**

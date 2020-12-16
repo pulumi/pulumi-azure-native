@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The order details.
+ * Latest API Version: 2019-08-01.
  */
 export class Order extends pulumi.CustomResource {
     /**

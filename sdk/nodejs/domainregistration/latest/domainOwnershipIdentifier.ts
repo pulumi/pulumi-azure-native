@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Domain ownership Identifier.
+ * Latest API Version: 2020-09-01.
  */
 export class DomainOwnershipIdentifier extends pulumi.CustomResource {
     /**

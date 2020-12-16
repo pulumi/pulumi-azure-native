@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Protection container mapping object.
+ * Latest API Version: 2018-07-10.
  */
 export class ReplicationProtectionContainerMapping extends pulumi.CustomResource {
     /**

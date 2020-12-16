@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Agent Pool.
+ * Latest API Version: 2020-11-01.
  */
 export class AgentPool extends pulumi.CustomResource {
     /**

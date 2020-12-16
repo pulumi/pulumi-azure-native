@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Application Insights component definition.
+ * Latest API Version: 2015-05-01.
  */
 export class Component extends pulumi.CustomResource {
     /**

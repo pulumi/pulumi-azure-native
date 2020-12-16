@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Friendly Routes name mapping to the any Routes or secret related information.
+ * Latest API Version: 2020-09-01.
  */
 export class Route extends pulumi.CustomResource {
     /**

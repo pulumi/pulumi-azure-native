@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes an Azure Cognitive Search service and its current state.
+ * Latest API Version: 2020-08-01.
  */
 export class Service extends pulumi.CustomResource {
     /**

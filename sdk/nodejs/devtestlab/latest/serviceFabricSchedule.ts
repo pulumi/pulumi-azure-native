@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A schedule.
+ * Latest API Version: 2018-09-15.
  */
 export class ServiceFabricSchedule extends pulumi.CustomResource {
     /**

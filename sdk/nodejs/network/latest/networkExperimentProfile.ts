@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines an Network Experiment Profile and lists of Experiments
+ * Latest API Version: 2019-11-01.
  */
 export class NetworkExperimentProfile extends pulumi.CustomResource {
     /**

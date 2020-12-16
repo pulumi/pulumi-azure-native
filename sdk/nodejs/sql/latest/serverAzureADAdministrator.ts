@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An server Active Directory Administrator.
+ * Latest API Version: 2014-04-01.
  */
 export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**

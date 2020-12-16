@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes an identity resource.
+ * Latest API Version: 2018-11-30.
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**

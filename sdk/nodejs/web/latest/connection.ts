@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * API connection
+ * Latest API Version: 2016-06-01.
  */
 export class Connection extends pulumi.CustomResource {
     /**

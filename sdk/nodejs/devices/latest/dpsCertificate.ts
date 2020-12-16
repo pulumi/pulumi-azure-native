@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The X509 Certificate.
+ * Latest API Version: 2020-03-01.
  */
 export class DpsCertificate extends pulumi.CustomResource {
     /**

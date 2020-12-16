@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * SpatialAnchorsAccount Response.
+ * Latest API Version: 2020-05-01.
  */
 export class SpatialAnchorsAccount extends pulumi.CustomResource {
     /**

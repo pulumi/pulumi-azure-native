@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Site REST Resource.
+ * Latest API Version: 2020-07-07.
  */
 export class MasterSite extends pulumi.CustomResource {
     /**

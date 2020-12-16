@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The lock information.
+ * Latest API Version: 2016-09-01.
  */
 export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
     /**

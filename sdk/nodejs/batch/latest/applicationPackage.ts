@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An application package which represents a particular version of an application.
+ * Latest API Version: 2020-09-01.
  */
 export class ApplicationPackage extends pulumi.CustomResource {
     /**

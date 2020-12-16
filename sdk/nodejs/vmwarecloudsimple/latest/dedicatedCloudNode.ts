@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Dedicated cloud node model
+ * Latest API Version: 2019-04-01.
  */
 export class DedicatedCloudNode extends pulumi.CustomResource {
     /**

@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents user credentials used for publishing activity
+ * Latest API Version: 2015-08-01.
  */
 export class SiteInstanceDeployment extends pulumi.CustomResource {
     /**

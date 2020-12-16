@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Policy Contract details.
+ * Latest API Version: 2019-12-01.
  */
 export class Policy extends pulumi.CustomResource {
     /**

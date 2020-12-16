@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Linked workspace.
+ * Latest API Version: 2020-03-01.
  */
 export class LinkedWorkspace extends pulumi.CustomResource {
     /**

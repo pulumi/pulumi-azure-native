@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+/**
+ * Latest API Version: 2019-06-01.
+ */
 export class Queue extends pulumi.CustomResource {
     /**
      * Get an existing Queue resource's state with the given name, ID, and optional extra

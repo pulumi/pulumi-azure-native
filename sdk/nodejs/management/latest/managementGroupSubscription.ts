@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The details of subscription under management group.
+ * Latest API Version: 2020-05-01.
  */
 export class ManagementGroupSubscription extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Rule Group resource.
+ * Latest API Version: 2020-04-01.
  */
 export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Data flow resource type.
+ * Latest API Version: 2018-06-01.
  */
 export class DataFlow extends pulumi.CustomResource {
     /**

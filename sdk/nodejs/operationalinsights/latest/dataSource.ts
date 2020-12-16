@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Datasources under OMS Workspace.
+ * Latest API Version: 2020-08-01.
  */
 export class DataSource extends pulumi.CustomResource {
     /**

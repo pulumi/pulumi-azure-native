@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Kusto database.
+ * Latest API Version: 2020-09-18.
  */
 export class Database extends pulumi.CustomResource {
     /**

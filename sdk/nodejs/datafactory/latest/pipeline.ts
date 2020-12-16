@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Pipeline resource type.
+ * Latest API Version: 2018-06-01.
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

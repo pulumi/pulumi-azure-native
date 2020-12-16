@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure resource which represents access to a suite of Maps REST APIs.
+ * Latest API Version: 2018-05-01.
  */
 export class Account extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Route table resource.
+ * Latest API Version: 2020-07-01.
  */
 export class RouteTable extends pulumi.CustomResource {
     /**

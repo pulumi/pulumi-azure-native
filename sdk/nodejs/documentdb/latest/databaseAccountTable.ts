@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Table.
+ * Latest API Version: 2016-03-31.
  */
 export class DatabaseAccountTable extends pulumi.CustomResource {
     /**

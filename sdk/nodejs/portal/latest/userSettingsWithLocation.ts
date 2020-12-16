@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Response to get user settings
+ * Latest API Version: 2018-10-01.
  */
 export class UserSettingsWithLocation extends pulumi.CustomResource {
     /**

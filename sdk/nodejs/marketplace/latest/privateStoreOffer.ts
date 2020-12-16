@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The privateStore offer data structure.
+ * Latest API Version: 2020-01-01.
  */
 export class PrivateStoreOffer extends pulumi.CustomResource {
     /**

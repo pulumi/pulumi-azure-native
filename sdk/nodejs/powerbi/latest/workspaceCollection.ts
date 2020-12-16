@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Latest API Version: 2016-01-29.
+ */
 export class WorkspaceCollection extends pulumi.CustomResource {
     /**
      * Get an existing WorkspaceCollection resource's state with the given name, ID, and optional extra

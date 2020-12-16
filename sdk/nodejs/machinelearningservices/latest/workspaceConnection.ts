@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Workspace connection.
+ * Latest API Version: 2020-08-01.
  */
 export class WorkspaceConnection extends pulumi.CustomResource {
     /**

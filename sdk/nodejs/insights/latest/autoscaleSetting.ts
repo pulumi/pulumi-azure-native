@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The autoscale setting resource.
+ * Latest API Version: 2015-04-01.
  */
 export class AutoscaleSetting extends pulumi.CustomResource {
     /**

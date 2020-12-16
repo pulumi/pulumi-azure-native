@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Network profile resource.
+ * Latest API Version: 2020-07-01.
  */
 export class NetworkProfile extends pulumi.CustomResource {
     /**

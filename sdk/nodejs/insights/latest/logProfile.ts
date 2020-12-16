@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The log profile resource.
+ * Latest API Version: 2016-03-01.
  */
 export class LogProfile extends pulumi.CustomResource {
     /**

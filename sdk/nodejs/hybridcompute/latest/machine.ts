@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a hybrid machine.
+ * Latest API Version: 2020-08-02.
  */
 export class Machine extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+ * Latest API Version: 2016-03-01.
  */
 export class Function extends pulumi.CustomResource {
     /**

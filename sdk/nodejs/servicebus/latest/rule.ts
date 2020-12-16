@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of Rule Resource.
+ * Latest API Version: 2017-04-01.
  */
 export class Rule extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of a storage account’s Table service.
+ * Latest API Version: 2019-06-01.
  */
 export class TableServiceProperties extends pulumi.CustomResource {
     /**

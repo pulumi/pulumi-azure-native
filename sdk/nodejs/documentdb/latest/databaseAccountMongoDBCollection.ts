@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB MongoDB collection.
+ * Latest API Version: 2016-03-31.
  */
 export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
     /**

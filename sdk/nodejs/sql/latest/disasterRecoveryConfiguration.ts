@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a disaster recovery configuration.
+ * Latest API Version: 2014-04-01.
  */
 export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     /**

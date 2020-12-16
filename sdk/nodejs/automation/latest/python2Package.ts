@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the module type.
+ * Latest API Version: 2018-06-30.
  */
 export class Python2Package extends pulumi.CustomResource {
     /**

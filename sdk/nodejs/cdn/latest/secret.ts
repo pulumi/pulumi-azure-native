@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Friendly Secret name mapping to the any Secret or secret related information.
+ * Latest API Version: 2020-09-01.
  */
 export class Secret extends pulumi.CustomResource {
     /**

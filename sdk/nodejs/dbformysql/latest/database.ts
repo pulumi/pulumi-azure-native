@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Database.
+ * Latest API Version: 2017-12-01.
  */
 export class Database extends pulumi.CustomResource {
     /**

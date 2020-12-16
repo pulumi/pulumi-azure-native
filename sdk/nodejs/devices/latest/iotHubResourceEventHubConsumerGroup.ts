@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of the EventHubConsumerGroupInfo object.
+ * Latest API Version: 2020-08-01.
  */
 export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
     /**

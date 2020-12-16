@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in a List or Get AuthorizationRule operation
+ * Latest API Version: 2017-04-01.
  */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**

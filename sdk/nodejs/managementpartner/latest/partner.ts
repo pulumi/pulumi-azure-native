@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * this is the management partner operations response
+ * Latest API Version: 2018-02-01.
  */
 export class Partner extends pulumi.CustomResource {
     /**

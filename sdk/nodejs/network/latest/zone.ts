@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a DNS zone.
+ * Latest API Version: 2018-05-01.
  */
 export class Zone extends pulumi.CustomResource {
     /**

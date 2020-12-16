@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * vCenter definition.
+ * Latest API Version: 2018-07-10.
  */
 export class ReplicationvCenter extends pulumi.CustomResource {
     /**

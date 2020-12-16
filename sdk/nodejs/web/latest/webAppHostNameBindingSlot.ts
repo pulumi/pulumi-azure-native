@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A hostname binding object.
+ * Latest API Version: 2020-09-01.
  */
 export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
     /**

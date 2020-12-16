@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The batch configuration resource definition.
+ * Latest API Version: 2019-05-01.
  */
 export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource {
     /**

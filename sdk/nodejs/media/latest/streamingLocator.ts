@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A Streaming Locator resource
+ * Latest API Version: 2020-05-01.
  */
 export class StreamingLocator extends pulumi.CustomResource {
     /**

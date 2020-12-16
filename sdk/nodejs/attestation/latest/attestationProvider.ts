@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Attestation service response message.
+ * Latest API Version: 2020-10-01.
  */
 export class AttestationProvider extends pulumi.CustomResource {
     /**

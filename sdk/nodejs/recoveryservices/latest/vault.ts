@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource information, as returned by the resource provider.
+ * Latest API Version: 2016-06-01.
  */
 export class Vault extends pulumi.CustomResource {
     /**

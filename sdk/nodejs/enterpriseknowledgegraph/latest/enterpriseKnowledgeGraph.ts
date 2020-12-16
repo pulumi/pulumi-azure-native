@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * EnterpriseKnowledgeGraph resource definition
+ * Latest API Version: 2018-12-03.
  */
 export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
     /**

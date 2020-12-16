@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB SQL database.
+ * Latest API Version: 2016-03-31.
  */
 export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
     /**

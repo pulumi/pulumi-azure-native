@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The device security group resource
+ * Latest API Version: 2019-08-01.
  */
 export class DeviceSecurityGroup extends pulumi.CustomResource {
     /**

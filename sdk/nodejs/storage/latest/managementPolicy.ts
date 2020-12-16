@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The Get Storage Account ManagementPolicies operation response.
+ * Latest API Version: 2019-06-01.
  */
 export class ManagementPolicy extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A flow log resource.
+ * Latest API Version: 2020-07-01.
  */
 export class FlowLog extends pulumi.CustomResource {
     /**

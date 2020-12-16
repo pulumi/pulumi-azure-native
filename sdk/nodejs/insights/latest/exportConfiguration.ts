@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties that define a Continuous Export configuration.
+ * Latest API Version: 2015-05-01.
  */
 export class ExportConfiguration extends pulumi.CustomResource {
     /**

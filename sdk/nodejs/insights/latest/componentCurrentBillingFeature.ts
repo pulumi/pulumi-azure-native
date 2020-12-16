@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Application Insights component billing features
+ * Latest API Version: 2015-05-01.
  */
 export class ComponentCurrentBillingFeature extends pulumi.CustomResource {
     /**

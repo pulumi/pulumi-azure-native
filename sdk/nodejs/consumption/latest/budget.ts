@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A budget resource.
+ * Latest API Version: 2019-10-01.
  */
 export class Budget extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of File services in storage account.
+ * Latest API Version: 2019-06-01.
  */
 export class FileServiceProperties extends pulumi.CustomResource {
     /**

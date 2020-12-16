@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+ * Latest API Version: 2020-09-01.
  */
 export class AFDCustomDomain extends pulumi.CustomResource {
     /**

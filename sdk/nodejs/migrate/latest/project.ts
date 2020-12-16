@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Migrate Project.
+ * Latest API Version: 2019-10-01.
  */
 export class Project extends pulumi.CustomResource {
     /**

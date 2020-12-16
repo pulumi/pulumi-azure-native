@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The top level storage insight resource container.
+ * Latest API Version: 2020-08-01.
  */
 export class StorageInsightConfig extends pulumi.CustomResource {
     /**

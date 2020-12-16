@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The streaming endpoint.
+ * Latest API Version: 2020-05-01.
  */
 export class StreamingEndpoint extends pulumi.CustomResource {
     /**

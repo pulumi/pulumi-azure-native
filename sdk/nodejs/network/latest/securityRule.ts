@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Network security rule.
+ * Latest API Version: 2020-07-01.
  */
 export class SecurityRule extends pulumi.CustomResource {
     /**

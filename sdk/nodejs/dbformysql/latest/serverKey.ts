@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A MySQL Server key.
+ * Latest API Version: 2020-01-01.
  */
 export class ServerKey extends pulumi.CustomResource {
     /**

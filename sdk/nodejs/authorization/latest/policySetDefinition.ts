@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The policy set definition.
+ * Latest API Version: 2020-09-01.
  */
 export class PolicySetDefinition extends pulumi.CustomResource {
     /**

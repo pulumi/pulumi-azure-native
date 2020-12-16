@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a link to virtual network for a Private DNS zone.
+ * Latest API Version: 2020-06-01.
  */
 export class VirtualNetworkLink extends pulumi.CustomResource {
     /**

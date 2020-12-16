@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Account Filter.
+ * Latest API Version: 2020-05-01.
  */
 export class AccountFilter extends pulumi.CustomResource {
     /**

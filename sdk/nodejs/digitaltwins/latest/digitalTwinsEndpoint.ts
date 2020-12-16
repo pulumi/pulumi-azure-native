@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * DigitalTwinsInstance endpoint resource.
+ * Latest API Version: 2020-10-31.
  */
 export class DigitalTwinsEndpoint extends pulumi.CustomResource {
     /**

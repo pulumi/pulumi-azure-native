@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The access control record.
+ * Latest API Version: 2017-06-01.
  */
 export class AccessControlRecord extends pulumi.CustomResource {
     /**

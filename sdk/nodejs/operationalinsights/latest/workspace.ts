@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The top level Workspace resource container.
+ * Latest API Version: 2020-10-01.
  */
 export class Workspace extends pulumi.CustomResource {
     /**

@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+ * Latest API Version: 2020-01-01.
  */
 export class Suppression extends pulumi.CustomResource {
     /**

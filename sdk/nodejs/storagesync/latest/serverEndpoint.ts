@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Server Endpoint object.
+ * Latest API Version: 2020-09-01.
  */
 export class ServerEndpoint extends pulumi.CustomResource {
     /**

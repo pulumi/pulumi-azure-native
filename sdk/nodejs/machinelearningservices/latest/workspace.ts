@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a machine learning workspace.
+ * Latest API Version: 2020-08-01.
  */
 export class Workspace extends pulumi.CustomResource {
     /**

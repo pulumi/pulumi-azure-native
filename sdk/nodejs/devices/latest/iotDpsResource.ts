@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the provisioning service.
+ * Latest API Version: 2020-03-01.
  */
 export class IotDpsResource extends pulumi.CustomResource {
     /**

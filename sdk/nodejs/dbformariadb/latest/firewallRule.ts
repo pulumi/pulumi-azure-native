@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server firewall rule.
+ * Latest API Version: 2018-06-01.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

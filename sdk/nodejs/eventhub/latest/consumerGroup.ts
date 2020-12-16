@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in List or Get Consumer group operation
+ * Latest API Version: 2017-04-01.
  */
 export class ConsumerGroup extends pulumi.CustomResource {
     /**

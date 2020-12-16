@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The profile resource format.
+ * Latest API Version: 2017-04-26.
  */
 export class Profile extends pulumi.CustomResource {
     /**

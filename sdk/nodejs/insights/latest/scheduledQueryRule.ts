@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The Log Search Rule resource.
+ * Latest API Version: 2018-04-16.
  */
 export class ScheduledQueryRule extends pulumi.CustomResource {
     /**

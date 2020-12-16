@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Base class for backup ProtectionIntent.
+ * Latest API Version: 2017-07-01.
  */
 export class ProtectionIntent extends pulumi.CustomResource {
     /**

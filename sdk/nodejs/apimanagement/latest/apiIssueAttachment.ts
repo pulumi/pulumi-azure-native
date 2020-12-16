@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Issue Attachment Contract details.
+ * Latest API Version: 2019-12-01.
  */
 export class ApiIssueAttachment extends pulumi.CustomResource {
     /**

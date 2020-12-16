@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Certificate signing request object
+ * Latest API Version: 2015-08-01.
  */
 export class CertificateCsr extends pulumi.CustomResource {
     /**

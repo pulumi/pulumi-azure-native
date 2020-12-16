@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+ * Latest API Version: 2019-06-01.
  */
 export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**

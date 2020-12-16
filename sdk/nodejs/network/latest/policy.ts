@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines web application firewall policy.
+ * Latest API Version: 2020-04-01.
  */
 export class Policy extends pulumi.CustomResource {
     /**

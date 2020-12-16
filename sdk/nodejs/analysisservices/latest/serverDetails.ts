@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an instance of an Analysis Services resource.
+ * Latest API Version: 2017-08-01.
  */
 export class ServerDetails extends pulumi.CustomResource {
     /**

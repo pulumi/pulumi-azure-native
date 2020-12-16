@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Firewall resource.
+ * Latest API Version: 2020-07-01.
  */
 export class AzureFirewall extends pulumi.CustomResource {
     /**

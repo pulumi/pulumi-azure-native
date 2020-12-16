@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Private dns zone group resource.
+ * Latest API Version: 2020-07-01.
  */
 export class PrivateDnsZoneGroup extends pulumi.CustomResource {
     /**

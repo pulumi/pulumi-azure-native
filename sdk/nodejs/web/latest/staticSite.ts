@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Static Site ARM resource.
+ * Latest API Version: 2020-09-01.
  */
 export class StaticSite extends pulumi.CustomResource {
     /**
