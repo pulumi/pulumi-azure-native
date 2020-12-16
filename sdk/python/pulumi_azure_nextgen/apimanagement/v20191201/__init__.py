@@ -26,6 +26,7 @@ from .content_type import *
 from .diagnostic import *
 from .email_template import *
 from .gateway import *
+from .gateway_api_entity_tag import *
 from .gateway_hostname_configuration import *
 from .get_api import *
 from .get_api_diagnostic import *
@@ -66,6 +67,7 @@ from .get_tag_by_operation import *
 from .get_tag_by_product import *
 from .get_user import *
 from .group import *
+from .group_user import *
 from .identity_provider import *
 from .list_authorization_server_secrets import *
 from .list_delegation_setting_secrets import *
@@ -78,9 +80,13 @@ from .list_tenant_access_git_secrets import *
 from .list_tenant_access_secrets import *
 from .logger import *
 from .named_value import *
+from .notification_recipient_email import *
+from .notification_recipient_user import *
 from .open_id_connect_provider import *
 from .policy import *
 from .product import *
+from .product_api import *
+from .product_group import *
 from .product_policy import *
 from .subscription import *
 from .tag import *
@@ -147,22 +153,34 @@ def _register_module():
                 return EmailTemplate(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20191201:Gateway":
                 return Gateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag":
+                return GatewayApiEntityTag(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration":
                 return GatewayHostnameConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20191201:Group":
                 return Group(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20191201:GroupUser":
+                return GroupUser(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20191201:IdentityProvider":
                 return IdentityProvider(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20191201:Logger":
                 return Logger(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20191201:NamedValue":
                 return NamedValue(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20191201:NotificationRecipientEmail":
+                return NotificationRecipientEmail(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20191201:NotificationRecipientUser":
+                return NotificationRecipientUser(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20191201:OpenIdConnectProvider":
                 return OpenIdConnectProvider(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20191201:Policy":
                 return Policy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20191201:Product":
                 return Product(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20191201:ProductApi":
+                return ProductApi(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20191201:ProductGroup":
+                return ProductGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20191201:ProductPolicy":
                 return ProductPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20191201:Subscription":

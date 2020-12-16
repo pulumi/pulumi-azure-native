@@ -25,6 +25,7 @@ __all__ = [
     'PolicyContentFormat',
     'ProductState',
     'Protocol',
+    'ProvisioningState',
     'SamplingType',
     'SkuType',
     'SoapApiType',
@@ -208,6 +209,13 @@ class ProductState(str, Enum):
 class Protocol(str, Enum):
     HTTP = "http"
     HTTPS = "https"
+
+
+class ProvisioningState(str, Enum):
+    """
+    Provisioning state.
+    """
+    CREATED = "created"
 
 
 class SamplingType(str, Enum):
