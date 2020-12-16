@@ -12,6 +12,7 @@ import (
 )
 
 // DSCP Configuration in a resource group.
+// Latest API Version: 2020-07-01.
 type DscpConfiguration struct {
 	pulumi.CustomResourceState
 

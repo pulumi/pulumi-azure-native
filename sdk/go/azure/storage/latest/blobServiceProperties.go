@@ -12,6 +12,7 @@ import (
 )
 
 // The properties of a storage account’s Blob service.
+// Latest API Version: 2019-06-01.
 type BlobServiceProperties struct {
 	pulumi.CustomResourceState
 

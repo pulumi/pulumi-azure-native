@@ -12,6 +12,7 @@ import (
 )
 
 // vCenter definition.
+// Latest API Version: 2018-07-10.
 type ReplicationvCenter struct {
 	pulumi.CustomResourceState
 

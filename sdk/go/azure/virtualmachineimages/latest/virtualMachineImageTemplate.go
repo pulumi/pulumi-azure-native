@@ -12,6 +12,7 @@ import (
 )
 
 // Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+// Latest API Version: 2020-02-14.
 type VirtualMachineImageTemplate struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the module type.
+// Latest API Version: 2015-10-31.
 type Module struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // The bandwidth setting.
+// Latest API Version: 2017-06-01.
 type BandwidthSetting struct {
 	pulumi.CustomResourceState
 

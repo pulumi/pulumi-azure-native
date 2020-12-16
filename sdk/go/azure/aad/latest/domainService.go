@@ -12,6 +12,7 @@ import (
 )
 
 // Domain service.
+// Latest API Version: 2020-01-01.
 type DomainService struct {
 	pulumi.CustomResourceState
 

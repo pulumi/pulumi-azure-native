@@ -12,6 +12,7 @@ import (
 )
 
 // A project resource
+// Latest API Version: 2018-04-19.
 type Project struct {
 	pulumi.CustomResourceState
 

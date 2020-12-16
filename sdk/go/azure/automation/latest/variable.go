@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the variable.
+// Latest API Version: 2015-10-31.
 type Variable struct {
 	pulumi.CustomResourceState
 

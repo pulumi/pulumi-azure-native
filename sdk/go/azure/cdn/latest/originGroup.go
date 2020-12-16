@@ -12,6 +12,7 @@ import (
 )
 
 // Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+// Latest API Version: 2020-09-01.
 type OriginGroup struct {
 	pulumi.CustomResourceState
 

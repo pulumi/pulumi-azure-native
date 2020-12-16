@@ -12,6 +12,7 @@ import (
 )
 
 // The alert rule information
+// Latest API Version: 2019-06-01.
 type SmartDetectorAlertRule struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Sync Group object.
+// Latest API Version: 2020-09-01.
 type SyncGroup struct {
 	pulumi.CustomResourceState
 

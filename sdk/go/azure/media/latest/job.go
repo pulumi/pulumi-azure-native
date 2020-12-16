@@ -12,6 +12,7 @@ import (
 )
 
 // A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+// Latest API Version: 2020-05-01.
 type Job struct {
 	pulumi.CustomResourceState
 

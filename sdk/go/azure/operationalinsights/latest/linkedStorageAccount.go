@@ -12,6 +12,7 @@ import (
 )
 
 // Linked storage accounts top level resource container.
+// Latest API Version: 2020-08-01.
 type LinkedStorageAccount struct {
 	pulumi.CustomResourceState
 

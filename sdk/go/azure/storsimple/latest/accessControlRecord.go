@@ -12,6 +12,7 @@ import (
 )
 
 // The access control record.
+// Latest API Version: 2017-06-01.
 type AccessControlRecord struct {
 	pulumi.CustomResourceState
 

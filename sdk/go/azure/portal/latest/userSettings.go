@@ -12,6 +12,7 @@ import (
 )
 
 // Response to get user settings
+// Latest API Version: 2018-10-01.
 type UserSettings struct {
 	pulumi.CustomResourceState
 

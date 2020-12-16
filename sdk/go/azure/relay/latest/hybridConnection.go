@@ -12,6 +12,7 @@ import (
 )
 
 // Description of hybrid connection resource.
+// Latest API Version: 2017-04-01.
 type HybridConnection struct {
 	pulumi.CustomResourceState
 

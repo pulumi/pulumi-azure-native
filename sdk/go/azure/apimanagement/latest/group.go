@@ -12,6 +12,7 @@ import (
 )
 
 // Contract details.
+// Latest API Version: 2019-12-01.
 type Group struct {
 	pulumi.CustomResourceState
 

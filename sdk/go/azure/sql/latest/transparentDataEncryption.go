@@ -12,6 +12,7 @@ import (
 )
 
 // Represents a database transparent data encryption configuration.
+// Latest API Version: 2014-04-01.
 type TransparentDataEncryption struct {
 	pulumi.CustomResourceState
 

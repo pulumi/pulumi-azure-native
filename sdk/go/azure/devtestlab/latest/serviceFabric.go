@@ -12,6 +12,7 @@ import (
 )
 
 // A Service Fabric.
+// Latest API Version: 2018-09-15.
 type ServiceFabric struct {
 	pulumi.CustomResourceState
 

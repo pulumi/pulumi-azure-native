@@ -12,6 +12,7 @@ import (
 )
 
 // Data Lake Analytics firewall rule information.
+// Latest API Version: 2016-11-01.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 

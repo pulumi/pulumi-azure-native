@@ -12,6 +12,7 @@ import (
 )
 
 // Bot channel resource definition
+// Latest API Version: 2020-06-02.
 type Channel struct {
 	pulumi.CustomResourceState
 

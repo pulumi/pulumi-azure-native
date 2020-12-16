@@ -12,6 +12,7 @@ import (
 )
 
 // A task resource
+// Latest API Version: 2018-04-19.
 type Task struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // A web app, a mobile app backend, or an API app.
+// Latest API Version: 2020-09-01.
 type WebAppSlot struct {
 	pulumi.CustomResourceState
 

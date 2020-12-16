@@ -12,6 +12,7 @@ import (
 )
 
 // Service resource
+// Latest API Version: 2020-07-01.
 type Service struct {
 	pulumi.CustomResourceState
 

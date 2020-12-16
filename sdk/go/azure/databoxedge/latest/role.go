@@ -12,6 +12,7 @@ import (
 )
 
 // Compute role.
+// Latest API Version: 2019-08-01.
 type Role struct {
 	pulumi.CustomResourceState
 

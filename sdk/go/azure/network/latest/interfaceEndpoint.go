@@ -12,6 +12,7 @@ import (
 )
 
 // Interface endpoint resource.
+// Latest API Version: 2019-02-01.
 type InterfaceEndpoint struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Represents a Database.
+// Latest API Version: 2017-12-01.
 type Database struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // A group created in a Migration project.
+// Latest API Version: 2019-10-01.
 type Group struct {
 	pulumi.CustomResourceState
 

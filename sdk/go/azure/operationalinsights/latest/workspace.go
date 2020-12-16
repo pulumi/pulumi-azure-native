@@ -12,6 +12,7 @@ import (
 )
 
 // The top level Workspace resource container.
+// Latest API Version: 2020-10-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 

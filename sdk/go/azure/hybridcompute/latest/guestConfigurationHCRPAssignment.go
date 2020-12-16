@@ -12,6 +12,7 @@ import (
 )
 
 // Guest configuration assignment is an association between a machine and guest configuration.
+// Latest API Version: 2020-06-25.
 type GuestConfigurationHCRPAssignment struct {
 	pulumi.CustomResourceState
 

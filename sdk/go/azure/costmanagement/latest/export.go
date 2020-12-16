@@ -12,6 +12,7 @@ import (
 )
 
 // An export resource.
+// Latest API Version: 2020-06-01.
 type Export struct {
 	pulumi.CustomResourceState
 

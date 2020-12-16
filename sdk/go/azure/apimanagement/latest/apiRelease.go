@@ -12,6 +12,7 @@ import (
 )
 
 // ApiRelease details.
+// Latest API Version: 2019-12-01.
 type ApiRelease struct {
 	pulumi.CustomResourceState
 

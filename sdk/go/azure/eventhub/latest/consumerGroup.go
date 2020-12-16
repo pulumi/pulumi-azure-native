@@ -12,6 +12,7 @@ import (
 )
 
 // Single item in List or Get Consumer group operation
+// Latest API Version: 2017-04-01.
 type ConsumerGroup struct {
 	pulumi.CustomResourceState
 

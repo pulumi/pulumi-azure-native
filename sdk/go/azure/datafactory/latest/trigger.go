@@ -12,6 +12,7 @@ import (
 )
 
 // Trigger resource type.
+// Latest API Version: 2018-06-01.
 type Trigger struct {
 	pulumi.CustomResourceState
 

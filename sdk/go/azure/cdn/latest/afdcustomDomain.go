@@ -12,6 +12,7 @@ import (
 )
 
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+// Latest API Version: 2020-09-01.
 type AFDCustomDomain struct {
 	pulumi.CustomResourceState
 

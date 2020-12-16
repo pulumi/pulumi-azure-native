@@ -12,6 +12,7 @@ import (
 )
 
 // An application type version resource for the specified application type name resource.
+// Latest API Version: 2020-03-01.
 type ApplicationTypeVersion struct {
 	pulumi.CustomResourceState
 

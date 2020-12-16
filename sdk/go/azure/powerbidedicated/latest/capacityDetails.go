@@ -12,6 +12,7 @@ import (
 )
 
 // Represents an instance of a Dedicated Capacity resource.
+// Latest API Version: 2017-10-01.
 type CapacityDetails struct {
 	pulumi.CustomResourceState
 

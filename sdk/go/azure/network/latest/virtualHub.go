@@ -12,6 +12,7 @@ import (
 )
 
 // VirtualHub Resource.
+// Latest API Version: 2020-07-01.
 type VirtualHub struct {
 	pulumi.CustomResourceState
 

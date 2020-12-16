@@ -12,6 +12,7 @@ import (
 )
 
 // An HCX Enterprise Site resource
+// Latest API Version: 2020-03-20.
 type HcxEnterpriseSite struct {
 	pulumi.CustomResourceState
 

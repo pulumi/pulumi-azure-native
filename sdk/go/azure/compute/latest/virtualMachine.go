@@ -12,6 +12,7 @@ import (
 )
 
 // Describes a Virtual Machine.
+// Latest API Version: 2020-06-01.
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 

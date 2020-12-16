@@ -12,6 +12,7 @@ import (
 )
 
 // Pipeline resource type.
+// Latest API Version: 2018-06-01.
 type Pipeline struct {
 	pulumi.CustomResourceState
 

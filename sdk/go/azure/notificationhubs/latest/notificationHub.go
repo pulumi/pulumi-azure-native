@@ -12,6 +12,7 @@ import (
 )
 
 // Description of a NotificationHub Resource.
+// Latest API Version: 2017-04-01.
 type NotificationHub struct {
 	pulumi.CustomResourceState
 

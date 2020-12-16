@@ -12,6 +12,7 @@ import (
 )
 
 // Server communication link.
+// Latest API Version: 2014-04-01.
 type ServerCommunicationLink struct {
 	pulumi.CustomResourceState
 

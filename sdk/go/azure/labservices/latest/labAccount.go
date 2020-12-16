@@ -12,6 +12,7 @@ import (
 )
 
 // Represents a lab account.
+// Latest API Version: 2018-10-15.
 type LabAccount struct {
 	pulumi.CustomResourceState
 

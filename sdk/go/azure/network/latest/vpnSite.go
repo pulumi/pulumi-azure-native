@@ -12,6 +12,7 @@ import (
 )
 
 // VpnSite Resource.
+// Latest API Version: 2020-07-01.
 type VpnSite struct {
 	pulumi.CustomResourceState
 

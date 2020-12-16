@@ -12,6 +12,7 @@ import (
 )
 
 // Information about the connection monitor.
+// Latest API Version: 2020-07-01.
 type ConnectionMonitor struct {
 	pulumi.CustomResourceState
 

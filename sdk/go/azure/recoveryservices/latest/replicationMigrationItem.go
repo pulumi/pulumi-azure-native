@@ -12,6 +12,7 @@ import (
 )
 
 // Migration item.
+// Latest API Version: 2018-07-10.
 type ReplicationMigrationItem struct {
 	pulumi.CustomResourceState
 

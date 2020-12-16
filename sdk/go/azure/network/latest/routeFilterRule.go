@@ -12,6 +12,7 @@ import (
 )
 
 // Route Filter Rule Resource.
+// Latest API Version: 2020-07-01.
 type RouteFilterRule struct {
 	pulumi.CustomResourceState
 

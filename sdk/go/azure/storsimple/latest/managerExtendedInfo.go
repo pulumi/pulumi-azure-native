@@ -12,6 +12,7 @@ import (
 )
 
 // The extended info of the manager.
+// Latest API Version: 2017-06-01.
 type ManagerExtendedInfo struct {
 	pulumi.CustomResourceState
 

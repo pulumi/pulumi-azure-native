@@ -12,6 +12,7 @@ import (
 )
 
 // Description of Rule Resource.
+// Latest API Version: 2017-04-01.
 type Rule struct {
 	pulumi.CustomResourceState
 

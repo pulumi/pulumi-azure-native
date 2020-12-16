@@ -12,6 +12,7 @@ import (
 )
 
 // The integration account session.
+// Latest API Version: 2019-05-01.
 type IntegrationAccountSession struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the connection.
+// Latest API Version: 2015-10-31.
 type Connection struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB container.
+// Latest API Version: 2020-09-01.
 type SqlResourceSqlContainer struct {
 	pulumi.CustomResourceState
 

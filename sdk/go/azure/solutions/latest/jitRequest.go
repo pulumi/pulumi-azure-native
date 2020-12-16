@@ -12,6 +12,7 @@ import (
 )
 
 // Information about JIT request definition.
+// Latest API Version: 2019-07-01.
 type JitRequest struct {
 	pulumi.CustomResourceState
 

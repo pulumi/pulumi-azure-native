@@ -12,6 +12,7 @@ import (
 )
 
 // A schedule.
+// Latest API Version: 2018-09-15.
 type Schedule struct {
 	pulumi.CustomResourceState
 

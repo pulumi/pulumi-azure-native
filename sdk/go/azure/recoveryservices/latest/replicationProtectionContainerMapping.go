@@ -12,6 +12,7 @@ import (
 )
 
 // Protection container mapping object.
+// Latest API Version: 2018-07-10.
 type ReplicationProtectionContainerMapping struct {
 	pulumi.CustomResourceState
 

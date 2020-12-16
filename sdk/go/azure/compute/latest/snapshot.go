@@ -12,6 +12,7 @@ import (
 )
 
 // Snapshot resource.
+// Latest API Version: 2020-06-30.
 type Snapshot struct {
 	pulumi.CustomResourceState
 

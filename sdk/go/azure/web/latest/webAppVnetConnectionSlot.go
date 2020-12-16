@@ -12,6 +12,7 @@ import (
 )
 
 // Virtual Network information contract.
+// Latest API Version: 2020-09-01.
 type WebAppVnetConnectionSlot struct {
 	pulumi.CustomResourceState
 

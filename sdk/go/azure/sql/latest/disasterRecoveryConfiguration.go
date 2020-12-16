@@ -12,6 +12,7 @@ import (
 )
 
 // Represents a disaster recovery configuration.
+// Latest API Version: 2014-04-01.
 type DisasterRecoveryConfiguration struct {
 	pulumi.CustomResourceState
 

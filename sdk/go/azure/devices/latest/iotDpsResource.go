@@ -12,6 +12,7 @@ import (
 )
 
 // The description of the provisioning service.
+// Latest API Version: 2020-03-01.
 type IotDpsResource struct {
 	pulumi.CustomResourceState
 

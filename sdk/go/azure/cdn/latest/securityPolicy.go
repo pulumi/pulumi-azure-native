@@ -12,6 +12,7 @@ import (
 )
 
 // SecurityPolicy association for AzureFrontDoor profile
+// Latest API Version: 2020-09-01.
 type SecurityPolicy struct {
 	pulumi.CustomResourceState
 

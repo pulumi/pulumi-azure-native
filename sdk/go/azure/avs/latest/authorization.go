@@ -12,6 +12,7 @@ import (
 )
 
 // ExpressRoute Circuit Authorization
+// Latest API Version: 2020-03-20.
 type Authorization struct {
 	pulumi.CustomResourceState
 

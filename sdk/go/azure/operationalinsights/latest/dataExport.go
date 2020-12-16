@@ -12,6 +12,7 @@ import (
 )
 
 // The top level data export resource container.
+// Latest API Version: 2020-08-01.
 type DataExport struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Network profile resource.
+// Latest API Version: 2020-07-01.
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 

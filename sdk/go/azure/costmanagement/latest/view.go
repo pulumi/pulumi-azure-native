@@ -12,6 +12,7 @@ import (
 )
 
 // States and configurations of Cost Analysis.
+// Latest API Version: 2020-06-01.
 type View struct {
 	pulumi.CustomResourceState
 

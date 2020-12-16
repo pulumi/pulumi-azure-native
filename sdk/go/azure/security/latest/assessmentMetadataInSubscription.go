@@ -12,6 +12,7 @@ import (
 )
 
 // Security assessment metadata
+// Latest API Version: 2020-01-01.
 type AssessmentMetadataInSubscription struct {
 	pulumi.CustomResourceState
 

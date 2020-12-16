@@ -12,6 +12,7 @@ import (
 )
 
 // NetApp account resource
+// Latest API Version: 2020-08-01.
 type Account struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Registered Server resource.
+// Latest API Version: 2020-09-01.
 type RegisteredServer struct {
 	pulumi.CustomResourceState
 

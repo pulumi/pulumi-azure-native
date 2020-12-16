@@ -12,6 +12,7 @@ import (
 )
 
 // The device security group resource
+// Latest API Version: 2019-08-01.
 type DeviceSecurityGroup struct {
 	pulumi.CustomResourceState
 

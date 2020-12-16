@@ -12,6 +12,7 @@ import (
 )
 
 // The customer's ASN that is registered by the peering service provider.
+// Latest API Version: 2020-10-01.
 type RegisteredAsn struct {
 	pulumi.CustomResourceState
 

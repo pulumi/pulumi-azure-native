@@ -12,6 +12,7 @@ import (
 )
 
 // The order details.
+// Latest API Version: 2019-08-01.
 type Order struct {
 	pulumi.CustomResourceState
 

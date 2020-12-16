@@ -12,6 +12,7 @@ import (
 )
 
 // The remediation definition.
+// Latest API Version: 2019-07-01.
 type RemediationAtSubscription struct {
 	pulumi.CustomResourceState
 

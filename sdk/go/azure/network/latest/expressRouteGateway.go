@@ -12,6 +12,7 @@ import (
 )
 
 // ExpressRoute gateway resource.
+// Latest API Version: 2020-07-01.
 type ExpressRouteGateway struct {
 	pulumi.CustomResourceState
 

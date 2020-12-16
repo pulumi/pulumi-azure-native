@@ -12,6 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB database account.
+// Latest API Version: 2020-09-01.
 type DatabaseAccount struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Agent Pool.
+// Latest API Version: 2020-11-01.
 type AgentPool struct {
 	pulumi.CustomResourceState
 

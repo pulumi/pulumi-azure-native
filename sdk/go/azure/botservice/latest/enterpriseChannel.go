@@ -12,6 +12,7 @@ import (
 )
 
 // Enterprise Channel resource definition
+// Latest API Version: 2018-07-12.
 type EnterpriseChannel struct {
 	pulumi.CustomResourceState
 

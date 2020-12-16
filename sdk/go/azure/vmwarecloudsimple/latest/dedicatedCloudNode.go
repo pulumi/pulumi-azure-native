@@ -12,6 +12,7 @@ import (
 )
 
 // Dedicated cloud node model
+// Latest API Version: 2019-04-01.
 type DedicatedCloudNode struct {
 	pulumi.CustomResourceState
 

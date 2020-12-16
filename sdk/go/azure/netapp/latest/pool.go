@@ -12,6 +12,7 @@ import (
 )
 
 // Capacity pool resource
+// Latest API Version: 2020-08-01.
 type Pool struct {
 	pulumi.CustomResourceState
 

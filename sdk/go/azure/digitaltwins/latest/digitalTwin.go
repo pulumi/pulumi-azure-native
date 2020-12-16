@@ -12,6 +12,7 @@ import (
 )
 
 // The description of the DigitalTwins service.
+// Latest API Version: 2020-10-31.
 type DigitalTwin struct {
 	pulumi.CustomResourceState
 

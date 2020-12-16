@@ -12,6 +12,7 @@ import (
 )
 
 // Response to put/get patch schedules for Redis cache.
+// Latest API Version: 2020-06-01.
 type PatchSchedule struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // SSL certificate purchase order.
+// Latest API Version: 2020-09-01.
 type AppServiceCertificateOrder struct {
 	pulumi.CustomResourceState
 

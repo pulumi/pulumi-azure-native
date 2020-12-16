@@ -12,6 +12,7 @@ import (
 )
 
 // Challenge-Handshake Authentication Protocol (CHAP) setting
+// Latest API Version: 2016-10-01.
 type ChapSetting struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // EnterpriseKnowledgeGraph resource definition
+// Latest API Version: 2018-12-03.
 type EnterpriseKnowledgeGraph struct {
 	pulumi.CustomResourceState
 

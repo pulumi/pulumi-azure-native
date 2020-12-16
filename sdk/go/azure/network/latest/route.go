@@ -12,6 +12,7 @@ import (
 )
 
 // Route resource.
+// Latest API Version: 2020-07-01.
 type Route struct {
 	pulumi.CustomResourceState
 

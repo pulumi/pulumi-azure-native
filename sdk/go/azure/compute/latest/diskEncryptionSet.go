@@ -12,6 +12,7 @@ import (
 )
 
 // disk encryption set resource.
+// Latest API Version: 2020-06-30.
 type DiskEncryptionSet struct {
 	pulumi.CustomResourceState
 

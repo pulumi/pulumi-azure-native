@@ -12,6 +12,7 @@ import (
 )
 
 // The lock information.
+// Latest API Version: 2016-09-01.
 type ManagementLockAtResourceLevel struct {
 	pulumi.CustomResourceState
 

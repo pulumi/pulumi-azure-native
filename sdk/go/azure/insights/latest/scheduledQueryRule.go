@@ -12,6 +12,7 @@ import (
 )
 
 // The Log Search Rule resource.
+// Latest API Version: 2018-04-16.
 type ScheduledQueryRule struct {
 	pulumi.CustomResourceState
 

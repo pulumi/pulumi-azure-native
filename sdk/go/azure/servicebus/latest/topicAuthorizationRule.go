@@ -12,6 +12,7 @@ import (
 )
 
 // Description of a namespace authorization rule.
+// Latest API Version: 2017-04-01.
 type TopicAuthorizationRule struct {
 	pulumi.CustomResourceState
 

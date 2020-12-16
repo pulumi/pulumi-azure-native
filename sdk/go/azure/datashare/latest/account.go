@@ -12,6 +12,7 @@ import (
 )
 
 // An account data transfer object.
+// Latest API Version: 2019-11-01.
 type Account struct {
 	pulumi.CustomResourceState
 

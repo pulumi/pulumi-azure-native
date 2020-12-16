@@ -12,6 +12,7 @@ import (
 )
 
 // Information about managed application definition.
+// Latest API Version: 2019-07-01.
 type ApplicationDefinition struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // A PostgreSQL Server key.
+// Latest API Version: 2020-01-01.
 type ServerKey struct {
 	pulumi.CustomResourceState
 

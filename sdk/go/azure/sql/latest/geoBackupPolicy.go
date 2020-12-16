@@ -12,6 +12,7 @@ import (
 )
 
 // A database geo backup policy.
+// Latest API Version: 2014-04-01.
 type GeoBackupPolicy struct {
 	pulumi.CustomResourceState
 

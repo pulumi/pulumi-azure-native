@@ -12,6 +12,7 @@ import (
 )
 
 // Base class for backup ProtectionIntent.
+// Latest API Version: 2017-07-01.
 type ProtectionIntent struct {
 	pulumi.CustomResourceState
 

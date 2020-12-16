@@ -12,6 +12,7 @@ import (
 )
 
 // The storage domain.
+// Latest API Version: 2016-10-01.
 type StorageDomain struct {
 	pulumi.CustomResourceState
 

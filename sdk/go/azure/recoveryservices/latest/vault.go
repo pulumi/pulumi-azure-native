@@ -12,6 +12,7 @@ import (
 )
 
 // Resource information, as returned by the resource provider.
+// Latest API Version: 2016-06-01.
 type Vault struct {
 	pulumi.CustomResourceState
 

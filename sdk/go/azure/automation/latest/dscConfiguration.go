@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the configuration type.
+// Latest API Version: 2015-10-31.
 type DscConfiguration struct {
 	pulumi.CustomResourceState
 

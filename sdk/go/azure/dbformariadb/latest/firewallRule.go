@@ -12,6 +12,7 @@ import (
 )
 
 // Represents a server firewall rule.
+// Latest API Version: 2018-06-01.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 

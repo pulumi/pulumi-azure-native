@@ -12,6 +12,7 @@ import (
 )
 
 // Properties of an artifact source.
+// Latest API Version: 2018-09-15.
 type ArtifactSource struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // The top level Log Analytics cluster resource container.
+// Latest API Version: 2020-10-01.
 type Cluster struct {
 	pulumi.CustomResourceState
 

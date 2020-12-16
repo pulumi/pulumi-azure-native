@@ -12,6 +12,7 @@ import (
 )
 
 // Virtual Appliance Site resource.
+// Latest API Version: 2020-07-01.
 type VirtualHubBgpConnection struct {
 	pulumi.CustomResourceState
 

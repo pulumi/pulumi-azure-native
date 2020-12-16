@@ -12,6 +12,7 @@ import (
 )
 
 // Properties that define a favorite that is associated to an Application Insights component.
+// Latest API Version: 2015-05-01.
 type Favorite struct {
 	pulumi.CustomResourceState
 

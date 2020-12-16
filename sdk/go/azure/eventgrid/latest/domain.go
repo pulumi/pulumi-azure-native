@@ -12,6 +12,7 @@ import (
 )
 
 // EventGrid Domain.
+// Latest API Version: 2020-06-01.
 type Domain struct {
 	pulumi.CustomResourceState
 

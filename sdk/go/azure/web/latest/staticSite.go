@@ -12,6 +12,7 @@ import (
 )
 
 // Static Site ARM resource.
+// Latest API Version: 2020-09-01.
 type StaticSite struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Class representing a database principal assignment.
+// Latest API Version: 2020-09-18.
 type DatabasePrincipalAssignment struct {
 	pulumi.CustomResourceState
 

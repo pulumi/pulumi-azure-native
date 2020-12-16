@@ -12,6 +12,7 @@ import (
 )
 
 // A Content Key Policy resource.
+// Latest API Version: 2020-05-01.
 type ContentKeyPolicy struct {
 	pulumi.CustomResourceState
 

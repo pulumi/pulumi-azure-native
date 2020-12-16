@@ -12,6 +12,7 @@ import (
 )
 
 // A single API Management service resource in List or Get response.
+// Latest API Version: 2019-12-01.
 type ApiManagementService struct {
 	pulumi.CustomResourceState
 

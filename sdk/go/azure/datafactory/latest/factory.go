@@ -12,6 +12,7 @@ import (
 )
 
 // Factory resource type.
+// Latest API Version: 2018-06-01.
 type Factory struct {
 	pulumi.CustomResourceState
 

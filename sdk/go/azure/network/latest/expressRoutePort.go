@@ -12,6 +12,7 @@ import (
 )
 
 // ExpressRoutePort resource definition.
+// Latest API Version: 2020-07-01.
 type ExpressRoutePort struct {
 	pulumi.CustomResourceState
 

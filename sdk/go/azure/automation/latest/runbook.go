@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the runbook type.
+// Latest API Version: 2018-06-30.
 type Runbook struct {
 	pulumi.CustomResourceState
 

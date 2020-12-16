@@ -12,6 +12,7 @@ import (
 )
 
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+// Latest API Version: 2016-03-01.
 type Input struct {
 	pulumi.CustomResourceState
 

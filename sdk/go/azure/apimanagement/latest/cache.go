@@ -12,6 +12,7 @@ import (
 )
 
 // Cache details.
+// Latest API Version: 2019-12-01.
 type Cache struct {
 	pulumi.CustomResourceState
 

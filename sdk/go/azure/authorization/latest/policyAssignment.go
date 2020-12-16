@@ -12,6 +12,7 @@ import (
 )
 
 // The policy assignment.
+// Latest API Version: 2020-09-01.
 type PolicyAssignment struct {
 	pulumi.CustomResourceState
 

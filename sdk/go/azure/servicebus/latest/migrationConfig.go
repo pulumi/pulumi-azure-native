@@ -12,6 +12,7 @@ import (
 )
 
 // Single item in List or Get Migration Config operation
+// Latest API Version: 2017-04-01.
 type MigrationConfig struct {
 	pulumi.CustomResourceState
 

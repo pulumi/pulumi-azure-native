@@ -12,6 +12,7 @@ import (
 )
 
 // Private Endpoint Connection ARM resource.
+// Latest API Version: 2020-09-01.
 type WebAppPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

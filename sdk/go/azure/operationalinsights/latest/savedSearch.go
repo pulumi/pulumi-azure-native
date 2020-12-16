@@ -12,6 +12,7 @@ import (
 )
 
 // Value object for saved search results.
+// Latest API Version: 2020-08-01.
 type SavedSearch struct {
 	pulumi.CustomResourceState
 

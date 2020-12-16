@@ -12,6 +12,7 @@ import (
 )
 
 // Data Lake Analytics compute policy information.
+// Latest API Version: 2016-11-01.
 type ComputePolicy struct {
 	pulumi.CustomResourceState
 

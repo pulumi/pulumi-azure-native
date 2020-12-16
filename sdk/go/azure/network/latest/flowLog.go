@@ -12,6 +12,7 @@ import (
 )
 
 // A flow log resource.
+// Latest API Version: 2020-07-01.
 type FlowLog struct {
 	pulumi.CustomResourceState
 

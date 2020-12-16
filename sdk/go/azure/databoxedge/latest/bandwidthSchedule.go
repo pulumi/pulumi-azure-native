@@ -12,6 +12,7 @@ import (
 )
 
 // The bandwidth schedule details.
+// Latest API Version: 2019-08-01.
 type BandwidthSchedule struct {
 	pulumi.CustomResourceState
 

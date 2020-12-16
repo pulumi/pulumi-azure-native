@@ -12,6 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB Cassandra table.
+// Latest API Version: 2020-09-01.
 type CassandraResourceCassandraTable struct {
 	pulumi.CustomResourceState
 

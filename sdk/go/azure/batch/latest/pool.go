@@ -12,6 +12,7 @@ import (
 )
 
 // Contains information about a pool.
+// Latest API Version: 2020-09-01.
 type Pool struct {
 	pulumi.CustomResourceState
 

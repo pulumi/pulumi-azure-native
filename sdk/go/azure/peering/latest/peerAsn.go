@@ -12,6 +12,7 @@ import (
 )
 
 // The essential information related to the peer's ASN.
+// Latest API Version: 2020-10-01.
 type PeerAsn struct {
 	pulumi.CustomResourceState
 

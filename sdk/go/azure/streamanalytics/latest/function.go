@@ -12,6 +12,7 @@ import (
 )
 
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+// Latest API Version: 2016-03-01.
 type Function struct {
 	pulumi.CustomResourceState
 

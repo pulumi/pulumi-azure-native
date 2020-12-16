@@ -12,6 +12,7 @@ import (
 )
 
 // Service End point policy resource.
+// Latest API Version: 2020-07-01.
 type ServiceEndpointPolicy struct {
 	pulumi.CustomResourceState
 

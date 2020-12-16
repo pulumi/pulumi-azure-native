@@ -12,6 +12,7 @@ import (
 )
 
 // Certificate signing request object
+// Latest API Version: 2015-08-01.
 type CertificateCsr struct {
 	pulumi.CustomResourceState
 

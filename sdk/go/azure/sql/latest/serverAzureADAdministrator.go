@@ -12,6 +12,7 @@ import (
 )
 
 // An server Active Directory Administrator.
+// Latest API Version: 2014-04-01.
 type ServerAzureADAdministrator struct {
 	pulumi.CustomResourceState
 

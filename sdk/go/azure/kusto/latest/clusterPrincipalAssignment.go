@@ -12,6 +12,7 @@ import (
 )
 
 // Class representing a cluster principal assignment.
+// Latest API Version: 2020-09-18.
 type ClusterPrincipalAssignment struct {
 	pulumi.CustomResourceState
 

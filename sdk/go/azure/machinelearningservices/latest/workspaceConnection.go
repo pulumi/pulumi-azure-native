@@ -12,6 +12,7 @@ import (
 )
 
 // Workspace connection.
+// Latest API Version: 2020-08-01.
 type WorkspaceConnection struct {
 	pulumi.CustomResourceState
 

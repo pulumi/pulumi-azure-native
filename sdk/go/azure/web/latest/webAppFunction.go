@@ -12,6 +12,7 @@ import (
 )
 
 // Function information.
+// Latest API Version: 2020-09-01.
 type WebAppFunction struct {
 	pulumi.CustomResourceState
 

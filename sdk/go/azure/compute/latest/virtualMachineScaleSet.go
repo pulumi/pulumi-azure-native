@@ -12,6 +12,7 @@ import (
 )
 
 // Describes a Virtual Machine Scale Set.
+// Latest API Version: 2020-06-01.
 type VirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
 

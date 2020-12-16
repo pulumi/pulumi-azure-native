@@ -12,6 +12,7 @@ import (
 )
 
 // The integration account partner.
+// Latest API Version: 2019-05-01.
 type IntegrationAccountPartner struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Hub resource.
+// Latest API Version: 2017-04-26.
 type Hub struct {
 	pulumi.CustomResourceState
 

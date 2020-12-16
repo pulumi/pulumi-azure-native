@@ -12,6 +12,7 @@ import (
 )
 
 // Data Lake Store virtual network rule information.
+// Latest API Version: 2016-11-01.
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 

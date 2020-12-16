@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the credential.
+// Latest API Version: 2015-10-31.
 type Credential struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // SpatialAnchorsAccount Response.
+// Latest API Version: 2020-05-01.
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
 

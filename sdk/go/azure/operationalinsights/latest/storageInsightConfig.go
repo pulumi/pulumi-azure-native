@@ -12,6 +12,7 @@ import (
 )
 
 // The top level storage insight resource container.
+// Latest API Version: 2020-08-01.
 type StorageInsightConfig struct {
 	pulumi.CustomResourceState
 

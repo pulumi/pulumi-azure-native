@@ -12,6 +12,7 @@ import (
 )
 
 // Issue Comment Contract details.
+// Latest API Version: 2019-12-01.
 type ApiIssueComment struct {
 	pulumi.CustomResourceState
 

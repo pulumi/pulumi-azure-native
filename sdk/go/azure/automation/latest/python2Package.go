@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the module type.
+// Latest API Version: 2018-06-30.
 type Python2Package struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Content type contract details.
+// Latest API Version: 2019-12-01.
 type ContentItem struct {
 	pulumi.CustomResourceState
 

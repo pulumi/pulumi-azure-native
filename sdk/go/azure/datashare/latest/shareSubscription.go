@@ -12,6 +12,7 @@ import (
 )
 
 // A share subscription data transfer object.
+// Latest API Version: 2019-11-01.
 type ShareSubscription struct {
 	pulumi.CustomResourceState
 

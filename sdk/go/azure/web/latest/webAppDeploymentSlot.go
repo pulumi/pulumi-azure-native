@@ -12,6 +12,7 @@ import (
 )
 
 // User credentials used for publishing activity.
+// Latest API Version: 2020-09-01.
 type WebAppDeploymentSlot struct {
 	pulumi.CustomResourceState
 

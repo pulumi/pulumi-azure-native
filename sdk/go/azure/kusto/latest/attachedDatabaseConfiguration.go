@@ -12,6 +12,7 @@ import (
 )
 
 // Class representing an attached database configuration.
+// Latest API Version: 2020-09-18.
 type AttachedDatabaseConfiguration struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Domain ownership Identifier.
+// Latest API Version: 2020-09-01.
 type DomainOwnershipIdentifier struct {
 	pulumi.CustomResourceState
 

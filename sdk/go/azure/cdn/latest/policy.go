@@ -12,6 +12,7 @@ import (
 )
 
 // Defines web application firewall policy for Azure CDN.
+// Latest API Version: 2020-09-01.
 type Policy struct {
 	pulumi.CustomResourceState
 

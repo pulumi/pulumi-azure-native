@@ -12,6 +12,7 @@ import (
 )
 
 // Batch AI Workspace information.
+// Latest API Version: 2018-05-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 

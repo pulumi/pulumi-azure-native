@@ -12,6 +12,7 @@ import (
 )
 
 // The storage account.
+// Latest API Version: 2019-06-01.
 type StorageAccount struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Represents a database elastic pool.
+// Latest API Version: 2014-04-01.
 type ElasticPool struct {
 	pulumi.CustomResourceState
 

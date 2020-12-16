@@ -12,6 +12,7 @@ import (
 )
 
 // Integration runtime resource type.
+// Latest API Version: 2018-06-01.
 type IntegrationRuntime struct {
 	pulumi.CustomResourceState
 

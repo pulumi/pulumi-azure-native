@@ -12,6 +12,8 @@ import (
 )
 
 // The cluster resource
+//
+// Latest API Version: 2020-03-01.
 type Cluster struct {
 	pulumi.CustomResourceState
 

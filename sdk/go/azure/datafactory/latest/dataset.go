@@ -12,6 +12,7 @@ import (
 )
 
 // Dataset resource type.
+// Latest API Version: 2018-06-01.
 type Dataset struct {
 	pulumi.CustomResourceState
 

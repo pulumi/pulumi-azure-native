@@ -12,6 +12,7 @@ import (
 )
 
 // The Backup Schedule Group
+// Latest API Version: 2016-10-01.
 type BackupScheduleGroup struct {
 	pulumi.CustomResourceState
 

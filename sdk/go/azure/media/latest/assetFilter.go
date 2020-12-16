@@ -12,6 +12,7 @@ import (
 )
 
 // An Asset Filter.
+// Latest API Version: 2020-05-01.
 type AssetFilter struct {
 	pulumi.CustomResourceState
 

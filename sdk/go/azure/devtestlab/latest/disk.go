@@ -12,6 +12,7 @@ import (
 )
 
 // A Disk.
+// Latest API Version: 2018-09-15.
 type Disk struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // The IoT Central application.
+// Latest API Version: 2018-09-01.
 type App struct {
 	pulumi.CustomResourceState
 

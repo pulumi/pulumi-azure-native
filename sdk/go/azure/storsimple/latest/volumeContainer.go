@@ -12,6 +12,7 @@ import (
 )
 
 // The volume container.
+// Latest API Version: 2017-06-01.
 type VolumeContainer struct {
 	pulumi.CustomResourceState
 

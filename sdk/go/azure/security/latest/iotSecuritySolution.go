@@ -12,6 +12,7 @@ import (
 )
 
 // IoT Security solution configuration and resource information.
+// Latest API Version: 2019-08-01.
 type IotSecuritySolution struct {
 	pulumi.CustomResourceState
 

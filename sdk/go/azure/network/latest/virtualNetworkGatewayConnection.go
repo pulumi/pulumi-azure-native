@@ -12,6 +12,7 @@ import (
 )
 
 // A common class for general resource information.
+// Latest API Version: 2020-07-01.
 type VirtualNetworkGatewayConnection struct {
 	pulumi.CustomResourceState
 

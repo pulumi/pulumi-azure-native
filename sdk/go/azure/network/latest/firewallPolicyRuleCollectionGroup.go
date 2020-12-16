@@ -12,6 +12,7 @@ import (
 )
 
 // Rule Collection Group resource.
+// Latest API Version: 2020-07-01.
 type FirewallPolicyRuleCollectionGroup struct {
 	pulumi.CustomResourceState
 

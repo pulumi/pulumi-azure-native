@@ -12,6 +12,7 @@ import (
 )
 
 // An Application Insights web test definition.
+// Latest API Version: 2015-05-01.
 type WebTest struct {
 	pulumi.CustomResourceState
 

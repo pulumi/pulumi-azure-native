@@ -12,6 +12,7 @@ import (
 )
 
 // The policy set definition.
+// Latest API Version: 2020-09-01.
 type PolicySetDefinition struct {
 	pulumi.CustomResourceState
 

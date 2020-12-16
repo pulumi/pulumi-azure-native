@@ -12,6 +12,7 @@ import (
 )
 
 // Route table resource.
+// Latest API Version: 2020-07-01.
 type RouteTable struct {
 	pulumi.CustomResourceState
 

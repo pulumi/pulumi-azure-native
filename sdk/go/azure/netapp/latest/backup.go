@@ -12,6 +12,7 @@ import (
 )
 
 // Backup of a Volume
+// Latest API Version: 2020-08-01.
 type Backup struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // An object that represents a machine learning workspace.
+// Latest API Version: 2020-08-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB MongoDB collection.
+// Latest API Version: 2016-03-31.
 type DatabaseAccountMongoDBCollection struct {
 	pulumi.CustomResourceState
 

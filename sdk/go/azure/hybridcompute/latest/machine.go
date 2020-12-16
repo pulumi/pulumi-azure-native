@@ -12,6 +12,7 @@ import (
 )
 
 // Describes a hybrid machine.
+// Latest API Version: 2020-08-02.
 type Machine struct {
 	pulumi.CustomResourceState
 

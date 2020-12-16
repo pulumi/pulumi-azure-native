@@ -12,6 +12,7 @@ import (
 )
 
 // Domain Topic.
+// Latest API Version: 2020-06-01.
 type DomainTopic struct {
 	pulumi.CustomResourceState
 

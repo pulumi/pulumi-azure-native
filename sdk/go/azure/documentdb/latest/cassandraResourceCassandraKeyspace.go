@@ -12,6 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB Cassandra keyspace.
+// Latest API Version: 2020-09-01.
 type CassandraResourceCassandraKeyspace struct {
 	pulumi.CustomResourceState
 

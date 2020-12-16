@@ -12,6 +12,7 @@ import (
 )
 
 // Cloud Endpoint object.
+// Latest API Version: 2020-09-01.
 type CloudEndpoint struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // Definition of the watcher type.
+// Latest API Version: 2015-10-31.
 type Watcher struct {
 	pulumi.CustomResourceState
 

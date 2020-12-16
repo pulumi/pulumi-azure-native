@@ -12,6 +12,7 @@ import (
 )
 
 // The File Share.
+// Latest API Version: 2016-10-01.
 type FileShare struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ import (
 )
 
 // A virtual network.
+// Latest API Version: 2018-09-15.
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 

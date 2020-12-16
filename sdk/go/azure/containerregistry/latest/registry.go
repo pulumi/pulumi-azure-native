@@ -12,6 +12,7 @@ import (
 )
 
 // An object that represents a container registry.
+// Latest API Version: 2019-05-01.
 type Registry struct {
 	pulumi.CustomResourceState
 

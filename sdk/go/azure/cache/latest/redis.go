@@ -12,6 +12,7 @@ import (
 )
 
 // A single Redis item in List or Get Operation.
+// Latest API Version: 2020-06-01.
 type Redis struct {
 	pulumi.CustomResourceState
 

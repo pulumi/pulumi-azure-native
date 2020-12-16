@@ -12,6 +12,7 @@ import (
 )
 
 // The integration service environment.
+// Latest API Version: 2019-05-01.
 type IntegrationServiceEnvironment struct {
 	pulumi.CustomResourceState
 

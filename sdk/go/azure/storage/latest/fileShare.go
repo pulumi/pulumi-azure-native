@@ -12,6 +12,7 @@ import (
 )
 
 // Properties of the file share, including Id, resource name, resource type, Etag.
+// Latest API Version: 2019-06-01.
 type FileShare struct {
 	pulumi.CustomResourceState
 
