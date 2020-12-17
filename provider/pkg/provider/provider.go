@@ -650,7 +650,7 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 	// Serialize and return RPC outputs
 	checkpoint, err := plugin.MarshalProperties(
 		obj,
-		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepUnknowns: true, SkipNulls: true},
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {
 		return nil, err
@@ -735,7 +735,7 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 	// Serialize and return RPC outputs.
 	checkpoint, err := plugin.MarshalProperties(
 		obj,
-		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepUnknowns: true, SkipNulls: true},
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {
 		return nil, err
@@ -831,7 +831,7 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 	// Serialize and return RPC outputs.
 	checkpoint, err := plugin.MarshalProperties(
 		obj,
-		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepUnknowns: true, SkipNulls: true},
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {
 		return nil, err
@@ -1374,7 +1374,7 @@ func buildUserAgent(partnerID string) (userAgent string) {
 // checkpointObject puts inputs in the `__inputs` field of the state.
 func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
 	object := resource.NewPropertyMapFromMap(outputs)
-	object["__inputs"] = resource.NewObjectProperty(inputs)
+	object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
 	return object
 
 }
