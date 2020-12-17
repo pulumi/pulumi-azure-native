@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 {
     /// <summary>
-    /// Description of topic resource.
+    /// Description of NetworkRuleSet resource.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:servicebus/v20180101preview:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : Pulumi.CustomResource

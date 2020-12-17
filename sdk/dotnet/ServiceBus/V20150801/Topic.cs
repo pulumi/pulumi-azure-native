@@ -178,6 +178,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Topic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

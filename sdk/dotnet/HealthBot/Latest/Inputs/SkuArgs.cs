@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.HealthBot.Latest.Inputs
         /// The name of the HealthBot SKU
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.HealthBot.Latest.SkuName> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.HealthBot.Latest.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 

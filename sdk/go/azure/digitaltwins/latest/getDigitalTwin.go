@@ -31,14 +31,19 @@ type LookupDigitalTwinResult struct {
 	HostName string `pulumi:"hostName"`
 	// The resource identifier.
 	Id string `pulumi:"id"`
+	// The managed identity for the DigitalTwinsInstance.
+	Identity *DigitalTwinsIdentityResponse `pulumi:"identity"`
 	// Time when DigitalTwinsInstance was updated.
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The resource name.
-	Name string `pulumi:"name"`
+	Name                       string                              `pulumi:"name"`
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Public network access for the DigitalTwinsInstance.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

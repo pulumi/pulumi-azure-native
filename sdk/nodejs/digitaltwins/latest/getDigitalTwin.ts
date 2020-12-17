@@ -47,6 +47,10 @@ export interface GetDigitalTwinResult {
      */
     readonly id: string;
     /**
+     * The managed identity for the DigitalTwinsInstance.
+     */
+    readonly identity?: outputs.digitaltwins.latest.DigitalTwinsIdentityResponse;
+    /**
      * Time when DigitalTwinsInstance was updated.
      */
     readonly lastUpdatedTime: string;
@@ -58,10 +62,15 @@ export interface GetDigitalTwinResult {
      * The resource name.
      */
     readonly name: string;
+    readonly privateEndpointConnections?: outputs.digitaltwins.latest.PrivateEndpointConnectionResponse[];
     /**
      * The provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * Public network access for the DigitalTwinsInstance.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * The resource tags.
      */

@@ -22,13 +22,21 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Outputs
         /// </summary>
         public readonly string? AccessKey2;
         /// <summary>
+        /// Specifies the authentication type being used for connecting to the endpoint.
+        /// </summary>
+        public readonly string? AuthenticationType;
+        /// <summary>
         /// Time when the Endpoint was added to DigitalTwinsInstance.
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
-        /// Dead letter storage secret. Will be obfuscated during read.
+        /// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
         /// </summary>
         public readonly string? DeadLetterSecret;
+        /// <summary>
+        /// Dead letter storage URL for identity-based authentication.
+        /// </summary>
+        public readonly string? DeadLetterUri;
         /// <summary>
         /// The type of Digital Twins endpoint
         /// Expected value is 'EventGrid'.
@@ -49,9 +57,13 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Outputs
 
             string? accessKey2,
 
+            string? authenticationType,
+
             string createdTime,
 
             string? deadLetterSecret,
+
+            string? deadLetterUri,
 
             string endpointType,
 
@@ -61,8 +73,10 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Outputs
         {
             AccessKey1 = accessKey1;
             AccessKey2 = accessKey2;
+            AuthenticationType = authenticationType;
             CreatedTime = createdTime;
             DeadLetterSecret = deadLetterSecret;
+            DeadLetterUri = deadLetterUri;
             EndpointType = endpointType;
             ProvisioningState = provisioningState;
             TopicEndpoint = topicEndpoint;

@@ -81,6 +81,18 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Inputs
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        [Input("securityOperators")]
+        private InputList<string>? _securityOperators;
+
+        /// <summary>
+        /// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+        /// </summary>
+        public InputList<string> SecurityOperators
+        {
+            get => _securityOperators ?? (_securityOperators = new InputList<string>());
+            set => _securityOperators = value;
+        }
+
         /// <summary>
         /// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
         /// </summary>

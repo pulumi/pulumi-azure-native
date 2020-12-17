@@ -20,7 +20,7 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, backup_id=None, baremetal_tenant_id=None, creation_token=None, data_protection=None, export_policy=None, file_system_id=None, id=None, is_restoring=None, kerberos_enabled=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, security_style=None, service_level=None, snapshot_directory_visible=None, snapshot_id=None, subnet_id=None, tags=None, throughput_mibps=None, type=None, usage_threshold=None, volume_type=None):
+    def __init__(__self__, backup_id=None, baremetal_tenant_id=None, creation_token=None, data_protection=None, export_policy=None, file_system_id=None, id=None, is_restoring=None, kerberos_enabled=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, security_style=None, service_level=None, smb_continuously_available=None, smb_encryption=None, snapshot_directory_visible=None, snapshot_id=None, subnet_id=None, tags=None, throughput_mibps=None, type=None, usage_threshold=None, volume_type=None):
         if backup_id and not isinstance(backup_id, str):
             raise TypeError("Expected argument 'backup_id' to be a str")
         pulumi.set(__self__, "backup_id", backup_id)
@@ -69,6 +69,12 @@ class GetVolumeResult:
         if service_level and not isinstance(service_level, str):
             raise TypeError("Expected argument 'service_level' to be a str")
         pulumi.set(__self__, "service_level", service_level)
+        if smb_continuously_available and not isinstance(smb_continuously_available, bool):
+            raise TypeError("Expected argument 'smb_continuously_available' to be a bool")
+        pulumi.set(__self__, "smb_continuously_available", smb_continuously_available)
+        if smb_encryption and not isinstance(smb_encryption, bool):
+            raise TypeError("Expected argument 'smb_encryption' to be a bool")
+        pulumi.set(__self__, "smb_encryption", smb_encryption)
         if snapshot_directory_visible and not isinstance(snapshot_directory_visible, bool):
             raise TypeError("Expected argument 'snapshot_directory_visible' to be a bool")
         pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
@@ -223,6 +229,22 @@ class GetVolumeResult:
         return pulumi.get(self, "service_level")
 
     @property
+    @pulumi.getter(name="smbContinuouslyAvailable")
+    def smb_continuously_available(self) -> Optional[bool]:
+        """
+        Enables continuously available share property for smb volume. Only applicable for SMB volume
+        """
+        return pulumi.get(self, "smb_continuously_available")
+
+    @property
+    @pulumi.getter(name="smbEncryption")
+    def smb_encryption(self) -> Optional[bool]:
+        """
+        Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+        """
+        return pulumi.get(self, "smb_encryption")
+
+    @property
     @pulumi.getter(name="snapshotDirectoryVisible")
     def snapshot_directory_visible(self) -> Optional[bool]:
         """
@@ -306,6 +328,8 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             provisioning_state=self.provisioning_state,
             security_style=self.security_style,
             service_level=self.service_level,
+            smb_continuously_available=self.smb_continuously_available,
+            smb_encryption=self.smb_encryption,
             snapshot_directory_visible=self.snapshot_directory_visible,
             snapshot_id=self.snapshot_id,
             subnet_id=self.subnet_id,
@@ -357,6 +381,8 @@ def get_volume(account_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         security_style=__ret__.security_style,
         service_level=__ret__.service_level,
+        smb_continuously_available=__ret__.smb_continuously_available,
+        smb_encryption=__ret__.smb_encryption,
         snapshot_directory_visible=__ret__.snapshot_directory_visible,
         snapshot_id=__ret__.snapshot_id,
         subnet_id=__ret__.subnet_id,

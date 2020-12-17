@@ -27,7 +27,7 @@ class Account(pulumi.CustomResource):
                  __opts__=None):
         """
         NetApp account resource
-        Latest API Version: 2020-08-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -68,7 +68,7 @@ class Account(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-nextgen:netapp/latest:Account',

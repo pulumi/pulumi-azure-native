@@ -7,6 +7,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['DigitalTwin']
 
@@ -15,7 +18,10 @@ class DigitalTwin(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DigitalTwinsIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -24,11 +30,13 @@ class DigitalTwin(pulumi.CustomResource):
                  __opts__=None):
         """
         The description of the DigitalTwins service.
-        Latest API Version: 2020-10-31.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DigitalTwinsIdentityArgs']] identity: The managed identity for the DigitalTwinsInstance.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Public network access for the DigitalTwinsInstance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input[str] resource_name_: The name of the DigitalTwinsInstance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -50,9 +58,12 @@ class DigitalTwin(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['identity'] = identity
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['private_endpoint_connections'] = private_endpoint_connections
+            __props__['public_network_access'] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -66,7 +77,7 @@ class DigitalTwin(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:digitaltwins/v20200301preview:DigitalTwin"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201031:DigitalTwin")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:digitaltwins/v20200301preview:DigitalTwin"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201031:DigitalTwin"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201201:DigitalTwin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DigitalTwin, __self__).__init__(
             'azure-nextgen:digitaltwins/latest:DigitalTwin',
@@ -109,6 +120,14 @@ class DigitalTwin(pulumi.CustomResource):
         return pulumi.get(self, "host_name")
 
     @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.DigitalTwinsIdentityResponse']]:
+        """
+        The managed identity for the DigitalTwinsInstance.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
         """
@@ -133,12 +152,25 @@ class DigitalTwin(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]]:
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Public network access for the DigitalTwinsInstance.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter

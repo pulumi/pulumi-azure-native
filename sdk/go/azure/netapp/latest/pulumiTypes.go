@@ -32,6 +32,8 @@ type ActiveDirectory struct {
 	OrganizationalUnit *string `pulumi:"organizationalUnit"`
 	// Plain text password of Active Directory domain administrator, value is masked in the response
 	Password *string `pulumi:"password"`
+	// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+	SecurityOperators []string `pulumi:"securityOperators"`
 	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
 	ServerRootCACertificate *string `pulumi:"serverRootCACertificate"`
 	// The Active Directory site the service will limit Domain Controller discovery to
@@ -75,6 +77,8 @@ type ActiveDirectoryArgs struct {
 	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
 	// Plain text password of Active Directory domain administrator, value is masked in the response
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+	SecurityOperators pulumi.StringArrayInput `pulumi:"securityOperators"`
 	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
 	ServerRootCACertificate pulumi.StringPtrInput `pulumi:"serverRootCACertificate"`
 	// The Active Directory site the service will limit Domain Controller discovery to
@@ -187,6 +191,11 @@ func (o ActiveDirectoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+func (o ActiveDirectoryOutput) SecurityOperators() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDirectory) []string { return v.SecurityOperators }).(pulumi.StringArrayOutput)
+}
+
 // When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
 func (o ActiveDirectoryOutput) ServerRootCACertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.ServerRootCACertificate }).(pulumi.StringPtrOutput)
@@ -249,6 +258,8 @@ type ActiveDirectoryResponse struct {
 	OrganizationalUnit *string `pulumi:"organizationalUnit"`
 	// Plain text password of Active Directory domain administrator, value is masked in the response
 	Password *string `pulumi:"password"`
+	// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+	SecurityOperators []string `pulumi:"securityOperators"`
 	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
 	ServerRootCACertificate *string `pulumi:"serverRootCACertificate"`
 	// The Active Directory site the service will limit Domain Controller discovery to
@@ -296,6 +307,8 @@ type ActiveDirectoryResponseArgs struct {
 	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
 	// Plain text password of Active Directory domain administrator, value is masked in the response
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+	SecurityOperators pulumi.StringArrayInput `pulumi:"securityOperators"`
 	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
 	ServerRootCACertificate pulumi.StringPtrInput `pulumi:"serverRootCACertificate"`
 	// The Active Directory site the service will limit Domain Controller discovery to
@@ -410,6 +423,11 @@ func (o ActiveDirectoryResponseOutput) OrganizationalUnit() pulumi.StringPtrOutp
 // Plain text password of Active Directory domain administrator, value is masked in the response
 func (o ActiveDirectoryResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+func (o ActiveDirectoryResponseOutput) SecurityOperators() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDirectoryResponse) []string { return v.SecurityOperators }).(pulumi.StringArrayOutput)
 }
 
 // When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.

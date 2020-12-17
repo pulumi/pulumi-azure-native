@@ -58,6 +58,9 @@ func NewDigitalTwin(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20201031:DigitalTwin"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:digitaltwins/v20201201:DigitalTwin"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DigitalTwin

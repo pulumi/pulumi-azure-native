@@ -5,21 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getbot";
-export * from "./getgetbot";
+export * from "./bot";
+export * from "./getBot";
 
 // Export enums:
 export * from "../../types/enums/healthbot/latest";
 
 // Import resources to register:
-import { Getbot } from "./getbot";
+import { Bot } from "./bot";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:healthbot/latest:getbot":
-                return new Getbot(name, <any>undefined, { urn })
+            case "azure-nextgen:healthbot/latest:Bot":
+                return new Bot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

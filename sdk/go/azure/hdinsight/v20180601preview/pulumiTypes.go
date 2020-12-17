@@ -2900,6 +2900,8 @@ type ClusterCreateProperties struct {
 	ClusterDefinition *ClusterDefinition `pulumi:"clusterDefinition"`
 	// The version of the cluster.
 	ClusterVersion *string `pulumi:"clusterVersion"`
+	// The compute isolation properties.
+	ComputeIsolationProperties *ComputeIsolationProperties `pulumi:"computeIsolationProperties"`
 	// The compute profile.
 	ComputeProfile *ComputeProfile `pulumi:"computeProfile"`
 	// The disk encryption properties.
@@ -2939,6 +2941,8 @@ type ClusterCreatePropertiesArgs struct {
 	ClusterDefinition ClusterDefinitionPtrInput `pulumi:"clusterDefinition"`
 	// The version of the cluster.
 	ClusterVersion pulumi.StringPtrInput `pulumi:"clusterVersion"`
+	// The compute isolation properties.
+	ComputeIsolationProperties ComputeIsolationPropertiesPtrInput `pulumi:"computeIsolationProperties"`
 	// The compute profile.
 	ComputeProfile ComputeProfilePtrInput `pulumi:"computeProfile"`
 	// The disk encryption properties.
@@ -3049,6 +3053,11 @@ func (o ClusterCreatePropertiesOutput) ClusterVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCreateProperties) *string { return v.ClusterVersion }).(pulumi.StringPtrOutput)
 }
 
+// The compute isolation properties.
+func (o ClusterCreatePropertiesOutput) ComputeIsolationProperties() ComputeIsolationPropertiesPtrOutput {
+	return o.ApplyT(func(v ClusterCreateProperties) *ComputeIsolationProperties { return v.ComputeIsolationProperties }).(ComputeIsolationPropertiesPtrOutput)
+}
+
 // The compute profile.
 func (o ClusterCreatePropertiesOutput) ComputeProfile() ComputeProfilePtrOutput {
 	return o.ApplyT(func(v ClusterCreateProperties) *ComputeProfile { return v.ComputeProfile }).(ComputeProfilePtrOutput)
@@ -3135,6 +3144,16 @@ func (o ClusterCreatePropertiesPtrOutput) ClusterVersion() pulumi.StringPtrOutpu
 		}
 		return v.ClusterVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// The compute isolation properties.
+func (o ClusterCreatePropertiesPtrOutput) ComputeIsolationProperties() ComputeIsolationPropertiesPtrOutput {
+	return o.ApplyT(func(v *ClusterCreateProperties) *ComputeIsolationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeIsolationProperties
+	}).(ComputeIsolationPropertiesPtrOutput)
 }
 
 // The compute profile.
@@ -3629,6 +3648,8 @@ type ClusterGetPropertiesResponse struct {
 	ClusterState *string `pulumi:"clusterState"`
 	// The version of the cluster.
 	ClusterVersion *string `pulumi:"clusterVersion"`
+	// The compute isolation properties.
+	ComputeIsolationProperties *ComputeIsolationPropertiesResponse `pulumi:"computeIsolationProperties"`
 	// The compute profile.
 	ComputeProfile *ComputeProfileResponse `pulumi:"computeProfile"`
 	// The list of connectivity endpoints.
@@ -3680,6 +3701,8 @@ type ClusterGetPropertiesResponseArgs struct {
 	ClusterState pulumi.StringPtrInput `pulumi:"clusterState"`
 	// The version of the cluster.
 	ClusterVersion pulumi.StringPtrInput `pulumi:"clusterVersion"`
+	// The compute isolation properties.
+	ComputeIsolationProperties ComputeIsolationPropertiesResponsePtrInput `pulumi:"computeIsolationProperties"`
 	// The compute profile.
 	ComputeProfile ComputeProfileResponsePtrInput `pulumi:"computeProfile"`
 	// The list of connectivity endpoints.
@@ -3806,6 +3829,13 @@ func (o ClusterGetPropertiesResponseOutput) ClusterState() pulumi.StringPtrOutpu
 // The version of the cluster.
 func (o ClusterGetPropertiesResponseOutput) ClusterVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) *string { return v.ClusterVersion }).(pulumi.StringPtrOutput)
+}
+
+// The compute isolation properties.
+func (o ClusterGetPropertiesResponseOutput) ComputeIsolationProperties() ComputeIsolationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ClusterGetPropertiesResponse) *ComputeIsolationPropertiesResponse {
+		return v.ComputeIsolationProperties
+	}).(ComputeIsolationPropertiesResponsePtrOutput)
 }
 
 // The compute profile.
@@ -3938,6 +3968,16 @@ func (o ClusterGetPropertiesResponsePtrOutput) ClusterVersion() pulumi.StringPtr
 		}
 		return v.ClusterVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// The compute isolation properties.
+func (o ClusterGetPropertiesResponsePtrOutput) ComputeIsolationProperties() ComputeIsolationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ClusterGetPropertiesResponse) *ComputeIsolationPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeIsolationProperties
+	}).(ComputeIsolationPropertiesResponsePtrOutput)
 }
 
 // The compute profile.
@@ -4530,6 +4570,312 @@ func (o ClusterIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulum
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterIdentityResponseUserAssignedIdentities {
 		return vs[0].(map[string]ClusterIdentityResponseUserAssignedIdentities)[vs[1].(string)]
 	}).(ClusterIdentityResponseUserAssignedIdentitiesOutput)
+}
+
+// The compute isolation properties.
+type ComputeIsolationProperties struct {
+	// The flag indicates whether enable compute isolation or not.
+	EnableComputeIsolation *bool `pulumi:"enableComputeIsolation"`
+	// The host sku.
+	HostSku *string `pulumi:"hostSku"`
+}
+
+// ComputeIsolationPropertiesInput is an input type that accepts ComputeIsolationPropertiesArgs and ComputeIsolationPropertiesOutput values.
+// You can construct a concrete instance of `ComputeIsolationPropertiesInput` via:
+//
+//          ComputeIsolationPropertiesArgs{...}
+type ComputeIsolationPropertiesInput interface {
+	pulumi.Input
+
+	ToComputeIsolationPropertiesOutput() ComputeIsolationPropertiesOutput
+	ToComputeIsolationPropertiesOutputWithContext(context.Context) ComputeIsolationPropertiesOutput
+}
+
+// The compute isolation properties.
+type ComputeIsolationPropertiesArgs struct {
+	// The flag indicates whether enable compute isolation or not.
+	EnableComputeIsolation pulumi.BoolPtrInput `pulumi:"enableComputeIsolation"`
+	// The host sku.
+	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
+}
+
+func (ComputeIsolationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeIsolationProperties)(nil)).Elem()
+}
+
+func (i ComputeIsolationPropertiesArgs) ToComputeIsolationPropertiesOutput() ComputeIsolationPropertiesOutput {
+	return i.ToComputeIsolationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ComputeIsolationPropertiesArgs) ToComputeIsolationPropertiesOutputWithContext(ctx context.Context) ComputeIsolationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesOutput)
+}
+
+func (i ComputeIsolationPropertiesArgs) ToComputeIsolationPropertiesPtrOutput() ComputeIsolationPropertiesPtrOutput {
+	return i.ToComputeIsolationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeIsolationPropertiesArgs) ToComputeIsolationPropertiesPtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesOutput).ToComputeIsolationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ComputeIsolationPropertiesPtrInput is an input type that accepts ComputeIsolationPropertiesArgs, ComputeIsolationPropertiesPtr and ComputeIsolationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ComputeIsolationPropertiesPtrInput` via:
+//
+//          ComputeIsolationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeIsolationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToComputeIsolationPropertiesPtrOutput() ComputeIsolationPropertiesPtrOutput
+	ToComputeIsolationPropertiesPtrOutputWithContext(context.Context) ComputeIsolationPropertiesPtrOutput
+}
+
+type computeIsolationPropertiesPtrType ComputeIsolationPropertiesArgs
+
+func ComputeIsolationPropertiesPtr(v *ComputeIsolationPropertiesArgs) ComputeIsolationPropertiesPtrInput {
+	return (*computeIsolationPropertiesPtrType)(v)
+}
+
+func (*computeIsolationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeIsolationProperties)(nil)).Elem()
+}
+
+func (i *computeIsolationPropertiesPtrType) ToComputeIsolationPropertiesPtrOutput() ComputeIsolationPropertiesPtrOutput {
+	return i.ToComputeIsolationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *computeIsolationPropertiesPtrType) ToComputeIsolationPropertiesPtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesPtrOutput)
+}
+
+// The compute isolation properties.
+type ComputeIsolationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ComputeIsolationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeIsolationProperties)(nil)).Elem()
+}
+
+func (o ComputeIsolationPropertiesOutput) ToComputeIsolationPropertiesOutput() ComputeIsolationPropertiesOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesOutput) ToComputeIsolationPropertiesOutputWithContext(ctx context.Context) ComputeIsolationPropertiesOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesOutput) ToComputeIsolationPropertiesPtrOutput() ComputeIsolationPropertiesPtrOutput {
+	return o.ToComputeIsolationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeIsolationPropertiesOutput) ToComputeIsolationPropertiesPtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesPtrOutput {
+	return o.ApplyT(func(v ComputeIsolationProperties) *ComputeIsolationProperties {
+		return &v
+	}).(ComputeIsolationPropertiesPtrOutput)
+}
+
+// The flag indicates whether enable compute isolation or not.
+func (o ComputeIsolationPropertiesOutput) EnableComputeIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComputeIsolationProperties) *bool { return v.EnableComputeIsolation }).(pulumi.BoolPtrOutput)
+}
+
+// The host sku.
+func (o ComputeIsolationPropertiesOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeIsolationProperties) *string { return v.HostSku }).(pulumi.StringPtrOutput)
+}
+
+type ComputeIsolationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeIsolationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeIsolationProperties)(nil)).Elem()
+}
+
+func (o ComputeIsolationPropertiesPtrOutput) ToComputeIsolationPropertiesPtrOutput() ComputeIsolationPropertiesPtrOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesPtrOutput) ToComputeIsolationPropertiesPtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesPtrOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesPtrOutput) Elem() ComputeIsolationPropertiesOutput {
+	return o.ApplyT(func(v *ComputeIsolationProperties) ComputeIsolationProperties { return *v }).(ComputeIsolationPropertiesOutput)
+}
+
+// The flag indicates whether enable compute isolation or not.
+func (o ComputeIsolationPropertiesPtrOutput) EnableComputeIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ComputeIsolationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableComputeIsolation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The host sku.
+func (o ComputeIsolationPropertiesPtrOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeIsolationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostSku
+	}).(pulumi.StringPtrOutput)
+}
+
+// The compute isolation properties.
+type ComputeIsolationPropertiesResponse struct {
+	// The flag indicates whether enable compute isolation or not.
+	EnableComputeIsolation *bool `pulumi:"enableComputeIsolation"`
+	// The host sku.
+	HostSku *string `pulumi:"hostSku"`
+}
+
+// ComputeIsolationPropertiesResponseInput is an input type that accepts ComputeIsolationPropertiesResponseArgs and ComputeIsolationPropertiesResponseOutput values.
+// You can construct a concrete instance of `ComputeIsolationPropertiesResponseInput` via:
+//
+//          ComputeIsolationPropertiesResponseArgs{...}
+type ComputeIsolationPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToComputeIsolationPropertiesResponseOutput() ComputeIsolationPropertiesResponseOutput
+	ToComputeIsolationPropertiesResponseOutputWithContext(context.Context) ComputeIsolationPropertiesResponseOutput
+}
+
+// The compute isolation properties.
+type ComputeIsolationPropertiesResponseArgs struct {
+	// The flag indicates whether enable compute isolation or not.
+	EnableComputeIsolation pulumi.BoolPtrInput `pulumi:"enableComputeIsolation"`
+	// The host sku.
+	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
+}
+
+func (ComputeIsolationPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeIsolationPropertiesResponse)(nil)).Elem()
+}
+
+func (i ComputeIsolationPropertiesResponseArgs) ToComputeIsolationPropertiesResponseOutput() ComputeIsolationPropertiesResponseOutput {
+	return i.ToComputeIsolationPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeIsolationPropertiesResponseArgs) ToComputeIsolationPropertiesResponseOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesResponseOutput)
+}
+
+func (i ComputeIsolationPropertiesResponseArgs) ToComputeIsolationPropertiesResponsePtrOutput() ComputeIsolationPropertiesResponsePtrOutput {
+	return i.ToComputeIsolationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ComputeIsolationPropertiesResponseArgs) ToComputeIsolationPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesResponseOutput).ToComputeIsolationPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ComputeIsolationPropertiesResponsePtrInput is an input type that accepts ComputeIsolationPropertiesResponseArgs, ComputeIsolationPropertiesResponsePtr and ComputeIsolationPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ComputeIsolationPropertiesResponsePtrInput` via:
+//
+//          ComputeIsolationPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeIsolationPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToComputeIsolationPropertiesResponsePtrOutput() ComputeIsolationPropertiesResponsePtrOutput
+	ToComputeIsolationPropertiesResponsePtrOutputWithContext(context.Context) ComputeIsolationPropertiesResponsePtrOutput
+}
+
+type computeIsolationPropertiesResponsePtrType ComputeIsolationPropertiesResponseArgs
+
+func ComputeIsolationPropertiesResponsePtr(v *ComputeIsolationPropertiesResponseArgs) ComputeIsolationPropertiesResponsePtrInput {
+	return (*computeIsolationPropertiesResponsePtrType)(v)
+}
+
+func (*computeIsolationPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeIsolationPropertiesResponse)(nil)).Elem()
+}
+
+func (i *computeIsolationPropertiesResponsePtrType) ToComputeIsolationPropertiesResponsePtrOutput() ComputeIsolationPropertiesResponsePtrOutput {
+	return i.ToComputeIsolationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *computeIsolationPropertiesResponsePtrType) ToComputeIsolationPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesResponsePtrOutput)
+}
+
+// The compute isolation properties.
+type ComputeIsolationPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeIsolationPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeIsolationPropertiesResponse)(nil)).Elem()
+}
+
+func (o ComputeIsolationPropertiesResponseOutput) ToComputeIsolationPropertiesResponseOutput() ComputeIsolationPropertiesResponseOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesResponseOutput) ToComputeIsolationPropertiesResponseOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponseOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesResponseOutput) ToComputeIsolationPropertiesResponsePtrOutput() ComputeIsolationPropertiesResponsePtrOutput {
+	return o.ToComputeIsolationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeIsolationPropertiesResponseOutput) ToComputeIsolationPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ComputeIsolationPropertiesResponse) *ComputeIsolationPropertiesResponse {
+		return &v
+	}).(ComputeIsolationPropertiesResponsePtrOutput)
+}
+
+// The flag indicates whether enable compute isolation or not.
+func (o ComputeIsolationPropertiesResponseOutput) EnableComputeIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComputeIsolationPropertiesResponse) *bool { return v.EnableComputeIsolation }).(pulumi.BoolPtrOutput)
+}
+
+// The host sku.
+func (o ComputeIsolationPropertiesResponseOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeIsolationPropertiesResponse) *string { return v.HostSku }).(pulumi.StringPtrOutput)
+}
+
+type ComputeIsolationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeIsolationPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeIsolationPropertiesResponse)(nil)).Elem()
+}
+
+func (o ComputeIsolationPropertiesResponsePtrOutput) ToComputeIsolationPropertiesResponsePtrOutput() ComputeIsolationPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesResponsePtrOutput) ToComputeIsolationPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesResponsePtrOutput) Elem() ComputeIsolationPropertiesResponseOutput {
+	return o.ApplyT(func(v *ComputeIsolationPropertiesResponse) ComputeIsolationPropertiesResponse { return *v }).(ComputeIsolationPropertiesResponseOutput)
+}
+
+// The flag indicates whether enable compute isolation or not.
+func (o ComputeIsolationPropertiesResponsePtrOutput) EnableComputeIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ComputeIsolationPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableComputeIsolation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The host sku.
+func (o ComputeIsolationPropertiesResponsePtrOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeIsolationPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostSku
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes the compute profile.
@@ -10205,6 +10551,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityResponseUserAssignedIdentitiesOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityResponseUserAssignedIdentitiesMapOutput{})
+	pulumi.RegisterOutputType(ComputeIsolationPropertiesOutput{})
+	pulumi.RegisterOutputType(ComputeIsolationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ComputeIsolationPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ComputeIsolationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ComputeProfileOutput{})
 	pulumi.RegisterOutputType(ComputeProfilePtrOutput{})
 	pulumi.RegisterOutputType(ComputeProfileResponseOutput{})

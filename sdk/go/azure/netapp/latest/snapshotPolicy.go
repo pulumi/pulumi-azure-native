@@ -12,7 +12,7 @@ import (
 )
 
 // Snapshot policy information
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-09-01.
 type SnapshotPolicy struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +69,9 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200801:SnapshotPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20200901:SnapshotPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

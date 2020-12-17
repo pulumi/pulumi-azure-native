@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Backup of a Volume
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-09-01.
  */
 export class Backup extends pulumi.CustomResource {
     /**
@@ -132,7 +132,7 @@ export class Backup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20200501:Backup" }, { type: "azure-nextgen:netapp/v20200601:Backup" }, { type: "azure-nextgen:netapp/v20200701:Backup" }, { type: "azure-nextgen:netapp/v20200801:Backup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20200501:Backup" }, { type: "azure-nextgen:netapp/v20200601:Backup" }, { type: "azure-nextgen:netapp/v20200701:Backup" }, { type: "azure-nextgen:netapp/v20200801:Backup" }, { type: "azure-nextgen:netapp/v20200901:Backup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backup.__pulumiType, name, inputs, opts);
     }

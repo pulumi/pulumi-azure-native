@@ -22,6 +22,7 @@ __all__ = [
     'ClusterCreatePropertiesArgs',
     'ClusterDefinitionArgs',
     'ClusterIdentityArgs',
+    'ComputeIsolationPropertiesArgs',
     'ComputeProfileArgs',
     'DataDisksGroupsArgs',
     'DiskEncryptionPropertiesArgs',
@@ -584,6 +585,7 @@ class ClusterCreatePropertiesArgs:
     def __init__(__self__, *,
                  cluster_definition: Optional[pulumi.Input['ClusterDefinitionArgs']] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
+                 compute_isolation_properties: Optional[pulumi.Input['ComputeIsolationPropertiesArgs']] = None,
                  compute_profile: Optional[pulumi.Input['ComputeProfileArgs']] = None,
                  disk_encryption_properties: Optional[pulumi.Input['DiskEncryptionPropertiesArgs']] = None,
                  encryption_in_transit_properties: Optional[pulumi.Input['EncryptionInTransitPropertiesArgs']] = None,
@@ -598,6 +600,7 @@ class ClusterCreatePropertiesArgs:
         The cluster create parameters.
         :param pulumi.Input['ClusterDefinitionArgs'] cluster_definition: The cluster definition.
         :param pulumi.Input[str] cluster_version: The version of the cluster.
+        :param pulumi.Input['ComputeIsolationPropertiesArgs'] compute_isolation_properties: The compute isolation properties.
         :param pulumi.Input['ComputeProfileArgs'] compute_profile: The compute profile.
         :param pulumi.Input['DiskEncryptionPropertiesArgs'] disk_encryption_properties: The disk encryption properties.
         :param pulumi.Input['EncryptionInTransitPropertiesArgs'] encryption_in_transit_properties: The encryption-in-transit properties.
@@ -613,6 +616,8 @@ class ClusterCreatePropertiesArgs:
             pulumi.set(__self__, "cluster_definition", cluster_definition)
         if cluster_version is not None:
             pulumi.set(__self__, "cluster_version", cluster_version)
+        if compute_isolation_properties is not None:
+            pulumi.set(__self__, "compute_isolation_properties", compute_isolation_properties)
         if compute_profile is not None:
             pulumi.set(__self__, "compute_profile", compute_profile)
         if disk_encryption_properties is not None:
@@ -657,6 +662,18 @@ class ClusterCreatePropertiesArgs:
     @cluster_version.setter
     def cluster_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_version", value)
+
+    @property
+    @pulumi.getter(name="computeIsolationProperties")
+    def compute_isolation_properties(self) -> Optional[pulumi.Input['ComputeIsolationPropertiesArgs']]:
+        """
+        The compute isolation properties.
+        """
+        return pulumi.get(self, "compute_isolation_properties")
+
+    @compute_isolation_properties.setter
+    def compute_isolation_properties(self, value: Optional[pulumi.Input['ComputeIsolationPropertiesArgs']]):
+        pulumi.set(self, "compute_isolation_properties", value)
 
     @property
     @pulumi.getter(name="computeProfile")
@@ -889,6 +906,46 @@ class ClusterIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class ComputeIsolationPropertiesArgs:
+    def __init__(__self__, *,
+                 enable_compute_isolation: Optional[pulumi.Input[bool]] = None,
+                 host_sku: Optional[pulumi.Input[str]] = None):
+        """
+        The compute isolation properties.
+        :param pulumi.Input[bool] enable_compute_isolation: The flag indicates whether enable compute isolation or not.
+        :param pulumi.Input[str] host_sku: The host sku.
+        """
+        if enable_compute_isolation is not None:
+            pulumi.set(__self__, "enable_compute_isolation", enable_compute_isolation)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="enableComputeIsolation")
+    def enable_compute_isolation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag indicates whether enable compute isolation or not.
+        """
+        return pulumi.get(self, "enable_compute_isolation")
+
+    @enable_compute_isolation.setter
+    def enable_compute_isolation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_compute_isolation", value)
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The host sku.
+        """
+        return pulumi.get(self, "host_sku")
+
+    @host_sku.setter
+    def host_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_sku", value)
 
 
 @pulumi.input_type

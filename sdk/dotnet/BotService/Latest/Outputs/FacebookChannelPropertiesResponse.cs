@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Outputs
         /// <summary>
         /// Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        public readonly string AppSecret;
+        public readonly string? AppSecret;
         /// <summary>
         /// Callback Url
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Outputs
         private FacebookChannelPropertiesResponse(
             string appId,
 
-            string appSecret,
+            string? appSecret,
 
             string callbackUrl,
 

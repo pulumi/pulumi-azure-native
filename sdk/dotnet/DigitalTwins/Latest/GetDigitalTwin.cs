@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The managed identity for the DigitalTwinsInstance.
+        /// </summary>
+        public readonly Outputs.DigitalTwinsIdentityResponse? Identity;
+        /// <summary>
         /// Time when DigitalTwinsInstance was updated.
         /// </summary>
         public readonly string LastUpdatedTime;
@@ -63,10 +67,15 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
         /// The resource name.
         /// </summary>
         public readonly string Name;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Public network access for the DigitalTwinsInstance.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -84,13 +93,19 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
 
             string id,
 
+            Outputs.DigitalTwinsIdentityResponse? identity,
+
             string lastUpdatedTime,
 
             string location,
 
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -99,10 +114,13 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
             CreatedTime = createdTime;
             HostName = hostName;
             Id = id;
+            Identity = identity;
             LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             Tags = tags;
             Type = type;
         }

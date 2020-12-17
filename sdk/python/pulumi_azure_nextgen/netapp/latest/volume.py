@@ -32,6 +32,8 @@ class Volume(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[Union[str, 'SecurityStyle']]] = None,
                  service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
+                 smb_continuously_available: Optional[pulumi.Input[bool]] = None,
+                 smb_encryption: Optional[pulumi.Input[bool]] = None,
                  snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -45,7 +47,7 @@ class Volume(pulumi.CustomResource):
                  __opts__=None):
         """
         Volume resource
-        Latest API Version: 2020-08-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -63,6 +65,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'SecurityStyle']] security_style: The security style of volume
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
+        :param pulumi.Input[bool] smb_continuously_available: Enables continuously available share property for smb volume. Only applicable for SMB volume
+        :param pulumi.Input[bool] smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
@@ -112,6 +116,8 @@ class Volume(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['security_style'] = security_style
             __props__['service_level'] = service_level
+            __props__['smb_continuously_available'] = smb_continuously_available
+            __props__['smb_encryption'] = smb_encryption
             __props__['snapshot_directory_visible'] = snapshot_directory_visible
             __props__['snapshot_id'] = snapshot_id
             if subnet_id is None and not opts.urn:
@@ -131,7 +137,7 @@ class Volume(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azure-nextgen:netapp/latest:Volume',
@@ -276,6 +282,22 @@ class Volume(pulumi.CustomResource):
         The service level of the file system
         """
         return pulumi.get(self, "service_level")
+
+    @property
+    @pulumi.getter(name="smbContinuouslyAvailable")
+    def smb_continuously_available(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables continuously available share property for smb volume. Only applicable for SMB volume
+        """
+        return pulumi.get(self, "smb_continuously_available")
+
+    @property
+    @pulumi.getter(name="smbEncryption")
+    def smb_encryption(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+        """
+        return pulumi.get(self, "smb_encryption")
 
     @property
     @pulumi.getter(name="snapshotDirectoryVisible")

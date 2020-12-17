@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
  * The description of the DigitalTwins service.
- * Latest API Version: 2020-10-31.
+ * Latest API Version: 2020-12-01.
  */
 export class DigitalTwin extends pulumi.CustomResource {
     /**
@@ -44,6 +45,10 @@ export class DigitalTwin extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
+     * The managed identity for the DigitalTwinsInstance.
+     */
+    public readonly identity!: pulumi.Output<outputs.digitaltwins.latest.DigitalTwinsIdentityResponse | undefined>;
+    /**
      * Time when DigitalTwinsInstance was updated.
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
@@ -55,10 +60,15 @@ export class DigitalTwin extends pulumi.CustomResource {
      * The resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly privateEndpointConnections!: pulumi.Output<outputs.digitaltwins.latest.PrivateEndpointConnectionResponse[] | undefined>;
     /**
      * The provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Public network access for the DigitalTwinsInstance.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The resource tags.
      */
@@ -87,7 +97,10 @@ export class DigitalTwin extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -100,10 +113,13 @@ export class DigitalTwin extends pulumi.CustomResource {
         } else {
             inputs["createdTime"] = undefined /*out*/;
             inputs["hostName"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -114,7 +130,7 @@ export class DigitalTwin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:digitaltwins/v20200301preview:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:digitaltwins/v20200301preview:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DigitalTwin.__pulumiType, name, inputs, opts);
     }
@@ -125,9 +141,18 @@ export class DigitalTwin extends pulumi.CustomResource {
  */
 export interface DigitalTwinArgs {
     /**
+     * The managed identity for the DigitalTwinsInstance.
+     */
+    readonly identity?: pulumi.Input<inputs.digitaltwins.latest.DigitalTwinsIdentity>;
+    /**
      * The resource location.
      */
     readonly location: pulumi.Input<string>;
+    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.digitaltwins.latest.PrivateEndpointConnection>[]>;
+    /**
+     * Public network access for the DigitalTwinsInstance.
+     */
+    readonly publicNetworkAccess?: pulumi.Input<string | enums.digitaltwins.latest.PublicNetworkAccess>;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */

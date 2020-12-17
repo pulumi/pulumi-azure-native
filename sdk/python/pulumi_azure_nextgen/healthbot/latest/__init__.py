@@ -4,8 +4,8 @@
 
 # Export this package's modules as members:
 from ._enums import *
-from .getbot import *
-from .getgetbot import *
+from .bot import *
+from .get_bot import *
 from ._inputs import *
 from . import outputs
 
@@ -21,8 +21,8 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-nextgen:healthbot/latest:getbot":
-                return Getbot(name, pulumi.ResourceOptions(urn=urn))
+            if typ == "azure-nextgen:healthbot/latest:Bot":
+                return Bot(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

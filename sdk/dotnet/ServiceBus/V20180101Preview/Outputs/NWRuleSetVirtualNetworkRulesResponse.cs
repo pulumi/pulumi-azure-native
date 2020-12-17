@@ -14,7 +14,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview.Outputs
     public sealed class NWRuleSetVirtualNetworkRulesResponse
     {
         /// <summary>
-        /// Value that indicates whether to ignore missing Vnet Service Endpoint
+        /// Value that indicates whether to ignore missing VNet Service Endpoint
         /// </summary>
         public readonly bool? IgnoreMissingVnetServiceEndpoint;
         /// <summary>

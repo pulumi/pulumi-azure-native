@@ -5,9 +5,13 @@
 import * as latest from "./latest";
 import * as v20201020 from "./v20201020";
 import * as v20201020preview from "./v20201020preview";
+import * as v20201208 from "./v20201208";
+import * as v20201208preview from "./v20201208preview";
 
 export {
     latest,
     v20201020,
     v20201020preview,
+    v20201208,
+    v20201208preview,
 };

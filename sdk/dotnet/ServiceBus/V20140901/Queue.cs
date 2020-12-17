@@ -193,6 +193,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Queue"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Queue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

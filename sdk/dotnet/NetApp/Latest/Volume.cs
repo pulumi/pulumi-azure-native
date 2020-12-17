@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 {
     /// <summary>
     /// Volume resource
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:netapp/latest:Volume")]
     public partial class Volume : Pulumi.CustomResource
@@ -107,6 +107,18 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         public Output<string?> ServiceLevel { get; private set; } = null!;
 
         /// <summary>
+        /// Enables continuously available share property for smb volume. Only applicable for SMB volume
+        /// </summary>
+        [Output("smbContinuouslyAvailable")]
+        public Output<bool?> SmbContinuouslyAvailable { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+        /// </summary>
+        [Output("smbEncryption")]
+        public Output<bool?> SmbEncryption { get; private set; } = null!;
+
+        /// <summary>
         /// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
         /// </summary>
         [Output("snapshotDirectoryVisible")]
@@ -189,6 +201,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -307,6 +320,18 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         [Input("serviceLevel")]
         public InputUnion<string, Pulumi.AzureNextGen.NetApp.Latest.ServiceLevel>? ServiceLevel { get; set; }
+
+        /// <summary>
+        /// Enables continuously available share property for smb volume. Only applicable for SMB volume
+        /// </summary>
+        [Input("smbContinuouslyAvailable")]
+        public Input<bool>? SmbContinuouslyAvailable { get; set; }
+
+        /// <summary>
+        /// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+        /// </summary>
+        [Input("smbEncryption")]
+        public Input<bool>? SmbEncryption { get; set; }
 
         /// <summary>
         /// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).

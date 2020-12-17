@@ -16,22 +16,34 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Inputs
     public sealed class EventHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
+        /// Specifies the authentication type being used for connecting to the endpoint.
         /// </summary>
-        [Input("connectionStringPrimaryKey", required: true)]
-        public Input<string> ConnectionStringPrimaryKey { get; set; } = null!;
+        [Input("authenticationType")]
+        public InputUnion<string, Pulumi.AzureNextGen.DigitalTwins.Latest.AuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
-        /// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
+        /// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+        /// </summary>
+        [Input("connectionStringPrimaryKey")]
+        public Input<string>? ConnectionStringPrimaryKey { get; set; }
+
+        /// <summary>
+        /// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         /// </summary>
         [Input("connectionStringSecondaryKey")]
         public Input<string>? ConnectionStringSecondaryKey { get; set; }
 
         /// <summary>
-        /// Dead letter storage secret. Will be obfuscated during read.
+        /// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
         /// </summary>
         [Input("deadLetterSecret")]
         public Input<string>? DeadLetterSecret { get; set; }
+
+        /// <summary>
+        /// Dead letter storage URL for identity-based authentication.
+        /// </summary>
+        [Input("deadLetterUri")]
+        public Input<string>? DeadLetterUri { get; set; }
 
         /// <summary>
         /// The type of Digital Twins endpoint
@@ -39,6 +51,18 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Inputs
         /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;
+
+        /// <summary>
+        /// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+        /// </summary>
+        [Input("endpointUri")]
+        public Input<string>? EndpointUri { get; set; }
+
+        /// <summary>
+        /// The EventHub name in the EventHub namespace for identity-based authentication.
+        /// </summary>
+        [Input("entityPath")]
+        public Input<string>? EntityPath { get; set; }
 
         public EventHubArgs()
         {

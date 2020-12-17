@@ -71,6 +71,9 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:QueueAuthorizationRule"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:QueueAuthorizationRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource QueueAuthorizationRule

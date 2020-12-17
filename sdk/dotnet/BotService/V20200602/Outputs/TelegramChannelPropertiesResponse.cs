@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
         /// <summary>
         /// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        public readonly string AccessToken;
+        public readonly string? AccessToken;
         /// <summary>
         /// Whether this channel is enabled for the bot
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
 
         [OutputConstructor]
         private TelegramChannelPropertiesResponse(
-            string accessToken,
+            string? accessToken,
 
             bool isEnabled,
 
