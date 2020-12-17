@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901Preview
     /// <summary>
     /// Class representing a Traffic Manager Real User Metrics key response.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20170901preview:TrafficManagerUserMetricsKey")]
     public partial class TrafficManagerUserMetricsKey : Pulumi.CustomResource
     {
         /// <summary>

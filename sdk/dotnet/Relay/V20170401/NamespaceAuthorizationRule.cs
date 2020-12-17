@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Relay.V20170401
     /// <summary>
     /// Description of a namespace authorization rule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:relay/v20170401:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

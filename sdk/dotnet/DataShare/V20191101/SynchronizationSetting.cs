@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
     /// <summary>
     /// A Synchronization Setting data transfer object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datashare/v20191101:SynchronizationSetting")]
     public partial class SynchronizationSetting : Pulumi.CustomResource
     {
         /// <summary>

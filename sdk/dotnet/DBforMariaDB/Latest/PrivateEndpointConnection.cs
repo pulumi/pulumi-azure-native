@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
     /// A private endpoint connection
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformariadb/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

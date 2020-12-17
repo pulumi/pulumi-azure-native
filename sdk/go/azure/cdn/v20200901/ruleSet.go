@@ -127,15 +127,15 @@ type RuleSetInput interface {
 	ToRuleSetOutputWithContext(ctx context.Context) RuleSetOutput
 }
 
-func (RuleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleSet)(nil)).Elem()
+func (*RuleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSet)(nil))
 }
 
-func (i RuleSet) ToRuleSetOutput() RuleSetOutput {
+func (i *RuleSet) ToRuleSetOutput() RuleSetOutput {
 	return i.ToRuleSetOutputWithContext(context.Background())
 }
 
-func (i RuleSet) ToRuleSetOutputWithContext(ctx context.Context) RuleSetOutput {
+func (i *RuleSet) ToRuleSetOutputWithContext(ctx context.Context) RuleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSetOutput)
 }
 
@@ -144,7 +144,7 @@ type RuleSetOutput struct {
 }
 
 func (RuleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*RuleSet)(nil))
 }
 
 func (o RuleSetOutput) ToRuleSetOutput() RuleSetOutput {

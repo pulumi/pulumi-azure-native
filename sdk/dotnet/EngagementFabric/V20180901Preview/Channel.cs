@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
     /// <summary>
     /// The EngagementFabric channel
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:engagementfabric/v20180901preview:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
         /// <summary>

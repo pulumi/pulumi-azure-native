@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
     /// <summary>
     /// An Application Insights workbook definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20150501:Workbook")]
     public partial class Workbook : Pulumi.CustomResource
     {
         /// <summary>

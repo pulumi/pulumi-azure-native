@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     /// <summary>
     /// Network function resource response.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction")]
     public partial class NetworkFunction : Pulumi.CustomResource
     {
         /// <summary>

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Defines an Network Experiment Profile and lists of Experiments
     /// Latest API Version: 2019-11-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/latest:NetworkExperimentProfile")]
     public partial class NetworkExperimentProfile : Pulumi.CustomResource
     {
         /// <summary>

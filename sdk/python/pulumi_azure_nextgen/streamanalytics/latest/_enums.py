@@ -19,7 +19,7 @@ class CompatibilityLevel(str, Enum):
     """
     Controls certain runtime behaviors of the streaming job.
     """
-    _1_0 = "1.0"
+    COMPATIBILITY_LEVEL_1_0 = "1.0"
 
 
 class Encoding(str, Enum):

@@ -242,15 +242,15 @@ type LinkInput interface {
 	ToLinkOutputWithContext(ctx context.Context) LinkOutput
 }
 
-func (Link) ElementType() reflect.Type {
-	return reflect.TypeOf((*Link)(nil)).Elem()
+func (*Link) ElementType() reflect.Type {
+	return reflect.TypeOf((*Link)(nil))
 }
 
-func (i Link) ToLinkOutput() LinkOutput {
+func (i *Link) ToLinkOutput() LinkOutput {
 	return i.ToLinkOutputWithContext(context.Background())
 }
 
-func (i Link) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
+func (i *Link) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkOutput)
 }
 
@@ -259,7 +259,7 @@ type LinkOutput struct {
 }
 
 func (LinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkOutput)(nil)).Elem()
+	return reflect.TypeOf((*Link)(nil))
 }
 
 func (o LinkOutput) ToLinkOutput() LinkOutput {

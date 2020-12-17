@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// Properties that define a favorite that is associated to an Application Insights component.
     /// Latest API Version: 2015-05-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/latest:Favorite")]
     public partial class Favorite : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
     /// <summary>
     /// Hub resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:customerinsights/v20170426:Hub")]
     public partial class Hub : Pulumi.CustomResource
     {
         /// <summary>

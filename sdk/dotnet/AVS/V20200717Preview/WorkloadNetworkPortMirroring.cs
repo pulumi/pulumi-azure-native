@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
     /// <summary>
     /// NSX Port Mirroring
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:avs/v20200717preview:WorkloadNetworkPortMirroring")]
     public partial class WorkloadNetworkPortMirroring : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20170601Preview
     /// <summary>
     /// The policy set definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:authorization/v20170601preview:PolicySetDefinition")]
     public partial class PolicySetDefinition : Pulumi.CustomResource
     {
         /// <summary>

@@ -136,15 +136,15 @@ type SqlResourceSqlRoleAssignmentInput interface {
 	ToSqlResourceSqlRoleAssignmentOutputWithContext(ctx context.Context) SqlResourceSqlRoleAssignmentOutput
 }
 
-func (SqlResourceSqlRoleAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlRoleAssignment)(nil)).Elem()
+func (*SqlResourceSqlRoleAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlRoleAssignment)(nil))
 }
 
-func (i SqlResourceSqlRoleAssignment) ToSqlResourceSqlRoleAssignmentOutput() SqlResourceSqlRoleAssignmentOutput {
+func (i *SqlResourceSqlRoleAssignment) ToSqlResourceSqlRoleAssignmentOutput() SqlResourceSqlRoleAssignmentOutput {
 	return i.ToSqlResourceSqlRoleAssignmentOutputWithContext(context.Background())
 }
 
-func (i SqlResourceSqlRoleAssignment) ToSqlResourceSqlRoleAssignmentOutputWithContext(ctx context.Context) SqlResourceSqlRoleAssignmentOutput {
+func (i *SqlResourceSqlRoleAssignment) ToSqlResourceSqlRoleAssignmentOutputWithContext(ctx context.Context) SqlResourceSqlRoleAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlRoleAssignmentOutput)
 }
 
@@ -153,7 +153,7 @@ type SqlResourceSqlRoleAssignmentOutput struct {
 }
 
 func (SqlResourceSqlRoleAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlRoleAssignmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlResourceSqlRoleAssignment)(nil))
 }
 
 func (o SqlResourceSqlRoleAssignmentOutput) ToSqlResourceSqlRoleAssignmentOutput() SqlResourceSqlRoleAssignmentOutput {

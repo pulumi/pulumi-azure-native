@@ -243,15 +243,15 @@ type RosettaNetProcessConfigurationInput interface {
 	ToRosettaNetProcessConfigurationOutputWithContext(ctx context.Context) RosettaNetProcessConfigurationOutput
 }
 
-func (RosettaNetProcessConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*RosettaNetProcessConfiguration)(nil)).Elem()
+func (*RosettaNetProcessConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*RosettaNetProcessConfiguration)(nil))
 }
 
-func (i RosettaNetProcessConfiguration) ToRosettaNetProcessConfigurationOutput() RosettaNetProcessConfigurationOutput {
+func (i *RosettaNetProcessConfiguration) ToRosettaNetProcessConfigurationOutput() RosettaNetProcessConfigurationOutput {
 	return i.ToRosettaNetProcessConfigurationOutputWithContext(context.Background())
 }
 
-func (i RosettaNetProcessConfiguration) ToRosettaNetProcessConfigurationOutputWithContext(ctx context.Context) RosettaNetProcessConfigurationOutput {
+func (i *RosettaNetProcessConfiguration) ToRosettaNetProcessConfigurationOutputWithContext(ctx context.Context) RosettaNetProcessConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetProcessConfigurationOutput)
 }
 
@@ -260,7 +260,7 @@ type RosettaNetProcessConfigurationOutput struct {
 }
 
 func (RosettaNetProcessConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RosettaNetProcessConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*RosettaNetProcessConfiguration)(nil))
 }
 
 func (o RosettaNetProcessConfigurationOutput) ToRosettaNetProcessConfigurationOutput() RosettaNetProcessConfigurationOutput {

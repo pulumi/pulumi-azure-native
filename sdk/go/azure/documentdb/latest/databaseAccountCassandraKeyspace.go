@@ -151,15 +151,15 @@ type DatabaseAccountCassandraKeyspaceInput interface {
 	ToDatabaseAccountCassandraKeyspaceOutputWithContext(ctx context.Context) DatabaseAccountCassandraKeyspaceOutput
 }
 
-func (DatabaseAccountCassandraKeyspace) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraKeyspace)(nil)).Elem()
+func (*DatabaseAccountCassandraKeyspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountCassandraKeyspace)(nil))
 }
 
-func (i DatabaseAccountCassandraKeyspace) ToDatabaseAccountCassandraKeyspaceOutput() DatabaseAccountCassandraKeyspaceOutput {
+func (i *DatabaseAccountCassandraKeyspace) ToDatabaseAccountCassandraKeyspaceOutput() DatabaseAccountCassandraKeyspaceOutput {
 	return i.ToDatabaseAccountCassandraKeyspaceOutputWithContext(context.Background())
 }
 
-func (i DatabaseAccountCassandraKeyspace) ToDatabaseAccountCassandraKeyspaceOutputWithContext(ctx context.Context) DatabaseAccountCassandraKeyspaceOutput {
+func (i *DatabaseAccountCassandraKeyspace) ToDatabaseAccountCassandraKeyspaceOutputWithContext(ctx context.Context) DatabaseAccountCassandraKeyspaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountCassandraKeyspaceOutput)
 }
 
@@ -168,7 +168,7 @@ type DatabaseAccountCassandraKeyspaceOutput struct {
 }
 
 func (DatabaseAccountCassandraKeyspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraKeyspaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatabaseAccountCassandraKeyspace)(nil))
 }
 
 func (o DatabaseAccountCassandraKeyspaceOutput) ToDatabaseAccountCassandraKeyspaceOutput() DatabaseAccountCassandraKeyspaceOutput {

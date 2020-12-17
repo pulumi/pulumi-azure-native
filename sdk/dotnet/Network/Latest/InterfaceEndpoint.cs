@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Interface endpoint resource.
     /// Latest API Version: 2019-02-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/latest:InterfaceEndpoint")]
     public partial class InterfaceEndpoint : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
     /// <summary>
     /// Information about appliance.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:solutions/v20160901preview:Appliance")]
     public partial class Appliance : Pulumi.CustomResource
     {
         /// <summary>

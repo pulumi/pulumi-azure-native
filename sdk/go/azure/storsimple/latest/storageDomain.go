@@ -146,15 +146,15 @@ type StorageDomainInput interface {
 	ToStorageDomainOutputWithContext(ctx context.Context) StorageDomainOutput
 }
 
-func (StorageDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageDomain)(nil)).Elem()
+func (*StorageDomain) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageDomain)(nil))
 }
 
-func (i StorageDomain) ToStorageDomainOutput() StorageDomainOutput {
+func (i *StorageDomain) ToStorageDomainOutput() StorageDomainOutput {
 	return i.ToStorageDomainOutputWithContext(context.Background())
 }
 
-func (i StorageDomain) ToStorageDomainOutputWithContext(ctx context.Context) StorageDomainOutput {
+func (i *StorageDomain) ToStorageDomainOutputWithContext(ctx context.Context) StorageDomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageDomainOutput)
 }
 
@@ -163,7 +163,7 @@ type StorageDomainOutput struct {
 }
 
 func (StorageDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageDomainOutput)(nil)).Elem()
+	return reflect.TypeOf((*StorageDomain)(nil))
 }
 
 func (o StorageDomainOutput) ToStorageDomainOutput() StorageDomainOutput {

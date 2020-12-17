@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
     /// <summary>
     /// Storage Sync Service object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storagesync/v20191001:StorageSyncService")]
     public partial class StorageSyncService : Pulumi.CustomResource
     {
         /// <summary>

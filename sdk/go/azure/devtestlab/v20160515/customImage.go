@@ -214,15 +214,15 @@ type CustomImageInput interface {
 	ToCustomImageOutputWithContext(ctx context.Context) CustomImageOutput
 }
 
-func (CustomImage) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomImage)(nil)).Elem()
+func (*CustomImage) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomImage)(nil))
 }
 
-func (i CustomImage) ToCustomImageOutput() CustomImageOutput {
+func (i *CustomImage) ToCustomImageOutput() CustomImageOutput {
 	return i.ToCustomImageOutputWithContext(context.Background())
 }
 
-func (i CustomImage) ToCustomImageOutputWithContext(ctx context.Context) CustomImageOutput {
+func (i *CustomImage) ToCustomImageOutputWithContext(ctx context.Context) CustomImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomImageOutput)
 }
 
@@ -231,7 +231,7 @@ type CustomImageOutput struct {
 }
 
 func (CustomImageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomImageOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomImage)(nil))
 }
 
 func (o CustomImageOutput) ToCustomImageOutput() CustomImageOutput {

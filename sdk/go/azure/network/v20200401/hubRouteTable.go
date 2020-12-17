@@ -173,15 +173,15 @@ type HubRouteTableInput interface {
 	ToHubRouteTableOutputWithContext(ctx context.Context) HubRouteTableOutput
 }
 
-func (HubRouteTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubRouteTable)(nil)).Elem()
+func (*HubRouteTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubRouteTable)(nil))
 }
 
-func (i HubRouteTable) ToHubRouteTableOutput() HubRouteTableOutput {
+func (i *HubRouteTable) ToHubRouteTableOutput() HubRouteTableOutput {
 	return i.ToHubRouteTableOutputWithContext(context.Background())
 }
 
-func (i HubRouteTable) ToHubRouteTableOutputWithContext(ctx context.Context) HubRouteTableOutput {
+func (i *HubRouteTable) ToHubRouteTableOutputWithContext(ctx context.Context) HubRouteTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HubRouteTableOutput)
 }
 
@@ -190,7 +190,7 @@ type HubRouteTableOutput struct {
 }
 
 func (HubRouteTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubRouteTableOutput)(nil)).Elem()
+	return reflect.TypeOf((*HubRouteTable)(nil))
 }
 
 func (o HubRouteTableOutput) ToHubRouteTableOutput() HubRouteTableOutput {

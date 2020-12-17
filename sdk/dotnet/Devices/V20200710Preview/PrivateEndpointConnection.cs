@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview
     /// <summary>
     /// The private endpoint connection of an IotHub
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devices/v20200710preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

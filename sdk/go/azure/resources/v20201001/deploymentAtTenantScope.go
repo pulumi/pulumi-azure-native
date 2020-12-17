@@ -149,15 +149,15 @@ type DeploymentAtTenantScopeInput interface {
 	ToDeploymentAtTenantScopeOutputWithContext(ctx context.Context) DeploymentAtTenantScopeOutput
 }
 
-func (DeploymentAtTenantScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtTenantScope)(nil)).Elem()
+func (*DeploymentAtTenantScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtTenantScope)(nil))
 }
 
-func (i DeploymentAtTenantScope) ToDeploymentAtTenantScopeOutput() DeploymentAtTenantScopeOutput {
+func (i *DeploymentAtTenantScope) ToDeploymentAtTenantScopeOutput() DeploymentAtTenantScopeOutput {
 	return i.ToDeploymentAtTenantScopeOutputWithContext(context.Background())
 }
 
-func (i DeploymentAtTenantScope) ToDeploymentAtTenantScopeOutputWithContext(ctx context.Context) DeploymentAtTenantScopeOutput {
+func (i *DeploymentAtTenantScope) ToDeploymentAtTenantScopeOutputWithContext(ctx context.Context) DeploymentAtTenantScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtTenantScopeOutput)
 }
 
@@ -166,7 +166,7 @@ type DeploymentAtTenantScopeOutput struct {
 }
 
 func (DeploymentAtTenantScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtTenantScopeOutput)(nil)).Elem()
+	return reflect.TypeOf((*DeploymentAtTenantScope)(nil))
 }
 
 func (o DeploymentAtTenantScopeOutput) ToDeploymentAtTenantScopeOutput() DeploymentAtTenantScopeOutput {

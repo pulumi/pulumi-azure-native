@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
     /// <summary>
     /// Class representing an event hub connection.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:kusto/v20170907privatepreview:EventHubConnection")]
     public partial class EventHubConnection : Pulumi.CustomResource
     {
         /// <summary>

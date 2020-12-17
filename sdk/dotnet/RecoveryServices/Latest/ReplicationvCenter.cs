@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
     /// vCenter definition.
     /// Latest API Version: 2018-07-10.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/latest:ReplicationvCenter")]
     public partial class ReplicationvCenter : Pulumi.CustomResource
     {
         /// <summary>

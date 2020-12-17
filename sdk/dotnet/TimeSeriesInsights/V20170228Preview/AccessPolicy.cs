@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
     /// <summary>
     /// An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy")]
     public partial class AccessPolicy : Pulumi.CustomResource
     {
         /// <summary>

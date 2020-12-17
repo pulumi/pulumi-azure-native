@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20200330
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

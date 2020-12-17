@@ -155,15 +155,15 @@ type EventHubAuthorizationRuleInput interface {
 	ToEventHubAuthorizationRuleOutputWithContext(ctx context.Context) EventHubAuthorizationRuleOutput
 }
 
-func (EventHubAuthorizationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubAuthorizationRule)(nil)).Elem()
+func (*EventHubAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubAuthorizationRule)(nil))
 }
 
-func (i EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutput() EventHubAuthorizationRuleOutput {
+func (i *EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutput() EventHubAuthorizationRuleOutput {
 	return i.ToEventHubAuthorizationRuleOutputWithContext(context.Background())
 }
 
-func (i EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutputWithContext(ctx context.Context) EventHubAuthorizationRuleOutput {
+func (i *EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutputWithContext(ctx context.Context) EventHubAuthorizationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleOutput)
 }
 
@@ -172,7 +172,7 @@ type EventHubAuthorizationRuleOutput struct {
 }
 
 func (EventHubAuthorizationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubAuthorizationRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventHubAuthorizationRule)(nil))
 }
 
 func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRuleOutput() EventHubAuthorizationRuleOutput {

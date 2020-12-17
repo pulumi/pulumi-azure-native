@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
     /// <summary>
     /// Virtual Network route contract used to pass routing information for a Virtual Network.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20180201:AppServicePlanRouteForVnet")]
     public partial class AppServicePlanRouteForVnet : Pulumi.CustomResource
     {
         /// <summary>

@@ -151,15 +151,15 @@ type PrivateCloudInput interface {
 	ToPrivateCloudOutputWithContext(ctx context.Context) PrivateCloudOutput
 }
 
-func (PrivateCloud) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateCloud)(nil)).Elem()
+func (*PrivateCloud) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateCloud)(nil))
 }
 
-func (i PrivateCloud) ToPrivateCloudOutput() PrivateCloudOutput {
+func (i *PrivateCloud) ToPrivateCloudOutput() PrivateCloudOutput {
 	return i.ToPrivateCloudOutputWithContext(context.Background())
 }
 
-func (i PrivateCloud) ToPrivateCloudOutputWithContext(ctx context.Context) PrivateCloudOutput {
+func (i *PrivateCloud) ToPrivateCloudOutputWithContext(ctx context.Context) PrivateCloudOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudOutput)
 }
 
@@ -168,7 +168,7 @@ type PrivateCloudOutput struct {
 }
 
 func (PrivateCloudOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateCloudOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateCloud)(nil))
 }
 
 func (o PrivateCloudOutput) ToPrivateCloudOutput() PrivateCloudOutput {

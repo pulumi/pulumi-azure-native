@@ -129,15 +129,15 @@ type WorkflowAccessKeyInput interface {
 	ToWorkflowAccessKeyOutputWithContext(ctx context.Context) WorkflowAccessKeyOutput
 }
 
-func (WorkflowAccessKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowAccessKey)(nil)).Elem()
+func (*WorkflowAccessKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessKey)(nil))
 }
 
-func (i WorkflowAccessKey) ToWorkflowAccessKeyOutput() WorkflowAccessKeyOutput {
+func (i *WorkflowAccessKey) ToWorkflowAccessKeyOutput() WorkflowAccessKeyOutput {
 	return i.ToWorkflowAccessKeyOutputWithContext(context.Background())
 }
 
-func (i WorkflowAccessKey) ToWorkflowAccessKeyOutputWithContext(ctx context.Context) WorkflowAccessKeyOutput {
+func (i *WorkflowAccessKey) ToWorkflowAccessKeyOutputWithContext(ctx context.Context) WorkflowAccessKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessKeyOutput)
 }
 
@@ -146,7 +146,7 @@ type WorkflowAccessKeyOutput struct {
 }
 
 func (WorkflowAccessKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowAccessKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkflowAccessKey)(nil))
 }
 
 func (o WorkflowAccessKeyOutput) ToWorkflowAccessKeyOutput() WorkflowAccessKeyOutput {

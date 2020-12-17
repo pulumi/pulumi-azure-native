@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
     /// <summary>
     /// IpAllocation resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200601:IpAllocation")]
     public partial class IpAllocation : Pulumi.CustomResource
     {
         /// <summary>

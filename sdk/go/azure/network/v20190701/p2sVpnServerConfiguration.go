@@ -237,15 +237,15 @@ type P2sVpnServerConfigurationInput interface {
 	ToP2sVpnServerConfigurationOutputWithContext(ctx context.Context) P2sVpnServerConfigurationOutput
 }
 
-func (P2sVpnServerConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*P2sVpnServerConfiguration)(nil)).Elem()
+func (*P2sVpnServerConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*P2sVpnServerConfiguration)(nil))
 }
 
-func (i P2sVpnServerConfiguration) ToP2sVpnServerConfigurationOutput() P2sVpnServerConfigurationOutput {
+func (i *P2sVpnServerConfiguration) ToP2sVpnServerConfigurationOutput() P2sVpnServerConfigurationOutput {
 	return i.ToP2sVpnServerConfigurationOutputWithContext(context.Background())
 }
 
-func (i P2sVpnServerConfiguration) ToP2sVpnServerConfigurationOutputWithContext(ctx context.Context) P2sVpnServerConfigurationOutput {
+func (i *P2sVpnServerConfiguration) ToP2sVpnServerConfigurationOutputWithContext(ctx context.Context) P2sVpnServerConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(P2sVpnServerConfigurationOutput)
 }
 
@@ -254,7 +254,7 @@ type P2sVpnServerConfigurationOutput struct {
 }
 
 func (P2sVpnServerConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*P2sVpnServerConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*P2sVpnServerConfiguration)(nil))
 }
 
 func (o P2sVpnServerConfigurationOutput) ToP2sVpnServerConfigurationOutput() P2sVpnServerConfigurationOutput {

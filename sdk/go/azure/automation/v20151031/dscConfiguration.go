@@ -225,15 +225,15 @@ type DscConfigurationInput interface {
 	ToDscConfigurationOutputWithContext(ctx context.Context) DscConfigurationOutput
 }
 
-func (DscConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscConfiguration)(nil)).Elem()
+func (*DscConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscConfiguration)(nil))
 }
 
-func (i DscConfiguration) ToDscConfigurationOutput() DscConfigurationOutput {
+func (i *DscConfiguration) ToDscConfigurationOutput() DscConfigurationOutput {
 	return i.ToDscConfigurationOutputWithContext(context.Background())
 }
 
-func (i DscConfiguration) ToDscConfigurationOutputWithContext(ctx context.Context) DscConfigurationOutput {
+func (i *DscConfiguration) ToDscConfigurationOutputWithContext(ctx context.Context) DscConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationOutput)
 }
 
@@ -242,7 +242,7 @@ type DscConfigurationOutput struct {
 }
 
 func (DscConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*DscConfiguration)(nil))
 }
 
 func (o DscConfigurationOutput) ToDscConfigurationOutput() DscConfigurationOutput {

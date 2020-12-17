@@ -206,15 +206,15 @@ type AssessmentsMetadataSubscriptionInput interface {
 	ToAssessmentsMetadataSubscriptionOutputWithContext(ctx context.Context) AssessmentsMetadataSubscriptionOutput
 }
 
-func (AssessmentsMetadataSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentsMetadataSubscription)(nil)).Elem()
+func (*AssessmentsMetadataSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentsMetadataSubscription)(nil))
 }
 
-func (i AssessmentsMetadataSubscription) ToAssessmentsMetadataSubscriptionOutput() AssessmentsMetadataSubscriptionOutput {
+func (i *AssessmentsMetadataSubscription) ToAssessmentsMetadataSubscriptionOutput() AssessmentsMetadataSubscriptionOutput {
 	return i.ToAssessmentsMetadataSubscriptionOutputWithContext(context.Background())
 }
 
-func (i AssessmentsMetadataSubscription) ToAssessmentsMetadataSubscriptionOutputWithContext(ctx context.Context) AssessmentsMetadataSubscriptionOutput {
+func (i *AssessmentsMetadataSubscription) ToAssessmentsMetadataSubscriptionOutputWithContext(ctx context.Context) AssessmentsMetadataSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentsMetadataSubscriptionOutput)
 }
 
@@ -223,7 +223,7 @@ type AssessmentsMetadataSubscriptionOutput struct {
 }
 
 func (AssessmentsMetadataSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentsMetadataSubscriptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*AssessmentsMetadataSubscription)(nil))
 }
 
 func (o AssessmentsMetadataSubscriptionOutput) ToAssessmentsMetadataSubscriptionOutput() AssessmentsMetadataSubscriptionOutput {

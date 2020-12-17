@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
     /// <summary>
     /// The integration account RosettaNet process configuration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration")]
     public partial class RosettaNetProcessConfiguration : Pulumi.CustomResource
     {
         /// <summary>

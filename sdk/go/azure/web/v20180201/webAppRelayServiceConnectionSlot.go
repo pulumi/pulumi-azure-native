@@ -178,15 +178,15 @@ type WebAppRelayServiceConnectionSlotInput interface {
 	ToWebAppRelayServiceConnectionSlotOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionSlotOutput
 }
 
-func (WebAppRelayServiceConnectionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppRelayServiceConnectionSlot)(nil)).Elem()
+func (*WebAppRelayServiceConnectionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppRelayServiceConnectionSlot)(nil))
 }
 
-func (i WebAppRelayServiceConnectionSlot) ToWebAppRelayServiceConnectionSlotOutput() WebAppRelayServiceConnectionSlotOutput {
+func (i *WebAppRelayServiceConnectionSlot) ToWebAppRelayServiceConnectionSlotOutput() WebAppRelayServiceConnectionSlotOutput {
 	return i.ToWebAppRelayServiceConnectionSlotOutputWithContext(context.Background())
 }
 
-func (i WebAppRelayServiceConnectionSlot) ToWebAppRelayServiceConnectionSlotOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionSlotOutput {
+func (i *WebAppRelayServiceConnectionSlot) ToWebAppRelayServiceConnectionSlotOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppRelayServiceConnectionSlotOutput)
 }
 
@@ -195,7 +195,7 @@ type WebAppRelayServiceConnectionSlotOutput struct {
 }
 
 func (WebAppRelayServiceConnectionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppRelayServiceConnectionSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppRelayServiceConnectionSlot)(nil))
 }
 
 func (o WebAppRelayServiceConnectionSlotOutput) ToWebAppRelayServiceConnectionSlotOutput() WebAppRelayServiceConnectionSlotOutput {

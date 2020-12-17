@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20180115
     /// <summary>
     /// Definition of the dsc node configuration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20180115:DscNodeConfiguration")]
     public partial class DscNodeConfiguration : Pulumi.CustomResource
     {
         /// <summary>

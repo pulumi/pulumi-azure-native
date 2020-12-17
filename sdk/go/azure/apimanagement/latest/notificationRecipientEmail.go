@@ -144,15 +144,15 @@ type NotificationRecipientEmailInput interface {
 	ToNotificationRecipientEmailOutputWithContext(ctx context.Context) NotificationRecipientEmailOutput
 }
 
-func (NotificationRecipientEmail) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRecipientEmail)(nil)).Elem()
+func (*NotificationRecipientEmail) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationRecipientEmail)(nil))
 }
 
-func (i NotificationRecipientEmail) ToNotificationRecipientEmailOutput() NotificationRecipientEmailOutput {
+func (i *NotificationRecipientEmail) ToNotificationRecipientEmailOutput() NotificationRecipientEmailOutput {
 	return i.ToNotificationRecipientEmailOutputWithContext(context.Background())
 }
 
-func (i NotificationRecipientEmail) ToNotificationRecipientEmailOutputWithContext(ctx context.Context) NotificationRecipientEmailOutput {
+func (i *NotificationRecipientEmail) ToNotificationRecipientEmailOutputWithContext(ctx context.Context) NotificationRecipientEmailOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientEmailOutput)
 }
 
@@ -161,7 +161,7 @@ type NotificationRecipientEmailOutput struct {
 }
 
 func (NotificationRecipientEmailOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRecipientEmailOutput)(nil)).Elem()
+	return reflect.TypeOf((*NotificationRecipientEmail)(nil))
 }
 
 func (o NotificationRecipientEmailOutput) ToNotificationRecipientEmailOutput() NotificationRecipientEmailOutput {

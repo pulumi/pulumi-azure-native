@@ -147,15 +147,15 @@ type GuestDiagnosticsSettingInput interface {
 	ToGuestDiagnosticsSettingOutputWithContext(ctx context.Context) GuestDiagnosticsSettingOutput
 }
 
-func (GuestDiagnosticsSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestDiagnosticsSetting)(nil)).Elem()
+func (*GuestDiagnosticsSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestDiagnosticsSetting)(nil))
 }
 
-func (i GuestDiagnosticsSetting) ToGuestDiagnosticsSettingOutput() GuestDiagnosticsSettingOutput {
+func (i *GuestDiagnosticsSetting) ToGuestDiagnosticsSettingOutput() GuestDiagnosticsSettingOutput {
 	return i.ToGuestDiagnosticsSettingOutputWithContext(context.Background())
 }
 
-func (i GuestDiagnosticsSetting) ToGuestDiagnosticsSettingOutputWithContext(ctx context.Context) GuestDiagnosticsSettingOutput {
+func (i *GuestDiagnosticsSetting) ToGuestDiagnosticsSettingOutputWithContext(ctx context.Context) GuestDiagnosticsSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GuestDiagnosticsSettingOutput)
 }
 
@@ -164,7 +164,7 @@ type GuestDiagnosticsSettingOutput struct {
 }
 
 func (GuestDiagnosticsSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestDiagnosticsSettingOutput)(nil)).Elem()
+	return reflect.TypeOf((*GuestDiagnosticsSetting)(nil))
 }
 
 func (o GuestDiagnosticsSettingOutput) ToGuestDiagnosticsSettingOutput() GuestDiagnosticsSettingOutput {

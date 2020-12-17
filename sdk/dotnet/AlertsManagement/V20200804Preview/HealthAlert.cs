@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
     /// <summary>
     /// The health alert resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:alertsmanagement/v20200804preview:HealthAlert")]
     public partial class HealthAlert : Pulumi.CustomResource
     {
         /// <summary>

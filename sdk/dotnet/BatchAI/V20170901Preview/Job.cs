@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
     /// <summary>
     /// Contains information about the job.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:batchai/v20170901preview:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
     /// <summary>
     /// Information about a partner registration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20200401preview:PartnerRegistration")]
     public partial class PartnerRegistration : Pulumi.CustomResource
     {
         /// <summary>

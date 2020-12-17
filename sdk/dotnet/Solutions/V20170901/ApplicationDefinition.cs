@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
     /// <summary>
     /// Information about managed application definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:solutions/v20170901:ApplicationDefinition")]
     public partial class ApplicationDefinition : Pulumi.CustomResource
     {
         /// <summary>

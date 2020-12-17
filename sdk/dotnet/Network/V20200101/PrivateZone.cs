@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200101
     /// <summary>
     /// Describes a Private DNS zone.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200101:PrivateZone")]
     public partial class PrivateZone : Pulumi.CustomResource
     {
         /// <summary>

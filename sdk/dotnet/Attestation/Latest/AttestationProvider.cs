@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Attestation.Latest
     /// Attestation service response message.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:attestation/latest:AttestationProvider")]
     public partial class AttestationProvider : Pulumi.CustomResource
     {
         /// <summary>

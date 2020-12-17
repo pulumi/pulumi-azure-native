@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
     /// <summary>
     /// A logical database transparent data encryption state.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200801preview:TransparentDataEncryption")]
     public partial class TransparentDataEncryption : Pulumi.CustomResource
     {
         /// <summary>

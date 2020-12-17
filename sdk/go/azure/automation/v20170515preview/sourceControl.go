@@ -192,15 +192,15 @@ type SourceControlInput interface {
 	ToSourceControlOutputWithContext(ctx context.Context) SourceControlOutput
 }
 
-func (SourceControl) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceControl)(nil)).Elem()
+func (*SourceControl) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControl)(nil))
 }
 
-func (i SourceControl) ToSourceControlOutput() SourceControlOutput {
+func (i *SourceControl) ToSourceControlOutput() SourceControlOutput {
 	return i.ToSourceControlOutputWithContext(context.Background())
 }
 
-func (i SourceControl) ToSourceControlOutputWithContext(ctx context.Context) SourceControlOutput {
+func (i *SourceControl) ToSourceControlOutputWithContext(ctx context.Context) SourceControlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlOutput)
 }
 
@@ -209,7 +209,7 @@ type SourceControlOutput struct {
 }
 
 func (SourceControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceControlOutput)(nil)).Elem()
+	return reflect.TypeOf((*SourceControl)(nil))
 }
 
 func (o SourceControlOutput) ToSourceControlOutput() SourceControlOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
     /// <summary>
     /// The storage account blob inventory policy.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20200801preview:BlobInventoryPolicy")]
     public partial class BlobInventoryPolicy : Pulumi.CustomResource
     {
         /// <summary>

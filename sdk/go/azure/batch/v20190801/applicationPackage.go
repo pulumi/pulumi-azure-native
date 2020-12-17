@@ -182,15 +182,15 @@ type ApplicationPackageInput interface {
 	ToApplicationPackageOutputWithContext(ctx context.Context) ApplicationPackageOutput
 }
 
-func (ApplicationPackage) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackage)(nil)).Elem()
+func (*ApplicationPackage) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackage)(nil))
 }
 
-func (i ApplicationPackage) ToApplicationPackageOutput() ApplicationPackageOutput {
+func (i *ApplicationPackage) ToApplicationPackageOutput() ApplicationPackageOutput {
 	return i.ToApplicationPackageOutputWithContext(context.Background())
 }
 
-func (i ApplicationPackage) ToApplicationPackageOutputWithContext(ctx context.Context) ApplicationPackageOutput {
+func (i *ApplicationPackage) ToApplicationPackageOutputWithContext(ctx context.Context) ApplicationPackageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageOutput)
 }
 
@@ -199,7 +199,7 @@ type ApplicationPackageOutput struct {
 }
 
 func (ApplicationPackageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackageOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApplicationPackage)(nil))
 }
 
 func (o ApplicationPackageOutput) ToApplicationPackageOutput() ApplicationPackageOutput {

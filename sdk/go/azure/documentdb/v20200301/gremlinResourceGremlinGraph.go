@@ -174,15 +174,15 @@ type GremlinResourceGremlinGraphInput interface {
 	ToGremlinResourceGremlinGraphOutputWithContext(ctx context.Context) GremlinResourceGremlinGraphOutput
 }
 
-func (GremlinResourceGremlinGraph) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinResourceGremlinGraph)(nil)).Elem()
+func (*GremlinResourceGremlinGraph) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinResourceGremlinGraph)(nil))
 }
 
-func (i GremlinResourceGremlinGraph) ToGremlinResourceGremlinGraphOutput() GremlinResourceGremlinGraphOutput {
+func (i *GremlinResourceGremlinGraph) ToGremlinResourceGremlinGraphOutput() GremlinResourceGremlinGraphOutput {
 	return i.ToGremlinResourceGremlinGraphOutputWithContext(context.Background())
 }
 
-func (i GremlinResourceGremlinGraph) ToGremlinResourceGremlinGraphOutputWithContext(ctx context.Context) GremlinResourceGremlinGraphOutput {
+func (i *GremlinResourceGremlinGraph) ToGremlinResourceGremlinGraphOutputWithContext(ctx context.Context) GremlinResourceGremlinGraphOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinResourceGremlinGraphOutput)
 }
 
@@ -191,7 +191,7 @@ type GremlinResourceGremlinGraphOutput struct {
 }
 
 func (GremlinResourceGremlinGraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinResourceGremlinGraphOutput)(nil)).Elem()
+	return reflect.TypeOf((*GremlinResourceGremlinGraph)(nil))
 }
 
 func (o GremlinResourceGremlinGraphOutput) ToGremlinResourceGremlinGraphOutput() GremlinResourceGremlinGraphOutput {

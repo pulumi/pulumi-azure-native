@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Relay.V20180101Preview
     /// <summary>
     /// Description of a namespace resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:relay/v20180101preview:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>

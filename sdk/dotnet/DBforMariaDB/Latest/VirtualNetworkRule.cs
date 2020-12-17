@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
     /// A virtual network rule.
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformariadb/latest:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>

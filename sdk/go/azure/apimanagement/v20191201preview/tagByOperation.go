@@ -150,15 +150,15 @@ type TagByOperationInput interface {
 	ToTagByOperationOutputWithContext(ctx context.Context) TagByOperationOutput
 }
 
-func (TagByOperation) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagByOperation)(nil)).Elem()
+func (*TagByOperation) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByOperation)(nil))
 }
 
-func (i TagByOperation) ToTagByOperationOutput() TagByOperationOutput {
+func (i *TagByOperation) ToTagByOperationOutput() TagByOperationOutput {
 	return i.ToTagByOperationOutputWithContext(context.Background())
 }
 
-func (i TagByOperation) ToTagByOperationOutputWithContext(ctx context.Context) TagByOperationOutput {
+func (i *TagByOperation) ToTagByOperationOutputWithContext(ctx context.Context) TagByOperationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagByOperationOutput)
 }
 
@@ -167,7 +167,7 @@ type TagByOperationOutput struct {
 }
 
 func (TagByOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagByOperationOutput)(nil)).Elem()
+	return reflect.TypeOf((*TagByOperation)(nil))
 }
 
 func (o TagByOperationOutput) ToTagByOperationOutput() TagByOperationOutput {

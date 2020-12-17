@@ -172,15 +172,15 @@ type GraphQueryInput interface {
 	ToGraphQueryOutputWithContext(ctx context.Context) GraphQueryOutput
 }
 
-func (GraphQuery) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQuery)(nil)).Elem()
+func (*GraphQuery) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQuery)(nil))
 }
 
-func (i GraphQuery) ToGraphQueryOutput() GraphQueryOutput {
+func (i *GraphQuery) ToGraphQueryOutput() GraphQueryOutput {
 	return i.ToGraphQueryOutputWithContext(context.Background())
 }
 
-func (i GraphQuery) ToGraphQueryOutputWithContext(ctx context.Context) GraphQueryOutput {
+func (i *GraphQuery) ToGraphQueryOutputWithContext(ctx context.Context) GraphQueryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQueryOutput)
 }
 
@@ -189,7 +189,7 @@ type GraphQueryOutput struct {
 }
 
 func (GraphQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQueryOutput)(nil)).Elem()
+	return reflect.TypeOf((*GraphQuery)(nil))
 }
 
 func (o GraphQueryOutput) ToGraphQueryOutput() GraphQueryOutput {

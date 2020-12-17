@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
     /// <summary>
     /// An object that represents a scope map for a container registry.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20201101preview:ScopeMap")]
     public partial class ScopeMap : Pulumi.CustomResource
     {
         /// <summary>

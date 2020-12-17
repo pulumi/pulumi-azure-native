@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
     /// A cluster resource
     /// Latest API Version: 2020-03-20.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:avs/latest:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
     /// <summary>
     /// User credentials used for publishing activity.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20181101:WebAppDeployment")]
     public partial class WebAppDeployment : Pulumi.CustomResource
     {
         /// <summary>

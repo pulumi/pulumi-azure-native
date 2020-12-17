@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20190801
     /// <summary>
     /// Key Vault container ARM resource for a certificate that is purchased through Azure.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrderCertificate")]
     public partial class AppServiceCertificateOrderCertificate : Pulumi.CustomResource
     {
         /// <summary>

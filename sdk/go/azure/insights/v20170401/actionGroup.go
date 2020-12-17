@@ -226,15 +226,15 @@ type ActionGroupInput interface {
 	ToActionGroupOutputWithContext(ctx context.Context) ActionGroupOutput
 }
 
-func (ActionGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroup)(nil)).Elem()
+func (*ActionGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroup)(nil))
 }
 
-func (i ActionGroup) ToActionGroupOutput() ActionGroupOutput {
+func (i *ActionGroup) ToActionGroupOutput() ActionGroupOutput {
 	return i.ToActionGroupOutputWithContext(context.Background())
 }
 
-func (i ActionGroup) ToActionGroupOutputWithContext(ctx context.Context) ActionGroupOutput {
+func (i *ActionGroup) ToActionGroupOutputWithContext(ctx context.Context) ActionGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupOutput)
 }
 
@@ -243,7 +243,7 @@ type ActionGroupOutput struct {
 }
 
 func (ActionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ActionGroup)(nil))
 }
 
 func (o ActionGroupOutput) ToActionGroupOutput() ActionGroupOutput {

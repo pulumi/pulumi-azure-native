@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataCatalog.V20160330
     /// <summary>
     /// Azure Data Catalog.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datacatalog/v20160330:ADCCatalog")]
     public partial class ADCCatalog : Pulumi.CustomResource
     {
         /// <summary>

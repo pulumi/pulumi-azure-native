@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200401
     /// <summary>
     /// The essential information related to the peer's ASN.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:peering/v20200401:PeerAsn")]
     public partial class PeerAsn : Pulumi.CustomResource
     {
         /// <summary>

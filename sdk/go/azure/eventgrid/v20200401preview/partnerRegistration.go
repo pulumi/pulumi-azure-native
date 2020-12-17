@@ -288,15 +288,15 @@ type PartnerRegistrationInput interface {
 	ToPartnerRegistrationOutputWithContext(ctx context.Context) PartnerRegistrationOutput
 }
 
-func (PartnerRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerRegistration)(nil)).Elem()
+func (*PartnerRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerRegistration)(nil))
 }
 
-func (i PartnerRegistration) ToPartnerRegistrationOutput() PartnerRegistrationOutput {
+func (i *PartnerRegistration) ToPartnerRegistrationOutput() PartnerRegistrationOutput {
 	return i.ToPartnerRegistrationOutputWithContext(context.Background())
 }
 
-func (i PartnerRegistration) ToPartnerRegistrationOutputWithContext(ctx context.Context) PartnerRegistrationOutput {
+func (i *PartnerRegistration) ToPartnerRegistrationOutputWithContext(ctx context.Context) PartnerRegistrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerRegistrationOutput)
 }
 
@@ -305,7 +305,7 @@ type PartnerRegistrationOutput struct {
 }
 
 func (PartnerRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerRegistrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*PartnerRegistration)(nil))
 }
 
 func (o PartnerRegistrationOutput) ToPartnerRegistrationOutput() PartnerRegistrationOutput {

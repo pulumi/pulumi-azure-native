@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
     /// <summary>
     /// Represents a ApplicationGroup definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization/v20201102preview:ApplicationGroup")]
     public partial class ApplicationGroup : Pulumi.CustomResource
     {
         /// <summary>

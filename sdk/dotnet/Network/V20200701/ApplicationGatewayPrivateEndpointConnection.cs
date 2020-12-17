@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
     /// <summary>
     /// Private Endpoint connection on an application gateway.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection")]
     public partial class ApplicationGatewayPrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

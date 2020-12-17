@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
     /// Peerings in a VirtualNetwork resource
     /// Latest API Version: 2018-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databricks/latest:vNetPeering")]
     public partial class VNetPeering : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801Preview
     /// <summary>
     /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:search/v20200801preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

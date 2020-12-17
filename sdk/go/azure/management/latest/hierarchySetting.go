@@ -128,15 +128,15 @@ type HierarchySettingInput interface {
 	ToHierarchySettingOutputWithContext(ctx context.Context) HierarchySettingOutput
 }
 
-func (HierarchySetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*HierarchySetting)(nil)).Elem()
+func (*HierarchySetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*HierarchySetting)(nil))
 }
 
-func (i HierarchySetting) ToHierarchySettingOutput() HierarchySettingOutput {
+func (i *HierarchySetting) ToHierarchySettingOutput() HierarchySettingOutput {
 	return i.ToHierarchySettingOutputWithContext(context.Background())
 }
 
-func (i HierarchySetting) ToHierarchySettingOutputWithContext(ctx context.Context) HierarchySettingOutput {
+func (i *HierarchySetting) ToHierarchySettingOutputWithContext(ctx context.Context) HierarchySettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HierarchySettingOutput)
 }
 
@@ -145,7 +145,7 @@ type HierarchySettingOutput struct {
 }
 
 func (HierarchySettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HierarchySettingOutput)(nil)).Elem()
+	return reflect.TypeOf((*HierarchySetting)(nil))
 }
 
 func (o HierarchySettingOutput) ToHierarchySettingOutput() HierarchySettingOutput {

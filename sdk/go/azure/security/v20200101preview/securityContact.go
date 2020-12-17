@@ -122,15 +122,15 @@ type SecurityContactInput interface {
 	ToSecurityContactOutputWithContext(ctx context.Context) SecurityContactOutput
 }
 
-func (SecurityContact) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityContact)(nil)).Elem()
+func (*SecurityContact) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContact)(nil))
 }
 
-func (i SecurityContact) ToSecurityContactOutput() SecurityContactOutput {
+func (i *SecurityContact) ToSecurityContactOutput() SecurityContactOutput {
 	return i.ToSecurityContactOutputWithContext(context.Background())
 }
 
-func (i SecurityContact) ToSecurityContactOutputWithContext(ctx context.Context) SecurityContactOutput {
+func (i *SecurityContact) ToSecurityContactOutputWithContext(ctx context.Context) SecurityContactOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactOutput)
 }
 
@@ -139,7 +139,7 @@ type SecurityContactOutput struct {
 }
 
 func (SecurityContactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityContactOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecurityContact)(nil))
 }
 
 func (o SecurityContactOutput) ToSecurityContactOutput() SecurityContactOutput {

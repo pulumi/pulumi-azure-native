@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
     /// <summary>
     /// The properties of a storage account’s Table service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20190601:TableServiceProperties")]
     public partial class TableServiceProperties : Pulumi.CustomResource
     {
         /// <summary>

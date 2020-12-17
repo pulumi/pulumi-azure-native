@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
     /// <summary>
     /// The integration account map.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/v20160601:Map")]
     public partial class Map : Pulumi.CustomResource
     {
         /// <summary>

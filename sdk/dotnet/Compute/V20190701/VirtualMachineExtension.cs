@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
     /// <summary>
     /// Describes a Virtual Machine Extension.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20190701:VirtualMachineExtension")]
     public partial class VirtualMachineExtension : Pulumi.CustomResource
     {
         /// <summary>

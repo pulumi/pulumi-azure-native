@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201101
     /// <summary>
     /// A private endpoint connection
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerservice/v20201101:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

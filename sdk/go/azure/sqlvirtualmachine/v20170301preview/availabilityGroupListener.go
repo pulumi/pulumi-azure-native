@@ -152,15 +152,15 @@ type AvailabilityGroupListenerInput interface {
 	ToAvailabilityGroupListenerOutputWithContext(ctx context.Context) AvailabilityGroupListenerOutput
 }
 
-func (AvailabilityGroupListener) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilityGroupListener)(nil)).Elem()
+func (*AvailabilityGroupListener) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilityGroupListener)(nil))
 }
 
-func (i AvailabilityGroupListener) ToAvailabilityGroupListenerOutput() AvailabilityGroupListenerOutput {
+func (i *AvailabilityGroupListener) ToAvailabilityGroupListenerOutput() AvailabilityGroupListenerOutput {
 	return i.ToAvailabilityGroupListenerOutputWithContext(context.Background())
 }
 
-func (i AvailabilityGroupListener) ToAvailabilityGroupListenerOutputWithContext(ctx context.Context) AvailabilityGroupListenerOutput {
+func (i *AvailabilityGroupListener) ToAvailabilityGroupListenerOutputWithContext(ctx context.Context) AvailabilityGroupListenerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityGroupListenerOutput)
 }
 
@@ -169,7 +169,7 @@ type AvailabilityGroupListenerOutput struct {
 }
 
 func (AvailabilityGroupListenerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilityGroupListenerOutput)(nil)).Elem()
+	return reflect.TypeOf((*AvailabilityGroupListener)(nil))
 }
 
 func (o AvailabilityGroupListenerOutput) ToAvailabilityGroupListenerOutput() AvailabilityGroupListenerOutput {

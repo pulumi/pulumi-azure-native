@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HardwareSecurityModules.V20181031Preview
     /// <summary>
     /// Resource information with extended details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm")]
     public partial class DedicatedHsm : Pulumi.CustomResource
     {
         /// <summary>

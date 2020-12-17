@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201
     /// <summary>
     /// A virtual network rule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/v20171201:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>

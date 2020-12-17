@@ -136,15 +136,15 @@ type ProviderInstanceInput interface {
 	ToProviderInstanceOutputWithContext(ctx context.Context) ProviderInstanceOutput
 }
 
-func (ProviderInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderInstance)(nil)).Elem()
+func (*ProviderInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderInstance)(nil))
 }
 
-func (i ProviderInstance) ToProviderInstanceOutput() ProviderInstanceOutput {
+func (i *ProviderInstance) ToProviderInstanceOutput() ProviderInstanceOutput {
 	return i.ToProviderInstanceOutputWithContext(context.Background())
 }
 
-func (i ProviderInstance) ToProviderInstanceOutputWithContext(ctx context.Context) ProviderInstanceOutput {
+func (i *ProviderInstance) ToProviderInstanceOutputWithContext(ctx context.Context) ProviderInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderInstanceOutput)
 }
 
@@ -153,7 +153,7 @@ type ProviderInstanceOutput struct {
 }
 
 func (ProviderInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderInstanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProviderInstance)(nil))
 }
 
 func (o ProviderInstanceOutput) ToProviderInstanceOutput() ProviderInstanceOutput {

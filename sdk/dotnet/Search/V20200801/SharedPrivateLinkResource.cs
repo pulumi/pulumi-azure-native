@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801
     /// <summary>
     /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:search/v20200801:SharedPrivateLinkResource")]
     public partial class SharedPrivateLinkResource : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
     /// <summary>
     /// Base class for backup items.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20201001:ProtectedItem")]
     public partial class ProtectedItem : Pulumi.CustomResource
     {
         /// <summary>

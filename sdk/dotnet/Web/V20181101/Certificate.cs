@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
     /// <summary>
     /// SSL certificate for an app.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20181101:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

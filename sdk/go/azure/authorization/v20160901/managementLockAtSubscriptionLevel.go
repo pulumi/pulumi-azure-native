@@ -134,15 +134,15 @@ type ManagementLockAtSubscriptionLevelInput interface {
 	ToManagementLockAtSubscriptionLevelOutputWithContext(ctx context.Context) ManagementLockAtSubscriptionLevelOutput
 }
 
-func (ManagementLockAtSubscriptionLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockAtSubscriptionLevel)(nil)).Elem()
+func (*ManagementLockAtSubscriptionLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockAtSubscriptionLevel)(nil))
 }
 
-func (i ManagementLockAtSubscriptionLevel) ToManagementLockAtSubscriptionLevelOutput() ManagementLockAtSubscriptionLevelOutput {
+func (i *ManagementLockAtSubscriptionLevel) ToManagementLockAtSubscriptionLevelOutput() ManagementLockAtSubscriptionLevelOutput {
 	return i.ToManagementLockAtSubscriptionLevelOutputWithContext(context.Background())
 }
 
-func (i ManagementLockAtSubscriptionLevel) ToManagementLockAtSubscriptionLevelOutputWithContext(ctx context.Context) ManagementLockAtSubscriptionLevelOutput {
+func (i *ManagementLockAtSubscriptionLevel) ToManagementLockAtSubscriptionLevelOutputWithContext(ctx context.Context) ManagementLockAtSubscriptionLevelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockAtSubscriptionLevelOutput)
 }
 
@@ -151,7 +151,7 @@ type ManagementLockAtSubscriptionLevelOutput struct {
 }
 
 func (ManagementLockAtSubscriptionLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockAtSubscriptionLevelOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagementLockAtSubscriptionLevel)(nil))
 }
 
 func (o ManagementLockAtSubscriptionLevelOutput) ToManagementLockAtSubscriptionLevelOutput() ManagementLockAtSubscriptionLevelOutput {

@@ -178,15 +178,15 @@ type BotConnectionInput interface {
 	ToBotConnectionOutputWithContext(ctx context.Context) BotConnectionOutput
 }
 
-func (BotConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotConnection)(nil)).Elem()
+func (*BotConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotConnection)(nil))
 }
 
-func (i BotConnection) ToBotConnectionOutput() BotConnectionOutput {
+func (i *BotConnection) ToBotConnectionOutput() BotConnectionOutput {
 	return i.ToBotConnectionOutputWithContext(context.Background())
 }
 
-func (i BotConnection) ToBotConnectionOutputWithContext(ctx context.Context) BotConnectionOutput {
+func (i *BotConnection) ToBotConnectionOutputWithContext(ctx context.Context) BotConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotConnectionOutput)
 }
 
@@ -195,7 +195,7 @@ type BotConnectionOutput struct {
 }
 
 func (BotConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*BotConnection)(nil))
 }
 
 func (o BotConnectionOutput) ToBotConnectionOutput() BotConnectionOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
     /// <summary>
     /// Configuration of Azure web site
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteLogsConfig")]
     public partial class SiteLogsConfig : Pulumi.CustomResource
     {
         /// <summary>

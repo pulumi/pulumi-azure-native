@@ -159,15 +159,15 @@ type RemediationAtSubscriptionInput interface {
 	ToRemediationAtSubscriptionOutputWithContext(ctx context.Context) RemediationAtSubscriptionOutput
 }
 
-func (RemediationAtSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtSubscription)(nil)).Elem()
+func (*RemediationAtSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtSubscription)(nil))
 }
 
-func (i RemediationAtSubscription) ToRemediationAtSubscriptionOutput() RemediationAtSubscriptionOutput {
+func (i *RemediationAtSubscription) ToRemediationAtSubscriptionOutput() RemediationAtSubscriptionOutput {
 	return i.ToRemediationAtSubscriptionOutputWithContext(context.Background())
 }
 
-func (i RemediationAtSubscription) ToRemediationAtSubscriptionOutputWithContext(ctx context.Context) RemediationAtSubscriptionOutput {
+func (i *RemediationAtSubscription) ToRemediationAtSubscriptionOutputWithContext(ctx context.Context) RemediationAtSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtSubscriptionOutput)
 }
 
@@ -176,7 +176,7 @@ type RemediationAtSubscriptionOutput struct {
 }
 
 func (RemediationAtSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtSubscriptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*RemediationAtSubscription)(nil))
 }
 
 func (o RemediationAtSubscriptionOutput) ToRemediationAtSubscriptionOutput() RemediationAtSubscriptionOutput {

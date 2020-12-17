@@ -275,12 +275,12 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerVersion _5 { get; } = new ServerVersion("9.5");
-        public static ServerVersion _6 { get; } = new ServerVersion("9.6");
-        public static ServerVersion _0 { get; } = new ServerVersion("10");
-        public static ServerVersion _0_0 { get; } = new ServerVersion("10.0");
-        public static ServerVersion _0_2 { get; } = new ServerVersion("10.2");
-        public static ServerVersion _1 { get; } = new ServerVersion("11");
+        public static ServerVersion ServerVersion_9_5 { get; } = new ServerVersion("9.5");
+        public static ServerVersion ServerVersion_9_6 { get; } = new ServerVersion("9.6");
+        public static ServerVersion ServerVersion_10 { get; } = new ServerVersion("10");
+        public static ServerVersion ServerVersion_10_0 { get; } = new ServerVersion("10.0");
+        public static ServerVersion ServerVersion_10_2 { get; } = new ServerVersion("10.2");
+        public static ServerVersion ServerVersion_11 { get; } = new ServerVersion("11");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
         public static bool operator !=(ServerVersion left, ServerVersion right) => !left.Equals(right);

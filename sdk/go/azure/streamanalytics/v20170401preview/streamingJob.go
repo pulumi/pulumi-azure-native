@@ -354,15 +354,15 @@ type StreamingJobInput interface {
 	ToStreamingJobOutputWithContext(ctx context.Context) StreamingJobOutput
 }
 
-func (StreamingJob) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingJob)(nil)).Elem()
+func (*StreamingJob) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingJob)(nil))
 }
 
-func (i StreamingJob) ToStreamingJobOutput() StreamingJobOutput {
+func (i *StreamingJob) ToStreamingJobOutput() StreamingJobOutput {
 	return i.ToStreamingJobOutputWithContext(context.Background())
 }
 
-func (i StreamingJob) ToStreamingJobOutputWithContext(ctx context.Context) StreamingJobOutput {
+func (i *StreamingJob) ToStreamingJobOutputWithContext(ctx context.Context) StreamingJobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingJobOutput)
 }
 
@@ -371,7 +371,7 @@ type StreamingJobOutput struct {
 }
 
 func (StreamingJobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingJobOutput)(nil)).Elem()
+	return reflect.TypeOf((*StreamingJob)(nil))
 }
 
 func (o StreamingJobOutput) ToStreamingJobOutput() StreamingJobOutput {

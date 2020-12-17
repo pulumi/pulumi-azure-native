@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
     /// Single item in List or Get Consumer group operation
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventhub/latest:ConsumerGroup")]
     public partial class ConsumerGroup : Pulumi.CustomResource
     {
         /// <summary>

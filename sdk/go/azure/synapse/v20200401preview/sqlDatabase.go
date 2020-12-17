@@ -167,15 +167,15 @@ type SqlDatabaseInput interface {
 	ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput
 }
 
-func (SqlDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabase)(nil)).Elem()
+func (*SqlDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabase)(nil))
 }
 
-func (i SqlDatabase) ToSqlDatabaseOutput() SqlDatabaseOutput {
+func (i *SqlDatabase) ToSqlDatabaseOutput() SqlDatabaseOutput {
 	return i.ToSqlDatabaseOutputWithContext(context.Background())
 }
 
-func (i SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
+func (i *SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseOutput)
 }
 
@@ -184,7 +184,7 @@ type SqlDatabaseOutput struct {
 }
 
 func (SqlDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlDatabase)(nil))
 }
 
 func (o SqlDatabaseOutput) ToSqlDatabaseOutput() SqlDatabaseOutput {

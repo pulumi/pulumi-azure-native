@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
     /// <summary>
     /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnection")]
     public partial class WebAppSwiftVirtualNetworkConnection : Pulumi.CustomResource
     {
         /// <summary>

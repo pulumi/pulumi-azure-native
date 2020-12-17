@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
     /// <summary>
     /// VirtualRouter Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200301:VirtualRouter")]
     public partial class VirtualRouter : Pulumi.CustomResource
     {
         /// <summary>

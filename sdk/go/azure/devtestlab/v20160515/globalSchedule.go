@@ -234,15 +234,15 @@ type GlobalScheduleInput interface {
 	ToGlobalScheduleOutputWithContext(ctx context.Context) GlobalScheduleOutput
 }
 
-func (GlobalSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalSchedule)(nil)).Elem()
+func (*GlobalSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSchedule)(nil))
 }
 
-func (i GlobalSchedule) ToGlobalScheduleOutput() GlobalScheduleOutput {
+func (i *GlobalSchedule) ToGlobalScheduleOutput() GlobalScheduleOutput {
 	return i.ToGlobalScheduleOutputWithContext(context.Background())
 }
 
-func (i GlobalSchedule) ToGlobalScheduleOutputWithContext(ctx context.Context) GlobalScheduleOutput {
+func (i *GlobalSchedule) ToGlobalScheduleOutputWithContext(ctx context.Context) GlobalScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalScheduleOutput)
 }
 
@@ -251,7 +251,7 @@ type GlobalScheduleOutput struct {
 }
 
 func (GlobalScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalScheduleOutput)(nil)).Elem()
+	return reflect.TypeOf((*GlobalSchedule)(nil))
 }
 
 func (o GlobalScheduleOutput) ToGlobalScheduleOutput() GlobalScheduleOutput {

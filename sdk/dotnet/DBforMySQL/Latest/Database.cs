@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
     /// Represents a Database.
     /// Latest API Version: 2017-12-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformysql/latest:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>

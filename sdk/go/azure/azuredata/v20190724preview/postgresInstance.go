@@ -129,15 +129,15 @@ type PostgresInstanceInput interface {
 	ToPostgresInstanceOutputWithContext(ctx context.Context) PostgresInstanceOutput
 }
 
-func (PostgresInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstance)(nil)).Elem()
+func (*PostgresInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresInstance)(nil))
 }
 
-func (i PostgresInstance) ToPostgresInstanceOutput() PostgresInstanceOutput {
+func (i *PostgresInstance) ToPostgresInstanceOutput() PostgresInstanceOutput {
 	return i.ToPostgresInstanceOutputWithContext(context.Background())
 }
 
-func (i PostgresInstance) ToPostgresInstanceOutputWithContext(ctx context.Context) PostgresInstanceOutput {
+func (i *PostgresInstance) ToPostgresInstanceOutputWithContext(ctx context.Context) PostgresInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstanceOutput)
 }
 
@@ -146,7 +146,7 @@ type PostgresInstanceOutput struct {
 }
 
 func (PostgresInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*PostgresInstance)(nil))
 }
 
 func (o PostgresInstanceOutput) ToPostgresInstanceOutput() PostgresInstanceOutput {

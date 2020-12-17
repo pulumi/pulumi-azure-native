@@ -185,15 +185,15 @@ type AssetInput interface {
 	ToAssetOutputWithContext(ctx context.Context) AssetOutput
 }
 
-func (Asset) ElementType() reflect.Type {
-	return reflect.TypeOf((*Asset)(nil)).Elem()
+func (*Asset) ElementType() reflect.Type {
+	return reflect.TypeOf((*Asset)(nil))
 }
 
-func (i Asset) ToAssetOutput() AssetOutput {
+func (i *Asset) ToAssetOutput() AssetOutput {
 	return i.ToAssetOutputWithContext(context.Background())
 }
 
-func (i Asset) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
+func (i *Asset) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssetOutput)
 }
 
@@ -202,7 +202,7 @@ type AssetOutput struct {
 }
 
 func (AssetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetOutput)(nil)).Elem()
+	return reflect.TypeOf((*Asset)(nil))
 }
 
 func (o AssetOutput) ToAssetOutput() AssetOutput {

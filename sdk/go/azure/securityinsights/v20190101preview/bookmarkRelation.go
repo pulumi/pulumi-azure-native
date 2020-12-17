@@ -161,15 +161,15 @@ type BookmarkRelationInput interface {
 	ToBookmarkRelationOutputWithContext(ctx context.Context) BookmarkRelationOutput
 }
 
-func (BookmarkRelation) ElementType() reflect.Type {
-	return reflect.TypeOf((*BookmarkRelation)(nil)).Elem()
+func (*BookmarkRelation) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkRelation)(nil))
 }
 
-func (i BookmarkRelation) ToBookmarkRelationOutput() BookmarkRelationOutput {
+func (i *BookmarkRelation) ToBookmarkRelationOutput() BookmarkRelationOutput {
 	return i.ToBookmarkRelationOutputWithContext(context.Background())
 }
 
-func (i BookmarkRelation) ToBookmarkRelationOutputWithContext(ctx context.Context) BookmarkRelationOutput {
+func (i *BookmarkRelation) ToBookmarkRelationOutputWithContext(ctx context.Context) BookmarkRelationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BookmarkRelationOutput)
 }
 
@@ -178,7 +178,7 @@ type BookmarkRelationOutput struct {
 }
 
 func (BookmarkRelationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BookmarkRelationOutput)(nil)).Elem()
+	return reflect.TypeOf((*BookmarkRelation)(nil))
 }
 
 func (o BookmarkRelationOutput) ToBookmarkRelationOutput() BookmarkRelationOutput {

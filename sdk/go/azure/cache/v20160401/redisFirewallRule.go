@@ -153,15 +153,15 @@ type RedisFirewallRuleInput interface {
 	ToRedisFirewallRuleOutputWithContext(ctx context.Context) RedisFirewallRuleOutput
 }
 
-func (RedisFirewallRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisFirewallRule)(nil)).Elem()
+func (*RedisFirewallRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisFirewallRule)(nil))
 }
 
-func (i RedisFirewallRule) ToRedisFirewallRuleOutput() RedisFirewallRuleOutput {
+func (i *RedisFirewallRule) ToRedisFirewallRuleOutput() RedisFirewallRuleOutput {
 	return i.ToRedisFirewallRuleOutputWithContext(context.Background())
 }
 
-func (i RedisFirewallRule) ToRedisFirewallRuleOutputWithContext(ctx context.Context) RedisFirewallRuleOutput {
+func (i *RedisFirewallRule) ToRedisFirewallRuleOutputWithContext(ctx context.Context) RedisFirewallRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RedisFirewallRuleOutput)
 }
 
@@ -170,7 +170,7 @@ type RedisFirewallRuleOutput struct {
 }
 
 func (RedisFirewallRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisFirewallRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*RedisFirewallRule)(nil))
 }
 
 func (o RedisFirewallRuleOutput) ToRedisFirewallRuleOutput() RedisFirewallRuleOutput {

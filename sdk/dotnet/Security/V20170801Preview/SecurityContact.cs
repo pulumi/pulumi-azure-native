@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
     /// <summary>
     /// Contact details for security issues
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20170801preview:SecurityContact")]
     public partial class SecurityContact : Pulumi.CustomResource
     {
         /// <summary>

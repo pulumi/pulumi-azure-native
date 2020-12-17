@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Migrate.V20191001
 {
+    [AzureNextGenResourceType("azure-nextgen:migrate/v20191001:VMwareCollector")]
     public partial class VMwareCollector : Pulumi.CustomResource
     {
         [Output("eTag")]

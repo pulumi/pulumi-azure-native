@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
     /// <summary>
     /// Logger details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20170301:DiagnosticLogger")]
     public partial class DiagnosticLogger : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Communication.V20200820Preview
     /// <summary>
     /// A class representing a CommunicationService resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:communication/v20200820preview:CommunicationService")]
     public partial class CommunicationService : Pulumi.CustomResource
     {
         /// <summary>

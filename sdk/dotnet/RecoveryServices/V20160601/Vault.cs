@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
     /// <summary>
     /// Resource information, as returned by the resource provider.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20160601:Vault")]
     public partial class Vault : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401
     /// <summary>
     /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20190401:FrontDoor")]
     public partial class FrontDoor : Pulumi.CustomResource
     {
         /// <summary>

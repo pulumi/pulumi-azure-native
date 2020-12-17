@@ -148,15 +148,15 @@ type WebServiceInput interface {
 	ToWebServiceOutputWithContext(ctx context.Context) WebServiceOutput
 }
 
-func (WebService) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebService)(nil)).Elem()
+func (*WebService) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebService)(nil))
 }
 
-func (i WebService) ToWebServiceOutput() WebServiceOutput {
+func (i *WebService) ToWebServiceOutput() WebServiceOutput {
 	return i.ToWebServiceOutputWithContext(context.Background())
 }
 
-func (i WebService) ToWebServiceOutputWithContext(ctx context.Context) WebServiceOutput {
+func (i *WebService) ToWebServiceOutputWithContext(ctx context.Context) WebServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebServiceOutput)
 }
 
@@ -165,7 +165,7 @@ type WebServiceOutput struct {
 }
 
 func (WebServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebService)(nil))
 }
 
 func (o WebServiceOutput) ToWebServiceOutput() WebServiceOutput {

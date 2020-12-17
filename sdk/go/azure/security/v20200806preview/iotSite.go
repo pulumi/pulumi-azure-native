@@ -115,15 +115,15 @@ type IotSiteInput interface {
 	ToIotSiteOutputWithContext(ctx context.Context) IotSiteOutput
 }
 
-func (IotSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotSite)(nil)).Elem()
+func (*IotSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotSite)(nil))
 }
 
-func (i IotSite) ToIotSiteOutput() IotSiteOutput {
+func (i *IotSite) ToIotSiteOutput() IotSiteOutput {
 	return i.ToIotSiteOutputWithContext(context.Background())
 }
 
-func (i IotSite) ToIotSiteOutputWithContext(ctx context.Context) IotSiteOutput {
+func (i *IotSite) ToIotSiteOutputWithContext(ctx context.Context) IotSiteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotSiteOutput)
 }
 
@@ -132,7 +132,7 @@ type IotSiteOutput struct {
 }
 
 func (IotSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotSiteOutput)(nil)).Elem()
+	return reflect.TypeOf((*IotSite)(nil))
 }
 
 func (o IotSiteOutput) ToIotSiteOutput() IotSiteOutput {

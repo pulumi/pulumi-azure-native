@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180501Preview
     /// <summary>
     /// An Application Insights component definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20180501preview:Component")]
     public partial class Component : Pulumi.CustomResource
     {
         /// <summary>

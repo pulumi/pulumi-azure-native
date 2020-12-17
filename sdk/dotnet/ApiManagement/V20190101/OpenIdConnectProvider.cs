@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
     /// <summary>
     /// OpenId Connect Provider details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20190101:OpenIdConnectProvider")]
     public partial class OpenIdConnectProvider : Pulumi.CustomResource
     {
         /// <summary>

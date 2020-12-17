@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
     /// <summary>
     /// A flow log resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20191101:FlowLog")]
     public partial class FlowLog : Pulumi.CustomResource
     {
         /// <summary>

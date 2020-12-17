@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
     /// <summary>
     /// NSX DNS Zone
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsZone")]
     public partial class WorkloadNetworkDnsZone : Pulumi.CustomResource
     {
         /// <summary>

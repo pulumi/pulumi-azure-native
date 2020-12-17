@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160319
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph")]
     public partial class DatabaseAccountGremlinGraph : Pulumi.CustomResource
     {
         /// <summary>

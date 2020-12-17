@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
     /// <summary>
     /// The policy exemption.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:authorization/v20200701preview:PolicyExemption")]
     public partial class PolicyExemption : Pulumi.CustomResource
     {
         /// <summary>

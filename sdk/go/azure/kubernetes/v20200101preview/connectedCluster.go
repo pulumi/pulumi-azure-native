@@ -243,15 +243,15 @@ type ConnectedClusterInput interface {
 	ToConnectedClusterOutputWithContext(ctx context.Context) ConnectedClusterOutput
 }
 
-func (ConnectedCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedCluster)(nil)).Elem()
+func (*ConnectedCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedCluster)(nil))
 }
 
-func (i ConnectedCluster) ToConnectedClusterOutput() ConnectedClusterOutput {
+func (i *ConnectedCluster) ToConnectedClusterOutput() ConnectedClusterOutput {
 	return i.ToConnectedClusterOutputWithContext(context.Background())
 }
 
-func (i ConnectedCluster) ToConnectedClusterOutputWithContext(ctx context.Context) ConnectedClusterOutput {
+func (i *ConnectedCluster) ToConnectedClusterOutputWithContext(ctx context.Context) ConnectedClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterOutput)
 }
 
@@ -260,7 +260,7 @@ type ConnectedClusterOutput struct {
 }
 
 func (ConnectedClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConnectedCluster)(nil))
 }
 
 func (o ConnectedClusterOutput) ToConnectedClusterOutput() ConnectedClusterOutput {

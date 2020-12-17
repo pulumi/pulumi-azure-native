@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
     /// <summary>
     /// Definition of the configuration type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:DscConfiguration")]
     public partial class DscConfiguration : Pulumi.CustomResource
     {
         /// <summary>

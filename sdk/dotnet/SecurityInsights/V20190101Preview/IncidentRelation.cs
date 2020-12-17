@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
     /// <summary>
     /// Represents a relation between two resources
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:securityinsights/v20190101preview:IncidentRelation")]
     public partial class IncidentRelation : Pulumi.CustomResource
     {
         /// <summary>

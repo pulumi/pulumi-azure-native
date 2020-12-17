@@ -180,15 +180,15 @@ type KeyValueInput interface {
 	ToKeyValueOutputWithContext(ctx context.Context) KeyValueOutput
 }
 
-func (KeyValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyValue)(nil)).Elem()
+func (*KeyValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyValue)(nil))
 }
 
-func (i KeyValue) ToKeyValueOutput() KeyValueOutput {
+func (i *KeyValue) ToKeyValueOutput() KeyValueOutput {
 	return i.ToKeyValueOutputWithContext(context.Background())
 }
 
-func (i KeyValue) ToKeyValueOutputWithContext(ctx context.Context) KeyValueOutput {
+func (i *KeyValue) ToKeyValueOutputWithContext(ctx context.Context) KeyValueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyValueOutput)
 }
 
@@ -197,7 +197,7 @@ type KeyValueOutput struct {
 }
 
 func (KeyValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyValueOutput)(nil)).Elem()
+	return reflect.TypeOf((*KeyValue)(nil))
 }
 
 func (o KeyValueOutput) ToKeyValueOutput() KeyValueOutput {

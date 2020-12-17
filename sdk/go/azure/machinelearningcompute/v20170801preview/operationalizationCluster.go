@@ -225,15 +225,15 @@ type OperationalizationClusterInput interface {
 	ToOperationalizationClusterOutputWithContext(ctx context.Context) OperationalizationClusterOutput
 }
 
-func (OperationalizationCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationalizationCluster)(nil)).Elem()
+func (*OperationalizationCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperationalizationCluster)(nil))
 }
 
-func (i OperationalizationCluster) ToOperationalizationClusterOutput() OperationalizationClusterOutput {
+func (i *OperationalizationCluster) ToOperationalizationClusterOutput() OperationalizationClusterOutput {
 	return i.ToOperationalizationClusterOutputWithContext(context.Background())
 }
 
-func (i OperationalizationCluster) ToOperationalizationClusterOutputWithContext(ctx context.Context) OperationalizationClusterOutput {
+func (i *OperationalizationCluster) ToOperationalizationClusterOutputWithContext(ctx context.Context) OperationalizationClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OperationalizationClusterOutput)
 }
 
@@ -242,7 +242,7 @@ type OperationalizationClusterOutput struct {
 }
 
 func (OperationalizationClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationalizationClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*OperationalizationCluster)(nil))
 }
 
 func (o OperationalizationClusterOutput) ToOperationalizationClusterOutput() OperationalizationClusterOutput {

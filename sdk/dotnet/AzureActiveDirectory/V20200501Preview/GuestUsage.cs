@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20200501Preview
     /// <summary>
     /// Guest Usages Resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:azureactivedirectory/v20200501preview:GuestUsage")]
     public partial class GuestUsage : Pulumi.CustomResource
     {
         /// <summary>

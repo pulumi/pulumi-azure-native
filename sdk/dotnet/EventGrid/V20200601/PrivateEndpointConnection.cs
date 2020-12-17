@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.EventGrid.V20200601
 {
+    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20200601:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

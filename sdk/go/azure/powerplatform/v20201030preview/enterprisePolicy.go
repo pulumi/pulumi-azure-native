@@ -151,15 +151,15 @@ type EnterprisePolicyInput interface {
 	ToEnterprisePolicyOutputWithContext(ctx context.Context) EnterprisePolicyOutput
 }
 
-func (EnterprisePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicy)(nil)).Elem()
+func (*EnterprisePolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterprisePolicy)(nil))
 }
 
-func (i EnterprisePolicy) ToEnterprisePolicyOutput() EnterprisePolicyOutput {
+func (i *EnterprisePolicy) ToEnterprisePolicyOutput() EnterprisePolicyOutput {
 	return i.ToEnterprisePolicyOutputWithContext(context.Background())
 }
 
-func (i EnterprisePolicy) ToEnterprisePolicyOutputWithContext(ctx context.Context) EnterprisePolicyOutput {
+func (i *EnterprisePolicy) ToEnterprisePolicyOutputWithContext(ctx context.Context) EnterprisePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyOutput)
 }
 
@@ -168,7 +168,7 @@ type EnterprisePolicyOutput struct {
 }
 
 func (EnterprisePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*EnterprisePolicy)(nil))
 }
 
 func (o EnterprisePolicyOutput) ToEnterprisePolicyOutput() EnterprisePolicyOutput {

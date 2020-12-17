@@ -207,15 +207,15 @@ type Python2PackageInput interface {
 	ToPython2PackageOutputWithContext(ctx context.Context) Python2PackageOutput
 }
 
-func (Python2Package) ElementType() reflect.Type {
-	return reflect.TypeOf((*Python2Package)(nil)).Elem()
+func (*Python2Package) ElementType() reflect.Type {
+	return reflect.TypeOf((*Python2Package)(nil))
 }
 
-func (i Python2Package) ToPython2PackageOutput() Python2PackageOutput {
+func (i *Python2Package) ToPython2PackageOutput() Python2PackageOutput {
 	return i.ToPython2PackageOutputWithContext(context.Background())
 }
 
-func (i Python2Package) ToPython2PackageOutputWithContext(ctx context.Context) Python2PackageOutput {
+func (i *Python2Package) ToPython2PackageOutputWithContext(ctx context.Context) Python2PackageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(Python2PackageOutput)
 }
 
@@ -224,7 +224,7 @@ type Python2PackageOutput struct {
 }
 
 func (Python2PackageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Python2PackageOutput)(nil)).Elem()
+	return reflect.TypeOf((*Python2Package)(nil))
 }
 
 func (o Python2PackageOutput) ToPython2PackageOutput() Python2PackageOutput {

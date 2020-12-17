@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview
     /// <summary>
     /// The container for solution.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationsmanagement/v20151101preview:ManagementAssociation")]
     public partial class ManagementAssociation : Pulumi.CustomResource
     {
         /// <summary>

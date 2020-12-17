@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     /// <summary>
     /// Workspace active directory administrator
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin")]
     public partial class WorkspaceSqlAadAdmin : Pulumi.CustomResource
     {
         /// <summary>

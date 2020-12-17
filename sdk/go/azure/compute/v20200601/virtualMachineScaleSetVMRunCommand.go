@@ -244,15 +244,15 @@ type VirtualMachineScaleSetVMRunCommandInput interface {
 	ToVirtualMachineScaleSetVMRunCommandOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMRunCommandOutput
 }
 
-func (VirtualMachineScaleSetVMRunCommand) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVMRunCommand)(nil)).Elem()
+func (*VirtualMachineScaleSetVMRunCommand) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetVMRunCommand)(nil))
 }
 
-func (i VirtualMachineScaleSetVMRunCommand) ToVirtualMachineScaleSetVMRunCommandOutput() VirtualMachineScaleSetVMRunCommandOutput {
+func (i *VirtualMachineScaleSetVMRunCommand) ToVirtualMachineScaleSetVMRunCommandOutput() VirtualMachineScaleSetVMRunCommandOutput {
 	return i.ToVirtualMachineScaleSetVMRunCommandOutputWithContext(context.Background())
 }
 
-func (i VirtualMachineScaleSetVMRunCommand) ToVirtualMachineScaleSetVMRunCommandOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMRunCommandOutput {
+func (i *VirtualMachineScaleSetVMRunCommand) ToVirtualMachineScaleSetVMRunCommandOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMRunCommandOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMRunCommandOutput)
 }
 
@@ -261,7 +261,7 @@ type VirtualMachineScaleSetVMRunCommandOutput struct {
 }
 
 func (VirtualMachineScaleSetVMRunCommandOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVMRunCommandOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualMachineScaleSetVMRunCommand)(nil))
 }
 
 func (o VirtualMachineScaleSetVMRunCommandOutput) ToVirtualMachineScaleSetVMRunCommandOutput() VirtualMachineScaleSetVMRunCommandOutput {

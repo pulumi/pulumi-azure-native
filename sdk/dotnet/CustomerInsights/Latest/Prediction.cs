@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
     /// The prediction resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:Prediction")]
     public partial class Prediction : Pulumi.CustomResource
     {
         /// <summary>

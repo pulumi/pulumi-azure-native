@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
     /// <summary>
     /// This type describes a volume resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicefabricmesh/v20180701preview:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>

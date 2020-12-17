@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190123Preview
     /// <summary>
     /// Represents a HostPool definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization/v20190123preview:HostPool")]
     public partial class HostPool : Pulumi.CustomResource
     {
         /// <summary>

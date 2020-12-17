@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
     /// The connector mapping resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:ConnectorMapping")]
     public partial class ConnectorMapping : Pulumi.CustomResource
     {
         /// <summary>

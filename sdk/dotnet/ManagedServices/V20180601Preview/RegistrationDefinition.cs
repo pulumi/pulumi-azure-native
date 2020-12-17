@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20180601Preview
     /// <summary>
     /// Registration definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:managedservices/v20180601preview:RegistrationDefinition")]
     public partial class RegistrationDefinition : Pulumi.CustomResource
     {
         /// <summary>

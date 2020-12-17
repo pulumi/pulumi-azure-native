@@ -165,15 +165,15 @@ type TemplateSpecVersionInput interface {
 	ToTemplateSpecVersionOutputWithContext(ctx context.Context) TemplateSpecVersionOutput
 }
 
-func (TemplateSpecVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecVersion)(nil)).Elem()
+func (*TemplateSpecVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecVersion)(nil))
 }
 
-func (i TemplateSpecVersion) ToTemplateSpecVersionOutput() TemplateSpecVersionOutput {
+func (i *TemplateSpecVersion) ToTemplateSpecVersionOutput() TemplateSpecVersionOutput {
 	return i.ToTemplateSpecVersionOutputWithContext(context.Background())
 }
 
-func (i TemplateSpecVersion) ToTemplateSpecVersionOutputWithContext(ctx context.Context) TemplateSpecVersionOutput {
+func (i *TemplateSpecVersion) ToTemplateSpecVersionOutputWithContext(ctx context.Context) TemplateSpecVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecVersionOutput)
 }
 
@@ -182,7 +182,7 @@ type TemplateSpecVersionOutput struct {
 }
 
 func (TemplateSpecVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecVersionOutput)(nil)).Elem()
+	return reflect.TypeOf((*TemplateSpecVersion)(nil))
 }
 
 func (o TemplateSpecVersionOutput) ToTemplateSpecVersionOutput() TemplateSpecVersionOutput {

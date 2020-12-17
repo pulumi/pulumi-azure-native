@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
     /// <summary>
     /// Friendly Routes name mapping to the any Routes or secret related information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/v20200901:Route")]
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>

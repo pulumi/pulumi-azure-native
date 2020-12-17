@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20191202Preview
     /// <summary>
     /// SpatialAnchorsAccount Response.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount")]
     public partial class SpatialAnchorsAccount : Pulumi.CustomResource
     {
         /// <summary>

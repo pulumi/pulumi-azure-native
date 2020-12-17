@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
     /// <summary>
     /// Data flow resource type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datafactory/v20180601:DataFlow")]
     public partial class DataFlow : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
     /// <summary>
     /// A storage system being cached by a Cache.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storagecache/v20190801preview:StorageTarget")]
     public partial class StorageTarget : Pulumi.CustomResource
     {
         /// <summary>

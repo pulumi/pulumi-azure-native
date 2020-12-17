@@ -180,15 +180,15 @@ type SecurityPartnerProviderInput interface {
 	ToSecurityPartnerProviderOutputWithContext(ctx context.Context) SecurityPartnerProviderOutput
 }
 
-func (SecurityPartnerProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityPartnerProvider)(nil)).Elem()
+func (*SecurityPartnerProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPartnerProvider)(nil))
 }
 
-func (i SecurityPartnerProvider) ToSecurityPartnerProviderOutput() SecurityPartnerProviderOutput {
+func (i *SecurityPartnerProvider) ToSecurityPartnerProviderOutput() SecurityPartnerProviderOutput {
 	return i.ToSecurityPartnerProviderOutputWithContext(context.Background())
 }
 
-func (i SecurityPartnerProvider) ToSecurityPartnerProviderOutputWithContext(ctx context.Context) SecurityPartnerProviderOutput {
+func (i *SecurityPartnerProvider) ToSecurityPartnerProviderOutputWithContext(ctx context.Context) SecurityPartnerProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderOutput)
 }
 
@@ -197,7 +197,7 @@ type SecurityPartnerProviderOutput struct {
 }
 
 func (SecurityPartnerProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityPartnerProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecurityPartnerProvider)(nil))
 }
 
 func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderOutput() SecurityPartnerProviderOutput {

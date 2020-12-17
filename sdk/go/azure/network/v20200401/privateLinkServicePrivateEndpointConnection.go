@@ -175,15 +175,15 @@ type PrivateLinkServicePrivateEndpointConnectionInput interface {
 	ToPrivateLinkServicePrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateLinkServicePrivateEndpointConnectionOutput
 }
 
-func (PrivateLinkServicePrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicePrivateEndpointConnection)(nil)).Elem()
+func (*PrivateLinkServicePrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServicePrivateEndpointConnection)(nil))
 }
 
-func (i PrivateLinkServicePrivateEndpointConnection) ToPrivateLinkServicePrivateEndpointConnectionOutput() PrivateLinkServicePrivateEndpointConnectionOutput {
+func (i *PrivateLinkServicePrivateEndpointConnection) ToPrivateLinkServicePrivateEndpointConnectionOutput() PrivateLinkServicePrivateEndpointConnectionOutput {
 	return i.ToPrivateLinkServicePrivateEndpointConnectionOutputWithContext(context.Background())
 }
 
-func (i PrivateLinkServicePrivateEndpointConnection) ToPrivateLinkServicePrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateLinkServicePrivateEndpointConnectionOutput {
+func (i *PrivateLinkServicePrivateEndpointConnection) ToPrivateLinkServicePrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateLinkServicePrivateEndpointConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServicePrivateEndpointConnectionOutput)
 }
 
@@ -192,7 +192,7 @@ type PrivateLinkServicePrivateEndpointConnectionOutput struct {
 }
 
 func (PrivateLinkServicePrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicePrivateEndpointConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateLinkServicePrivateEndpointConnection)(nil))
 }
 
 func (o PrivateLinkServicePrivateEndpointConnectionOutput) ToPrivateLinkServicePrivateEndpointConnectionOutput() PrivateLinkServicePrivateEndpointConnectionOutput {

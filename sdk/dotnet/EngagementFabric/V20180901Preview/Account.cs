@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
     /// <summary>
     /// The EngagementFabric account
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:engagementfabric/v20180901preview:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

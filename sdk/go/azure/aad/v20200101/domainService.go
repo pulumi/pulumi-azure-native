@@ -271,15 +271,15 @@ type DomainServiceInput interface {
 	ToDomainServiceOutputWithContext(ctx context.Context) DomainServiceOutput
 }
 
-func (DomainService) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainService)(nil)).Elem()
+func (*DomainService) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainService)(nil))
 }
 
-func (i DomainService) ToDomainServiceOutput() DomainServiceOutput {
+func (i *DomainService) ToDomainServiceOutput() DomainServiceOutput {
 	return i.ToDomainServiceOutputWithContext(context.Background())
 }
 
-func (i DomainService) ToDomainServiceOutputWithContext(ctx context.Context) DomainServiceOutput {
+func (i *DomainService) ToDomainServiceOutputWithContext(ctx context.Context) DomainServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceOutput)
 }
 
@@ -288,7 +288,7 @@ type DomainServiceOutput struct {
 }
 
 func (DomainServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*DomainService)(nil))
 }
 
 func (o DomainServiceOutput) ToDomainServiceOutput() DomainServiceOutput {

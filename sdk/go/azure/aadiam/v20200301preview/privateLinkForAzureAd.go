@@ -173,15 +173,15 @@ type PrivateLinkForAzureAdInput interface {
 	ToPrivateLinkForAzureAdOutputWithContext(ctx context.Context) PrivateLinkForAzureAdOutput
 }
 
-func (PrivateLinkForAzureAd) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkForAzureAd)(nil)).Elem()
+func (*PrivateLinkForAzureAd) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkForAzureAd)(nil))
 }
 
-func (i PrivateLinkForAzureAd) ToPrivateLinkForAzureAdOutput() PrivateLinkForAzureAdOutput {
+func (i *PrivateLinkForAzureAd) ToPrivateLinkForAzureAdOutput() PrivateLinkForAzureAdOutput {
 	return i.ToPrivateLinkForAzureAdOutputWithContext(context.Background())
 }
 
-func (i PrivateLinkForAzureAd) ToPrivateLinkForAzureAdOutputWithContext(ctx context.Context) PrivateLinkForAzureAdOutput {
+func (i *PrivateLinkForAzureAd) ToPrivateLinkForAzureAdOutputWithContext(ctx context.Context) PrivateLinkForAzureAdOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkForAzureAdOutput)
 }
 
@@ -190,7 +190,7 @@ type PrivateLinkForAzureAdOutput struct {
 }
 
 func (PrivateLinkForAzureAdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkForAzureAdOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateLinkForAzureAd)(nil))
 }
 
 func (o PrivateLinkForAzureAdOutput) ToPrivateLinkForAzureAdOutput() PrivateLinkForAzureAdOutput {

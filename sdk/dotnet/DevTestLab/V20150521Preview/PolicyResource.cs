@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
     /// <summary>
     /// A Policy.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20150521preview:PolicyResource")]
     public partial class PolicyResource : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20200201Preview
     /// <summary>
     /// Registration assignment.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:managedservices/v20200201preview:RegistrationAssignment")]
     public partial class RegistrationAssignment : Pulumi.CustomResource
     {
         /// <summary>

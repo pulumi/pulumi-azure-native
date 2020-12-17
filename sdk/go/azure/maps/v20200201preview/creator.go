@@ -135,15 +135,15 @@ type CreatorInput interface {
 	ToCreatorOutputWithContext(ctx context.Context) CreatorOutput
 }
 
-func (Creator) ElementType() reflect.Type {
-	return reflect.TypeOf((*Creator)(nil)).Elem()
+func (*Creator) ElementType() reflect.Type {
+	return reflect.TypeOf((*Creator)(nil))
 }
 
-func (i Creator) ToCreatorOutput() CreatorOutput {
+func (i *Creator) ToCreatorOutput() CreatorOutput {
 	return i.ToCreatorOutputWithContext(context.Background())
 }
 
-func (i Creator) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput {
+func (i *Creator) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CreatorOutput)
 }
 
@@ -152,7 +152,7 @@ type CreatorOutput struct {
 }
 
 func (CreatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreatorOutput)(nil)).Elem()
+	return reflect.TypeOf((*Creator)(nil))
 }
 
 func (o CreatorOutput) ToCreatorOutput() CreatorOutput {

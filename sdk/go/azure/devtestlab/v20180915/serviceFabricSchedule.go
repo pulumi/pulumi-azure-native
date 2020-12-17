@@ -244,15 +244,15 @@ type ServiceFabricScheduleInput interface {
 	ToServiceFabricScheduleOutputWithContext(ctx context.Context) ServiceFabricScheduleOutput
 }
 
-func (ServiceFabricSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceFabricSchedule)(nil)).Elem()
+func (*ServiceFabricSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFabricSchedule)(nil))
 }
 
-func (i ServiceFabricSchedule) ToServiceFabricScheduleOutput() ServiceFabricScheduleOutput {
+func (i *ServiceFabricSchedule) ToServiceFabricScheduleOutput() ServiceFabricScheduleOutput {
 	return i.ToServiceFabricScheduleOutputWithContext(context.Background())
 }
 
-func (i ServiceFabricSchedule) ToServiceFabricScheduleOutputWithContext(ctx context.Context) ServiceFabricScheduleOutput {
+func (i *ServiceFabricSchedule) ToServiceFabricScheduleOutputWithContext(ctx context.Context) ServiceFabricScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceFabricScheduleOutput)
 }
 
@@ -261,7 +261,7 @@ type ServiceFabricScheduleOutput struct {
 }
 
 func (ServiceFabricScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceFabricScheduleOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceFabricSchedule)(nil))
 }
 
 func (o ServiceFabricScheduleOutput) ToServiceFabricScheduleOutput() ServiceFabricScheduleOutput {

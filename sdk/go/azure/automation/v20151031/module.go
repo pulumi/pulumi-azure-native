@@ -215,15 +215,15 @@ type ModuleInput interface {
 	ToModuleOutputWithContext(ctx context.Context) ModuleOutput
 }
 
-func (Module) ElementType() reflect.Type {
-	return reflect.TypeOf((*Module)(nil)).Elem()
+func (*Module) ElementType() reflect.Type {
+	return reflect.TypeOf((*Module)(nil))
 }
 
-func (i Module) ToModuleOutput() ModuleOutput {
+func (i *Module) ToModuleOutput() ModuleOutput {
 	return i.ToModuleOutputWithContext(context.Background())
 }
 
-func (i Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
+func (i *Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleOutput)
 }
 
@@ -232,7 +232,7 @@ type ModuleOutput struct {
 }
 
 func (ModuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*Module)(nil))
 }
 
 func (o ModuleOutput) ToModuleOutput() ModuleOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180501Preview
     /// <summary>
     /// Access Review Schedule Definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById")]
     public partial class AccessReviewScheduleDefinitionById : Pulumi.CustomResource
     {
         /// <summary>

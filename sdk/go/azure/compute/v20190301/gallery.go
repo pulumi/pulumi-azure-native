@@ -162,15 +162,15 @@ type GalleryInput interface {
 	ToGalleryOutputWithContext(ctx context.Context) GalleryOutput
 }
 
-func (Gallery) ElementType() reflect.Type {
-	return reflect.TypeOf((*Gallery)(nil)).Elem()
+func (*Gallery) ElementType() reflect.Type {
+	return reflect.TypeOf((*Gallery)(nil))
 }
 
-func (i Gallery) ToGalleryOutput() GalleryOutput {
+func (i *Gallery) ToGalleryOutput() GalleryOutput {
 	return i.ToGalleryOutputWithContext(context.Background())
 }
 
-func (i Gallery) ToGalleryOutputWithContext(ctx context.Context) GalleryOutput {
+func (i *Gallery) ToGalleryOutputWithContext(ctx context.Context) GalleryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryOutput)
 }
 
@@ -179,7 +179,7 @@ type GalleryOutput struct {
 }
 
 func (GalleryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryOutput)(nil)).Elem()
+	return reflect.TypeOf((*Gallery)(nil))
 }
 
 func (o GalleryOutput) ToGalleryOutput() GalleryOutput {

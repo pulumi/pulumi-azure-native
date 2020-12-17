@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
     /// <summary>
     /// Integration runtime resource type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datafactory/v20180601:IntegrationRuntime")]
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {
         /// <summary>

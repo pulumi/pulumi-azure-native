@@ -162,15 +162,15 @@ type CommunicationServiceInput interface {
 	ToCommunicationServiceOutputWithContext(ctx context.Context) CommunicationServiceOutput
 }
 
-func (CommunicationService) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommunicationService)(nil)).Elem()
+func (*CommunicationService) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommunicationService)(nil))
 }
 
-func (i CommunicationService) ToCommunicationServiceOutput() CommunicationServiceOutput {
+func (i *CommunicationService) ToCommunicationServiceOutput() CommunicationServiceOutput {
 	return i.ToCommunicationServiceOutputWithContext(context.Background())
 }
 
-func (i CommunicationService) ToCommunicationServiceOutputWithContext(ctx context.Context) CommunicationServiceOutput {
+func (i *CommunicationService) ToCommunicationServiceOutputWithContext(ctx context.Context) CommunicationServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CommunicationServiceOutput)
 }
 
@@ -179,7 +179,7 @@ type CommunicationServiceOutput struct {
 }
 
 func (CommunicationServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommunicationServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*CommunicationService)(nil))
 }
 
 func (o CommunicationServiceOutput) ToCommunicationServiceOutput() CommunicationServiceOutput {

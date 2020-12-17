@@ -176,15 +176,15 @@ type SqlVirtualMachineGroupInput interface {
 	ToSqlVirtualMachineGroupOutputWithContext(ctx context.Context) SqlVirtualMachineGroupOutput
 }
 
-func (SqlVirtualMachineGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlVirtualMachineGroup)(nil)).Elem()
+func (*SqlVirtualMachineGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlVirtualMachineGroup)(nil))
 }
 
-func (i SqlVirtualMachineGroup) ToSqlVirtualMachineGroupOutput() SqlVirtualMachineGroupOutput {
+func (i *SqlVirtualMachineGroup) ToSqlVirtualMachineGroupOutput() SqlVirtualMachineGroupOutput {
 	return i.ToSqlVirtualMachineGroupOutputWithContext(context.Background())
 }
 
-func (i SqlVirtualMachineGroup) ToSqlVirtualMachineGroupOutputWithContext(ctx context.Context) SqlVirtualMachineGroupOutput {
+func (i *SqlVirtualMachineGroup) ToSqlVirtualMachineGroupOutputWithContext(ctx context.Context) SqlVirtualMachineGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlVirtualMachineGroupOutput)
 }
 
@@ -193,7 +193,7 @@ type SqlVirtualMachineGroupOutput struct {
 }
 
 func (SqlVirtualMachineGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlVirtualMachineGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlVirtualMachineGroup)(nil))
 }
 
 func (o SqlVirtualMachineGroupOutput) ToSqlVirtualMachineGroupOutput() SqlVirtualMachineGroupOutput {

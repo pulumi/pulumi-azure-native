@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
     /// <summary>
     /// An Azure SQL Database server.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20190601preview:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>

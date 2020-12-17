@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
     /// <summary>
     /// Data store.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybriddata/v20160601:DataStore")]
     public partial class DataStore : Pulumi.CustomResource
     {
         /// <summary>

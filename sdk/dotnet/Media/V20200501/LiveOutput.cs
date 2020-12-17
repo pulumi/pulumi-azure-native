@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
     /// <summary>
     /// The Live Output.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20200501:LiveOutput")]
     public partial class LiveOutput : Pulumi.CustomResource
     {
         /// <summary>

@@ -132,15 +132,15 @@ type ConfigurationProfilePreferenceInput interface {
 	ToConfigurationProfilePreferenceOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceOutput
 }
 
-func (ConfigurationProfilePreference) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfilePreference)(nil)).Elem()
+func (*ConfigurationProfilePreference) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfilePreference)(nil))
 }
 
-func (i ConfigurationProfilePreference) ToConfigurationProfilePreferenceOutput() ConfigurationProfilePreferenceOutput {
+func (i *ConfigurationProfilePreference) ToConfigurationProfilePreferenceOutput() ConfigurationProfilePreferenceOutput {
 	return i.ToConfigurationProfilePreferenceOutputWithContext(context.Background())
 }
 
-func (i ConfigurationProfilePreference) ToConfigurationProfilePreferenceOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceOutput {
+func (i *ConfigurationProfilePreference) ToConfigurationProfilePreferenceOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceOutput)
 }
 
@@ -149,7 +149,7 @@ type ConfigurationProfilePreferenceOutput struct {
 }
 
 func (ConfigurationProfilePreferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfilePreferenceOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConfigurationProfilePreference)(nil))
 }
 
 func (o ConfigurationProfilePreferenceOutput) ToConfigurationProfilePreferenceOutput() ConfigurationProfilePreferenceOutput {

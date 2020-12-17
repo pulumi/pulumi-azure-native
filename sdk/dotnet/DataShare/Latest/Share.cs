@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
     /// A share data transfer object.
     /// Latest API Version: 2019-11-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datashare/latest:Share")]
     public partial class Share : Pulumi.CustomResource
     {
         /// <summary>

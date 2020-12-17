@@ -178,15 +178,15 @@ type WorkbookTemplateInput interface {
 	ToWorkbookTemplateOutputWithContext(ctx context.Context) WorkbookTemplateOutput
 }
 
-func (WorkbookTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplate)(nil)).Elem()
+func (*WorkbookTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookTemplate)(nil))
 }
 
-func (i WorkbookTemplate) ToWorkbookTemplateOutput() WorkbookTemplateOutput {
+func (i *WorkbookTemplate) ToWorkbookTemplateOutput() WorkbookTemplateOutput {
 	return i.ToWorkbookTemplateOutputWithContext(context.Background())
 }
 
-func (i WorkbookTemplate) ToWorkbookTemplateOutputWithContext(ctx context.Context) WorkbookTemplateOutput {
+func (i *WorkbookTemplate) ToWorkbookTemplateOutputWithContext(ctx context.Context) WorkbookTemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateOutput)
 }
 
@@ -195,7 +195,7 @@ type WorkbookTemplateOutput struct {
 }
 
 func (WorkbookTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkbookTemplate)(nil))
 }
 
 func (o WorkbookTemplateOutput) ToWorkbookTemplateOutput() WorkbookTemplateOutput {

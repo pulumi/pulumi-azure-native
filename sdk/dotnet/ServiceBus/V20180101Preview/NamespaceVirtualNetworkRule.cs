@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
     /// <summary>
     /// Single item in a List or Get VirtualNetworkRules operation
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/v20180101preview:NamespaceVirtualNetworkRule")]
     public partial class NamespaceVirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>

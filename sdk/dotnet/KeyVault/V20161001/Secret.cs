@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20161001
     /// <summary>
     /// Resource information with extended details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:keyvault/v20161001:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
         /// <summary>

@@ -214,15 +214,15 @@ type IpAllocationInput interface {
 	ToIpAllocationOutputWithContext(ctx context.Context) IpAllocationOutput
 }
 
-func (IpAllocation) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpAllocation)(nil)).Elem()
+func (*IpAllocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAllocation)(nil))
 }
 
-func (i IpAllocation) ToIpAllocationOutput() IpAllocationOutput {
+func (i *IpAllocation) ToIpAllocationOutput() IpAllocationOutput {
 	return i.ToIpAllocationOutputWithContext(context.Background())
 }
 
-func (i IpAllocation) ToIpAllocationOutputWithContext(ctx context.Context) IpAllocationOutput {
+func (i *IpAllocation) ToIpAllocationOutputWithContext(ctx context.Context) IpAllocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IpAllocationOutput)
 }
 
@@ -231,7 +231,7 @@ type IpAllocationOutput struct {
 }
 
 func (IpAllocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpAllocationOutput)(nil)).Elem()
+	return reflect.TypeOf((*IpAllocation)(nil))
 }
 
 func (o IpAllocationOutput) ToIpAllocationOutput() IpAllocationOutput {

@@ -149,15 +149,15 @@ type ControllerDetailsInput interface {
 	ToControllerDetailsOutputWithContext(ctx context.Context) ControllerDetailsOutput
 }
 
-func (ControllerDetails) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControllerDetails)(nil)).Elem()
+func (*ControllerDetails) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControllerDetails)(nil))
 }
 
-func (i ControllerDetails) ToControllerDetailsOutput() ControllerDetailsOutput {
+func (i *ControllerDetails) ToControllerDetailsOutput() ControllerDetailsOutput {
 	return i.ToControllerDetailsOutputWithContext(context.Background())
 }
 
-func (i ControllerDetails) ToControllerDetailsOutputWithContext(ctx context.Context) ControllerDetailsOutput {
+func (i *ControllerDetails) ToControllerDetailsOutputWithContext(ctx context.Context) ControllerDetailsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ControllerDetailsOutput)
 }
 
@@ -166,7 +166,7 @@ type ControllerDetailsOutput struct {
 }
 
 func (ControllerDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControllerDetailsOutput)(nil)).Elem()
+	return reflect.TypeOf((*ControllerDetails)(nil))
 }
 
 func (o ControllerDetailsOutput) ToControllerDetailsOutput() ControllerDetailsOutput {

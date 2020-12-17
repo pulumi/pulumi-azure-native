@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
     /// <summary>
     /// NSX VM Group
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:avs/v20200717preview:WorkloadNetworkVMGroup")]
     public partial class WorkloadNetworkVMGroup : Pulumi.CustomResource
     {
         /// <summary>

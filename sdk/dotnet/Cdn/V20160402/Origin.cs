@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
     /// <summary>
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/v20160402:Origin")]
     public partial class Origin : Pulumi.CustomResource
     {
         /// <summary>

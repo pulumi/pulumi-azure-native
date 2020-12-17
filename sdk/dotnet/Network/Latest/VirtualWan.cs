@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// VirtualWAN Resource.
     /// Latest API Version: 2020-07-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/latest:VirtualWan")]
     public partial class VirtualWan : Pulumi.CustomResource
     {
         /// <summary>

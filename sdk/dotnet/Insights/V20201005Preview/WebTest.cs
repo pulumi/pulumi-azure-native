@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
     /// <summary>
     /// An Application Insights WebTest definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20201005preview:WebTest")]
     public partial class WebTest : Pulumi.CustomResource
     {
         /// <summary>

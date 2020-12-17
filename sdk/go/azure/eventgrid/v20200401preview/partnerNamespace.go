@@ -149,15 +149,15 @@ type PartnerNamespaceInput interface {
 	ToPartnerNamespaceOutputWithContext(ctx context.Context) PartnerNamespaceOutput
 }
 
-func (PartnerNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerNamespace)(nil)).Elem()
+func (*PartnerNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerNamespace)(nil))
 }
 
-func (i PartnerNamespace) ToPartnerNamespaceOutput() PartnerNamespaceOutput {
+func (i *PartnerNamespace) ToPartnerNamespaceOutput() PartnerNamespaceOutput {
 	return i.ToPartnerNamespaceOutputWithContext(context.Background())
 }
 
-func (i PartnerNamespace) ToPartnerNamespaceOutputWithContext(ctx context.Context) PartnerNamespaceOutput {
+func (i *PartnerNamespace) ToPartnerNamespaceOutputWithContext(ctx context.Context) PartnerNamespaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerNamespaceOutput)
 }
 
@@ -166,7 +166,7 @@ type PartnerNamespaceOutput struct {
 }
 
 func (PartnerNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerNamespaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*PartnerNamespace)(nil))
 }
 
 func (o PartnerNamespaceOutput) ToPartnerNamespaceOutput() PartnerNamespaceOutput {

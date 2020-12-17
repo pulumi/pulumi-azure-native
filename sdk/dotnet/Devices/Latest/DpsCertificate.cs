@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
     /// The X509 Certificate.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devices/latest:DpsCertificate")]
     public partial class DpsCertificate : Pulumi.CustomResource
     {
         /// <summary>

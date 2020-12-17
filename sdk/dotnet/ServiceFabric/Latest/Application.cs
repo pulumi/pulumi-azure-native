@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest
     /// The application resource.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicefabric/latest:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

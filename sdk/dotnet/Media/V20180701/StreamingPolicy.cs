@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
     /// <summary>
     /// A Streaming Policy resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20180701:StreamingPolicy")]
     public partial class StreamingPolicy : Pulumi.CustomResource
     {
         /// <summary>

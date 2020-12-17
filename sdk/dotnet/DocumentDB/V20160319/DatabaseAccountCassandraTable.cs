@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160319
     /// <summary>
     /// An Azure Cosmos DB Cassandra table.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable")]
     public partial class DatabaseAccountCassandraTable : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
     /// <summary>
     /// Definition of the job schedule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:JobSchedule")]
     public partial class JobSchedule : Pulumi.CustomResource
     {
         /// <summary>

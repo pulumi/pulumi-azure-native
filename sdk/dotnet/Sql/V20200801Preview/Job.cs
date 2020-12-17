@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
     /// <summary>
     /// A job.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200801preview:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>

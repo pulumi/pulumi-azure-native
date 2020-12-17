@@ -145,15 +145,15 @@ type RemoteRenderingAccountInput interface {
 	ToRemoteRenderingAccountOutputWithContext(ctx context.Context) RemoteRenderingAccountOutput
 }
 
-func (RemoteRenderingAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteRenderingAccount)(nil)).Elem()
+func (*RemoteRenderingAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteRenderingAccount)(nil))
 }
 
-func (i RemoteRenderingAccount) ToRemoteRenderingAccountOutput() RemoteRenderingAccountOutput {
+func (i *RemoteRenderingAccount) ToRemoteRenderingAccountOutput() RemoteRenderingAccountOutput {
 	return i.ToRemoteRenderingAccountOutputWithContext(context.Background())
 }
 
-func (i RemoteRenderingAccount) ToRemoteRenderingAccountOutputWithContext(ctx context.Context) RemoteRenderingAccountOutput {
+func (i *RemoteRenderingAccount) ToRemoteRenderingAccountOutputWithContext(ctx context.Context) RemoteRenderingAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteRenderingAccountOutput)
 }
 
@@ -162,7 +162,7 @@ type RemoteRenderingAccountOutput struct {
 }
 
 func (RemoteRenderingAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteRenderingAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*RemoteRenderingAccount)(nil))
 }
 
 func (o RemoteRenderingAccountOutput) ToRemoteRenderingAccountOutput() RemoteRenderingAccountOutput {

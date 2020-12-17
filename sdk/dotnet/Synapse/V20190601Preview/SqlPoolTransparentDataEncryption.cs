@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     /// <summary>
     /// Represents a Sql pool transparent data encryption configuration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption")]
     public partial class SqlPoolTransparentDataEncryption : Pulumi.CustomResource
     {
         /// <summary>

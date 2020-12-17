@@ -427,15 +427,15 @@ type SiteSlotInput interface {
 	ToSiteSlotOutputWithContext(ctx context.Context) SiteSlotOutput
 }
 
-func (SiteSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSlot)(nil)).Elem()
+func (*SiteSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteSlot)(nil))
 }
 
-func (i SiteSlot) ToSiteSlotOutput() SiteSlotOutput {
+func (i *SiteSlot) ToSiteSlotOutput() SiteSlotOutput {
 	return i.ToSiteSlotOutputWithContext(context.Background())
 }
 
-func (i SiteSlot) ToSiteSlotOutputWithContext(ctx context.Context) SiteSlotOutput {
+func (i *SiteSlot) ToSiteSlotOutputWithContext(ctx context.Context) SiteSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSlotOutput)
 }
 
@@ -444,7 +444,7 @@ type SiteSlotOutput struct {
 }
 
 func (SiteSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*SiteSlot)(nil))
 }
 
 func (o SiteSlotOutput) ToSiteSlotOutput() SiteSlotOutput {

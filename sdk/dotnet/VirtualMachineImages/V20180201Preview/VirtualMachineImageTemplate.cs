@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.VirtualMachineImages.V20180201Preview
 {
+    [AzureNextGenResourceType("azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
     /// <summary>
     /// The storage account credential.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20170601:StorageAccountCredential")]
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {
         /// <summary>

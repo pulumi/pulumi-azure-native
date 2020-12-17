@@ -145,15 +145,15 @@ type SecretValueInput interface {
 	ToSecretValueOutputWithContext(ctx context.Context) SecretValueOutput
 }
 
-func (SecretValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretValue)(nil)).Elem()
+func (*SecretValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretValue)(nil))
 }
 
-func (i SecretValue) ToSecretValueOutput() SecretValueOutput {
+func (i *SecretValue) ToSecretValueOutput() SecretValueOutput {
 	return i.ToSecretValueOutputWithContext(context.Background())
 }
 
-func (i SecretValue) ToSecretValueOutputWithContext(ctx context.Context) SecretValueOutput {
+func (i *SecretValue) ToSecretValueOutputWithContext(ctx context.Context) SecretValueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretValueOutput)
 }
 
@@ -162,7 +162,7 @@ type SecretValueOutput struct {
 }
 
 func (SecretValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretValueOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecretValue)(nil))
 }
 
 func (o SecretValueOutput) ToSecretValueOutput() SecretValueOutput {

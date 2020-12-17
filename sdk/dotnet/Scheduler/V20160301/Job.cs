@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Scheduler.V20160301
 {
+    [AzureNextGenResourceType("azure-nextgen:scheduler/v20160301:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>

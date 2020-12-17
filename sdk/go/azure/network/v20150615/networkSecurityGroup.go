@@ -298,15 +298,15 @@ type NetworkSecurityGroupInput interface {
 	ToNetworkSecurityGroupOutputWithContext(ctx context.Context) NetworkSecurityGroupOutput
 }
 
-func (NetworkSecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSecurityGroup)(nil)).Elem()
+func (*NetworkSecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSecurityGroup)(nil))
 }
 
-func (i NetworkSecurityGroup) ToNetworkSecurityGroupOutput() NetworkSecurityGroupOutput {
+func (i *NetworkSecurityGroup) ToNetworkSecurityGroupOutput() NetworkSecurityGroupOutput {
 	return i.ToNetworkSecurityGroupOutputWithContext(context.Background())
 }
 
-func (i NetworkSecurityGroup) ToNetworkSecurityGroupOutputWithContext(ctx context.Context) NetworkSecurityGroupOutput {
+func (i *NetworkSecurityGroup) ToNetworkSecurityGroupOutputWithContext(ctx context.Context) NetworkSecurityGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupOutput)
 }
 
@@ -315,7 +315,7 @@ type NetworkSecurityGroupOutput struct {
 }
 
 func (NetworkSecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSecurityGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkSecurityGroup)(nil))
 }
 
 func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupOutput() NetworkSecurityGroupOutput {

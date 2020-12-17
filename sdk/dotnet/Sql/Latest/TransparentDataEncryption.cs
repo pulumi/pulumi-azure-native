@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
     /// Represents a database transparent data encryption configuration.
     /// Latest API Version: 2014-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/latest:TransparentDataEncryption")]
     public partial class TransparentDataEncryption : Pulumi.CustomResource
     {
         /// <summary>

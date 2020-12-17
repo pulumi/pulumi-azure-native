@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview
     /// <summary>
     /// Describes the cloud service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20201001preview:CloudService")]
     public partial class CloudService : Pulumi.CustomResource
     {
         /// <summary>

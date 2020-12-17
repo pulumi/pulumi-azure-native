@@ -135,15 +135,15 @@ type WCFRelayAuthorizationRuleInput interface {
 	ToWCFRelayAuthorizationRuleOutputWithContext(ctx context.Context) WCFRelayAuthorizationRuleOutput
 }
 
-func (WCFRelayAuthorizationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*WCFRelayAuthorizationRule)(nil)).Elem()
+func (*WCFRelayAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*WCFRelayAuthorizationRule)(nil))
 }
 
-func (i WCFRelayAuthorizationRule) ToWCFRelayAuthorizationRuleOutput() WCFRelayAuthorizationRuleOutput {
+func (i *WCFRelayAuthorizationRule) ToWCFRelayAuthorizationRuleOutput() WCFRelayAuthorizationRuleOutput {
 	return i.ToWCFRelayAuthorizationRuleOutputWithContext(context.Background())
 }
 
-func (i WCFRelayAuthorizationRule) ToWCFRelayAuthorizationRuleOutputWithContext(ctx context.Context) WCFRelayAuthorizationRuleOutput {
+func (i *WCFRelayAuthorizationRule) ToWCFRelayAuthorizationRuleOutputWithContext(ctx context.Context) WCFRelayAuthorizationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayAuthorizationRuleOutput)
 }
 
@@ -152,7 +152,7 @@ type WCFRelayAuthorizationRuleOutput struct {
 }
 
 func (WCFRelayAuthorizationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WCFRelayAuthorizationRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*WCFRelayAuthorizationRule)(nil))
 }
 
 func (o WCFRelayAuthorizationRuleOutput) ToWCFRelayAuthorizationRuleOutput() WCFRelayAuthorizationRuleOutput {

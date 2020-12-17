@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventhub/v20180101preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

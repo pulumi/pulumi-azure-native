@@ -164,15 +164,15 @@ type StorageAccountCredentialInput interface {
 	ToStorageAccountCredentialOutputWithContext(ctx context.Context) StorageAccountCredentialOutput
 }
 
-func (StorageAccountCredential) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountCredential)(nil)).Elem()
+func (*StorageAccountCredential) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountCredential)(nil))
 }
 
-func (i StorageAccountCredential) ToStorageAccountCredentialOutput() StorageAccountCredentialOutput {
+func (i *StorageAccountCredential) ToStorageAccountCredentialOutput() StorageAccountCredentialOutput {
 	return i.ToStorageAccountCredentialOutputWithContext(context.Background())
 }
 
-func (i StorageAccountCredential) ToStorageAccountCredentialOutputWithContext(ctx context.Context) StorageAccountCredentialOutput {
+func (i *StorageAccountCredential) ToStorageAccountCredentialOutputWithContext(ctx context.Context) StorageAccountCredentialOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialOutput)
 }
 
@@ -181,7 +181,7 @@ type StorageAccountCredentialOutput struct {
 }
 
 func (StorageAccountCredentialOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountCredentialOutput)(nil)).Elem()
+	return reflect.TypeOf((*StorageAccountCredential)(nil))
 }
 
 func (o StorageAccountCredentialOutput) ToStorageAccountCredentialOutput() StorageAccountCredentialOutput {

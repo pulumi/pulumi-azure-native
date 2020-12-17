@@ -201,15 +201,15 @@ type BackupScheduleInput interface {
 	ToBackupScheduleOutputWithContext(ctx context.Context) BackupScheduleOutput
 }
 
-func (BackupSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupSchedule)(nil)).Elem()
+func (*BackupSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupSchedule)(nil))
 }
 
-func (i BackupSchedule) ToBackupScheduleOutput() BackupScheduleOutput {
+func (i *BackupSchedule) ToBackupScheduleOutput() BackupScheduleOutput {
 	return i.ToBackupScheduleOutputWithContext(context.Background())
 }
 
-func (i BackupSchedule) ToBackupScheduleOutputWithContext(ctx context.Context) BackupScheduleOutput {
+func (i *BackupSchedule) ToBackupScheduleOutputWithContext(ctx context.Context) BackupScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput)
 }
 
@@ -218,7 +218,7 @@ type BackupScheduleOutput struct {
 }
 
 func (BackupScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupScheduleOutput)(nil)).Elem()
+	return reflect.TypeOf((*BackupSchedule)(nil))
 }
 
 func (o BackupScheduleOutput) ToBackupScheduleOutput() BackupScheduleOutput {

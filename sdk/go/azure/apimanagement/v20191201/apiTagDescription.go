@@ -179,15 +179,15 @@ type ApiTagDescriptionInput interface {
 	ToApiTagDescriptionOutputWithContext(ctx context.Context) ApiTagDescriptionOutput
 }
 
-func (ApiTagDescription) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiTagDescription)(nil)).Elem()
+func (*ApiTagDescription) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiTagDescription)(nil))
 }
 
-func (i ApiTagDescription) ToApiTagDescriptionOutput() ApiTagDescriptionOutput {
+func (i *ApiTagDescription) ToApiTagDescriptionOutput() ApiTagDescriptionOutput {
 	return i.ToApiTagDescriptionOutputWithContext(context.Background())
 }
 
-func (i ApiTagDescription) ToApiTagDescriptionOutputWithContext(ctx context.Context) ApiTagDescriptionOutput {
+func (i *ApiTagDescription) ToApiTagDescriptionOutputWithContext(ctx context.Context) ApiTagDescriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiTagDescriptionOutput)
 }
 
@@ -196,7 +196,7 @@ type ApiTagDescriptionOutput struct {
 }
 
 func (ApiTagDescriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiTagDescriptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiTagDescription)(nil))
 }
 
 func (o ApiTagDescriptionOutput) ToApiTagDescriptionOutput() ApiTagDescriptionOutput {

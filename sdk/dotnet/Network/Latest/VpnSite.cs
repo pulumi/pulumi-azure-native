@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// VpnSite Resource.
     /// Latest API Version: 2020-07-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/latest:VpnSite")]
     public partial class VpnSite : Pulumi.CustomResource
     {
         /// <summary>

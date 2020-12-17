@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
     /// <summary>
     /// Bastion Host resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20190801:BastionHost")]
     public partial class BastionHost : Pulumi.CustomResource
     {
         /// <summary>

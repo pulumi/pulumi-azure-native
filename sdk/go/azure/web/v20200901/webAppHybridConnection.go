@@ -231,15 +231,15 @@ type WebAppHybridConnectionInput interface {
 	ToWebAppHybridConnectionOutputWithContext(ctx context.Context) WebAppHybridConnectionOutput
 }
 
-func (WebAppHybridConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHybridConnection)(nil)).Elem()
+func (*WebAppHybridConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHybridConnection)(nil))
 }
 
-func (i WebAppHybridConnection) ToWebAppHybridConnectionOutput() WebAppHybridConnectionOutput {
+func (i *WebAppHybridConnection) ToWebAppHybridConnectionOutput() WebAppHybridConnectionOutput {
 	return i.ToWebAppHybridConnectionOutputWithContext(context.Background())
 }
 
-func (i WebAppHybridConnection) ToWebAppHybridConnectionOutputWithContext(ctx context.Context) WebAppHybridConnectionOutput {
+func (i *WebAppHybridConnection) ToWebAppHybridConnectionOutputWithContext(ctx context.Context) WebAppHybridConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppHybridConnectionOutput)
 }
 
@@ -248,7 +248,7 @@ type WebAppHybridConnectionOutput struct {
 }
 
 func (WebAppHybridConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHybridConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppHybridConnection)(nil))
 }
 
 func (o WebAppHybridConnectionOutput) ToWebAppHybridConnectionOutput() WebAppHybridConnectionOutput {

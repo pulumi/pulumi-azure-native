@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20190801
     /// <summary>
     /// Domain ownership Identifier.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier")]
     public partial class DomainOwnershipIdentifier : Pulumi.CustomResource
     {
         /// <summary>

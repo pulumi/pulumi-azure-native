@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
     /// The managed api definition.
     /// Latest API Version: 2019-05-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi")]
     public partial class IntegrationServiceEnvironmentManagedApi : Pulumi.CustomResource
     {
         /// <summary>

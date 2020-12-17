@@ -187,15 +187,15 @@ type MultipleActivationKeyInput interface {
 	ToMultipleActivationKeyOutputWithContext(ctx context.Context) MultipleActivationKeyOutput
 }
 
-func (MultipleActivationKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultipleActivationKey)(nil)).Elem()
+func (*MultipleActivationKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultipleActivationKey)(nil))
 }
 
-func (i MultipleActivationKey) ToMultipleActivationKeyOutput() MultipleActivationKeyOutput {
+func (i *MultipleActivationKey) ToMultipleActivationKeyOutput() MultipleActivationKeyOutput {
 	return i.ToMultipleActivationKeyOutputWithContext(context.Background())
 }
 
-func (i MultipleActivationKey) ToMultipleActivationKeyOutputWithContext(ctx context.Context) MultipleActivationKeyOutput {
+func (i *MultipleActivationKey) ToMultipleActivationKeyOutputWithContext(ctx context.Context) MultipleActivationKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MultipleActivationKeyOutput)
 }
 
@@ -204,7 +204,7 @@ type MultipleActivationKeyOutput struct {
 }
 
 func (MultipleActivationKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultipleActivationKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*MultipleActivationKey)(nil))
 }
 
 func (o MultipleActivationKeyOutput) ToMultipleActivationKeyOutput() MultipleActivationKeyOutput {

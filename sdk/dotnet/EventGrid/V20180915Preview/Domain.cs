@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview
     /// <summary>
     /// EventGrid Domain
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20180915preview:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>

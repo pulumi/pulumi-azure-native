@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     /// <summary>
     /// Device resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybridnetwork/v20200101preview:Device")]
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>

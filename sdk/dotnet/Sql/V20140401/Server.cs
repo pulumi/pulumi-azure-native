@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
     /// <summary>
     /// Represents a server.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20140401:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200701Preview
     /// <summary>
     /// The key-value resource along with all resource properties.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:appconfiguration/v20200701preview:KeyValue")]
     public partial class KeyValue : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Relay.V20170401
     /// <summary>
     /// Description of the WCF relay resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:relay/v20170401:WCFRelay")]
     public partial class WCFRelay : Pulumi.CustomResource
     {
         /// <summary>

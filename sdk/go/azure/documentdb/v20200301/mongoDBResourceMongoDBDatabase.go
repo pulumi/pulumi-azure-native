@@ -167,15 +167,15 @@ type MongoDBResourceMongoDBDatabaseInput interface {
 	ToMongoDBResourceMongoDBDatabaseOutputWithContext(ctx context.Context) MongoDBResourceMongoDBDatabaseOutput
 }
 
-func (MongoDBResourceMongoDBDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBDatabase)(nil)).Elem()
+func (*MongoDBResourceMongoDBDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBResourceMongoDBDatabase)(nil))
 }
 
-func (i MongoDBResourceMongoDBDatabase) ToMongoDBResourceMongoDBDatabaseOutput() MongoDBResourceMongoDBDatabaseOutput {
+func (i *MongoDBResourceMongoDBDatabase) ToMongoDBResourceMongoDBDatabaseOutput() MongoDBResourceMongoDBDatabaseOutput {
 	return i.ToMongoDBResourceMongoDBDatabaseOutputWithContext(context.Background())
 }
 
-func (i MongoDBResourceMongoDBDatabase) ToMongoDBResourceMongoDBDatabaseOutputWithContext(ctx context.Context) MongoDBResourceMongoDBDatabaseOutput {
+func (i *MongoDBResourceMongoDBDatabase) ToMongoDBResourceMongoDBDatabaseOutputWithContext(ctx context.Context) MongoDBResourceMongoDBDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBDatabaseOutput)
 }
 
@@ -184,7 +184,7 @@ type MongoDBResourceMongoDBDatabaseOutput struct {
 }
 
 func (MongoDBResourceMongoDBDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBDatabaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*MongoDBResourceMongoDBDatabase)(nil))
 }
 
 func (o MongoDBResourceMongoDBDatabaseOutput) ToMongoDBResourceMongoDBDatabaseOutput() MongoDBResourceMongoDBDatabaseOutput {

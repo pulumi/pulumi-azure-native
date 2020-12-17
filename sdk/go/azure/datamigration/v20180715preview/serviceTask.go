@@ -126,15 +126,15 @@ type ServiceTaskInput interface {
 	ToServiceTaskOutputWithContext(ctx context.Context) ServiceTaskOutput
 }
 
-func (ServiceTask) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTask)(nil)).Elem()
+func (*ServiceTask) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTask)(nil))
 }
 
-func (i ServiceTask) ToServiceTaskOutput() ServiceTaskOutput {
+func (i *ServiceTask) ToServiceTaskOutput() ServiceTaskOutput {
 	return i.ToServiceTaskOutputWithContext(context.Background())
 }
 
-func (i ServiceTask) ToServiceTaskOutputWithContext(ctx context.Context) ServiceTaskOutput {
+func (i *ServiceTask) ToServiceTaskOutputWithContext(ctx context.Context) ServiceTaskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTaskOutput)
 }
 
@@ -143,7 +143,7 @@ type ServiceTaskOutput struct {
 }
 
 func (ServiceTaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTaskOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceTask)(nil))
 }
 
 func (o ServiceTaskOutput) ToServiceTaskOutput() ServiceTaskOutput {

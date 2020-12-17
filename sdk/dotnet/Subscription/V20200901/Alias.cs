@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Subscription.V20200901
     /// <summary>
     /// Subscription Information with the alias.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:subscription/v20200901:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
         /// <summary>

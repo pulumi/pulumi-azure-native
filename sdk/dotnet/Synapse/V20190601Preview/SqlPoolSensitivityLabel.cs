@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     /// <summary>
     /// A sensitivity label.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel")]
     public partial class SqlPoolSensitivityLabel : Pulumi.CustomResource
     {
         /// <summary>

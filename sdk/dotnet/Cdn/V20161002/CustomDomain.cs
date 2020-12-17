@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20161002
     /// <summary>
     /// Customer provided domain for branding purposes, e.g. www.contoso.com.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/v20161002:CustomDomain")]
     public partial class CustomDomain : Pulumi.CustomResource
     {
         /// <summary>

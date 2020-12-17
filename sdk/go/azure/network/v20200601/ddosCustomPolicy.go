@@ -205,15 +205,15 @@ type DdosCustomPolicyInput interface {
 	ToDdosCustomPolicyOutputWithContext(ctx context.Context) DdosCustomPolicyOutput
 }
 
-func (DdosCustomPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*DdosCustomPolicy)(nil)).Elem()
+func (*DdosCustomPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DdosCustomPolicy)(nil))
 }
 
-func (i DdosCustomPolicy) ToDdosCustomPolicyOutput() DdosCustomPolicyOutput {
+func (i *DdosCustomPolicy) ToDdosCustomPolicyOutput() DdosCustomPolicyOutput {
 	return i.ToDdosCustomPolicyOutputWithContext(context.Background())
 }
 
-func (i DdosCustomPolicy) ToDdosCustomPolicyOutputWithContext(ctx context.Context) DdosCustomPolicyOutput {
+func (i *DdosCustomPolicy) ToDdosCustomPolicyOutputWithContext(ctx context.Context) DdosCustomPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DdosCustomPolicyOutput)
 }
 
@@ -222,7 +222,7 @@ type DdosCustomPolicyOutput struct {
 }
 
 func (DdosCustomPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DdosCustomPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*DdosCustomPolicy)(nil))
 }
 
 func (o DdosCustomPolicyOutput) ToDdosCustomPolicyOutput() DdosCustomPolicyOutput {

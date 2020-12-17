@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
     /// <summary>
     /// Represents a Watchlist in Azure Security Insights.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:securityinsights/v20190101preview:Watchlist")]
     public partial class Watchlist : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
     /// <summary>
     /// A notebook workspace resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20200601preview:NotebookWorkspace")]
     public partial class NotebookWorkspace : Pulumi.CustomResource
     {
         /// <summary>

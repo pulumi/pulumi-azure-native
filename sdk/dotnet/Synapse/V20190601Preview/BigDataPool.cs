@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     /// <summary>
     /// A Big Data pool
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:BigDataPool")]
     public partial class BigDataPool : Pulumi.CustomResource
     {
         /// <summary>

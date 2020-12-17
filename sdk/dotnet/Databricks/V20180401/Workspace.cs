@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Databricks.V20180401
     /// <summary>
     /// Information about workspace.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databricks/v20180401:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>

@@ -186,15 +186,15 @@ type BillingRoleAssignmentByDepartmentInput interface {
 	ToBillingRoleAssignmentByDepartmentOutputWithContext(ctx context.Context) BillingRoleAssignmentByDepartmentOutput
 }
 
-func (BillingRoleAssignmentByDepartment) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingRoleAssignmentByDepartment)(nil)).Elem()
+func (*BillingRoleAssignmentByDepartment) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingRoleAssignmentByDepartment)(nil))
 }
 
-func (i BillingRoleAssignmentByDepartment) ToBillingRoleAssignmentByDepartmentOutput() BillingRoleAssignmentByDepartmentOutput {
+func (i *BillingRoleAssignmentByDepartment) ToBillingRoleAssignmentByDepartmentOutput() BillingRoleAssignmentByDepartmentOutput {
 	return i.ToBillingRoleAssignmentByDepartmentOutputWithContext(context.Background())
 }
 
-func (i BillingRoleAssignmentByDepartment) ToBillingRoleAssignmentByDepartmentOutputWithContext(ctx context.Context) BillingRoleAssignmentByDepartmentOutput {
+func (i *BillingRoleAssignmentByDepartment) ToBillingRoleAssignmentByDepartmentOutputWithContext(ctx context.Context) BillingRoleAssignmentByDepartmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BillingRoleAssignmentByDepartmentOutput)
 }
 
@@ -203,7 +203,7 @@ type BillingRoleAssignmentByDepartmentOutput struct {
 }
 
 func (BillingRoleAssignmentByDepartmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingRoleAssignmentByDepartmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*BillingRoleAssignmentByDepartment)(nil))
 }
 
 func (o BillingRoleAssignmentByDepartmentOutput) ToBillingRoleAssignmentByDepartmentOutput() BillingRoleAssignmentByDepartmentOutput {

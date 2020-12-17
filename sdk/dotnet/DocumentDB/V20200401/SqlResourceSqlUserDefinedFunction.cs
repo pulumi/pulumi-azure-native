@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401
     /// <summary>
     /// An Azure Cosmos DB userDefinedFunction.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction")]
     public partial class SqlResourceSqlUserDefinedFunction : Pulumi.CustomResource
     {
         /// <summary>

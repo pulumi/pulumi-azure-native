@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
     /// <summary>
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/latest:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

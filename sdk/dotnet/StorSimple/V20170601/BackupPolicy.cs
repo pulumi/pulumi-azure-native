@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
     /// <summary>
     /// The backup policy.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20170601:BackupPolicy")]
     public partial class BackupPolicy : Pulumi.CustomResource
     {
         /// <summary>

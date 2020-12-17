@@ -207,15 +207,15 @@ type OrchestratorInstanceServiceDetailsInput interface {
 	ToOrchestratorInstanceServiceDetailsOutputWithContext(ctx context.Context) OrchestratorInstanceServiceDetailsOutput
 }
 
-func (OrchestratorInstanceServiceDetails) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrchestratorInstanceServiceDetails)(nil)).Elem()
+func (*OrchestratorInstanceServiceDetails) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratorInstanceServiceDetails)(nil))
 }
 
-func (i OrchestratorInstanceServiceDetails) ToOrchestratorInstanceServiceDetailsOutput() OrchestratorInstanceServiceDetailsOutput {
+func (i *OrchestratorInstanceServiceDetails) ToOrchestratorInstanceServiceDetailsOutput() OrchestratorInstanceServiceDetailsOutput {
 	return i.ToOrchestratorInstanceServiceDetailsOutputWithContext(context.Background())
 }
 
-func (i OrchestratorInstanceServiceDetails) ToOrchestratorInstanceServiceDetailsOutputWithContext(ctx context.Context) OrchestratorInstanceServiceDetailsOutput {
+func (i *OrchestratorInstanceServiceDetails) ToOrchestratorInstanceServiceDetailsOutputWithContext(ctx context.Context) OrchestratorInstanceServiceDetailsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorInstanceServiceDetailsOutput)
 }
 
@@ -224,7 +224,7 @@ type OrchestratorInstanceServiceDetailsOutput struct {
 }
 
 func (OrchestratorInstanceServiceDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrchestratorInstanceServiceDetailsOutput)(nil)).Elem()
+	return reflect.TypeOf((*OrchestratorInstanceServiceDetails)(nil))
 }
 
 func (o OrchestratorInstanceServiceDetailsOutput) ToOrchestratorInstanceServiceDetailsOutput() OrchestratorInstanceServiceDetailsOutput {

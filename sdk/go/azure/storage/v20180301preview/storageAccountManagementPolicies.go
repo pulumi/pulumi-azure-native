@@ -140,15 +140,15 @@ type StorageAccountManagementPoliciesInput interface {
 	ToStorageAccountManagementPoliciesOutputWithContext(ctx context.Context) StorageAccountManagementPoliciesOutput
 }
 
-func (StorageAccountManagementPolicies) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountManagementPolicies)(nil)).Elem()
+func (*StorageAccountManagementPolicies) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountManagementPolicies)(nil))
 }
 
-func (i StorageAccountManagementPolicies) ToStorageAccountManagementPoliciesOutput() StorageAccountManagementPoliciesOutput {
+func (i *StorageAccountManagementPolicies) ToStorageAccountManagementPoliciesOutput() StorageAccountManagementPoliciesOutput {
 	return i.ToStorageAccountManagementPoliciesOutputWithContext(context.Background())
 }
 
-func (i StorageAccountManagementPolicies) ToStorageAccountManagementPoliciesOutputWithContext(ctx context.Context) StorageAccountManagementPoliciesOutput {
+func (i *StorageAccountManagementPolicies) ToStorageAccountManagementPoliciesOutputWithContext(ctx context.Context) StorageAccountManagementPoliciesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountManagementPoliciesOutput)
 }
 
@@ -157,7 +157,7 @@ type StorageAccountManagementPoliciesOutput struct {
 }
 
 func (StorageAccountManagementPoliciesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountManagementPoliciesOutput)(nil)).Elem()
+	return reflect.TypeOf((*StorageAccountManagementPolicies)(nil))
 }
 
 func (o StorageAccountManagementPoliciesOutput) ToStorageAccountManagementPoliciesOutput() StorageAccountManagementPoliciesOutput {

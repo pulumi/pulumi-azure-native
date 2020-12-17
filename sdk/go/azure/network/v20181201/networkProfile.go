@@ -219,15 +219,15 @@ type NetworkProfileInput interface {
 	ToNetworkProfileOutputWithContext(ctx context.Context) NetworkProfileOutput
 }
 
-func (NetworkProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkProfile)(nil)).Elem()
+func (*NetworkProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfile)(nil))
 }
 
-func (i NetworkProfile) ToNetworkProfileOutput() NetworkProfileOutput {
+func (i *NetworkProfile) ToNetworkProfileOutput() NetworkProfileOutput {
 	return i.ToNetworkProfileOutputWithContext(context.Background())
 }
 
-func (i NetworkProfile) ToNetworkProfileOutputWithContext(ctx context.Context) NetworkProfileOutput {
+func (i *NetworkProfile) ToNetworkProfileOutputWithContext(ctx context.Context) NetworkProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileOutput)
 }
 
@@ -236,7 +236,7 @@ type NetworkProfileOutput struct {
 }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkProfileOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkProfile)(nil))
 }
 
 func (o NetworkProfileOutput) ToNetworkProfileOutput() NetworkProfileOutput {

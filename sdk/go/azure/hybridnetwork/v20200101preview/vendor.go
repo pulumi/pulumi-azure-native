@@ -104,15 +104,15 @@ type VendorInput interface {
 	ToVendorOutputWithContext(ctx context.Context) VendorOutput
 }
 
-func (Vendor) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vendor)(nil)).Elem()
+func (*Vendor) ElementType() reflect.Type {
+	return reflect.TypeOf((*Vendor)(nil))
 }
 
-func (i Vendor) ToVendorOutput() VendorOutput {
+func (i *Vendor) ToVendorOutput() VendorOutput {
 	return i.ToVendorOutputWithContext(context.Background())
 }
 
-func (i Vendor) ToVendorOutputWithContext(ctx context.Context) VendorOutput {
+func (i *Vendor) ToVendorOutputWithContext(ctx context.Context) VendorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VendorOutput)
 }
 
@@ -121,7 +121,7 @@ type VendorOutput struct {
 }
 
 func (VendorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VendorOutput)(nil)).Elem()
+	return reflect.TypeOf((*Vendor)(nil))
 }
 
 func (o VendorOutput) ToVendorOutput() VendorOutput {

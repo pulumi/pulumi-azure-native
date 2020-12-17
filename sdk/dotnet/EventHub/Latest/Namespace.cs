@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
     /// Single Namespace item in List or Get Operation
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventhub/latest:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Billing.V20200301Preview
     /// <summary>
     /// The cost allocation rule model definition
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:billing/v20200301preview:CostAllocationRule")]
     public partial class CostAllocationRule : Pulumi.CustomResource
     {
         /// <summary>

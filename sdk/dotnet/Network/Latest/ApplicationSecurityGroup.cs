@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// An application security group in a resource group.
     /// Latest API Version: 2020-07-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/latest:ApplicationSecurityGroup")]
     public partial class ApplicationSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

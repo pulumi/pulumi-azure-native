@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
     /// <summary>
     /// A Stream Analytics Cluster object
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:streamanalytics/v20200301preview:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

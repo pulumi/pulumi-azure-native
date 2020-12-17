@@ -151,15 +151,15 @@ type DatabaseAccountMongoDBDatabaseInput interface {
 	ToDatabaseAccountMongoDBDatabaseOutputWithContext(ctx context.Context) DatabaseAccountMongoDBDatabaseOutput
 }
 
-func (DatabaseAccountMongoDBDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongoDBDatabase)(nil)).Elem()
+func (*DatabaseAccountMongoDBDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountMongoDBDatabase)(nil))
 }
 
-func (i DatabaseAccountMongoDBDatabase) ToDatabaseAccountMongoDBDatabaseOutput() DatabaseAccountMongoDBDatabaseOutput {
+func (i *DatabaseAccountMongoDBDatabase) ToDatabaseAccountMongoDBDatabaseOutput() DatabaseAccountMongoDBDatabaseOutput {
 	return i.ToDatabaseAccountMongoDBDatabaseOutputWithContext(context.Background())
 }
 
-func (i DatabaseAccountMongoDBDatabase) ToDatabaseAccountMongoDBDatabaseOutputWithContext(ctx context.Context) DatabaseAccountMongoDBDatabaseOutput {
+func (i *DatabaseAccountMongoDBDatabase) ToDatabaseAccountMongoDBDatabaseOutputWithContext(ctx context.Context) DatabaseAccountMongoDBDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountMongoDBDatabaseOutput)
 }
 
@@ -168,7 +168,7 @@ type DatabaseAccountMongoDBDatabaseOutput struct {
 }
 
 func (DatabaseAccountMongoDBDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongoDBDatabaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatabaseAccountMongoDBDatabase)(nil))
 }
 
 func (o DatabaseAccountMongoDBDatabaseOutput) ToDatabaseAccountMongoDBDatabaseOutput() DatabaseAccountMongoDBDatabaseOutput {

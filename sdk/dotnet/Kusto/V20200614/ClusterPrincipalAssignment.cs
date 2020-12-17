@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614
     /// <summary>
     /// Class representing a cluster principal assignment.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment")]
     public partial class ClusterPrincipalAssignment : Pulumi.CustomResource
     {
         /// <summary>

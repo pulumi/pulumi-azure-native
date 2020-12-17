@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
     /// <summary>
     /// A cache instance.  Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storagecache/v20190801preview:Cache")]
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>

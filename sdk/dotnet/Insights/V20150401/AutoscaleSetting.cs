@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150401
     /// <summary>
     /// The autoscale setting resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20150401:AutoscaleSetting")]
     public partial class AutoscaleSetting : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
     /// <summary>
     /// The integration account map.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/v20190501:IntegrationAccountMap")]
     public partial class IntegrationAccountMap : Pulumi.CustomResource
     {
         /// <summary>

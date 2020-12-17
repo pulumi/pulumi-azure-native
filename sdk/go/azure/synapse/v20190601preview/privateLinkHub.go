@@ -138,15 +138,15 @@ type PrivateLinkHubInput interface {
 	ToPrivateLinkHubOutputWithContext(ctx context.Context) PrivateLinkHubOutput
 }
 
-func (PrivateLinkHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkHub)(nil)).Elem()
+func (*PrivateLinkHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkHub)(nil))
 }
 
-func (i PrivateLinkHub) ToPrivateLinkHubOutput() PrivateLinkHubOutput {
+func (i *PrivateLinkHub) ToPrivateLinkHubOutput() PrivateLinkHubOutput {
 	return i.ToPrivateLinkHubOutputWithContext(context.Background())
 }
 
-func (i PrivateLinkHub) ToPrivateLinkHubOutputWithContext(ctx context.Context) PrivateLinkHubOutput {
+func (i *PrivateLinkHub) ToPrivateLinkHubOutputWithContext(ctx context.Context) PrivateLinkHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubOutput)
 }
 
@@ -155,7 +155,7 @@ type PrivateLinkHubOutput struct {
 }
 
 func (PrivateLinkHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkHubOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateLinkHub)(nil))
 }
 
 func (o PrivateLinkHubOutput) ToPrivateLinkHubOutput() PrivateLinkHubOutput {

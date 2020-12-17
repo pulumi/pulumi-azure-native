@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
     /// EventGrid Topic
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventgrid/latest:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>

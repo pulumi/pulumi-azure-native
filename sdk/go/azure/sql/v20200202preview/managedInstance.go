@@ -416,15 +416,15 @@ type ManagedInstanceInput interface {
 	ToManagedInstanceOutputWithContext(ctx context.Context) ManagedInstanceOutput
 }
 
-func (ManagedInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstance)(nil)).Elem()
+func (*ManagedInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstance)(nil))
 }
 
-func (i ManagedInstance) ToManagedInstanceOutput() ManagedInstanceOutput {
+func (i *ManagedInstance) ToManagedInstanceOutput() ManagedInstanceOutput {
 	return i.ToManagedInstanceOutputWithContext(context.Background())
 }
 
-func (i ManagedInstance) ToManagedInstanceOutputWithContext(ctx context.Context) ManagedInstanceOutput {
+func (i *ManagedInstance) ToManagedInstanceOutputWithContext(ctx context.Context) ManagedInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceOutput)
 }
 
@@ -433,7 +433,7 @@ type ManagedInstanceOutput struct {
 }
 
 func (ManagedInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedInstance)(nil))
 }
 
 func (o ManagedInstanceOutput) ToManagedInstanceOutput() ManagedInstanceOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
     /// <summary>
     /// A profile object that contains change analysis configuration, such as notification settings, for this subscription
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile")]
     public partial class ConfigurationProfile : Pulumi.CustomResource
     {
         /// <summary>

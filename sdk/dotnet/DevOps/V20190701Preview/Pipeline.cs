@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
     /// <summary>
     /// Azure DevOps Pipeline used to configure Continuous Integration (CI) &amp; Continuous Delivery (CD) for Azure resources.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devops/v20190701preview:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>

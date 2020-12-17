@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
     /// <summary>
     /// Properties that define an Analytics item that is associated to an Application Insights component.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20150501:AnalyticsItem")]
     public partial class AnalyticsItem : Pulumi.CustomResource
     {
         /// <summary>

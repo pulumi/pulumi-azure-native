@@ -401,15 +401,15 @@ type StorageAccountInput interface {
 	ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput
 }
 
-func (StorageAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccount)(nil)).Elem()
+func (*StorageAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccount)(nil))
 }
 
-func (i StorageAccount) ToStorageAccountOutput() StorageAccountOutput {
+func (i *StorageAccount) ToStorageAccountOutput() StorageAccountOutput {
 	return i.ToStorageAccountOutputWithContext(context.Background())
 }
 
-func (i StorageAccount) ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput {
+func (i *StorageAccount) ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountOutput)
 }
 
@@ -418,7 +418,7 @@ type StorageAccountOutput struct {
 }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*StorageAccount)(nil))
 }
 
 func (o StorageAccountOutput) ToStorageAccountOutput() StorageAccountOutput {

@@ -212,15 +212,15 @@ type NetworkFunctionInput interface {
 	ToNetworkFunctionOutputWithContext(ctx context.Context) NetworkFunctionOutput
 }
 
-func (NetworkFunction) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkFunction)(nil)).Elem()
+func (*NetworkFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunction)(nil))
 }
 
-func (i NetworkFunction) ToNetworkFunctionOutput() NetworkFunctionOutput {
+func (i *NetworkFunction) ToNetworkFunctionOutput() NetworkFunctionOutput {
 	return i.ToNetworkFunctionOutputWithContext(context.Background())
 }
 
-func (i NetworkFunction) ToNetworkFunctionOutputWithContext(ctx context.Context) NetworkFunctionOutput {
+func (i *NetworkFunction) ToNetworkFunctionOutputWithContext(ctx context.Context) NetworkFunctionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionOutput)
 }
 
@@ -229,7 +229,7 @@ type NetworkFunctionOutput struct {
 }
 
 func (NetworkFunctionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkFunctionOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkFunction)(nil))
 }
 
 func (o NetworkFunctionOutput) ToNetworkFunctionOutput() NetworkFunctionOutput {

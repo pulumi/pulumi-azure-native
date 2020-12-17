@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
     /// <summary>
     /// The top level Linked service resource container.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20190801preview:LinkedService")]
     public partial class LinkedService : Pulumi.CustomResource
     {
         /// <summary>

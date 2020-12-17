@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
     /// <summary>
     /// The backup schedule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20170601:BackupSchedule")]
     public partial class BackupSchedule : Pulumi.CustomResource
     {
         /// <summary>

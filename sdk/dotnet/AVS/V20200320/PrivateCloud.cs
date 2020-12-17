@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
     /// <summary>
     /// A private cloud resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:avs/v20200320:PrivateCloud")]
     public partial class PrivateCloud : Pulumi.CustomResource
     {
         /// <summary>

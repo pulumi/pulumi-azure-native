@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Description of an hostingEnvironment (App Service Environment)
     /// Latest API Version: 2015-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/latest:ManagedHostingEnvironment")]
     public partial class ManagedHostingEnvironment : Pulumi.CustomResource
     {
         /// <summary>

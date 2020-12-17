@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Portal.V20181001
     /// <summary>
     /// Cloud shell console
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:portal/v20181001:Console")]
     public partial class Console : Pulumi.CustomResource
     {
         /// <summary>

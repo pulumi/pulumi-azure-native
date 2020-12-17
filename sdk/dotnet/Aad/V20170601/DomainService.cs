@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
     /// <summary>
     /// Domain service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:aad/v20170601:DomainService")]
     public partial class DomainService : Pulumi.CustomResource
     {
         /// <summary>

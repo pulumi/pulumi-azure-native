@@ -139,15 +139,15 @@ type ManagedHsmInput interface {
 	ToManagedHsmOutputWithContext(ctx context.Context) ManagedHsmOutput
 }
 
-func (ManagedHsm) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedHsm)(nil)).Elem()
+func (*ManagedHsm) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHsm)(nil))
 }
 
-func (i ManagedHsm) ToManagedHsmOutput() ManagedHsmOutput {
+func (i *ManagedHsm) ToManagedHsmOutput() ManagedHsmOutput {
 	return i.ToManagedHsmOutputWithContext(context.Background())
 }
 
-func (i ManagedHsm) ToManagedHsmOutputWithContext(ctx context.Context) ManagedHsmOutput {
+func (i *ManagedHsm) ToManagedHsmOutputWithContext(ctx context.Context) ManagedHsmOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmOutput)
 }
 
@@ -156,7 +156,7 @@ type ManagedHsmOutput struct {
 }
 
 func (ManagedHsmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedHsmOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedHsm)(nil))
 }
 
 func (o ManagedHsmOutput) ToManagedHsmOutput() ManagedHsmOutput {

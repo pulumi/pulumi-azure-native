@@ -134,15 +134,15 @@ type PatchScheduleInput interface {
 	ToPatchScheduleOutputWithContext(ctx context.Context) PatchScheduleOutput
 }
 
-func (PatchSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchSchedule)(nil)).Elem()
+func (*PatchSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchSchedule)(nil))
 }
 
-func (i PatchSchedule) ToPatchScheduleOutput() PatchScheduleOutput {
+func (i *PatchSchedule) ToPatchScheduleOutput() PatchScheduleOutput {
 	return i.ToPatchScheduleOutputWithContext(context.Background())
 }
 
-func (i PatchSchedule) ToPatchScheduleOutputWithContext(ctx context.Context) PatchScheduleOutput {
+func (i *PatchSchedule) ToPatchScheduleOutputWithContext(ctx context.Context) PatchScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PatchScheduleOutput)
 }
 
@@ -151,7 +151,7 @@ type PatchScheduleOutput struct {
 }
 
 func (PatchScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchScheduleOutput)(nil)).Elem()
+	return reflect.TypeOf((*PatchSchedule)(nil))
 }
 
 func (o PatchScheduleOutput) ToPatchScheduleOutput() PatchScheduleOutput {

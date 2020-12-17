@@ -198,15 +198,15 @@ type FavoriteInput interface {
 	ToFavoriteOutputWithContext(ctx context.Context) FavoriteOutput
 }
 
-func (Favorite) ElementType() reflect.Type {
-	return reflect.TypeOf((*Favorite)(nil)).Elem()
+func (*Favorite) ElementType() reflect.Type {
+	return reflect.TypeOf((*Favorite)(nil))
 }
 
-func (i Favorite) ToFavoriteOutput() FavoriteOutput {
+func (i *Favorite) ToFavoriteOutput() FavoriteOutput {
 	return i.ToFavoriteOutputWithContext(context.Background())
 }
 
-func (i Favorite) ToFavoriteOutputWithContext(ctx context.Context) FavoriteOutput {
+func (i *Favorite) ToFavoriteOutputWithContext(ctx context.Context) FavoriteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FavoriteOutput)
 }
 
@@ -215,7 +215,7 @@ type FavoriteOutput struct {
 }
 
 func (FavoriteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FavoriteOutput)(nil)).Elem()
+	return reflect.TypeOf((*Favorite)(nil))
 }
 
 func (o FavoriteOutput) ToFavoriteOutput() FavoriteOutput {

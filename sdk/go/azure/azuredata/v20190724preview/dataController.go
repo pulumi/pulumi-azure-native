@@ -145,15 +145,15 @@ type DataControllerInput interface {
 	ToDataControllerOutputWithContext(ctx context.Context) DataControllerOutput
 }
 
-func (DataController) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataController)(nil)).Elem()
+func (*DataController) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataController)(nil))
 }
 
-func (i DataController) ToDataControllerOutput() DataControllerOutput {
+func (i *DataController) ToDataControllerOutput() DataControllerOutput {
 	return i.ToDataControllerOutputWithContext(context.Background())
 }
 
-func (i DataController) ToDataControllerOutputWithContext(ctx context.Context) DataControllerOutput {
+func (i *DataController) ToDataControllerOutputWithContext(ctx context.Context) DataControllerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataControllerOutput)
 }
 
@@ -162,7 +162,7 @@ type DataControllerOutput struct {
 }
 
 func (DataControllerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataControllerOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataController)(nil))
 }
 
 func (o DataControllerOutput) ToDataControllerOutput() DataControllerOutput {

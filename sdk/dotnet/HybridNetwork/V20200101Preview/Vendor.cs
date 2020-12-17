@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     /// <summary>
     /// Vendor resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybridnetwork/v20200101preview:Vendor")]
     public partial class Vendor : Pulumi.CustomResource
     {
         /// <summary>

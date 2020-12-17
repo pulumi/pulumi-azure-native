@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
     /// <summary>
     /// Data Lake Analytics firewall rule information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datalakeanalytics/v20161101:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>

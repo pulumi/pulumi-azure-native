@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
     /// <summary>
     /// A failover group.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20150501preview:FailoverGroup")]
     public partial class FailoverGroup : Pulumi.CustomResource
     {
         /// <summary>

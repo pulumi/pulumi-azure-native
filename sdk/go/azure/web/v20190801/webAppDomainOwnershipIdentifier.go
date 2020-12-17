@@ -147,15 +147,15 @@ type WebAppDomainOwnershipIdentifierInput interface {
 	ToWebAppDomainOwnershipIdentifierOutputWithContext(ctx context.Context) WebAppDomainOwnershipIdentifierOutput
 }
 
-func (WebAppDomainOwnershipIdentifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDomainOwnershipIdentifier)(nil)).Elem()
+func (*WebAppDomainOwnershipIdentifier) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDomainOwnershipIdentifier)(nil))
 }
 
-func (i WebAppDomainOwnershipIdentifier) ToWebAppDomainOwnershipIdentifierOutput() WebAppDomainOwnershipIdentifierOutput {
+func (i *WebAppDomainOwnershipIdentifier) ToWebAppDomainOwnershipIdentifierOutput() WebAppDomainOwnershipIdentifierOutput {
 	return i.ToWebAppDomainOwnershipIdentifierOutputWithContext(context.Background())
 }
 
-func (i WebAppDomainOwnershipIdentifier) ToWebAppDomainOwnershipIdentifierOutputWithContext(ctx context.Context) WebAppDomainOwnershipIdentifierOutput {
+func (i *WebAppDomainOwnershipIdentifier) ToWebAppDomainOwnershipIdentifierOutputWithContext(ctx context.Context) WebAppDomainOwnershipIdentifierOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppDomainOwnershipIdentifierOutput)
 }
 
@@ -164,7 +164,7 @@ type WebAppDomainOwnershipIdentifierOutput struct {
 }
 
 func (WebAppDomainOwnershipIdentifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDomainOwnershipIdentifierOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppDomainOwnershipIdentifier)(nil))
 }
 
 func (o WebAppDomainOwnershipIdentifierOutput) ToWebAppDomainOwnershipIdentifierOutput() WebAppDomainOwnershipIdentifierOutput {

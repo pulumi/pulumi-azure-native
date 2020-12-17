@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview
     /// <summary>
     /// Represents a Configuration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/v20171201preview:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>

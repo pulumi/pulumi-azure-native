@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
     /// A Trigger data transfer object.
     /// Latest API Version: 2019-11-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datashare/latest:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {
         /// <summary>

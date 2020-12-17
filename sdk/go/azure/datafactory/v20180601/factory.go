@@ -202,15 +202,15 @@ type FactoryInput interface {
 	ToFactoryOutputWithContext(ctx context.Context) FactoryOutput
 }
 
-func (Factory) ElementType() reflect.Type {
-	return reflect.TypeOf((*Factory)(nil)).Elem()
+func (*Factory) ElementType() reflect.Type {
+	return reflect.TypeOf((*Factory)(nil))
 }
 
-func (i Factory) ToFactoryOutput() FactoryOutput {
+func (i *Factory) ToFactoryOutput() FactoryOutput {
 	return i.ToFactoryOutputWithContext(context.Background())
 }
 
-func (i Factory) ToFactoryOutputWithContext(ctx context.Context) FactoryOutput {
+func (i *Factory) ToFactoryOutputWithContext(ctx context.Context) FactoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FactoryOutput)
 }
 
@@ -219,7 +219,7 @@ type FactoryOutput struct {
 }
 
 func (FactoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryOutput)(nil)).Elem()
+	return reflect.TypeOf((*Factory)(nil))
 }
 
 func (o FactoryOutput) ToFactoryOutput() FactoryOutput {

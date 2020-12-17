@@ -121,15 +121,15 @@ type SkusNestedResourceTypeFirstInput interface {
 	ToSkusNestedResourceTypeFirstOutputWithContext(ctx context.Context) SkusNestedResourceTypeFirstOutput
 }
 
-func (SkusNestedResourceTypeFirst) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkusNestedResourceTypeFirst)(nil)).Elem()
+func (*SkusNestedResourceTypeFirst) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkusNestedResourceTypeFirst)(nil))
 }
 
-func (i SkusNestedResourceTypeFirst) ToSkusNestedResourceTypeFirstOutput() SkusNestedResourceTypeFirstOutput {
+func (i *SkusNestedResourceTypeFirst) ToSkusNestedResourceTypeFirstOutput() SkusNestedResourceTypeFirstOutput {
 	return i.ToSkusNestedResourceTypeFirstOutputWithContext(context.Background())
 }
 
-func (i SkusNestedResourceTypeFirst) ToSkusNestedResourceTypeFirstOutputWithContext(ctx context.Context) SkusNestedResourceTypeFirstOutput {
+func (i *SkusNestedResourceTypeFirst) ToSkusNestedResourceTypeFirstOutputWithContext(ctx context.Context) SkusNestedResourceTypeFirstOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SkusNestedResourceTypeFirstOutput)
 }
 
@@ -138,7 +138,7 @@ type SkusNestedResourceTypeFirstOutput struct {
 }
 
 func (SkusNestedResourceTypeFirstOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkusNestedResourceTypeFirstOutput)(nil)).Elem()
+	return reflect.TypeOf((*SkusNestedResourceTypeFirst)(nil))
 }
 
 func (o SkusNestedResourceTypeFirstOutput) ToSkusNestedResourceTypeFirstOutput() SkusNestedResourceTypeFirstOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
     /// <summary>
     /// An Azure SQL managed instance administrator.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20170301preview:ManagedInstanceAdministrator")]
     public partial class ManagedInstanceAdministrator : Pulumi.CustomResource
     {
         /// <summary>

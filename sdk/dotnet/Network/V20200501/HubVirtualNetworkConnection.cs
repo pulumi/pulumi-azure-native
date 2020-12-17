@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
     /// <summary>
     /// HubVirtualNetworkConnection Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200501:HubVirtualNetworkConnection")]
     public partial class HubVirtualNetworkConnection : Pulumi.CustomResource
     {
         /// <summary>

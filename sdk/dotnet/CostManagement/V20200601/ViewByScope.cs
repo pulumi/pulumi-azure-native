@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200601
     /// <summary>
     /// States and configurations of Cost Analysis.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:costmanagement/v20200601:ViewByScope")]
     public partial class ViewByScope : Pulumi.CustomResource
     {
         /// <summary>

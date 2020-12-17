@@ -216,15 +216,15 @@ type FormulaResourceInput interface {
 	ToFormulaResourceOutputWithContext(ctx context.Context) FormulaResourceOutput
 }
 
-func (FormulaResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormulaResource)(nil)).Elem()
+func (*FormulaResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormulaResource)(nil))
 }
 
-func (i FormulaResource) ToFormulaResourceOutput() FormulaResourceOutput {
+func (i *FormulaResource) ToFormulaResourceOutput() FormulaResourceOutput {
 	return i.ToFormulaResourceOutputWithContext(context.Background())
 }
 
-func (i FormulaResource) ToFormulaResourceOutputWithContext(ctx context.Context) FormulaResourceOutput {
+func (i *FormulaResource) ToFormulaResourceOutputWithContext(ctx context.Context) FormulaResourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FormulaResourceOutput)
 }
 
@@ -233,7 +233,7 @@ type FormulaResourceOutput struct {
 }
 
 func (FormulaResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormulaResourceOutput)(nil)).Elem()
+	return reflect.TypeOf((*FormulaResource)(nil))
 }
 
 func (o FormulaResourceOutput) ToFormulaResourceOutput() FormulaResourceOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview
     /// <summary>
     /// Tenant configuration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:portal/v20190101preview:TenantConfiguration")]
     public partial class TenantConfiguration : Pulumi.CustomResource
     {
         /// <summary>

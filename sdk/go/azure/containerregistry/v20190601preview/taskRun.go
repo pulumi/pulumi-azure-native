@@ -165,15 +165,15 @@ type TaskRunInput interface {
 	ToTaskRunOutputWithContext(ctx context.Context) TaskRunOutput
 }
 
-func (TaskRun) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskRun)(nil)).Elem()
+func (*TaskRun) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskRun)(nil))
 }
 
-func (i TaskRun) ToTaskRunOutput() TaskRunOutput {
+func (i *TaskRun) ToTaskRunOutput() TaskRunOutput {
 	return i.ToTaskRunOutputWithContext(context.Background())
 }
 
-func (i TaskRun) ToTaskRunOutputWithContext(ctx context.Context) TaskRunOutput {
+func (i *TaskRun) ToTaskRunOutputWithContext(ctx context.Context) TaskRunOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskRunOutput)
 }
 
@@ -182,7 +182,7 @@ type TaskRunOutput struct {
 }
 
 func (TaskRunOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskRunOutput)(nil)).Elem()
+	return reflect.TypeOf((*TaskRun)(nil))
 }
 
 func (o TaskRunOutput) ToTaskRunOutput() TaskRunOutput {

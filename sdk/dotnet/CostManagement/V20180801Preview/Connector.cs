@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
     /// <summary>
     /// The Connector model definition
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:costmanagement/v20180801preview:Connector")]
     public partial class Connector : Pulumi.CustomResource
     {
         /// <summary>

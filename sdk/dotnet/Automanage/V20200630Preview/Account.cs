@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
     /// <summary>
     /// Definition of the Automanage account.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automanage/v20200630preview:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

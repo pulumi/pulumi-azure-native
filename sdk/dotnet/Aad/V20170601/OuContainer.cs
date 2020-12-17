@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
     /// <summary>
     /// Resource for OuContainer.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:aad/v20170601:OuContainer")]
     public partial class OuContainer : Pulumi.CustomResource
     {
         /// <summary>

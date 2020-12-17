@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     /// <summary>
     /// Azure Active Directory only authentication.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication")]
     public partial class ManagedInstanceAzureADOnlyAuthentication : Pulumi.CustomResource
     {
         /// <summary>

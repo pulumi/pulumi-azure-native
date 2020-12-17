@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Management.V20200501
     /// <summary>
     /// The details of subscription under management group.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:management/v20200501:ManagementGroupSubscription")]
     public partial class ManagementGroupSubscription : Pulumi.CustomResource
     {
         /// <summary>

@@ -190,15 +190,15 @@ type RolloutInput interface {
 	ToRolloutOutputWithContext(ctx context.Context) RolloutOutput
 }
 
-func (Rollout) ElementType() reflect.Type {
-	return reflect.TypeOf((*Rollout)(nil)).Elem()
+func (*Rollout) ElementType() reflect.Type {
+	return reflect.TypeOf((*Rollout)(nil))
 }
 
-func (i Rollout) ToRolloutOutput() RolloutOutput {
+func (i *Rollout) ToRolloutOutput() RolloutOutput {
 	return i.ToRolloutOutputWithContext(context.Background())
 }
 
-func (i Rollout) ToRolloutOutputWithContext(ctx context.Context) RolloutOutput {
+func (i *Rollout) ToRolloutOutputWithContext(ctx context.Context) RolloutOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RolloutOutput)
 }
 
@@ -207,7 +207,7 @@ type RolloutOutput struct {
 }
 
 func (RolloutOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RolloutOutput)(nil)).Elem()
+	return reflect.TypeOf((*Rollout)(nil))
 }
 
 func (o RolloutOutput) ToRolloutOutput() RolloutOutput {

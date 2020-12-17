@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801
     /// <summary>
     /// Workspace connection.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection")]
     public partial class WorkspaceConnection : Pulumi.CustomResource
     {
         /// <summary>

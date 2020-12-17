@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// The log profile resource.
     /// Latest API Version: 2016-03-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/latest:LogProfile")]
     public partial class LogProfile : Pulumi.CustomResource
     {
         /// <summary>

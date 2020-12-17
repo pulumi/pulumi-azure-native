@@ -207,15 +207,15 @@ type CertificateCsrInput interface {
 	ToCertificateCsrOutputWithContext(ctx context.Context) CertificateCsrOutput
 }
 
-func (CertificateCsr) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateCsr)(nil)).Elem()
+func (*CertificateCsr) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateCsr)(nil))
 }
 
-func (i CertificateCsr) ToCertificateCsrOutput() CertificateCsrOutput {
+func (i *CertificateCsr) ToCertificateCsrOutput() CertificateCsrOutput {
 	return i.ToCertificateCsrOutputWithContext(context.Background())
 }
 
-func (i CertificateCsr) ToCertificateCsrOutputWithContext(ctx context.Context) CertificateCsrOutput {
+func (i *CertificateCsr) ToCertificateCsrOutputWithContext(ctx context.Context) CertificateCsrOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCsrOutput)
 }
 
@@ -224,7 +224,7 @@ type CertificateCsrOutput struct {
 }
 
 func (CertificateCsrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateCsrOutput)(nil)).Elem()
+	return reflect.TypeOf((*CertificateCsr)(nil))
 }
 
 func (o CertificateCsrOutput) ToCertificateCsrOutput() CertificateCsrOutput {

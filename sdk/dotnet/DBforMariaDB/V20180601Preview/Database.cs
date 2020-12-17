@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
     /// <summary>
     /// Represents a Database.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformariadb/v20180601preview:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>

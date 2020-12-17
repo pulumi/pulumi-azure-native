@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview
     /// <summary>
     /// An object that represents a replication for a container registry.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20170601preview:Replication")]
     public partial class Replication : Pulumi.CustomResource
     {
         /// <summary>

@@ -282,8 +282,8 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerVersion _0 { get; } = new ServerVersion("2.0");
-        public static ServerVersion _2_0 { get; } = new ServerVersion("12.0");
+        public static ServerVersion ServerVersion_2_0 { get; } = new ServerVersion("2.0");
+        public static ServerVersion ServerVersion_12_0 { get; } = new ServerVersion("12.0");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
         public static bool operator !=(ServerVersion left, ServerVersion right) => !left.Equals(right);

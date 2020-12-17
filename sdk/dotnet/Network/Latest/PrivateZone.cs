@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Describes a Private DNS zone.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/latest:PrivateZone")]
     public partial class PrivateZone : Pulumi.CustomResource
     {
         /// <summary>

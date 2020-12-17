@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.BotService.V20180712
     /// <summary>
     /// Enterprise Channel resource definition
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:botservice/v20180712:EnterpriseChannel")]
     public partial class EnterpriseChannel : Pulumi.CustomResource
     {
         /// <summary>

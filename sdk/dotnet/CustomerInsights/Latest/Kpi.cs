@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
     /// The KPI resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:Kpi")]
     public partial class Kpi : Pulumi.CustomResource
     {
         /// <summary>

@@ -139,15 +139,15 @@ type WorkspaceSqlAadAdminInput interface {
 	ToWorkspaceSqlAadAdminOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminOutput
 }
 
-func (WorkspaceSqlAadAdmin) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSqlAadAdmin)(nil)).Elem()
+func (*WorkspaceSqlAadAdmin) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSqlAadAdmin)(nil))
 }
 
-func (i WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdminOutput {
+func (i *WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdminOutput {
 	return i.ToWorkspaceSqlAadAdminOutputWithContext(context.Background())
 }
 
-func (i WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminOutput {
+func (i *WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminOutput)
 }
 
@@ -156,7 +156,7 @@ type WorkspaceSqlAadAdminOutput struct {
 }
 
 func (WorkspaceSqlAadAdminOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSqlAadAdminOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkspaceSqlAadAdmin)(nil))
 }
 
 func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdminOutput {

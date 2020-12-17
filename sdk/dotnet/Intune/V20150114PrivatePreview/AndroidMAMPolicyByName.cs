@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Intune.V20150114PrivatePreview
     /// <summary>
     /// Android Policy entity for Intune MAM.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName")]
     public partial class AndroidMAMPolicyByName : Pulumi.CustomResource
     {
         [Output("accessRecheckOfflineTimeout")]

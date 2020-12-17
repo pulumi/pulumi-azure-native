@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
     /// <summary>
     /// Definition of the certificate.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

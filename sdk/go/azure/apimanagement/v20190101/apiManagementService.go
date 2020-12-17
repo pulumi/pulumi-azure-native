@@ -353,15 +353,15 @@ type ApiManagementServiceInput interface {
 	ToApiManagementServiceOutputWithContext(ctx context.Context) ApiManagementServiceOutput
 }
 
-func (ApiManagementService) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiManagementService)(nil)).Elem()
+func (*ApiManagementService) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiManagementService)(nil))
 }
 
-func (i ApiManagementService) ToApiManagementServiceOutput() ApiManagementServiceOutput {
+func (i *ApiManagementService) ToApiManagementServiceOutput() ApiManagementServiceOutput {
 	return i.ToApiManagementServiceOutputWithContext(context.Background())
 }
 
-func (i ApiManagementService) ToApiManagementServiceOutputWithContext(ctx context.Context) ApiManagementServiceOutput {
+func (i *ApiManagementService) ToApiManagementServiceOutputWithContext(ctx context.Context) ApiManagementServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceOutput)
 }
 
@@ -370,7 +370,7 @@ type ApiManagementServiceOutput struct {
 }
 
 func (ApiManagementServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiManagementServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiManagementService)(nil))
 }
 
 func (o ApiManagementServiceOutput) ToApiManagementServiceOutput() ApiManagementServiceOutput {

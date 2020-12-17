@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
     /// <summary>
     /// A SqlManagedInstance.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:azuredata/v20190724preview:SqlManagedInstance")]
     public partial class SqlManagedInstance : Pulumi.CustomResource
     {
         /// <summary>

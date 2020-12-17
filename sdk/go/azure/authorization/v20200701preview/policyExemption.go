@@ -181,15 +181,15 @@ type PolicyExemptionInput interface {
 	ToPolicyExemptionOutputWithContext(ctx context.Context) PolicyExemptionOutput
 }
 
-func (PolicyExemption) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyExemption)(nil)).Elem()
+func (*PolicyExemption) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyExemption)(nil))
 }
 
-func (i PolicyExemption) ToPolicyExemptionOutput() PolicyExemptionOutput {
+func (i *PolicyExemption) ToPolicyExemptionOutput() PolicyExemptionOutput {
 	return i.ToPolicyExemptionOutputWithContext(context.Background())
 }
 
-func (i PolicyExemption) ToPolicyExemptionOutputWithContext(ctx context.Context) PolicyExemptionOutput {
+func (i *PolicyExemption) ToPolicyExemptionOutputWithContext(ctx context.Context) PolicyExemptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyExemptionOutput)
 }
 
@@ -198,7 +198,7 @@ type PolicyExemptionOutput struct {
 }
 
 func (PolicyExemptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyExemptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*PolicyExemption)(nil))
 }
 
 func (o PolicyExemptionOutput) ToPolicyExemptionOutput() PolicyExemptionOutput {

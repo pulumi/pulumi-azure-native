@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
     /// <summary>
     /// HANA instance info on Azure (ARM properties and HANA properties)
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hanaonazure/v20171103preview:HanaInstance")]
     public partial class HanaInstance : Pulumi.CustomResource
     {
         /// <summary>

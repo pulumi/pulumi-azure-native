@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301Preview
     /// <summary>
     /// Organization resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:confluent/v20200301preview:Organization")]
     public partial class Organization : Pulumi.CustomResource
     {
         /// <summary>

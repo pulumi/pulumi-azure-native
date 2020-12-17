@@ -181,15 +181,15 @@ type MediaServiceInput interface {
 	ToMediaServiceOutputWithContext(ctx context.Context) MediaServiceOutput
 }
 
-func (MediaService) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaService)(nil)).Elem()
+func (*MediaService) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaService)(nil))
 }
 
-func (i MediaService) ToMediaServiceOutput() MediaServiceOutput {
+func (i *MediaService) ToMediaServiceOutput() MediaServiceOutput {
 	return i.ToMediaServiceOutputWithContext(context.Background())
 }
 
-func (i MediaService) ToMediaServiceOutputWithContext(ctx context.Context) MediaServiceOutput {
+func (i *MediaService) ToMediaServiceOutputWithContext(ctx context.Context) MediaServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceOutput)
 }
 
@@ -198,7 +198,7 @@ type MediaServiceOutput struct {
 }
 
 func (MediaServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*MediaService)(nil))
 }
 
 func (o MediaServiceOutput) ToMediaServiceOutput() MediaServiceOutput {

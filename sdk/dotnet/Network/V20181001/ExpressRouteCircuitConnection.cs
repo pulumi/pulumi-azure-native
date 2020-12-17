@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
     /// <summary>
     /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20181001:ExpressRouteCircuitConnection")]
     public partial class ExpressRouteCircuitConnection : Pulumi.CustomResource
     {
         /// <summary>

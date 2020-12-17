@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
     /// <summary>
     /// An Azure Monitor PrivateLinkScope definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20191017preview:PrivateLinkScope")]
     public partial class PrivateLinkScope : Pulumi.CustomResource
     {
         /// <summary>

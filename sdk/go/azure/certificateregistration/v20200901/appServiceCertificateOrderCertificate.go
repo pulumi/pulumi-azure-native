@@ -189,15 +189,15 @@ type AppServiceCertificateOrderCertificateInput interface {
 	ToAppServiceCertificateOrderCertificateOutputWithContext(ctx context.Context) AppServiceCertificateOrderCertificateOutput
 }
 
-func (AppServiceCertificateOrderCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateOrderCertificate)(nil)).Elem()
+func (*AppServiceCertificateOrderCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceCertificateOrderCertificate)(nil))
 }
 
-func (i AppServiceCertificateOrderCertificate) ToAppServiceCertificateOrderCertificateOutput() AppServiceCertificateOrderCertificateOutput {
+func (i *AppServiceCertificateOrderCertificate) ToAppServiceCertificateOrderCertificateOutput() AppServiceCertificateOrderCertificateOutput {
 	return i.ToAppServiceCertificateOrderCertificateOutputWithContext(context.Background())
 }
 
-func (i AppServiceCertificateOrderCertificate) ToAppServiceCertificateOrderCertificateOutputWithContext(ctx context.Context) AppServiceCertificateOrderCertificateOutput {
+func (i *AppServiceCertificateOrderCertificate) ToAppServiceCertificateOrderCertificateOutputWithContext(ctx context.Context) AppServiceCertificateOrderCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderCertificateOutput)
 }
 
@@ -206,7 +206,7 @@ type AppServiceCertificateOrderCertificateOutput struct {
 }
 
 func (AppServiceCertificateOrderCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateOrderCertificateOutput)(nil)).Elem()
+	return reflect.TypeOf((*AppServiceCertificateOrderCertificate)(nil))
 }
 
 func (o AppServiceCertificateOrderCertificateOutput) ToAppServiceCertificateOrderCertificateOutput() AppServiceCertificateOrderCertificateOutput {

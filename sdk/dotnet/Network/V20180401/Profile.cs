@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20180401
     /// <summary>
     /// Class representing a Traffic Manager profile.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20180401:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>

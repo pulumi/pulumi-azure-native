@@ -274,15 +274,15 @@ type ManagedDatabaseInput interface {
 	ToManagedDatabaseOutputWithContext(ctx context.Context) ManagedDatabaseOutput
 }
 
-func (ManagedDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedDatabase)(nil)).Elem()
+func (*ManagedDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDatabase)(nil))
 }
 
-func (i ManagedDatabase) ToManagedDatabaseOutput() ManagedDatabaseOutput {
+func (i *ManagedDatabase) ToManagedDatabaseOutput() ManagedDatabaseOutput {
 	return i.ToManagedDatabaseOutputWithContext(context.Background())
 }
 
-func (i ManagedDatabase) ToManagedDatabaseOutputWithContext(ctx context.Context) ManagedDatabaseOutput {
+func (i *ManagedDatabase) ToManagedDatabaseOutputWithContext(ctx context.Context) ManagedDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseOutput)
 }
 
@@ -291,7 +291,7 @@ type ManagedDatabaseOutput struct {
 }
 
 func (ManagedDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedDatabaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedDatabase)(nil))
 }
 
 func (o ManagedDatabaseOutput) ToManagedDatabaseOutput() ManagedDatabaseOutput {

@@ -213,15 +213,15 @@ type DdosProtectionPlanInput interface {
 	ToDdosProtectionPlanOutputWithContext(ctx context.Context) DdosProtectionPlanOutput
 }
 
-func (DdosProtectionPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*DdosProtectionPlan)(nil)).Elem()
+func (*DdosProtectionPlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*DdosProtectionPlan)(nil))
 }
 
-func (i DdosProtectionPlan) ToDdosProtectionPlanOutput() DdosProtectionPlanOutput {
+func (i *DdosProtectionPlan) ToDdosProtectionPlanOutput() DdosProtectionPlanOutput {
 	return i.ToDdosProtectionPlanOutputWithContext(context.Background())
 }
 
-func (i DdosProtectionPlan) ToDdosProtectionPlanOutputWithContext(ctx context.Context) DdosProtectionPlanOutput {
+func (i *DdosProtectionPlan) ToDdosProtectionPlanOutputWithContext(ctx context.Context) DdosProtectionPlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DdosProtectionPlanOutput)
 }
 
@@ -230,7 +230,7 @@ type DdosProtectionPlanOutput struct {
 }
 
 func (DdosProtectionPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DdosProtectionPlanOutput)(nil)).Elem()
+	return reflect.TypeOf((*DdosProtectionPlan)(nil))
 }
 
 func (o DdosProtectionPlanOutput) ToDdosProtectionPlanOutput() DdosProtectionPlanOutput {

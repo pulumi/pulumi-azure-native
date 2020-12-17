@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.V20181203
     /// <summary>
     /// EnterpriseKnowledgeGraph resource definition
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph")]
     public partial class EnterpriseKnowledgeGraph : Pulumi.CustomResource
     {
         /// <summary>

@@ -246,15 +246,15 @@ type SiteInstanceDeploymentInput interface {
 	ToSiteInstanceDeploymentOutputWithContext(ctx context.Context) SiteInstanceDeploymentOutput
 }
 
-func (SiteInstanceDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteInstanceDeployment)(nil)).Elem()
+func (*SiteInstanceDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteInstanceDeployment)(nil))
 }
 
-func (i SiteInstanceDeployment) ToSiteInstanceDeploymentOutput() SiteInstanceDeploymentOutput {
+func (i *SiteInstanceDeployment) ToSiteInstanceDeploymentOutput() SiteInstanceDeploymentOutput {
 	return i.ToSiteInstanceDeploymentOutputWithContext(context.Background())
 }
 
-func (i SiteInstanceDeployment) ToSiteInstanceDeploymentOutputWithContext(ctx context.Context) SiteInstanceDeploymentOutput {
+func (i *SiteInstanceDeployment) ToSiteInstanceDeploymentOutputWithContext(ctx context.Context) SiteInstanceDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteInstanceDeploymentOutput)
 }
 
@@ -263,7 +263,7 @@ type SiteInstanceDeploymentOutput struct {
 }
 
 func (SiteInstanceDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteInstanceDeploymentOutput)(nil)).Elem()
+	return reflect.TypeOf((*SiteInstanceDeployment)(nil))
 }
 
 func (o SiteInstanceDeploymentOutput) ToSiteInstanceDeploymentOutput() SiteInstanceDeploymentOutput {

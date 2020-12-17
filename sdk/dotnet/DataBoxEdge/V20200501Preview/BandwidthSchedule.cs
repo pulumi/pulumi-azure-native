@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
     /// <summary>
     /// The bandwidth schedule details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule")]
     public partial class BandwidthSchedule : Pulumi.CustomResource
     {
         /// <summary>

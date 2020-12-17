@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
     /// <summary>
     /// Describes the RedisEnterprise cluster
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cache/v20201001preview:RedisEnterprise")]
     public partial class RedisEnterprise : Pulumi.CustomResource
     {
         /// <summary>

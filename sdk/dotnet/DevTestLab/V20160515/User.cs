@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
     /// <summary>
     /// Profile of a lab user.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20160515:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

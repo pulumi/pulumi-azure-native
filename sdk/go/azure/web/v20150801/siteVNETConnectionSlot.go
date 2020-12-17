@@ -243,15 +243,15 @@ type SiteVNETConnectionSlotInput interface {
 	ToSiteVNETConnectionSlotOutputWithContext(ctx context.Context) SiteVNETConnectionSlotOutput
 }
 
-func (SiteVNETConnectionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteVNETConnectionSlot)(nil)).Elem()
+func (*SiteVNETConnectionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteVNETConnectionSlot)(nil))
 }
 
-func (i SiteVNETConnectionSlot) ToSiteVNETConnectionSlotOutput() SiteVNETConnectionSlotOutput {
+func (i *SiteVNETConnectionSlot) ToSiteVNETConnectionSlotOutput() SiteVNETConnectionSlotOutput {
 	return i.ToSiteVNETConnectionSlotOutputWithContext(context.Background())
 }
 
-func (i SiteVNETConnectionSlot) ToSiteVNETConnectionSlotOutputWithContext(ctx context.Context) SiteVNETConnectionSlotOutput {
+func (i *SiteVNETConnectionSlot) ToSiteVNETConnectionSlotOutputWithContext(ctx context.Context) SiteVNETConnectionSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteVNETConnectionSlotOutput)
 }
 
@@ -260,7 +260,7 @@ type SiteVNETConnectionSlotOutput struct {
 }
 
 func (SiteVNETConnectionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteVNETConnectionSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*SiteVNETConnectionSlot)(nil))
 }
 
 func (o SiteVNETConnectionSlotOutput) ToSiteVNETConnectionSlotOutput() SiteVNETConnectionSlotOutput {

@@ -178,15 +178,15 @@ type BlueprintInput interface {
 	ToBlueprintOutputWithContext(ctx context.Context) BlueprintOutput
 }
 
-func (Blueprint) ElementType() reflect.Type {
-	return reflect.TypeOf((*Blueprint)(nil)).Elem()
+func (*Blueprint) ElementType() reflect.Type {
+	return reflect.TypeOf((*Blueprint)(nil))
 }
 
-func (i Blueprint) ToBlueprintOutput() BlueprintOutput {
+func (i *Blueprint) ToBlueprintOutput() BlueprintOutput {
 	return i.ToBlueprintOutputWithContext(context.Background())
 }
 
-func (i Blueprint) ToBlueprintOutputWithContext(ctx context.Context) BlueprintOutput {
+func (i *Blueprint) ToBlueprintOutputWithContext(ctx context.Context) BlueprintOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlueprintOutput)
 }
 
@@ -195,7 +195,7 @@ type BlueprintOutput struct {
 }
 
 func (BlueprintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlueprintOutput)(nil)).Elem()
+	return reflect.TypeOf((*Blueprint)(nil))
 }
 
 func (o BlueprintOutput) ToBlueprintOutput() BlueprintOutput {

@@ -174,7 +174,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerVersion _7 { get; } = new ServerVersion("5.7");
+        public static ServerVersion ServerVersion_5_7 { get; } = new ServerVersion("5.7");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
         public static bool operator !=(ServerVersion left, ServerVersion right) => !left.Equals(right);

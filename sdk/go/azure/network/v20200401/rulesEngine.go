@@ -134,15 +134,15 @@ type RulesEngineInput interface {
 	ToRulesEngineOutputWithContext(ctx context.Context) RulesEngineOutput
 }
 
-func (RulesEngine) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulesEngine)(nil)).Elem()
+func (*RulesEngine) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngine)(nil))
 }
 
-func (i RulesEngine) ToRulesEngineOutput() RulesEngineOutput {
+func (i *RulesEngine) ToRulesEngineOutput() RulesEngineOutput {
 	return i.ToRulesEngineOutputWithContext(context.Background())
 }
 
-func (i RulesEngine) ToRulesEngineOutputWithContext(ctx context.Context) RulesEngineOutput {
+func (i *RulesEngine) ToRulesEngineOutputWithContext(ctx context.Context) RulesEngineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineOutput)
 }
 
@@ -151,7 +151,7 @@ type RulesEngineOutput struct {
 }
 
 func (RulesEngineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulesEngineOutput)(nil)).Elem()
+	return reflect.TypeOf((*RulesEngine)(nil))
 }
 
 func (o RulesEngineOutput) ToRulesEngineOutput() RulesEngineOutput {

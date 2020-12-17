@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview
     /// <summary>
     /// Instance of an Azure ML Operationalization Cluster resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:machinelearningcompute/v20170601preview:OperationalizationCluster")]
     public partial class OperationalizationCluster : Pulumi.CustomResource
     {
         /// <summary>

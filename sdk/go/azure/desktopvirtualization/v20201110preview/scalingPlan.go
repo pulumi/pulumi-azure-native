@@ -192,15 +192,15 @@ type ScalingPlanInput interface {
 	ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput
 }
 
-func (ScalingPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalingPlan)(nil)).Elem()
+func (*ScalingPlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPlan)(nil))
 }
 
-func (i ScalingPlan) ToScalingPlanOutput() ScalingPlanOutput {
+func (i *ScalingPlan) ToScalingPlanOutput() ScalingPlanOutput {
 	return i.ToScalingPlanOutputWithContext(context.Background())
 }
 
-func (i ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput {
+func (i *ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanOutput)
 }
 
@@ -209,7 +209,7 @@ type ScalingPlanOutput struct {
 }
 
 func (ScalingPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalingPlanOutput)(nil)).Elem()
+	return reflect.TypeOf((*ScalingPlan)(nil))
 }
 
 func (o ScalingPlanOutput) ToScalingPlanOutput() ScalingPlanOutput {

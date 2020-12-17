@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
     /// <summary>
     /// A stored credential that can be used by a job to connect to target databases.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20170301preview:JobCredential")]
     public partial class JobCredential : Pulumi.CustomResource
     {
         /// <summary>

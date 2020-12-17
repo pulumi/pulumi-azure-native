@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20200701Preview
     /// <summary>
     /// AzureADMetrics resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:aadiam/v20200701preview:azureADMetric")]
     public partial class AzureADMetric : Pulumi.CustomResource
     {
         /// <summary>

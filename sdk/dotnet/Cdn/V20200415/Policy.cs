@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200415
     /// <summary>
     /// Defines web application firewall policy for Azure CDN.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/v20200415:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>

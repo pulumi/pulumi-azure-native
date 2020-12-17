@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20161002
     /// <summary>
     /// CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/v20161002:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>

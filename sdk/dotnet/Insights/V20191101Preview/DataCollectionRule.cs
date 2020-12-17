@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
     /// <summary>
     /// Definition of ARM tracked top level resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20191101preview:DataCollectionRule")]
     public partial class DataCollectionRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200101PrivatePreview
     /// <summary>
     /// A PostgreSQL Server key.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/v20200101privatepreview:ServerKey")]
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>

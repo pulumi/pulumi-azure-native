@@ -162,15 +162,15 @@ type WorkspaceConnectionInput interface {
 	ToWorkspaceConnectionOutputWithContext(ctx context.Context) WorkspaceConnectionOutput
 }
 
-func (WorkspaceConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceConnection)(nil)).Elem()
+func (*WorkspaceConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConnection)(nil))
 }
 
-func (i WorkspaceConnection) ToWorkspaceConnectionOutput() WorkspaceConnectionOutput {
+func (i *WorkspaceConnection) ToWorkspaceConnectionOutput() WorkspaceConnectionOutput {
 	return i.ToWorkspaceConnectionOutputWithContext(context.Background())
 }
 
-func (i WorkspaceConnection) ToWorkspaceConnectionOutputWithContext(ctx context.Context) WorkspaceConnectionOutput {
+func (i *WorkspaceConnection) ToWorkspaceConnectionOutputWithContext(ctx context.Context) WorkspaceConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionOutput)
 }
 
@@ -179,7 +179,7 @@ type WorkspaceConnectionOutput struct {
 }
 
 func (WorkspaceConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkspaceConnection)(nil))
 }
 
 func (o WorkspaceConnectionOutput) ToWorkspaceConnectionOutput() WorkspaceConnectionOutput {

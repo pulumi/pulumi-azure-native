@@ -166,15 +166,15 @@ type RemediationAtResourceGroupInput interface {
 	ToRemediationAtResourceGroupOutputWithContext(ctx context.Context) RemediationAtResourceGroupOutput
 }
 
-func (RemediationAtResourceGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtResourceGroup)(nil)).Elem()
+func (*RemediationAtResourceGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtResourceGroup)(nil))
 }
 
-func (i RemediationAtResourceGroup) ToRemediationAtResourceGroupOutput() RemediationAtResourceGroupOutput {
+func (i *RemediationAtResourceGroup) ToRemediationAtResourceGroupOutput() RemediationAtResourceGroupOutput {
 	return i.ToRemediationAtResourceGroupOutputWithContext(context.Background())
 }
 
-func (i RemediationAtResourceGroup) ToRemediationAtResourceGroupOutputWithContext(ctx context.Context) RemediationAtResourceGroupOutput {
+func (i *RemediationAtResourceGroup) ToRemediationAtResourceGroupOutputWithContext(ctx context.Context) RemediationAtResourceGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtResourceGroupOutput)
 }
 
@@ -183,7 +183,7 @@ type RemediationAtResourceGroupOutput struct {
 }
 
 func (RemediationAtResourceGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtResourceGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*RemediationAtResourceGroup)(nil))
 }
 
 func (o RemediationAtResourceGroupOutput) ToRemediationAtResourceGroupOutput() RemediationAtResourceGroupOutput {

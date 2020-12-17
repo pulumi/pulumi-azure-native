@@ -163,15 +163,15 @@ type WebAppPublicCertificateInput interface {
 	ToWebAppPublicCertificateOutputWithContext(ctx context.Context) WebAppPublicCertificateOutput
 }
 
-func (WebAppPublicCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPublicCertificate)(nil)).Elem()
+func (*WebAppPublicCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPublicCertificate)(nil))
 }
 
-func (i WebAppPublicCertificate) ToWebAppPublicCertificateOutput() WebAppPublicCertificateOutput {
+func (i *WebAppPublicCertificate) ToWebAppPublicCertificateOutput() WebAppPublicCertificateOutput {
 	return i.ToWebAppPublicCertificateOutputWithContext(context.Background())
 }
 
-func (i WebAppPublicCertificate) ToWebAppPublicCertificateOutputWithContext(ctx context.Context) WebAppPublicCertificateOutput {
+func (i *WebAppPublicCertificate) ToWebAppPublicCertificateOutputWithContext(ctx context.Context) WebAppPublicCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPublicCertificateOutput)
 }
 
@@ -180,7 +180,7 @@ type WebAppPublicCertificateOutput struct {
 }
 
 func (WebAppPublicCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPublicCertificateOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppPublicCertificate)(nil))
 }
 
 func (o WebAppPublicCertificateOutput) ToWebAppPublicCertificateOutput() WebAppPublicCertificateOutput {

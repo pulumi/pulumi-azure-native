@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
     /// <summary>
     /// The Live Event.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20180701:LiveEvent")]
     public partial class LiveEvent : Pulumi.CustomResource
     {
         /// <summary>

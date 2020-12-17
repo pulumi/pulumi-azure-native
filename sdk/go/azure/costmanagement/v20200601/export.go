@@ -185,15 +185,15 @@ type ExportInput interface {
 	ToExportOutputWithContext(ctx context.Context) ExportOutput
 }
 
-func (Export) ElementType() reflect.Type {
-	return reflect.TypeOf((*Export)(nil)).Elem()
+func (*Export) ElementType() reflect.Type {
+	return reflect.TypeOf((*Export)(nil))
 }
 
-func (i Export) ToExportOutput() ExportOutput {
+func (i *Export) ToExportOutput() ExportOutput {
 	return i.ToExportOutputWithContext(context.Background())
 }
 
-func (i Export) ToExportOutputWithContext(ctx context.Context) ExportOutput {
+func (i *Export) ToExportOutputWithContext(ctx context.Context) ExportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExportOutput)
 }
 
@@ -202,7 +202,7 @@ type ExportOutput struct {
 }
 
 func (ExportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportOutput)(nil)).Elem()
+	return reflect.TypeOf((*Export)(nil))
 }
 
 func (o ExportOutput) ToExportOutput() ExportOutput {

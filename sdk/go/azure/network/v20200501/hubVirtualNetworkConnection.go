@@ -182,15 +182,15 @@ type HubVirtualNetworkConnectionInput interface {
 	ToHubVirtualNetworkConnectionOutputWithContext(ctx context.Context) HubVirtualNetworkConnectionOutput
 }
 
-func (HubVirtualNetworkConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubVirtualNetworkConnection)(nil)).Elem()
+func (*HubVirtualNetworkConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubVirtualNetworkConnection)(nil))
 }
 
-func (i HubVirtualNetworkConnection) ToHubVirtualNetworkConnectionOutput() HubVirtualNetworkConnectionOutput {
+func (i *HubVirtualNetworkConnection) ToHubVirtualNetworkConnectionOutput() HubVirtualNetworkConnectionOutput {
 	return i.ToHubVirtualNetworkConnectionOutputWithContext(context.Background())
 }
 
-func (i HubVirtualNetworkConnection) ToHubVirtualNetworkConnectionOutputWithContext(ctx context.Context) HubVirtualNetworkConnectionOutput {
+func (i *HubVirtualNetworkConnection) ToHubVirtualNetworkConnectionOutputWithContext(ctx context.Context) HubVirtualNetworkConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HubVirtualNetworkConnectionOutput)
 }
 
@@ -199,7 +199,7 @@ type HubVirtualNetworkConnectionOutput struct {
 }
 
 func (HubVirtualNetworkConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubVirtualNetworkConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*HubVirtualNetworkConnection)(nil))
 }
 
 func (o HubVirtualNetworkConnectionOutput) ToHubVirtualNetworkConnectionOutput() HubVirtualNetworkConnectionOutput {

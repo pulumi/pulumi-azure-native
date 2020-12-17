@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/latest:ObjectReplicationPolicy")]
     public partial class ObjectReplicationPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -118,15 +118,15 @@ type WorkspaceSettingInput interface {
 	ToWorkspaceSettingOutputWithContext(ctx context.Context) WorkspaceSettingOutput
 }
 
-func (WorkspaceSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSetting)(nil)).Elem()
+func (*WorkspaceSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSetting)(nil))
 }
 
-func (i WorkspaceSetting) ToWorkspaceSettingOutput() WorkspaceSettingOutput {
+func (i *WorkspaceSetting) ToWorkspaceSettingOutput() WorkspaceSettingOutput {
 	return i.ToWorkspaceSettingOutputWithContext(context.Background())
 }
 
-func (i WorkspaceSetting) ToWorkspaceSettingOutputWithContext(ctx context.Context) WorkspaceSettingOutput {
+func (i *WorkspaceSetting) ToWorkspaceSettingOutputWithContext(ctx context.Context) WorkspaceSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSettingOutput)
 }
 
@@ -135,7 +135,7 @@ type WorkspaceSettingOutput struct {
 }
 
 func (WorkspaceSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSettingOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkspaceSetting)(nil))
 }
 
 func (o WorkspaceSettingOutput) ToWorkspaceSettingOutput() WorkspaceSettingOutput {

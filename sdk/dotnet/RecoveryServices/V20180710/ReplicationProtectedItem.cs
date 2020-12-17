@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
     /// <summary>
     /// Replication protected item.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem")]
     public partial class ReplicationProtectedItem : Pulumi.CustomResource
     {
         /// <summary>

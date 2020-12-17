@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
     /// <summary>
     /// The top level Workspace resource container.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20151101preview:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>

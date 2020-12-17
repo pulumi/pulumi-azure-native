@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
     /// <summary>
     /// The DataManager resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybriddata/v20160601:DataManager")]
     public partial class DataManager : Pulumi.CustomResource
     {
         /// <summary>

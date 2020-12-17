@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
     /// <summary>
     /// The customer's prefix that is registered by the peering service provider.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:peering/v20200101preview:RegisteredPrefix")]
     public partial class RegisteredPrefix : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
     /// <summary>
     /// DSCP Configuration in a resource group.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200601:DscpConfiguration")]
     public partial class DscpConfiguration : Pulumi.CustomResource
     {
         /// <summary>

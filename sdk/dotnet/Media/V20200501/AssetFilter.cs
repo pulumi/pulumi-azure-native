@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
     /// <summary>
     /// An Asset Filter.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20200501:AssetFilter")]
     public partial class AssetFilter : Pulumi.CustomResource
     {
         /// <summary>

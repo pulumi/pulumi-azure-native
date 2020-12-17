@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200301
     /// <summary>
     /// Contains information about a certificate.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:batch/v20200301:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

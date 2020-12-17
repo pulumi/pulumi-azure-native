@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 
         public static Architecture Amd64 { get; } = new Architecture("amd64");
         public static Architecture X86 { get; } = new Architecture("x86");
-        public static Architecture _86 { get; } = new Architecture("386");
+        public static Architecture Architecture_386 { get; } = new Architecture("386");
         public static Architecture Arm { get; } = new Architecture("arm");
         public static Architecture Arm64 { get; } = new Architecture("arm64");
 

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
     /// <summary>
     /// An Azure Cosmos DB Role Assignment
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment")]
     public partial class SqlResourceSqlRoleAssignment : Pulumi.CustomResource
     {
         /// <summary>

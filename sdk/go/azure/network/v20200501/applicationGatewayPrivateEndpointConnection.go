@@ -160,15 +160,15 @@ type ApplicationGatewayPrivateEndpointConnectionInput interface {
 	ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(ctx context.Context) ApplicationGatewayPrivateEndpointConnectionOutput
 }
 
-func (ApplicationGatewayPrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
+func (*ApplicationGatewayPrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnection)(nil))
 }
 
-func (i ApplicationGatewayPrivateEndpointConnection) ToApplicationGatewayPrivateEndpointConnectionOutput() ApplicationGatewayPrivateEndpointConnectionOutput {
+func (i *ApplicationGatewayPrivateEndpointConnection) ToApplicationGatewayPrivateEndpointConnectionOutput() ApplicationGatewayPrivateEndpointConnectionOutput {
 	return i.ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(context.Background())
 }
 
-func (i ApplicationGatewayPrivateEndpointConnection) ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(ctx context.Context) ApplicationGatewayPrivateEndpointConnectionOutput {
+func (i *ApplicationGatewayPrivateEndpointConnection) ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(ctx context.Context) ApplicationGatewayPrivateEndpointConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPrivateEndpointConnectionOutput)
 }
 
@@ -177,7 +177,7 @@ type ApplicationGatewayPrivateEndpointConnectionOutput struct {
 }
 
 func (ApplicationGatewayPrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnection)(nil))
 }
 
 func (o ApplicationGatewayPrivateEndpointConnectionOutput) ToApplicationGatewayPrivateEndpointConnectionOutput() ApplicationGatewayPrivateEndpointConnectionOutput {

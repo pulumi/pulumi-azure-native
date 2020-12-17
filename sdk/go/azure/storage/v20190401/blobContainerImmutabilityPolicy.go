@@ -162,15 +162,15 @@ type BlobContainerImmutabilityPolicyInput interface {
 	ToBlobContainerImmutabilityPolicyOutputWithContext(ctx context.Context) BlobContainerImmutabilityPolicyOutput
 }
 
-func (BlobContainerImmutabilityPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobContainerImmutabilityPolicy)(nil)).Elem()
+func (*BlobContainerImmutabilityPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainerImmutabilityPolicy)(nil))
 }
 
-func (i BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutput() BlobContainerImmutabilityPolicyOutput {
+func (i *BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutput() BlobContainerImmutabilityPolicyOutput {
 	return i.ToBlobContainerImmutabilityPolicyOutputWithContext(context.Background())
 }
 
-func (i BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutputWithContext(ctx context.Context) BlobContainerImmutabilityPolicyOutput {
+func (i *BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutputWithContext(ctx context.Context) BlobContainerImmutabilityPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerImmutabilityPolicyOutput)
 }
 
@@ -179,7 +179,7 @@ type BlobContainerImmutabilityPolicyOutput struct {
 }
 
 func (BlobContainerImmutabilityPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobContainerImmutabilityPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*BlobContainerImmutabilityPolicy)(nil))
 }
 
 func (o BlobContainerImmutabilityPolicyOutput) ToBlobContainerImmutabilityPolicyOutput() BlobContainerImmutabilityPolicyOutput {

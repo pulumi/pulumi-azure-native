@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
     /// <summary>
     /// The bandwidth setting.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20170601:BandwidthSetting")]
     public partial class BandwidthSetting : Pulumi.CustomResource
     {
         /// <summary>

@@ -179,15 +179,15 @@ type ReferenceDataSetInput interface {
 	ToReferenceDataSetOutputWithContext(ctx context.Context) ReferenceDataSetOutput
 }
 
-func (ReferenceDataSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceDataSet)(nil)).Elem()
+func (*ReferenceDataSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceDataSet)(nil))
 }
 
-func (i ReferenceDataSet) ToReferenceDataSetOutput() ReferenceDataSetOutput {
+func (i *ReferenceDataSet) ToReferenceDataSetOutput() ReferenceDataSetOutput {
 	return i.ToReferenceDataSetOutputWithContext(context.Background())
 }
 
-func (i ReferenceDataSet) ToReferenceDataSetOutputWithContext(ctx context.Context) ReferenceDataSetOutput {
+func (i *ReferenceDataSet) ToReferenceDataSetOutputWithContext(ctx context.Context) ReferenceDataSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetOutput)
 }
 
@@ -196,7 +196,7 @@ type ReferenceDataSetOutput struct {
 }
 
 func (ReferenceDataSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceDataSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReferenceDataSet)(nil))
 }
 
 func (o ReferenceDataSetOutput) ToReferenceDataSetOutput() ReferenceDataSetOutput {

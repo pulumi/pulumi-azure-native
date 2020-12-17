@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
     /// <summary>
     /// A MySQL Server key.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformysql/v20200701privatepreview:ServerKey")]
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>

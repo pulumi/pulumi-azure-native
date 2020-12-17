@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     /// The order details.
     /// Latest API Version: 2019-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Order")]
     public partial class Order : Pulumi.CustomResource
     {
         /// <summary>

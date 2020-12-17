@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
     /// <summary>
     /// Represents a blueprint artifact.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:blueprint/v20181101preview:Artifact")]
     public partial class Artifact : Pulumi.CustomResource
     {
         /// <summary>

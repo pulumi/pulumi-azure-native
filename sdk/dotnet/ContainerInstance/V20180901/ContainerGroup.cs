@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180901
     /// <summary>
     /// A container group.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerinstance/v20180901:ContainerGroup")]
     public partial class ContainerGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
     /// Integration runtime resource type.
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datafactory/latest:IntegrationRuntime")]
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {
         /// <summary>

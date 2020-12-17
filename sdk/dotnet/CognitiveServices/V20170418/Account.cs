@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418
     /// <summary>
     /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cognitiveservices/v20170418:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

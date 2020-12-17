@@ -107,15 +107,15 @@ type ResourceTypeRegistrationInput interface {
 	ToResourceTypeRegistrationOutputWithContext(ctx context.Context) ResourceTypeRegistrationOutput
 }
 
-func (ResourceTypeRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceTypeRegistration)(nil)).Elem()
+func (*ResourceTypeRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceTypeRegistration)(nil))
 }
 
-func (i ResourceTypeRegistration) ToResourceTypeRegistrationOutput() ResourceTypeRegistrationOutput {
+func (i *ResourceTypeRegistration) ToResourceTypeRegistrationOutput() ResourceTypeRegistrationOutput {
 	return i.ToResourceTypeRegistrationOutputWithContext(context.Background())
 }
 
-func (i ResourceTypeRegistration) ToResourceTypeRegistrationOutputWithContext(ctx context.Context) ResourceTypeRegistrationOutput {
+func (i *ResourceTypeRegistration) ToResourceTypeRegistrationOutputWithContext(ctx context.Context) ResourceTypeRegistrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceTypeRegistrationOutput)
 }
 
@@ -124,7 +124,7 @@ type ResourceTypeRegistrationOutput struct {
 }
 
 func (ResourceTypeRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceTypeRegistrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResourceTypeRegistration)(nil))
 }
 
 func (o ResourceTypeRegistrationOutput) ToResourceTypeRegistrationOutput() ResourceTypeRegistrationOutput {

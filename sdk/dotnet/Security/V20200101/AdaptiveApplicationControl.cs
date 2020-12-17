@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Security.V20200101
 {
+    [AzureNextGenResourceType("azure-nextgen:security/v20200101:AdaptiveApplicationControl")]
     public partial class AdaptiveApplicationControl : Pulumi.CustomResource
     {
         /// <summary>

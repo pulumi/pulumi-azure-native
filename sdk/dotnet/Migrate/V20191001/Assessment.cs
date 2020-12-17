@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
     /// <summary>
     /// An assessment created for a group in the Migration project.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:migrate/v20191001:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
     {
         /// <summary>

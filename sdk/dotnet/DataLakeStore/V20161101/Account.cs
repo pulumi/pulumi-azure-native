@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
     /// <summary>
     /// Data Lake Store account information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datalakestore/v20161101:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

@@ -194,15 +194,15 @@ type BastionHostInput interface {
 	ToBastionHostOutputWithContext(ctx context.Context) BastionHostOutput
 }
 
-func (BastionHost) ElementType() reflect.Type {
-	return reflect.TypeOf((*BastionHost)(nil)).Elem()
+func (*BastionHost) ElementType() reflect.Type {
+	return reflect.TypeOf((*BastionHost)(nil))
 }
 
-func (i BastionHost) ToBastionHostOutput() BastionHostOutput {
+func (i *BastionHost) ToBastionHostOutput() BastionHostOutput {
 	return i.ToBastionHostOutputWithContext(context.Background())
 }
 
-func (i BastionHost) ToBastionHostOutputWithContext(ctx context.Context) BastionHostOutput {
+func (i *BastionHost) ToBastionHostOutputWithContext(ctx context.Context) BastionHostOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostOutput)
 }
 
@@ -211,7 +211,7 @@ type BastionHostOutput struct {
 }
 
 func (BastionHostOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BastionHostOutput)(nil)).Elem()
+	return reflect.TypeOf((*BastionHost)(nil))
 }
 
 func (o BastionHostOutput) ToBastionHostOutput() BastionHostOutput {

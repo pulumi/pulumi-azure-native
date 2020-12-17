@@ -179,15 +179,15 @@ type RemediationAtManagementGroupInput interface {
 	ToRemediationAtManagementGroupOutputWithContext(ctx context.Context) RemediationAtManagementGroupOutput
 }
 
-func (RemediationAtManagementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtManagementGroup)(nil)).Elem()
+func (*RemediationAtManagementGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtManagementGroup)(nil))
 }
 
-func (i RemediationAtManagementGroup) ToRemediationAtManagementGroupOutput() RemediationAtManagementGroupOutput {
+func (i *RemediationAtManagementGroup) ToRemediationAtManagementGroupOutput() RemediationAtManagementGroupOutput {
 	return i.ToRemediationAtManagementGroupOutputWithContext(context.Background())
 }
 
-func (i RemediationAtManagementGroup) ToRemediationAtManagementGroupOutputWithContext(ctx context.Context) RemediationAtManagementGroupOutput {
+func (i *RemediationAtManagementGroup) ToRemediationAtManagementGroupOutputWithContext(ctx context.Context) RemediationAtManagementGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtManagementGroupOutput)
 }
 
@@ -196,7 +196,7 @@ type RemediationAtManagementGroupOutput struct {
 }
 
 func (RemediationAtManagementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtManagementGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*RemediationAtManagementGroup)(nil))
 }
 
 func (o RemediationAtManagementGroupOutput) ToRemediationAtManagementGroupOutput() RemediationAtManagementGroupOutput {

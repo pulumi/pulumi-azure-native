@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
     /// OpenShift Managed cluster.
     /// Latest API Version: 2019-04-30.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerservice/latest:OpenShiftManagedCluster")]
     public partial class OpenShiftManagedCluster : Pulumi.CustomResource
     {
         /// <summary>

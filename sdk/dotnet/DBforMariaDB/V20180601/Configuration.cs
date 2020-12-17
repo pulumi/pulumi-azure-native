@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
     /// <summary>
     /// Represents a Configuration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformariadb/v20180601:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>

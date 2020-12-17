@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// An activity log alert resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/latest:ActivityLogAlert")]
     public partial class ActivityLogAlert : Pulumi.CustomResource
     {
         /// <summary>

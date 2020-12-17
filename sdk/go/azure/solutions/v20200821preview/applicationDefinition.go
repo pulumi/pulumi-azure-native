@@ -304,15 +304,15 @@ type ApplicationDefinitionInput interface {
 	ToApplicationDefinitionOutputWithContext(ctx context.Context) ApplicationDefinitionOutput
 }
 
-func (ApplicationDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDefinition)(nil)).Elem()
+func (*ApplicationDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDefinition)(nil))
 }
 
-func (i ApplicationDefinition) ToApplicationDefinitionOutput() ApplicationDefinitionOutput {
+func (i *ApplicationDefinition) ToApplicationDefinitionOutput() ApplicationDefinitionOutput {
 	return i.ToApplicationDefinitionOutputWithContext(context.Background())
 }
 
-func (i ApplicationDefinition) ToApplicationDefinitionOutputWithContext(ctx context.Context) ApplicationDefinitionOutput {
+func (i *ApplicationDefinition) ToApplicationDefinitionOutputWithContext(ctx context.Context) ApplicationDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionOutput)
 }
 
@@ -321,7 +321,7 @@ type ApplicationDefinitionOutput struct {
 }
 
 func (ApplicationDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDefinitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApplicationDefinition)(nil))
 }
 
 func (o ApplicationDefinitionOutput) ToApplicationDefinitionOutput() ApplicationDefinitionOutput {

@@ -46,12 +46,12 @@ export const MinimalTlsVersionEnum = {
 export type MinimalTlsVersionEnum = (typeof MinimalTlsVersionEnum)[keyof typeof MinimalTlsVersionEnum];
 
 export const ServerVersion = {
-    _9_5: "9.5",
-    _9_6: "9.6",
-    _10: "10",
-    _10_0: "10.0",
-    _10_2: "10.2",
-    _11: "11",
+    ServerVersion_9_5: "9.5",
+    ServerVersion_9_6: "9.6",
+    ServerVersion_10: "10",
+    ServerVersion_10_0: "10.0",
+    ServerVersion_10_2: "10.2",
+    ServerVersion_11: "11",
 } as const;
 
 /**

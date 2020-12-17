@@ -223,15 +223,15 @@ type StreamingLocatorInput interface {
 	ToStreamingLocatorOutputWithContext(ctx context.Context) StreamingLocatorOutput
 }
 
-func (StreamingLocator) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingLocator)(nil)).Elem()
+func (*StreamingLocator) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingLocator)(nil))
 }
 
-func (i StreamingLocator) ToStreamingLocatorOutput() StreamingLocatorOutput {
+func (i *StreamingLocator) ToStreamingLocatorOutput() StreamingLocatorOutput {
 	return i.ToStreamingLocatorOutputWithContext(context.Background())
 }
 
-func (i StreamingLocator) ToStreamingLocatorOutputWithContext(ctx context.Context) StreamingLocatorOutput {
+func (i *StreamingLocator) ToStreamingLocatorOutputWithContext(ctx context.Context) StreamingLocatorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorOutput)
 }
 
@@ -240,7 +240,7 @@ type StreamingLocatorOutput struct {
 }
 
 func (StreamingLocatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingLocatorOutput)(nil)).Elem()
+	return reflect.TypeOf((*StreamingLocator)(nil))
 }
 
 func (o StreamingLocatorOutput) ToStreamingLocatorOutput() StreamingLocatorOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
     /// <summary>
     /// Description of queue Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/v20150801:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
     /// <summary>
     /// This type describes a secret resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicefabricmesh/v20180901preview:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
         /// <summary>

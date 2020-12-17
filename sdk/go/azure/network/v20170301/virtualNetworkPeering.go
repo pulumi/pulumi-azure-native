@@ -284,15 +284,15 @@ type VirtualNetworkPeeringInput interface {
 	ToVirtualNetworkPeeringOutputWithContext(ctx context.Context) VirtualNetworkPeeringOutput
 }
 
-func (VirtualNetworkPeering) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPeering)(nil)).Elem()
+func (*VirtualNetworkPeering) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeering)(nil))
 }
 
-func (i VirtualNetworkPeering) ToVirtualNetworkPeeringOutput() VirtualNetworkPeeringOutput {
+func (i *VirtualNetworkPeering) ToVirtualNetworkPeeringOutput() VirtualNetworkPeeringOutput {
 	return i.ToVirtualNetworkPeeringOutputWithContext(context.Background())
 }
 
-func (i VirtualNetworkPeering) ToVirtualNetworkPeeringOutputWithContext(ctx context.Context) VirtualNetworkPeeringOutput {
+func (i *VirtualNetworkPeering) ToVirtualNetworkPeeringOutputWithContext(ctx context.Context) VirtualNetworkPeeringOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringOutput)
 }
 
@@ -301,7 +301,7 @@ type VirtualNetworkPeeringOutput struct {
 }
 
 func (VirtualNetworkPeeringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPeeringOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualNetworkPeering)(nil))
 }
 
 func (o VirtualNetworkPeeringOutput) ToVirtualNetworkPeeringOutput() VirtualNetworkPeeringOutput {

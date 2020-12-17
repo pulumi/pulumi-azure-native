@@ -125,15 +125,15 @@ type ManagedInstanceAzureADOnlyAuthenticationInput interface {
 	ToManagedInstanceAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ManagedInstanceAzureADOnlyAuthenticationOutput
 }
 
-func (ManagedInstanceAzureADOnlyAuthentication) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthentication)(nil)).Elem()
+func (*ManagedInstanceAzureADOnlyAuthentication) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthentication)(nil))
 }
 
-func (i ManagedInstanceAzureADOnlyAuthentication) ToManagedInstanceAzureADOnlyAuthenticationOutput() ManagedInstanceAzureADOnlyAuthenticationOutput {
+func (i *ManagedInstanceAzureADOnlyAuthentication) ToManagedInstanceAzureADOnlyAuthenticationOutput() ManagedInstanceAzureADOnlyAuthenticationOutput {
 	return i.ToManagedInstanceAzureADOnlyAuthenticationOutputWithContext(context.Background())
 }
 
-func (i ManagedInstanceAzureADOnlyAuthentication) ToManagedInstanceAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ManagedInstanceAzureADOnlyAuthenticationOutput {
+func (i *ManagedInstanceAzureADOnlyAuthentication) ToManagedInstanceAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ManagedInstanceAzureADOnlyAuthenticationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAzureADOnlyAuthenticationOutput)
 }
 
@@ -142,7 +142,7 @@ type ManagedInstanceAzureADOnlyAuthenticationOutput struct {
 }
 
 func (ManagedInstanceAzureADOnlyAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthenticationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthentication)(nil))
 }
 
 func (o ManagedInstanceAzureADOnlyAuthenticationOutput) ToManagedInstanceAzureADOnlyAuthenticationOutput() ManagedInstanceAzureADOnlyAuthenticationOutput {

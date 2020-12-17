@@ -205,15 +205,15 @@ type DatabaseAccountGremlinGraphInput interface {
 	ToDatabaseAccountGremlinGraphOutputWithContext(ctx context.Context) DatabaseAccountGremlinGraphOutput
 }
 
-func (DatabaseAccountGremlinGraph) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinGraph)(nil)).Elem()
+func (*DatabaseAccountGremlinGraph) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountGremlinGraph)(nil))
 }
 
-func (i DatabaseAccountGremlinGraph) ToDatabaseAccountGremlinGraphOutput() DatabaseAccountGremlinGraphOutput {
+func (i *DatabaseAccountGremlinGraph) ToDatabaseAccountGremlinGraphOutput() DatabaseAccountGremlinGraphOutput {
 	return i.ToDatabaseAccountGremlinGraphOutputWithContext(context.Background())
 }
 
-func (i DatabaseAccountGremlinGraph) ToDatabaseAccountGremlinGraphOutputWithContext(ctx context.Context) DatabaseAccountGremlinGraphOutput {
+func (i *DatabaseAccountGremlinGraph) ToDatabaseAccountGremlinGraphOutputWithContext(ctx context.Context) DatabaseAccountGremlinGraphOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountGremlinGraphOutput)
 }
 
@@ -222,7 +222,7 @@ type DatabaseAccountGremlinGraphOutput struct {
 }
 
 func (DatabaseAccountGremlinGraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinGraphOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatabaseAccountGremlinGraph)(nil))
 }
 
 func (o DatabaseAccountGremlinGraphOutput) ToDatabaseAccountGremlinGraphOutput() DatabaseAccountGremlinGraphOutput {

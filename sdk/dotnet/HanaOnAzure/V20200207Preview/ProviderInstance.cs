@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
     /// <summary>
     /// A provider instance associated with a SAP monitor.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hanaonazure/v20200207preview:ProviderInstance")]
     public partial class ProviderInstance : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
     /// <summary>
     /// An environment, which is essentially an ARM template deployment.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20180915:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>

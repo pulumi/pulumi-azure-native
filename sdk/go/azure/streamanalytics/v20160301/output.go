@@ -151,15 +151,15 @@ type OutputInput interface {
 	ToOutputOutputWithContext(ctx context.Context) OutputOutput
 }
 
-func (Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*Output)(nil)).Elem()
+func (*Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*Output)(nil))
 }
 
-func (i Output) ToOutputOutput() OutputOutput {
+func (i *Output) ToOutputOutput() OutputOutput {
 	return i.ToOutputOutputWithContext(context.Background())
 }
 
-func (i Output) ToOutputOutputWithContext(ctx context.Context) OutputOutput {
+func (i *Output) ToOutputOutputWithContext(ctx context.Context) OutputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputOutput)
 }
 
@@ -168,7 +168,7 @@ type OutputOutput struct {
 }
 
 func (OutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputOutput)(nil)).Elem()
+	return reflect.TypeOf((*Output)(nil))
 }
 
 func (o OutputOutput) ToOutputOutput() OutputOutput {

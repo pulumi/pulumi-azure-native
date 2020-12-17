@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
     /// <summary>
     /// Describes the source control configuration for web app
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteSourceControlSlot")]
     public partial class SiteSourceControlSlot : Pulumi.CustomResource
     {
         /// <summary>

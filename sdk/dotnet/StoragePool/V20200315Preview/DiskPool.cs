@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
     /// <summary>
     /// Request payload for Create or Update Disk Pool requests.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storagepool/v20200315preview:DiskPool")]
     public partial class DiskPool : Pulumi.CustomResource
     {
         /// <summary>

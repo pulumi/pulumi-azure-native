@@ -139,15 +139,15 @@ type NotebookWorkspaceInput interface {
 	ToNotebookWorkspaceOutputWithContext(ctx context.Context) NotebookWorkspaceOutput
 }
 
-func (NotebookWorkspace) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookWorkspace)(nil)).Elem()
+func (*NotebookWorkspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookWorkspace)(nil))
 }
 
-func (i NotebookWorkspace) ToNotebookWorkspaceOutput() NotebookWorkspaceOutput {
+func (i *NotebookWorkspace) ToNotebookWorkspaceOutput() NotebookWorkspaceOutput {
 	return i.ToNotebookWorkspaceOutputWithContext(context.Background())
 }
 
-func (i NotebookWorkspace) ToNotebookWorkspaceOutputWithContext(ctx context.Context) NotebookWorkspaceOutput {
+func (i *NotebookWorkspace) ToNotebookWorkspaceOutputWithContext(ctx context.Context) NotebookWorkspaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookWorkspaceOutput)
 }
 
@@ -156,7 +156,7 @@ type NotebookWorkspaceOutput struct {
 }
 
 func (NotebookWorkspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookWorkspaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*NotebookWorkspace)(nil))
 }
 
 func (o NotebookWorkspaceOutput) ToNotebookWorkspaceOutput() NotebookWorkspaceOutput {

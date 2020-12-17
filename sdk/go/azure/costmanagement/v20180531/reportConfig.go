@@ -150,15 +150,15 @@ type ReportConfigInput interface {
 	ToReportConfigOutputWithContext(ctx context.Context) ReportConfigOutput
 }
 
-func (ReportConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfig)(nil)).Elem()
+func (*ReportConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportConfig)(nil))
 }
 
-func (i ReportConfig) ToReportConfigOutput() ReportConfigOutput {
+func (i *ReportConfig) ToReportConfigOutput() ReportConfigOutput {
 	return i.ToReportConfigOutputWithContext(context.Background())
 }
 
-func (i ReportConfig) ToReportConfigOutputWithContext(ctx context.Context) ReportConfigOutput {
+func (i *ReportConfig) ToReportConfigOutputWithContext(ctx context.Context) ReportConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigOutput)
 }
 
@@ -167,7 +167,7 @@ type ReportConfigOutput struct {
 }
 
 func (ReportConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfigOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReportConfig)(nil))
 }
 
 func (o ReportConfigOutput) ToReportConfigOutput() ReportConfigOutput {

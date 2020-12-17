@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20190301
     /// <summary>
     /// An action group resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20190301:ActionGroup")]
     public partial class ActionGroup : Pulumi.CustomResource
     {
         /// <summary>

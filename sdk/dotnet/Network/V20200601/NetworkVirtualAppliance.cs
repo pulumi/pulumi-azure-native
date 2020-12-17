@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
     /// <summary>
     /// NetworkVirtualAppliance Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200601:NetworkVirtualAppliance")]
     public partial class NetworkVirtualAppliance : Pulumi.CustomResource
     {
         /// <summary>

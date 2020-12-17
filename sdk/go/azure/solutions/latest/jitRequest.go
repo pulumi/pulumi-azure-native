@@ -198,15 +198,15 @@ type JitRequestInput interface {
 	ToJitRequestOutputWithContext(ctx context.Context) JitRequestOutput
 }
 
-func (JitRequest) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitRequest)(nil)).Elem()
+func (*JitRequest) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitRequest)(nil))
 }
 
-func (i JitRequest) ToJitRequestOutput() JitRequestOutput {
+func (i *JitRequest) ToJitRequestOutput() JitRequestOutput {
 	return i.ToJitRequestOutputWithContext(context.Background())
 }
 
-func (i JitRequest) ToJitRequestOutputWithContext(ctx context.Context) JitRequestOutput {
+func (i *JitRequest) ToJitRequestOutputWithContext(ctx context.Context) JitRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JitRequestOutput)
 }
 
@@ -215,7 +215,7 @@ type JitRequestOutput struct {
 }
 
 func (JitRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitRequestOutput)(nil)).Elem()
+	return reflect.TypeOf((*JitRequest)(nil))
 }
 
 func (o JitRequestOutput) ToJitRequestOutput() JitRequestOutput {

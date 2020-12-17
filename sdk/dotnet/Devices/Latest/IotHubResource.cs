@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
     /// The description of the IoT hub.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devices/latest:IotHubResource")]
     public partial class IotHubResource : Pulumi.CustomResource
     {
         /// <summary>

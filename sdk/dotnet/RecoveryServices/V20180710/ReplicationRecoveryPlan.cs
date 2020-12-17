@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
     /// <summary>
     /// Recovery plan details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan")]
     public partial class ReplicationRecoveryPlan : Pulumi.CustomResource
     {
         /// <summary>

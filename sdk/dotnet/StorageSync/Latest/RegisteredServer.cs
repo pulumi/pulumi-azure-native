@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
     /// Registered Server resource.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storagesync/latest:RegisteredServer")]
     public partial class RegisteredServer : Pulumi.CustomResource
     {
         /// <summary>

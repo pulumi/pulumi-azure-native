@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
     /// <summary>
     /// A data set mapping data transfer object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datashare/v20191101:DataSetMapping")]
     public partial class DataSetMapping : Pulumi.CustomResource
     {
         /// <summary>

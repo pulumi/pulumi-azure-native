@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630Preview
     /// <summary>
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20200630preview:ConfigurationProfileAssignment")]
     public partial class ConfigurationProfileAssignment : Pulumi.CustomResource
     {
         /// <summary>

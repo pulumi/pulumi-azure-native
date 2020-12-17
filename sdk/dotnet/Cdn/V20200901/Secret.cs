@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
     /// <summary>
     /// Friendly Secret name mapping to the any Secret or secret related information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/v20200901:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]

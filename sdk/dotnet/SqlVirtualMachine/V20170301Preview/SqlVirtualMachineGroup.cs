@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
     /// <summary>
     /// A SQL virtual machine group.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup")]
     public partial class SqlVirtualMachineGroup : Pulumi.CustomResource
     {
         /// <summary>

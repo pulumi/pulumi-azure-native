@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
     /// <summary>
     /// Alert rule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:securityinsights/v20190101preview:AlertRule")]
     public partial class AlertRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190701
     /// <summary>
     /// NetApp account resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:netapp/v20190701:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

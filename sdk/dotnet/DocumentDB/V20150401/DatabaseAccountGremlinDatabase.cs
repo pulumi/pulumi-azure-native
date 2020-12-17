@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150401
     /// <summary>
     /// An Azure Cosmos DB Gremlin database.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase")]
     public partial class DatabaseAccountGremlinDatabase : Pulumi.CustomResource
     {
         /// <summary>

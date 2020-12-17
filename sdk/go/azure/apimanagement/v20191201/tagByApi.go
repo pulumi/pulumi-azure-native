@@ -143,15 +143,15 @@ type TagByApiInput interface {
 	ToTagByApiOutputWithContext(ctx context.Context) TagByApiOutput
 }
 
-func (TagByApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagByApi)(nil)).Elem()
+func (*TagByApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByApi)(nil))
 }
 
-func (i TagByApi) ToTagByApiOutput() TagByApiOutput {
+func (i *TagByApi) ToTagByApiOutput() TagByApiOutput {
 	return i.ToTagByApiOutputWithContext(context.Background())
 }
 
-func (i TagByApi) ToTagByApiOutputWithContext(ctx context.Context) TagByApiOutput {
+func (i *TagByApi) ToTagByApiOutputWithContext(ctx context.Context) TagByApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagByApiOutput)
 }
 
@@ -160,7 +160,7 @@ type TagByApiOutput struct {
 }
 
 func (TagByApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagByApiOutput)(nil)).Elem()
+	return reflect.TypeOf((*TagByApi)(nil))
 }
 
 func (o TagByApiOutput) ToTagByApiOutput() TagByApiOutput {

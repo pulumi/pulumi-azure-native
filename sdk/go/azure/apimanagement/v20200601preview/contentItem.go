@@ -128,15 +128,15 @@ type ContentItemInput interface {
 	ToContentItemOutputWithContext(ctx context.Context) ContentItemOutput
 }
 
-func (ContentItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentItem)(nil)).Elem()
+func (*ContentItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentItem)(nil))
 }
 
-func (i ContentItem) ToContentItemOutput() ContentItemOutput {
+func (i *ContentItem) ToContentItemOutput() ContentItemOutput {
 	return i.ToContentItemOutputWithContext(context.Background())
 }
 
-func (i ContentItem) ToContentItemOutputWithContext(ctx context.Context) ContentItemOutput {
+func (i *ContentItem) ToContentItemOutputWithContext(ctx context.Context) ContentItemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContentItemOutput)
 }
 
@@ -145,7 +145,7 @@ type ContentItemOutput struct {
 }
 
 func (ContentItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentItemOutput)(nil)).Elem()
+	return reflect.TypeOf((*ContentItem)(nil))
 }
 
 func (o ContentItemOutput) ToContentItemOutput() ContentItemOutput {

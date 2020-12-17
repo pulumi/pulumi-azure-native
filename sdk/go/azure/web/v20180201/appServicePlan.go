@@ -330,15 +330,15 @@ type AppServicePlanInput interface {
 	ToAppServicePlanOutputWithContext(ctx context.Context) AppServicePlanOutput
 }
 
-func (AppServicePlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePlan)(nil)).Elem()
+func (*AppServicePlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServicePlan)(nil))
 }
 
-func (i AppServicePlan) ToAppServicePlanOutput() AppServicePlanOutput {
+func (i *AppServicePlan) ToAppServicePlanOutput() AppServicePlanOutput {
 	return i.ToAppServicePlanOutputWithContext(context.Background())
 }
 
-func (i AppServicePlan) ToAppServicePlanOutputWithContext(ctx context.Context) AppServicePlanOutput {
+func (i *AppServicePlan) ToAppServicePlanOutputWithContext(ctx context.Context) AppServicePlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppServicePlanOutput)
 }
 
@@ -347,7 +347,7 @@ type AppServicePlanOutput struct {
 }
 
 func (AppServicePlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePlanOutput)(nil)).Elem()
+	return reflect.TypeOf((*AppServicePlan)(nil))
 }
 
 func (o AppServicePlanOutput) ToAppServicePlanOutput() AppServicePlanOutput {

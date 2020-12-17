@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
     /// <summary>
     /// The peering service prefix class.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:peering/v20190801preview:PeeringServicePrefix")]
     public partial class PeeringServicePrefix : Pulumi.CustomResource
     {
         /// <summary>

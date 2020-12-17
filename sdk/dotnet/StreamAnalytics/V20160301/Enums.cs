@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static CompatibilityLevel _0 { get; } = new CompatibilityLevel("1.0");
+        public static CompatibilityLevel CompatibilityLevel_1_0 { get; } = new CompatibilityLevel("1.0");
 
         public static bool operator ==(CompatibilityLevel left, CompatibilityLevel right) => left.Equals(right);
         public static bool operator !=(CompatibilityLevel left, CompatibilityLevel right) => !left.Equals(right);

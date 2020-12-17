@@ -137,15 +137,15 @@ type ReplicationRecoveryPlanInput interface {
 	ToReplicationRecoveryPlanOutputWithContext(ctx context.Context) ReplicationRecoveryPlanOutput
 }
 
-func (ReplicationRecoveryPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationRecoveryPlan)(nil)).Elem()
+func (*ReplicationRecoveryPlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlan)(nil))
 }
 
-func (i ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutput() ReplicationRecoveryPlanOutput {
+func (i *ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutput() ReplicationRecoveryPlanOutput {
 	return i.ToReplicationRecoveryPlanOutputWithContext(context.Background())
 }
 
-func (i ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutputWithContext(ctx context.Context) ReplicationRecoveryPlanOutput {
+func (i *ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutputWithContext(ctx context.Context) ReplicationRecoveryPlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanOutput)
 }
 
@@ -154,7 +154,7 @@ type ReplicationRecoveryPlanOutput struct {
 }
 
 func (ReplicationRecoveryPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationRecoveryPlanOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReplicationRecoveryPlan)(nil))
 }
 
 func (o ReplicationRecoveryPlanOutput) ToReplicationRecoveryPlanOutput() ReplicationRecoveryPlanOutput {

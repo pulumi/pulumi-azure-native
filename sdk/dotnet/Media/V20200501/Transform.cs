@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
     /// <summary>
     /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20200501:Transform")]
     public partial class Transform : Pulumi.CustomResource
     {
         /// <summary>

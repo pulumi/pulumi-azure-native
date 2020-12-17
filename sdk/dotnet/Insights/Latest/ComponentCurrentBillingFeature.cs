@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// An Application Insights component billing features
     /// Latest API Version: 2015-05-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/latest:ComponentCurrentBillingFeature")]
     public partial class ComponentCurrentBillingFeature : Pulumi.CustomResource
     {
         /// <summary>

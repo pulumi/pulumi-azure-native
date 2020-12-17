@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
     /// <summary>
     /// Definition of the module type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:Module")]
     public partial class Module : Pulumi.CustomResource
     {
         /// <summary>

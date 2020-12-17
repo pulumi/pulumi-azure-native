@@ -167,15 +167,15 @@ type TableResourceTableInput interface {
 	ToTableResourceTableOutputWithContext(ctx context.Context) TableResourceTableOutput
 }
 
-func (TableResourceTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableResourceTable)(nil)).Elem()
+func (*TableResourceTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableResourceTable)(nil))
 }
 
-func (i TableResourceTable) ToTableResourceTableOutput() TableResourceTableOutput {
+func (i *TableResourceTable) ToTableResourceTableOutput() TableResourceTableOutput {
 	return i.ToTableResourceTableOutputWithContext(context.Background())
 }
 
-func (i TableResourceTable) ToTableResourceTableOutputWithContext(ctx context.Context) TableResourceTableOutput {
+func (i *TableResourceTable) ToTableResourceTableOutputWithContext(ctx context.Context) TableResourceTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableResourceTableOutput)
 }
 
@@ -184,7 +184,7 @@ type TableResourceTableOutput struct {
 }
 
 func (TableResourceTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableResourceTableOutput)(nil)).Elem()
+	return reflect.TypeOf((*TableResourceTable)(nil))
 }
 
 func (o TableResourceTableOutput) ToTableResourceTableOutput() TableResourceTableOutput {

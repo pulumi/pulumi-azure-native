@@ -159,15 +159,15 @@ type MachineLearningDatasetInput interface {
 	ToMachineLearningDatasetOutputWithContext(ctx context.Context) MachineLearningDatasetOutput
 }
 
-func (MachineLearningDataset) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningDataset)(nil)).Elem()
+func (*MachineLearningDataset) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineLearningDataset)(nil))
 }
 
-func (i MachineLearningDataset) ToMachineLearningDatasetOutput() MachineLearningDatasetOutput {
+func (i *MachineLearningDataset) ToMachineLearningDatasetOutput() MachineLearningDatasetOutput {
 	return i.ToMachineLearningDatasetOutputWithContext(context.Background())
 }
 
-func (i MachineLearningDataset) ToMachineLearningDatasetOutputWithContext(ctx context.Context) MachineLearningDatasetOutput {
+func (i *MachineLearningDataset) ToMachineLearningDatasetOutputWithContext(ctx context.Context) MachineLearningDatasetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningDatasetOutput)
 }
 
@@ -176,7 +176,7 @@ type MachineLearningDatasetOutput struct {
 }
 
 func (MachineLearningDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningDatasetOutput)(nil)).Elem()
+	return reflect.TypeOf((*MachineLearningDataset)(nil))
 }
 
 func (o MachineLearningDatasetOutput) ToMachineLearningDatasetOutput() MachineLearningDatasetOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
     /// <summary>
     /// Server communication link.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20140401:ServerCommunicationLink")]
     public partial class ServerCommunicationLink : Pulumi.CustomResource
     {
         /// <summary>

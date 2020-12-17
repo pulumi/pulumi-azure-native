@@ -259,15 +259,15 @@ type VirtualMachineExtensionInput interface {
 	ToVirtualMachineExtensionOutputWithContext(ctx context.Context) VirtualMachineExtensionOutput
 }
 
-func (VirtualMachineExtension) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineExtension)(nil)).Elem()
+func (*VirtualMachineExtension) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineExtension)(nil))
 }
 
-func (i VirtualMachineExtension) ToVirtualMachineExtensionOutput() VirtualMachineExtensionOutput {
+func (i *VirtualMachineExtension) ToVirtualMachineExtensionOutput() VirtualMachineExtensionOutput {
 	return i.ToVirtualMachineExtensionOutputWithContext(context.Background())
 }
 
-func (i VirtualMachineExtension) ToVirtualMachineExtensionOutputWithContext(ctx context.Context) VirtualMachineExtensionOutput {
+func (i *VirtualMachineExtension) ToVirtualMachineExtensionOutputWithContext(ctx context.Context) VirtualMachineExtensionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionOutput)
 }
 
@@ -276,7 +276,7 @@ type VirtualMachineExtensionOutput struct {
 }
 
 func (VirtualMachineExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineExtensionOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualMachineExtension)(nil))
 }
 
 func (o VirtualMachineExtensionOutput) ToVirtualMachineExtensionOutput() VirtualMachineExtensionOutput {

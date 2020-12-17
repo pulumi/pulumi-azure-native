@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
     /// <summary>
     /// A domain specific resource identifier.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifier")]
     public partial class WebAppDomainOwnershipIdentifier : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20191101Preview
     /// <summary>
     /// The SourceControl Configuration object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration")]
     public partial class SourceControlConfiguration : Pulumi.CustomResource
     {
         /// <summary>

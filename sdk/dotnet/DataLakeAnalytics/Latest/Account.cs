@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
     /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     /// Latest API Version: 2016-11-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datalakeanalytics/latest:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

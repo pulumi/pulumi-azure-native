@@ -166,15 +166,15 @@ type DataManagerInput interface {
 	ToDataManagerOutputWithContext(ctx context.Context) DataManagerOutput
 }
 
-func (DataManager) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataManager)(nil)).Elem()
+func (*DataManager) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataManager)(nil))
 }
 
-func (i DataManager) ToDataManagerOutput() DataManagerOutput {
+func (i *DataManager) ToDataManagerOutput() DataManagerOutput {
 	return i.ToDataManagerOutputWithContext(context.Background())
 }
 
-func (i DataManager) ToDataManagerOutputWithContext(ctx context.Context) DataManagerOutput {
+func (i *DataManager) ToDataManagerOutputWithContext(ctx context.Context) DataManagerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataManagerOutput)
 }
 
@@ -183,7 +183,7 @@ type DataManagerOutput struct {
 }
 
 func (DataManagerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataManagerOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataManager)(nil))
 }
 
 func (o DataManagerOutput) ToDataManagerOutput() DataManagerOutput {

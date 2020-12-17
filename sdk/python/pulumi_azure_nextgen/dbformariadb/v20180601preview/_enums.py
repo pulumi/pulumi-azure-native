@@ -36,8 +36,8 @@ class ServerVersion(str, Enum):
     """
     Server version.
     """
-    _5_6 = "5.6"
-    _5_7 = "5.7"
+    SERVER_VERSION_5_6 = "5.6"
+    SERVER_VERSION_5_7 = "5.7"
 
 
 class SkuTier(str, Enum):

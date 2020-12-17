@@ -135,15 +135,15 @@ type SkusNestedResourceTypeThirdInput interface {
 	ToSkusNestedResourceTypeThirdOutputWithContext(ctx context.Context) SkusNestedResourceTypeThirdOutput
 }
 
-func (SkusNestedResourceTypeThird) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkusNestedResourceTypeThird)(nil)).Elem()
+func (*SkusNestedResourceTypeThird) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkusNestedResourceTypeThird)(nil))
 }
 
-func (i SkusNestedResourceTypeThird) ToSkusNestedResourceTypeThirdOutput() SkusNestedResourceTypeThirdOutput {
+func (i *SkusNestedResourceTypeThird) ToSkusNestedResourceTypeThirdOutput() SkusNestedResourceTypeThirdOutput {
 	return i.ToSkusNestedResourceTypeThirdOutputWithContext(context.Background())
 }
 
-func (i SkusNestedResourceTypeThird) ToSkusNestedResourceTypeThirdOutputWithContext(ctx context.Context) SkusNestedResourceTypeThirdOutput {
+func (i *SkusNestedResourceTypeThird) ToSkusNestedResourceTypeThirdOutputWithContext(ctx context.Context) SkusNestedResourceTypeThirdOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SkusNestedResourceTypeThirdOutput)
 }
 
@@ -152,7 +152,7 @@ type SkusNestedResourceTypeThirdOutput struct {
 }
 
 func (SkusNestedResourceTypeThirdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkusNestedResourceTypeThirdOutput)(nil)).Elem()
+	return reflect.TypeOf((*SkusNestedResourceTypeThird)(nil))
 }
 
 func (o SkusNestedResourceTypeThirdOutput) ToSkusNestedResourceTypeThirdOutput() SkusNestedResourceTypeThirdOutput {

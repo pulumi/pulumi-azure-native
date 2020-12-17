@@ -141,15 +141,15 @@ type SuppressionInput interface {
 	ToSuppressionOutputWithContext(ctx context.Context) SuppressionOutput
 }
 
-func (Suppression) ElementType() reflect.Type {
-	return reflect.TypeOf((*Suppression)(nil)).Elem()
+func (*Suppression) ElementType() reflect.Type {
+	return reflect.TypeOf((*Suppression)(nil))
 }
 
-func (i Suppression) ToSuppressionOutput() SuppressionOutput {
+func (i *Suppression) ToSuppressionOutput() SuppressionOutput {
 	return i.ToSuppressionOutputWithContext(context.Background())
 }
 
-func (i Suppression) ToSuppressionOutputWithContext(ctx context.Context) SuppressionOutput {
+func (i *Suppression) ToSuppressionOutputWithContext(ctx context.Context) SuppressionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SuppressionOutput)
 }
 
@@ -158,7 +158,7 @@ type SuppressionOutput struct {
 }
 
 func (SuppressionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SuppressionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Suppression)(nil))
 }
 
 func (o SuppressionOutput) ToSuppressionOutput() SuppressionOutput {

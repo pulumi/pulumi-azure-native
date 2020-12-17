@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
     /// <summary>
     /// Route table resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200301:RouteTable")]
     public partial class RouteTable : Pulumi.CustomResource
     {
         /// <summary>

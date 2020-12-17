@@ -135,15 +135,15 @@ type DataSetInput interface {
 	ToDataSetOutputWithContext(ctx context.Context) DataSetOutput
 }
 
-func (DataSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSet)(nil)).Elem()
+func (*DataSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSet)(nil))
 }
 
-func (i DataSet) ToDataSetOutput() DataSetOutput {
+func (i *DataSet) ToDataSetOutput() DataSetOutput {
 	return i.ToDataSetOutputWithContext(context.Background())
 }
 
-func (i DataSet) ToDataSetOutputWithContext(ctx context.Context) DataSetOutput {
+func (i *DataSet) ToDataSetOutputWithContext(ctx context.Context) DataSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetOutput)
 }
 
@@ -152,7 +152,7 @@ type DataSetOutput struct {
 }
 
 func (DataSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataSet)(nil))
 }
 
 func (o DataSetOutput) ToDataSetOutput() DataSetOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
     /// <summary>
     /// MAK key details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey")]
     public partial class MultipleActivationKey : Pulumi.CustomResource
     {
         /// <summary>

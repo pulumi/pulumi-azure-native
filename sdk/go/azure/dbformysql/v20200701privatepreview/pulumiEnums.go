@@ -153,7 +153,7 @@ func (e ServerKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 type ServerVersion pulumi.String
 
 const (
-	ServerVersion__7 = ServerVersion("5.7")
+	ServerVersion_5_7 = ServerVersion("5.7")
 )
 
 func (ServerVersion) ElementType() reflect.Type {

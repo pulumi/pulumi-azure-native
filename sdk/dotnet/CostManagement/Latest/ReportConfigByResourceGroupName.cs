@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
     /// A report config resource.
     /// Latest API Version: 2018-05-31.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName")]
     public partial class ReportConfigByResourceGroupName : Pulumi.CustomResource
     {
         /// <summary>

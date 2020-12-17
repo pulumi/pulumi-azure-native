@@ -198,15 +198,15 @@ type InvitationInput interface {
 	ToInvitationOutputWithContext(ctx context.Context) InvitationOutput
 }
 
-func (Invitation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Invitation)(nil)).Elem()
+func (*Invitation) ElementType() reflect.Type {
+	return reflect.TypeOf((*Invitation)(nil))
 }
 
-func (i Invitation) ToInvitationOutput() InvitationOutput {
+func (i *Invitation) ToInvitationOutput() InvitationOutput {
 	return i.ToInvitationOutputWithContext(context.Background())
 }
 
-func (i Invitation) ToInvitationOutputWithContext(ctx context.Context) InvitationOutput {
+func (i *Invitation) ToInvitationOutputWithContext(ctx context.Context) InvitationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InvitationOutput)
 }
 
@@ -215,7 +215,7 @@ type InvitationOutput struct {
 }
 
 func (InvitationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InvitationOutput)(nil)).Elem()
+	return reflect.TypeOf((*Invitation)(nil))
 }
 
 func (o InvitationOutput) ToInvitationOutput() InvitationOutput {

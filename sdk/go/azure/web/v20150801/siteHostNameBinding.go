@@ -231,15 +231,15 @@ type SiteHostNameBindingInput interface {
 	ToSiteHostNameBindingOutputWithContext(ctx context.Context) SiteHostNameBindingOutput
 }
 
-func (SiteHostNameBinding) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteHostNameBinding)(nil)).Elem()
+func (*SiteHostNameBinding) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteHostNameBinding)(nil))
 }
 
-func (i SiteHostNameBinding) ToSiteHostNameBindingOutput() SiteHostNameBindingOutput {
+func (i *SiteHostNameBinding) ToSiteHostNameBindingOutput() SiteHostNameBindingOutput {
 	return i.ToSiteHostNameBindingOutputWithContext(context.Background())
 }
 
-func (i SiteHostNameBinding) ToSiteHostNameBindingOutputWithContext(ctx context.Context) SiteHostNameBindingOutput {
+func (i *SiteHostNameBinding) ToSiteHostNameBindingOutputWithContext(ctx context.Context) SiteHostNameBindingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteHostNameBindingOutput)
 }
 
@@ -248,7 +248,7 @@ type SiteHostNameBindingOutput struct {
 }
 
 func (SiteHostNameBindingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteHostNameBindingOutput)(nil)).Elem()
+	return reflect.TypeOf((*SiteHostNameBinding)(nil))
 }
 
 func (o SiteHostNameBindingOutput) ToSiteHostNameBindingOutput() SiteHostNameBindingOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     /// <summary>
     /// A server firewall rule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>

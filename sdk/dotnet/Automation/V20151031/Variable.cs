@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
     /// <summary>
     /// Definition of the variable.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:Variable")]
     public partial class Variable : Pulumi.CustomResource
     {
         /// <summary>

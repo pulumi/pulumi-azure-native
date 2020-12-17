@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
     /// <summary>
     /// Fabric definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20180110:ReplicationFabric")]
     public partial class ReplicationFabric : Pulumi.CustomResource
     {
         /// <summary>

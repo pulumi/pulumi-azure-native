@@ -220,15 +220,15 @@ type VirtualWANInput interface {
 	ToVirtualWANOutputWithContext(ctx context.Context) VirtualWANOutput
 }
 
-func (VirtualWAN) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualWAN)(nil)).Elem()
+func (*VirtualWAN) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualWAN)(nil))
 }
 
-func (i VirtualWAN) ToVirtualWANOutput() VirtualWANOutput {
+func (i *VirtualWAN) ToVirtualWANOutput() VirtualWANOutput {
 	return i.ToVirtualWANOutputWithContext(context.Background())
 }
 
-func (i VirtualWAN) ToVirtualWANOutputWithContext(ctx context.Context) VirtualWANOutput {
+func (i *VirtualWAN) ToVirtualWANOutputWithContext(ctx context.Context) VirtualWANOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualWANOutput)
 }
 
@@ -237,7 +237,7 @@ type VirtualWANOutput struct {
 }
 
 func (VirtualWANOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualWANOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualWAN)(nil))
 }
 
 func (o VirtualWANOutput) ToVirtualWANOutput() VirtualWANOutput {

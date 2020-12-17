@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Logic.V20150201Preview
 {
+    [AzureNextGenResourceType("azure-nextgen:logic/v20150201preview:Workflow")]
     public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>

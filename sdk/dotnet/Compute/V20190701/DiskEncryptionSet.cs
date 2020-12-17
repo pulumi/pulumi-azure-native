@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
     /// <summary>
     /// disk encryption set resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20190701:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : Pulumi.CustomResource
     {
         /// <summary>

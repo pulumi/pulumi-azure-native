@@ -118,15 +118,15 @@ type ConfigurationProfileInput interface {
 	ToConfigurationProfileOutputWithContext(ctx context.Context) ConfigurationProfileOutput
 }
 
-func (ConfigurationProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfile)(nil)).Elem()
+func (*ConfigurationProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfile)(nil))
 }
 
-func (i ConfigurationProfile) ToConfigurationProfileOutput() ConfigurationProfileOutput {
+func (i *ConfigurationProfile) ToConfigurationProfileOutput() ConfigurationProfileOutput {
 	return i.ToConfigurationProfileOutputWithContext(context.Background())
 }
 
-func (i ConfigurationProfile) ToConfigurationProfileOutputWithContext(ctx context.Context) ConfigurationProfileOutput {
+func (i *ConfigurationProfile) ToConfigurationProfileOutputWithContext(ctx context.Context) ConfigurationProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileOutput)
 }
 
@@ -135,7 +135,7 @@ type ConfigurationProfileOutput struct {
 }
 
 func (ConfigurationProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConfigurationProfile)(nil))
 }
 
 func (o ConfigurationProfileOutput) ToConfigurationProfileOutput() ConfigurationProfileOutput {

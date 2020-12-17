@@ -220,15 +220,15 @@ type ThreatIntelligenceIndicatorInput interface {
 	ToThreatIntelligenceIndicatorOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorOutput
 }
 
-func (ThreatIntelligenceIndicator) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreatIntelligenceIndicator)(nil)).Elem()
+func (*ThreatIntelligenceIndicator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceIndicator)(nil))
 }
 
-func (i ThreatIntelligenceIndicator) ToThreatIntelligenceIndicatorOutput() ThreatIntelligenceIndicatorOutput {
+func (i *ThreatIntelligenceIndicator) ToThreatIntelligenceIndicatorOutput() ThreatIntelligenceIndicatorOutput {
 	return i.ToThreatIntelligenceIndicatorOutputWithContext(context.Background())
 }
 
-func (i ThreatIntelligenceIndicator) ToThreatIntelligenceIndicatorOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorOutput {
+func (i *ThreatIntelligenceIndicator) ToThreatIntelligenceIndicatorOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorOutput)
 }
 
@@ -237,7 +237,7 @@ type ThreatIntelligenceIndicatorOutput struct {
 }
 
 func (ThreatIntelligenceIndicatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreatIntelligenceIndicatorOutput)(nil)).Elem()
+	return reflect.TypeOf((*ThreatIntelligenceIndicator)(nil))
 }
 
 func (o ThreatIntelligenceIndicatorOutput) ToThreatIntelligenceIndicatorOutput() ThreatIntelligenceIndicatorOutput {

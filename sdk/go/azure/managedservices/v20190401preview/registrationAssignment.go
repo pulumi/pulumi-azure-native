@@ -127,15 +127,15 @@ type RegistrationAssignmentInput interface {
 	ToRegistrationAssignmentOutputWithContext(ctx context.Context) RegistrationAssignmentOutput
 }
 
-func (RegistrationAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationAssignment)(nil)).Elem()
+func (*RegistrationAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAssignment)(nil))
 }
 
-func (i RegistrationAssignment) ToRegistrationAssignmentOutput() RegistrationAssignmentOutput {
+func (i *RegistrationAssignment) ToRegistrationAssignmentOutput() RegistrationAssignmentOutput {
 	return i.ToRegistrationAssignmentOutputWithContext(context.Background())
 }
 
-func (i RegistrationAssignment) ToRegistrationAssignmentOutputWithContext(ctx context.Context) RegistrationAssignmentOutput {
+func (i *RegistrationAssignment) ToRegistrationAssignmentOutputWithContext(ctx context.Context) RegistrationAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentOutput)
 }
 
@@ -144,7 +144,7 @@ type RegistrationAssignmentOutput struct {
 }
 
 func (RegistrationAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationAssignmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*RegistrationAssignment)(nil))
 }
 
 func (o RegistrationAssignmentOutput) ToRegistrationAssignmentOutput() RegistrationAssignmentOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
     /// <summary>
     /// A Disk.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20180915:Disk")]
     public partial class Disk : Pulumi.CustomResource
     {
         /// <summary>

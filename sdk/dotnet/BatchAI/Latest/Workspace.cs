@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
     /// Batch AI Workspace information.
     /// Latest API Version: 2018-05-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:batchai/latest:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>

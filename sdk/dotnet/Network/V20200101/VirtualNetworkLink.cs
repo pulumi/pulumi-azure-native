@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200101
     /// <summary>
     /// Describes a link to virtual network for a Private DNS zone.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200101:VirtualNetworkLink")]
     public partial class VirtualNetworkLink : Pulumi.CustomResource
     {
         /// <summary>

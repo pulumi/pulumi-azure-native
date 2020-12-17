@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
     /// <summary>
     /// Specifies information about the gallery Image Definition that you want to create or update.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20180601:GalleryImage")]
     public partial class GalleryImage : Pulumi.CustomResource
     {
         /// <summary>

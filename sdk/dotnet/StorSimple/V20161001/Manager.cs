@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
     /// <summary>
     /// The StorSimple Manager
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:Manager")]
     public partial class Manager : Pulumi.CustomResource
     {
         /// <summary>

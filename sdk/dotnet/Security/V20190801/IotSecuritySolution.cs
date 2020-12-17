@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
     /// <summary>
     /// IoT Security solution configuration and resource information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20190801:IotSecuritySolution")]
     public partial class IotSecuritySolution : Pulumi.CustomResource
     {
         /// <summary>

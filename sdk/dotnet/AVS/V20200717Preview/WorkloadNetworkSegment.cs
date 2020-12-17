@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
     /// <summary>
     /// NSX Segment
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:avs/v20200717preview:WorkloadNetworkSegment")]
     public partial class WorkloadNetworkSegment : Pulumi.CustomResource
     {
         /// <summary>

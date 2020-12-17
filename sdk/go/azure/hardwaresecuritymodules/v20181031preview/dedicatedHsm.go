@@ -177,15 +177,15 @@ type DedicatedHsmInput interface {
 	ToDedicatedHsmOutputWithContext(ctx context.Context) DedicatedHsmOutput
 }
 
-func (DedicatedHsm) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHsm)(nil)).Elem()
+func (*DedicatedHsm) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedHsm)(nil))
 }
 
-func (i DedicatedHsm) ToDedicatedHsmOutput() DedicatedHsmOutput {
+func (i *DedicatedHsm) ToDedicatedHsmOutput() DedicatedHsmOutput {
 	return i.ToDedicatedHsmOutputWithContext(context.Background())
 }
 
-func (i DedicatedHsm) ToDedicatedHsmOutputWithContext(ctx context.Context) DedicatedHsmOutput {
+func (i *DedicatedHsm) ToDedicatedHsmOutputWithContext(ctx context.Context) DedicatedHsmOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHsmOutput)
 }
 
@@ -194,7 +194,7 @@ type DedicatedHsmOutput struct {
 }
 
 func (DedicatedHsmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHsmOutput)(nil)).Elem()
+	return reflect.TypeOf((*DedicatedHsm)(nil))
 }
 
 func (o DedicatedHsmOutput) ToDedicatedHsmOutput() DedicatedHsmOutput {

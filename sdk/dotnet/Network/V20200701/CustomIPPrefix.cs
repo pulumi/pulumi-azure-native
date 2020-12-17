@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
     /// <summary>
     /// Custom IP prefix resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200701:CustomIPPrefix")]
     public partial class CustomIPPrefix : Pulumi.CustomResource
     {
         /// <summary>

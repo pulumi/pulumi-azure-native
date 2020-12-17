@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview
     /// <summary>
     /// The description of the DigitalTwins service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:digitaltwins/v20200301preview:DigitalTwin")]
     public partial class DigitalTwin : Pulumi.CustomResource
     {
         /// <summary>

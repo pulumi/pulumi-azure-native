@@ -134,15 +134,15 @@ type LinkedStorageAccountInput interface {
 	ToLinkedStorageAccountOutputWithContext(ctx context.Context) LinkedStorageAccountOutput
 }
 
-func (LinkedStorageAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedStorageAccount)(nil)).Elem()
+func (*LinkedStorageAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedStorageAccount)(nil))
 }
 
-func (i LinkedStorageAccount) ToLinkedStorageAccountOutput() LinkedStorageAccountOutput {
+func (i *LinkedStorageAccount) ToLinkedStorageAccountOutput() LinkedStorageAccountOutput {
 	return i.ToLinkedStorageAccountOutputWithContext(context.Background())
 }
 
-func (i LinkedStorageAccount) ToLinkedStorageAccountOutputWithContext(ctx context.Context) LinkedStorageAccountOutput {
+func (i *LinkedStorageAccount) ToLinkedStorageAccountOutputWithContext(ctx context.Context) LinkedStorageAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedStorageAccountOutput)
 }
 
@@ -151,7 +151,7 @@ type LinkedStorageAccountOutput struct {
 }
 
 func (LinkedStorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedStorageAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedStorageAccount)(nil))
 }
 
 func (o LinkedStorageAccountOutput) ToLinkedStorageAccountOutput() LinkedStorageAccountOutput {

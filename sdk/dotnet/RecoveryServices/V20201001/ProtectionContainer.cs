@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
     /// <summary>
     /// Base class for container with backup items. Containers with specific workloads are derived from this class.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20201001:ProtectionContainer")]
     public partial class ProtectionContainer : Pulumi.CustomResource
     {
         /// <summary>

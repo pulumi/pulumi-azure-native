@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Notebooks.V20191011Preview
     /// <summary>
     /// A NotebookProxy resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:notebooks/v20191011preview:NotebookProxy")]
     public partial class NotebookProxy : Pulumi.CustomResource
     {
         /// <summary>

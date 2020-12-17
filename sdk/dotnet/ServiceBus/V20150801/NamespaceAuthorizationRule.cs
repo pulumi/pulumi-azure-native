@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
     /// <summary>
     /// Description of a namespace authorization rule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

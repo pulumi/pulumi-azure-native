@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
     /// <summary>
     /// Represents a server firewall rule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/v20200214preview:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>

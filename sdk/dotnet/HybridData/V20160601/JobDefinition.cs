@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
     /// <summary>
     /// Job Definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybriddata/v20160601:JobDefinition")]
     public partial class JobDefinition : Pulumi.CustomResource
     {
         /// <summary>

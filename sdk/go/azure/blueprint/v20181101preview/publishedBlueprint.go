@@ -178,15 +178,15 @@ type PublishedBlueprintInput interface {
 	ToPublishedBlueprintOutputWithContext(ctx context.Context) PublishedBlueprintOutput
 }
 
-func (PublishedBlueprint) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublishedBlueprint)(nil)).Elem()
+func (*PublishedBlueprint) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublishedBlueprint)(nil))
 }
 
-func (i PublishedBlueprint) ToPublishedBlueprintOutput() PublishedBlueprintOutput {
+func (i *PublishedBlueprint) ToPublishedBlueprintOutput() PublishedBlueprintOutput {
 	return i.ToPublishedBlueprintOutputWithContext(context.Background())
 }
 
-func (i PublishedBlueprint) ToPublishedBlueprintOutputWithContext(ctx context.Context) PublishedBlueprintOutput {
+func (i *PublishedBlueprint) ToPublishedBlueprintOutputWithContext(ctx context.Context) PublishedBlueprintOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublishedBlueprintOutput)
 }
 
@@ -195,7 +195,7 @@ type PublishedBlueprintOutput struct {
 }
 
 func (PublishedBlueprintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublishedBlueprintOutput)(nil)).Elem()
+	return reflect.TypeOf((*PublishedBlueprint)(nil))
 }
 
 func (o PublishedBlueprintOutput) ToPublishedBlueprintOutput() PublishedBlueprintOutput {

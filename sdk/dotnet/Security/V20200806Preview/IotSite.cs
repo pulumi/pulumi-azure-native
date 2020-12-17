@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
     /// <summary>
     /// IoT site model
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20200806preview:IotSite")]
     public partial class IotSite : Pulumi.CustomResource
     {
         /// <summary>

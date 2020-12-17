@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191001
     /// <summary>
     /// Managed cluster.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerservice/v20191001:ManagedCluster")]
     public partial class ManagedCluster : Pulumi.CustomResource
     {
         /// <summary>

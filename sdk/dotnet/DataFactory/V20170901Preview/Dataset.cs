@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
     /// <summary>
     /// Dataset resource type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datafactory/v20170901preview:Dataset")]
     public partial class Dataset : Pulumi.CustomResource
     {
         /// <summary>

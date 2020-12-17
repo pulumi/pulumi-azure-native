@@ -132,15 +132,15 @@ type CloudServiceInput interface {
 	ToCloudServiceOutputWithContext(ctx context.Context) CloudServiceOutput
 }
 
-func (CloudService) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudService)(nil)).Elem()
+func (*CloudService) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudService)(nil))
 }
 
-func (i CloudService) ToCloudServiceOutput() CloudServiceOutput {
+func (i *CloudService) ToCloudServiceOutput() CloudServiceOutput {
 	return i.ToCloudServiceOutputWithContext(context.Background())
 }
 
-func (i CloudService) ToCloudServiceOutputWithContext(ctx context.Context) CloudServiceOutput {
+func (i *CloudService) ToCloudServiceOutputWithContext(ctx context.Context) CloudServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOutput)
 }
 
@@ -149,7 +149,7 @@ type CloudServiceOutput struct {
 }
 
 func (CloudServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*CloudService)(nil))
 }
 
 func (o CloudServiceOutput) ToCloudServiceOutput() CloudServiceOutput {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Logic.V20150801Preview
 {
+    [AzureNextGenResourceType("azure-nextgen:logic/v20150801preview:IntegrationAccountSchema")]
     public partial class IntegrationAccountSchema : Pulumi.CustomResource
     {
         /// <summary>

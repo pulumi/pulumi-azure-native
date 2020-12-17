@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Batch.V20151201
     /// <summary>
     /// An application package which represents a particular version of an application.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:batch/v20151201:ApplicationPackage")]
     public partial class ApplicationPackage : Pulumi.CustomResource
     {
         /// <summary>

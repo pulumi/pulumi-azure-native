@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20180601
     /// <summary>
     /// A private endpoint connection
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformysql/v20180601:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

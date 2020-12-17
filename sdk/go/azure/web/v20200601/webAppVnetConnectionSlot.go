@@ -210,15 +210,15 @@ type WebAppVnetConnectionSlotInput interface {
 	ToWebAppVnetConnectionSlotOutputWithContext(ctx context.Context) WebAppVnetConnectionSlotOutput
 }
 
-func (WebAppVnetConnectionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppVnetConnectionSlot)(nil)).Elem()
+func (*WebAppVnetConnectionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppVnetConnectionSlot)(nil))
 }
 
-func (i WebAppVnetConnectionSlot) ToWebAppVnetConnectionSlotOutput() WebAppVnetConnectionSlotOutput {
+func (i *WebAppVnetConnectionSlot) ToWebAppVnetConnectionSlotOutput() WebAppVnetConnectionSlotOutput {
 	return i.ToWebAppVnetConnectionSlotOutputWithContext(context.Background())
 }
 
-func (i WebAppVnetConnectionSlot) ToWebAppVnetConnectionSlotOutputWithContext(ctx context.Context) WebAppVnetConnectionSlotOutput {
+func (i *WebAppVnetConnectionSlot) ToWebAppVnetConnectionSlotOutputWithContext(ctx context.Context) WebAppVnetConnectionSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppVnetConnectionSlotOutput)
 }
 
@@ -227,7 +227,7 @@ type WebAppVnetConnectionSlotOutput struct {
 }
 
 func (WebAppVnetConnectionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppVnetConnectionSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppVnetConnectionSlot)(nil))
 }
 
 func (o WebAppVnetConnectionSlotOutput) ToWebAppVnetConnectionSlotOutput() WebAppVnetConnectionSlotOutput {

@@ -148,15 +148,15 @@ type DeviceSecurityGroupInput interface {
 	ToDeviceSecurityGroupOutputWithContext(ctx context.Context) DeviceSecurityGroupOutput
 }
 
-func (DeviceSecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceSecurityGroup)(nil)).Elem()
+func (*DeviceSecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceSecurityGroup)(nil))
 }
 
-func (i DeviceSecurityGroup) ToDeviceSecurityGroupOutput() DeviceSecurityGroupOutput {
+func (i *DeviceSecurityGroup) ToDeviceSecurityGroupOutput() DeviceSecurityGroupOutput {
 	return i.ToDeviceSecurityGroupOutputWithContext(context.Background())
 }
 
-func (i DeviceSecurityGroup) ToDeviceSecurityGroupOutputWithContext(ctx context.Context) DeviceSecurityGroupOutput {
+func (i *DeviceSecurityGroup) ToDeviceSecurityGroupOutputWithContext(ctx context.Context) DeviceSecurityGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceSecurityGroupOutput)
 }
 
@@ -165,7 +165,7 @@ type DeviceSecurityGroupOutput struct {
 }
 
 func (DeviceSecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceSecurityGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*DeviceSecurityGroup)(nil))
 }
 
 func (o DeviceSecurityGroupOutput) ToDeviceSecurityGroupOutput() DeviceSecurityGroupOutput {

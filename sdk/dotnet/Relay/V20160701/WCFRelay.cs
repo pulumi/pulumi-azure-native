@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
     /// <summary>
     /// Description of WcfRelays Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:relay/v20160701:WCFRelay")]
     public partial class WCFRelay : Pulumi.CustomResource
     {
         /// <summary>

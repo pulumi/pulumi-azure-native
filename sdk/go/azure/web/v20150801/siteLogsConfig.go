@@ -204,15 +204,15 @@ type SiteLogsConfigInput interface {
 	ToSiteLogsConfigOutputWithContext(ctx context.Context) SiteLogsConfigOutput
 }
 
-func (SiteLogsConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteLogsConfig)(nil)).Elem()
+func (*SiteLogsConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteLogsConfig)(nil))
 }
 
-func (i SiteLogsConfig) ToSiteLogsConfigOutput() SiteLogsConfigOutput {
+func (i *SiteLogsConfig) ToSiteLogsConfigOutput() SiteLogsConfigOutput {
 	return i.ToSiteLogsConfigOutputWithContext(context.Background())
 }
 
-func (i SiteLogsConfig) ToSiteLogsConfigOutputWithContext(ctx context.Context) SiteLogsConfigOutput {
+func (i *SiteLogsConfig) ToSiteLogsConfigOutputWithContext(ctx context.Context) SiteLogsConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteLogsConfigOutput)
 }
 
@@ -221,7 +221,7 @@ type SiteLogsConfigOutput struct {
 }
 
 func (SiteLogsConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteLogsConfigOutput)(nil)).Elem()
+	return reflect.TypeOf((*SiteLogsConfig)(nil))
 }
 
 func (o SiteLogsConfigOutput) ToSiteLogsConfigOutput() SiteLogsConfigOutput {

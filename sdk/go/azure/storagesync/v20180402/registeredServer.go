@@ -287,15 +287,15 @@ type RegisteredServerInput interface {
 	ToRegisteredServerOutputWithContext(ctx context.Context) RegisteredServerOutput
 }
 
-func (RegisteredServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegisteredServer)(nil)).Elem()
+func (*RegisteredServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegisteredServer)(nil))
 }
 
-func (i RegisteredServer) ToRegisteredServerOutput() RegisteredServerOutput {
+func (i *RegisteredServer) ToRegisteredServerOutput() RegisteredServerOutput {
 	return i.ToRegisteredServerOutputWithContext(context.Background())
 }
 
-func (i RegisteredServer) ToRegisteredServerOutputWithContext(ctx context.Context) RegisteredServerOutput {
+func (i *RegisteredServer) ToRegisteredServerOutputWithContext(ctx context.Context) RegisteredServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredServerOutput)
 }
 
@@ -304,7 +304,7 @@ type RegisteredServerOutput struct {
 }
 
 func (RegisteredServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegisteredServerOutput)(nil)).Elem()
+	return reflect.TypeOf((*RegisteredServer)(nil))
 }
 
 func (o RegisteredServerOutput) ToRegisteredServerOutput() RegisteredServerOutput {

@@ -250,15 +250,15 @@ type PrivateLinkServiceInput interface {
 	ToPrivateLinkServiceOutputWithContext(ctx context.Context) PrivateLinkServiceOutput
 }
 
-func (PrivateLinkService) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkService)(nil)).Elem()
+func (*PrivateLinkService) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkService)(nil))
 }
 
-func (i PrivateLinkService) ToPrivateLinkServiceOutput() PrivateLinkServiceOutput {
+func (i *PrivateLinkService) ToPrivateLinkServiceOutput() PrivateLinkServiceOutput {
 	return i.ToPrivateLinkServiceOutputWithContext(context.Background())
 }
 
-func (i PrivateLinkService) ToPrivateLinkServiceOutputWithContext(ctx context.Context) PrivateLinkServiceOutput {
+func (i *PrivateLinkService) ToPrivateLinkServiceOutputWithContext(ctx context.Context) PrivateLinkServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceOutput)
 }
 
@@ -267,7 +267,7 @@ type PrivateLinkServiceOutput struct {
 }
 
 func (PrivateLinkServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateLinkService)(nil))
 }
 
 func (o PrivateLinkServiceOutput) ToPrivateLinkServiceOutput() PrivateLinkServiceOutput {

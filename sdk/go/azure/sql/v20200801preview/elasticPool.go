@@ -232,15 +232,15 @@ type ElasticPoolInput interface {
 	ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput
 }
 
-func (ElasticPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticPool)(nil)).Elem()
+func (*ElasticPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPool)(nil))
 }
 
-func (i ElasticPool) ToElasticPoolOutput() ElasticPoolOutput {
+func (i *ElasticPool) ToElasticPoolOutput() ElasticPoolOutput {
 	return i.ToElasticPoolOutputWithContext(context.Background())
 }
 
-func (i ElasticPool) ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput {
+func (i *ElasticPool) ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolOutput)
 }
 
@@ -249,7 +249,7 @@ type ElasticPoolOutput struct {
 }
 
 func (ElasticPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*ElasticPool)(nil))
 }
 
 func (o ElasticPoolOutput) ToElasticPoolOutput() ElasticPoolOutput {

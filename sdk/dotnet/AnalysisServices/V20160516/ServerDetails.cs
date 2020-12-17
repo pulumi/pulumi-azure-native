@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
     /// <summary>
     /// Represents an instance of an Analysis Services resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:analysisservices/v20160516:ServerDetails")]
     public partial class ServerDetails : Pulumi.CustomResource
     {
         /// <summary>

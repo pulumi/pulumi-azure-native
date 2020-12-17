@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
     /// <summary>
     /// A private endpoint connection to SignalR resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:signalrservice/v20200701preview:SignalRPrivateEndpointConnection")]
     public partial class SignalRPrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

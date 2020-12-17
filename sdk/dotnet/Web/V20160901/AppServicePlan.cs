@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20160901
     /// <summary>
     /// App Service plan.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20160901:AppServicePlan")]
     public partial class AppServicePlan : Pulumi.CustomResource
     {
         /// <summary>

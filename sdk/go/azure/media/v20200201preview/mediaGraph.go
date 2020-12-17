@@ -166,15 +166,15 @@ type MediaGraphInput interface {
 	ToMediaGraphOutputWithContext(ctx context.Context) MediaGraphOutput
 }
 
-func (MediaGraph) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaGraph)(nil)).Elem()
+func (*MediaGraph) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaGraph)(nil))
 }
 
-func (i MediaGraph) ToMediaGraphOutput() MediaGraphOutput {
+func (i *MediaGraph) ToMediaGraphOutput() MediaGraphOutput {
 	return i.ToMediaGraphOutputWithContext(context.Background())
 }
 
-func (i MediaGraph) ToMediaGraphOutputWithContext(ctx context.Context) MediaGraphOutput {
+func (i *MediaGraph) ToMediaGraphOutputWithContext(ctx context.Context) MediaGraphOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphOutput)
 }
 
@@ -183,7 +183,7 @@ type MediaGraphOutput struct {
 }
 
 func (MediaGraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaGraphOutput)(nil)).Elem()
+	return reflect.TypeOf((*MediaGraph)(nil))
 }
 
 func (o MediaGraphOutput) ToMediaGraphOutput() MediaGraphOutput {

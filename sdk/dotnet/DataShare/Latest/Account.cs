@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
     /// An account data transfer object.
     /// Latest API Version: 2019-11-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datashare/latest:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

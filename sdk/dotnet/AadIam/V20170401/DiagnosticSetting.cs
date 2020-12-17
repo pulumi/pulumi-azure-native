@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20170401
     /// <summary>
     /// The diagnostic setting resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:aadiam/v20170401:DiagnosticSetting")]
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {
         /// <summary>

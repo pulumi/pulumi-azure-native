@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
     /// <summary>
     /// A notification.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20180915:NotificationChannel")]
     public partial class NotificationChannel : Pulumi.CustomResource
     {
         /// <summary>

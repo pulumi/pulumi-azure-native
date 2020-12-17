@@ -201,15 +201,15 @@ type StorageSyncServiceInput interface {
 	ToStorageSyncServiceOutputWithContext(ctx context.Context) StorageSyncServiceOutput
 }
 
-func (StorageSyncService) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageSyncService)(nil)).Elem()
+func (*StorageSyncService) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSyncService)(nil))
 }
 
-func (i StorageSyncService) ToStorageSyncServiceOutput() StorageSyncServiceOutput {
+func (i *StorageSyncService) ToStorageSyncServiceOutput() StorageSyncServiceOutput {
 	return i.ToStorageSyncServiceOutputWithContext(context.Background())
 }
 
-func (i StorageSyncService) ToStorageSyncServiceOutputWithContext(ctx context.Context) StorageSyncServiceOutput {
+func (i *StorageSyncService) ToStorageSyncServiceOutputWithContext(ctx context.Context) StorageSyncServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSyncServiceOutput)
 }
 
@@ -218,7 +218,7 @@ type StorageSyncServiceOutput struct {
 }
 
 func (StorageSyncServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageSyncServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*StorageSyncService)(nil))
 }
 
 func (o StorageSyncServiceOutput) ToStorageSyncServiceOutput() StorageSyncServiceOutput {

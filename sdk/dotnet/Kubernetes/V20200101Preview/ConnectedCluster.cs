@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
     /// <summary>
     /// Represents a connected cluster.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:kubernetes/v20200101preview:ConnectedCluster")]
     public partial class ConnectedCluster : Pulumi.CustomResource
     {
         /// <summary>

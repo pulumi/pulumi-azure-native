@@ -362,15 +362,15 @@ type PublicIPAddressInput interface {
 	ToPublicIPAddressOutputWithContext(ctx context.Context) PublicIPAddressOutput
 }
 
-func (PublicIPAddress) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicIPAddress)(nil)).Elem()
+func (*PublicIPAddress) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIPAddress)(nil))
 }
 
-func (i PublicIPAddress) ToPublicIPAddressOutput() PublicIPAddressOutput {
+func (i *PublicIPAddress) ToPublicIPAddressOutput() PublicIPAddressOutput {
 	return i.ToPublicIPAddressOutputWithContext(context.Background())
 }
 
-func (i PublicIPAddress) ToPublicIPAddressOutputWithContext(ctx context.Context) PublicIPAddressOutput {
+func (i *PublicIPAddress) ToPublicIPAddressOutputWithContext(ctx context.Context) PublicIPAddressOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIPAddressOutput)
 }
 
@@ -379,7 +379,7 @@ type PublicIPAddressOutput struct {
 }
 
 func (PublicIPAddressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicIPAddressOutput)(nil)).Elem()
+	return reflect.TypeOf((*PublicIPAddress)(nil))
 }
 
 func (o PublicIPAddressOutput) ToPublicIPAddressOutput() PublicIPAddressOutput {

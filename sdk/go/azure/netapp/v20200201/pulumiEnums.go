@@ -74,9 +74,9 @@ func (e PoolServiceLevel) ToStringPtrOutputWithContext(ctx context.Context) pulu
 type ReplicationSchedule pulumi.String
 
 const (
-	ReplicationSchedule__10minutely = ReplicationSchedule("_10minutely")
-	ReplicationScheduleHourly       = ReplicationSchedule("hourly")
-	ReplicationScheduleDaily        = ReplicationSchedule("daily")
+	ReplicationSchedule_10minutely = ReplicationSchedule("_10minutely")
+	ReplicationScheduleHourly      = ReplicationSchedule("hourly")
+	ReplicationScheduleDaily       = ReplicationSchedule("daily")
 )
 
 func (ReplicationSchedule) ElementType() reflect.Type {

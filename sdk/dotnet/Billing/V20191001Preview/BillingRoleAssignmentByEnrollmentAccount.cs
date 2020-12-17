@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Billing.V20191001Preview
     /// <summary>
     /// The role assignment
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount")]
     public partial class BillingRoleAssignmentByEnrollmentAccount : Pulumi.CustomResource
     {
         /// <summary>

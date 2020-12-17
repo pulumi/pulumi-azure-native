@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
     /// <summary>
     /// Protection container mapping object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20180710:ReplicationProtectionContainerMapping")]
     public partial class ReplicationProtectionContainerMapping : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
     /// <summary>
     /// Snapshot policy information
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:netapp/v20200501:SnapshotPolicy")]
     public partial class SnapshotPolicy : Pulumi.CustomResource
     {
         /// <summary>

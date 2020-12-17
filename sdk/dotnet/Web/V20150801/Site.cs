@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
     /// <summary>
     /// Represents a web app
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20150801:Site")]
     public partial class Site : Pulumi.CustomResource
     {
         /// <summary>

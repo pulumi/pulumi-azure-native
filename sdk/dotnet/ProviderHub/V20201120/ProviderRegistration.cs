@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ProviderHub.V20201120
 {
+    [AzureNextGenResourceType("azure-nextgen:providerhub/v20201120:ProviderRegistration")]
     public partial class ProviderRegistration : Pulumi.CustomResource
     {
         /// <summary>

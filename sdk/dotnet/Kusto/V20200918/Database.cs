@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
     /// <summary>
     /// Class representing a Kusto database.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:kusto/v20200918:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>

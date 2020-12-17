@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview
     /// <summary>
     /// The description of the IoTSpaces service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:iotspaces/v20171001preview:IoTSpace")]
     public partial class IoTSpace : Pulumi.CustomResource
     {
         /// <summary>

@@ -778,9 +778,9 @@ namespace Pulumi.AzureNextGen.Web.V20180201
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SupportedTlsVersions _0 { get; } = new SupportedTlsVersions("1.0");
-        public static SupportedTlsVersions _1 { get; } = new SupportedTlsVersions("1.1");
-        public static SupportedTlsVersions _2 { get; } = new SupportedTlsVersions("1.2");
+        public static SupportedTlsVersions SupportedTlsVersions_1_0 { get; } = new SupportedTlsVersions("1.0");
+        public static SupportedTlsVersions SupportedTlsVersions_1_1 { get; } = new SupportedTlsVersions("1.1");
+        public static SupportedTlsVersions SupportedTlsVersions_1_2 { get; } = new SupportedTlsVersions("1.2");
 
         public static bool operator ==(SupportedTlsVersions left, SupportedTlsVersions right) => left.Equals(right);
         public static bool operator !=(SupportedTlsVersions left, SupportedTlsVersions right) => !left.Equals(right);

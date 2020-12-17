@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
     /// Class representing an data connection.
     /// Latest API Version: 2020-09-18.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:kusto/latest:DataConnection")]
     public partial class DataConnection : Pulumi.CustomResource
     {
         /// <summary>

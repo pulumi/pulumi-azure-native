@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
     /// Description of a namespace authorization rule.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/latest:QueueAuthorizationRule")]
     public partial class QueueAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

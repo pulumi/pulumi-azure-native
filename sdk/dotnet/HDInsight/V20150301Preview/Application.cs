@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
     /// <summary>
     /// The HDInsight cluster application
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hdinsight/v20150301preview:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

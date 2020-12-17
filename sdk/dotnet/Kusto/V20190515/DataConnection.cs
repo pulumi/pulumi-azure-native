@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190515
     /// <summary>
     /// Class representing an data connection.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:kusto/v20190515:DataConnection")]
     public partial class DataConnection : Pulumi.CustomResource
     {
         /// <summary>

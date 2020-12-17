@@ -152,9 +152,9 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TlsVersion _0 { get; } = new TlsVersion("1.0");
-        public static TlsVersion _1 { get; } = new TlsVersion("1.1");
-        public static TlsVersion _2 { get; } = new TlsVersion("1.2");
+        public static TlsVersion TlsVersion_1_0 { get; } = new TlsVersion("1.0");
+        public static TlsVersion TlsVersion_1_1 { get; } = new TlsVersion("1.1");
+        public static TlsVersion TlsVersion_1_2 { get; } = new TlsVersion("1.2");
 
         public static bool operator ==(TlsVersion left, TlsVersion right) => left.Equals(right);
         public static bool operator !=(TlsVersion left, TlsVersion right) => !left.Equals(right);

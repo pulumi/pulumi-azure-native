@@ -14,7 +14,7 @@ import (
 type CompatibilityLevel pulumi.String
 
 const (
-	CompatibilityLevel__0 = CompatibilityLevel("1.0")
+	CompatibilityLevel_1_0 = CompatibilityLevel("1.0")
 )
 
 func (CompatibilityLevel) ElementType() reflect.Type {

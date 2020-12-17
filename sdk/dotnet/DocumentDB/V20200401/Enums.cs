@@ -338,8 +338,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerVersion _2 { get; } = new ServerVersion("3.2");
-        public static ServerVersion _6 { get; } = new ServerVersion("3.6");
+        public static ServerVersion ServerVersion_3_2 { get; } = new ServerVersion("3.2");
+        public static ServerVersion ServerVersion_3_6 { get; } = new ServerVersion("3.6");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
         public static bool operator !=(ServerVersion left, ServerVersion right) => !left.Equals(right);

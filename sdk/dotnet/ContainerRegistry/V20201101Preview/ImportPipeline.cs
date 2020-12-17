@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
     /// <summary>
     /// An object that represents an import pipeline for a container registry.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20201101preview:ImportPipeline")]
     public partial class ImportPipeline : Pulumi.CustomResource
     {
         /// <summary>

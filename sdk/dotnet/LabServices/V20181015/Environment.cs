@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
     /// <summary>
     /// Represents an environment instance
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:labservices/v20181015:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>

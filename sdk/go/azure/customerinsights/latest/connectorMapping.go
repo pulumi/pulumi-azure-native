@@ -243,15 +243,15 @@ type ConnectorMappingInput interface {
 	ToConnectorMappingOutputWithContext(ctx context.Context) ConnectorMappingOutput
 }
 
-func (ConnectorMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMapping)(nil)).Elem()
+func (*ConnectorMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMapping)(nil))
 }
 
-func (i ConnectorMapping) ToConnectorMappingOutput() ConnectorMappingOutput {
+func (i *ConnectorMapping) ToConnectorMappingOutput() ConnectorMappingOutput {
 	return i.ToConnectorMappingOutputWithContext(context.Background())
 }
 
-func (i ConnectorMapping) ToConnectorMappingOutputWithContext(ctx context.Context) ConnectorMappingOutput {
+func (i *ConnectorMapping) ToConnectorMappingOutputWithContext(ctx context.Context) ConnectorMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingOutput)
 }
 
@@ -260,7 +260,7 @@ type ConnectorMappingOutput struct {
 }
 
 func (ConnectorMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMappingOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConnectorMapping)(nil))
 }
 
 func (o ConnectorMappingOutput) ToConnectorMappingOutput() ConnectorMappingOutput {

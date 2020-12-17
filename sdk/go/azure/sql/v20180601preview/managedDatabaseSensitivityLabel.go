@@ -194,15 +194,15 @@ type ManagedDatabaseSensitivityLabelInput interface {
 	ToManagedDatabaseSensitivityLabelOutputWithContext(ctx context.Context) ManagedDatabaseSensitivityLabelOutput
 }
 
-func (ManagedDatabaseSensitivityLabel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedDatabaseSensitivityLabel)(nil)).Elem()
+func (*ManagedDatabaseSensitivityLabel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDatabaseSensitivityLabel)(nil))
 }
 
-func (i ManagedDatabaseSensitivityLabel) ToManagedDatabaseSensitivityLabelOutput() ManagedDatabaseSensitivityLabelOutput {
+func (i *ManagedDatabaseSensitivityLabel) ToManagedDatabaseSensitivityLabelOutput() ManagedDatabaseSensitivityLabelOutput {
 	return i.ToManagedDatabaseSensitivityLabelOutputWithContext(context.Background())
 }
 
-func (i ManagedDatabaseSensitivityLabel) ToManagedDatabaseSensitivityLabelOutputWithContext(ctx context.Context) ManagedDatabaseSensitivityLabelOutput {
+func (i *ManagedDatabaseSensitivityLabel) ToManagedDatabaseSensitivityLabelOutputWithContext(ctx context.Context) ManagedDatabaseSensitivityLabelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseSensitivityLabelOutput)
 }
 
@@ -211,7 +211,7 @@ type ManagedDatabaseSensitivityLabelOutput struct {
 }
 
 func (ManagedDatabaseSensitivityLabelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedDatabaseSensitivityLabelOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedDatabaseSensitivityLabel)(nil))
 }
 
 func (o ManagedDatabaseSensitivityLabelOutput) ToManagedDatabaseSensitivityLabelOutput() ManagedDatabaseSensitivityLabelOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20160601
     /// <summary>
     /// A custom API
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20160601:CustomApi")]
     public partial class CustomApi : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
     /// <summary>
     /// A class represent a SignalR service resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:signalrservice/v20200701preview:SignalR")]
     public partial class SignalR : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
     /// <summary>
     /// Threat intelligence information object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator")]
     public partial class ThreatIntelligenceIndicator : Pulumi.CustomResource
     {
         /// <summary>

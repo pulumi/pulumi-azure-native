@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
     /// <summary>
     /// Contains the job information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:importexport/v20200801:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>

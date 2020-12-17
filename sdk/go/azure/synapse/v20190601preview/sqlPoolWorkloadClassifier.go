@@ -183,15 +183,15 @@ type SqlPoolWorkloadClassifierInput interface {
 	ToSqlPoolWorkloadClassifierOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierOutput
 }
 
-func (SqlPoolWorkloadClassifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadClassifier)(nil)).Elem()
+func (*SqlPoolWorkloadClassifier) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolWorkloadClassifier)(nil))
 }
 
-func (i SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutput() SqlPoolWorkloadClassifierOutput {
+func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutput() SqlPoolWorkloadClassifierOutput {
 	return i.ToSqlPoolWorkloadClassifierOutputWithContext(context.Background())
 }
 
-func (i SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierOutput {
+func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadClassifierOutput)
 }
 
@@ -200,7 +200,7 @@ type SqlPoolWorkloadClassifierOutput struct {
 }
 
 func (SqlPoolWorkloadClassifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadClassifierOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlPoolWorkloadClassifier)(nil))
 }
 
 func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierOutput() SqlPoolWorkloadClassifierOutput {

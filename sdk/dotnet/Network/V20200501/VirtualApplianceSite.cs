@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
     /// <summary>
     /// Virtual Appliance Site resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200501:VirtualApplianceSite")]
     public partial class VirtualApplianceSite : Pulumi.CustomResource
     {
         /// <summary>

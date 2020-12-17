@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
     /// Cloud Endpoint object.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storagesync/latest:CloudEndpoint")]
     public partial class CloudEndpoint : Pulumi.CustomResource
     {
         /// <summary>

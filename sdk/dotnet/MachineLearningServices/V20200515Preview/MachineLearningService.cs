@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview
     /// <summary>
     /// Machine Learning service object wrapped into ARM resource envelope.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService")]
     public partial class MachineLearningService : Pulumi.CustomResource
     {
         /// <summary>

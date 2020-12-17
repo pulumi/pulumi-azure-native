@@ -155,15 +155,15 @@ type IntegrationAccountInput interface {
 	ToIntegrationAccountOutputWithContext(ctx context.Context) IntegrationAccountOutput
 }
 
-func (IntegrationAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccount)(nil)).Elem()
+func (*IntegrationAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccount)(nil))
 }
 
-func (i IntegrationAccount) ToIntegrationAccountOutput() IntegrationAccountOutput {
+func (i *IntegrationAccount) ToIntegrationAccountOutput() IntegrationAccountOutput {
 	return i.ToIntegrationAccountOutputWithContext(context.Background())
 }
 
-func (i IntegrationAccount) ToIntegrationAccountOutputWithContext(ctx context.Context) IntegrationAccountOutput {
+func (i *IntegrationAccount) ToIntegrationAccountOutputWithContext(ctx context.Context) IntegrationAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountOutput)
 }
 
@@ -172,7 +172,7 @@ type IntegrationAccountOutput struct {
 }
 
 func (IntegrationAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationAccount)(nil))
 }
 
 func (o IntegrationAccountOutput) ToIntegrationAccountOutput() IntegrationAccountOutput {

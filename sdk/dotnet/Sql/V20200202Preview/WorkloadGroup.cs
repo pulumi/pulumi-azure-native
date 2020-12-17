@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     /// <summary>
     /// Workload group operations for a data warehouse
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:WorkloadGroup")]
     public partial class WorkloadGroup : Pulumi.CustomResource
     {
         /// <summary>

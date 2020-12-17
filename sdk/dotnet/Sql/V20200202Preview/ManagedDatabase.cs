@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     /// <summary>
     /// A managed database resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:ManagedDatabase")]
     public partial class ManagedDatabase : Pulumi.CustomResource
     {
         /// <summary>

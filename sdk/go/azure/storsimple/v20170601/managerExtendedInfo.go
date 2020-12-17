@@ -194,15 +194,15 @@ type ManagerExtendedInfoInput interface {
 	ToManagerExtendedInfoOutputWithContext(ctx context.Context) ManagerExtendedInfoOutput
 }
 
-func (ManagerExtendedInfo) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerExtendedInfo)(nil)).Elem()
+func (*ManagerExtendedInfo) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerExtendedInfo)(nil))
 }
 
-func (i ManagerExtendedInfo) ToManagerExtendedInfoOutput() ManagerExtendedInfoOutput {
+func (i *ManagerExtendedInfo) ToManagerExtendedInfoOutput() ManagerExtendedInfoOutput {
 	return i.ToManagerExtendedInfoOutputWithContext(context.Background())
 }
 
-func (i ManagerExtendedInfo) ToManagerExtendedInfoOutputWithContext(ctx context.Context) ManagerExtendedInfoOutput {
+func (i *ManagerExtendedInfo) ToManagerExtendedInfoOutputWithContext(ctx context.Context) ManagerExtendedInfoOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerExtendedInfoOutput)
 }
 
@@ -211,7 +211,7 @@ type ManagerExtendedInfoOutput struct {
 }
 
 func (ManagerExtendedInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerExtendedInfoOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagerExtendedInfo)(nil))
 }
 
 func (o ManagerExtendedInfoOutput) ToManagerExtendedInfoOutput() ManagerExtendedInfoOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     /// <summary>
     /// IP firewall rule
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:IpFirewallRule")]
     public partial class IpFirewallRule : Pulumi.CustomResource
     {
         /// <summary>

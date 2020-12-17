@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
     /// <summary>
     /// The diagnostic setting resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20170501preview:DiagnosticSetting")]
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {
         /// <summary>

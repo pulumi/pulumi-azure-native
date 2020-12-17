@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Management.V20200101Preview
     /// <summary>
     /// The management group diagnostic setting resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:management/v20200101preview:ManagementGroupDiagnosticSetting")]
     public partial class ManagementGroupDiagnosticSetting : Pulumi.CustomResource
     {
         /// <summary>

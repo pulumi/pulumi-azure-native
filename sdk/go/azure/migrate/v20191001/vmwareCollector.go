@@ -115,15 +115,15 @@ type VMwareCollectorInput interface {
 	ToVMwareCollectorOutputWithContext(ctx context.Context) VMwareCollectorOutput
 }
 
-func (VMwareCollector) ElementType() reflect.Type {
-	return reflect.TypeOf((*VMwareCollector)(nil)).Elem()
+func (*VMwareCollector) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMwareCollector)(nil))
 }
 
-func (i VMwareCollector) ToVMwareCollectorOutput() VMwareCollectorOutput {
+func (i *VMwareCollector) ToVMwareCollectorOutput() VMwareCollectorOutput {
 	return i.ToVMwareCollectorOutputWithContext(context.Background())
 }
 
-func (i VMwareCollector) ToVMwareCollectorOutputWithContext(ctx context.Context) VMwareCollectorOutput {
+func (i *VMwareCollector) ToVMwareCollectorOutputWithContext(ctx context.Context) VMwareCollectorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCollectorOutput)
 }
 
@@ -132,7 +132,7 @@ type VMwareCollectorOutput struct {
 }
 
 func (VMwareCollectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VMwareCollectorOutput)(nil)).Elem()
+	return reflect.TypeOf((*VMwareCollector)(nil))
 }
 
 func (o VMwareCollectorOutput) ToVMwareCollectorOutput() VMwareCollectorOutput {

@@ -125,15 +125,15 @@ type TrustedIdProviderInput interface {
 	ToTrustedIdProviderOutputWithContext(ctx context.Context) TrustedIdProviderOutput
 }
 
-func (TrustedIdProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrustedIdProvider)(nil)).Elem()
+func (*TrustedIdProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedIdProvider)(nil))
 }
 
-func (i TrustedIdProvider) ToTrustedIdProviderOutput() TrustedIdProviderOutput {
+func (i *TrustedIdProvider) ToTrustedIdProviderOutput() TrustedIdProviderOutput {
 	return i.ToTrustedIdProviderOutputWithContext(context.Background())
 }
 
-func (i TrustedIdProvider) ToTrustedIdProviderOutputWithContext(ctx context.Context) TrustedIdProviderOutput {
+func (i *TrustedIdProvider) ToTrustedIdProviderOutputWithContext(ctx context.Context) TrustedIdProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrustedIdProviderOutput)
 }
 
@@ -142,7 +142,7 @@ type TrustedIdProviderOutput struct {
 }
 
 func (TrustedIdProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrustedIdProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*TrustedIdProvider)(nil))
 }
 
 func (o TrustedIdProviderOutput) ToTrustedIdProviderOutput() TrustedIdProviderOutput {

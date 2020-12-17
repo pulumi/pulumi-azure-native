@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20190901Preview
     /// <summary>
     /// The Media Graph.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20190901preview:MediaGraph")]
     public partial class MediaGraph : Pulumi.CustomResource
     {
         /// <summary>

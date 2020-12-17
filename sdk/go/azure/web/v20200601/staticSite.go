@@ -206,15 +206,15 @@ type StaticSiteInput interface {
 	ToStaticSiteOutputWithContext(ctx context.Context) StaticSiteOutput
 }
 
-func (StaticSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSite)(nil)).Elem()
+func (*StaticSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSite)(nil))
 }
 
-func (i StaticSite) ToStaticSiteOutput() StaticSiteOutput {
+func (i *StaticSite) ToStaticSiteOutput() StaticSiteOutput {
 	return i.ToStaticSiteOutputWithContext(context.Background())
 }
 
-func (i StaticSite) ToStaticSiteOutputWithContext(ctx context.Context) StaticSiteOutput {
+func (i *StaticSite) ToStaticSiteOutputWithContext(ctx context.Context) StaticSiteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteOutput)
 }
 
@@ -223,7 +223,7 @@ type StaticSiteOutput struct {
 }
 
 func (StaticSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSiteOutput)(nil)).Elem()
+	return reflect.TypeOf((*StaticSite)(nil))
 }
 
 func (o StaticSiteOutput) ToStaticSiteOutput() StaticSiteOutput {

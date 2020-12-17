@@ -263,15 +263,15 @@ type WebAppSiteExtensionSlotInput interface {
 	ToWebAppSiteExtensionSlotOutputWithContext(ctx context.Context) WebAppSiteExtensionSlotOutput
 }
 
-func (WebAppSiteExtensionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSiteExtensionSlot)(nil)).Elem()
+func (*WebAppSiteExtensionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSiteExtensionSlot)(nil))
 }
 
-func (i WebAppSiteExtensionSlot) ToWebAppSiteExtensionSlotOutput() WebAppSiteExtensionSlotOutput {
+func (i *WebAppSiteExtensionSlot) ToWebAppSiteExtensionSlotOutput() WebAppSiteExtensionSlotOutput {
 	return i.ToWebAppSiteExtensionSlotOutputWithContext(context.Background())
 }
 
-func (i WebAppSiteExtensionSlot) ToWebAppSiteExtensionSlotOutputWithContext(ctx context.Context) WebAppSiteExtensionSlotOutput {
+func (i *WebAppSiteExtensionSlot) ToWebAppSiteExtensionSlotOutputWithContext(ctx context.Context) WebAppSiteExtensionSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSiteExtensionSlotOutput)
 }
 
@@ -280,7 +280,7 @@ type WebAppSiteExtensionSlotOutput struct {
 }
 
 func (WebAppSiteExtensionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSiteExtensionSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppSiteExtensionSlot)(nil))
 }
 
 func (o WebAppSiteExtensionSlotOutput) ToWebAppSiteExtensionSlotOutput() WebAppSiteExtensionSlotOutput {

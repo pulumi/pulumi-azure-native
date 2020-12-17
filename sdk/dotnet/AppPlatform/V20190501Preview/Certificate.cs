@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
     /// <summary>
     /// Certificate resource payload.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:appplatform/v20190501preview:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

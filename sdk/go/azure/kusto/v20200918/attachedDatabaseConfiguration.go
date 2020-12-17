@@ -185,15 +185,15 @@ type AttachedDatabaseConfigurationInput interface {
 	ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput
 }
 
-func (AttachedDatabaseConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachedDatabaseConfiguration)(nil)).Elem()
+func (*AttachedDatabaseConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttachedDatabaseConfiguration)(nil))
 }
 
-func (i AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {
+func (i *AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {
 	return i.ToAttachedDatabaseConfigurationOutputWithContext(context.Background())
 }
 
-func (i AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput {
+func (i *AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationOutput)
 }
 
@@ -202,7 +202,7 @@ type AttachedDatabaseConfigurationOutput struct {
 }
 
 func (AttachedDatabaseConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachedDatabaseConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*AttachedDatabaseConfiguration)(nil))
 }
 
 func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {

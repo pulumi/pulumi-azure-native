@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Billing.V20180801Preview
     /// <summary>
     /// A report resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:billing/v20180801preview:ReportByBillingAccount")]
     public partial class ReportByBillingAccount : Pulumi.CustomResource
     {
         /// <summary>

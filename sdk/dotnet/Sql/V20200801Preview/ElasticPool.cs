@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
     /// <summary>
     /// An elastic pool.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200801preview:ElasticPool")]
     public partial class ElasticPool : Pulumi.CustomResource
     {
         /// <summary>

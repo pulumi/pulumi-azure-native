@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
     /// <summary>
     /// Represents a database.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20140401:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>

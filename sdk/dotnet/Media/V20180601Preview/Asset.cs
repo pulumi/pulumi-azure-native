@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
     /// <summary>
     /// An Asset.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20180601preview:Asset")]
     public partial class Asset : Pulumi.CustomResource
     {
         /// <summary>

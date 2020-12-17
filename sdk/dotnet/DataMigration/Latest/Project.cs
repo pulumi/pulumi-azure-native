@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
     /// A project resource
     /// Latest API Version: 2018-04-19.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datamigration/latest:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>

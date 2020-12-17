@@ -32,8 +32,8 @@ export const ResourceIdentityType = {
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const ServerVersion = {
-    _12: "12",
-    _11: "11",
+    ServerVersion_12: "12",
+    ServerVersion_11: "11",
 } as const;
 
 /**

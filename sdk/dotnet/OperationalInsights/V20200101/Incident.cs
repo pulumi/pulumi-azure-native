@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200101
     /// <summary>
     /// Represents an incident in Azure Security Insights.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20200101:Incident")]
     public partial class Incident : Pulumi.CustomResource
     {
         /// <summary>

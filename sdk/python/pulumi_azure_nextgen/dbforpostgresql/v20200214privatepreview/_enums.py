@@ -48,8 +48,8 @@ class ServerVersion(str, Enum):
     """
     PostgreSQL Server version.
     """
-    _12 = "12"
-    _11 = "11"
+    SERVER_VERSION_12 = "12"
+    SERVER_VERSION_11 = "11"
 
 
 class SkuTier(str, Enum):

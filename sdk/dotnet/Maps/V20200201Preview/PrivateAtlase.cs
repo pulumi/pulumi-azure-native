@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
     /// <summary>
     /// An Azure resource which represents which will provision the ability to create private location data.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:maps/v20200201preview:PrivateAtlase")]
     public partial class PrivateAtlase : Pulumi.CustomResource
     {
         /// <summary>

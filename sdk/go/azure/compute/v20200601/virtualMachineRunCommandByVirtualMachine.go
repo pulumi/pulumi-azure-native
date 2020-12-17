@@ -237,15 +237,15 @@ type VirtualMachineRunCommandByVirtualMachineInput interface {
 	ToVirtualMachineRunCommandByVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineRunCommandByVirtualMachineOutput
 }
 
-func (VirtualMachineRunCommandByVirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineRunCommandByVirtualMachine)(nil)).Elem()
+func (*VirtualMachineRunCommandByVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineRunCommandByVirtualMachine)(nil))
 }
 
-func (i VirtualMachineRunCommandByVirtualMachine) ToVirtualMachineRunCommandByVirtualMachineOutput() VirtualMachineRunCommandByVirtualMachineOutput {
+func (i *VirtualMachineRunCommandByVirtualMachine) ToVirtualMachineRunCommandByVirtualMachineOutput() VirtualMachineRunCommandByVirtualMachineOutput {
 	return i.ToVirtualMachineRunCommandByVirtualMachineOutputWithContext(context.Background())
 }
 
-func (i VirtualMachineRunCommandByVirtualMachine) ToVirtualMachineRunCommandByVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineRunCommandByVirtualMachineOutput {
+func (i *VirtualMachineRunCommandByVirtualMachine) ToVirtualMachineRunCommandByVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineRunCommandByVirtualMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandByVirtualMachineOutput)
 }
 
@@ -254,7 +254,7 @@ type VirtualMachineRunCommandByVirtualMachineOutput struct {
 }
 
 func (VirtualMachineRunCommandByVirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineRunCommandByVirtualMachineOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualMachineRunCommandByVirtualMachine)(nil))
 }
 
 func (o VirtualMachineRunCommandByVirtualMachineOutput) ToVirtualMachineRunCommandByVirtualMachineOutput() VirtualMachineRunCommandByVirtualMachineOutput {

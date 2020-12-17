@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
     /// <summary>
     /// This type describes a gateway resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicefabricmesh/v20180901preview:Gateway")]
     public partial class Gateway : Pulumi.CustomResource
     {
         /// <summary>

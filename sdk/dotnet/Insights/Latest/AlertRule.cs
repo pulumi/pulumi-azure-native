@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// The alert rule resource.
     /// Latest API Version: 2016-03-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/latest:AlertRule")]
     public partial class AlertRule : Pulumi.CustomResource
     {
         /// <summary>

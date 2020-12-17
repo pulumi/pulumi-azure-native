@@ -245,15 +245,15 @@ type BlockchainMemberInput interface {
 	ToBlockchainMemberOutputWithContext(ctx context.Context) BlockchainMemberOutput
 }
 
-func (BlockchainMember) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlockchainMember)(nil)).Elem()
+func (*BlockchainMember) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlockchainMember)(nil))
 }
 
-func (i BlockchainMember) ToBlockchainMemberOutput() BlockchainMemberOutput {
+func (i *BlockchainMember) ToBlockchainMemberOutput() BlockchainMemberOutput {
 	return i.ToBlockchainMemberOutputWithContext(context.Background())
 }
 
-func (i BlockchainMember) ToBlockchainMemberOutputWithContext(ctx context.Context) BlockchainMemberOutput {
+func (i *BlockchainMember) ToBlockchainMemberOutputWithContext(ctx context.Context) BlockchainMemberOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlockchainMemberOutput)
 }
 
@@ -262,7 +262,7 @@ type BlockchainMemberOutput struct {
 }
 
 func (BlockchainMemberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlockchainMemberOutput)(nil)).Elem()
+	return reflect.TypeOf((*BlockchainMember)(nil))
 }
 
 func (o BlockchainMemberOutput) ToBlockchainMemberOutput() BlockchainMemberOutput {

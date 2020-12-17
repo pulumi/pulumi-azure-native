@@ -163,15 +163,15 @@ type ObjectReplicationPolicyInput interface {
 	ToObjectReplicationPolicyOutputWithContext(ctx context.Context) ObjectReplicationPolicyOutput
 }
 
-func (ObjectReplicationPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectReplicationPolicy)(nil)).Elem()
+func (*ObjectReplicationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectReplicationPolicy)(nil))
 }
 
-func (i ObjectReplicationPolicy) ToObjectReplicationPolicyOutput() ObjectReplicationPolicyOutput {
+func (i *ObjectReplicationPolicy) ToObjectReplicationPolicyOutput() ObjectReplicationPolicyOutput {
 	return i.ToObjectReplicationPolicyOutputWithContext(context.Background())
 }
 
-func (i ObjectReplicationPolicy) ToObjectReplicationPolicyOutputWithContext(ctx context.Context) ObjectReplicationPolicyOutput {
+func (i *ObjectReplicationPolicy) ToObjectReplicationPolicyOutputWithContext(ctx context.Context) ObjectReplicationPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationPolicyOutput)
 }
 
@@ -180,7 +180,7 @@ type ObjectReplicationPolicyOutput struct {
 }
 
 func (ObjectReplicationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectReplicationPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ObjectReplicationPolicy)(nil))
 }
 
 func (o ObjectReplicationPolicyOutput) ToObjectReplicationPolicyOutput() ObjectReplicationPolicyOutput {

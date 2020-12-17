@@ -186,15 +186,15 @@ type BillingRoleAssignmentByEnrollmentAccountInput interface {
 	ToBillingRoleAssignmentByEnrollmentAccountOutputWithContext(ctx context.Context) BillingRoleAssignmentByEnrollmentAccountOutput
 }
 
-func (BillingRoleAssignmentByEnrollmentAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingRoleAssignmentByEnrollmentAccount)(nil)).Elem()
+func (*BillingRoleAssignmentByEnrollmentAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingRoleAssignmentByEnrollmentAccount)(nil))
 }
 
-func (i BillingRoleAssignmentByEnrollmentAccount) ToBillingRoleAssignmentByEnrollmentAccountOutput() BillingRoleAssignmentByEnrollmentAccountOutput {
+func (i *BillingRoleAssignmentByEnrollmentAccount) ToBillingRoleAssignmentByEnrollmentAccountOutput() BillingRoleAssignmentByEnrollmentAccountOutput {
 	return i.ToBillingRoleAssignmentByEnrollmentAccountOutputWithContext(context.Background())
 }
 
-func (i BillingRoleAssignmentByEnrollmentAccount) ToBillingRoleAssignmentByEnrollmentAccountOutputWithContext(ctx context.Context) BillingRoleAssignmentByEnrollmentAccountOutput {
+func (i *BillingRoleAssignmentByEnrollmentAccount) ToBillingRoleAssignmentByEnrollmentAccountOutputWithContext(ctx context.Context) BillingRoleAssignmentByEnrollmentAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BillingRoleAssignmentByEnrollmentAccountOutput)
 }
 
@@ -203,7 +203,7 @@ type BillingRoleAssignmentByEnrollmentAccountOutput struct {
 }
 
 func (BillingRoleAssignmentByEnrollmentAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingRoleAssignmentByEnrollmentAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*BillingRoleAssignmentByEnrollmentAccount)(nil))
 }
 
 func (o BillingRoleAssignmentByEnrollmentAccountOutput) ToBillingRoleAssignmentByEnrollmentAccountOutput() BillingRoleAssignmentByEnrollmentAccountOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     /// <summary>
     /// A workspace key
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:Key")]
     public partial class Key : Pulumi.CustomResource
     {
         /// <summary>

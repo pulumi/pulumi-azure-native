@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
     /// <summary>
     /// The resource representation of a rollout step.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:deploymentmanager/v20191101preview:Step")]
     public partial class Step : Pulumi.CustomResource
     {
         /// <summary>

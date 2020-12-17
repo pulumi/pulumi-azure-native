@@ -321,15 +321,15 @@ type ConnectionMonitorInput interface {
 	ToConnectionMonitorOutputWithContext(ctx context.Context) ConnectionMonitorOutput
 }
 
-func (ConnectionMonitor) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionMonitor)(nil)).Elem()
+func (*ConnectionMonitor) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMonitor)(nil))
 }
 
-func (i ConnectionMonitor) ToConnectionMonitorOutput() ConnectionMonitorOutput {
+func (i *ConnectionMonitor) ToConnectionMonitorOutput() ConnectionMonitorOutput {
 	return i.ToConnectionMonitorOutputWithContext(context.Background())
 }
 
-func (i ConnectionMonitor) ToConnectionMonitorOutputWithContext(ctx context.Context) ConnectionMonitorOutput {
+func (i *ConnectionMonitor) ToConnectionMonitorOutputWithContext(ctx context.Context) ConnectionMonitorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorOutput)
 }
 
@@ -338,7 +338,7 @@ type ConnectionMonitorOutput struct {
 }
 
 func (ConnectionMonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionMonitorOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConnectionMonitor)(nil))
 }
 
 func (o ConnectionMonitorOutput) ToConnectionMonitorOutput() ConnectionMonitorOutput {

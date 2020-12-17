@@ -148,15 +148,15 @@ type ReplicationProtectedItemInput interface {
 	ToReplicationProtectedItemOutputWithContext(ctx context.Context) ReplicationProtectedItemOutput
 }
 
-func (ReplicationProtectedItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProtectedItem)(nil)).Elem()
+func (*ReplicationProtectedItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationProtectedItem)(nil))
 }
 
-func (i ReplicationProtectedItem) ToReplicationProtectedItemOutput() ReplicationProtectedItemOutput {
+func (i *ReplicationProtectedItem) ToReplicationProtectedItemOutput() ReplicationProtectedItemOutput {
 	return i.ToReplicationProtectedItemOutputWithContext(context.Background())
 }
 
-func (i ReplicationProtectedItem) ToReplicationProtectedItemOutputWithContext(ctx context.Context) ReplicationProtectedItemOutput {
+func (i *ReplicationProtectedItem) ToReplicationProtectedItemOutputWithContext(ctx context.Context) ReplicationProtectedItemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemOutput)
 }
 
@@ -165,7 +165,7 @@ type ReplicationProtectedItemOutput struct {
 }
 
 func (ReplicationProtectedItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProtectedItemOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReplicationProtectedItem)(nil))
 }
 
 func (o ReplicationProtectedItemOutput) ToReplicationProtectedItemOutput() ReplicationProtectedItemOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
     /// <summary>
     /// A user-defined logical grouping of machines.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20151101preview:MachineGroup")]
     public partial class MachineGroup : Pulumi.CustomResource
     {
         /// <summary>

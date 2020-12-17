@@ -182,15 +182,15 @@ type SoftwareUpdateConfigurationByNameInput interface {
 	ToSoftwareUpdateConfigurationByNameOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationByNameOutput
 }
 
-func (SoftwareUpdateConfigurationByName) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwareUpdateConfigurationByName)(nil)).Elem()
+func (*SoftwareUpdateConfigurationByName) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwareUpdateConfigurationByName)(nil))
 }
 
-func (i SoftwareUpdateConfigurationByName) ToSoftwareUpdateConfigurationByNameOutput() SoftwareUpdateConfigurationByNameOutput {
+func (i *SoftwareUpdateConfigurationByName) ToSoftwareUpdateConfigurationByNameOutput() SoftwareUpdateConfigurationByNameOutput {
 	return i.ToSoftwareUpdateConfigurationByNameOutputWithContext(context.Background())
 }
 
-func (i SoftwareUpdateConfigurationByName) ToSoftwareUpdateConfigurationByNameOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationByNameOutput {
+func (i *SoftwareUpdateConfigurationByName) ToSoftwareUpdateConfigurationByNameOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationByNameOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationByNameOutput)
 }
 
@@ -199,7 +199,7 @@ type SoftwareUpdateConfigurationByNameOutput struct {
 }
 
 func (SoftwareUpdateConfigurationByNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwareUpdateConfigurationByNameOutput)(nil)).Elem()
+	return reflect.TypeOf((*SoftwareUpdateConfigurationByName)(nil))
 }
 
 func (o SoftwareUpdateConfigurationByNameOutput) ToSoftwareUpdateConfigurationByNameOutput() SoftwareUpdateConfigurationByNameOutput {

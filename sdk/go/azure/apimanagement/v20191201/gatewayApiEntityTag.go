@@ -237,15 +237,15 @@ type GatewayApiEntityTagInput interface {
 	ToGatewayApiEntityTagOutputWithContext(ctx context.Context) GatewayApiEntityTagOutput
 }
 
-func (GatewayApiEntityTag) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayApiEntityTag)(nil)).Elem()
+func (*GatewayApiEntityTag) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayApiEntityTag)(nil))
 }
 
-func (i GatewayApiEntityTag) ToGatewayApiEntityTagOutput() GatewayApiEntityTagOutput {
+func (i *GatewayApiEntityTag) ToGatewayApiEntityTagOutput() GatewayApiEntityTagOutput {
 	return i.ToGatewayApiEntityTagOutputWithContext(context.Background())
 }
 
-func (i GatewayApiEntityTag) ToGatewayApiEntityTagOutputWithContext(ctx context.Context) GatewayApiEntityTagOutput {
+func (i *GatewayApiEntityTag) ToGatewayApiEntityTagOutputWithContext(ctx context.Context) GatewayApiEntityTagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiEntityTagOutput)
 }
 
@@ -254,7 +254,7 @@ type GatewayApiEntityTagOutput struct {
 }
 
 func (GatewayApiEntityTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayApiEntityTagOutput)(nil)).Elem()
+	return reflect.TypeOf((*GatewayApiEntityTag)(nil))
 }
 
 func (o GatewayApiEntityTagOutput) ToGatewayApiEntityTagOutput() GatewayApiEntityTagOutput {

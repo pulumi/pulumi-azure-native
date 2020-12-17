@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
     /// <summary>
     /// The Setting.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:securityinsights/v20190101preview:ProductSetting")]
     public partial class ProductSetting : Pulumi.CustomResource
     {
         /// <summary>

@@ -216,15 +216,15 @@ type WatcherInput interface {
 	ToWatcherOutputWithContext(ctx context.Context) WatcherOutput
 }
 
-func (Watcher) ElementType() reflect.Type {
-	return reflect.TypeOf((*Watcher)(nil)).Elem()
+func (*Watcher) ElementType() reflect.Type {
+	return reflect.TypeOf((*Watcher)(nil))
 }
 
-func (i Watcher) ToWatcherOutput() WatcherOutput {
+func (i *Watcher) ToWatcherOutput() WatcherOutput {
 	return i.ToWatcherOutputWithContext(context.Background())
 }
 
-func (i Watcher) ToWatcherOutputWithContext(ctx context.Context) WatcherOutput {
+func (i *Watcher) ToWatcherOutputWithContext(ctx context.Context) WatcherOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WatcherOutput)
 }
 
@@ -233,7 +233,7 @@ type WatcherOutput struct {
 }
 
 func (WatcherOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WatcherOutput)(nil)).Elem()
+	return reflect.TypeOf((*Watcher)(nil))
 }
 
 func (o WatcherOutput) ToWatcherOutput() WatcherOutput {

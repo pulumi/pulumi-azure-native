@@ -175,15 +175,15 @@ type ProtectedItemInput interface {
 	ToProtectedItemOutputWithContext(ctx context.Context) ProtectedItemOutput
 }
 
-func (ProtectedItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItem)(nil)).Elem()
+func (*ProtectedItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedItem)(nil))
 }
 
-func (i ProtectedItem) ToProtectedItemOutput() ProtectedItemOutput {
+func (i *ProtectedItem) ToProtectedItemOutput() ProtectedItemOutput {
 	return i.ToProtectedItemOutputWithContext(context.Background())
 }
 
-func (i ProtectedItem) ToProtectedItemOutputWithContext(ctx context.Context) ProtectedItemOutput {
+func (i *ProtectedItem) ToProtectedItemOutputWithContext(ctx context.Context) ProtectedItemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemOutput)
 }
 
@@ -192,7 +192,7 @@ type ProtectedItemOutput struct {
 }
 
 func (ProtectedItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItemOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProtectedItem)(nil))
 }
 
 func (o ProtectedItemOutput) ToProtectedItemOutput() ProtectedItemOutput {

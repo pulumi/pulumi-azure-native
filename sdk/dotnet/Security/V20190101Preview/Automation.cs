@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
     /// <summary>
     /// The security automation resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20190101preview:Automation")]
     public partial class Automation : Pulumi.CustomResource
     {
         /// <summary>

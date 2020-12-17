@@ -178,15 +178,15 @@ type MachineGroupInput interface {
 	ToMachineGroupOutputWithContext(ctx context.Context) MachineGroupOutput
 }
 
-func (MachineGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineGroup)(nil)).Elem()
+func (*MachineGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineGroup)(nil))
 }
 
-func (i MachineGroup) ToMachineGroupOutput() MachineGroupOutput {
+func (i *MachineGroup) ToMachineGroupOutput() MachineGroupOutput {
 	return i.ToMachineGroupOutputWithContext(context.Background())
 }
 
-func (i MachineGroup) ToMachineGroupOutputWithContext(ctx context.Context) MachineGroupOutput {
+func (i *MachineGroup) ToMachineGroupOutputWithContext(ctx context.Context) MachineGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MachineGroupOutput)
 }
 
@@ -195,7 +195,7 @@ type MachineGroupOutput struct {
 }
 
 func (MachineGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*MachineGroup)(nil))
 }
 
 func (o MachineGroupOutput) ToMachineGroupOutput() MachineGroupOutput {

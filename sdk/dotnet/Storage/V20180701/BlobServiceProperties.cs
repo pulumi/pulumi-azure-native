@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180701
     /// <summary>
     /// The properties of a storage account’s Blob service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20180701:BlobServiceProperties")]
     public partial class BlobServiceProperties : Pulumi.CustomResource
     {
         /// <summary>

@@ -142,15 +142,15 @@ type GuestConfigurationAssignmentInput interface {
 	ToGuestConfigurationAssignmentOutputWithContext(ctx context.Context) GuestConfigurationAssignmentOutput
 }
 
-func (GuestConfigurationAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestConfigurationAssignment)(nil)).Elem()
+func (*GuestConfigurationAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationAssignment)(nil))
 }
 
-func (i GuestConfigurationAssignment) ToGuestConfigurationAssignmentOutput() GuestConfigurationAssignmentOutput {
+func (i *GuestConfigurationAssignment) ToGuestConfigurationAssignmentOutput() GuestConfigurationAssignmentOutput {
 	return i.ToGuestConfigurationAssignmentOutputWithContext(context.Background())
 }
 
-func (i GuestConfigurationAssignment) ToGuestConfigurationAssignmentOutputWithContext(ctx context.Context) GuestConfigurationAssignmentOutput {
+func (i *GuestConfigurationAssignment) ToGuestConfigurationAssignmentOutputWithContext(ctx context.Context) GuestConfigurationAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationAssignmentOutput)
 }
 
@@ -159,7 +159,7 @@ type GuestConfigurationAssignmentOutput struct {
 }
 
 func (GuestConfigurationAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestConfigurationAssignmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*GuestConfigurationAssignment)(nil))
 }
 
 func (o GuestConfigurationAssignmentOutput) ToGuestConfigurationAssignmentOutput() GuestConfigurationAssignmentOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Relay.V20180101Preview
     /// <summary>
     /// Private endpoint connection resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:relay/v20180101preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

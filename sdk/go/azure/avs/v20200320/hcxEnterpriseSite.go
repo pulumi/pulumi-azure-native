@@ -127,15 +127,15 @@ type HcxEnterpriseSiteInput interface {
 	ToHcxEnterpriseSiteOutputWithContext(ctx context.Context) HcxEnterpriseSiteOutput
 }
 
-func (HcxEnterpriseSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*HcxEnterpriseSite)(nil)).Elem()
+func (*HcxEnterpriseSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*HcxEnterpriseSite)(nil))
 }
 
-func (i HcxEnterpriseSite) ToHcxEnterpriseSiteOutput() HcxEnterpriseSiteOutput {
+func (i *HcxEnterpriseSite) ToHcxEnterpriseSiteOutput() HcxEnterpriseSiteOutput {
 	return i.ToHcxEnterpriseSiteOutputWithContext(context.Background())
 }
 
-func (i HcxEnterpriseSite) ToHcxEnterpriseSiteOutputWithContext(ctx context.Context) HcxEnterpriseSiteOutput {
+func (i *HcxEnterpriseSite) ToHcxEnterpriseSiteOutputWithContext(ctx context.Context) HcxEnterpriseSiteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HcxEnterpriseSiteOutput)
 }
 
@@ -144,7 +144,7 @@ type HcxEnterpriseSiteOutput struct {
 }
 
 func (HcxEnterpriseSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HcxEnterpriseSiteOutput)(nil)).Elem()
+	return reflect.TypeOf((*HcxEnterpriseSite)(nil))
 }
 
 func (o HcxEnterpriseSiteOutput) ToHcxEnterpriseSiteOutput() HcxEnterpriseSiteOutput {

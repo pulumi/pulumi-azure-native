@@ -165,15 +165,15 @@ type DigitalTwinInput interface {
 	ToDigitalTwinOutputWithContext(ctx context.Context) DigitalTwinOutput
 }
 
-func (DigitalTwin) ElementType() reflect.Type {
-	return reflect.TypeOf((*DigitalTwin)(nil)).Elem()
+func (*DigitalTwin) ElementType() reflect.Type {
+	return reflect.TypeOf((*DigitalTwin)(nil))
 }
 
-func (i DigitalTwin) ToDigitalTwinOutput() DigitalTwinOutput {
+func (i *DigitalTwin) ToDigitalTwinOutput() DigitalTwinOutput {
 	return i.ToDigitalTwinOutputWithContext(context.Background())
 }
 
-func (i DigitalTwin) ToDigitalTwinOutputWithContext(ctx context.Context) DigitalTwinOutput {
+func (i *DigitalTwin) ToDigitalTwinOutputWithContext(ctx context.Context) DigitalTwinOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DigitalTwinOutput)
 }
 
@@ -182,7 +182,7 @@ type DigitalTwinOutput struct {
 }
 
 func (DigitalTwinOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DigitalTwinOutput)(nil)).Elem()
+	return reflect.TypeOf((*DigitalTwin)(nil))
 }
 
 func (o DigitalTwinOutput) ToDigitalTwinOutput() DigitalTwinOutput {

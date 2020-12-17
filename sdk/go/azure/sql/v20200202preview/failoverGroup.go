@@ -189,15 +189,15 @@ type FailoverGroupInput interface {
 	ToFailoverGroupOutputWithContext(ctx context.Context) FailoverGroupOutput
 }
 
-func (FailoverGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverGroup)(nil)).Elem()
+func (*FailoverGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroup)(nil))
 }
 
-func (i FailoverGroup) ToFailoverGroupOutput() FailoverGroupOutput {
+func (i *FailoverGroup) ToFailoverGroupOutput() FailoverGroupOutput {
 	return i.ToFailoverGroupOutputWithContext(context.Background())
 }
 
-func (i FailoverGroup) ToFailoverGroupOutputWithContext(ctx context.Context) FailoverGroupOutput {
+func (i *FailoverGroup) ToFailoverGroupOutputWithContext(ctx context.Context) FailoverGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupOutput)
 }
 
@@ -206,7 +206,7 @@ type FailoverGroupOutput struct {
 }
 
 func (FailoverGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*FailoverGroup)(nil))
 }
 
 func (o FailoverGroupOutput) ToFailoverGroupOutput() FailoverGroupOutput {

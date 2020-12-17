@@ -132,15 +132,15 @@ type CustomerSubscriptionInput interface {
 	ToCustomerSubscriptionOutputWithContext(ctx context.Context) CustomerSubscriptionOutput
 }
 
-func (CustomerSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerSubscription)(nil)).Elem()
+func (*CustomerSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerSubscription)(nil))
 }
 
-func (i CustomerSubscription) ToCustomerSubscriptionOutput() CustomerSubscriptionOutput {
+func (i *CustomerSubscription) ToCustomerSubscriptionOutput() CustomerSubscriptionOutput {
 	return i.ToCustomerSubscriptionOutputWithContext(context.Background())
 }
 
-func (i CustomerSubscription) ToCustomerSubscriptionOutputWithContext(ctx context.Context) CustomerSubscriptionOutput {
+func (i *CustomerSubscription) ToCustomerSubscriptionOutputWithContext(ctx context.Context) CustomerSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionOutput)
 }
 
@@ -149,7 +149,7 @@ type CustomerSubscriptionOutput struct {
 }
 
 func (CustomerSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerSubscriptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomerSubscription)(nil))
 }
 
 func (o CustomerSubscriptionOutput) ToCustomerSubscriptionOutput() CustomerSubscriptionOutput {

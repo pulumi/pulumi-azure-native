@@ -122,15 +122,15 @@ type ManagementGroupSubscriptionInput interface {
 	ToManagementGroupSubscriptionOutputWithContext(ctx context.Context) ManagementGroupSubscriptionOutput
 }
 
-func (ManagementGroupSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupSubscription)(nil)).Elem()
+func (*ManagementGroupSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroupSubscription)(nil))
 }
 
-func (i ManagementGroupSubscription) ToManagementGroupSubscriptionOutput() ManagementGroupSubscriptionOutput {
+func (i *ManagementGroupSubscription) ToManagementGroupSubscriptionOutput() ManagementGroupSubscriptionOutput {
 	return i.ToManagementGroupSubscriptionOutputWithContext(context.Background())
 }
 
-func (i ManagementGroupSubscription) ToManagementGroupSubscriptionOutputWithContext(ctx context.Context) ManagementGroupSubscriptionOutput {
+func (i *ManagementGroupSubscription) ToManagementGroupSubscriptionOutputWithContext(ctx context.Context) ManagementGroupSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupSubscriptionOutput)
 }
 
@@ -139,7 +139,7 @@ type ManagementGroupSubscriptionOutput struct {
 }
 
 func (ManagementGroupSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupSubscriptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagementGroupSubscription)(nil))
 }
 
 func (o ManagementGroupSubscriptionOutput) ToManagementGroupSubscriptionOutput() ManagementGroupSubscriptionOutput {

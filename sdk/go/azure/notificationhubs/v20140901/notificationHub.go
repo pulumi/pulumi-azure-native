@@ -154,15 +154,15 @@ type NotificationHubInput interface {
 	ToNotificationHubOutputWithContext(ctx context.Context) NotificationHubOutput
 }
 
-func (NotificationHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationHub)(nil)).Elem()
+func (*NotificationHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationHub)(nil))
 }
 
-func (i NotificationHub) ToNotificationHubOutput() NotificationHubOutput {
+func (i *NotificationHub) ToNotificationHubOutput() NotificationHubOutput {
 	return i.ToNotificationHubOutputWithContext(context.Background())
 }
 
-func (i NotificationHub) ToNotificationHubOutputWithContext(ctx context.Context) NotificationHubOutput {
+func (i *NotificationHub) ToNotificationHubOutputWithContext(ctx context.Context) NotificationHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubOutput)
 }
 
@@ -171,7 +171,7 @@ type NotificationHubOutput struct {
 }
 
 func (NotificationHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationHubOutput)(nil)).Elem()
+	return reflect.TypeOf((*NotificationHub)(nil))
 }
 
 func (o NotificationHubOutput) ToNotificationHubOutput() NotificationHubOutput {

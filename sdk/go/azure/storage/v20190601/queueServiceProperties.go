@@ -125,15 +125,15 @@ type QueueServicePropertiesInput interface {
 	ToQueueServicePropertiesOutputWithContext(ctx context.Context) QueueServicePropertiesOutput
 }
 
-func (QueueServiceProperties) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueueServiceProperties)(nil)).Elem()
+func (*QueueServiceProperties) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueServiceProperties)(nil))
 }
 
-func (i QueueServiceProperties) ToQueueServicePropertiesOutput() QueueServicePropertiesOutput {
+func (i *QueueServiceProperties) ToQueueServicePropertiesOutput() QueueServicePropertiesOutput {
 	return i.ToQueueServicePropertiesOutputWithContext(context.Background())
 }
 
-func (i QueueServiceProperties) ToQueueServicePropertiesOutputWithContext(ctx context.Context) QueueServicePropertiesOutput {
+func (i *QueueServiceProperties) ToQueueServicePropertiesOutputWithContext(ctx context.Context) QueueServicePropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueServicePropertiesOutput)
 }
 
@@ -142,7 +142,7 @@ type QueueServicePropertiesOutput struct {
 }
 
 func (QueueServicePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueueServicePropertiesOutput)(nil)).Elem()
+	return reflect.TypeOf((*QueueServiceProperties)(nil))
 }
 
 func (o QueueServicePropertiesOutput) ToQueueServicePropertiesOutput() QueueServicePropertiesOutput {

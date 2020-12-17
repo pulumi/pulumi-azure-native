@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
     /// The agentpool that has the ARM resource and properties.
     /// The agentpool will have all information to create an agent pool.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20190601preview:AgentPool")]
     public partial class AgentPool : Pulumi.CustomResource
     {
         /// <summary>

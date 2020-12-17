@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     /// <summary>
     /// Azure Active Directory administrator.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator")]
     public partial class ServerAzureADAdministrator : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
     /// <summary>
     /// Virtual Network information contract.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20180201:WebAppVnetConnection")]
     public partial class WebAppVnetConnection : Pulumi.CustomResource
     {
         /// <summary>

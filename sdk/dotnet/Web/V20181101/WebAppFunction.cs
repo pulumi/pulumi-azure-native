@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
     /// <summary>
     /// Web Job Information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20181101:WebAppFunction")]
     public partial class WebAppFunction : Pulumi.CustomResource
     {
         /// <summary>

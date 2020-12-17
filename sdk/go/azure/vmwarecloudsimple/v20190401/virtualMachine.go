@@ -317,15 +317,15 @@ type VirtualMachineInput interface {
 	ToVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineOutput
 }
 
-func (VirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachine)(nil)).Elem()
+func (*VirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachine)(nil))
 }
 
-func (i VirtualMachine) ToVirtualMachineOutput() VirtualMachineOutput {
+func (i *VirtualMachine) ToVirtualMachineOutput() VirtualMachineOutput {
 	return i.ToVirtualMachineOutputWithContext(context.Background())
 }
 
-func (i VirtualMachine) ToVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineOutput {
+func (i *VirtualMachine) ToVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOutput)
 }
 
@@ -334,7 +334,7 @@ type VirtualMachineOutput struct {
 }
 
 func (VirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualMachine)(nil))
 }
 
 func (o VirtualMachineOutput) ToVirtualMachineOutput() VirtualMachineOutput {

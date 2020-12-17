@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     /// Represents a bookmark in Azure Security Insights.
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/latest:Bookmark")]
     public partial class Bookmark : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
     /// <summary>
     /// The response to an account resource GET request.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:visualstudio/v20171101preview:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401
     /// The task that has the ARM resource and task properties.
     /// The task will have all information to schedule a run against it.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20190401:Task")]
     public partial class Task : Pulumi.CustomResource
     {
         /// <summary>

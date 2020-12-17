@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
     /// <summary>
     /// Site Extension Information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20160801:WebAppSiteExtension")]
     public partial class WebAppSiteExtension : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
     /// <summary>
     /// Represents a disaster recovery configuration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration")]
     public partial class DisasterRecoveryConfiguration : Pulumi.CustomResource
     {
         /// <summary>

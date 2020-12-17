@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
     /// <summary>
     /// A schedule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20160515:GlobalSchedule")]
     public partial class GlobalSchedule : Pulumi.CustomResource
     {
         /// <summary>

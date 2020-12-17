@@ -226,15 +226,15 @@ type EnvironmentSettingInput interface {
 	ToEnvironmentSettingOutputWithContext(ctx context.Context) EnvironmentSettingOutput
 }
 
-func (EnvironmentSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentSetting)(nil)).Elem()
+func (*EnvironmentSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentSetting)(nil))
 }
 
-func (i EnvironmentSetting) ToEnvironmentSettingOutput() EnvironmentSettingOutput {
+func (i *EnvironmentSetting) ToEnvironmentSettingOutput() EnvironmentSettingOutput {
 	return i.ToEnvironmentSettingOutputWithContext(context.Background())
 }
 
-func (i EnvironmentSetting) ToEnvironmentSettingOutputWithContext(ctx context.Context) EnvironmentSettingOutput {
+func (i *EnvironmentSetting) ToEnvironmentSettingOutputWithContext(ctx context.Context) EnvironmentSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSettingOutput)
 }
 
@@ -243,7 +243,7 @@ type EnvironmentSettingOutput struct {
 }
 
 func (EnvironmentSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentSettingOutput)(nil)).Elem()
+	return reflect.TypeOf((*EnvironmentSetting)(nil))
 }
 
 func (o EnvironmentSettingOutput) ToEnvironmentSettingOutput() EnvironmentSettingOutput {

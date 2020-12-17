@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
     /// <summary>
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster")]
     public partial class OpenShiftCluster : Pulumi.CustomResource
     {
         /// <summary>

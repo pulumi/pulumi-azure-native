@@ -162,8 +162,8 @@ export const RoleDefinitionType = {
 export type RoleDefinitionType = (typeof RoleDefinitionType)[keyof typeof RoleDefinitionType];
 
 export const ServerVersion = {
-    _3_2: "3.2",
-    _3_6: "3.6",
+    ServerVersion_3_2: "3.2",
+    ServerVersion_3_6: "3.6",
 } as const;
 
 /**

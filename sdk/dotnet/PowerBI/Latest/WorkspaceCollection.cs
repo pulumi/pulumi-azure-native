@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.PowerBI.Latest
     /// <summary>
     /// Latest API Version: 2016-01-29.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:powerbi/latest:WorkspaceCollection")]
     public partial class WorkspaceCollection : Pulumi.CustomResource
     {
         /// <summary>

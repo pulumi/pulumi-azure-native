@@ -173,15 +173,15 @@ type TagDescriptionInput interface {
 	ToTagDescriptionOutputWithContext(ctx context.Context) TagDescriptionOutput
 }
 
-func (TagDescription) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagDescription)(nil)).Elem()
+func (*TagDescription) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagDescription)(nil))
 }
 
-func (i TagDescription) ToTagDescriptionOutput() TagDescriptionOutput {
+func (i *TagDescription) ToTagDescriptionOutput() TagDescriptionOutput {
 	return i.ToTagDescriptionOutputWithContext(context.Background())
 }
 
-func (i TagDescription) ToTagDescriptionOutputWithContext(ctx context.Context) TagDescriptionOutput {
+func (i *TagDescription) ToTagDescriptionOutputWithContext(ctx context.Context) TagDescriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagDescriptionOutput)
 }
 
@@ -190,7 +190,7 @@ type TagDescriptionOutput struct {
 }
 
 func (TagDescriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagDescriptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*TagDescription)(nil))
 }
 
 func (o TagDescriptionOutput) ToTagDescriptionOutput() TagDescriptionOutput {

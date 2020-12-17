@@ -134,15 +134,15 @@ type DataCollectionRuleAssociationInput interface {
 	ToDataCollectionRuleAssociationOutputWithContext(ctx context.Context) DataCollectionRuleAssociationOutput
 }
 
-func (DataCollectionRuleAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRuleAssociation)(nil)).Elem()
+func (*DataCollectionRuleAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleAssociation)(nil))
 }
 
-func (i DataCollectionRuleAssociation) ToDataCollectionRuleAssociationOutput() DataCollectionRuleAssociationOutput {
+func (i *DataCollectionRuleAssociation) ToDataCollectionRuleAssociationOutput() DataCollectionRuleAssociationOutput {
 	return i.ToDataCollectionRuleAssociationOutputWithContext(context.Background())
 }
 
-func (i DataCollectionRuleAssociation) ToDataCollectionRuleAssociationOutputWithContext(ctx context.Context) DataCollectionRuleAssociationOutput {
+func (i *DataCollectionRuleAssociation) ToDataCollectionRuleAssociationOutputWithContext(ctx context.Context) DataCollectionRuleAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleAssociationOutput)
 }
 
@@ -151,7 +151,7 @@ type DataCollectionRuleAssociationOutput struct {
 }
 
 func (DataCollectionRuleAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRuleAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataCollectionRuleAssociation)(nil))
 }
 
 func (o DataCollectionRuleAssociationOutput) ToDataCollectionRuleAssociationOutput() DataCollectionRuleAssociationOutput {

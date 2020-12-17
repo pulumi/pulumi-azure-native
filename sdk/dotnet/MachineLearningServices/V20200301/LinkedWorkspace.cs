@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200301
     /// <summary>
     /// Linked workspace.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200301:LinkedWorkspace")]
     public partial class LinkedWorkspace : Pulumi.CustomResource
     {
         /// <summary>

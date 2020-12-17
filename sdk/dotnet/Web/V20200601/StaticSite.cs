@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
     /// <summary>
     /// Static Site ARM resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20200601:StaticSite")]
     public partial class StaticSite : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
     /// <summary>
     /// Data controller resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:azuredata/v20190724preview:DataController")]
     public partial class DataController : Pulumi.CustomResource
     {
         /// <summary>

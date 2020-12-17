@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
     /// <summary>
     /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datalakeanalytics/v20161101:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

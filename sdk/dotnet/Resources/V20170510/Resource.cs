@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Resources.V20170510
     /// <summary>
     /// Resource information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:resources/v20170510:Resource")]
     public partial class Resource : Pulumi.CustomResource
     {
         /// <summary>

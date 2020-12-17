@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20181120
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybridcompute/v20181120:GuestConfigurationHCRPAssignment")]
     public partial class GuestConfigurationHCRPAssignment : Pulumi.CustomResource
     {
         /// <summary>

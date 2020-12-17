@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
     /// <summary>
     /// A group of job targets.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20170301preview:JobTargetGroup")]
     public partial class JobTargetGroup : Pulumi.CustomResource
     {
         /// <summary>

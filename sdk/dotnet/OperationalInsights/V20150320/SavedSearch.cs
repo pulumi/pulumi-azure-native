@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
     /// <summary>
     /// Value object for saved search results.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20150320:SavedSearch")]
     public partial class SavedSearch : Pulumi.CustomResource
     {
         /// <summary>

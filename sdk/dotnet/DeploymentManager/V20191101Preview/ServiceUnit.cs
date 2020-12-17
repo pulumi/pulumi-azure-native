@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
     /// <summary>
     /// Represents the response of a service unit resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:deploymentmanager/v20191101preview:ServiceUnit")]
     public partial class ServiceUnit : Pulumi.CustomResource
     {
         /// <summary>

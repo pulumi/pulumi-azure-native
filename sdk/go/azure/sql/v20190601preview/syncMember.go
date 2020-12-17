@@ -236,15 +236,15 @@ type SyncMemberInput interface {
 	ToSyncMemberOutputWithContext(ctx context.Context) SyncMemberOutput
 }
 
-func (SyncMember) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncMember)(nil)).Elem()
+func (*SyncMember) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncMember)(nil))
 }
 
-func (i SyncMember) ToSyncMemberOutput() SyncMemberOutput {
+func (i *SyncMember) ToSyncMemberOutput() SyncMemberOutput {
 	return i.ToSyncMemberOutputWithContext(context.Background())
 }
 
-func (i SyncMember) ToSyncMemberOutputWithContext(ctx context.Context) SyncMemberOutput {
+func (i *SyncMember) ToSyncMemberOutputWithContext(ctx context.Context) SyncMemberOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncMemberOutput)
 }
 
@@ -253,7 +253,7 @@ type SyncMemberOutput struct {
 }
 
 func (SyncMemberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncMemberOutput)(nil)).Elem()
+	return reflect.TypeOf((*SyncMember)(nil))
 }
 
 func (o SyncMemberOutput) ToSyncMemberOutput() SyncMemberOutput {

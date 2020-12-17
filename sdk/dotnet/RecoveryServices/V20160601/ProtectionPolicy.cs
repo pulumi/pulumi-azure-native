@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
     /// <summary>
     /// The base class for backup policy. Workload-specific backup policies are derived from this class.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20160601:ProtectionPolicy")]
     public partial class ProtectionPolicy : Pulumi.CustomResource
     {
         /// <summary>

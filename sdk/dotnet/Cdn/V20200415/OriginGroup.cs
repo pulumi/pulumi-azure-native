@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200415
     /// <summary>
     /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/v20200415:OriginGroup")]
     public partial class OriginGroup : Pulumi.CustomResource
     {
         /// <summary>

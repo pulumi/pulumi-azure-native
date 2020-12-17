@@ -145,15 +145,15 @@ type WebAppPrivateEndpointConnectionInput interface {
 	ToWebAppPrivateEndpointConnectionOutputWithContext(ctx context.Context) WebAppPrivateEndpointConnectionOutput
 }
 
-func (WebAppPrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPrivateEndpointConnection)(nil)).Elem()
+func (*WebAppPrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPrivateEndpointConnection)(nil))
 }
 
-func (i WebAppPrivateEndpointConnection) ToWebAppPrivateEndpointConnectionOutput() WebAppPrivateEndpointConnectionOutput {
+func (i *WebAppPrivateEndpointConnection) ToWebAppPrivateEndpointConnectionOutput() WebAppPrivateEndpointConnectionOutput {
 	return i.ToWebAppPrivateEndpointConnectionOutputWithContext(context.Background())
 }
 
-func (i WebAppPrivateEndpointConnection) ToWebAppPrivateEndpointConnectionOutputWithContext(ctx context.Context) WebAppPrivateEndpointConnectionOutput {
+func (i *WebAppPrivateEndpointConnection) ToWebAppPrivateEndpointConnectionOutputWithContext(ctx context.Context) WebAppPrivateEndpointConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPrivateEndpointConnectionOutput)
 }
 
@@ -162,7 +162,7 @@ type WebAppPrivateEndpointConnectionOutput struct {
 }
 
 func (WebAppPrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPrivateEndpointConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppPrivateEndpointConnection)(nil))
 }
 
 func (o WebAppPrivateEndpointConnectionOutput) ToWebAppPrivateEndpointConnectionOutput() WebAppPrivateEndpointConnectionOutput {

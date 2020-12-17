@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
     /// <summary>
     /// Virtual Router Peering resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20191101:VirtualRouterPeering")]
     public partial class VirtualRouterPeering : Pulumi.CustomResource
     {
         /// <summary>

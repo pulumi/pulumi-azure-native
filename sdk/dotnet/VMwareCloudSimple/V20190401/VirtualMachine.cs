@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
     /// <summary>
     /// Virtual machine model
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine")]
     public partial class VirtualMachine : Pulumi.CustomResource
     {
         /// <summary>

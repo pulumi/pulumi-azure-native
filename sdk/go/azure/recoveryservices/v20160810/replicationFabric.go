@@ -130,15 +130,15 @@ type ReplicationFabricInput interface {
 	ToReplicationFabricOutputWithContext(ctx context.Context) ReplicationFabricOutput
 }
 
-func (ReplicationFabric) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationFabric)(nil)).Elem()
+func (*ReplicationFabric) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationFabric)(nil))
 }
 
-func (i ReplicationFabric) ToReplicationFabricOutput() ReplicationFabricOutput {
+func (i *ReplicationFabric) ToReplicationFabricOutput() ReplicationFabricOutput {
 	return i.ToReplicationFabricOutputWithContext(context.Background())
 }
 
-func (i ReplicationFabric) ToReplicationFabricOutputWithContext(ctx context.Context) ReplicationFabricOutput {
+func (i *ReplicationFabric) ToReplicationFabricOutputWithContext(ctx context.Context) ReplicationFabricOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationFabricOutput)
 }
 
@@ -147,7 +147,7 @@ type ReplicationFabricOutput struct {
 }
 
 func (ReplicationFabricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationFabricOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReplicationFabric)(nil))
 }
 
 func (o ReplicationFabricOutput) ToReplicationFabricOutput() ReplicationFabricOutput {

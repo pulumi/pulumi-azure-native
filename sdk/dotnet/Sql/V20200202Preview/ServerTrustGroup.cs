@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     /// <summary>
     /// A server trust group.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:ServerTrustGroup")]
     public partial class ServerTrustGroup : Pulumi.CustomResource
     {
         /// <summary>

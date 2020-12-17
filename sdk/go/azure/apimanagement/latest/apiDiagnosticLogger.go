@@ -157,15 +157,15 @@ type ApiDiagnosticLoggerInput interface {
 	ToApiDiagnosticLoggerOutputWithContext(ctx context.Context) ApiDiagnosticLoggerOutput
 }
 
-func (ApiDiagnosticLogger) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiDiagnosticLogger)(nil)).Elem()
+func (*ApiDiagnosticLogger) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticLogger)(nil))
 }
 
-func (i ApiDiagnosticLogger) ToApiDiagnosticLoggerOutput() ApiDiagnosticLoggerOutput {
+func (i *ApiDiagnosticLogger) ToApiDiagnosticLoggerOutput() ApiDiagnosticLoggerOutput {
 	return i.ToApiDiagnosticLoggerOutputWithContext(context.Background())
 }
 
-func (i ApiDiagnosticLogger) ToApiDiagnosticLoggerOutputWithContext(ctx context.Context) ApiDiagnosticLoggerOutput {
+func (i *ApiDiagnosticLogger) ToApiDiagnosticLoggerOutputWithContext(ctx context.Context) ApiDiagnosticLoggerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticLoggerOutput)
 }
 
@@ -174,7 +174,7 @@ type ApiDiagnosticLoggerOutput struct {
 }
 
 func (ApiDiagnosticLoggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiDiagnosticLoggerOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiDiagnosticLogger)(nil))
 }
 
 func (o ApiDiagnosticLoggerOutput) ToApiDiagnosticLoggerOutput() ApiDiagnosticLoggerOutput {

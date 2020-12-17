@@ -271,15 +271,15 @@ type NodeTypeInput interface {
 	ToNodeTypeOutputWithContext(ctx context.Context) NodeTypeOutput
 }
 
-func (NodeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeType)(nil)).Elem()
+func (*NodeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeType)(nil))
 }
 
-func (i NodeType) ToNodeTypeOutput() NodeTypeOutput {
+func (i *NodeType) ToNodeTypeOutput() NodeTypeOutput {
 	return i.ToNodeTypeOutputWithContext(context.Background())
 }
 
-func (i NodeType) ToNodeTypeOutputWithContext(ctx context.Context) NodeTypeOutput {
+func (i *NodeType) ToNodeTypeOutputWithContext(ctx context.Context) NodeTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeOutput)
 }
 
@@ -288,7 +288,7 @@ type NodeTypeOutput struct {
 }
 
 func (NodeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeTypeOutput)(nil)).Elem()
+	return reflect.TypeOf((*NodeType)(nil))
 }
 
 func (o NodeTypeOutput) ToNodeTypeOutput() NodeTypeOutput {

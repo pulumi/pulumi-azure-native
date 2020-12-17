@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
     /// <summary>
     /// Template Spec Version object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:resources/v20190601preview:TemplateSpecVersion")]
     public partial class TemplateSpecVersion : Pulumi.CustomResource
     {
         /// <summary>

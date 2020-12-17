@@ -115,15 +115,15 @@ type HyperVCollectorInput interface {
 	ToHyperVCollectorOutputWithContext(ctx context.Context) HyperVCollectorOutput
 }
 
-func (HyperVCollector) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVCollector)(nil)).Elem()
+func (*HyperVCollector) ElementType() reflect.Type {
+	return reflect.TypeOf((*HyperVCollector)(nil))
 }
 
-func (i HyperVCollector) ToHyperVCollectorOutput() HyperVCollectorOutput {
+func (i *HyperVCollector) ToHyperVCollectorOutput() HyperVCollectorOutput {
 	return i.ToHyperVCollectorOutputWithContext(context.Background())
 }
 
-func (i HyperVCollector) ToHyperVCollectorOutputWithContext(ctx context.Context) HyperVCollectorOutput {
+func (i *HyperVCollector) ToHyperVCollectorOutputWithContext(ctx context.Context) HyperVCollectorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVCollectorOutput)
 }
 
@@ -132,7 +132,7 @@ type HyperVCollectorOutput struct {
 }
 
 func (HyperVCollectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVCollectorOutput)(nil)).Elem()
+	return reflect.TypeOf((*HyperVCollector)(nil))
 }
 
 func (o HyperVCollectorOutput) ToHyperVCollectorOutput() HyperVCollectorOutput {

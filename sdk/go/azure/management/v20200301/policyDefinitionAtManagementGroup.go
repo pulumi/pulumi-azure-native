@@ -196,15 +196,15 @@ type PolicyDefinitionAtManagementGroupInput interface {
 	ToPolicyDefinitionAtManagementGroupOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupOutput
 }
 
-func (PolicyDefinitionAtManagementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionAtManagementGroup)(nil)).Elem()
+func (*PolicyDefinitionAtManagementGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionAtManagementGroup)(nil))
 }
 
-func (i PolicyDefinitionAtManagementGroup) ToPolicyDefinitionAtManagementGroupOutput() PolicyDefinitionAtManagementGroupOutput {
+func (i *PolicyDefinitionAtManagementGroup) ToPolicyDefinitionAtManagementGroupOutput() PolicyDefinitionAtManagementGroupOutput {
 	return i.ToPolicyDefinitionAtManagementGroupOutputWithContext(context.Background())
 }
 
-func (i PolicyDefinitionAtManagementGroup) ToPolicyDefinitionAtManagementGroupOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupOutput {
+func (i *PolicyDefinitionAtManagementGroup) ToPolicyDefinitionAtManagementGroupOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionAtManagementGroupOutput)
 }
 
@@ -213,7 +213,7 @@ type PolicyDefinitionAtManagementGroupOutput struct {
 }
 
 func (PolicyDefinitionAtManagementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionAtManagementGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*PolicyDefinitionAtManagementGroup)(nil))
 }
 
 func (o PolicyDefinitionAtManagementGroupOutput) ToPolicyDefinitionAtManagementGroupOutput() PolicyDefinitionAtManagementGroupOutput {

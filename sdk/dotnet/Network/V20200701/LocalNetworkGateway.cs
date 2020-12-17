@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
     /// <summary>
     /// A common class for general resource information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200701:LocalNetworkGateway")]
     public partial class LocalNetworkGateway : Pulumi.CustomResource
     {
         /// <summary>

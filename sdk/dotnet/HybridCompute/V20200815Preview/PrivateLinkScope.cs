@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
     /// <summary>
     /// An Azure Arc PrivateLinkScope definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope")]
     public partial class PrivateLinkScope : Pulumi.CustomResource
     {
         /// <summary>

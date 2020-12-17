@@ -160,15 +160,15 @@ type TransactionNodeInput interface {
 	ToTransactionNodeOutputWithContext(ctx context.Context) TransactionNodeOutput
 }
 
-func (TransactionNode) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransactionNode)(nil)).Elem()
+func (*TransactionNode) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransactionNode)(nil))
 }
 
-func (i TransactionNode) ToTransactionNodeOutput() TransactionNodeOutput {
+func (i *TransactionNode) ToTransactionNodeOutput() TransactionNodeOutput {
 	return i.ToTransactionNodeOutputWithContext(context.Background())
 }
 
-func (i TransactionNode) ToTransactionNodeOutputWithContext(ctx context.Context) TransactionNodeOutput {
+func (i *TransactionNode) ToTransactionNodeOutputWithContext(ctx context.Context) TransactionNodeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransactionNodeOutput)
 }
 
@@ -177,7 +177,7 @@ type TransactionNodeOutput struct {
 }
 
 func (TransactionNodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransactionNodeOutput)(nil)).Elem()
+	return reflect.TypeOf((*TransactionNode)(nil))
 }
 
 func (o TransactionNodeOutput) ToTransactionNodeOutput() TransactionNodeOutput {

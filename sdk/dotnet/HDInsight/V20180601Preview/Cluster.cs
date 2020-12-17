@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview
     /// <summary>
     /// The HDInsight cluster.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hdinsight/v20180601preview:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

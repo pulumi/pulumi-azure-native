@@ -189,15 +189,15 @@ type AutomationInput interface {
 	ToAutomationOutputWithContext(ctx context.Context) AutomationOutput
 }
 
-func (Automation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Automation)(nil)).Elem()
+func (*Automation) ElementType() reflect.Type {
+	return reflect.TypeOf((*Automation)(nil))
 }
 
-func (i Automation) ToAutomationOutput() AutomationOutput {
+func (i *Automation) ToAutomationOutput() AutomationOutput {
 	return i.ToAutomationOutputWithContext(context.Background())
 }
 
-func (i Automation) ToAutomationOutputWithContext(ctx context.Context) AutomationOutput {
+func (i *Automation) ToAutomationOutputWithContext(ctx context.Context) AutomationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationOutput)
 }
 
@@ -206,7 +206,7 @@ type AutomationOutput struct {
 }
 
 func (AutomationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationOutput)(nil)).Elem()
+	return reflect.TypeOf((*Automation)(nil))
 }
 
 func (o AutomationOutput) ToAutomationOutput() AutomationOutput {

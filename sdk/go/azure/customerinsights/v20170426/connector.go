@@ -207,15 +207,15 @@ type ConnectorInput interface {
 	ToConnectorOutputWithContext(ctx context.Context) ConnectorOutput
 }
 
-func (Connector) ElementType() reflect.Type {
-	return reflect.TypeOf((*Connector)(nil)).Elem()
+func (*Connector) ElementType() reflect.Type {
+	return reflect.TypeOf((*Connector)(nil))
 }
 
-func (i Connector) ToConnectorOutput() ConnectorOutput {
+func (i *Connector) ToConnectorOutput() ConnectorOutput {
 	return i.ToConnectorOutputWithContext(context.Background())
 }
 
-func (i Connector) ToConnectorOutputWithContext(ctx context.Context) ConnectorOutput {
+func (i *Connector) ToConnectorOutputWithContext(ctx context.Context) ConnectorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorOutput)
 }
 
@@ -224,7 +224,7 @@ type ConnectorOutput struct {
 }
 
 func (ConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorOutput)(nil)).Elem()
+	return reflect.TypeOf((*Connector)(nil))
 }
 
 func (o ConnectorOutput) ToConnectorOutput() ConnectorOutput {

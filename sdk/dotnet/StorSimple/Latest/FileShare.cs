@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The File Share.
     /// Latest API Version: 2016-10-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/latest:FileShare")]
     public partial class FileShare : Pulumi.CustomResource
     {
         /// <summary>

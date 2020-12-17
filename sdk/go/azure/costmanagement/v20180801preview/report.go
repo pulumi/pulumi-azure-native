@@ -144,15 +144,15 @@ type ReportInput interface {
 	ToReportOutputWithContext(ctx context.Context) ReportOutput
 }
 
-func (Report) ElementType() reflect.Type {
-	return reflect.TypeOf((*Report)(nil)).Elem()
+func (*Report) ElementType() reflect.Type {
+	return reflect.TypeOf((*Report)(nil))
 }
 
-func (i Report) ToReportOutput() ReportOutput {
+func (i *Report) ToReportOutput() ReportOutput {
 	return i.ToReportOutputWithContext(context.Background())
 }
 
-func (i Report) ToReportOutputWithContext(ctx context.Context) ReportOutput {
+func (i *Report) ToReportOutputWithContext(ctx context.Context) ReportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReportOutput)
 }
 
@@ -161,7 +161,7 @@ type ReportOutput struct {
 }
 
 func (ReportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportOutput)(nil)).Elem()
+	return reflect.TypeOf((*Report)(nil))
 }
 
 func (o ReportOutput) ToReportOutput() ReportOutput {

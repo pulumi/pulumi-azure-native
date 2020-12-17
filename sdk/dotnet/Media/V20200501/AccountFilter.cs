@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
     /// <summary>
     /// An Account Filter.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20200501:AccountFilter")]
     public partial class AccountFilter : Pulumi.CustomResource
     {
         /// <summary>

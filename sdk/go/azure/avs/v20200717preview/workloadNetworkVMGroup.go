@@ -148,15 +148,15 @@ type WorkloadNetworkVMGroupInput interface {
 	ToWorkloadNetworkVMGroupOutputWithContext(ctx context.Context) WorkloadNetworkVMGroupOutput
 }
 
-func (WorkloadNetworkVMGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkVMGroup)(nil)).Elem()
+func (*WorkloadNetworkVMGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkVMGroup)(nil))
 }
 
-func (i WorkloadNetworkVMGroup) ToWorkloadNetworkVMGroupOutput() WorkloadNetworkVMGroupOutput {
+func (i *WorkloadNetworkVMGroup) ToWorkloadNetworkVMGroupOutput() WorkloadNetworkVMGroupOutput {
 	return i.ToWorkloadNetworkVMGroupOutputWithContext(context.Background())
 }
 
-func (i WorkloadNetworkVMGroup) ToWorkloadNetworkVMGroupOutputWithContext(ctx context.Context) WorkloadNetworkVMGroupOutput {
+func (i *WorkloadNetworkVMGroup) ToWorkloadNetworkVMGroupOutputWithContext(ctx context.Context) WorkloadNetworkVMGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkVMGroupOutput)
 }
 
@@ -165,7 +165,7 @@ type WorkloadNetworkVMGroupOutput struct {
 }
 
 func (WorkloadNetworkVMGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkVMGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkloadNetworkVMGroup)(nil))
 }
 
 func (o WorkloadNetworkVMGroupOutput) ToWorkloadNetworkVMGroupOutput() WorkloadNetworkVMGroupOutput {

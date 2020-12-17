@@ -223,15 +223,15 @@ type PolicyResourceInput interface {
 	ToPolicyResourceOutputWithContext(ctx context.Context) PolicyResourceOutput
 }
 
-func (PolicyResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyResource)(nil)).Elem()
+func (*PolicyResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyResource)(nil))
 }
 
-func (i PolicyResource) ToPolicyResourceOutput() PolicyResourceOutput {
+func (i *PolicyResource) ToPolicyResourceOutput() PolicyResourceOutput {
 	return i.ToPolicyResourceOutputWithContext(context.Background())
 }
 
-func (i PolicyResource) ToPolicyResourceOutputWithContext(ctx context.Context) PolicyResourceOutput {
+func (i *PolicyResource) ToPolicyResourceOutputWithContext(ctx context.Context) PolicyResourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyResourceOutput)
 }
 
@@ -240,7 +240,7 @@ type PolicyResourceOutput struct {
 }
 
 func (PolicyResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyResourceOutput)(nil)).Elem()
+	return reflect.TypeOf((*PolicyResource)(nil))
 }
 
 func (o PolicyResourceOutput) ToPolicyResourceOutput() PolicyResourceOutput {

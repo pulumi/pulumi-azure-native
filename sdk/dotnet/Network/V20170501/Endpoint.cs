@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20170501:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>

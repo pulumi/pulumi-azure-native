@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
     /// <summary>
     /// Azure Migrate Project.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:migrate/v20180202:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>

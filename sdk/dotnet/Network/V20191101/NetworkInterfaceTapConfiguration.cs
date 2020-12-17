@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
     /// <summary>
     /// Tap configuration in a Network Interface.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20191101:NetworkInterfaceTapConfiguration")]
     public partial class NetworkInterfaceTapConfiguration : Pulumi.CustomResource
     {
         /// <summary>

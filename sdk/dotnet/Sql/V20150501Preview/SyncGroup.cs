@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
     /// <summary>
     /// An Azure SQL Database sync group.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20150501preview:SyncGroup")]
     public partial class SyncGroup : Pulumi.CustomResource
     {
         /// <summary>

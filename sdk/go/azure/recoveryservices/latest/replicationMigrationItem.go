@@ -149,15 +149,15 @@ type ReplicationMigrationItemInput interface {
 	ToReplicationMigrationItemOutputWithContext(ctx context.Context) ReplicationMigrationItemOutput
 }
 
-func (ReplicationMigrationItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationMigrationItem)(nil)).Elem()
+func (*ReplicationMigrationItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationMigrationItem)(nil))
 }
 
-func (i ReplicationMigrationItem) ToReplicationMigrationItemOutput() ReplicationMigrationItemOutput {
+func (i *ReplicationMigrationItem) ToReplicationMigrationItemOutput() ReplicationMigrationItemOutput {
 	return i.ToReplicationMigrationItemOutputWithContext(context.Background())
 }
 
-func (i ReplicationMigrationItem) ToReplicationMigrationItemOutputWithContext(ctx context.Context) ReplicationMigrationItemOutput {
+func (i *ReplicationMigrationItem) ToReplicationMigrationItemOutputWithContext(ctx context.Context) ReplicationMigrationItemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationMigrationItemOutput)
 }
 
@@ -166,7 +166,7 @@ type ReplicationMigrationItemOutput struct {
 }
 
 func (ReplicationMigrationItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationMigrationItemOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReplicationMigrationItem)(nil))
 }
 
 func (o ReplicationMigrationItemOutput) ToReplicationMigrationItemOutput() ReplicationMigrationItemOutput {

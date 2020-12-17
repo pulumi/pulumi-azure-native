@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
     /// The private endpoint connection of a provisioning service
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection")]
     public partial class IotDpsResourcePrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

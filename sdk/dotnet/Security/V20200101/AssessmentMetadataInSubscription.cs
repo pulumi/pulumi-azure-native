@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101
     /// <summary>
     /// Security assessment metadata
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20200101:AssessmentMetadataInSubscription")]
     public partial class AssessmentMetadataInSubscription : Pulumi.CustomResource
     {
         /// <summary>

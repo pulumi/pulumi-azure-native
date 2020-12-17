@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
     /// <summary>
     /// Gateway hostname configuration details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration")]
     public partial class GatewayHostnameConfiguration : Pulumi.CustomResource
     {
         /// <summary>

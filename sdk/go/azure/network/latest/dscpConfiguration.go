@@ -223,15 +223,15 @@ type DscpConfigurationInput interface {
 	ToDscpConfigurationOutputWithContext(ctx context.Context) DscpConfigurationOutput
 }
 
-func (DscpConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscpConfiguration)(nil)).Elem()
+func (*DscpConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscpConfiguration)(nil))
 }
 
-func (i DscpConfiguration) ToDscpConfigurationOutput() DscpConfigurationOutput {
+func (i *DscpConfiguration) ToDscpConfigurationOutput() DscpConfigurationOutput {
 	return i.ToDscpConfigurationOutputWithContext(context.Background())
 }
 
-func (i DscpConfiguration) ToDscpConfigurationOutputWithContext(ctx context.Context) DscpConfigurationOutput {
+func (i *DscpConfiguration) ToDscpConfigurationOutputWithContext(ctx context.Context) DscpConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DscpConfigurationOutput)
 }
 
@@ -240,7 +240,7 @@ type DscpConfigurationOutput struct {
 }
 
 func (DscpConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscpConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*DscpConfiguration)(nil))
 }
 
 func (o DscpConfigurationOutput) ToDscpConfigurationOutput() DscpConfigurationOutput {

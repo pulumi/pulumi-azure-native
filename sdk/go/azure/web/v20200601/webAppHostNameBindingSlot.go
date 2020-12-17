@@ -233,15 +233,15 @@ type WebAppHostNameBindingSlotInput interface {
 	ToWebAppHostNameBindingSlotOutputWithContext(ctx context.Context) WebAppHostNameBindingSlotOutput
 }
 
-func (WebAppHostNameBindingSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHostNameBindingSlot)(nil)).Elem()
+func (*WebAppHostNameBindingSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHostNameBindingSlot)(nil))
 }
 
-func (i WebAppHostNameBindingSlot) ToWebAppHostNameBindingSlotOutput() WebAppHostNameBindingSlotOutput {
+func (i *WebAppHostNameBindingSlot) ToWebAppHostNameBindingSlotOutput() WebAppHostNameBindingSlotOutput {
 	return i.ToWebAppHostNameBindingSlotOutputWithContext(context.Background())
 }
 
-func (i WebAppHostNameBindingSlot) ToWebAppHostNameBindingSlotOutputWithContext(ctx context.Context) WebAppHostNameBindingSlotOutput {
+func (i *WebAppHostNameBindingSlot) ToWebAppHostNameBindingSlotOutputWithContext(ctx context.Context) WebAppHostNameBindingSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppHostNameBindingSlotOutput)
 }
 
@@ -250,7 +250,7 @@ type WebAppHostNameBindingSlotOutput struct {
 }
 
 func (WebAppHostNameBindingSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHostNameBindingSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppHostNameBindingSlot)(nil))
 }
 
 func (o WebAppHostNameBindingSlotOutput) ToWebAppHostNameBindingSlotOutput() WebAppHostNameBindingSlotOutput {

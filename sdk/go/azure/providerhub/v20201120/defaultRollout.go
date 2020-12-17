@@ -114,15 +114,15 @@ type DefaultRolloutInput interface {
 	ToDefaultRolloutOutputWithContext(ctx context.Context) DefaultRolloutOutput
 }
 
-func (DefaultRollout) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultRollout)(nil)).Elem()
+func (*DefaultRollout) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRollout)(nil))
 }
 
-func (i DefaultRollout) ToDefaultRolloutOutput() DefaultRolloutOutput {
+func (i *DefaultRollout) ToDefaultRolloutOutput() DefaultRolloutOutput {
 	return i.ToDefaultRolloutOutputWithContext(context.Background())
 }
 
-func (i DefaultRollout) ToDefaultRolloutOutputWithContext(ctx context.Context) DefaultRolloutOutput {
+func (i *DefaultRollout) ToDefaultRolloutOutputWithContext(ctx context.Context) DefaultRolloutOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutOutput)
 }
 
@@ -131,7 +131,7 @@ type DefaultRolloutOutput struct {
 }
 
 func (DefaultRolloutOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultRolloutOutput)(nil)).Elem()
+	return reflect.TypeOf((*DefaultRollout)(nil))
 }
 
 func (o DefaultRolloutOutput) ToDefaultRolloutOutput() DefaultRolloutOutput {

@@ -118,15 +118,15 @@ type OperationByProviderRegistrationInput interface {
 	ToOperationByProviderRegistrationOutputWithContext(ctx context.Context) OperationByProviderRegistrationOutput
 }
 
-func (OperationByProviderRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationByProviderRegistration)(nil)).Elem()
+func (*OperationByProviderRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperationByProviderRegistration)(nil))
 }
 
-func (i OperationByProviderRegistration) ToOperationByProviderRegistrationOutput() OperationByProviderRegistrationOutput {
+func (i *OperationByProviderRegistration) ToOperationByProviderRegistrationOutput() OperationByProviderRegistrationOutput {
 	return i.ToOperationByProviderRegistrationOutputWithContext(context.Background())
 }
 
-func (i OperationByProviderRegistration) ToOperationByProviderRegistrationOutputWithContext(ctx context.Context) OperationByProviderRegistrationOutput {
+func (i *OperationByProviderRegistration) ToOperationByProviderRegistrationOutputWithContext(ctx context.Context) OperationByProviderRegistrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OperationByProviderRegistrationOutput)
 }
 
@@ -135,7 +135,7 @@ type OperationByProviderRegistrationOutput struct {
 }
 
 func (OperationByProviderRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationByProviderRegistrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*OperationByProviderRegistration)(nil))
 }
 
 func (o OperationByProviderRegistrationOutput) ToOperationByProviderRegistrationOutput() OperationByProviderRegistrationOutput {

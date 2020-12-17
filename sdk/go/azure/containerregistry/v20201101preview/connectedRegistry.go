@@ -200,15 +200,15 @@ type ConnectedRegistryInput interface {
 	ToConnectedRegistryOutputWithContext(ctx context.Context) ConnectedRegistryOutput
 }
 
-func (ConnectedRegistry) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedRegistry)(nil)).Elem()
+func (*ConnectedRegistry) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedRegistry)(nil))
 }
 
-func (i ConnectedRegistry) ToConnectedRegistryOutput() ConnectedRegistryOutput {
+func (i *ConnectedRegistry) ToConnectedRegistryOutput() ConnectedRegistryOutput {
 	return i.ToConnectedRegistryOutputWithContext(context.Background())
 }
 
-func (i ConnectedRegistry) ToConnectedRegistryOutputWithContext(ctx context.Context) ConnectedRegistryOutput {
+func (i *ConnectedRegistry) ToConnectedRegistryOutputWithContext(ctx context.Context) ConnectedRegistryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedRegistryOutput)
 }
 
@@ -217,7 +217,7 @@ type ConnectedRegistryOutput struct {
 }
 
 func (ConnectedRegistryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedRegistryOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConnectedRegistry)(nil))
 }
 
 func (o ConnectedRegistryOutput) ToConnectedRegistryOutput() ConnectedRegistryOutput {

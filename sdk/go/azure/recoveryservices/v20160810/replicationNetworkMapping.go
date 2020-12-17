@@ -148,15 +148,15 @@ type ReplicationNetworkMappingInput interface {
 	ToReplicationNetworkMappingOutputWithContext(ctx context.Context) ReplicationNetworkMappingOutput
 }
 
-func (ReplicationNetworkMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationNetworkMapping)(nil)).Elem()
+func (*ReplicationNetworkMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationNetworkMapping)(nil))
 }
 
-func (i ReplicationNetworkMapping) ToReplicationNetworkMappingOutput() ReplicationNetworkMappingOutput {
+func (i *ReplicationNetworkMapping) ToReplicationNetworkMappingOutput() ReplicationNetworkMappingOutput {
 	return i.ToReplicationNetworkMappingOutputWithContext(context.Background())
 }
 
-func (i ReplicationNetworkMapping) ToReplicationNetworkMappingOutputWithContext(ctx context.Context) ReplicationNetworkMappingOutput {
+func (i *ReplicationNetworkMapping) ToReplicationNetworkMappingOutputWithContext(ctx context.Context) ReplicationNetworkMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationNetworkMappingOutput)
 }
 
@@ -165,7 +165,7 @@ type ReplicationNetworkMappingOutput struct {
 }
 
 func (ReplicationNetworkMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationNetworkMappingOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReplicationNetworkMapping)(nil))
 }
 
 func (o ReplicationNetworkMappingOutput) ToReplicationNetworkMappingOutput() ReplicationNetworkMappingOutput {

@@ -195,15 +195,15 @@ type ADCCatalogInput interface {
 	ToADCCatalogOutputWithContext(ctx context.Context) ADCCatalogOutput
 }
 
-func (ADCCatalog) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADCCatalog)(nil)).Elem()
+func (*ADCCatalog) ElementType() reflect.Type {
+	return reflect.TypeOf((*ADCCatalog)(nil))
 }
 
-func (i ADCCatalog) ToADCCatalogOutput() ADCCatalogOutput {
+func (i *ADCCatalog) ToADCCatalogOutput() ADCCatalogOutput {
 	return i.ToADCCatalogOutputWithContext(context.Background())
 }
 
-func (i ADCCatalog) ToADCCatalogOutputWithContext(ctx context.Context) ADCCatalogOutput {
+func (i *ADCCatalog) ToADCCatalogOutputWithContext(ctx context.Context) ADCCatalogOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ADCCatalogOutput)
 }
 
@@ -212,7 +212,7 @@ type ADCCatalogOutput struct {
 }
 
 func (ADCCatalogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADCCatalogOutput)(nil)).Elem()
+	return reflect.TypeOf((*ADCCatalog)(nil))
 }
 
 func (o ADCCatalogOutput) ToADCCatalogOutput() ADCCatalogOutput {

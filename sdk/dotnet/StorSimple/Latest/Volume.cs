@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The volume.
     /// Latest API Version: 2017-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/latest:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>

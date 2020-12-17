@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214
     /// <summary>
     /// Resource information with extended details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:keyvault/v20180214:Vault")]
     public partial class Vault : Pulumi.CustomResource
     {
         /// <summary>

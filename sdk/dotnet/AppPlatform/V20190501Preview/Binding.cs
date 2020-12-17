@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
     /// <summary>
     /// Binding resource payload
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:appplatform/v20190501preview:Binding")]
     public partial class Binding : Pulumi.CustomResource
     {
         /// <summary>

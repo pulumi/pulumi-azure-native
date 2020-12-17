@@ -153,15 +153,15 @@ type DeploymentAtScopeInput interface {
 	ToDeploymentAtScopeOutputWithContext(ctx context.Context) DeploymentAtScopeOutput
 }
 
-func (DeploymentAtScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtScope)(nil)).Elem()
+func (*DeploymentAtScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtScope)(nil))
 }
 
-func (i DeploymentAtScope) ToDeploymentAtScopeOutput() DeploymentAtScopeOutput {
+func (i *DeploymentAtScope) ToDeploymentAtScopeOutput() DeploymentAtScopeOutput {
 	return i.ToDeploymentAtScopeOutputWithContext(context.Background())
 }
 
-func (i DeploymentAtScope) ToDeploymentAtScopeOutputWithContext(ctx context.Context) DeploymentAtScopeOutput {
+func (i *DeploymentAtScope) ToDeploymentAtScopeOutputWithContext(ctx context.Context) DeploymentAtScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtScopeOutput)
 }
 
@@ -170,7 +170,7 @@ type DeploymentAtScopeOutput struct {
 }
 
 func (DeploymentAtScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtScopeOutput)(nil)).Elem()
+	return reflect.TypeOf((*DeploymentAtScope)(nil))
 }
 
 func (o DeploymentAtScopeOutput) ToDeploymentAtScopeOutput() DeploymentAtScopeOutput {

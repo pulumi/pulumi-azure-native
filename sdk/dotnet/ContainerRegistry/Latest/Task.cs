@@ -14,6 +14,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
     /// The task will have all information to schedule a run against it.
     /// Latest API Version: 2019-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/latest:Task")]
     public partial class Task : Pulumi.CustomResource
     {
         /// <summary>

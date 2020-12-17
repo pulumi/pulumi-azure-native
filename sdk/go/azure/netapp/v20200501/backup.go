@@ -182,15 +182,15 @@ type BackupInput interface {
 	ToBackupOutputWithContext(ctx context.Context) BackupOutput
 }
 
-func (Backup) ElementType() reflect.Type {
-	return reflect.TypeOf((*Backup)(nil)).Elem()
+func (*Backup) ElementType() reflect.Type {
+	return reflect.TypeOf((*Backup)(nil))
 }
 
-func (i Backup) ToBackupOutput() BackupOutput {
+func (i *Backup) ToBackupOutput() BackupOutput {
 	return i.ToBackupOutputWithContext(context.Background())
 }
 
-func (i Backup) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
+func (i *Backup) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupOutput)
 }
 
@@ -199,7 +199,7 @@ type BackupOutput struct {
 }
 
 func (BackupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupOutput)(nil)).Elem()
+	return reflect.TypeOf((*Backup)(nil))
 }
 
 func (o BackupOutput) ToBackupOutput() BackupOutput {

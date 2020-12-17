@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
     /// Represents a Database.
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformariadb/latest:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>

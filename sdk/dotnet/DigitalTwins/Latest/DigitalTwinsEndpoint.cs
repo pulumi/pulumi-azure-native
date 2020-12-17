@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
     /// DigitalTwinsInstance endpoint resource.
     /// Latest API Version: 2020-10-31.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint")]
     public partial class DigitalTwinsEndpoint : Pulumi.CustomResource
     {
         /// <summary>

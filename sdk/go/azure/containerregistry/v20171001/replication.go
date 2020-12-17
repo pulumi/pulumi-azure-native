@@ -159,15 +159,15 @@ type ReplicationInput interface {
 	ToReplicationOutputWithContext(ctx context.Context) ReplicationOutput
 }
 
-func (Replication) ElementType() reflect.Type {
-	return reflect.TypeOf((*Replication)(nil)).Elem()
+func (*Replication) ElementType() reflect.Type {
+	return reflect.TypeOf((*Replication)(nil))
 }
 
-func (i Replication) ToReplicationOutput() ReplicationOutput {
+func (i *Replication) ToReplicationOutput() ReplicationOutput {
 	return i.ToReplicationOutputWithContext(context.Background())
 }
 
-func (i Replication) ToReplicationOutputWithContext(ctx context.Context) ReplicationOutput {
+func (i *Replication) ToReplicationOutputWithContext(ctx context.Context) ReplicationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationOutput)
 }
 
@@ -176,7 +176,7 @@ type ReplicationOutput struct {
 }
 
 func (ReplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationOutput)(nil)).Elem()
+	return reflect.TypeOf((*Replication)(nil))
 }
 
 func (o ReplicationOutput) ToReplicationOutput() ReplicationOutput {

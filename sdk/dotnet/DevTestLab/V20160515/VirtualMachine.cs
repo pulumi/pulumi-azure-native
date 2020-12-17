@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
     /// <summary>
     /// A virtual machine.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20160515:VirtualMachine")]
     public partial class VirtualMachine : Pulumi.CustomResource
     {
         /// <summary>

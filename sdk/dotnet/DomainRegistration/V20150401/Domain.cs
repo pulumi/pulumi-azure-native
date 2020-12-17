@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20150401
     /// <summary>
     /// Information about a domain.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:domainregistration/v20150401:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         [Output("authCode")]

@@ -164,15 +164,15 @@ type NamedValueInput interface {
 	ToNamedValueOutputWithContext(ctx context.Context) NamedValueOutput
 }
 
-func (NamedValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedValue)(nil)).Elem()
+func (*NamedValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedValue)(nil))
 }
 
-func (i NamedValue) ToNamedValueOutput() NamedValueOutput {
+func (i *NamedValue) ToNamedValueOutput() NamedValueOutput {
 	return i.ToNamedValueOutputWithContext(context.Background())
 }
 
-func (i NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedValueOutput {
+func (i *NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedValueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueOutput)
 }
 
@@ -181,7 +181,7 @@ type NamedValueOutput struct {
 }
 
 func (NamedValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedValueOutput)(nil)).Elem()
+	return reflect.TypeOf((*NamedValue)(nil))
 }
 
 func (o NamedValueOutput) ToNamedValueOutput() NamedValueOutput {

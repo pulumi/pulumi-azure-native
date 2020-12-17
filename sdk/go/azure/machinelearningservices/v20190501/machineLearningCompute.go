@@ -191,15 +191,15 @@ type MachineLearningComputeInput interface {
 	ToMachineLearningComputeOutputWithContext(ctx context.Context) MachineLearningComputeOutput
 }
 
-func (MachineLearningCompute) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningCompute)(nil)).Elem()
+func (*MachineLearningCompute) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineLearningCompute)(nil))
 }
 
-func (i MachineLearningCompute) ToMachineLearningComputeOutput() MachineLearningComputeOutput {
+func (i *MachineLearningCompute) ToMachineLearningComputeOutput() MachineLearningComputeOutput {
 	return i.ToMachineLearningComputeOutputWithContext(context.Background())
 }
 
-func (i MachineLearningCompute) ToMachineLearningComputeOutputWithContext(ctx context.Context) MachineLearningComputeOutput {
+func (i *MachineLearningCompute) ToMachineLearningComputeOutputWithContext(ctx context.Context) MachineLearningComputeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningComputeOutput)
 }
 
@@ -208,7 +208,7 @@ type MachineLearningComputeOutput struct {
 }
 
 func (MachineLearningComputeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningComputeOutput)(nil)).Elem()
+	return reflect.TypeOf((*MachineLearningCompute)(nil))
 }
 
 func (o MachineLearningComputeOutput) ToMachineLearningComputeOutput() MachineLearningComputeOutput {

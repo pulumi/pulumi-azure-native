@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
     /// <summary>
     /// Definition of the schedule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:Schedule")]
     public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>

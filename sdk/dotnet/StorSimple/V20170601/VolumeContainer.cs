@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
     /// <summary>
     /// The volume container.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20170601:VolumeContainer")]
     public partial class VolumeContainer : Pulumi.CustomResource
     {
         /// <summary>

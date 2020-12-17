@@ -138,15 +138,15 @@ type ActionRuleByNameInput interface {
 	ToActionRuleByNameOutputWithContext(ctx context.Context) ActionRuleByNameOutput
 }
 
-func (ActionRuleByName) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleByName)(nil)).Elem()
+func (*ActionRuleByName) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleByName)(nil))
 }
 
-func (i ActionRuleByName) ToActionRuleByNameOutput() ActionRuleByNameOutput {
+func (i *ActionRuleByName) ToActionRuleByNameOutput() ActionRuleByNameOutput {
 	return i.ToActionRuleByNameOutputWithContext(context.Background())
 }
 
-func (i ActionRuleByName) ToActionRuleByNameOutputWithContext(ctx context.Context) ActionRuleByNameOutput {
+func (i *ActionRuleByName) ToActionRuleByNameOutputWithContext(ctx context.Context) ActionRuleByNameOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleByNameOutput)
 }
 
@@ -155,7 +155,7 @@ type ActionRuleByNameOutput struct {
 }
 
 func (ActionRuleByNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleByNameOutput)(nil)).Elem()
+	return reflect.TypeOf((*ActionRuleByName)(nil))
 }
 
 func (o ActionRuleByNameOutput) ToActionRuleByNameOutput() ActionRuleByNameOutput {

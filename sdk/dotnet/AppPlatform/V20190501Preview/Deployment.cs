@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
     /// <summary>
     /// Deployment resource payload
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:appplatform/v20190501preview:Deployment")]
     public partial class Deployment : Pulumi.CustomResource
     {
         /// <summary>

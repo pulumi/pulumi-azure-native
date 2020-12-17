@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
     /// Data Lake Store virtual network rule information.
     /// Latest API Version: 2016-11-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datalakestore/latest:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
     /// <summary>
     /// The integration account session.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/v20190501:IntegrationAccountSession")]
     public partial class IntegrationAccountSession : Pulumi.CustomResource
     {
         /// <summary>

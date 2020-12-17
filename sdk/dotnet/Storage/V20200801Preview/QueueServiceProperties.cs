@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
     /// <summary>
     /// The properties of a storage account’s Queue service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20200801preview:QueueServiceProperties")]
     public partial class QueueServiceProperties : Pulumi.CustomResource
     {
         /// <summary>

@@ -250,15 +250,15 @@ type WebAppSiteExtensionInput interface {
 	ToWebAppSiteExtensionOutputWithContext(ctx context.Context) WebAppSiteExtensionOutput
 }
 
-func (WebAppSiteExtension) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSiteExtension)(nil)).Elem()
+func (*WebAppSiteExtension) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSiteExtension)(nil))
 }
 
-func (i WebAppSiteExtension) ToWebAppSiteExtensionOutput() WebAppSiteExtensionOutput {
+func (i *WebAppSiteExtension) ToWebAppSiteExtensionOutput() WebAppSiteExtensionOutput {
 	return i.ToWebAppSiteExtensionOutputWithContext(context.Background())
 }
 
-func (i WebAppSiteExtension) ToWebAppSiteExtensionOutputWithContext(ctx context.Context) WebAppSiteExtensionOutput {
+func (i *WebAppSiteExtension) ToWebAppSiteExtensionOutputWithContext(ctx context.Context) WebAppSiteExtensionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSiteExtensionOutput)
 }
 
@@ -267,7 +267,7 @@ type WebAppSiteExtensionOutput struct {
 }
 
 func (WebAppSiteExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSiteExtensionOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppSiteExtension)(nil))
 }
 
 func (o WebAppSiteExtensionOutput) ToWebAppSiteExtensionOutput() WebAppSiteExtensionOutput {

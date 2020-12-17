@@ -184,15 +184,15 @@ type SiteSlotConfigNamesInput interface {
 	ToSiteSlotConfigNamesOutputWithContext(ctx context.Context) SiteSlotConfigNamesOutput
 }
 
-func (SiteSlotConfigNames) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSlotConfigNames)(nil)).Elem()
+func (*SiteSlotConfigNames) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteSlotConfigNames)(nil))
 }
 
-func (i SiteSlotConfigNames) ToSiteSlotConfigNamesOutput() SiteSlotConfigNamesOutput {
+func (i *SiteSlotConfigNames) ToSiteSlotConfigNamesOutput() SiteSlotConfigNamesOutput {
 	return i.ToSiteSlotConfigNamesOutputWithContext(context.Background())
 }
 
-func (i SiteSlotConfigNames) ToSiteSlotConfigNamesOutputWithContext(ctx context.Context) SiteSlotConfigNamesOutput {
+func (i *SiteSlotConfigNames) ToSiteSlotConfigNamesOutputWithContext(ctx context.Context) SiteSlotConfigNamesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSlotConfigNamesOutput)
 }
 
@@ -201,7 +201,7 @@ type SiteSlotConfigNamesOutput struct {
 }
 
 func (SiteSlotConfigNamesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSlotConfigNamesOutput)(nil)).Elem()
+	return reflect.TypeOf((*SiteSlotConfigNames)(nil))
 }
 
 func (o SiteSlotConfigNamesOutput) ToSiteSlotConfigNamesOutput() SiteSlotConfigNamesOutput {

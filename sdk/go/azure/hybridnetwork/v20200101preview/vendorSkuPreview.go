@@ -106,15 +106,15 @@ type VendorSkuPreviewInput interface {
 	ToVendorSkuPreviewOutputWithContext(ctx context.Context) VendorSkuPreviewOutput
 }
 
-func (VendorSkuPreview) ElementType() reflect.Type {
-	return reflect.TypeOf((*VendorSkuPreview)(nil)).Elem()
+func (*VendorSkuPreview) ElementType() reflect.Type {
+	return reflect.TypeOf((*VendorSkuPreview)(nil))
 }
 
-func (i VendorSkuPreview) ToVendorSkuPreviewOutput() VendorSkuPreviewOutput {
+func (i *VendorSkuPreview) ToVendorSkuPreviewOutput() VendorSkuPreviewOutput {
 	return i.ToVendorSkuPreviewOutputWithContext(context.Background())
 }
 
-func (i VendorSkuPreview) ToVendorSkuPreviewOutputWithContext(ctx context.Context) VendorSkuPreviewOutput {
+func (i *VendorSkuPreview) ToVendorSkuPreviewOutputWithContext(ctx context.Context) VendorSkuPreviewOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VendorSkuPreviewOutput)
 }
 
@@ -123,7 +123,7 @@ type VendorSkuPreviewOutput struct {
 }
 
 func (VendorSkuPreviewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VendorSkuPreviewOutput)(nil)).Elem()
+	return reflect.TypeOf((*VendorSkuPreview)(nil))
 }
 
 func (o VendorSkuPreviewOutput) ToVendorSkuPreviewOutput() VendorSkuPreviewOutput {

@@ -212,15 +212,15 @@ type ContainerServiceInput interface {
 	ToContainerServiceOutputWithContext(ctx context.Context) ContainerServiceOutput
 }
 
-func (ContainerService) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerService)(nil)).Elem()
+func (*ContainerService) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerService)(nil))
 }
 
-func (i ContainerService) ToContainerServiceOutput() ContainerServiceOutput {
+func (i *ContainerService) ToContainerServiceOutput() ContainerServiceOutput {
 	return i.ToContainerServiceOutputWithContext(context.Background())
 }
 
-func (i ContainerService) ToContainerServiceOutputWithContext(ctx context.Context) ContainerServiceOutput {
+func (i *ContainerService) ToContainerServiceOutputWithContext(ctx context.Context) ContainerServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOutput)
 }
 
@@ -229,7 +229,7 @@ type ContainerServiceOutput struct {
 }
 
 func (ContainerServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*ContainerService)(nil))
 }
 
 func (o ContainerServiceOutput) ToContainerServiceOutput() ContainerServiceOutput {

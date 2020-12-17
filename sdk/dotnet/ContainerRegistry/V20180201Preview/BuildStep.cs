@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
     /// <summary>
     /// Build step resource properties
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20180201preview:BuildStep")]
     public partial class BuildStep : Pulumi.CustomResource
     {
         /// <summary>

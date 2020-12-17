@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
     /// <summary>
     /// VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteVNETConnection")]
     public partial class SiteVNETConnection : Pulumi.CustomResource
     {
         /// <summary>

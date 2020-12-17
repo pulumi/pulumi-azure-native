@@ -202,15 +202,15 @@ type SiteRelayServiceConnectionInput interface {
 	ToSiteRelayServiceConnectionOutputWithContext(ctx context.Context) SiteRelayServiceConnectionOutput
 }
 
-func (SiteRelayServiceConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteRelayServiceConnection)(nil)).Elem()
+func (*SiteRelayServiceConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteRelayServiceConnection)(nil))
 }
 
-func (i SiteRelayServiceConnection) ToSiteRelayServiceConnectionOutput() SiteRelayServiceConnectionOutput {
+func (i *SiteRelayServiceConnection) ToSiteRelayServiceConnectionOutput() SiteRelayServiceConnectionOutput {
 	return i.ToSiteRelayServiceConnectionOutputWithContext(context.Background())
 }
 
-func (i SiteRelayServiceConnection) ToSiteRelayServiceConnectionOutputWithContext(ctx context.Context) SiteRelayServiceConnectionOutput {
+func (i *SiteRelayServiceConnection) ToSiteRelayServiceConnectionOutputWithContext(ctx context.Context) SiteRelayServiceConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteRelayServiceConnectionOutput)
 }
 
@@ -219,7 +219,7 @@ type SiteRelayServiceConnectionOutput struct {
 }
 
 func (SiteRelayServiceConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteRelayServiceConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SiteRelayServiceConnection)(nil))
 }
 
 func (o SiteRelayServiceConnectionOutput) ToSiteRelayServiceConnectionOutput() SiteRelayServiceConnectionOutput {

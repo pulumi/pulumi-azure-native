@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
     /// <summary>
     /// Complete information about the private endpoint.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint")]
     public partial class PrivateEndpoint : Pulumi.CustomResource
     {
         /// <summary>

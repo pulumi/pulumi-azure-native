@@ -228,15 +228,15 @@ type PartnerTopicEventSubscriptionInput interface {
 	ToPartnerTopicEventSubscriptionOutputWithContext(ctx context.Context) PartnerTopicEventSubscriptionOutput
 }
 
-func (PartnerTopicEventSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerTopicEventSubscription)(nil)).Elem()
+func (*PartnerTopicEventSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerTopicEventSubscription)(nil))
 }
 
-func (i PartnerTopicEventSubscription) ToPartnerTopicEventSubscriptionOutput() PartnerTopicEventSubscriptionOutput {
+func (i *PartnerTopicEventSubscription) ToPartnerTopicEventSubscriptionOutput() PartnerTopicEventSubscriptionOutput {
 	return i.ToPartnerTopicEventSubscriptionOutputWithContext(context.Background())
 }
 
-func (i PartnerTopicEventSubscription) ToPartnerTopicEventSubscriptionOutputWithContext(ctx context.Context) PartnerTopicEventSubscriptionOutput {
+func (i *PartnerTopicEventSubscription) ToPartnerTopicEventSubscriptionOutputWithContext(ctx context.Context) PartnerTopicEventSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerTopicEventSubscriptionOutput)
 }
 
@@ -245,7 +245,7 @@ type PartnerTopicEventSubscriptionOutput struct {
 }
 
 func (PartnerTopicEventSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerTopicEventSubscriptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*PartnerTopicEventSubscription)(nil))
 }
 
 func (o PartnerTopicEventSubscriptionOutput) ToPartnerTopicEventSubscriptionOutput() PartnerTopicEventSubscriptionOutput {

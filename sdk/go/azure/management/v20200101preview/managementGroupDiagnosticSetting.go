@@ -169,15 +169,15 @@ type ManagementGroupDiagnosticSettingInput interface {
 	ToManagementGroupDiagnosticSettingOutputWithContext(ctx context.Context) ManagementGroupDiagnosticSettingOutput
 }
 
-func (ManagementGroupDiagnosticSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupDiagnosticSetting)(nil)).Elem()
+func (*ManagementGroupDiagnosticSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroupDiagnosticSetting)(nil))
 }
 
-func (i ManagementGroupDiagnosticSetting) ToManagementGroupDiagnosticSettingOutput() ManagementGroupDiagnosticSettingOutput {
+func (i *ManagementGroupDiagnosticSetting) ToManagementGroupDiagnosticSettingOutput() ManagementGroupDiagnosticSettingOutput {
 	return i.ToManagementGroupDiagnosticSettingOutputWithContext(context.Background())
 }
 
-func (i ManagementGroupDiagnosticSetting) ToManagementGroupDiagnosticSettingOutputWithContext(ctx context.Context) ManagementGroupDiagnosticSettingOutput {
+func (i *ManagementGroupDiagnosticSetting) ToManagementGroupDiagnosticSettingOutputWithContext(ctx context.Context) ManagementGroupDiagnosticSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupDiagnosticSettingOutput)
 }
 
@@ -186,7 +186,7 @@ type ManagementGroupDiagnosticSettingOutput struct {
 }
 
 func (ManagementGroupDiagnosticSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupDiagnosticSettingOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagementGroupDiagnosticSetting)(nil))
 }
 
 func (o ManagementGroupDiagnosticSettingOutput) ToManagementGroupDiagnosticSettingOutput() ManagementGroupDiagnosticSettingOutput {

@@ -186,15 +186,15 @@ type CustomIPPrefixInput interface {
 	ToCustomIPPrefixOutputWithContext(ctx context.Context) CustomIPPrefixOutput
 }
 
-func (CustomIPPrefix) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomIPPrefix)(nil)).Elem()
+func (*CustomIPPrefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomIPPrefix)(nil))
 }
 
-func (i CustomIPPrefix) ToCustomIPPrefixOutput() CustomIPPrefixOutput {
+func (i *CustomIPPrefix) ToCustomIPPrefixOutput() CustomIPPrefixOutput {
 	return i.ToCustomIPPrefixOutputWithContext(context.Background())
 }
 
-func (i CustomIPPrefix) ToCustomIPPrefixOutputWithContext(ctx context.Context) CustomIPPrefixOutput {
+func (i *CustomIPPrefix) ToCustomIPPrefixOutputWithContext(ctx context.Context) CustomIPPrefixOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomIPPrefixOutput)
 }
 
@@ -203,7 +203,7 @@ type CustomIPPrefixOutput struct {
 }
 
 func (CustomIPPrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomIPPrefixOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomIPPrefix)(nil))
 }
 
 func (o CustomIPPrefixOutput) ToCustomIPPrefixOutput() CustomIPPrefixOutput {

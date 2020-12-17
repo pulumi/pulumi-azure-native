@@ -140,15 +140,15 @@ type LinkedServiceInput interface {
 	ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput
 }
 
-func (LinkedService) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedService)(nil)).Elem()
+func (*LinkedService) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedService)(nil))
 }
 
-func (i LinkedService) ToLinkedServiceOutput() LinkedServiceOutput {
+func (i *LinkedService) ToLinkedServiceOutput() LinkedServiceOutput {
 	return i.ToLinkedServiceOutputWithContext(context.Background())
 }
 
-func (i LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
+func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
 }
 
@@ -157,7 +157,7 @@ type LinkedServiceOutput struct {
 }
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedService)(nil))
 }
 
 func (o LinkedServiceOutput) ToLinkedServiceOutput() LinkedServiceOutput {

@@ -141,15 +141,15 @@ type StepInput interface {
 	ToStepOutputWithContext(ctx context.Context) StepOutput
 }
 
-func (Step) ElementType() reflect.Type {
-	return reflect.TypeOf((*Step)(nil)).Elem()
+func (*Step) ElementType() reflect.Type {
+	return reflect.TypeOf((*Step)(nil))
 }
 
-func (i Step) ToStepOutput() StepOutput {
+func (i *Step) ToStepOutput() StepOutput {
 	return i.ToStepOutputWithContext(context.Background())
 }
 
-func (i Step) ToStepOutputWithContext(ctx context.Context) StepOutput {
+func (i *Step) ToStepOutputWithContext(ctx context.Context) StepOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StepOutput)
 }
 
@@ -158,7 +158,7 @@ type StepOutput struct {
 }
 
 func (StepOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StepOutput)(nil)).Elem()
+	return reflect.TypeOf((*Step)(nil))
 }
 
 func (o StepOutput) ToStepOutput() StepOutput {

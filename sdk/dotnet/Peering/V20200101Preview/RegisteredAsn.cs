@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
     /// <summary>
     /// The customer's ASN that is registered by the peering service provider.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:peering/v20200101preview:RegisteredAsn")]
     public partial class RegisteredAsn : Pulumi.CustomResource
     {
         /// <summary>

@@ -209,15 +209,15 @@ type MapInput interface {
 	ToMapOutputWithContext(ctx context.Context) MapOutput
 }
 
-func (Map) ElementType() reflect.Type {
-	return reflect.TypeOf((*Map)(nil)).Elem()
+func (*Map) ElementType() reflect.Type {
+	return reflect.TypeOf((*Map)(nil))
 }
 
-func (i Map) ToMapOutput() MapOutput {
+func (i *Map) ToMapOutput() MapOutput {
 	return i.ToMapOutputWithContext(context.Background())
 }
 
-func (i Map) ToMapOutputWithContext(ctx context.Context) MapOutput {
+func (i *Map) ToMapOutputWithContext(ctx context.Context) MapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MapOutput)
 }
 
@@ -226,7 +226,7 @@ type MapOutput struct {
 }
 
 func (MapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MapOutput)(nil)).Elem()
+	return reflect.TypeOf((*Map)(nil))
 }
 
 func (o MapOutput) ToMapOutput() MapOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Search.V20150819
     /// <summary>
     /// Describes an Azure Cognitive Search service and its current state.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:search/v20150819:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

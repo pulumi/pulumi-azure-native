@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     /// <summary>
     /// An Azure SQL job agent.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:JobAgent")]
     public partial class JobAgent : Pulumi.CustomResource
     {
         /// <summary>

@@ -181,15 +181,15 @@ type SqlPoolsV3Input interface {
 	ToSqlPoolsV3OutputWithContext(ctx context.Context) SqlPoolsV3Output
 }
 
-func (SqlPoolsV3) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolsV3)(nil)).Elem()
+func (*SqlPoolsV3) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolsV3)(nil))
 }
 
-func (i SqlPoolsV3) ToSqlPoolsV3Output() SqlPoolsV3Output {
+func (i *SqlPoolsV3) ToSqlPoolsV3Output() SqlPoolsV3Output {
 	return i.ToSqlPoolsV3OutputWithContext(context.Background())
 }
 
-func (i SqlPoolsV3) ToSqlPoolsV3OutputWithContext(ctx context.Context) SqlPoolsV3Output {
+func (i *SqlPoolsV3) ToSqlPoolsV3OutputWithContext(ctx context.Context) SqlPoolsV3Output {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolsV3Output)
 }
 
@@ -198,7 +198,7 @@ type SqlPoolsV3Output struct {
 }
 
 func (SqlPoolsV3Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolsV3Output)(nil)).Elem()
+	return reflect.TypeOf((*SqlPoolsV3)(nil))
 }
 
 func (o SqlPoolsV3Output) ToSqlPoolsV3Output() SqlPoolsV3Output {

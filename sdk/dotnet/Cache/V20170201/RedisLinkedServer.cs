@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cache.V20170201
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cache/v20170201:RedisLinkedServer")]
     public partial class RedisLinkedServer : Pulumi.CustomResource
     {
         /// <summary>

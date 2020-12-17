@@ -266,15 +266,15 @@ type RunbookInput interface {
 	ToRunbookOutputWithContext(ctx context.Context) RunbookOutput
 }
 
-func (Runbook) ElementType() reflect.Type {
-	return reflect.TypeOf((*Runbook)(nil)).Elem()
+func (*Runbook) ElementType() reflect.Type {
+	return reflect.TypeOf((*Runbook)(nil))
 }
 
-func (i Runbook) ToRunbookOutput() RunbookOutput {
+func (i *Runbook) ToRunbookOutput() RunbookOutput {
 	return i.ToRunbookOutputWithContext(context.Background())
 }
 
-func (i Runbook) ToRunbookOutputWithContext(ctx context.Context) RunbookOutput {
+func (i *Runbook) ToRunbookOutputWithContext(ctx context.Context) RunbookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RunbookOutput)
 }
 
@@ -283,7 +283,7 @@ type RunbookOutput struct {
 }
 
 func (RunbookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RunbookOutput)(nil)).Elem()
+	return reflect.TypeOf((*Runbook)(nil))
 }
 
 func (o RunbookOutput) ToRunbookOutput() RunbookOutput {

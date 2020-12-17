@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Security.V20150601Preview
 {
+    [AzureNextGenResourceType("azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy")]
     public partial class JitNetworkAccessPolicy : Pulumi.CustomResource
     {
         /// <summary>

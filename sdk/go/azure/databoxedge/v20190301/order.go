@@ -174,15 +174,15 @@ type OrderInput interface {
 	ToOrderOutputWithContext(ctx context.Context) OrderOutput
 }
 
-func (Order) ElementType() reflect.Type {
-	return reflect.TypeOf((*Order)(nil)).Elem()
+func (*Order) ElementType() reflect.Type {
+	return reflect.TypeOf((*Order)(nil))
 }
 
-func (i Order) ToOrderOutput() OrderOutput {
+func (i *Order) ToOrderOutput() OrderOutput {
 	return i.ToOrderOutputWithContext(context.Background())
 }
 
-func (i Order) ToOrderOutputWithContext(ctx context.Context) OrderOutput {
+func (i *Order) ToOrderOutputWithContext(ctx context.Context) OrderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrderOutput)
 }
 
@@ -191,7 +191,7 @@ type OrderOutput struct {
 }
 
 func (OrderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrderOutput)(nil)).Elem()
+	return reflect.TypeOf((*Order)(nil))
 }
 
 func (o OrderOutput) ToOrderOutput() OrderOutput {

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The storage domain.
     /// Latest API Version: 2016-10-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/latest:StorageDomain")]
     public partial class StorageDomain : Pulumi.CustomResource
     {
         /// <summary>

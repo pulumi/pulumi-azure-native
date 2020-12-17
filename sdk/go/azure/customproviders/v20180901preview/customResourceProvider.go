@@ -158,15 +158,15 @@ type CustomResourceProviderInput interface {
 	ToCustomResourceProviderOutputWithContext(ctx context.Context) CustomResourceProviderOutput
 }
 
-func (CustomResourceProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomResourceProvider)(nil)).Elem()
+func (*CustomResourceProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomResourceProvider)(nil))
 }
 
-func (i CustomResourceProvider) ToCustomResourceProviderOutput() CustomResourceProviderOutput {
+func (i *CustomResourceProvider) ToCustomResourceProviderOutput() CustomResourceProviderOutput {
 	return i.ToCustomResourceProviderOutputWithContext(context.Background())
 }
 
-func (i CustomResourceProvider) ToCustomResourceProviderOutputWithContext(ctx context.Context) CustomResourceProviderOutput {
+func (i *CustomResourceProvider) ToCustomResourceProviderOutputWithContext(ctx context.Context) CustomResourceProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomResourceProviderOutput)
 }
 
@@ -175,7 +175,7 @@ type CustomResourceProviderOutput struct {
 }
 
 func (CustomResourceProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomResourceProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomResourceProvider)(nil))
 }
 
 func (o CustomResourceProviderOutput) ToCustomResourceProviderOutput() CustomResourceProviderOutput {

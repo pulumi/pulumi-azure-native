@@ -151,15 +151,15 @@ type ReportByResourceGroupNameInput interface {
 	ToReportByResourceGroupNameOutputWithContext(ctx context.Context) ReportByResourceGroupNameOutput
 }
 
-func (ReportByResourceGroupName) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportByResourceGroupName)(nil)).Elem()
+func (*ReportByResourceGroupName) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportByResourceGroupName)(nil))
 }
 
-func (i ReportByResourceGroupName) ToReportByResourceGroupNameOutput() ReportByResourceGroupNameOutput {
+func (i *ReportByResourceGroupName) ToReportByResourceGroupNameOutput() ReportByResourceGroupNameOutput {
 	return i.ToReportByResourceGroupNameOutputWithContext(context.Background())
 }
 
-func (i ReportByResourceGroupName) ToReportByResourceGroupNameOutputWithContext(ctx context.Context) ReportByResourceGroupNameOutput {
+func (i *ReportByResourceGroupName) ToReportByResourceGroupNameOutputWithContext(ctx context.Context) ReportByResourceGroupNameOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReportByResourceGroupNameOutput)
 }
 
@@ -168,7 +168,7 @@ type ReportByResourceGroupNameOutput struct {
 }
 
 func (ReportByResourceGroupNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportByResourceGroupNameOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReportByResourceGroupName)(nil))
 }
 
 func (o ReportByResourceGroupNameOutput) ToReportByResourceGroupNameOutput() ReportByResourceGroupNameOutput {

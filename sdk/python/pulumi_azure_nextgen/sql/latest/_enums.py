@@ -123,8 +123,8 @@ class ServerVersion(str, Enum):
     """
     The version of the server.
     """
-    _2_0 = "2.0"
-    _12_0 = "12.0"
+    SERVER_VERSION_2_0 = "2.0"
+    SERVER_VERSION_12_0 = "12.0"
 
 
 class ServiceObjectiveName(str, Enum):

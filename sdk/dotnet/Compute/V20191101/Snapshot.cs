@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191101
     /// <summary>
     /// Snapshot resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20191101:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
     /// <summary>
     /// Pool of backend IP addresses.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool")]
     public partial class LoadBalancerBackendAddressPool : Pulumi.CustomResource
     {
         /// <summary>

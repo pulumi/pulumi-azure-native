@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.V20190601
 {
+    [AzureNextGenResourceType("azure-nextgen:storage/v20190601:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

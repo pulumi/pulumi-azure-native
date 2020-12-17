@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101
     /// <summary>
     /// Security assessment on a resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20200101:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
     {
         /// <summary>

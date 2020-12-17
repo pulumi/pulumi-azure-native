@@ -177,15 +177,15 @@ type ServerAzureADAdministratorInput interface {
 	ToServerAzureADAdministratorOutputWithContext(ctx context.Context) ServerAzureADAdministratorOutput
 }
 
-func (ServerAzureADAdministrator) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAzureADAdministrator)(nil)).Elem()
+func (*ServerAzureADAdministrator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAzureADAdministrator)(nil))
 }
 
-func (i ServerAzureADAdministrator) ToServerAzureADAdministratorOutput() ServerAzureADAdministratorOutput {
+func (i *ServerAzureADAdministrator) ToServerAzureADAdministratorOutput() ServerAzureADAdministratorOutput {
 	return i.ToServerAzureADAdministratorOutputWithContext(context.Background())
 }
 
-func (i ServerAzureADAdministrator) ToServerAzureADAdministratorOutputWithContext(ctx context.Context) ServerAzureADAdministratorOutput {
+func (i *ServerAzureADAdministrator) ToServerAzureADAdministratorOutputWithContext(ctx context.Context) ServerAzureADAdministratorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureADAdministratorOutput)
 }
 
@@ -194,7 +194,7 @@ type ServerAzureADAdministratorOutput struct {
 }
 
 func (ServerAzureADAdministratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAzureADAdministratorOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerAzureADAdministrator)(nil))
 }
 
 func (o ServerAzureADAdministratorOutput) ToServerAzureADAdministratorOutput() ServerAzureADAdministratorOutput {

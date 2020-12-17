@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
     /// Deployment information.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:resources/latest:DeploymentAtSubscriptionScope")]
     public partial class DeploymentAtSubscriptionScope : Pulumi.CustomResource
     {
         /// <summary>

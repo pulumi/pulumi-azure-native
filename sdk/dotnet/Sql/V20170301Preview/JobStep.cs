@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
     /// <summary>
     /// A job step.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20170301preview:JobStep")]
     public partial class JobStep : Pulumi.CustomResource
     {
         /// <summary>

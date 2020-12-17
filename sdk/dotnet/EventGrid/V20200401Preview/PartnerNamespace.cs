@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
     /// <summary>
     /// EventGrid Partner Namespace.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20200401preview:PartnerNamespace")]
     public partial class PartnerNamespace : Pulumi.CustomResource
     {
         /// <summary>

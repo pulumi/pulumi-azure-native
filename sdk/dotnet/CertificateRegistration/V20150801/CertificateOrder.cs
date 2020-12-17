@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
     /// <summary>
     /// Certificate purchase order
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:certificateregistration/v20150801:CertificateOrder")]
     public partial class CertificateOrder : Pulumi.CustomResource
     {
         /// <summary>

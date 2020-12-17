@@ -130,15 +130,15 @@ type ExperimentInput interface {
 	ToExperimentOutputWithContext(ctx context.Context) ExperimentOutput
 }
 
-func (Experiment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Experiment)(nil)).Elem()
+func (*Experiment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Experiment)(nil))
 }
 
-func (i Experiment) ToExperimentOutput() ExperimentOutput {
+func (i *Experiment) ToExperimentOutput() ExperimentOutput {
 	return i.ToExperimentOutputWithContext(context.Background())
 }
 
-func (i Experiment) ToExperimentOutputWithContext(ctx context.Context) ExperimentOutput {
+func (i *Experiment) ToExperimentOutputWithContext(ctx context.Context) ExperimentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentOutput)
 }
 
@@ -147,7 +147,7 @@ type ExperimentOutput struct {
 }
 
 func (ExperimentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentOutput)(nil)).Elem()
+	return reflect.TypeOf((*Experiment)(nil))
 }
 
 func (o ExperimentOutput) ToExperimentOutput() ExperimentOutput {

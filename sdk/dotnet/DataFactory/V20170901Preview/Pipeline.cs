@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
     /// <summary>
     /// Pipeline resource type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datafactory/v20170901preview:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>

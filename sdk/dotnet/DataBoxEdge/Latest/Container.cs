@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     /// Represents a container on the  Data Box Edge/Gateway device.
     /// Latest API Version: 2019-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Container")]
     public partial class Container : Pulumi.CustomResource
     {
         /// <summary>

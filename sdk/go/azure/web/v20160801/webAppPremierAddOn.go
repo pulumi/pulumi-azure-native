@@ -219,15 +219,15 @@ type WebAppPremierAddOnInput interface {
 	ToWebAppPremierAddOnOutputWithContext(ctx context.Context) WebAppPremierAddOnOutput
 }
 
-func (WebAppPremierAddOn) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPremierAddOn)(nil)).Elem()
+func (*WebAppPremierAddOn) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPremierAddOn)(nil))
 }
 
-func (i WebAppPremierAddOn) ToWebAppPremierAddOnOutput() WebAppPremierAddOnOutput {
+func (i *WebAppPremierAddOn) ToWebAppPremierAddOnOutput() WebAppPremierAddOnOutput {
 	return i.ToWebAppPremierAddOnOutputWithContext(context.Background())
 }
 
-func (i WebAppPremierAddOn) ToWebAppPremierAddOnOutputWithContext(ctx context.Context) WebAppPremierAddOnOutput {
+func (i *WebAppPremierAddOn) ToWebAppPremierAddOnOutputWithContext(ctx context.Context) WebAppPremierAddOnOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPremierAddOnOutput)
 }
 
@@ -236,7 +236,7 @@ type WebAppPremierAddOnOutput struct {
 }
 
 func (WebAppPremierAddOnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPremierAddOnOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppPremierAddOn)(nil))
 }
 
 func (o WebAppPremierAddOnOutput) ToWebAppPremierAddOnOutput() WebAppPremierAddOnOutput {

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
     /// The policy assignment.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:authorization/latest:PolicyAssignment")]
     public partial class PolicyAssignment : Pulumi.CustomResource
     {
         /// <summary>

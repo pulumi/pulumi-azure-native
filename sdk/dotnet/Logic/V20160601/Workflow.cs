@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
     /// <summary>
     /// The workflow type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/v20160601:Workflow")]
     public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>

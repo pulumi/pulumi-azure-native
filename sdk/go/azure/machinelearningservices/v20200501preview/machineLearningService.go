@@ -176,15 +176,15 @@ type MachineLearningServiceInput interface {
 	ToMachineLearningServiceOutputWithContext(ctx context.Context) MachineLearningServiceOutput
 }
 
-func (MachineLearningService) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningService)(nil)).Elem()
+func (*MachineLearningService) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineLearningService)(nil))
 }
 
-func (i MachineLearningService) ToMachineLearningServiceOutput() MachineLearningServiceOutput {
+func (i *MachineLearningService) ToMachineLearningServiceOutput() MachineLearningServiceOutput {
 	return i.ToMachineLearningServiceOutputWithContext(context.Background())
 }
 
-func (i MachineLearningService) ToMachineLearningServiceOutputWithContext(ctx context.Context) MachineLearningServiceOutput {
+func (i *MachineLearningService) ToMachineLearningServiceOutputWithContext(ctx context.Context) MachineLearningServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningServiceOutput)
 }
 
@@ -193,7 +193,7 @@ type MachineLearningServiceOutput struct {
 }
 
 func (MachineLearningServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*MachineLearningService)(nil))
 }
 
 func (o MachineLearningServiceOutput) ToMachineLearningServiceOutput() MachineLearningServiceOutput {

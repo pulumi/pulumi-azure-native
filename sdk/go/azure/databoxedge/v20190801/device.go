@@ -257,15 +257,15 @@ type DeviceInput interface {
 	ToDeviceOutputWithContext(ctx context.Context) DeviceOutput
 }
 
-func (Device) ElementType() reflect.Type {
-	return reflect.TypeOf((*Device)(nil)).Elem()
+func (*Device) ElementType() reflect.Type {
+	return reflect.TypeOf((*Device)(nil))
 }
 
-func (i Device) ToDeviceOutput() DeviceOutput {
+func (i *Device) ToDeviceOutput() DeviceOutput {
 	return i.ToDeviceOutputWithContext(context.Background())
 }
 
-func (i Device) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
+func (i *Device) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceOutput)
 }
 
@@ -274,7 +274,7 @@ type DeviceOutput struct {
 }
 
 func (DeviceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceOutput)(nil)).Elem()
+	return reflect.TypeOf((*Device)(nil))
 }
 
 func (o DeviceOutput) ToDeviceOutput() DeviceOutput {

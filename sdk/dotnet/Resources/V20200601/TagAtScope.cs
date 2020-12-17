@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Resources.V20200601
     /// <summary>
     /// Wrapper resource for tags API requests and responses.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:resources/v20200601:TagAtScope")]
     public partial class TagAtScope : Pulumi.CustomResource
     {
         /// <summary>

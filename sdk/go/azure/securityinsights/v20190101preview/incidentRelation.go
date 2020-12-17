@@ -161,15 +161,15 @@ type IncidentRelationInput interface {
 	ToIncidentRelationOutputWithContext(ctx context.Context) IncidentRelationOutput
 }
 
-func (IncidentRelation) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentRelation)(nil)).Elem()
+func (*IncidentRelation) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentRelation)(nil))
 }
 
-func (i IncidentRelation) ToIncidentRelationOutput() IncidentRelationOutput {
+func (i *IncidentRelation) ToIncidentRelationOutput() IncidentRelationOutput {
 	return i.ToIncidentRelationOutputWithContext(context.Background())
 }
 
-func (i IncidentRelation) ToIncidentRelationOutputWithContext(ctx context.Context) IncidentRelationOutput {
+func (i *IncidentRelation) ToIncidentRelationOutputWithContext(ctx context.Context) IncidentRelationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentRelationOutput)
 }
 
@@ -178,7 +178,7 @@ type IncidentRelationOutput struct {
 }
 
 func (IncidentRelationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentRelationOutput)(nil)).Elem()
+	return reflect.TypeOf((*IncidentRelation)(nil))
 }
 
 func (o IncidentRelationOutput) ToIncidentRelationOutput() IncidentRelationOutput {

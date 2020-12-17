@@ -167,15 +167,15 @@ type LabAccountInput interface {
 	ToLabAccountOutputWithContext(ctx context.Context) LabAccountOutput
 }
 
-func (LabAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabAccount)(nil)).Elem()
+func (*LabAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabAccount)(nil))
 }
 
-func (i LabAccount) ToLabAccountOutput() LabAccountOutput {
+func (i *LabAccount) ToLabAccountOutput() LabAccountOutput {
 	return i.ToLabAccountOutputWithContext(context.Background())
 }
 
-func (i LabAccount) ToLabAccountOutputWithContext(ctx context.Context) LabAccountOutput {
+func (i *LabAccount) ToLabAccountOutputWithContext(ctx context.Context) LabAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LabAccountOutput)
 }
 
@@ -184,7 +184,7 @@ type LabAccountOutput struct {
 }
 
 func (LabAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*LabAccount)(nil))
 }
 
 func (o LabAccountOutput) ToLabAccountOutput() LabAccountOutput {

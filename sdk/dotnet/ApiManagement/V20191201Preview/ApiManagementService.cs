@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
     /// <summary>
     /// A single API Management service resource in List or Get response.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20191201preview:ApiManagementService")]
     public partial class ApiManagementService : Pulumi.CustomResource
     {
         /// <summary>

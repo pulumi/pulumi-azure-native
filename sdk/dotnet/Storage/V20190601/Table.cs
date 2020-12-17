@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
     /// <summary>
     /// Properties of the table, including Id, resource name, resource type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20190601:Table")]
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>

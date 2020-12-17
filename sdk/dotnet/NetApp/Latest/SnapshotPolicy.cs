@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
     /// Snapshot policy information
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:netapp/latest:SnapshotPolicy")]
     public partial class SnapshotPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190505Preview
     /// <summary>
     /// Action rule object containing target scope, conditions and suppression logic
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:alertsmanagement/v20190505preview:ActionRuleByName")]
     public partial class ActionRuleByName : Pulumi.CustomResource
     {
         /// <summary>

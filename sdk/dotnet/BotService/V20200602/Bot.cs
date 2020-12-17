@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602
     /// <summary>
     /// Bot resource definition
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:botservice/v20200602:Bot")]
     public partial class Bot : Pulumi.CustomResource
     {
         /// <summary>

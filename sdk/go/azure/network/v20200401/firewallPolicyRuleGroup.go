@@ -173,15 +173,15 @@ type FirewallPolicyRuleGroupInput interface {
 	ToFirewallPolicyRuleGroupOutputWithContext(ctx context.Context) FirewallPolicyRuleGroupOutput
 }
 
-func (FirewallPolicyRuleGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyRuleGroup)(nil)).Elem()
+func (*FirewallPolicyRuleGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleGroup)(nil))
 }
 
-func (i FirewallPolicyRuleGroup) ToFirewallPolicyRuleGroupOutput() FirewallPolicyRuleGroupOutput {
+func (i *FirewallPolicyRuleGroup) ToFirewallPolicyRuleGroupOutput() FirewallPolicyRuleGroupOutput {
 	return i.ToFirewallPolicyRuleGroupOutputWithContext(context.Background())
 }
 
-func (i FirewallPolicyRuleGroup) ToFirewallPolicyRuleGroupOutputWithContext(ctx context.Context) FirewallPolicyRuleGroupOutput {
+func (i *FirewallPolicyRuleGroup) ToFirewallPolicyRuleGroupOutputWithContext(ctx context.Context) FirewallPolicyRuleGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleGroupOutput)
 }
 
@@ -190,7 +190,7 @@ type FirewallPolicyRuleGroupOutput struct {
 }
 
 func (FirewallPolicyRuleGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyRuleGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*FirewallPolicyRuleGroup)(nil))
 }
 
 func (o FirewallPolicyRuleGroupOutput) ToFirewallPolicyRuleGroupOutput() FirewallPolicyRuleGroupOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview
     /// <summary>
     /// A cluster resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:avs/v20190809preview:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

@@ -310,15 +310,15 @@ type ExpressRouteCrossConnectionPeeringInput interface {
 	ToExpressRouteCrossConnectionPeeringOutputWithContext(ctx context.Context) ExpressRouteCrossConnectionPeeringOutput
 }
 
-func (ExpressRouteCrossConnectionPeering) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCrossConnectionPeering)(nil)).Elem()
+func (*ExpressRouteCrossConnectionPeering) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCrossConnectionPeering)(nil))
 }
 
-func (i ExpressRouteCrossConnectionPeering) ToExpressRouteCrossConnectionPeeringOutput() ExpressRouteCrossConnectionPeeringOutput {
+func (i *ExpressRouteCrossConnectionPeering) ToExpressRouteCrossConnectionPeeringOutput() ExpressRouteCrossConnectionPeeringOutput {
 	return i.ToExpressRouteCrossConnectionPeeringOutputWithContext(context.Background())
 }
 
-func (i ExpressRouteCrossConnectionPeering) ToExpressRouteCrossConnectionPeeringOutputWithContext(ctx context.Context) ExpressRouteCrossConnectionPeeringOutput {
+func (i *ExpressRouteCrossConnectionPeering) ToExpressRouteCrossConnectionPeeringOutputWithContext(ctx context.Context) ExpressRouteCrossConnectionPeeringOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCrossConnectionPeeringOutput)
 }
 
@@ -327,7 +327,7 @@ type ExpressRouteCrossConnectionPeeringOutput struct {
 }
 
 func (ExpressRouteCrossConnectionPeeringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCrossConnectionPeeringOutput)(nil)).Elem()
+	return reflect.TypeOf((*ExpressRouteCrossConnectionPeering)(nil))
 }
 
 func (o ExpressRouteCrossConnectionPeeringOutput) ToExpressRouteCrossConnectionPeeringOutput() ExpressRouteCrossConnectionPeeringOutput {

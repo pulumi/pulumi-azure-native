@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
     /// <summary>
     /// Premier add-on.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20181101:WebAppPremierAddOn")]
     public partial class WebAppPremierAddOn : Pulumi.CustomResource
     {
         /// <summary>

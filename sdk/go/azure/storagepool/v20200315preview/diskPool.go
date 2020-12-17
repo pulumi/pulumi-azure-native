@@ -186,15 +186,15 @@ type DiskPoolInput interface {
 	ToDiskPoolOutputWithContext(ctx context.Context) DiskPoolOutput
 }
 
-func (DiskPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskPool)(nil)).Elem()
+func (*DiskPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskPool)(nil))
 }
 
-func (i DiskPool) ToDiskPoolOutput() DiskPoolOutput {
+func (i *DiskPool) ToDiskPoolOutput() DiskPoolOutput {
 	return i.ToDiskPoolOutputWithContext(context.Background())
 }
 
-func (i DiskPool) ToDiskPoolOutputWithContext(ctx context.Context) DiskPoolOutput {
+func (i *DiskPool) ToDiskPoolOutputWithContext(ctx context.Context) DiskPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolOutput)
 }
 
@@ -203,7 +203,7 @@ type DiskPoolOutput struct {
 }
 
 func (DiskPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*DiskPool)(nil))
 }
 
 func (o DiskPoolOutput) ToDiskPoolOutput() DiskPoolOutput {

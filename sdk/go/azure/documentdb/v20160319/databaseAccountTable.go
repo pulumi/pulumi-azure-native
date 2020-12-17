@@ -150,15 +150,15 @@ type DatabaseAccountTableInput interface {
 	ToDatabaseAccountTableOutputWithContext(ctx context.Context) DatabaseAccountTableOutput
 }
 
-func (DatabaseAccountTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountTable)(nil)).Elem()
+func (*DatabaseAccountTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountTable)(nil))
 }
 
-func (i DatabaseAccountTable) ToDatabaseAccountTableOutput() DatabaseAccountTableOutput {
+func (i *DatabaseAccountTable) ToDatabaseAccountTableOutput() DatabaseAccountTableOutput {
 	return i.ToDatabaseAccountTableOutputWithContext(context.Background())
 }
 
-func (i DatabaseAccountTable) ToDatabaseAccountTableOutputWithContext(ctx context.Context) DatabaseAccountTableOutput {
+func (i *DatabaseAccountTable) ToDatabaseAccountTableOutputWithContext(ctx context.Context) DatabaseAccountTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountTableOutput)
 }
 
@@ -167,7 +167,7 @@ type DatabaseAccountTableOutput struct {
 }
 
 func (DatabaseAccountTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountTableOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatabaseAccountTable)(nil))
 }
 
 func (o DatabaseAccountTableOutput) ToDatabaseAccountTableOutput() DatabaseAccountTableOutput {

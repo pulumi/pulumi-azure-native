@@ -145,15 +145,15 @@ type AccountFilterInput interface {
 	ToAccountFilterOutputWithContext(ctx context.Context) AccountFilterOutput
 }
 
-func (AccountFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountFilter)(nil)).Elem()
+func (*AccountFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountFilter)(nil))
 }
 
-func (i AccountFilter) ToAccountFilterOutput() AccountFilterOutput {
+func (i *AccountFilter) ToAccountFilterOutput() AccountFilterOutput {
 	return i.ToAccountFilterOutputWithContext(context.Background())
 }
 
-func (i AccountFilter) ToAccountFilterOutputWithContext(ctx context.Context) AccountFilterOutput {
+func (i *AccountFilter) ToAccountFilterOutputWithContext(ctx context.Context) AccountFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterOutput)
 }
 
@@ -162,7 +162,7 @@ type AccountFilterOutput struct {
 }
 
 func (AccountFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountFilterOutput)(nil)).Elem()
+	return reflect.TypeOf((*AccountFilter)(nil))
 }
 
 func (o AccountFilterOutput) ToAccountFilterOutput() AccountFilterOutput {

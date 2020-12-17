@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
     /// <summary>
     /// Single Namespace item in List or Get Operation
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventhub/v20170401:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>

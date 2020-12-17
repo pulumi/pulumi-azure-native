@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
     /// <summary>
     /// A managed instance key.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20171001preview:ManagedInstanceKey")]
     public partial class ManagedInstanceKey : Pulumi.CustomResource
     {
         /// <summary>

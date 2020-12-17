@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
     /// <summary>
     /// A host name binding object
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteHostNameBindingSlot")]
     public partial class SiteHostNameBindingSlot : Pulumi.CustomResource
     {
         /// <summary>

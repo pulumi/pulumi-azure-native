@@ -143,15 +143,15 @@ type ApplicationTypeInput interface {
 	ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput
 }
 
-func (ApplicationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+func (*ApplicationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationType)(nil))
 }
 
-func (i ApplicationType) ToApplicationTypeOutput() ApplicationTypeOutput {
+func (i *ApplicationType) ToApplicationTypeOutput() ApplicationTypeOutput {
 	return i.ToApplicationTypeOutputWithContext(context.Background())
 }
 
-func (i ApplicationType) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+func (i *ApplicationType) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeOutput)
 }
 
@@ -160,7 +160,7 @@ type ApplicationTypeOutput struct {
 }
 
 func (ApplicationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTypeOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApplicationType)(nil))
 }
 
 func (o ApplicationTypeOutput) ToApplicationTypeOutput() ApplicationTypeOutput {

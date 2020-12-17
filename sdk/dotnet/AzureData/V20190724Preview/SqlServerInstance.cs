@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
     /// <summary>
     /// A SqlServerInstance.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:azuredata/v20190724preview:SqlServerInstance")]
     public partial class SqlServerInstance : Pulumi.CustomResource
     {
         /// <summary>

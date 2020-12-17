@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20170815
     /// <summary>
     /// Snapshot of a Volume
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:netapp/v20170815:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
     {
         /// <summary>

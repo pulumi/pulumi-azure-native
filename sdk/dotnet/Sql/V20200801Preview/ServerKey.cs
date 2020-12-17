@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
     /// <summary>
     /// A server key.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200801preview:ServerKey")]
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>

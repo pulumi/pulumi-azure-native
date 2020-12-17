@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
     /// <summary>
     /// The batch configuration resource definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/v20180701preview:IntegrationAccountBatchConfiguration")]
     public partial class IntegrationAccountBatchConfiguration : Pulumi.CustomResource
     {
         /// <summary>

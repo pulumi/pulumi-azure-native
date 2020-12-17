@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
     /// <summary>
     /// An ADP Data Pool.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool")]
     public partial class DataPool : Pulumi.CustomResource
     {
         /// <summary>

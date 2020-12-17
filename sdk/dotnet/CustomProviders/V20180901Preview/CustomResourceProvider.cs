@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
     /// <summary>
     /// A manifest file that defines the custom resource provider resources.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:customproviders/v20180901preview:CustomResourceProvider")]
     public partial class CustomResourceProvider : Pulumi.CustomResource
     {
         /// <summary>

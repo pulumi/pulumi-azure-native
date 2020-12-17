@@ -268,15 +268,15 @@ type LiveEventInput interface {
 	ToLiveEventOutputWithContext(ctx context.Context) LiveEventOutput
 }
 
-func (LiveEvent) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEvent)(nil)).Elem()
+func (*LiveEvent) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEvent)(nil))
 }
 
-func (i LiveEvent) ToLiveEventOutput() LiveEventOutput {
+func (i *LiveEvent) ToLiveEventOutput() LiveEventOutput {
 	return i.ToLiveEventOutputWithContext(context.Background())
 }
 
-func (i LiveEvent) ToLiveEventOutputWithContext(ctx context.Context) LiveEventOutput {
+func (i *LiveEvent) ToLiveEventOutputWithContext(ctx context.Context) LiveEventOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutput)
 }
 
@@ -285,7 +285,7 @@ type LiveEventOutput struct {
 }
 
 func (LiveEventOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventOutput)(nil)).Elem()
+	return reflect.TypeOf((*LiveEvent)(nil))
 }
 
 func (o LiveEventOutput) ToLiveEventOutput() LiveEventOutput {

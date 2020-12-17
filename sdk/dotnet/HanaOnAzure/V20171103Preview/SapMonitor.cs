@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
     /// <summary>
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hanaonazure/v20171103preview:SapMonitor")]
     public partial class SapMonitor : Pulumi.CustomResource
     {
         /// <summary>

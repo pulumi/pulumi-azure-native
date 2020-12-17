@@ -214,9 +214,9 @@ func (e PublicNetworkAccessEnum) ToStringPtrOutputWithContext(ctx context.Contex
 type ServerVersion pulumi.String
 
 const (
-	ServerVersion__6 = ServerVersion("5.6")
-	ServerVersion__7 = ServerVersion("5.7")
-	ServerVersion__0 = ServerVersion("8.0")
+	ServerVersion_5_6 = ServerVersion("5.6")
+	ServerVersion_5_7 = ServerVersion("5.7")
+	ServerVersion_8_0 = ServerVersion("8.0")
 )
 
 func (ServerVersion) ElementType() reflect.Type {

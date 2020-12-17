@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
     /// <summary>
     /// The application resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicefabric/v20170701preview:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

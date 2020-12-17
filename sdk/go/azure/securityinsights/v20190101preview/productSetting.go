@@ -136,15 +136,15 @@ type ProductSettingInput interface {
 	ToProductSettingOutputWithContext(ctx context.Context) ProductSettingOutput
 }
 
-func (ProductSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductSetting)(nil)).Elem()
+func (*ProductSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductSetting)(nil))
 }
 
-func (i ProductSetting) ToProductSettingOutput() ProductSettingOutput {
+func (i *ProductSetting) ToProductSettingOutput() ProductSettingOutput {
 	return i.ToProductSettingOutputWithContext(context.Background())
 }
 
-func (i ProductSetting) ToProductSettingOutputWithContext(ctx context.Context) ProductSettingOutput {
+func (i *ProductSetting) ToProductSettingOutputWithContext(ctx context.Context) ProductSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductSettingOutput)
 }
 
@@ -153,7 +153,7 @@ type ProductSettingOutput struct {
 }
 
 func (ProductSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductSettingOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProductSetting)(nil))
 }
 
 func (o ProductSettingOutput) ToProductSettingOutput() ProductSettingOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
     /// <summary>
     /// The resource definition of this association.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:customproviders/v20180901preview:Association")]
     public partial class Association : Pulumi.CustomResource
     {
         /// <summary>
