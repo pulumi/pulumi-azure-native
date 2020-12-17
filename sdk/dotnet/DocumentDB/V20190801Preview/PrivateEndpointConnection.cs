@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801Preview
     /// <summary>
     /// A private endpoint connection
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

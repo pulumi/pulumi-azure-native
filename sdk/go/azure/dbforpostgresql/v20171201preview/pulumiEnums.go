@@ -129,12 +129,12 @@ func (e MinimalTlsVersionEnum) ToStringPtrOutputWithContext(ctx context.Context)
 type ServerVersion pulumi.String
 
 const (
-	ServerVersion__5   = ServerVersion("9.5")
-	ServerVersion__6   = ServerVersion("9.6")
-	ServerVersion__0   = ServerVersion("10")
-	ServerVersion__0_0 = ServerVersion("10.0")
-	ServerVersion__0_2 = ServerVersion("10.2")
-	ServerVersion__1   = ServerVersion("11")
+	ServerVersion_9_5  = ServerVersion("9.5")
+	ServerVersion_9_6  = ServerVersion("9.6")
+	ServerVersion_10   = ServerVersion("10")
+	ServerVersion_10_0 = ServerVersion("10.0")
+	ServerVersion_10_2 = ServerVersion("10.2")
+	ServerVersion_11   = ServerVersion("11")
 )
 
 func (ServerVersion) ElementType() reflect.Type {

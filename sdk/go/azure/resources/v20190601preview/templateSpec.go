@@ -154,15 +154,15 @@ type TemplateSpecInput interface {
 	ToTemplateSpecOutputWithContext(ctx context.Context) TemplateSpecOutput
 }
 
-func (TemplateSpec) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpec)(nil)).Elem()
+func (*TemplateSpec) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpec)(nil))
 }
 
-func (i TemplateSpec) ToTemplateSpecOutput() TemplateSpecOutput {
+func (i *TemplateSpec) ToTemplateSpecOutput() TemplateSpecOutput {
 	return i.ToTemplateSpecOutputWithContext(context.Background())
 }
 
-func (i TemplateSpec) ToTemplateSpecOutputWithContext(ctx context.Context) TemplateSpecOutput {
+func (i *TemplateSpec) ToTemplateSpecOutputWithContext(ctx context.Context) TemplateSpecOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecOutput)
 }
 
@@ -171,7 +171,7 @@ type TemplateSpecOutput struct {
 }
 
 func (TemplateSpecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecOutput)(nil)).Elem()
+	return reflect.TypeOf((*TemplateSpec)(nil))
 }
 
 func (o TemplateSpecOutput) ToTemplateSpecOutput() TemplateSpecOutput {

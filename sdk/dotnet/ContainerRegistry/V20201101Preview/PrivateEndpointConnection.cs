@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
     /// <summary>
     /// An object that represents a private endpoint connection for a container registry.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20201101preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

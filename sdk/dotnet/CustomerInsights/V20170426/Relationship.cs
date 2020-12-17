@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
     /// <summary>
     /// The relationship resource format.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:customerinsights/v20170426:Relationship")]
     public partial class Relationship : Pulumi.CustomResource
     {
         /// <summary>

@@ -131,15 +131,15 @@ type DomainTopicInput interface {
 	ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput
 }
 
-func (DomainTopic) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTopic)(nil)).Elem()
+func (*DomainTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTopic)(nil))
 }
 
-func (i DomainTopic) ToDomainTopicOutput() DomainTopicOutput {
+func (i *DomainTopic) ToDomainTopicOutput() DomainTopicOutput {
 	return i.ToDomainTopicOutputWithContext(context.Background())
 }
 
-func (i DomainTopic) ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput {
+func (i *DomainTopic) ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicOutput)
 }
 
@@ -148,7 +148,7 @@ type DomainTopicOutput struct {
 }
 
 func (DomainTopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTopicOutput)(nil)).Elem()
+	return reflect.TypeOf((*DomainTopic)(nil))
 }
 
 func (o DomainTopicOutput) ToDomainTopicOutput() DomainTopicOutput {

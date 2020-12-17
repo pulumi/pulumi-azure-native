@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     /// <summary>
     /// A privateLinkHub
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:PrivateLinkHub")]
     public partial class PrivateLinkHub : Pulumi.CustomResource
     {
         /// <summary>

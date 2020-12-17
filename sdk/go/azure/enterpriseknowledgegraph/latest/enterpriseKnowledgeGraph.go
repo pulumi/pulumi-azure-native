@@ -146,15 +146,15 @@ type EnterpriseKnowledgeGraphInput interface {
 	ToEnterpriseKnowledgeGraphOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphOutput
 }
 
-func (EnterpriseKnowledgeGraph) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseKnowledgeGraph)(nil)).Elem()
+func (*EnterpriseKnowledgeGraph) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseKnowledgeGraph)(nil))
 }
 
-func (i EnterpriseKnowledgeGraph) ToEnterpriseKnowledgeGraphOutput() EnterpriseKnowledgeGraphOutput {
+func (i *EnterpriseKnowledgeGraph) ToEnterpriseKnowledgeGraphOutput() EnterpriseKnowledgeGraphOutput {
 	return i.ToEnterpriseKnowledgeGraphOutputWithContext(context.Background())
 }
 
-func (i EnterpriseKnowledgeGraph) ToEnterpriseKnowledgeGraphOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphOutput {
+func (i *EnterpriseKnowledgeGraph) ToEnterpriseKnowledgeGraphOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseKnowledgeGraphOutput)
 }
 
@@ -163,7 +163,7 @@ type EnterpriseKnowledgeGraphOutput struct {
 }
 
 func (EnterpriseKnowledgeGraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseKnowledgeGraphOutput)(nil)).Elem()
+	return reflect.TypeOf((*EnterpriseKnowledgeGraph)(nil))
 }
 
 func (o EnterpriseKnowledgeGraphOutput) ToEnterpriseKnowledgeGraphOutput() EnterpriseKnowledgeGraphOutput {

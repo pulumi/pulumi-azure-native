@@ -116,15 +116,15 @@ type MoveResourceInput interface {
 	ToMoveResourceOutputWithContext(ctx context.Context) MoveResourceOutput
 }
 
-func (MoveResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*MoveResource)(nil)).Elem()
+func (*MoveResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*MoveResource)(nil))
 }
 
-func (i MoveResource) ToMoveResourceOutput() MoveResourceOutput {
+func (i *MoveResource) ToMoveResourceOutput() MoveResourceOutput {
 	return i.ToMoveResourceOutputWithContext(context.Background())
 }
 
-func (i MoveResource) ToMoveResourceOutputWithContext(ctx context.Context) MoveResourceOutput {
+func (i *MoveResource) ToMoveResourceOutputWithContext(ctx context.Context) MoveResourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourceOutput)
 }
 
@@ -133,7 +133,7 @@ type MoveResourceOutput struct {
 }
 
 func (MoveResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MoveResourceOutput)(nil)).Elem()
+	return reflect.TypeOf((*MoveResource)(nil))
 }
 
 func (o MoveResourceOutput) ToMoveResourceOutput() MoveResourceOutput {

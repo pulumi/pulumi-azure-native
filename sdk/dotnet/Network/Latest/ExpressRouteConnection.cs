@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// ExpressRouteConnection resource.
     /// Latest API Version: 2020-07-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/latest:ExpressRouteConnection")]
     public partial class ExpressRouteConnection : Pulumi.CustomResource
     {
         /// <summary>

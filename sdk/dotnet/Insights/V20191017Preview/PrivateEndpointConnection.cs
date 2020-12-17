@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
     /// <summary>
     /// A private endpoint connection
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20191017preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

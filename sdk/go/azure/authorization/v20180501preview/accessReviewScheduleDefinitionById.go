@@ -314,15 +314,15 @@ type AccessReviewScheduleDefinitionByIdInput interface {
 	ToAccessReviewScheduleDefinitionByIdOutputWithContext(ctx context.Context) AccessReviewScheduleDefinitionByIdOutput
 }
 
-func (AccessReviewScheduleDefinitionById) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewScheduleDefinitionById)(nil)).Elem()
+func (*AccessReviewScheduleDefinitionById) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessReviewScheduleDefinitionById)(nil))
 }
 
-func (i AccessReviewScheduleDefinitionById) ToAccessReviewScheduleDefinitionByIdOutput() AccessReviewScheduleDefinitionByIdOutput {
+func (i *AccessReviewScheduleDefinitionById) ToAccessReviewScheduleDefinitionByIdOutput() AccessReviewScheduleDefinitionByIdOutput {
 	return i.ToAccessReviewScheduleDefinitionByIdOutputWithContext(context.Background())
 }
 
-func (i AccessReviewScheduleDefinitionById) ToAccessReviewScheduleDefinitionByIdOutputWithContext(ctx context.Context) AccessReviewScheduleDefinitionByIdOutput {
+func (i *AccessReviewScheduleDefinitionById) ToAccessReviewScheduleDefinitionByIdOutputWithContext(ctx context.Context) AccessReviewScheduleDefinitionByIdOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewScheduleDefinitionByIdOutput)
 }
 
@@ -331,7 +331,7 @@ type AccessReviewScheduleDefinitionByIdOutput struct {
 }
 
 func (AccessReviewScheduleDefinitionByIdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewScheduleDefinitionByIdOutput)(nil)).Elem()
+	return reflect.TypeOf((*AccessReviewScheduleDefinitionById)(nil))
 }
 
 func (o AccessReviewScheduleDefinitionByIdOutput) ToAccessReviewScheduleDefinitionByIdOutput() AccessReviewScheduleDefinitionByIdOutput {

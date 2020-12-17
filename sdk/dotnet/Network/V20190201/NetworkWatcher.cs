@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
     /// <summary>
     /// Network watcher in a resource group.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20190201:NetworkWatcher")]
     public partial class NetworkWatcher : Pulumi.CustomResource
     {
         /// <summary>

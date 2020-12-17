@@ -165,15 +165,15 @@ type EnterpriseChannelInput interface {
 	ToEnterpriseChannelOutputWithContext(ctx context.Context) EnterpriseChannelOutput
 }
 
-func (EnterpriseChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseChannel)(nil)).Elem()
+func (*EnterpriseChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseChannel)(nil))
 }
 
-func (i EnterpriseChannel) ToEnterpriseChannelOutput() EnterpriseChannelOutput {
+func (i *EnterpriseChannel) ToEnterpriseChannelOutput() EnterpriseChannelOutput {
 	return i.ToEnterpriseChannelOutputWithContext(context.Background())
 }
 
-func (i EnterpriseChannel) ToEnterpriseChannelOutputWithContext(ctx context.Context) EnterpriseChannelOutput {
+func (i *EnterpriseChannel) ToEnterpriseChannelOutputWithContext(ctx context.Context) EnterpriseChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelOutput)
 }
 
@@ -182,7 +182,7 @@ type EnterpriseChannelOutput struct {
 }
 
 func (EnterpriseChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*EnterpriseChannel)(nil))
 }
 
 func (o EnterpriseChannelOutput) ToEnterpriseChannelOutput() EnterpriseChannelOutput {

@@ -230,15 +230,15 @@ type NetworkWatcherInput interface {
 	ToNetworkWatcherOutputWithContext(ctx context.Context) NetworkWatcherOutput
 }
 
-func (NetworkWatcher) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkWatcher)(nil)).Elem()
+func (*NetworkWatcher) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkWatcher)(nil))
 }
 
-func (i NetworkWatcher) ToNetworkWatcherOutput() NetworkWatcherOutput {
+func (i *NetworkWatcher) ToNetworkWatcherOutput() NetworkWatcherOutput {
 	return i.ToNetworkWatcherOutputWithContext(context.Background())
 }
 
-func (i NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) NetworkWatcherOutput {
+func (i *NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) NetworkWatcherOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherOutput)
 }
 
@@ -247,7 +247,7 @@ type NetworkWatcherOutput struct {
 }
 
 func (NetworkWatcherOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkWatcherOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkWatcher)(nil))
 }
 
 func (o NetworkWatcherOutput) ToNetworkWatcherOutput() NetworkWatcherOutput {

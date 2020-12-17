@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Identity Provider details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:IdentityProvider")]
     public partial class IdentityProvider : Pulumi.CustomResource
     {
         /// <summary>

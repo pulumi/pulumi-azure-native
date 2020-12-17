@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
     /// <summary>
     /// An Azure Cosmos DB Table.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20200601preview:TableResourceTable")]
     public partial class TableResourceTable : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
     /// <summary>
     /// Tag Contract details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20190101:TagByOperation")]
     public partial class TagByOperation : Pulumi.CustomResource
     {
         /// <summary>

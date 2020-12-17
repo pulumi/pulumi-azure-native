@@ -142,8 +142,8 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214PrivatePreview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerVersion _2 { get; } = new ServerVersion("12");
-        public static ServerVersion _1 { get; } = new ServerVersion("11");
+        public static ServerVersion ServerVersion_12 { get; } = new ServerVersion("12");
+        public static ServerVersion ServerVersion_11 { get; } = new ServerVersion("11");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
         public static bool operator !=(ServerVersion left, ServerVersion right) => !left.Equals(right);

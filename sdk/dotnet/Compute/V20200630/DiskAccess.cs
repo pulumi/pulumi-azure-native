@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
     /// <summary>
     /// disk access resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20200630:DiskAccess")]
     public partial class DiskAccess : Pulumi.CustomResource
     {
         /// <summary>

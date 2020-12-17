@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
     /// <summary>
     /// A private endpoint connection
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

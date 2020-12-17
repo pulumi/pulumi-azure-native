@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// A formula for creating a VM, specifying an image base and other parameters
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:Formula")]
     public partial class Formula : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
     /// <summary>
     /// Virtual Network Tap resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20180801:VirtualNetworkTap")]
     public partial class VirtualNetworkTap : Pulumi.CustomResource
     {
         /// <summary>

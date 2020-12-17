@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
     /// <summary>
     /// Network profile resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20190701:NetworkProfile")]
     public partial class NetworkProfile : Pulumi.CustomResource
     {
         /// <summary>

@@ -185,15 +185,15 @@ type GroupUserInput interface {
 	ToGroupUserOutputWithContext(ctx context.Context) GroupUserOutput
 }
 
-func (GroupUser) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupUser)(nil)).Elem()
+func (*GroupUser) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupUser)(nil))
 }
 
-func (i GroupUser) ToGroupUserOutput() GroupUserOutput {
+func (i *GroupUser) ToGroupUserOutput() GroupUserOutput {
 	return i.ToGroupUserOutputWithContext(context.Background())
 }
 
-func (i GroupUser) ToGroupUserOutputWithContext(ctx context.Context) GroupUserOutput {
+func (i *GroupUser) ToGroupUserOutputWithContext(ctx context.Context) GroupUserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupUserOutput)
 }
 
@@ -202,7 +202,7 @@ type GroupUserOutput struct {
 }
 
 func (GroupUserOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupUserOutput)(nil)).Elem()
+	return reflect.TypeOf((*GroupUser)(nil))
 }
 
 func (o GroupUserOutput) ToGroupUserOutput() GroupUserOutput {

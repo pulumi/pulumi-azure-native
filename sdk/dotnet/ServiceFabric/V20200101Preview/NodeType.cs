@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
     /// <summary>
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicefabric/v20200101preview:NodeType")]
     public partial class NodeType : Pulumi.CustomResource
     {
         /// <summary>

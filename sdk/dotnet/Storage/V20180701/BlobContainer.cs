@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180701
     /// <summary>
     /// Properties of the blob container, including Id, resource name, resource type, Etag.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20180701:BlobContainer")]
     public partial class BlobContainer : Pulumi.CustomResource
     {
         /// <summary>

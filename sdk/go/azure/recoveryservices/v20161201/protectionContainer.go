@@ -162,15 +162,15 @@ type ProtectionContainerInput interface {
 	ToProtectionContainerOutputWithContext(ctx context.Context) ProtectionContainerOutput
 }
 
-func (ProtectionContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionContainer)(nil)).Elem()
+func (*ProtectionContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionContainer)(nil))
 }
 
-func (i ProtectionContainer) ToProtectionContainerOutput() ProtectionContainerOutput {
+func (i *ProtectionContainer) ToProtectionContainerOutput() ProtectionContainerOutput {
 	return i.ToProtectionContainerOutputWithContext(context.Background())
 }
 
-func (i ProtectionContainer) ToProtectionContainerOutputWithContext(ctx context.Context) ProtectionContainerOutput {
+func (i *ProtectionContainer) ToProtectionContainerOutputWithContext(ctx context.Context) ProtectionContainerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerOutput)
 }
 
@@ -179,7 +179,7 @@ type ProtectionContainerOutput struct {
 }
 
 func (ProtectionContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionContainerOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProtectionContainer)(nil))
 }
 
 func (o ProtectionContainerOutput) ToProtectionContainerOutput() ProtectionContainerOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
     /// <summary>
     /// Represents a Storage Account on the  Data Box Edge/Gateway device.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200501preview:StorageAccount")]
     public partial class StorageAccount : Pulumi.CustomResource
     {
         /// <summary>

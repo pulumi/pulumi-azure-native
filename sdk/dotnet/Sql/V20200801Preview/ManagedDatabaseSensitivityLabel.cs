@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
     /// <summary>
     /// A sensitivity label.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200801preview:ManagedDatabaseSensitivityLabel")]
     public partial class ManagedDatabaseSensitivityLabel : Pulumi.CustomResource
     {
         /// <summary>

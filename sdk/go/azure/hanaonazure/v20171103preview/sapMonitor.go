@@ -263,15 +263,15 @@ type SapMonitorInput interface {
 	ToSapMonitorOutputWithContext(ctx context.Context) SapMonitorOutput
 }
 
-func (SapMonitor) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapMonitor)(nil)).Elem()
+func (*SapMonitor) ElementType() reflect.Type {
+	return reflect.TypeOf((*SapMonitor)(nil))
 }
 
-func (i SapMonitor) ToSapMonitorOutput() SapMonitorOutput {
+func (i *SapMonitor) ToSapMonitorOutput() SapMonitorOutput {
 	return i.ToSapMonitorOutputWithContext(context.Background())
 }
 
-func (i SapMonitor) ToSapMonitorOutputWithContext(ctx context.Context) SapMonitorOutput {
+func (i *SapMonitor) ToSapMonitorOutputWithContext(ctx context.Context) SapMonitorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SapMonitorOutput)
 }
 
@@ -280,7 +280,7 @@ type SapMonitorOutput struct {
 }
 
 func (SapMonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapMonitorOutput)(nil)).Elem()
+	return reflect.TypeOf((*SapMonitor)(nil))
 }
 
 func (o SapMonitorOutput) ToSapMonitorOutput() SapMonitorOutput {

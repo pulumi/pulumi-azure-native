@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
     /// <summary>
     /// App Service Plan Model
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20150801:ServerFarm")]
     public partial class ServerFarm : Pulumi.CustomResource
     {
         /// <summary>

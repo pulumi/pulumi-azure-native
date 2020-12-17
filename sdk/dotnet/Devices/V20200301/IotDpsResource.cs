@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200301
     /// <summary>
     /// The description of the provisioning service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devices/v20200301:IotDpsResource")]
     public partial class IotDpsResource : Pulumi.CustomResource
     {
         /// <summary>

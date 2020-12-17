@@ -126,15 +126,15 @@ type ManagedNetworkPeeringPolicyInput interface {
 	ToManagedNetworkPeeringPolicyOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyOutput
 }
 
-func (ManagedNetworkPeeringPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetworkPeeringPolicy)(nil)).Elem()
+func (*ManagedNetworkPeeringPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkPeeringPolicy)(nil))
 }
 
-func (i ManagedNetworkPeeringPolicy) ToManagedNetworkPeeringPolicyOutput() ManagedNetworkPeeringPolicyOutput {
+func (i *ManagedNetworkPeeringPolicy) ToManagedNetworkPeeringPolicyOutput() ManagedNetworkPeeringPolicyOutput {
 	return i.ToManagedNetworkPeeringPolicyOutputWithContext(context.Background())
 }
 
-func (i ManagedNetworkPeeringPolicy) ToManagedNetworkPeeringPolicyOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyOutput {
+func (i *ManagedNetworkPeeringPolicy) ToManagedNetworkPeeringPolicyOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyOutput)
 }
 
@@ -143,7 +143,7 @@ type ManagedNetworkPeeringPolicyOutput struct {
 }
 
 func (ManagedNetworkPeeringPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetworkPeeringPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedNetworkPeeringPolicy)(nil))
 }
 
 func (o ManagedNetworkPeeringPolicyOutput) ToManagedNetworkPeeringPolicyOutput() ManagedNetworkPeeringPolicyOutput {

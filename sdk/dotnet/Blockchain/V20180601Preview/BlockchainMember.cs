@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
     /// <summary>
     /// Payload of the blockchain member which is exposed in the request/response of the resource provider.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:blockchain/v20180601preview:BlockchainMember")]
     public partial class BlockchainMember : Pulumi.CustomResource
     {
         /// <summary>

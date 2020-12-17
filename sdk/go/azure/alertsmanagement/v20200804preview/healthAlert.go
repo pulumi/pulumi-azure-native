@@ -187,15 +187,15 @@ type HealthAlertInput interface {
 	ToHealthAlertOutputWithContext(ctx context.Context) HealthAlertOutput
 }
 
-func (HealthAlert) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthAlert)(nil)).Elem()
+func (*HealthAlert) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthAlert)(nil))
 }
 
-func (i HealthAlert) ToHealthAlertOutput() HealthAlertOutput {
+func (i *HealthAlert) ToHealthAlertOutput() HealthAlertOutput {
 	return i.ToHealthAlertOutputWithContext(context.Background())
 }
 
-func (i HealthAlert) ToHealthAlertOutputWithContext(ctx context.Context) HealthAlertOutput {
+func (i *HealthAlert) ToHealthAlertOutputWithContext(ctx context.Context) HealthAlertOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertOutput)
 }
 
@@ -204,7 +204,7 @@ type HealthAlertOutput struct {
 }
 
 func (HealthAlertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthAlertOutput)(nil)).Elem()
+	return reflect.TypeOf((*HealthAlert)(nil))
 }
 
 func (o HealthAlertOutput) ToHealthAlertOutput() HealthAlertOutput {

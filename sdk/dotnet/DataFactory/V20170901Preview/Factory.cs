@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
     /// <summary>
     /// Factory resource type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datafactory/v20170901preview:Factory")]
     public partial class Factory : Pulumi.CustomResource
     {
         /// <summary>

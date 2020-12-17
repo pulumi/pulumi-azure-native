@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
     /// <summary>
     /// VnetRoute contract used to pass routing information for a vnet.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20150801:ServerFarmRouteForVnet")]
     public partial class ServerFarmRouteForVnet : Pulumi.CustomResource
     {
         /// <summary>

@@ -150,15 +150,15 @@ type ServerKeyInput interface {
 	ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput
 }
 
-func (ServerKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerKey)(nil)).Elem()
+func (*ServerKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerKey)(nil))
 }
 
-func (i ServerKey) ToServerKeyOutput() ServerKeyOutput {
+func (i *ServerKey) ToServerKeyOutput() ServerKeyOutput {
 	return i.ToServerKeyOutputWithContext(context.Background())
 }
 
-func (i ServerKey) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput {
+func (i *ServerKey) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyOutput)
 }
 
@@ -167,7 +167,7 @@ type ServerKeyOutput struct {
 }
 
 func (ServerKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerKey)(nil))
 }
 
 func (o ServerKeyOutput) ToServerKeyOutput() ServerKeyOutput {

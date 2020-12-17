@@ -288,15 +288,15 @@ type InboundNatRuleInput interface {
 	ToInboundNatRuleOutputWithContext(ctx context.Context) InboundNatRuleOutput
 }
 
-func (InboundNatRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*InboundNatRule)(nil)).Elem()
+func (*InboundNatRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundNatRule)(nil))
 }
 
-func (i InboundNatRule) ToInboundNatRuleOutput() InboundNatRuleOutput {
+func (i *InboundNatRule) ToInboundNatRuleOutput() InboundNatRuleOutput {
 	return i.ToInboundNatRuleOutputWithContext(context.Background())
 }
 
-func (i InboundNatRule) ToInboundNatRuleOutputWithContext(ctx context.Context) InboundNatRuleOutput {
+func (i *InboundNatRule) ToInboundNatRuleOutputWithContext(ctx context.Context) InboundNatRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InboundNatRuleOutput)
 }
 
@@ -305,7 +305,7 @@ type InboundNatRuleOutput struct {
 }
 
 func (InboundNatRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InboundNatRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*InboundNatRule)(nil))
 }
 
 func (o InboundNatRuleOutput) ToInboundNatRuleOutput() InboundNatRuleOutput {

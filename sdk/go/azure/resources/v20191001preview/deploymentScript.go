@@ -160,15 +160,15 @@ type DeploymentScriptInput interface {
 	ToDeploymentScriptOutputWithContext(ctx context.Context) DeploymentScriptOutput
 }
 
-func (DeploymentScript) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentScript)(nil)).Elem()
+func (*DeploymentScript) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentScript)(nil))
 }
 
-func (i DeploymentScript) ToDeploymentScriptOutput() DeploymentScriptOutput {
+func (i *DeploymentScript) ToDeploymentScriptOutput() DeploymentScriptOutput {
 	return i.ToDeploymentScriptOutputWithContext(context.Background())
 }
 
-func (i DeploymentScript) ToDeploymentScriptOutputWithContext(ctx context.Context) DeploymentScriptOutput {
+func (i *DeploymentScript) ToDeploymentScriptOutputWithContext(ctx context.Context) DeploymentScriptOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScriptOutput)
 }
 
@@ -177,7 +177,7 @@ type DeploymentScriptOutput struct {
 }
 
 func (DeploymentScriptOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentScriptOutput)(nil)).Elem()
+	return reflect.TypeOf((*DeploymentScript)(nil))
 }
 
 func (o DeploymentScriptOutput) ToDeploymentScriptOutput() DeploymentScriptOutput {

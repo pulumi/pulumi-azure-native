@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig")]
     public partial class DisasterRecoveryConfig : Pulumi.CustomResource
     {
         /// <summary>

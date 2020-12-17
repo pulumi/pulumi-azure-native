@@ -158,15 +158,15 @@ type DeploymentAtSubscriptionScopeInput interface {
 	ToDeploymentAtSubscriptionScopeOutputWithContext(ctx context.Context) DeploymentAtSubscriptionScopeOutput
 }
 
-func (DeploymentAtSubscriptionScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtSubscriptionScope)(nil)).Elem()
+func (*DeploymentAtSubscriptionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtSubscriptionScope)(nil))
 }
 
-func (i DeploymentAtSubscriptionScope) ToDeploymentAtSubscriptionScopeOutput() DeploymentAtSubscriptionScopeOutput {
+func (i *DeploymentAtSubscriptionScope) ToDeploymentAtSubscriptionScopeOutput() DeploymentAtSubscriptionScopeOutput {
 	return i.ToDeploymentAtSubscriptionScopeOutputWithContext(context.Background())
 }
 
-func (i DeploymentAtSubscriptionScope) ToDeploymentAtSubscriptionScopeOutputWithContext(ctx context.Context) DeploymentAtSubscriptionScopeOutput {
+func (i *DeploymentAtSubscriptionScope) ToDeploymentAtSubscriptionScopeOutputWithContext(ctx context.Context) DeploymentAtSubscriptionScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtSubscriptionScopeOutput)
 }
 
@@ -175,7 +175,7 @@ type DeploymentAtSubscriptionScopeOutput struct {
 }
 
 func (DeploymentAtSubscriptionScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtSubscriptionScopeOutput)(nil)).Elem()
+	return reflect.TypeOf((*DeploymentAtSubscriptionScope)(nil))
 }
 
 func (o DeploymentAtSubscriptionScopeOutput) ToDeploymentAtSubscriptionScopeOutput() DeploymentAtSubscriptionScopeOutput {

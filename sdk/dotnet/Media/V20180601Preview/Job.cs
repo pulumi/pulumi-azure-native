@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
     /// <summary>
     /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20180601preview:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Intune.V20150114PrivatePreview
     /// <summary>
     /// iOS Policy entity for Intune MAM.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:intune/v20150114privatepreview:IoMAMPolicyByName")]
     public partial class IoMAMPolicyByName : Pulumi.CustomResource
     {
         [Output("accessRecheckOfflineTimeout")]

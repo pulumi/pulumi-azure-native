@@ -162,15 +162,15 @@ type AttestationProviderInput interface {
 	ToAttestationProviderOutputWithContext(ctx context.Context) AttestationProviderOutput
 }
 
-func (AttestationProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttestationProvider)(nil)).Elem()
+func (*AttestationProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttestationProvider)(nil))
 }
 
-func (i AttestationProvider) ToAttestationProviderOutput() AttestationProviderOutput {
+func (i *AttestationProvider) ToAttestationProviderOutput() AttestationProviderOutput {
 	return i.ToAttestationProviderOutputWithContext(context.Background())
 }
 
-func (i AttestationProvider) ToAttestationProviderOutputWithContext(ctx context.Context) AttestationProviderOutput {
+func (i *AttestationProvider) ToAttestationProviderOutputWithContext(ctx context.Context) AttestationProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AttestationProviderOutput)
 }
 
@@ -179,7 +179,7 @@ type AttestationProviderOutput struct {
 }
 
 func (AttestationProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttestationProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*AttestationProvider)(nil))
 }
 
 func (o AttestationProviderOutput) ToAttestationProviderOutput() AttestationProviderOutput {

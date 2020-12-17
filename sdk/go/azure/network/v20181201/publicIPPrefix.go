@@ -286,15 +286,15 @@ type PublicIPPrefixInput interface {
 	ToPublicIPPrefixOutputWithContext(ctx context.Context) PublicIPPrefixOutput
 }
 
-func (PublicIPPrefix) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicIPPrefix)(nil)).Elem()
+func (*PublicIPPrefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIPPrefix)(nil))
 }
 
-func (i PublicIPPrefix) ToPublicIPPrefixOutput() PublicIPPrefixOutput {
+func (i *PublicIPPrefix) ToPublicIPPrefixOutput() PublicIPPrefixOutput {
 	return i.ToPublicIPPrefixOutputWithContext(context.Background())
 }
 
-func (i PublicIPPrefix) ToPublicIPPrefixOutputWithContext(ctx context.Context) PublicIPPrefixOutput {
+func (i *PublicIPPrefix) ToPublicIPPrefixOutputWithContext(ctx context.Context) PublicIPPrefixOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIPPrefixOutput)
 }
 
@@ -303,7 +303,7 @@ type PublicIPPrefixOutput struct {
 }
 
 func (PublicIPPrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicIPPrefixOutput)(nil)).Elem()
+	return reflect.TypeOf((*PublicIPPrefix)(nil))
 }
 
 func (o PublicIPPrefixOutput) ToPublicIPPrefixOutput() PublicIPPrefixOutput {

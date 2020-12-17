@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview
     /// <summary>
     /// Represents a scaling plan definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization/v20201110preview:ScalingPlan")]
     public partial class ScalingPlan : Pulumi.CustomResource
     {
         /// <summary>

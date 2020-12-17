@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
     /// <summary>
     /// Identity Provider details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20200601preview:IdentityProvider")]
     public partial class IdentityProvider : Pulumi.CustomResource
     {
         /// <summary>

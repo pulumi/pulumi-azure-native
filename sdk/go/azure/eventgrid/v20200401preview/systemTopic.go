@@ -154,15 +154,15 @@ type SystemTopicInput interface {
 	ToSystemTopicOutputWithContext(ctx context.Context) SystemTopicOutput
 }
 
-func (SystemTopic) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopic)(nil)).Elem()
+func (*SystemTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopic)(nil))
 }
 
-func (i SystemTopic) ToSystemTopicOutput() SystemTopicOutput {
+func (i *SystemTopic) ToSystemTopicOutput() SystemTopicOutput {
 	return i.ToSystemTopicOutputWithContext(context.Background())
 }
 
-func (i SystemTopic) ToSystemTopicOutputWithContext(ctx context.Context) SystemTopicOutput {
+func (i *SystemTopic) ToSystemTopicOutputWithContext(ctx context.Context) SystemTopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicOutput)
 }
 
@@ -171,7 +171,7 @@ type SystemTopicOutput struct {
 }
 
 func (SystemTopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopicOutput)(nil)).Elem()
+	return reflect.TypeOf((*SystemTopic)(nil))
 }
 
 func (o SystemTopicOutput) ToSystemTopicOutput() SystemTopicOutput {

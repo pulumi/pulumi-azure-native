@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20200801preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

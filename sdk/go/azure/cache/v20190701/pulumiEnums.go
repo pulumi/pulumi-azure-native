@@ -134,9 +134,9 @@ func (e SkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 type TlsVersion pulumi.String
 
 const (
-	TlsVersion__0 = TlsVersion("1.0")
-	TlsVersion__1 = TlsVersion("1.1")
-	TlsVersion__2 = TlsVersion("1.2")
+	TlsVersion_1_0 = TlsVersion("1.0")
+	TlsVersion_1_1 = TlsVersion("1.1")
+	TlsVersion_1_2 = TlsVersion("1.2")
 )
 
 func (TlsVersion) ElementType() reflect.Type {

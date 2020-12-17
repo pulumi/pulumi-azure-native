@@ -191,15 +191,15 @@ type DataExportInput interface {
 	ToDataExportOutputWithContext(ctx context.Context) DataExportOutput
 }
 
-func (DataExport) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataExport)(nil)).Elem()
+func (*DataExport) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataExport)(nil))
 }
 
-func (i DataExport) ToDataExportOutput() DataExportOutput {
+func (i *DataExport) ToDataExportOutput() DataExportOutput {
 	return i.ToDataExportOutputWithContext(context.Background())
 }
 
-func (i DataExport) ToDataExportOutputWithContext(ctx context.Context) DataExportOutput {
+func (i *DataExport) ToDataExportOutputWithContext(ctx context.Context) DataExportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataExportOutput)
 }
 
@@ -208,7 +208,7 @@ type DataExportOutput struct {
 }
 
 func (DataExportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataExportOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataExport)(nil))
 }
 
 func (o DataExportOutput) ToDataExportOutput() DataExportOutput {

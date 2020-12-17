@@ -151,15 +151,15 @@ type WorkloadNetworkDhcpInput interface {
 	ToWorkloadNetworkDhcpOutputWithContext(ctx context.Context) WorkloadNetworkDhcpOutput
 }
 
-func (WorkloadNetworkDhcp) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcp)(nil)).Elem()
+func (*WorkloadNetworkDhcp) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkDhcp)(nil))
 }
 
-func (i WorkloadNetworkDhcp) ToWorkloadNetworkDhcpOutput() WorkloadNetworkDhcpOutput {
+func (i *WorkloadNetworkDhcp) ToWorkloadNetworkDhcpOutput() WorkloadNetworkDhcpOutput {
 	return i.ToWorkloadNetworkDhcpOutputWithContext(context.Background())
 }
 
-func (i WorkloadNetworkDhcp) ToWorkloadNetworkDhcpOutputWithContext(ctx context.Context) WorkloadNetworkDhcpOutput {
+func (i *WorkloadNetworkDhcp) ToWorkloadNetworkDhcpOutputWithContext(ctx context.Context) WorkloadNetworkDhcpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDhcpOutput)
 }
 
@@ -168,7 +168,7 @@ type WorkloadNetworkDhcpOutput struct {
 }
 
 func (WorkloadNetworkDhcpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcpOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkloadNetworkDhcp)(nil))
 }
 
 func (o WorkloadNetworkDhcpOutput) ToWorkloadNetworkDhcpOutput() WorkloadNetworkDhcpOutput {

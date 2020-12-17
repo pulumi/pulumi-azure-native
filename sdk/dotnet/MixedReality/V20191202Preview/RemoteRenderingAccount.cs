@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20191202Preview
     /// <summary>
     /// RemoteRenderingAccount Response.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount")]
     public partial class RemoteRenderingAccount : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
     /// <summary>
     /// The device security group resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20190801:DeviceSecurityGroup")]
     public partial class DeviceSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

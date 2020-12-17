@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191101
     /// <summary>
     /// Disk resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20191101:Disk")]
     public partial class Disk : Pulumi.CustomResource
     {
         /// <summary>

@@ -239,15 +239,15 @@ type WorkbookInput interface {
 	ToWorkbookOutputWithContext(ctx context.Context) WorkbookOutput
 }
 
-func (Workbook) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workbook)(nil)).Elem()
+func (*Workbook) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workbook)(nil))
 }
 
-func (i Workbook) ToWorkbookOutput() WorkbookOutput {
+func (i *Workbook) ToWorkbookOutput() WorkbookOutput {
 	return i.ToWorkbookOutputWithContext(context.Background())
 }
 
-func (i Workbook) ToWorkbookOutputWithContext(ctx context.Context) WorkbookOutput {
+func (i *Workbook) ToWorkbookOutputWithContext(ctx context.Context) WorkbookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookOutput)
 }
 
@@ -256,7 +256,7 @@ type WorkbookOutput struct {
 }
 
 func (WorkbookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookOutput)(nil)).Elem()
+	return reflect.TypeOf((*Workbook)(nil))
 }
 
 func (o WorkbookOutput) ToWorkbookOutput() WorkbookOutput {

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
     /// Represents a Configuration.
     /// Latest API Version: 2017-12-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/latest:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>

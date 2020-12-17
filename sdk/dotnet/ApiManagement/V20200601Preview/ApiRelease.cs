@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
     /// <summary>
     /// ApiRelease details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20200601preview:ApiRelease")]
     public partial class ApiRelease : Pulumi.CustomResource
     {
         /// <summary>

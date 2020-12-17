@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
     /// <summary>
     /// Describes a Virtual Machine Scale Set Extension.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20190301:VirtualMachineScaleSetExtension")]
     public partial class VirtualMachineScaleSetExtension : Pulumi.CustomResource
     {
         /// <summary>

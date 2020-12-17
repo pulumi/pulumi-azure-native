@@ -16,7 +16,7 @@ type Architecture pulumi.String
 const (
 	ArchitectureAmd64 = Architecture("amd64")
 	ArchitectureX86   = Architecture("x86")
-	Architecture__86  = Architecture("386")
+	Architecture_386  = Architecture("386")
 	ArchitectureArm   = Architecture("arm")
 	ArchitectureArm64 = Architecture("arm64")
 )

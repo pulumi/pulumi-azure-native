@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20180401
     /// <summary>
     /// Route resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20180401:Route")]
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>

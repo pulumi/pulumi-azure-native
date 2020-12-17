@@ -113,15 +113,15 @@ type ComponentCurrentBillingFeatureInput interface {
 	ToComponentCurrentBillingFeatureOutputWithContext(ctx context.Context) ComponentCurrentBillingFeatureOutput
 }
 
-func (ComponentCurrentBillingFeature) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentCurrentBillingFeature)(nil)).Elem()
+func (*ComponentCurrentBillingFeature) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentCurrentBillingFeature)(nil))
 }
 
-func (i ComponentCurrentBillingFeature) ToComponentCurrentBillingFeatureOutput() ComponentCurrentBillingFeatureOutput {
+func (i *ComponentCurrentBillingFeature) ToComponentCurrentBillingFeatureOutput() ComponentCurrentBillingFeatureOutput {
 	return i.ToComponentCurrentBillingFeatureOutputWithContext(context.Background())
 }
 
-func (i ComponentCurrentBillingFeature) ToComponentCurrentBillingFeatureOutputWithContext(ctx context.Context) ComponentCurrentBillingFeatureOutput {
+func (i *ComponentCurrentBillingFeature) ToComponentCurrentBillingFeatureOutputWithContext(ctx context.Context) ComponentCurrentBillingFeatureOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentCurrentBillingFeatureOutput)
 }
 
@@ -130,7 +130,7 @@ type ComponentCurrentBillingFeatureOutput struct {
 }
 
 func (ComponentCurrentBillingFeatureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentCurrentBillingFeatureOutput)(nil)).Elem()
+	return reflect.TypeOf((*ComponentCurrentBillingFeature)(nil))
 }
 
 func (o ComponentCurrentBillingFeatureOutput) ToComponentCurrentBillingFeatureOutput() ComponentCurrentBillingFeatureOutput {

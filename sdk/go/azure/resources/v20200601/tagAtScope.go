@@ -120,15 +120,15 @@ type TagAtScopeInput interface {
 	ToTagAtScopeOutputWithContext(ctx context.Context) TagAtScopeOutput
 }
 
-func (TagAtScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagAtScope)(nil)).Elem()
+func (*TagAtScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAtScope)(nil))
 }
 
-func (i TagAtScope) ToTagAtScopeOutput() TagAtScopeOutput {
+func (i *TagAtScope) ToTagAtScopeOutput() TagAtScopeOutput {
 	return i.ToTagAtScopeOutputWithContext(context.Background())
 }
 
-func (i TagAtScope) ToTagAtScopeOutputWithContext(ctx context.Context) TagAtScopeOutput {
+func (i *TagAtScope) ToTagAtScopeOutputWithContext(ctx context.Context) TagAtScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagAtScopeOutput)
 }
 
@@ -137,7 +137,7 @@ type TagAtScopeOutput struct {
 }
 
 func (TagAtScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagAtScopeOutput)(nil)).Elem()
+	return reflect.TypeOf((*TagAtScope)(nil))
 }
 
 func (o TagAtScopeOutput) ToTagAtScopeOutput() TagAtScopeOutput {

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Describes a VMSS VM Extension.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/latest:VirtualMachineScaleSetVMExtension")]
     public partial class VirtualMachineScaleSetVMExtension : Pulumi.CustomResource
     {
         /// <summary>

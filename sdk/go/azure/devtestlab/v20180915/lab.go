@@ -293,15 +293,15 @@ type LabInput interface {
 	ToLabOutputWithContext(ctx context.Context) LabOutput
 }
 
-func (Lab) ElementType() reflect.Type {
-	return reflect.TypeOf((*Lab)(nil)).Elem()
+func (*Lab) ElementType() reflect.Type {
+	return reflect.TypeOf((*Lab)(nil))
 }
 
-func (i Lab) ToLabOutput() LabOutput {
+func (i *Lab) ToLabOutput() LabOutput {
 	return i.ToLabOutputWithContext(context.Background())
 }
 
-func (i Lab) ToLabOutputWithContext(ctx context.Context) LabOutput {
+func (i *Lab) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LabOutput)
 }
 
@@ -310,7 +310,7 @@ type LabOutput struct {
 }
 
 func (LabOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabOutput)(nil)).Elem()
+	return reflect.TypeOf((*Lab)(nil))
 }
 
 func (o LabOutput) ToLabOutput() LabOutput {

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
     /// Contains information about an Azure Batch account.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:batch/latest:BatchAccount")]
     public partial class BatchAccount : Pulumi.CustomResource
     {
         /// <summary>

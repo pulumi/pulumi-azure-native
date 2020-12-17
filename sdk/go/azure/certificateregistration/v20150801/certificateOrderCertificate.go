@@ -195,15 +195,15 @@ type CertificateOrderCertificateInput interface {
 	ToCertificateOrderCertificateOutputWithContext(ctx context.Context) CertificateOrderCertificateOutput
 }
 
-func (CertificateOrderCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrderCertificate)(nil)).Elem()
+func (*CertificateOrderCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateOrderCertificate)(nil))
 }
 
-func (i CertificateOrderCertificate) ToCertificateOrderCertificateOutput() CertificateOrderCertificateOutput {
+func (i *CertificateOrderCertificate) ToCertificateOrderCertificateOutput() CertificateOrderCertificateOutput {
 	return i.ToCertificateOrderCertificateOutputWithContext(context.Background())
 }
 
-func (i CertificateOrderCertificate) ToCertificateOrderCertificateOutputWithContext(ctx context.Context) CertificateOrderCertificateOutput {
+func (i *CertificateOrderCertificate) ToCertificateOrderCertificateOutputWithContext(ctx context.Context) CertificateOrderCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderCertificateOutput)
 }
 
@@ -212,7 +212,7 @@ type CertificateOrderCertificateOutput struct {
 }
 
 func (CertificateOrderCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrderCertificateOutput)(nil)).Elem()
+	return reflect.TypeOf((*CertificateOrderCertificate)(nil))
 }
 
 func (o CertificateOrderCertificateOutput) ToCertificateOrderCertificateOutput() CertificateOrderCertificateOutput {

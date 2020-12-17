@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
     /// <summary>
     /// An Azure Cosmos DB database account.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20150408:DatabaseAccount")]
     public partial class DatabaseAccount : Pulumi.CustomResource
     {
         /// <summary>

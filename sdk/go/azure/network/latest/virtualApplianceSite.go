@@ -159,15 +159,15 @@ type VirtualApplianceSiteInput interface {
 	ToVirtualApplianceSiteOutputWithContext(ctx context.Context) VirtualApplianceSiteOutput
 }
 
-func (VirtualApplianceSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualApplianceSite)(nil)).Elem()
+func (*VirtualApplianceSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualApplianceSite)(nil))
 }
 
-func (i VirtualApplianceSite) ToVirtualApplianceSiteOutput() VirtualApplianceSiteOutput {
+func (i *VirtualApplianceSite) ToVirtualApplianceSiteOutput() VirtualApplianceSiteOutput {
 	return i.ToVirtualApplianceSiteOutputWithContext(context.Background())
 }
 
-func (i VirtualApplianceSite) ToVirtualApplianceSiteOutputWithContext(ctx context.Context) VirtualApplianceSiteOutput {
+func (i *VirtualApplianceSite) ToVirtualApplianceSiteOutputWithContext(ctx context.Context) VirtualApplianceSiteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualApplianceSiteOutput)
 }
 
@@ -176,7 +176,7 @@ type VirtualApplianceSiteOutput struct {
 }
 
 func (VirtualApplianceSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualApplianceSiteOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualApplianceSite)(nil))
 }
 
 func (o VirtualApplianceSiteOutput) ToVirtualApplianceSiteOutput() VirtualApplianceSiteOutput {

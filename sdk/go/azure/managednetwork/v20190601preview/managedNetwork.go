@@ -150,15 +150,15 @@ type ManagedNetworkInput interface {
 	ToManagedNetworkOutputWithContext(ctx context.Context) ManagedNetworkOutput
 }
 
-func (ManagedNetwork) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetwork)(nil)).Elem()
+func (*ManagedNetwork) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetwork)(nil))
 }
 
-func (i ManagedNetwork) ToManagedNetworkOutput() ManagedNetworkOutput {
+func (i *ManagedNetwork) ToManagedNetworkOutput() ManagedNetworkOutput {
 	return i.ToManagedNetworkOutputWithContext(context.Background())
 }
 
-func (i ManagedNetwork) ToManagedNetworkOutputWithContext(ctx context.Context) ManagedNetworkOutput {
+func (i *ManagedNetwork) ToManagedNetworkOutputWithContext(ctx context.Context) ManagedNetworkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkOutput)
 }
 
@@ -167,7 +167,7 @@ type ManagedNetworkOutput struct {
 }
 
 func (ManagedNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetworkOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedNetwork)(nil))
 }
 
 func (o ManagedNetworkOutput) ToManagedNetworkOutput() ManagedNetworkOutput {

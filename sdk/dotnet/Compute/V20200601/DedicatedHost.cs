@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
     /// <summary>
     /// Specifies information about the Dedicated host.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20200601:DedicatedHost")]
     public partial class DedicatedHost : Pulumi.CustomResource
     {
         /// <summary>

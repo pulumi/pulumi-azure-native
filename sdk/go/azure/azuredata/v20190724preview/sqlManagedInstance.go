@@ -194,15 +194,15 @@ type SqlManagedInstanceInput interface {
 	ToSqlManagedInstanceOutputWithContext(ctx context.Context) SqlManagedInstanceOutput
 }
 
-func (SqlManagedInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlManagedInstance)(nil)).Elem()
+func (*SqlManagedInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlManagedInstance)(nil))
 }
 
-func (i SqlManagedInstance) ToSqlManagedInstanceOutput() SqlManagedInstanceOutput {
+func (i *SqlManagedInstance) ToSqlManagedInstanceOutput() SqlManagedInstanceOutput {
 	return i.ToSqlManagedInstanceOutputWithContext(context.Background())
 }
 
-func (i SqlManagedInstance) ToSqlManagedInstanceOutputWithContext(ctx context.Context) SqlManagedInstanceOutput {
+func (i *SqlManagedInstance) ToSqlManagedInstanceOutputWithContext(ctx context.Context) SqlManagedInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceOutput)
 }
 
@@ -211,7 +211,7 @@ type SqlManagedInstanceOutput struct {
 }
 
 func (SqlManagedInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlManagedInstanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlManagedInstance)(nil))
 }
 
 func (o SqlManagedInstanceOutput) ToSqlManagedInstanceOutput() SqlManagedInstanceOutput {

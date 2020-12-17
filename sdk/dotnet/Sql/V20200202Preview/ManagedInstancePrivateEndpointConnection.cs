@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     /// <summary>
     /// A private endpoint connection
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:ManagedInstancePrivateEndpointConnection")]
     public partial class ManagedInstancePrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

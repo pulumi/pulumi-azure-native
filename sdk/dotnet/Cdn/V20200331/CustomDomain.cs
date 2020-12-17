@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/v20200331:CustomDomain")]
     public partial class CustomDomain : Pulumi.CustomResource
     {
         /// <summary>

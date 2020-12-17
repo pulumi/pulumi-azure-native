@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20191109
     /// <summary>
     /// Class representing a Kusto cluster.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:kusto/v20191109:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

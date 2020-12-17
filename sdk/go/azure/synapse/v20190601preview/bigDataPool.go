@@ -283,15 +283,15 @@ type BigDataPoolInput interface {
 	ToBigDataPoolOutputWithContext(ctx context.Context) BigDataPoolOutput
 }
 
-func (BigDataPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigDataPool)(nil)).Elem()
+func (*BigDataPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*BigDataPool)(nil))
 }
 
-func (i BigDataPool) ToBigDataPoolOutput() BigDataPoolOutput {
+func (i *BigDataPool) ToBigDataPoolOutput() BigDataPoolOutput {
 	return i.ToBigDataPoolOutputWithContext(context.Background())
 }
 
-func (i BigDataPool) ToBigDataPoolOutputWithContext(ctx context.Context) BigDataPoolOutput {
+func (i *BigDataPool) ToBigDataPoolOutputWithContext(ctx context.Context) BigDataPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BigDataPoolOutput)
 }
 
@@ -300,7 +300,7 @@ type BigDataPoolOutput struct {
 }
 
 func (BigDataPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigDataPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*BigDataPool)(nil))
 }
 
 func (o BigDataPoolOutput) ToBigDataPoolOutput() BigDataPoolOutput {

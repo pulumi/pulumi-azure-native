@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
     /// <summary>
     /// Class representing the Key Vault container for certificate purchased through Azure
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:certificateregistration/v20150801:CertificateOrderCertificate")]
     public partial class CertificateOrderCertificate : Pulumi.CustomResource
     {
         /// <summary>

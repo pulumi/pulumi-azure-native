@@ -33,7 +33,7 @@ class ReplicationSchedule(str, Enum):
     """
     Schedule
     """
-    _10MINUTELY = "_10minutely"
+    REPLICATION_SCHEDULE_10MINUTELY = "_10minutely"
     HOURLY = "hourly"
     DAILY = "daily"
 

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview
     /// <summary>
     /// A task resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datamigration/v20171115preview:Task")]
     public partial class Task : Pulumi.CustomResource
     {
         /// <summary>

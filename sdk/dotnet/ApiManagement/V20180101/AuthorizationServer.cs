@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
     /// <summary>
     /// External OAuth authorization server settings.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:AuthorizationServer")]
     public partial class AuthorizationServer : Pulumi.CustomResource
     {
         /// <summary>

@@ -138,15 +138,15 @@ type ServerTrustGroupInput interface {
 	ToServerTrustGroupOutputWithContext(ctx context.Context) ServerTrustGroupOutput
 }
 
-func (ServerTrustGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerTrustGroup)(nil)).Elem()
+func (*ServerTrustGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerTrustGroup)(nil))
 }
 
-func (i ServerTrustGroup) ToServerTrustGroupOutput() ServerTrustGroupOutput {
+func (i *ServerTrustGroup) ToServerTrustGroupOutput() ServerTrustGroupOutput {
 	return i.ToServerTrustGroupOutputWithContext(context.Background())
 }
 
-func (i ServerTrustGroup) ToServerTrustGroupOutputWithContext(ctx context.Context) ServerTrustGroupOutput {
+func (i *ServerTrustGroup) ToServerTrustGroupOutputWithContext(ctx context.Context) ServerTrustGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerTrustGroupOutput)
 }
 
@@ -155,7 +155,7 @@ type ServerTrustGroupOutput struct {
 }
 
 func (ServerTrustGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerTrustGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerTrustGroup)(nil))
 }
 
 func (o ServerTrustGroupOutput) ToServerTrustGroupOutput() ServerTrustGroupOutput {

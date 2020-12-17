@@ -309,15 +309,15 @@ type WebTestInput interface {
 	ToWebTestOutputWithContext(ctx context.Context) WebTestOutput
 }
 
-func (WebTest) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTest)(nil)).Elem()
+func (*WebTest) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTest)(nil))
 }
 
-func (i WebTest) ToWebTestOutput() WebTestOutput {
+func (i *WebTest) ToWebTestOutput() WebTestOutput {
 	return i.ToWebTestOutputWithContext(context.Background())
 }
 
-func (i WebTest) ToWebTestOutputWithContext(ctx context.Context) WebTestOutput {
+func (i *WebTest) ToWebTestOutputWithContext(ctx context.Context) WebTestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestOutput)
 }
 
@@ -326,7 +326,7 @@ type WebTestOutput struct {
 }
 
 func (WebTestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebTest)(nil))
 }
 
 func (o WebTestOutput) ToWebTestOutput() WebTestOutput {

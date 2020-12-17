@@ -165,15 +165,15 @@ type VendorSkusInput interface {
 	ToVendorSkusOutputWithContext(ctx context.Context) VendorSkusOutput
 }
 
-func (VendorSkus) ElementType() reflect.Type {
-	return reflect.TypeOf((*VendorSkus)(nil)).Elem()
+func (*VendorSkus) ElementType() reflect.Type {
+	return reflect.TypeOf((*VendorSkus)(nil))
 }
 
-func (i VendorSkus) ToVendorSkusOutput() VendorSkusOutput {
+func (i *VendorSkus) ToVendorSkusOutput() VendorSkusOutput {
 	return i.ToVendorSkusOutputWithContext(context.Background())
 }
 
-func (i VendorSkus) ToVendorSkusOutputWithContext(ctx context.Context) VendorSkusOutput {
+func (i *VendorSkus) ToVendorSkusOutputWithContext(ctx context.Context) VendorSkusOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VendorSkusOutput)
 }
 
@@ -182,7 +182,7 @@ type VendorSkusOutput struct {
 }
 
 func (VendorSkusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VendorSkusOutput)(nil)).Elem()
+	return reflect.TypeOf((*VendorSkus)(nil))
 }
 
 func (o VendorSkusOutput) ToVendorSkusOutput() VendorSkusOutput {

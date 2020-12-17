@@ -170,15 +170,15 @@ type ResourceGroupInput interface {
 	ToResourceGroupOutputWithContext(ctx context.Context) ResourceGroupOutput
 }
 
-func (ResourceGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroup)(nil)).Elem()
+func (*ResourceGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroup)(nil))
 }
 
-func (i ResourceGroup) ToResourceGroupOutput() ResourceGroupOutput {
+func (i *ResourceGroup) ToResourceGroupOutput() ResourceGroupOutput {
 	return i.ToResourceGroupOutputWithContext(context.Background())
 }
 
-func (i ResourceGroup) ToResourceGroupOutputWithContext(ctx context.Context) ResourceGroupOutput {
+func (i *ResourceGroup) ToResourceGroupOutputWithContext(ctx context.Context) ResourceGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupOutput)
 }
 
@@ -187,7 +187,7 @@ type ResourceGroupOutput struct {
 }
 
 func (ResourceGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResourceGroup)(nil))
 }
 
 func (o ResourceGroupOutput) ToResourceGroupOutput() ResourceGroupOutput {

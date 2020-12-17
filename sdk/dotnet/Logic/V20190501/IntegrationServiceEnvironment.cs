@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
     /// <summary>
     /// The integration service environment.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/v20190501:IntegrationServiceEnvironment")]
     public partial class IntegrationServiceEnvironment : Pulumi.CustomResource
     {
         /// <summary>

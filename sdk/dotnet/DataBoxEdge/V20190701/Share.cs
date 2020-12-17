@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
     /// <summary>
     /// Represents a share on the  Data Box Edge/Gateway device.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20190701:Share")]
     public partial class Share : Pulumi.CustomResource
     {
         /// <summary>

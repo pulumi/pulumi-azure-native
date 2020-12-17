@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Management.V20190701
     /// <summary>
     /// Deployment information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:management/v20190701:DeploymentAtManagementGroupScope")]
     public partial class DeploymentAtManagementGroupScope : Pulumi.CustomResource
     {
         /// <summary>

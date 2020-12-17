@@ -194,15 +194,15 @@ type NetworkInterfaceTapConfigurationInput interface {
 	ToNetworkInterfaceTapConfigurationOutputWithContext(ctx context.Context) NetworkInterfaceTapConfigurationOutput
 }
 
-func (NetworkInterfaceTapConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceTapConfiguration)(nil)).Elem()
+func (*NetworkInterfaceTapConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceTapConfiguration)(nil))
 }
 
-func (i NetworkInterfaceTapConfiguration) ToNetworkInterfaceTapConfigurationOutput() NetworkInterfaceTapConfigurationOutput {
+func (i *NetworkInterfaceTapConfiguration) ToNetworkInterfaceTapConfigurationOutput() NetworkInterfaceTapConfigurationOutput {
 	return i.ToNetworkInterfaceTapConfigurationOutputWithContext(context.Background())
 }
 
-func (i NetworkInterfaceTapConfiguration) ToNetworkInterfaceTapConfigurationOutputWithContext(ctx context.Context) NetworkInterfaceTapConfigurationOutput {
+func (i *NetworkInterfaceTapConfiguration) ToNetworkInterfaceTapConfigurationOutputWithContext(ctx context.Context) NetworkInterfaceTapConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceTapConfigurationOutput)
 }
 
@@ -211,7 +211,7 @@ type NetworkInterfaceTapConfigurationOutput struct {
 }
 
 func (NetworkInterfaceTapConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceTapConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkInterfaceTapConfiguration)(nil))
 }
 
 func (o NetworkInterfaceTapConfigurationOutput) ToNetworkInterfaceTapConfigurationOutput() NetworkInterfaceTapConfigurationOutput {

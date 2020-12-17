@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201020Preview
     /// <summary>
     /// HealthBot resource definition
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:healthbot/v20201020preview:getbot")]
     public partial class Getbot : Pulumi.CustomResource
     {
         /// <summary>

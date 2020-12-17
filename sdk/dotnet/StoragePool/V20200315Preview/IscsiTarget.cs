@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
     /// <summary>
     /// Payload for iSCSI Target Create or Update requests.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storagepool/v20200315preview:IscsiTarget")]
     public partial class IscsiTarget : Pulumi.CustomResource
     {
         /// <summary>

@@ -108,15 +108,15 @@ type NotificationRegistrationInput interface {
 	ToNotificationRegistrationOutputWithContext(ctx context.Context) NotificationRegistrationOutput
 }
 
-func (NotificationRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRegistration)(nil)).Elem()
+func (*NotificationRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationRegistration)(nil))
 }
 
-func (i NotificationRegistration) ToNotificationRegistrationOutput() NotificationRegistrationOutput {
+func (i *NotificationRegistration) ToNotificationRegistrationOutput() NotificationRegistrationOutput {
 	return i.ToNotificationRegistrationOutputWithContext(context.Background())
 }
 
-func (i NotificationRegistration) ToNotificationRegistrationOutputWithContext(ctx context.Context) NotificationRegistrationOutput {
+func (i *NotificationRegistration) ToNotificationRegistrationOutputWithContext(ctx context.Context) NotificationRegistrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRegistrationOutput)
 }
 
@@ -125,7 +125,7 @@ type NotificationRegistrationOutput struct {
 }
 
 func (NotificationRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRegistrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*NotificationRegistration)(nil))
 }
 
 func (o NotificationRegistrationOutput) ToNotificationRegistrationOutput() NotificationRegistrationOutput {

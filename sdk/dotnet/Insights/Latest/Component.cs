@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// An Application Insights component definition.
     /// Latest API Version: 2015-05-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/latest:Component")]
     public partial class Component : Pulumi.CustomResource
     {
         /// <summary>

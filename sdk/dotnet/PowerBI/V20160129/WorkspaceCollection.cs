@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.PowerBI.V20160129
 {
+    [AzureNextGenResourceType("azure-nextgen:powerbi/v20160129:WorkspaceCollection")]
     public partial class WorkspaceCollection : Pulumi.CustomResource
     {
         /// <summary>

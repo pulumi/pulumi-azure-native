@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
     /// <summary>
     /// Content type contract details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20191201:ContentItem")]
     public partial class ContentItem : Pulumi.CustomResource
     {
         /// <summary>

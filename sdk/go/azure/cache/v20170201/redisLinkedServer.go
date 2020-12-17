@@ -166,15 +166,15 @@ type RedisLinkedServerInput interface {
 	ToRedisLinkedServerOutputWithContext(ctx context.Context) RedisLinkedServerOutput
 }
 
-func (RedisLinkedServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisLinkedServer)(nil)).Elem()
+func (*RedisLinkedServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisLinkedServer)(nil))
 }
 
-func (i RedisLinkedServer) ToRedisLinkedServerOutput() RedisLinkedServerOutput {
+func (i *RedisLinkedServer) ToRedisLinkedServerOutput() RedisLinkedServerOutput {
 	return i.ToRedisLinkedServerOutputWithContext(context.Background())
 }
 
-func (i RedisLinkedServer) ToRedisLinkedServerOutputWithContext(ctx context.Context) RedisLinkedServerOutput {
+func (i *RedisLinkedServer) ToRedisLinkedServerOutputWithContext(ctx context.Context) RedisLinkedServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RedisLinkedServerOutput)
 }
 
@@ -183,7 +183,7 @@ type RedisLinkedServerOutput struct {
 }
 
 func (RedisLinkedServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisLinkedServerOutput)(nil)).Elem()
+	return reflect.TypeOf((*RedisLinkedServer)(nil))
 }
 
 func (o RedisLinkedServerOutput) ToRedisLinkedServerOutput() RedisLinkedServerOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
     /// <summary>
     /// ExpressRouteCircuit resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20170301:ExpressRouteCircuit")]
     public partial class ExpressRouteCircuit : Pulumi.CustomResource
     {
         /// <summary>

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
     /// The workflow type.
     /// Latest API Version: 2019-05-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/latest:Workflow")]
     public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>

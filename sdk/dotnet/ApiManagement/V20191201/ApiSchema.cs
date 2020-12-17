@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
     /// <summary>
     /// Schema Contract details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20191201:ApiSchema")]
     public partial class ApiSchema : Pulumi.CustomResource
     {
         /// <summary>

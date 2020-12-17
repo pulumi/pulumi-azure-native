@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Describes a Virtual Machine run command.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine")]
     public partial class VirtualMachineRunCommandByVirtualMachine : Pulumi.CustomResource
     {
         /// <summary>

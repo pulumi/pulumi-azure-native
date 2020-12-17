@@ -174,15 +174,15 @@ type PrefixInput interface {
 	ToPrefixOutputWithContext(ctx context.Context) PrefixOutput
 }
 
-func (Prefix) ElementType() reflect.Type {
-	return reflect.TypeOf((*Prefix)(nil)).Elem()
+func (*Prefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*Prefix)(nil))
 }
 
-func (i Prefix) ToPrefixOutput() PrefixOutput {
+func (i *Prefix) ToPrefixOutput() PrefixOutput {
 	return i.ToPrefixOutputWithContext(context.Background())
 }
 
-func (i Prefix) ToPrefixOutputWithContext(ctx context.Context) PrefixOutput {
+func (i *Prefix) ToPrefixOutputWithContext(ctx context.Context) PrefixOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixOutput)
 }
 
@@ -191,7 +191,7 @@ type PrefixOutput struct {
 }
 
 func (PrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrefixOutput)(nil)).Elem()
+	return reflect.TypeOf((*Prefix)(nil))
 }
 
 func (o PrefixOutput) ToPrefixOutput() PrefixOutput {

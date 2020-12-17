@@ -159,15 +159,15 @@ type RoleDefinitionInput interface {
 	ToRoleDefinitionOutputWithContext(ctx context.Context) RoleDefinitionOutput
 }
 
-func (RoleDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleDefinition)(nil)).Elem()
+func (*RoleDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleDefinition)(nil))
 }
 
-func (i RoleDefinition) ToRoleDefinitionOutput() RoleDefinitionOutput {
+func (i *RoleDefinition) ToRoleDefinitionOutput() RoleDefinitionOutput {
 	return i.ToRoleDefinitionOutputWithContext(context.Background())
 }
 
-func (i RoleDefinition) ToRoleDefinitionOutputWithContext(ctx context.Context) RoleDefinitionOutput {
+func (i *RoleDefinition) ToRoleDefinitionOutputWithContext(ctx context.Context) RoleDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionOutput)
 }
 
@@ -176,7 +176,7 @@ type RoleDefinitionOutput struct {
 }
 
 func (RoleDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleDefinitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*RoleDefinition)(nil))
 }
 
 func (o RoleDefinitionOutput) ToRoleDefinitionOutput() RoleDefinitionOutput {

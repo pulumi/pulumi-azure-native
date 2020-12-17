@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20181101:WebApp")]
     public partial class WebApp : Pulumi.CustomResource
     {
         /// <summary>

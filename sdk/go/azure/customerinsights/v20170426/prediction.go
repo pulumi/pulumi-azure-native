@@ -287,15 +287,15 @@ type PredictionInput interface {
 	ToPredictionOutputWithContext(ctx context.Context) PredictionOutput
 }
 
-func (Prediction) ElementType() reflect.Type {
-	return reflect.TypeOf((*Prediction)(nil)).Elem()
+func (*Prediction) ElementType() reflect.Type {
+	return reflect.TypeOf((*Prediction)(nil))
 }
 
-func (i Prediction) ToPredictionOutput() PredictionOutput {
+func (i *Prediction) ToPredictionOutput() PredictionOutput {
 	return i.ToPredictionOutputWithContext(context.Background())
 }
 
-func (i Prediction) ToPredictionOutputWithContext(ctx context.Context) PredictionOutput {
+func (i *Prediction) ToPredictionOutputWithContext(ctx context.Context) PredictionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PredictionOutput)
 }
 
@@ -304,7 +304,7 @@ type PredictionOutput struct {
 }
 
 func (PredictionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PredictionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Prediction)(nil))
 }
 
 func (o PredictionOutput) ToPredictionOutput() PredictionOutput {

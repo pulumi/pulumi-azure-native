@@ -211,15 +211,15 @@ type SqlServerInstanceInput interface {
 	ToSqlServerInstanceOutputWithContext(ctx context.Context) SqlServerInstanceOutput
 }
 
-func (SqlServerInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerInstance)(nil)).Elem()
+func (*SqlServerInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerInstance)(nil))
 }
 
-func (i SqlServerInstance) ToSqlServerInstanceOutput() SqlServerInstanceOutput {
+func (i *SqlServerInstance) ToSqlServerInstanceOutput() SqlServerInstanceOutput {
 	return i.ToSqlServerInstanceOutputWithContext(context.Background())
 }
 
-func (i SqlServerInstance) ToSqlServerInstanceOutputWithContext(ctx context.Context) SqlServerInstanceOutput {
+func (i *SqlServerInstance) ToSqlServerInstanceOutputWithContext(ctx context.Context) SqlServerInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerInstanceOutput)
 }
 
@@ -228,7 +228,7 @@ type SqlServerInstanceOutput struct {
 }
 
 func (SqlServerInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerInstanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlServerInstance)(nil))
 }
 
 func (o SqlServerInstanceOutput) ToSqlServerInstanceOutput() SqlServerInstanceOutput {

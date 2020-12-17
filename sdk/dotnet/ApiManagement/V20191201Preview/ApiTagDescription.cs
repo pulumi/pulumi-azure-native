@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
     /// <summary>
     /// Contract details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20191201preview:ApiTagDescription")]
     public partial class ApiTagDescription : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20150701
     /// <summary>
     /// Role Assignments
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:authorization/v20150701:RoleAssignment")]
     public partial class RoleAssignment : Pulumi.CustomResource
     {
         /// <summary>

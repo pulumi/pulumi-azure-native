@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
     /// <summary>
     /// The scheduled query rule resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20200501preview:ScheduledQueryRule")]
     public partial class ScheduledQueryRule : Pulumi.CustomResource
     {
         [Output("actions")]

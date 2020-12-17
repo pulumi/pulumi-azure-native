@@ -197,15 +197,15 @@ type LoggerInput interface {
 	ToLoggerOutputWithContext(ctx context.Context) LoggerOutput
 }
 
-func (Logger) ElementType() reflect.Type {
-	return reflect.TypeOf((*Logger)(nil)).Elem()
+func (*Logger) ElementType() reflect.Type {
+	return reflect.TypeOf((*Logger)(nil))
 }
 
-func (i Logger) ToLoggerOutput() LoggerOutput {
+func (i *Logger) ToLoggerOutput() LoggerOutput {
 	return i.ToLoggerOutputWithContext(context.Background())
 }
 
-func (i Logger) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
+func (i *Logger) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerOutput)
 }
 
@@ -214,7 +214,7 @@ type LoggerOutput struct {
 }
 
 func (LoggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggerOutput)(nil)).Elem()
+	return reflect.TypeOf((*Logger)(nil))
 }
 
 func (o LoggerOutput) ToLoggerOutput() LoggerOutput {

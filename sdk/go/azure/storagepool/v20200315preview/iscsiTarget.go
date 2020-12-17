@@ -144,15 +144,15 @@ type IscsiTargetInput interface {
 	ToIscsiTargetOutputWithContext(ctx context.Context) IscsiTargetOutput
 }
 
-func (IscsiTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*IscsiTarget)(nil)).Elem()
+func (*IscsiTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*IscsiTarget)(nil))
 }
 
-func (i IscsiTarget) ToIscsiTargetOutput() IscsiTargetOutput {
+func (i *IscsiTarget) ToIscsiTargetOutput() IscsiTargetOutput {
 	return i.ToIscsiTargetOutputWithContext(context.Background())
 }
 
-func (i IscsiTarget) ToIscsiTargetOutputWithContext(ctx context.Context) IscsiTargetOutput {
+func (i *IscsiTarget) ToIscsiTargetOutputWithContext(ctx context.Context) IscsiTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IscsiTargetOutput)
 }
 
@@ -161,7 +161,7 @@ type IscsiTargetOutput struct {
 }
 
 func (IscsiTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IscsiTargetOutput)(nil)).Elem()
+	return reflect.TypeOf((*IscsiTarget)(nil))
 }
 
 func (o IscsiTargetOutput) ToIscsiTargetOutput() IscsiTargetOutput {

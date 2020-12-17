@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
     /// <summary>
     /// Description of a NotificationHub Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:notificationhubs/v20140901:NotificationHub")]
     public partial class NotificationHub : Pulumi.CustomResource
     {
         /// <summary>

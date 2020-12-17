@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201
     /// <summary>
     /// A virtual network rule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformysql/v20171201:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>

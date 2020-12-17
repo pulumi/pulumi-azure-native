@@ -205,15 +205,15 @@ type BudgetByResourceGroupNameInput interface {
 	ToBudgetByResourceGroupNameOutputWithContext(ctx context.Context) BudgetByResourceGroupNameOutput
 }
 
-func (BudgetByResourceGroupName) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetByResourceGroupName)(nil)).Elem()
+func (*BudgetByResourceGroupName) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetByResourceGroupName)(nil))
 }
 
-func (i BudgetByResourceGroupName) ToBudgetByResourceGroupNameOutput() BudgetByResourceGroupNameOutput {
+func (i *BudgetByResourceGroupName) ToBudgetByResourceGroupNameOutput() BudgetByResourceGroupNameOutput {
 	return i.ToBudgetByResourceGroupNameOutputWithContext(context.Background())
 }
 
-func (i BudgetByResourceGroupName) ToBudgetByResourceGroupNameOutputWithContext(ctx context.Context) BudgetByResourceGroupNameOutput {
+func (i *BudgetByResourceGroupName) ToBudgetByResourceGroupNameOutputWithContext(ctx context.Context) BudgetByResourceGroupNameOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetByResourceGroupNameOutput)
 }
 
@@ -222,7 +222,7 @@ type BudgetByResourceGroupNameOutput struct {
 }
 
 func (BudgetByResourceGroupNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetByResourceGroupNameOutput)(nil)).Elem()
+	return reflect.TypeOf((*BudgetByResourceGroupName)(nil))
 }
 
 func (o BudgetByResourceGroupNameOutput) ToBudgetByResourceGroupNameOutput() BudgetByResourceGroupNameOutput {

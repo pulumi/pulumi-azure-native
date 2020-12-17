@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
     /// <summary>
     /// Contact details and configurations for notifications coming from Azure Security Center.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20200101preview:SecurityContact")]
     public partial class SecurityContact : Pulumi.CustomResource
     {
         /// <summary>

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
     /// Dedicated cloud node model
     /// Latest API Version: 2019-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode")]
     public partial class DedicatedCloudNode : Pulumi.CustomResource
     {
         /// <summary>

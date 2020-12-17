@@ -167,15 +167,15 @@ type LinkedServerInput interface {
 	ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput
 }
 
-func (LinkedServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServer)(nil)).Elem()
+func (*LinkedServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServer)(nil))
 }
 
-func (i LinkedServer) ToLinkedServerOutput() LinkedServerOutput {
+func (i *LinkedServer) ToLinkedServerOutput() LinkedServerOutput {
 	return i.ToLinkedServerOutputWithContext(context.Background())
 }
 
-func (i LinkedServer) ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput {
+func (i *LinkedServer) ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerOutput)
 }
 
@@ -184,7 +184,7 @@ type LinkedServerOutput struct {
 }
 
 func (LinkedServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServerOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServer)(nil))
 }
 
 func (o LinkedServerOutput) ToLinkedServerOutput() LinkedServerOutput {

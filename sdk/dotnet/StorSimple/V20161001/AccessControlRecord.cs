@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
     /// <summary>
     /// The access control record
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:AccessControlRecord")]
     public partial class AccessControlRecord : Pulumi.CustomResource
     {
         /// <summary>

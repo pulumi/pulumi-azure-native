@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20200315
     /// <summary>
     /// The description of the service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:healthcareapis/v20200315:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

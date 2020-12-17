@@ -162,15 +162,15 @@ type SqlServerInput interface {
 	ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput
 }
 
-func (SqlServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServer)(nil)).Elem()
+func (*SqlServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServer)(nil))
 }
 
-func (i SqlServer) ToSqlServerOutput() SqlServerOutput {
+func (i *SqlServer) ToSqlServerOutput() SqlServerOutput {
 	return i.ToSqlServerOutputWithContext(context.Background())
 }
 
-func (i SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput {
+func (i *SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerOutput)
 }
 
@@ -179,7 +179,7 @@ type SqlServerOutput struct {
 }
 
 func (SqlServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlServer)(nil))
 }
 
 func (o SqlServerOutput) ToSqlServerOutput() SqlServerOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20200101PrivatePreview
     /// <summary>
     /// A MariaDB Server key.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformariadb/v20200101privatepreview:ServerKey")]
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>

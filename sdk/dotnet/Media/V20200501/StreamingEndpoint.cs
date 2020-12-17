@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
     /// <summary>
     /// The streaming endpoint.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20200501:StreamingEndpoint")]
     public partial class StreamingEndpoint : Pulumi.CustomResource
     {
         /// <summary>

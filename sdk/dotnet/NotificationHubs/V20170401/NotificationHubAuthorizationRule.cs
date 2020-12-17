@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule")]
     public partial class NotificationHubAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

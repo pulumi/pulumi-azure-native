@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview
     /// <summary>
     /// The shared dashboard resource definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:portal/v20190101preview:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
         /// <summary>

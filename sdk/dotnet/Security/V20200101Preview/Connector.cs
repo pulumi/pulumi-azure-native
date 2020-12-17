@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
     /// <summary>
     /// The connector setting
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20200101preview:Connector")]
     public partial class Connector : Pulumi.CustomResource
     {
         /// <summary>

@@ -131,15 +131,15 @@ type DataFlowInput interface {
 	ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutput
 }
 
-func (DataFlow) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFlow)(nil)).Elem()
+func (*DataFlow) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlow)(nil))
 }
 
-func (i DataFlow) ToDataFlowOutput() DataFlowOutput {
+func (i *DataFlow) ToDataFlowOutput() DataFlowOutput {
 	return i.ToDataFlowOutputWithContext(context.Background())
 }
 
-func (i DataFlow) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutput {
+func (i *DataFlow) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataFlowOutput)
 }
 
@@ -148,7 +148,7 @@ type DataFlowOutput struct {
 }
 
 func (DataFlowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFlowOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataFlow)(nil))
 }
 
 func (o DataFlowOutput) ToDataFlowOutput() DataFlowOutput {

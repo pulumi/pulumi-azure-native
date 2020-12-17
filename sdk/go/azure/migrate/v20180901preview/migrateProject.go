@@ -139,15 +139,15 @@ type MigrateProjectInput interface {
 	ToMigrateProjectOutputWithContext(ctx context.Context) MigrateProjectOutput
 }
 
-func (MigrateProject) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateProject)(nil)).Elem()
+func (*MigrateProject) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrateProject)(nil))
 }
 
-func (i MigrateProject) ToMigrateProjectOutput() MigrateProjectOutput {
+func (i *MigrateProject) ToMigrateProjectOutput() MigrateProjectOutput {
 	return i.ToMigrateProjectOutputWithContext(context.Background())
 }
 
-func (i MigrateProject) ToMigrateProjectOutputWithContext(ctx context.Context) MigrateProjectOutput {
+func (i *MigrateProject) ToMigrateProjectOutputWithContext(ctx context.Context) MigrateProjectOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectOutput)
 }
 
@@ -156,7 +156,7 @@ type MigrateProjectOutput struct {
 }
 
 func (MigrateProjectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateProjectOutput)(nil)).Elem()
+	return reflect.TypeOf((*MigrateProject)(nil))
 }
 
 func (o MigrateProjectOutput) ToMigrateProjectOutput() MigrateProjectOutput {

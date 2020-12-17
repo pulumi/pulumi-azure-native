@@ -284,15 +284,15 @@ type AzureFirewallInput interface {
 	ToAzureFirewallOutputWithContext(ctx context.Context) AzureFirewallOutput
 }
 
-func (AzureFirewall) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureFirewall)(nil)).Elem()
+func (*AzureFirewall) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFirewall)(nil))
 }
 
-func (i AzureFirewall) ToAzureFirewallOutput() AzureFirewallOutput {
+func (i *AzureFirewall) ToAzureFirewallOutput() AzureFirewallOutput {
 	return i.ToAzureFirewallOutputWithContext(context.Background())
 }
 
-func (i AzureFirewall) ToAzureFirewallOutputWithContext(ctx context.Context) AzureFirewallOutput {
+func (i *AzureFirewall) ToAzureFirewallOutputWithContext(ctx context.Context) AzureFirewallOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFirewallOutput)
 }
 
@@ -301,7 +301,7 @@ type AzureFirewallOutput struct {
 }
 
 func (AzureFirewallOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureFirewallOutput)(nil)).Elem()
+	return reflect.TypeOf((*AzureFirewall)(nil))
 }
 
 func (o AzureFirewallOutput) ToAzureFirewallOutput() AzureFirewallOutput {

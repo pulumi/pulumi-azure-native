@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
     /// <summary>
     /// Description of topic resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : Pulumi.CustomResource
     {
         /// <summary>

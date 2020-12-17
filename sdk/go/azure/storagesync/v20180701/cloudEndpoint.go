@@ -212,15 +212,15 @@ type CloudEndpointInput interface {
 	ToCloudEndpointOutputWithContext(ctx context.Context) CloudEndpointOutput
 }
 
-func (CloudEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudEndpoint)(nil)).Elem()
+func (*CloudEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudEndpoint)(nil))
 }
 
-func (i CloudEndpoint) ToCloudEndpointOutput() CloudEndpointOutput {
+func (i *CloudEndpoint) ToCloudEndpointOutput() CloudEndpointOutput {
 	return i.ToCloudEndpointOutputWithContext(context.Background())
 }
 
-func (i CloudEndpoint) ToCloudEndpointOutputWithContext(ctx context.Context) CloudEndpointOutput {
+func (i *CloudEndpoint) ToCloudEndpointOutputWithContext(ctx context.Context) CloudEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointOutput)
 }
 
@@ -229,7 +229,7 @@ type CloudEndpointOutput struct {
 }
 
 func (CloudEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudEndpointOutput)(nil)).Elem()
+	return reflect.TypeOf((*CloudEndpoint)(nil))
 }
 
 func (o CloudEndpointOutput) ToCloudEndpointOutput() CloudEndpointOutput {

@@ -147,15 +147,15 @@ type PartnerInput interface {
 	ToPartnerOutputWithContext(ctx context.Context) PartnerOutput
 }
 
-func (Partner) ElementType() reflect.Type {
-	return reflect.TypeOf((*Partner)(nil)).Elem()
+func (*Partner) ElementType() reflect.Type {
+	return reflect.TypeOf((*Partner)(nil))
 }
 
-func (i Partner) ToPartnerOutput() PartnerOutput {
+func (i *Partner) ToPartnerOutput() PartnerOutput {
 	return i.ToPartnerOutputWithContext(context.Background())
 }
 
-func (i Partner) ToPartnerOutputWithContext(ctx context.Context) PartnerOutput {
+func (i *Partner) ToPartnerOutputWithContext(ctx context.Context) PartnerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerOutput)
 }
 
@@ -164,7 +164,7 @@ type PartnerOutput struct {
 }
 
 func (PartnerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerOutput)(nil)).Elem()
+	return reflect.TypeOf((*Partner)(nil))
 }
 
 func (o PartnerOutput) ToPartnerOutput() PartnerOutput {

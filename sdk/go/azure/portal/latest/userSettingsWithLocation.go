@@ -107,15 +107,15 @@ type UserSettingsWithLocationInput interface {
 	ToUserSettingsWithLocationOutputWithContext(ctx context.Context) UserSettingsWithLocationOutput
 }
 
-func (UserSettingsWithLocation) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettingsWithLocation)(nil)).Elem()
+func (*UserSettingsWithLocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsWithLocation)(nil))
 }
 
-func (i UserSettingsWithLocation) ToUserSettingsWithLocationOutput() UserSettingsWithLocationOutput {
+func (i *UserSettingsWithLocation) ToUserSettingsWithLocationOutput() UserSettingsWithLocationOutput {
 	return i.ToUserSettingsWithLocationOutputWithContext(context.Background())
 }
 
-func (i UserSettingsWithLocation) ToUserSettingsWithLocationOutputWithContext(ctx context.Context) UserSettingsWithLocationOutput {
+func (i *UserSettingsWithLocation) ToUserSettingsWithLocationOutputWithContext(ctx context.Context) UserSettingsWithLocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsWithLocationOutput)
 }
 
@@ -124,7 +124,7 @@ type UserSettingsWithLocationOutput struct {
 }
 
 func (UserSettingsWithLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettingsWithLocationOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserSettingsWithLocation)(nil))
 }
 
 func (o UserSettingsWithLocationOutput) ToUserSettingsWithLocationOutput() UserSettingsWithLocationOutput {

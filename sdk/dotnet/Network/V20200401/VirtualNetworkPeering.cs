@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
     /// <summary>
     /// Peerings in a virtual network resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200401:VirtualNetworkPeering")]
     public partial class VirtualNetworkPeering : Pulumi.CustomResource
     {
         /// <summary>

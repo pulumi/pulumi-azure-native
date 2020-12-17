@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
     /// <summary>
     /// Definition of the credential.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:Credential")]
     public partial class Credential : Pulumi.CustomResource
     {
         /// <summary>

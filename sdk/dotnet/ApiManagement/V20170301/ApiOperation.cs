@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
     /// <summary>
     /// Api Operation details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20170301:ApiOperation")]
     public partial class ApiOperation : Pulumi.CustomResource
     {
         /// <summary>

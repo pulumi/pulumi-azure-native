@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
     /// <summary>
     /// Slot Config names azure resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20180201:WebAppSlotConfigurationNames")]
     public partial class WebAppSlotConfigurationNames : Pulumi.CustomResource
     {
         /// <summary>

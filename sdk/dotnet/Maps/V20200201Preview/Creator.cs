@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
     /// <summary>
     /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:maps/v20200201preview:Creator")]
     public partial class Creator : Pulumi.CustomResource
     {
         /// <summary>

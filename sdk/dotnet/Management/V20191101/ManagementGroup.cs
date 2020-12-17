@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Management.V20191101
     /// <summary>
     /// The management group details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:management/v20191101:ManagementGroup")]
     public partial class ManagementGroup : Pulumi.CustomResource
     {
         /// <summary>

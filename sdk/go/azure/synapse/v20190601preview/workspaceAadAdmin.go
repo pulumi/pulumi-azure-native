@@ -139,15 +139,15 @@ type WorkspaceAadAdminInput interface {
 	ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput
 }
 
-func (WorkspaceAadAdmin) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceAadAdmin)(nil)).Elem()
+func (*WorkspaceAadAdmin) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceAadAdmin)(nil))
 }
 
-func (i WorkspaceAadAdmin) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {
+func (i *WorkspaceAadAdmin) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {
 	return i.ToWorkspaceAadAdminOutputWithContext(context.Background())
 }
 
-func (i WorkspaceAadAdmin) ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput {
+func (i *WorkspaceAadAdmin) ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminOutput)
 }
 
@@ -156,7 +156,7 @@ type WorkspaceAadAdminOutput struct {
 }
 
 func (WorkspaceAadAdminOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceAadAdminOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkspaceAadAdmin)(nil))
 }
 
 func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {

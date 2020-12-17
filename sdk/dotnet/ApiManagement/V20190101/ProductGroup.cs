@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
     /// <summary>
     /// Contract details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20190101:ProductGroup")]
     public partial class ProductGroup : Pulumi.CustomResource
     {
         /// <summary>

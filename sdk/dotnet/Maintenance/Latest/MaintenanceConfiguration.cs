@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Maintenance.Latest
     /// Maintenance configuration record type
     /// Latest API Version: 2020-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:maintenance/latest:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : Pulumi.CustomResource
     {
         /// <summary>

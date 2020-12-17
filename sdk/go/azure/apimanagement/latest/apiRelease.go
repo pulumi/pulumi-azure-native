@@ -166,15 +166,15 @@ type ApiReleaseInput interface {
 	ToApiReleaseOutputWithContext(ctx context.Context) ApiReleaseOutput
 }
 
-func (ApiRelease) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiRelease)(nil)).Elem()
+func (*ApiRelease) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiRelease)(nil))
 }
 
-func (i ApiRelease) ToApiReleaseOutput() ApiReleaseOutput {
+func (i *ApiRelease) ToApiReleaseOutput() ApiReleaseOutput {
 	return i.ToApiReleaseOutputWithContext(context.Background())
 }
 
-func (i ApiRelease) ToApiReleaseOutputWithContext(ctx context.Context) ApiReleaseOutput {
+func (i *ApiRelease) ToApiReleaseOutputWithContext(ctx context.Context) ApiReleaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiReleaseOutput)
 }
 
@@ -183,7 +183,7 @@ type ApiReleaseOutput struct {
 }
 
 func (ApiReleaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiReleaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiRelease)(nil))
 }
 
 func (o ApiReleaseOutput) ToApiReleaseOutput() ApiReleaseOutput {

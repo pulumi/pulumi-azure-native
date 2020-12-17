@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
     /// <summary>
     /// Specifies information about the SSH public key.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20200601:SshPublicKey")]
     public partial class SshPublicKey : Pulumi.CustomResource
     {
         /// <summary>

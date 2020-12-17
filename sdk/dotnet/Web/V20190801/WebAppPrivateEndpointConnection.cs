@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
     /// <summary>
     /// Private Endpoint Connection ARM resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection")]
     public partial class WebAppPrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

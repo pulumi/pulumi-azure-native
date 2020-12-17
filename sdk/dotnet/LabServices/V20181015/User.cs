@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
     /// <summary>
     /// The User registered to a lab
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:labservices/v20181015:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

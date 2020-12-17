@@ -145,15 +145,15 @@ type IoTSpaceInput interface {
 	ToIoTSpaceOutputWithContext(ctx context.Context) IoTSpaceOutput
 }
 
-func (IoTSpace) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTSpace)(nil)).Elem()
+func (*IoTSpace) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTSpace)(nil))
 }
 
-func (i IoTSpace) ToIoTSpaceOutput() IoTSpaceOutput {
+func (i *IoTSpace) ToIoTSpaceOutput() IoTSpaceOutput {
 	return i.ToIoTSpaceOutputWithContext(context.Background())
 }
 
-func (i IoTSpace) ToIoTSpaceOutputWithContext(ctx context.Context) IoTSpaceOutput {
+func (i *IoTSpace) ToIoTSpaceOutputWithContext(ctx context.Context) IoTSpaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IoTSpaceOutput)
 }
 
@@ -162,7 +162,7 @@ type IoTSpaceOutput struct {
 }
 
 func (IoTSpaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTSpaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*IoTSpace)(nil))
 }
 
 func (o IoTSpaceOutput) ToIoTSpaceOutput() IoTSpaceOutput {

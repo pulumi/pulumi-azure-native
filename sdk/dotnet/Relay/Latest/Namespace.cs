@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
     /// Description of a namespace resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:relay/latest:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>

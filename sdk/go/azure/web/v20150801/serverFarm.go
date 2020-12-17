@@ -270,15 +270,15 @@ type ServerFarmInput interface {
 	ToServerFarmOutputWithContext(ctx context.Context) ServerFarmOutput
 }
 
-func (ServerFarm) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFarm)(nil)).Elem()
+func (*ServerFarm) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerFarm)(nil))
 }
 
-func (i ServerFarm) ToServerFarmOutput() ServerFarmOutput {
+func (i *ServerFarm) ToServerFarmOutput() ServerFarmOutput {
 	return i.ToServerFarmOutputWithContext(context.Background())
 }
 
-func (i ServerFarm) ToServerFarmOutputWithContext(ctx context.Context) ServerFarmOutput {
+func (i *ServerFarm) ToServerFarmOutputWithContext(ctx context.Context) ServerFarmOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerFarmOutput)
 }
 
@@ -287,7 +287,7 @@ type ServerFarmOutput struct {
 }
 
 func (ServerFarmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFarmOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerFarm)(nil))
 }
 
 func (o ServerFarmOutput) ToServerFarmOutput() ServerFarmOutput {

@@ -157,15 +157,15 @@ type MigrationConfigInput interface {
 	ToMigrationConfigOutputWithContext(ctx context.Context) MigrationConfigOutput
 }
 
-func (MigrationConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrationConfig)(nil)).Elem()
+func (*MigrationConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationConfig)(nil))
 }
 
-func (i MigrationConfig) ToMigrationConfigOutput() MigrationConfigOutput {
+func (i *MigrationConfig) ToMigrationConfigOutput() MigrationConfigOutput {
 	return i.ToMigrationConfigOutputWithContext(context.Background())
 }
 
-func (i MigrationConfig) ToMigrationConfigOutputWithContext(ctx context.Context) MigrationConfigOutput {
+func (i *MigrationConfig) ToMigrationConfigOutputWithContext(ctx context.Context) MigrationConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationConfigOutput)
 }
 
@@ -174,7 +174,7 @@ type MigrationConfigOutput struct {
 }
 
 func (MigrationConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrationConfigOutput)(nil)).Elem()
+	return reflect.TypeOf((*MigrationConfig)(nil))
 }
 
 func (o MigrationConfigOutput) ToMigrationConfigOutput() MigrationConfigOutput {

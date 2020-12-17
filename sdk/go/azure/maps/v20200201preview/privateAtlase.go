@@ -135,15 +135,15 @@ type PrivateAtlaseInput interface {
 	ToPrivateAtlaseOutputWithContext(ctx context.Context) PrivateAtlaseOutput
 }
 
-func (PrivateAtlase) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateAtlase)(nil)).Elem()
+func (*PrivateAtlase) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateAtlase)(nil))
 }
 
-func (i PrivateAtlase) ToPrivateAtlaseOutput() PrivateAtlaseOutput {
+func (i *PrivateAtlase) ToPrivateAtlaseOutput() PrivateAtlaseOutput {
 	return i.ToPrivateAtlaseOutputWithContext(context.Background())
 }
 
-func (i PrivateAtlase) ToPrivateAtlaseOutputWithContext(ctx context.Context) PrivateAtlaseOutput {
+func (i *PrivateAtlase) ToPrivateAtlaseOutputWithContext(ctx context.Context) PrivateAtlaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateAtlaseOutput)
 }
 
@@ -152,7 +152,7 @@ type PrivateAtlaseOutput struct {
 }
 
 func (PrivateAtlaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateAtlaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateAtlase)(nil))
 }
 
 func (o PrivateAtlaseOutput) ToPrivateAtlaseOutput() PrivateAtlaseOutput {

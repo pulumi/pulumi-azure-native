@@ -285,15 +285,15 @@ type VpnServerConfigurationInput interface {
 	ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput
 }
 
-func (VpnServerConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnServerConfiguration)(nil)).Elem()
+func (*VpnServerConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfiguration)(nil))
 }
 
-func (i VpnServerConfiguration) ToVpnServerConfigurationOutput() VpnServerConfigurationOutput {
+func (i *VpnServerConfiguration) ToVpnServerConfigurationOutput() VpnServerConfigurationOutput {
 	return i.ToVpnServerConfigurationOutputWithContext(context.Background())
 }
 
-func (i VpnServerConfiguration) ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput {
+func (i *VpnServerConfiguration) ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationOutput)
 }
 
@@ -302,7 +302,7 @@ type VpnServerConfigurationOutput struct {
 }
 
 func (VpnServerConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnServerConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpnServerConfiguration)(nil))
 }
 
 func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutput() VpnServerConfigurationOutput {

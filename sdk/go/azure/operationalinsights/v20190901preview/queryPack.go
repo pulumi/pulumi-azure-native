@@ -146,15 +146,15 @@ type QueryPackInput interface {
 	ToQueryPackOutputWithContext(ctx context.Context) QueryPackOutput
 }
 
-func (QueryPack) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryPack)(nil)).Elem()
+func (*QueryPack) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryPack)(nil))
 }
 
-func (i QueryPack) ToQueryPackOutput() QueryPackOutput {
+func (i *QueryPack) ToQueryPackOutput() QueryPackOutput {
 	return i.ToQueryPackOutputWithContext(context.Background())
 }
 
-func (i QueryPack) ToQueryPackOutputWithContext(ctx context.Context) QueryPackOutput {
+func (i *QueryPack) ToQueryPackOutputWithContext(ctx context.Context) QueryPackOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueryPackOutput)
 }
 
@@ -163,7 +163,7 @@ type QueryPackOutput struct {
 }
 
 func (QueryPackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryPackOutput)(nil)).Elem()
+	return reflect.TypeOf((*QueryPack)(nil))
 }
 
 func (o QueryPackOutput) ToQueryPackOutput() QueryPackOutput {

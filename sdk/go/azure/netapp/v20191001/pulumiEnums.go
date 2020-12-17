@@ -42,9 +42,9 @@ func (e EndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 type ReplicationSchedule pulumi.String
 
 const (
-	ReplicationSchedule__10minutely = ReplicationSchedule("_10minutely")
-	ReplicationScheduleHourly       = ReplicationSchedule("hourly")
-	ReplicationScheduleDaily        = ReplicationSchedule("daily")
+	ReplicationSchedule_10minutely = ReplicationSchedule("_10minutely")
+	ReplicationScheduleHourly      = ReplicationSchedule("hourly")
+	ReplicationScheduleDaily       = ReplicationSchedule("daily")
 )
 
 func (ReplicationSchedule) ElementType() reflect.Type {

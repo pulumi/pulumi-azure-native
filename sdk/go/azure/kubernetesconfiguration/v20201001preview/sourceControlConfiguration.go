@@ -250,15 +250,15 @@ type SourceControlConfigurationInput interface {
 	ToSourceControlConfigurationOutputWithContext(ctx context.Context) SourceControlConfigurationOutput
 }
 
-func (SourceControlConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceControlConfiguration)(nil)).Elem()
+func (*SourceControlConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlConfiguration)(nil))
 }
 
-func (i SourceControlConfiguration) ToSourceControlConfigurationOutput() SourceControlConfigurationOutput {
+func (i *SourceControlConfiguration) ToSourceControlConfigurationOutput() SourceControlConfigurationOutput {
 	return i.ToSourceControlConfigurationOutputWithContext(context.Background())
 }
 
-func (i SourceControlConfiguration) ToSourceControlConfigurationOutputWithContext(ctx context.Context) SourceControlConfigurationOutput {
+func (i *SourceControlConfiguration) ToSourceControlConfigurationOutputWithContext(ctx context.Context) SourceControlConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlConfigurationOutput)
 }
 
@@ -267,7 +267,7 @@ type SourceControlConfigurationOutput struct {
 }
 
 func (SourceControlConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceControlConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*SourceControlConfiguration)(nil))
 }
 
 func (o SourceControlConfigurationOutput) ToSourceControlConfigurationOutput() SourceControlConfigurationOutput {

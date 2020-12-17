@@ -109,15 +109,15 @@ type CostAllocationRuleInput interface {
 	ToCostAllocationRuleOutputWithContext(ctx context.Context) CostAllocationRuleOutput
 }
 
-func (CostAllocationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*CostAllocationRule)(nil)).Elem()
+func (*CostAllocationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostAllocationRule)(nil))
 }
 
-func (i CostAllocationRule) ToCostAllocationRuleOutput() CostAllocationRuleOutput {
+func (i *CostAllocationRule) ToCostAllocationRuleOutput() CostAllocationRuleOutput {
 	return i.ToCostAllocationRuleOutputWithContext(context.Background())
 }
 
-func (i CostAllocationRule) ToCostAllocationRuleOutputWithContext(ctx context.Context) CostAllocationRuleOutput {
+func (i *CostAllocationRule) ToCostAllocationRuleOutputWithContext(ctx context.Context) CostAllocationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRuleOutput)
 }
 
@@ -126,7 +126,7 @@ type CostAllocationRuleOutput struct {
 }
 
 func (CostAllocationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CostAllocationRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*CostAllocationRule)(nil))
 }
 
 func (o CostAllocationRuleOutput) ToCostAllocationRuleOutput() CostAllocationRuleOutput {

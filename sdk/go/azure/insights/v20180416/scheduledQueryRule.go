@@ -199,15 +199,15 @@ type ScheduledQueryRuleInput interface {
 	ToScheduledQueryRuleOutputWithContext(ctx context.Context) ScheduledQueryRuleOutput
 }
 
-func (ScheduledQueryRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRule)(nil)).Elem()
+func (*ScheduledQueryRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRule)(nil))
 }
 
-func (i ScheduledQueryRule) ToScheduledQueryRuleOutput() ScheduledQueryRuleOutput {
+func (i *ScheduledQueryRule) ToScheduledQueryRuleOutput() ScheduledQueryRuleOutput {
 	return i.ToScheduledQueryRuleOutputWithContext(context.Background())
 }
 
-func (i ScheduledQueryRule) ToScheduledQueryRuleOutputWithContext(ctx context.Context) ScheduledQueryRuleOutput {
+func (i *ScheduledQueryRule) ToScheduledQueryRuleOutputWithContext(ctx context.Context) ScheduledQueryRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleOutput)
 }
 
@@ -216,7 +216,7 @@ type ScheduledQueryRuleOutput struct {
 }
 
 func (ScheduledQueryRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*ScheduledQueryRule)(nil))
 }
 
 func (o ScheduledQueryRuleOutput) ToScheduledQueryRuleOutput() ScheduledQueryRuleOutput {

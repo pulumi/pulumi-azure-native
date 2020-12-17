@@ -198,15 +198,15 @@ type PolicyDefinitionInput interface {
 	ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput
 }
 
-func (PolicyDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinition)(nil)).Elem()
+func (*PolicyDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinition)(nil))
 }
 
-func (i PolicyDefinition) ToPolicyDefinitionOutput() PolicyDefinitionOutput {
+func (i *PolicyDefinition) ToPolicyDefinitionOutput() PolicyDefinitionOutput {
 	return i.ToPolicyDefinitionOutputWithContext(context.Background())
 }
 
-func (i PolicyDefinition) ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput {
+func (i *PolicyDefinition) ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionOutput)
 }
 
@@ -215,7 +215,7 @@ type PolicyDefinitionOutput struct {
 }
 
 func (PolicyDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*PolicyDefinition)(nil))
 }
 
 func (o PolicyDefinitionOutput) ToPolicyDefinitionOutput() PolicyDefinitionOutput {

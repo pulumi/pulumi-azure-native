@@ -121,15 +121,15 @@ type ServerDnsAliasInput interface {
 	ToServerDnsAliasOutputWithContext(ctx context.Context) ServerDnsAliasOutput
 }
 
-func (ServerDnsAlias) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDnsAlias)(nil)).Elem()
+func (*ServerDnsAlias) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDnsAlias)(nil))
 }
 
-func (i ServerDnsAlias) ToServerDnsAliasOutput() ServerDnsAliasOutput {
+func (i *ServerDnsAlias) ToServerDnsAliasOutput() ServerDnsAliasOutput {
 	return i.ToServerDnsAliasOutputWithContext(context.Background())
 }
 
-func (i ServerDnsAlias) ToServerDnsAliasOutputWithContext(ctx context.Context) ServerDnsAliasOutput {
+func (i *ServerDnsAlias) ToServerDnsAliasOutputWithContext(ctx context.Context) ServerDnsAliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerDnsAliasOutput)
 }
 
@@ -138,7 +138,7 @@ type ServerDnsAliasOutput struct {
 }
 
 func (ServerDnsAliasOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDnsAliasOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerDnsAlias)(nil))
 }
 
 func (o ServerDnsAliasOutput) ToServerDnsAliasOutput() ServerDnsAliasOutput {

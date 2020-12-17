@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview
     /// <summary>
     /// Describes a DNS zone.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20150504preview:Zone")]
     public partial class Zone : Pulumi.CustomResource
     {
         /// <summary>

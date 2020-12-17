@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
     /// <summary>
     /// NamedValue details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20191201:NamedValue")]
     public partial class NamedValue : Pulumi.CustomResource
     {
         /// <summary>

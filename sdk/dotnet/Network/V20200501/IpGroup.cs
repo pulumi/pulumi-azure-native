@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
     /// <summary>
     /// The IpGroups resource information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200501:IpGroup")]
     public partial class IpGroup : Pulumi.CustomResource
     {
         /// <summary>

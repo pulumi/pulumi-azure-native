@@ -154,15 +154,15 @@ type JitNetworkAccessPolicyInput interface {
 	ToJitNetworkAccessPolicyOutputWithContext(ctx context.Context) JitNetworkAccessPolicyOutput
 }
 
-func (JitNetworkAccessPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitNetworkAccessPolicy)(nil)).Elem()
+func (*JitNetworkAccessPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessPolicy)(nil))
 }
 
-func (i JitNetworkAccessPolicy) ToJitNetworkAccessPolicyOutput() JitNetworkAccessPolicyOutput {
+func (i *JitNetworkAccessPolicy) ToJitNetworkAccessPolicyOutput() JitNetworkAccessPolicyOutput {
 	return i.ToJitNetworkAccessPolicyOutputWithContext(context.Background())
 }
 
-func (i JitNetworkAccessPolicy) ToJitNetworkAccessPolicyOutputWithContext(ctx context.Context) JitNetworkAccessPolicyOutput {
+func (i *JitNetworkAccessPolicy) ToJitNetworkAccessPolicyOutputWithContext(ctx context.Context) JitNetworkAccessPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPolicyOutput)
 }
 
@@ -171,7 +171,7 @@ type JitNetworkAccessPolicyOutput struct {
 }
 
 func (JitNetworkAccessPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitNetworkAccessPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*JitNetworkAccessPolicy)(nil))
 }
 
 func (o JitNetworkAccessPolicyOutput) ToJitNetworkAccessPolicyOutput() JitNetworkAccessPolicyOutput {

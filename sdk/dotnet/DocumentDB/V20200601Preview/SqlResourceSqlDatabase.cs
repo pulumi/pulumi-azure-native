@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
     /// <summary>
     /// An Azure Cosmos DB SQL database.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase")]
     public partial class SqlResourceSqlDatabase : Pulumi.CustomResource
     {
         /// <summary>

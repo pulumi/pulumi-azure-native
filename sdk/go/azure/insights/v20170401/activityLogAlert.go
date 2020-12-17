@@ -187,15 +187,15 @@ type ActivityLogAlertInput interface {
 	ToActivityLogAlertOutputWithContext(ctx context.Context) ActivityLogAlertOutput
 }
 
-func (ActivityLogAlert) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlert)(nil)).Elem()
+func (*ActivityLogAlert) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityLogAlert)(nil))
 }
 
-func (i ActivityLogAlert) ToActivityLogAlertOutput() ActivityLogAlertOutput {
+func (i *ActivityLogAlert) ToActivityLogAlertOutput() ActivityLogAlertOutput {
 	return i.ToActivityLogAlertOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlert) ToActivityLogAlertOutputWithContext(ctx context.Context) ActivityLogAlertOutput {
+func (i *ActivityLogAlert) ToActivityLogAlertOutputWithContext(ctx context.Context) ActivityLogAlertOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertOutput)
 }
 
@@ -204,7 +204,7 @@ type ActivityLogAlertOutput struct {
 }
 
 func (ActivityLogAlertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertOutput)(nil)).Elem()
+	return reflect.TypeOf((*ActivityLogAlert)(nil))
 }
 
 func (o ActivityLogAlertOutput) ToActivityLogAlertOutput() ActivityLogAlertOutput {

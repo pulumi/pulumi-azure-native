@@ -199,15 +199,15 @@ type AppServicePlanRouteForVnetInput interface {
 	ToAppServicePlanRouteForVnetOutputWithContext(ctx context.Context) AppServicePlanRouteForVnetOutput
 }
 
-func (AppServicePlanRouteForVnet) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePlanRouteForVnet)(nil)).Elem()
+func (*AppServicePlanRouteForVnet) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServicePlanRouteForVnet)(nil))
 }
 
-func (i AppServicePlanRouteForVnet) ToAppServicePlanRouteForVnetOutput() AppServicePlanRouteForVnetOutput {
+func (i *AppServicePlanRouteForVnet) ToAppServicePlanRouteForVnetOutput() AppServicePlanRouteForVnetOutput {
 	return i.ToAppServicePlanRouteForVnetOutputWithContext(context.Background())
 }
 
-func (i AppServicePlanRouteForVnet) ToAppServicePlanRouteForVnetOutputWithContext(ctx context.Context) AppServicePlanRouteForVnetOutput {
+func (i *AppServicePlanRouteForVnet) ToAppServicePlanRouteForVnetOutputWithContext(ctx context.Context) AppServicePlanRouteForVnetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppServicePlanRouteForVnetOutput)
 }
 
@@ -216,7 +216,7 @@ type AppServicePlanRouteForVnetOutput struct {
 }
 
 func (AppServicePlanRouteForVnetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePlanRouteForVnetOutput)(nil)).Elem()
+	return reflect.TypeOf((*AppServicePlanRouteForVnet)(nil))
 }
 
 func (o AppServicePlanRouteForVnetOutput) ToAppServicePlanRouteForVnetOutput() AppServicePlanRouteForVnetOutput {

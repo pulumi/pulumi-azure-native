@@ -128,15 +128,15 @@ type AccessControlRecordInput interface {
 	ToAccessControlRecordOutputWithContext(ctx context.Context) AccessControlRecordOutput
 }
 
-func (AccessControlRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessControlRecord)(nil)).Elem()
+func (*AccessControlRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessControlRecord)(nil))
 }
 
-func (i AccessControlRecord) ToAccessControlRecordOutput() AccessControlRecordOutput {
+func (i *AccessControlRecord) ToAccessControlRecordOutput() AccessControlRecordOutput {
 	return i.ToAccessControlRecordOutputWithContext(context.Background())
 }
 
-func (i AccessControlRecord) ToAccessControlRecordOutputWithContext(ctx context.Context) AccessControlRecordOutput {
+func (i *AccessControlRecord) ToAccessControlRecordOutputWithContext(ctx context.Context) AccessControlRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessControlRecordOutput)
 }
 
@@ -145,7 +145,7 @@ type AccessControlRecordOutput struct {
 }
 
 func (AccessControlRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessControlRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*AccessControlRecord)(nil))
 }
 
 func (o AccessControlRecordOutput) ToAccessControlRecordOutput() AccessControlRecordOutput {

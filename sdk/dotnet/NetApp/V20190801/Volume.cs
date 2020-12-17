@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190801
     /// <summary>
     /// Volume resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:netapp/v20190801:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>

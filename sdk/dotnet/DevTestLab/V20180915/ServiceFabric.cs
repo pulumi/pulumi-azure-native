@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
     /// <summary>
     /// A Service Fabric.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20180915:ServiceFabric")]
     public partial class ServiceFabric : Pulumi.CustomResource
     {
         /// <summary>

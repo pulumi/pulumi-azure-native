@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
     /// The remediation definition.
     /// Latest API Version: 2019-07-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:policyinsights/latest:RemediationAtResource")]
     public partial class RemediationAtResource : Pulumi.CustomResource
     {
         /// <summary>

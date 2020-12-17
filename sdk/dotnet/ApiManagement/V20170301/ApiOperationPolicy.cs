@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
     /// <summary>
     /// Policy Contract details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20170301:ApiOperationPolicy")]
     public partial class ApiOperationPolicy : Pulumi.CustomResource
     {
         /// <summary>

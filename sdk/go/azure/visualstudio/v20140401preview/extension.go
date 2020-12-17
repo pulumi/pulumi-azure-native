@@ -152,15 +152,15 @@ type ExtensionInput interface {
 	ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput
 }
 
-func (Extension) ElementType() reflect.Type {
-	return reflect.TypeOf((*Extension)(nil)).Elem()
+func (*Extension) ElementType() reflect.Type {
+	return reflect.TypeOf((*Extension)(nil))
 }
 
-func (i Extension) ToExtensionOutput() ExtensionOutput {
+func (i *Extension) ToExtensionOutput() ExtensionOutput {
 	return i.ToExtensionOutputWithContext(context.Background())
 }
 
-func (i Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput {
+func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionOutput)
 }
 
@@ -169,7 +169,7 @@ type ExtensionOutput struct {
 }
 
 func (ExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtensionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Extension)(nil))
 }
 
 func (o ExtensionOutput) ToExtensionOutput() ExtensionOutput {

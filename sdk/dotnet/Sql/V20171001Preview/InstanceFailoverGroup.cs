@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
     /// <summary>
     /// An instance failover group.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20171001preview:InstanceFailoverGroup")]
     public partial class InstanceFailoverGroup : Pulumi.CustomResource
     {
         /// <summary>

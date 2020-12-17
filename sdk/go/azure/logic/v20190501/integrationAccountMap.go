@@ -212,15 +212,15 @@ type IntegrationAccountMapInput interface {
 	ToIntegrationAccountMapOutputWithContext(ctx context.Context) IntegrationAccountMapOutput
 }
 
-func (IntegrationAccountMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMap)(nil)).Elem()
+func (*IntegrationAccountMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMap)(nil))
 }
 
-func (i IntegrationAccountMap) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {
+func (i *IntegrationAccountMap) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {
 	return i.ToIntegrationAccountMapOutputWithContext(context.Background())
 }
 
-func (i IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx context.Context) IntegrationAccountMapOutput {
+func (i *IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx context.Context) IntegrationAccountMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapOutput)
 }
 
@@ -229,7 +229,7 @@ type IntegrationAccountMapOutput struct {
 }
 
 func (IntegrationAccountMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMapOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationAccountMap)(nil))
 }
 
 func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {

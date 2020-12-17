@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20200214
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {
         /// <summary>

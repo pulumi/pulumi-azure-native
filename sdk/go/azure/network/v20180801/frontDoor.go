@@ -228,15 +228,15 @@ type FrontDoorInput interface {
 	ToFrontDoorOutputWithContext(ctx context.Context) FrontDoorOutput
 }
 
-func (FrontDoor) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoor)(nil)).Elem()
+func (*FrontDoor) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoor)(nil))
 }
 
-func (i FrontDoor) ToFrontDoorOutput() FrontDoorOutput {
+func (i *FrontDoor) ToFrontDoorOutput() FrontDoorOutput {
 	return i.ToFrontDoorOutputWithContext(context.Background())
 }
 
-func (i FrontDoor) ToFrontDoorOutputWithContext(ctx context.Context) FrontDoorOutput {
+func (i *FrontDoor) ToFrontDoorOutputWithContext(ctx context.Context) FrontDoorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorOutput)
 }
 
@@ -245,7 +245,7 @@ type FrontDoorOutput struct {
 }
 
 func (FrontDoorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorOutput)(nil)).Elem()
+	return reflect.TypeOf((*FrontDoor)(nil))
 }
 
 func (o FrontDoorOutput) ToFrontDoorOutput() FrontDoorOutput {

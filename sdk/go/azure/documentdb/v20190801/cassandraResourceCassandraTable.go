@@ -171,15 +171,15 @@ type CassandraResourceCassandraTableInput interface {
 	ToCassandraResourceCassandraTableOutputWithContext(ctx context.Context) CassandraResourceCassandraTableOutput
 }
 
-func (CassandraResourceCassandraTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraResourceCassandraTable)(nil)).Elem()
+func (*CassandraResourceCassandraTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraResourceCassandraTable)(nil))
 }
 
-func (i CassandraResourceCassandraTable) ToCassandraResourceCassandraTableOutput() CassandraResourceCassandraTableOutput {
+func (i *CassandraResourceCassandraTable) ToCassandraResourceCassandraTableOutput() CassandraResourceCassandraTableOutput {
 	return i.ToCassandraResourceCassandraTableOutputWithContext(context.Background())
 }
 
-func (i CassandraResourceCassandraTable) ToCassandraResourceCassandraTableOutputWithContext(ctx context.Context) CassandraResourceCassandraTableOutput {
+func (i *CassandraResourceCassandraTable) ToCassandraResourceCassandraTableOutputWithContext(ctx context.Context) CassandraResourceCassandraTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraResourceCassandraTableOutput)
 }
 
@@ -188,7 +188,7 @@ type CassandraResourceCassandraTableOutput struct {
 }
 
 func (CassandraResourceCassandraTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraResourceCassandraTableOutput)(nil)).Elem()
+	return reflect.TypeOf((*CassandraResourceCassandraTable)(nil))
 }
 
 func (o CassandraResourceCassandraTableOutput) ToCassandraResourceCassandraTableOutput() CassandraResourceCassandraTableOutput {

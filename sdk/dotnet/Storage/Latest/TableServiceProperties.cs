@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
     /// The properties of a storage account’s Table service.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/latest:TableServiceProperties")]
     public partial class TableServiceProperties : Pulumi.CustomResource
     {
         /// <summary>

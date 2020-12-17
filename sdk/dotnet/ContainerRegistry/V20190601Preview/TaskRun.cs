@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
     /// The task run that has the ARM resource and properties.
     /// The task run will have the information of request and result of a run.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20190601preview:TaskRun")]
     public partial class TaskRun : Pulumi.CustomResource
     {
         /// <summary>

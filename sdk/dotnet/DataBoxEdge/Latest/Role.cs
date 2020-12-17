@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     /// Compute role.
     /// Latest API Version: 2019-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Role")]
     public partial class Role : Pulumi.CustomResource
     {
         /// <summary>

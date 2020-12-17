@@ -148,15 +148,15 @@ type JobCredentialInput interface {
 	ToJobCredentialOutputWithContext(ctx context.Context) JobCredentialOutput
 }
 
-func (JobCredential) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobCredential)(nil)).Elem()
+func (*JobCredential) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCredential)(nil))
 }
 
-func (i JobCredential) ToJobCredentialOutput() JobCredentialOutput {
+func (i *JobCredential) ToJobCredentialOutput() JobCredentialOutput {
 	return i.ToJobCredentialOutputWithContext(context.Background())
 }
 
-func (i JobCredential) ToJobCredentialOutputWithContext(ctx context.Context) JobCredentialOutput {
+func (i *JobCredential) ToJobCredentialOutputWithContext(ctx context.Context) JobCredentialOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialOutput)
 }
 
@@ -165,7 +165,7 @@ type JobCredentialOutput struct {
 }
 
 func (JobCredentialOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobCredentialOutput)(nil)).Elem()
+	return reflect.TypeOf((*JobCredential)(nil))
 }
 
 func (o JobCredentialOutput) ToJobCredentialOutput() JobCredentialOutput {

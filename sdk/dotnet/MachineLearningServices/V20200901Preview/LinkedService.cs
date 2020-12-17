@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
     /// <summary>
     /// Linked service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200901preview:LinkedService")]
     public partial class LinkedService : Pulumi.CustomResource
     {
         /// <summary>

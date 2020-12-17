@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
     /// <summary>
     /// Information about the connection monitor.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200401:ConnectionMonitor")]
     public partial class ConnectionMonitor : Pulumi.CustomResource
     {
         /// <summary>

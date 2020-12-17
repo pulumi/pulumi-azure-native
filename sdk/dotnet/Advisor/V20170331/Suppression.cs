@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Advisor.V20170331
     /// <summary>
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:advisor/v20170331:Suppression")]
     public partial class Suppression : Pulumi.CustomResource
     {
         /// <summary>

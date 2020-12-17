@@ -216,15 +216,15 @@ type ScheduleResourceInput interface {
 	ToScheduleResourceOutputWithContext(ctx context.Context) ScheduleResourceOutput
 }
 
-func (ScheduleResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleResource)(nil)).Elem()
+func (*ScheduleResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleResource)(nil))
 }
 
-func (i ScheduleResource) ToScheduleResourceOutput() ScheduleResourceOutput {
+func (i *ScheduleResource) ToScheduleResourceOutput() ScheduleResourceOutput {
 	return i.ToScheduleResourceOutputWithContext(context.Background())
 }
 
-func (i ScheduleResource) ToScheduleResourceOutputWithContext(ctx context.Context) ScheduleResourceOutput {
+func (i *ScheduleResource) ToScheduleResourceOutputWithContext(ctx context.Context) ScheduleResourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResourceOutput)
 }
 
@@ -233,7 +233,7 @@ type ScheduleResourceOutput struct {
 }
 
 func (ScheduleResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleResourceOutput)(nil)).Elem()
+	return reflect.TypeOf((*ScheduleResource)(nil))
 }
 
 func (o ScheduleResourceOutput) ToScheduleResourceOutput() ScheduleResourceOutput {

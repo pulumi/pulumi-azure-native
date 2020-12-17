@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
     /// <summary>
     /// The profile resource format.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:customerinsights/v20170101:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>

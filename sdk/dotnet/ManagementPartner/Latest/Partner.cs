@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ManagementPartner.Latest
     /// this is the management partner operations response
     /// Latest API Version: 2018-02-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:managementpartner/latest:Partner")]
     public partial class Partner : Pulumi.CustomResource
     {
         /// <summary>

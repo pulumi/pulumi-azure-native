@@ -220,15 +220,15 @@ type CloudConnectorInput interface {
 	ToCloudConnectorOutputWithContext(ctx context.Context) CloudConnectorOutput
 }
 
-func (CloudConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudConnector)(nil)).Elem()
+func (*CloudConnector) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnector)(nil))
 }
 
-func (i CloudConnector) ToCloudConnectorOutput() CloudConnectorOutput {
+func (i *CloudConnector) ToCloudConnectorOutput() CloudConnectorOutput {
 	return i.ToCloudConnectorOutputWithContext(context.Background())
 }
 
-func (i CloudConnector) ToCloudConnectorOutputWithContext(ctx context.Context) CloudConnectorOutput {
+func (i *CloudConnector) ToCloudConnectorOutputWithContext(ctx context.Context) CloudConnectorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorOutput)
 }
 
@@ -237,7 +237,7 @@ type CloudConnectorOutput struct {
 }
 
 func (CloudConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudConnectorOutput)(nil)).Elem()
+	return reflect.TypeOf((*CloudConnector)(nil))
 }
 
 func (o CloudConnectorOutput) ToCloudConnectorOutput() CloudConnectorOutput {

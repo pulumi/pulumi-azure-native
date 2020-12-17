@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
     /// <summary>
     /// Datasources under OMS Workspace.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20200301preview:DataSource")]
     public partial class DataSource : Pulumi.CustomResource
     {
         /// <summary>

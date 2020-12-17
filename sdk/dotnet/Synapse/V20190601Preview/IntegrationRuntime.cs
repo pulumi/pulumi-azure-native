@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     /// <summary>
     /// Integration runtime resource type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:IntegrationRuntime")]
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {
         /// <summary>

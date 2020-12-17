@@ -191,15 +191,15 @@ type WorkloadGroupInput interface {
 	ToWorkloadGroupOutputWithContext(ctx context.Context) WorkloadGroupOutput
 }
 
-func (WorkloadGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadGroup)(nil)).Elem()
+func (*WorkloadGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadGroup)(nil))
 }
 
-func (i WorkloadGroup) ToWorkloadGroupOutput() WorkloadGroupOutput {
+func (i *WorkloadGroup) ToWorkloadGroupOutput() WorkloadGroupOutput {
 	return i.ToWorkloadGroupOutputWithContext(context.Background())
 }
 
-func (i WorkloadGroup) ToWorkloadGroupOutputWithContext(ctx context.Context) WorkloadGroupOutput {
+func (i *WorkloadGroup) ToWorkloadGroupOutputWithContext(ctx context.Context) WorkloadGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadGroupOutput)
 }
 
@@ -208,7 +208,7 @@ type WorkloadGroupOutput struct {
 }
 
 func (WorkloadGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkloadGroup)(nil))
 }
 
 func (o WorkloadGroupOutput) ToWorkloadGroupOutput() WorkloadGroupOutput {

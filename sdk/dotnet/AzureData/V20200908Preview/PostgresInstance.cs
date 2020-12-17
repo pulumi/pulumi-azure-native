@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
     /// <summary>
     /// A Postgres Instance.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:azuredata/v20200908preview:PostgresInstance")]
     public partial class PostgresInstance : Pulumi.CustomResource
     {
         /// <summary>

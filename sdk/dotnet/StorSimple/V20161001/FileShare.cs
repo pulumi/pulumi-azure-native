@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
     /// <summary>
     /// The File Share.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:FileShare")]
     public partial class FileShare : Pulumi.CustomResource
     {
         /// <summary>

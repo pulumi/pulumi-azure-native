@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
     /// <summary>
     /// Private link service resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200301:PrivateLinkService")]
     public partial class PrivateLinkService : Pulumi.CustomResource
     {
         /// <summary>

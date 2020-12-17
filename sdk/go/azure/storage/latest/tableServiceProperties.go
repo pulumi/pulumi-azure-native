@@ -126,15 +126,15 @@ type TableServicePropertiesInput interface {
 	ToTableServicePropertiesOutputWithContext(ctx context.Context) TableServicePropertiesOutput
 }
 
-func (TableServiceProperties) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableServiceProperties)(nil)).Elem()
+func (*TableServiceProperties) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableServiceProperties)(nil))
 }
 
-func (i TableServiceProperties) ToTableServicePropertiesOutput() TableServicePropertiesOutput {
+func (i *TableServiceProperties) ToTableServicePropertiesOutput() TableServicePropertiesOutput {
 	return i.ToTableServicePropertiesOutputWithContext(context.Background())
 }
 
-func (i TableServiceProperties) ToTableServicePropertiesOutputWithContext(ctx context.Context) TableServicePropertiesOutput {
+func (i *TableServiceProperties) ToTableServicePropertiesOutputWithContext(ctx context.Context) TableServicePropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableServicePropertiesOutput)
 }
 
@@ -143,7 +143,7 @@ type TableServicePropertiesOutput struct {
 }
 
 func (TableServicePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableServicePropertiesOutput)(nil)).Elem()
+	return reflect.TypeOf((*TableServiceProperties)(nil))
 }
 
 func (o TableServicePropertiesOutput) ToTableServicePropertiesOutput() TableServicePropertiesOutput {

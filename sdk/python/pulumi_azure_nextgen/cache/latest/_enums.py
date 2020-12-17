@@ -76,6 +76,6 @@ class TlsVersion(str, Enum):
     """
     Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
     """
-    _1_0 = "1.0"
-    _1_1 = "1.1"
-    _1_2 = "1.2"
+    TLS_VERSION_1_0 = "1.0"
+    TLS_VERSION_1_1 = "1.1"
+    TLS_VERSION_1_2 = "1.2"

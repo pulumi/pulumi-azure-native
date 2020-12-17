@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
     /// <summary>
     /// A Media Services account.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20180330preview:MediaService")]
     public partial class MediaService : Pulumi.CustomResource
     {
         /// <summary>

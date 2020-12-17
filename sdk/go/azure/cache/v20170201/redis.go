@@ -261,15 +261,15 @@ type RedisInput interface {
 	ToRedisOutputWithContext(ctx context.Context) RedisOutput
 }
 
-func (Redis) ElementType() reflect.Type {
-	return reflect.TypeOf((*Redis)(nil)).Elem()
+func (*Redis) ElementType() reflect.Type {
+	return reflect.TypeOf((*Redis)(nil))
 }
 
-func (i Redis) ToRedisOutput() RedisOutput {
+func (i *Redis) ToRedisOutput() RedisOutput {
 	return i.ToRedisOutputWithContext(context.Background())
 }
 
-func (i Redis) ToRedisOutputWithContext(ctx context.Context) RedisOutput {
+func (i *Redis) ToRedisOutputWithContext(ctx context.Context) RedisOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RedisOutput)
 }
 
@@ -278,7 +278,7 @@ type RedisOutput struct {
 }
 
 func (RedisOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisOutput)(nil)).Elem()
+	return reflect.TypeOf((*Redis)(nil))
 }
 
 func (o RedisOutput) ToRedisOutput() RedisOutput {

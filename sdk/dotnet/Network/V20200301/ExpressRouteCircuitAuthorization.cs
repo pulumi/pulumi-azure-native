@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
     /// <summary>
     /// Authorization in an ExpressRouteCircuit resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200301:ExpressRouteCircuitAuthorization")]
     public partial class ExpressRouteCircuitAuthorization : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201
     /// <summary>
     /// Defines web application firewall policy.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20181201:WebApplicationFirewallPolicy")]
     public partial class WebApplicationFirewallPolicy : Pulumi.CustomResource
     {
         /// <summary>

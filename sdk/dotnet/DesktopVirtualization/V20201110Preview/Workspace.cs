@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview
     /// <summary>
     /// Represents a Workspace definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization/v20201110preview:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>

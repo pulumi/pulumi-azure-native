@@ -151,15 +151,15 @@ type ReportByBillingAccountInput interface {
 	ToReportByBillingAccountOutputWithContext(ctx context.Context) ReportByBillingAccountOutput
 }
 
-func (ReportByBillingAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportByBillingAccount)(nil)).Elem()
+func (*ReportByBillingAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportByBillingAccount)(nil))
 }
 
-func (i ReportByBillingAccount) ToReportByBillingAccountOutput() ReportByBillingAccountOutput {
+func (i *ReportByBillingAccount) ToReportByBillingAccountOutput() ReportByBillingAccountOutput {
 	return i.ToReportByBillingAccountOutputWithContext(context.Background())
 }
 
-func (i ReportByBillingAccount) ToReportByBillingAccountOutputWithContext(ctx context.Context) ReportByBillingAccountOutput {
+func (i *ReportByBillingAccount) ToReportByBillingAccountOutputWithContext(ctx context.Context) ReportByBillingAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReportByBillingAccountOutput)
 }
 
@@ -168,7 +168,7 @@ type ReportByBillingAccountOutput struct {
 }
 
 func (ReportByBillingAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportByBillingAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReportByBillingAccount)(nil))
 }
 
 func (o ReportByBillingAccountOutput) ToReportByBillingAccountOutput() ReportByBillingAccountOutput {

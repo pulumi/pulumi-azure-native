@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
     /// <summary>
     /// An ADP account.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

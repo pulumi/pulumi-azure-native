@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
     /// Description of queue Resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/latest:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

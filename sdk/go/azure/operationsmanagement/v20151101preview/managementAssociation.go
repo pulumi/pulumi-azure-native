@@ -140,15 +140,15 @@ type ManagementAssociationInput interface {
 	ToManagementAssociationOutputWithContext(ctx context.Context) ManagementAssociationOutput
 }
 
-func (ManagementAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementAssociation)(nil)).Elem()
+func (*ManagementAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementAssociation)(nil))
 }
 
-func (i ManagementAssociation) ToManagementAssociationOutput() ManagementAssociationOutput {
+func (i *ManagementAssociation) ToManagementAssociationOutput() ManagementAssociationOutput {
 	return i.ToManagementAssociationOutputWithContext(context.Background())
 }
 
-func (i ManagementAssociation) ToManagementAssociationOutputWithContext(ctx context.Context) ManagementAssociationOutput {
+func (i *ManagementAssociation) ToManagementAssociationOutputWithContext(ctx context.Context) ManagementAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementAssociationOutput)
 }
 
@@ -157,7 +157,7 @@ type ManagementAssociationOutput struct {
 }
 
 func (ManagementAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagementAssociation)(nil))
 }
 
 func (o ManagementAssociationOutput) ToManagementAssociationOutput() ManagementAssociationOutput {

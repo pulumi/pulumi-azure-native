@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
     /// <summary>
     /// A streaming job object, containing all information associated with the named streaming job.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:streamanalytics/v20160301:StreamingJob")]
     public partial class StreamingJob : Pulumi.CustomResource
     {
         /// <summary>

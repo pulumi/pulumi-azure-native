@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190907
     /// <summary>
     /// Class representing an attached database configuration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration")]
     public partial class AttachedDatabaseConfiguration : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201
     /// <summary>
     /// Represents a and external administrator to be created.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator")]
     public partial class ServerAdministrator : Pulumi.CustomResource
     {
         /// <summary>

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Describes a virtual machine scale set virtual machine.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/latest:VirtualMachineScaleSetVM")]
     public partial class VirtualMachineScaleSetVM : Pulumi.CustomResource
     {
         /// <summary>

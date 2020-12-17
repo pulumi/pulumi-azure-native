@@ -189,6 +189,6 @@ class SupportedTlsVersions(str, Enum):
     """
     MinTlsVersion: configures the minimum version of TLS required for SSL requests
     """
-    _1_0 = "1.0"
-    _1_1 = "1.1"
-    _1_2 = "1.2"
+    SUPPORTED_TLS_VERSIONS_1_0 = "1.0"
+    SUPPORTED_TLS_VERSIONS_1_1 = "1.1"
+    SUPPORTED_TLS_VERSIONS_1_2 = "1.2"

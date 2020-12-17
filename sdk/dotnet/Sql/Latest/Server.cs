@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
     /// Represents a server.
     /// Latest API Version: 2014-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/latest:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>

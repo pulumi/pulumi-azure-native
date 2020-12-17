@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
     /// <summary>
     /// A private link scoped resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : Pulumi.CustomResource
     {
         /// <summary>

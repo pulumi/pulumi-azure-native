@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
     /// <summary>
     /// Information about JIT request definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:solutions/v20200821preview:JitRequest")]
     public partial class JitRequest : Pulumi.CustomResource
     {
         /// <summary>

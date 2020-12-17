@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     /// Represents an incident in Azure Security Insights.
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/latest:Incident")]
     public partial class Incident : Pulumi.CustomResource
     {
         /// <summary>

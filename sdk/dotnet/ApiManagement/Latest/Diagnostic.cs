@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Diagnostic details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:Diagnostic")]
     public partial class Diagnostic : Pulumi.CustomResource
     {
         /// <summary>

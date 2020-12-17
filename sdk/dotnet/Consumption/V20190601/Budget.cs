@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20190601
     /// <summary>
     /// A budget resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:consumption/v20190601:Budget")]
     public partial class Budget : Pulumi.CustomResource
     {
         /// <summary>

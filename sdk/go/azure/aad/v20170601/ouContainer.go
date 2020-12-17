@@ -193,15 +193,15 @@ type OuContainerInput interface {
 	ToOuContainerOutputWithContext(ctx context.Context) OuContainerOutput
 }
 
-func (OuContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*OuContainer)(nil)).Elem()
+func (*OuContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*OuContainer)(nil))
 }
 
-func (i OuContainer) ToOuContainerOutput() OuContainerOutput {
+func (i *OuContainer) ToOuContainerOutput() OuContainerOutput {
 	return i.ToOuContainerOutputWithContext(context.Background())
 }
 
-func (i OuContainer) ToOuContainerOutputWithContext(ctx context.Context) OuContainerOutput {
+func (i *OuContainer) ToOuContainerOutputWithContext(ctx context.Context) OuContainerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OuContainerOutput)
 }
 
@@ -210,7 +210,7 @@ type OuContainerOutput struct {
 }
 
 func (OuContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OuContainerOutput)(nil)).Elem()
+	return reflect.TypeOf((*OuContainer)(nil))
 }
 
 func (o OuContainerOutput) ToOuContainerOutput() OuContainerOutput {

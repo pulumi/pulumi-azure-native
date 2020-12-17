@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
     /// <summary>
     /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:streamanalytics/v20160301:Function")]
     public partial class Function : Pulumi.CustomResource
     {
         /// <summary>

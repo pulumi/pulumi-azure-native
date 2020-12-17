@@ -164,15 +164,15 @@ type WorkloadNetworkSegmentInput interface {
 	ToWorkloadNetworkSegmentOutputWithContext(ctx context.Context) WorkloadNetworkSegmentOutput
 }
 
-func (WorkloadNetworkSegment) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkSegment)(nil)).Elem()
+func (*WorkloadNetworkSegment) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkSegment)(nil))
 }
 
-func (i WorkloadNetworkSegment) ToWorkloadNetworkSegmentOutput() WorkloadNetworkSegmentOutput {
+func (i *WorkloadNetworkSegment) ToWorkloadNetworkSegmentOutput() WorkloadNetworkSegmentOutput {
 	return i.ToWorkloadNetworkSegmentOutputWithContext(context.Background())
 }
 
-func (i WorkloadNetworkSegment) ToWorkloadNetworkSegmentOutputWithContext(ctx context.Context) WorkloadNetworkSegmentOutput {
+func (i *WorkloadNetworkSegment) ToWorkloadNetworkSegmentOutputWithContext(ctx context.Context) WorkloadNetworkSegmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkSegmentOutput)
 }
 
@@ -181,7 +181,7 @@ type WorkloadNetworkSegmentOutput struct {
 }
 
 func (WorkloadNetworkSegmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkSegmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkloadNetworkSegment)(nil))
 }
 
 func (o WorkloadNetworkSegmentOutput) ToWorkloadNetworkSegmentOutput() WorkloadNetworkSegmentOutput {

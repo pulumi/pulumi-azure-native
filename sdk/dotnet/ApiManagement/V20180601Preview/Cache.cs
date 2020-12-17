@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
     /// <summary>
     /// Cache details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180601preview:Cache")]
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>

@@ -159,15 +159,15 @@ type ProtectionIntentInput interface {
 	ToProtectionIntentOutputWithContext(ctx context.Context) ProtectionIntentOutput
 }
 
-func (ProtectionIntent) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionIntent)(nil)).Elem()
+func (*ProtectionIntent) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionIntent)(nil))
 }
 
-func (i ProtectionIntent) ToProtectionIntentOutput() ProtectionIntentOutput {
+func (i *ProtectionIntent) ToProtectionIntentOutput() ProtectionIntentOutput {
 	return i.ToProtectionIntentOutputWithContext(context.Background())
 }
 
-func (i ProtectionIntent) ToProtectionIntentOutputWithContext(ctx context.Context) ProtectionIntentOutput {
+func (i *ProtectionIntent) ToProtectionIntentOutputWithContext(ctx context.Context) ProtectionIntentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionIntentOutput)
 }
 
@@ -176,7 +176,7 @@ type ProtectionIntentOutput struct {
 }
 
 func (ProtectionIntentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionIntentOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProtectionIntent)(nil))
 }
 
 func (o ProtectionIntentOutput) ToProtectionIntentOutput() ProtectionIntentOutput {

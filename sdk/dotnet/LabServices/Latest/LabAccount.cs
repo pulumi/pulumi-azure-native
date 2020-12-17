@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
     /// Represents a lab account.
     /// Latest API Version: 2018-10-15.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:labservices/latest:LabAccount")]
     public partial class LabAccount : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
     /// <summary>
     /// The integration account certificate.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/v20190501:IntegrationAccountCertificate")]
     public partial class IntegrationAccountCertificate : Pulumi.CustomResource
     {
         /// <summary>

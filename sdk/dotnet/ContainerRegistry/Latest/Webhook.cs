@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
     /// An object that represents a webhook for a container registry.
     /// Latest API Version: 2019-05-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/latest:Webhook")]
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>

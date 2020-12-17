@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
     /// <summary>
     /// A custom image.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20160515:CustomImage")]
     public partial class CustomImage : Pulumi.CustomResource
     {
         /// <summary>

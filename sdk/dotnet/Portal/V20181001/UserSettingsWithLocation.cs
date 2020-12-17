@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Portal.V20181001
     /// <summary>
     /// Response to get user settings
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:portal/v20181001:UserSettingsWithLocation")]
     public partial class UserSettingsWithLocation : Pulumi.CustomResource
     {
         /// <summary>

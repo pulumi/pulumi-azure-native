@@ -116,15 +116,15 @@ type ConfigurationProfileAssignmentInput interface {
 	ToConfigurationProfileAssignmentOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentOutput
 }
 
-func (ConfigurationProfileAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileAssignment)(nil)).Elem()
+func (*ConfigurationProfileAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileAssignment)(nil))
 }
 
-func (i ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutput() ConfigurationProfileAssignmentOutput {
+func (i *ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutput() ConfigurationProfileAssignmentOutput {
 	return i.ToConfigurationProfileAssignmentOutputWithContext(context.Background())
 }
 
-func (i ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentOutput {
+func (i *ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentOutput)
 }
 
@@ -133,7 +133,7 @@ type ConfigurationProfileAssignmentOutput struct {
 }
 
 func (ConfigurationProfileAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileAssignmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConfigurationProfileAssignment)(nil))
 }
 
 func (o ConfigurationProfileAssignmentOutput) ToConfigurationProfileAssignmentOutput() ConfigurationProfileAssignmentOutput {

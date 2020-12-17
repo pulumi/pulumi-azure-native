@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
     /// <summary>
     /// Definition of the connection.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>

@@ -292,15 +292,15 @@ type KpiInput interface {
 	ToKpiOutputWithContext(ctx context.Context) KpiOutput
 }
 
-func (Kpi) ElementType() reflect.Type {
-	return reflect.TypeOf((*Kpi)(nil)).Elem()
+func (*Kpi) ElementType() reflect.Type {
+	return reflect.TypeOf((*Kpi)(nil))
 }
 
-func (i Kpi) ToKpiOutput() KpiOutput {
+func (i *Kpi) ToKpiOutput() KpiOutput {
 	return i.ToKpiOutputWithContext(context.Background())
 }
 
-func (i Kpi) ToKpiOutputWithContext(ctx context.Context) KpiOutput {
+func (i *Kpi) ToKpiOutputWithContext(ctx context.Context) KpiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KpiOutput)
 }
 
@@ -309,7 +309,7 @@ type KpiOutput struct {
 }
 
 func (KpiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiOutput)(nil)).Elem()
+	return reflect.TypeOf((*Kpi)(nil))
 }
 
 func (o KpiOutput) ToKpiOutput() KpiOutput {

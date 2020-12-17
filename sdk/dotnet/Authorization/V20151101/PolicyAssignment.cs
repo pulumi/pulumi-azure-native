@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20151101
     /// <summary>
     /// Policy assignment.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:authorization/v20151101:PolicyAssignment")]
     public partial class PolicyAssignment : Pulumi.CustomResource
     {
         /// <summary>

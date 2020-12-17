@@ -175,15 +175,15 @@ type LoadBalancerBackendAddressPoolInput interface {
 	ToLoadBalancerBackendAddressPoolOutputWithContext(ctx context.Context) LoadBalancerBackendAddressPoolOutput
 }
 
-func (LoadBalancerBackendAddressPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerBackendAddressPool)(nil)).Elem()
+func (*LoadBalancerBackendAddressPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerBackendAddressPool)(nil))
 }
 
-func (i LoadBalancerBackendAddressPool) ToLoadBalancerBackendAddressPoolOutput() LoadBalancerBackendAddressPoolOutput {
+func (i *LoadBalancerBackendAddressPool) ToLoadBalancerBackendAddressPoolOutput() LoadBalancerBackendAddressPoolOutput {
 	return i.ToLoadBalancerBackendAddressPoolOutputWithContext(context.Background())
 }
 
-func (i LoadBalancerBackendAddressPool) ToLoadBalancerBackendAddressPoolOutputWithContext(ctx context.Context) LoadBalancerBackendAddressPoolOutput {
+func (i *LoadBalancerBackendAddressPool) ToLoadBalancerBackendAddressPoolOutputWithContext(ctx context.Context) LoadBalancerBackendAddressPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendAddressPoolOutput)
 }
 
@@ -192,7 +192,7 @@ type LoadBalancerBackendAddressPoolOutput struct {
 }
 
 func (LoadBalancerBackendAddressPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerBackendAddressPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*LoadBalancerBackendAddressPool)(nil))
 }
 
 func (o LoadBalancerBackendAddressPoolOutput) ToLoadBalancerBackendAddressPoolOutput() LoadBalancerBackendAddressPoolOutput {

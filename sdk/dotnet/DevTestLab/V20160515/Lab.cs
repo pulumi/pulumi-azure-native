@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
     /// <summary>
     /// A lab.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20160515:Lab")]
     public partial class Lab : Pulumi.CustomResource
     {
         /// <summary>

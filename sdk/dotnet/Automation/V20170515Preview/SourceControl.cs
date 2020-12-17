@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
     /// <summary>
     /// Definition of the source control.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20170515preview:SourceControl")]
     public partial class SourceControl : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
     /// <summary>
     /// Description of subscription resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/v20150801:Subscription")]
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>

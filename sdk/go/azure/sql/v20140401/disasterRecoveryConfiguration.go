@@ -160,15 +160,15 @@ type DisasterRecoveryConfigurationInput interface {
 	ToDisasterRecoveryConfigurationOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationOutput
 }
 
-func (DisasterRecoveryConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*DisasterRecoveryConfiguration)(nil)).Elem()
+func (*DisasterRecoveryConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisasterRecoveryConfiguration)(nil))
 }
 
-func (i DisasterRecoveryConfiguration) ToDisasterRecoveryConfigurationOutput() DisasterRecoveryConfigurationOutput {
+func (i *DisasterRecoveryConfiguration) ToDisasterRecoveryConfigurationOutput() DisasterRecoveryConfigurationOutput {
 	return i.ToDisasterRecoveryConfigurationOutputWithContext(context.Background())
 }
 
-func (i DisasterRecoveryConfiguration) ToDisasterRecoveryConfigurationOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationOutput {
+func (i *DisasterRecoveryConfiguration) ToDisasterRecoveryConfigurationOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigurationOutput)
 }
 
@@ -177,7 +177,7 @@ type DisasterRecoveryConfigurationOutput struct {
 }
 
 func (DisasterRecoveryConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DisasterRecoveryConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*DisasterRecoveryConfiguration)(nil))
 }
 
 func (o DisasterRecoveryConfigurationOutput) ToDisasterRecoveryConfigurationOutput() DisasterRecoveryConfigurationOutput {

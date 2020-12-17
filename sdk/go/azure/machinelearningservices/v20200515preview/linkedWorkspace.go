@@ -126,15 +126,15 @@ type LinkedWorkspaceInput interface {
 	ToLinkedWorkspaceOutputWithContext(ctx context.Context) LinkedWorkspaceOutput
 }
 
-func (LinkedWorkspace) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedWorkspace)(nil)).Elem()
+func (*LinkedWorkspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedWorkspace)(nil))
 }
 
-func (i LinkedWorkspace) ToLinkedWorkspaceOutput() LinkedWorkspaceOutput {
+func (i *LinkedWorkspace) ToLinkedWorkspaceOutput() LinkedWorkspaceOutput {
 	return i.ToLinkedWorkspaceOutputWithContext(context.Background())
 }
 
-func (i LinkedWorkspace) ToLinkedWorkspaceOutputWithContext(ctx context.Context) LinkedWorkspaceOutput {
+func (i *LinkedWorkspace) ToLinkedWorkspaceOutputWithContext(ctx context.Context) LinkedWorkspaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspaceOutput)
 }
 
@@ -143,7 +143,7 @@ type LinkedWorkspaceOutput struct {
 }
 
 func (LinkedWorkspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedWorkspaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedWorkspace)(nil))
 }
 
 func (o LinkedWorkspaceOutput) ToLinkedWorkspaceOutput() LinkedWorkspaceOutput {

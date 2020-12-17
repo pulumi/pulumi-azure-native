@@ -151,15 +151,15 @@ type SyncGroupInput interface {
 	ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupOutput
 }
 
-func (SyncGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncGroup)(nil)).Elem()
+func (*SyncGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroup)(nil))
 }
 
-func (i SyncGroup) ToSyncGroupOutput() SyncGroupOutput {
+func (i *SyncGroup) ToSyncGroupOutput() SyncGroupOutput {
 	return i.ToSyncGroupOutputWithContext(context.Background())
 }
 
-func (i SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupOutput {
+func (i *SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupOutput)
 }
 
@@ -168,7 +168,7 @@ type SyncGroupOutput struct {
 }
 
 func (SyncGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*SyncGroup)(nil))
 }
 
 func (o SyncGroupOutput) ToSyncGroupOutput() SyncGroupOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
     /// <summary>
     /// Recipient User details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20191201:NotificationRecipientUser")]
     public partial class NotificationRecipientUser : Pulumi.CustomResource
     {
         /// <summary>

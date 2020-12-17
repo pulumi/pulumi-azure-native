@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
     /// <summary>
     /// VirtualHub Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20190901:VirtualHub")]
     public partial class VirtualHub : Pulumi.CustomResource
     {
         /// <summary>

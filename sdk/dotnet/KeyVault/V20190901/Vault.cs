@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20190901
     /// <summary>
     /// Resource information with extended details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:keyvault/v20190901:Vault")]
     public partial class Vault : Pulumi.CustomResource
     {
         /// <summary>

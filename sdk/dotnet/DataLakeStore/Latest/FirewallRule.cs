@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
     /// Data Lake Store firewall rule information.
     /// Latest API Version: 2016-11-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datalakestore/latest:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>

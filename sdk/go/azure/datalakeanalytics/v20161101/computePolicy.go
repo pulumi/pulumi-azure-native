@@ -158,15 +158,15 @@ type ComputePolicyInput interface {
 	ToComputePolicyOutputWithContext(ctx context.Context) ComputePolicyOutput
 }
 
-func (ComputePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputePolicy)(nil)).Elem()
+func (*ComputePolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputePolicy)(nil))
 }
 
-func (i ComputePolicy) ToComputePolicyOutput() ComputePolicyOutput {
+func (i *ComputePolicy) ToComputePolicyOutput() ComputePolicyOutput {
 	return i.ToComputePolicyOutputWithContext(context.Background())
 }
 
-func (i ComputePolicy) ToComputePolicyOutputWithContext(ctx context.Context) ComputePolicyOutput {
+func (i *ComputePolicy) ToComputePolicyOutputWithContext(ctx context.Context) ComputePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyOutput)
 }
 
@@ -175,7 +175,7 @@ type ComputePolicyOutput struct {
 }
 
 func (ComputePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputePolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ComputePolicy)(nil))
 }
 
 func (o ComputePolicyOutput) ToComputePolicyOutput() ComputePolicyOutput {

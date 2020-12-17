@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
     /// <summary>
     /// Single item in List or Get Event Hub operation
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventhub/v20140901:EventHub")]
     public partial class EventHub : Pulumi.CustomResource
     {
         /// <summary>

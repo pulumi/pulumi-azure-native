@@ -232,15 +232,15 @@ type WebAppHybridConnectionSlotInput interface {
 	ToWebAppHybridConnectionSlotOutputWithContext(ctx context.Context) WebAppHybridConnectionSlotOutput
 }
 
-func (WebAppHybridConnectionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHybridConnectionSlot)(nil)).Elem()
+func (*WebAppHybridConnectionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHybridConnectionSlot)(nil))
 }
 
-func (i WebAppHybridConnectionSlot) ToWebAppHybridConnectionSlotOutput() WebAppHybridConnectionSlotOutput {
+func (i *WebAppHybridConnectionSlot) ToWebAppHybridConnectionSlotOutput() WebAppHybridConnectionSlotOutput {
 	return i.ToWebAppHybridConnectionSlotOutputWithContext(context.Background())
 }
 
-func (i WebAppHybridConnectionSlot) ToWebAppHybridConnectionSlotOutputWithContext(ctx context.Context) WebAppHybridConnectionSlotOutput {
+func (i *WebAppHybridConnectionSlot) ToWebAppHybridConnectionSlotOutputWithContext(ctx context.Context) WebAppHybridConnectionSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppHybridConnectionSlotOutput)
 }
 
@@ -249,7 +249,7 @@ type WebAppHybridConnectionSlotOutput struct {
 }
 
 func (WebAppHybridConnectionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHybridConnectionSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppHybridConnectionSlot)(nil))
 }
 
 func (o WebAppHybridConnectionSlotOutput) ToWebAppHybridConnectionSlotOutput() WebAppHybridConnectionSlotOutput {

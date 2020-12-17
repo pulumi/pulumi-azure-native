@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
     /// <summary>
     /// Description of a namespace authorization rule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/v20170401:TopicAuthorizationRule")]
     public partial class TopicAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

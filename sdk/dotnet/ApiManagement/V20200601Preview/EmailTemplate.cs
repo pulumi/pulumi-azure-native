@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
     /// <summary>
     /// Email Template details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20200601preview:EmailTemplate")]
     public partial class EmailTemplate : Pulumi.CustomResource
     {
         /// <summary>

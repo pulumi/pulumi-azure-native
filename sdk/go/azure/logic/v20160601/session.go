@@ -160,15 +160,15 @@ type SessionInput interface {
 	ToSessionOutputWithContext(ctx context.Context) SessionOutput
 }
 
-func (Session) ElementType() reflect.Type {
-	return reflect.TypeOf((*Session)(nil)).Elem()
+func (*Session) ElementType() reflect.Type {
+	return reflect.TypeOf((*Session)(nil))
 }
 
-func (i Session) ToSessionOutput() SessionOutput {
+func (i *Session) ToSessionOutput() SessionOutput {
 	return i.ToSessionOutputWithContext(context.Background())
 }
 
-func (i Session) ToSessionOutputWithContext(ctx context.Context) SessionOutput {
+func (i *Session) ToSessionOutputWithContext(ctx context.Context) SessionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SessionOutput)
 }
 
@@ -177,7 +177,7 @@ type SessionOutput struct {
 }
 
 func (SessionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SessionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Session)(nil))
 }
 
 func (o SessionOutput) ToSessionOutput() SessionOutput {

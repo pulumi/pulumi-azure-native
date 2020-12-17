@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20180401
     /// <summary>
     /// Virtual Network resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20180401:VirtualNetwork")]
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>

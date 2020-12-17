@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
     /// <summary>
     /// Azure Firewall resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20190201:AzureFirewall")]
     public partial class AzureFirewall : Pulumi.CustomResource
     {
         /// <summary>

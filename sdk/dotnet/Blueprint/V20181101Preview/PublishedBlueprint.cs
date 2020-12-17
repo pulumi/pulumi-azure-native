@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
     /// <summary>
     /// Represents a published blueprint.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:blueprint/v20181101preview:PublishedBlueprint")]
     public partial class PublishedBlueprint : Pulumi.CustomResource
     {
         /// <summary>

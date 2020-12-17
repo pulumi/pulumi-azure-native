@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
     /// <summary>
     /// NetworkSecurityGroup resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200501:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

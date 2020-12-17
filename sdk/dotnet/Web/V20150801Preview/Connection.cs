@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
     /// <summary>
     /// API Connection
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20150801preview:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>

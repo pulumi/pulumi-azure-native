@@ -200,15 +200,15 @@ type BuildTaskInput interface {
 	ToBuildTaskOutputWithContext(ctx context.Context) BuildTaskOutput
 }
 
-func (BuildTask) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildTask)(nil)).Elem()
+func (*BuildTask) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildTask)(nil))
 }
 
-func (i BuildTask) ToBuildTaskOutput() BuildTaskOutput {
+func (i *BuildTask) ToBuildTaskOutput() BuildTaskOutput {
 	return i.ToBuildTaskOutputWithContext(context.Background())
 }
 
-func (i BuildTask) ToBuildTaskOutputWithContext(ctx context.Context) BuildTaskOutput {
+func (i *BuildTask) ToBuildTaskOutputWithContext(ctx context.Context) BuildTaskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildTaskOutput)
 }
 
@@ -217,7 +217,7 @@ type BuildTaskOutput struct {
 }
 
 func (BuildTaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildTaskOutput)(nil)).Elem()
+	return reflect.TypeOf((*BuildTask)(nil))
 }
 
 func (o BuildTaskOutput) ToBuildTaskOutput() BuildTaskOutput {

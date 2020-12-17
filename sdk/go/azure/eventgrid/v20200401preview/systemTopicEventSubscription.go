@@ -228,15 +228,15 @@ type SystemTopicEventSubscriptionInput interface {
 	ToSystemTopicEventSubscriptionOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionOutput
 }
 
-func (SystemTopicEventSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopicEventSubscription)(nil)).Elem()
+func (*SystemTopicEventSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscription)(nil))
 }
 
-func (i SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutput() SystemTopicEventSubscriptionOutput {
+func (i *SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutput() SystemTopicEventSubscriptionOutput {
 	return i.ToSystemTopicEventSubscriptionOutputWithContext(context.Background())
 }
 
-func (i SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionOutput {
+func (i *SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionOutput)
 }
 
@@ -245,7 +245,7 @@ type SystemTopicEventSubscriptionOutput struct {
 }
 
 func (SystemTopicEventSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopicEventSubscriptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SystemTopicEventSubscription)(nil))
 }
 
 func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionOutput() SystemTopicEventSubscriptionOutput {

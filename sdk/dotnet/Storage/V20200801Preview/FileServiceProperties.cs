@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
     /// <summary>
     /// The properties of File services in storage account.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20200801preview:FileServiceProperties")]
     public partial class FileServiceProperties : Pulumi.CustomResource
     {
         /// <summary>

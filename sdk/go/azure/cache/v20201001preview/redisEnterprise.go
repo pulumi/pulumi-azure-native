@@ -185,15 +185,15 @@ type RedisEnterpriseInput interface {
 	ToRedisEnterpriseOutputWithContext(ctx context.Context) RedisEnterpriseOutput
 }
 
-func (RedisEnterprise) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisEnterprise)(nil)).Elem()
+func (*RedisEnterprise) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisEnterprise)(nil))
 }
 
-func (i RedisEnterprise) ToRedisEnterpriseOutput() RedisEnterpriseOutput {
+func (i *RedisEnterprise) ToRedisEnterpriseOutput() RedisEnterpriseOutput {
 	return i.ToRedisEnterpriseOutputWithContext(context.Background())
 }
 
-func (i RedisEnterprise) ToRedisEnterpriseOutputWithContext(ctx context.Context) RedisEnterpriseOutput {
+func (i *RedisEnterprise) ToRedisEnterpriseOutputWithContext(ctx context.Context) RedisEnterpriseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RedisEnterpriseOutput)
 }
 
@@ -202,7 +202,7 @@ type RedisEnterpriseOutput struct {
 }
 
 func (RedisEnterpriseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisEnterpriseOutput)(nil)).Elem()
+	return reflect.TypeOf((*RedisEnterprise)(nil))
 }
 
 func (o RedisEnterpriseOutput) ToRedisEnterpriseOutput() RedisEnterpriseOutput {

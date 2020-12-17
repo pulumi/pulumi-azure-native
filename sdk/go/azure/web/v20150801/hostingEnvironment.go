@@ -466,15 +466,15 @@ type HostingEnvironmentInput interface {
 	ToHostingEnvironmentOutputWithContext(ctx context.Context) HostingEnvironmentOutput
 }
 
-func (HostingEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostingEnvironment)(nil)).Elem()
+func (*HostingEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostingEnvironment)(nil))
 }
 
-func (i HostingEnvironment) ToHostingEnvironmentOutput() HostingEnvironmentOutput {
+func (i *HostingEnvironment) ToHostingEnvironmentOutput() HostingEnvironmentOutput {
 	return i.ToHostingEnvironmentOutputWithContext(context.Background())
 }
 
-func (i HostingEnvironment) ToHostingEnvironmentOutputWithContext(ctx context.Context) HostingEnvironmentOutput {
+func (i *HostingEnvironment) ToHostingEnvironmentOutputWithContext(ctx context.Context) HostingEnvironmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentOutput)
 }
 
@@ -483,7 +483,7 @@ type HostingEnvironmentOutput struct {
 }
 
 func (HostingEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostingEnvironmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*HostingEnvironment)(nil))
 }
 
 func (o HostingEnvironmentOutput) ToHostingEnvironmentOutput() HostingEnvironmentOutput {

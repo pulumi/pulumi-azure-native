@@ -166,15 +166,15 @@ type PeeringServiceInput interface {
 	ToPeeringServiceOutputWithContext(ctx context.Context) PeeringServiceOutput
 }
 
-func (PeeringService) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringService)(nil)).Elem()
+func (*PeeringService) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringService)(nil))
 }
 
-func (i PeeringService) ToPeeringServiceOutput() PeeringServiceOutput {
+func (i *PeeringService) ToPeeringServiceOutput() PeeringServiceOutput {
 	return i.ToPeeringServiceOutputWithContext(context.Background())
 }
 
-func (i PeeringService) ToPeeringServiceOutputWithContext(ctx context.Context) PeeringServiceOutput {
+func (i *PeeringService) ToPeeringServiceOutputWithContext(ctx context.Context) PeeringServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringServiceOutput)
 }
 
@@ -183,7 +183,7 @@ type PeeringServiceOutput struct {
 }
 
 func (PeeringServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*PeeringService)(nil))
 }
 
 func (o PeeringServiceOutput) ToPeeringServiceOutput() PeeringServiceOutput {

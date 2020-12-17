@@ -189,15 +189,15 @@ type OriginGroupInput interface {
 	ToOriginGroupOutputWithContext(ctx context.Context) OriginGroupOutput
 }
 
-func (OriginGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginGroup)(nil)).Elem()
+func (*OriginGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroup)(nil))
 }
 
-func (i OriginGroup) ToOriginGroupOutput() OriginGroupOutput {
+func (i *OriginGroup) ToOriginGroupOutput() OriginGroupOutput {
 	return i.ToOriginGroupOutputWithContext(context.Background())
 }
 
-func (i OriginGroup) ToOriginGroupOutputWithContext(ctx context.Context) OriginGroupOutput {
+func (i *OriginGroup) ToOriginGroupOutputWithContext(ctx context.Context) OriginGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOutput)
 }
 
@@ -206,7 +206,7 @@ type OriginGroupOutput struct {
 }
 
 func (OriginGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*OriginGroup)(nil))
 }
 
 func (o OriginGroupOutput) ToOriginGroupOutput() OriginGroupOutput {

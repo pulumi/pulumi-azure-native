@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
     /// <summary>
     /// VpnGateway Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20190201:VpnGateway")]
     public partial class VpnGateway : Pulumi.CustomResource
     {
         /// <summary>

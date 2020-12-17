@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
     /// <summary>
     /// Management lock information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:authorization/v20150101:ManagementLock")]
     public partial class ManagementLock : Pulumi.CustomResource
     {
         /// <summary>

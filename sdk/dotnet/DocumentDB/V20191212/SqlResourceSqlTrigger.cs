@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
     /// <summary>
     /// An Azure Cosmos DB trigger.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger")]
     public partial class SqlResourceSqlTrigger : Pulumi.CustomResource
     {
         /// <summary>

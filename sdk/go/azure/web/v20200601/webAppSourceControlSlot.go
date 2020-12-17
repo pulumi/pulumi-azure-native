@@ -200,15 +200,15 @@ type WebAppSourceControlSlotInput interface {
 	ToWebAppSourceControlSlotOutputWithContext(ctx context.Context) WebAppSourceControlSlotOutput
 }
 
-func (WebAppSourceControlSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSourceControlSlot)(nil)).Elem()
+func (*WebAppSourceControlSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSourceControlSlot)(nil))
 }
 
-func (i WebAppSourceControlSlot) ToWebAppSourceControlSlotOutput() WebAppSourceControlSlotOutput {
+func (i *WebAppSourceControlSlot) ToWebAppSourceControlSlotOutput() WebAppSourceControlSlotOutput {
 	return i.ToWebAppSourceControlSlotOutputWithContext(context.Background())
 }
 
-func (i WebAppSourceControlSlot) ToWebAppSourceControlSlotOutputWithContext(ctx context.Context) WebAppSourceControlSlotOutput {
+func (i *WebAppSourceControlSlot) ToWebAppSourceControlSlotOutputWithContext(ctx context.Context) WebAppSourceControlSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSourceControlSlotOutput)
 }
 
@@ -217,7 +217,7 @@ type WebAppSourceControlSlotOutput struct {
 }
 
 func (WebAppSourceControlSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSourceControlSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppSourceControlSlot)(nil))
 }
 
 func (o WebAppSourceControlSlotOutput) ToWebAppSourceControlSlotOutput() WebAppSourceControlSlotOutput {

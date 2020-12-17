@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
     /// <summary>
     /// Description of NetworkRuleSet resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : Pulumi.CustomResource
     {
         /// <summary>

@@ -220,15 +220,15 @@ type WebAppPremierAddOnSlotInput interface {
 	ToWebAppPremierAddOnSlotOutputWithContext(ctx context.Context) WebAppPremierAddOnSlotOutput
 }
 
-func (WebAppPremierAddOnSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPremierAddOnSlot)(nil)).Elem()
+func (*WebAppPremierAddOnSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPremierAddOnSlot)(nil))
 }
 
-func (i WebAppPremierAddOnSlot) ToWebAppPremierAddOnSlotOutput() WebAppPremierAddOnSlotOutput {
+func (i *WebAppPremierAddOnSlot) ToWebAppPremierAddOnSlotOutput() WebAppPremierAddOnSlotOutput {
 	return i.ToWebAppPremierAddOnSlotOutputWithContext(context.Background())
 }
 
-func (i WebAppPremierAddOnSlot) ToWebAppPremierAddOnSlotOutputWithContext(ctx context.Context) WebAppPremierAddOnSlotOutput {
+func (i *WebAppPremierAddOnSlot) ToWebAppPremierAddOnSlotOutputWithContext(ctx context.Context) WebAppPremierAddOnSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPremierAddOnSlotOutput)
 }
 
@@ -237,7 +237,7 @@ type WebAppPremierAddOnSlotOutput struct {
 }
 
 func (WebAppPremierAddOnSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPremierAddOnSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppPremierAddOnSlot)(nil))
 }
 
 func (o WebAppPremierAddOnSlotOutput) ToWebAppPremierAddOnSlotOutput() WebAppPremierAddOnSlotOutput {

@@ -391,15 +391,15 @@ type VirtualNetworkGatewayConnectionInput interface {
 	ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput
 }
 
-func (VirtualNetworkGatewayConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkGatewayConnection)(nil)).Elem()
+func (*VirtualNetworkGatewayConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayConnection)(nil))
 }
 
-func (i VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput {
+func (i *VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput {
 	return i.ToVirtualNetworkGatewayConnectionOutputWithContext(context.Background())
 }
 
-func (i VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput {
+func (i *VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionOutput)
 }
 
@@ -408,7 +408,7 @@ type VirtualNetworkGatewayConnectionOutput struct {
 }
 
 func (VirtualNetworkGatewayConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkGatewayConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualNetworkGatewayConnection)(nil))
 }
 
 func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput {

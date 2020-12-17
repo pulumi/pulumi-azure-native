@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
     /// <summary>
     /// User details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:GroupUser")]
     public partial class GroupUser : Pulumi.CustomResource
     {
         /// <summary>

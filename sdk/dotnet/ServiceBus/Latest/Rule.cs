@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
     /// Description of Rule Resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/latest:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>

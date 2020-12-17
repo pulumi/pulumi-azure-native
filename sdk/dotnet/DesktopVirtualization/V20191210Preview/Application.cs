@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20191210Preview
     /// <summary>
     /// Schema for Application properties.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization/v20191210preview:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

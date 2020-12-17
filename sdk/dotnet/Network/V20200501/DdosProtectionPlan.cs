@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
     /// <summary>
     /// A DDoS protection plan in a resource group.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200501:DdosProtectionPlan")]
     public partial class DdosProtectionPlan : Pulumi.CustomResource
     {
         /// <summary>

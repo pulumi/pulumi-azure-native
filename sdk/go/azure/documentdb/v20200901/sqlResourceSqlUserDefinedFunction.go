@@ -175,15 +175,15 @@ type SqlResourceSqlUserDefinedFunctionInput interface {
 	ToSqlResourceSqlUserDefinedFunctionOutputWithContext(ctx context.Context) SqlResourceSqlUserDefinedFunctionOutput
 }
 
-func (SqlResourceSqlUserDefinedFunction) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunction)(nil)).Elem()
+func (*SqlResourceSqlUserDefinedFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunction)(nil))
 }
 
-func (i SqlResourceSqlUserDefinedFunction) ToSqlResourceSqlUserDefinedFunctionOutput() SqlResourceSqlUserDefinedFunctionOutput {
+func (i *SqlResourceSqlUserDefinedFunction) ToSqlResourceSqlUserDefinedFunctionOutput() SqlResourceSqlUserDefinedFunctionOutput {
 	return i.ToSqlResourceSqlUserDefinedFunctionOutputWithContext(context.Background())
 }
 
-func (i SqlResourceSqlUserDefinedFunction) ToSqlResourceSqlUserDefinedFunctionOutputWithContext(ctx context.Context) SqlResourceSqlUserDefinedFunctionOutput {
+func (i *SqlResourceSqlUserDefinedFunction) ToSqlResourceSqlUserDefinedFunctionOutputWithContext(ctx context.Context) SqlResourceSqlUserDefinedFunctionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlUserDefinedFunctionOutput)
 }
 
@@ -192,7 +192,7 @@ type SqlResourceSqlUserDefinedFunctionOutput struct {
 }
 
 func (SqlResourceSqlUserDefinedFunctionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunctionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunction)(nil))
 }
 
 func (o SqlResourceSqlUserDefinedFunctionOutput) ToSqlResourceSqlUserDefinedFunctionOutput() SqlResourceSqlUserDefinedFunctionOutput {

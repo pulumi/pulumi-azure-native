@@ -204,15 +204,15 @@ type GalleryApplicationInput interface {
 	ToGalleryApplicationOutputWithContext(ctx context.Context) GalleryApplicationOutput
 }
 
-func (GalleryApplication) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryApplication)(nil)).Elem()
+func (*GalleryApplication) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryApplication)(nil))
 }
 
-func (i GalleryApplication) ToGalleryApplicationOutput() GalleryApplicationOutput {
+func (i *GalleryApplication) ToGalleryApplicationOutput() GalleryApplicationOutput {
 	return i.ToGalleryApplicationOutputWithContext(context.Background())
 }
 
-func (i GalleryApplication) ToGalleryApplicationOutputWithContext(ctx context.Context) GalleryApplicationOutput {
+func (i *GalleryApplication) ToGalleryApplicationOutputWithContext(ctx context.Context) GalleryApplicationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationOutput)
 }
 
@@ -221,7 +221,7 @@ type GalleryApplicationOutput struct {
 }
 
 func (GalleryApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryApplicationOutput)(nil)).Elem()
+	return reflect.TypeOf((*GalleryApplication)(nil))
 }
 
 func (o GalleryApplicationOutput) ToGalleryApplicationOutput() GalleryApplicationOutput {

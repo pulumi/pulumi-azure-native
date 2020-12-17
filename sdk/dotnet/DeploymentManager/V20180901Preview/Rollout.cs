@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
     /// <summary>
     /// Defines the PUT rollout request body.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:deploymentmanager/v20180901preview:Rollout")]
     public partial class Rollout : Pulumi.CustomResource
     {
         /// <summary>

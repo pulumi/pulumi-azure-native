@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
     /// <summary>
     /// Represents an instance of a orchestrator.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails")]
     public partial class OrchestratorInstanceServiceDetails : Pulumi.CustomResource
     {
         /// <summary>

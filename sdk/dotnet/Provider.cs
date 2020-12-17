@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen
     /// <summary>
     /// The provider type for the Azure NextGen package.
     /// </summary>
+    [AzureNextGenResourceType("pulumi:providers:azure-nextgen")]
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>

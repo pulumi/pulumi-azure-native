@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AzureStack.V20170601
     /// <summary>
     /// Registration information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:azurestack/v20170601:Registration")]
     public partial class Registration : Pulumi.CustomResource
     {
         /// <summary>

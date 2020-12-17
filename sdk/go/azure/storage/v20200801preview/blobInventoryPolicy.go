@@ -131,15 +131,15 @@ type BlobInventoryPolicyInput interface {
 	ToBlobInventoryPolicyOutputWithContext(ctx context.Context) BlobInventoryPolicyOutput
 }
 
-func (BlobInventoryPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobInventoryPolicy)(nil)).Elem()
+func (*BlobInventoryPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicy)(nil))
 }
 
-func (i BlobInventoryPolicy) ToBlobInventoryPolicyOutput() BlobInventoryPolicyOutput {
+func (i *BlobInventoryPolicy) ToBlobInventoryPolicyOutput() BlobInventoryPolicyOutput {
 	return i.ToBlobInventoryPolicyOutputWithContext(context.Background())
 }
 
-func (i BlobInventoryPolicy) ToBlobInventoryPolicyOutputWithContext(ctx context.Context) BlobInventoryPolicyOutput {
+func (i *BlobInventoryPolicy) ToBlobInventoryPolicyOutputWithContext(ctx context.Context) BlobInventoryPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyOutput)
 }
 
@@ -148,7 +148,7 @@ type BlobInventoryPolicyOutput struct {
 }
 
 func (BlobInventoryPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobInventoryPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*BlobInventoryPolicy)(nil))
 }
 
 func (o BlobInventoryPolicyOutput) ToBlobInventoryPolicyOutput() BlobInventoryPolicyOutput {

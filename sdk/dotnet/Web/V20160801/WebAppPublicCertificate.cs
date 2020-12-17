@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
     /// <summary>
     /// Public certificate object
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20160801:WebAppPublicCertificate")]
     public partial class WebAppPublicCertificate : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
     /// <summary>
     /// IoT sensor model
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20200806preview:IotSensor")]
     public partial class IotSensor : Pulumi.CustomResource
     {
         /// <summary>

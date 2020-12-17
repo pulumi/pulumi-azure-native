@@ -167,15 +167,15 @@ type IotSensorInput interface {
 	ToIotSensorOutputWithContext(ctx context.Context) IotSensorOutput
 }
 
-func (IotSensor) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotSensor)(nil)).Elem()
+func (*IotSensor) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotSensor)(nil))
 }
 
-func (i IotSensor) ToIotSensorOutput() IotSensorOutput {
+func (i *IotSensor) ToIotSensorOutput() IotSensorOutput {
 	return i.ToIotSensorOutputWithContext(context.Background())
 }
 
-func (i IotSensor) ToIotSensorOutputWithContext(ctx context.Context) IotSensorOutput {
+func (i *IotSensor) ToIotSensorOutputWithContext(ctx context.Context) IotSensorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotSensorOutput)
 }
 
@@ -184,7 +184,7 @@ type IotSensorOutput struct {
 }
 
 func (IotSensorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotSensorOutput)(nil)).Elem()
+	return reflect.TypeOf((*IotSensor)(nil))
 }
 
 func (o IotSensorOutput) ToIotSensorOutput() IotSensorOutput {

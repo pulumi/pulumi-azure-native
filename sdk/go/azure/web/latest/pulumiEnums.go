@@ -862,9 +862,9 @@ func (e SslState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 type SupportedTlsVersions pulumi.String
 
 const (
-	SupportedTlsVersions__0 = SupportedTlsVersions("1.0")
-	SupportedTlsVersions__1 = SupportedTlsVersions("1.1")
-	SupportedTlsVersions__2 = SupportedTlsVersions("1.2")
+	SupportedTlsVersions_1_0 = SupportedTlsVersions("1.0")
+	SupportedTlsVersions_1_1 = SupportedTlsVersions("1.1")
+	SupportedTlsVersions_1_2 = SupportedTlsVersions("1.2")
 )
 
 func (SupportedTlsVersions) ElementType() reflect.Type {

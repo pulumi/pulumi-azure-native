@@ -174,15 +174,15 @@ type BlobServicePropertiesInput interface {
 	ToBlobServicePropertiesOutputWithContext(ctx context.Context) BlobServicePropertiesOutput
 }
 
-func (BlobServiceProperties) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobServiceProperties)(nil)).Elem()
+func (*BlobServiceProperties) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobServiceProperties)(nil))
 }
 
-func (i BlobServiceProperties) ToBlobServicePropertiesOutput() BlobServicePropertiesOutput {
+func (i *BlobServiceProperties) ToBlobServicePropertiesOutput() BlobServicePropertiesOutput {
 	return i.ToBlobServicePropertiesOutputWithContext(context.Background())
 }
 
-func (i BlobServiceProperties) ToBlobServicePropertiesOutputWithContext(ctx context.Context) BlobServicePropertiesOutput {
+func (i *BlobServiceProperties) ToBlobServicePropertiesOutputWithContext(ctx context.Context) BlobServicePropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlobServicePropertiesOutput)
 }
 
@@ -191,7 +191,7 @@ type BlobServicePropertiesOutput struct {
 }
 
 func (BlobServicePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobServicePropertiesOutput)(nil)).Elem()
+	return reflect.TypeOf((*BlobServiceProperties)(nil))
 }
 
 func (o BlobServicePropertiesOutput) ToBlobServicePropertiesOutput() BlobServicePropertiesOutput {

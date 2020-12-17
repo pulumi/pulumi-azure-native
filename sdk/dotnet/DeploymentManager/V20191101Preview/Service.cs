@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
     /// <summary>
     /// The resource representation of a service in a service topology.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:deploymentmanager/v20191101preview:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

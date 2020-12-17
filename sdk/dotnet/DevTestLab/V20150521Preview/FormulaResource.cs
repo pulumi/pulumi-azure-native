@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
     /// <summary>
     /// A formula.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20150521preview:FormulaResource")]
     public partial class FormulaResource : Pulumi.CustomResource
     {
         /// <summary>

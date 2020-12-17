@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
 {
+    [AzureNextGenResourceType("azure-nextgen:datadog/v20200201preview:Monitor")]
     public partial class Monitor : Pulumi.CustomResource
     {
         [Output("identity")]

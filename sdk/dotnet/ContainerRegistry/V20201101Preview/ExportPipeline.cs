@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
     /// <summary>
     /// An object that represents an export pipeline for a container registry.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20201101preview:ExportPipeline")]
     public partial class ExportPipeline : Pulumi.CustomResource
     {
         /// <summary>

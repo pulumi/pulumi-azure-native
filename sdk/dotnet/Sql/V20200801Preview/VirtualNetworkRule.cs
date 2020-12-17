@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
     /// <summary>
     /// A virtual network rule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200801preview:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
     /// <summary>
     /// Route Filter Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200301:RouteFilter")]
     public partial class RouteFilter : Pulumi.CustomResource
     {
         /// <summary>

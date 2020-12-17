@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Devices.V20190701Preview
     /// <summary>
     /// The X509 Certificate.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devices/v20190701preview:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

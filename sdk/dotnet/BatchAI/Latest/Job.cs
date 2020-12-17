@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
     /// Information about a Job.
     /// Latest API Version: 2018-05-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:batchai/latest:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>

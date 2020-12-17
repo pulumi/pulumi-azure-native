@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
     /// <summary>
     /// An application security group in a resource group.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20180201:ApplicationSecurityGroup")]
     public partial class ApplicationSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

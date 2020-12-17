@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
     /// Registration information.
     /// Latest API Version: 2017-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:azurestack/latest:Registration")]
     public partial class Registration : Pulumi.CustomResource
     {
         /// <summary>

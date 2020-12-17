@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Maintenance.V20180601Preview
     /// <summary>
     /// Maintenance configuration record type
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : Pulumi.CustomResource
     {
         /// <summary>

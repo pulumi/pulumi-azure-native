@@ -169,15 +169,15 @@ type DatabaseAccountMongoDBCollectionInput interface {
 	ToDatabaseAccountMongoDBCollectionOutputWithContext(ctx context.Context) DatabaseAccountMongoDBCollectionOutput
 }
 
-func (DatabaseAccountMongoDBCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongoDBCollection)(nil)).Elem()
+func (*DatabaseAccountMongoDBCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountMongoDBCollection)(nil))
 }
 
-func (i DatabaseAccountMongoDBCollection) ToDatabaseAccountMongoDBCollectionOutput() DatabaseAccountMongoDBCollectionOutput {
+func (i *DatabaseAccountMongoDBCollection) ToDatabaseAccountMongoDBCollectionOutput() DatabaseAccountMongoDBCollectionOutput {
 	return i.ToDatabaseAccountMongoDBCollectionOutputWithContext(context.Background())
 }
 
-func (i DatabaseAccountMongoDBCollection) ToDatabaseAccountMongoDBCollectionOutputWithContext(ctx context.Context) DatabaseAccountMongoDBCollectionOutput {
+func (i *DatabaseAccountMongoDBCollection) ToDatabaseAccountMongoDBCollectionOutputWithContext(ctx context.Context) DatabaseAccountMongoDBCollectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountMongoDBCollectionOutput)
 }
 
@@ -186,7 +186,7 @@ type DatabaseAccountMongoDBCollectionOutput struct {
 }
 
 func (DatabaseAccountMongoDBCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongoDBCollectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatabaseAccountMongoDBCollection)(nil))
 }
 
 func (o DatabaseAccountMongoDBCollectionOutput) ToDatabaseAccountMongoDBCollectionOutput() DatabaseAccountMongoDBCollectionOutput {

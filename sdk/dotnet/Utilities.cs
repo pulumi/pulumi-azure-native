@@ -77,4 +77,11 @@ namespace Pulumi.AzureNextGen
             }
         }
     }
+
+    internal sealed class AzureNextGenResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    {
+        public AzureNextGenResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        {
+        }
+    }
 }

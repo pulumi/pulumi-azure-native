@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170301
     /// <summary>
     /// An object that represents a container registry.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20170301:Registry")]
     public partial class Registry : Pulumi.CustomResource
     {
         /// <summary>

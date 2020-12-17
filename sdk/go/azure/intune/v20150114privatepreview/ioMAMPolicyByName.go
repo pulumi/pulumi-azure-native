@@ -222,15 +222,15 @@ type IoMAMPolicyByNameInput interface {
 	ToIoMAMPolicyByNameOutputWithContext(ctx context.Context) IoMAMPolicyByNameOutput
 }
 
-func (IoMAMPolicyByName) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoMAMPolicyByName)(nil)).Elem()
+func (*IoMAMPolicyByName) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoMAMPolicyByName)(nil))
 }
 
-func (i IoMAMPolicyByName) ToIoMAMPolicyByNameOutput() IoMAMPolicyByNameOutput {
+func (i *IoMAMPolicyByName) ToIoMAMPolicyByNameOutput() IoMAMPolicyByNameOutput {
 	return i.ToIoMAMPolicyByNameOutputWithContext(context.Background())
 }
 
-func (i IoMAMPolicyByName) ToIoMAMPolicyByNameOutputWithContext(ctx context.Context) IoMAMPolicyByNameOutput {
+func (i *IoMAMPolicyByName) ToIoMAMPolicyByNameOutputWithContext(ctx context.Context) IoMAMPolicyByNameOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IoMAMPolicyByNameOutput)
 }
 
@@ -239,7 +239,7 @@ type IoMAMPolicyByNameOutput struct {
 }
 
 func (IoMAMPolicyByNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoMAMPolicyByNameOutput)(nil)).Elem()
+	return reflect.TypeOf((*IoMAMPolicyByName)(nil))
 }
 
 func (o IoMAMPolicyByNameOutput) ToIoMAMPolicyByNameOutput() IoMAMPolicyByNameOutput {

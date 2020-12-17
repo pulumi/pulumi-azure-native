@@ -99,15 +99,15 @@ type UserSettingsInput interface {
 	ToUserSettingsOutputWithContext(ctx context.Context) UserSettingsOutput
 }
 
-func (UserSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettings)(nil)).Elem()
+func (*UserSettings) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettings)(nil))
 }
 
-func (i UserSettings) ToUserSettingsOutput() UserSettingsOutput {
+func (i *UserSettings) ToUserSettingsOutput() UserSettingsOutput {
 	return i.ToUserSettingsOutputWithContext(context.Background())
 }
 
-func (i UserSettings) ToUserSettingsOutputWithContext(ctx context.Context) UserSettingsOutput {
+func (i *UserSettings) ToUserSettingsOutputWithContext(ctx context.Context) UserSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsOutput)
 }
 
@@ -116,7 +116,7 @@ type UserSettingsOutput struct {
 }
 
 func (UserSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettingsOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserSettings)(nil))
 }
 
 func (o UserSettingsOutput) ToUserSettingsOutput() UserSettingsOutput {

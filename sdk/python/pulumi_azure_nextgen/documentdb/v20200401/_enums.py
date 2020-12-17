@@ -114,8 +114,8 @@ class ServerVersion(str, Enum):
     """
     Describes the ServerVersion of an a MongoDB account.
     """
-    _3_2 = "3.2"
-    _3_6 = "3.6"
+    SERVER_VERSION_3_2 = "3.2"
+    SERVER_VERSION_3_6 = "3.6"
 
 
 class SpatialType(str, Enum):

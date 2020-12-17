@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
     /// <summary>
     /// The resource that defines the source location where the artifacts are located.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:deploymentmanager/v20180901preview:ArtifactSource")]
     public partial class ArtifactSource : Pulumi.CustomResource
     {
         /// <summary>

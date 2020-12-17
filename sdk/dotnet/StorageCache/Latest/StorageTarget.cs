@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
     /// Type of the Storage Target.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storagecache/latest:StorageTarget")]
     public partial class StorageTarget : Pulumi.CustomResource
     {
         /// <summary>

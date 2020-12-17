@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cache.V20200601
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cache/v20200601:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>

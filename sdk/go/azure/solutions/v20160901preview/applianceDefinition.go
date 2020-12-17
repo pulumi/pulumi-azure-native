@@ -215,15 +215,15 @@ type ApplianceDefinitionInput interface {
 	ToApplianceDefinitionOutputWithContext(ctx context.Context) ApplianceDefinitionOutput
 }
 
-func (ApplianceDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplianceDefinition)(nil)).Elem()
+func (*ApplianceDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceDefinition)(nil))
 }
 
-func (i ApplianceDefinition) ToApplianceDefinitionOutput() ApplianceDefinitionOutput {
+func (i *ApplianceDefinition) ToApplianceDefinitionOutput() ApplianceDefinitionOutput {
 	return i.ToApplianceDefinitionOutputWithContext(context.Background())
 }
 
-func (i ApplianceDefinition) ToApplianceDefinitionOutputWithContext(ctx context.Context) ApplianceDefinitionOutput {
+func (i *ApplianceDefinition) ToApplianceDefinitionOutputWithContext(ctx context.Context) ApplianceDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplianceDefinitionOutput)
 }
 
@@ -232,7 +232,7 @@ type ApplianceDefinitionOutput struct {
 }
 
 func (ApplianceDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplianceDefinitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApplianceDefinition)(nil))
 }
 
 func (o ApplianceDefinitionOutput) ToApplianceDefinitionOutput() ApplianceDefinitionOutput {

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
     /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/latest:RuleSet")]
     public partial class RuleSet : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]

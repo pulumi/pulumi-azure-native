@@ -248,15 +248,15 @@ type VirtualMachineScheduleInput interface {
 	ToVirtualMachineScheduleOutputWithContext(ctx context.Context) VirtualMachineScheduleOutput
 }
 
-func (VirtualMachineSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineSchedule)(nil)).Elem()
+func (*VirtualMachineSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineSchedule)(nil))
 }
 
-func (i VirtualMachineSchedule) ToVirtualMachineScheduleOutput() VirtualMachineScheduleOutput {
+func (i *VirtualMachineSchedule) ToVirtualMachineScheduleOutput() VirtualMachineScheduleOutput {
 	return i.ToVirtualMachineScheduleOutputWithContext(context.Background())
 }
 
-func (i VirtualMachineSchedule) ToVirtualMachineScheduleOutputWithContext(ctx context.Context) VirtualMachineScheduleOutput {
+func (i *VirtualMachineSchedule) ToVirtualMachineScheduleOutputWithContext(ctx context.Context) VirtualMachineScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScheduleOutput)
 }
 
@@ -265,7 +265,7 @@ type VirtualMachineScheduleOutput struct {
 }
 
 func (VirtualMachineScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScheduleOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualMachineSchedule)(nil))
 }
 
 func (o VirtualMachineScheduleOutput) ToVirtualMachineScheduleOutput() VirtualMachineScheduleOutput {

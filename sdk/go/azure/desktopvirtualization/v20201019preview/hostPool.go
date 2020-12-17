@@ -328,15 +328,15 @@ type HostPoolInput interface {
 	ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput
 }
 
-func (HostPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostPool)(nil)).Elem()
+func (*HostPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostPool)(nil))
 }
 
-func (i HostPool) ToHostPoolOutput() HostPoolOutput {
+func (i *HostPool) ToHostPoolOutput() HostPoolOutput {
 	return i.ToHostPoolOutputWithContext(context.Background())
 }
 
-func (i HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput {
+func (i *HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolOutput)
 }
 
@@ -345,7 +345,7 @@ type HostPoolOutput struct {
 }
 
 func (HostPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*HostPool)(nil))
 }
 
 func (o HostPoolOutput) ToHostPoolOutput() HostPoolOutput {

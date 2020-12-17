@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
     /// <summary>
     /// An object that represents a machine learning project.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:machinelearningexperimentation/v20170501preview:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>

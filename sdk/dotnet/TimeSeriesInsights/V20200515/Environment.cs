@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515
     /// <summary>
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:timeseriesinsights/v20200515:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>

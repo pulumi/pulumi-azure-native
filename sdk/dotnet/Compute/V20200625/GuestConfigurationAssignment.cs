@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200625
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20200625:GuestConfigurationAssignment")]
     public partial class GuestConfigurationAssignment : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
     /// <summary>
     /// The connector mapping resource format.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:customerinsights/v20170101:ConnectorMapping")]
     public partial class ConnectorMapping : Pulumi.CustomResource
     {
         /// <summary>

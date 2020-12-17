@@ -130,15 +130,15 @@ type IntegrationServiceEnvironmentManagedApiInput interface {
 	ToIntegrationServiceEnvironmentManagedApiOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiOutput
 }
 
-func (IntegrationServiceEnvironmentManagedApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApi)(nil)).Elem()
+func (*IntegrationServiceEnvironmentManagedApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApi)(nil))
 }
 
-func (i IntegrationServiceEnvironmentManagedApi) ToIntegrationServiceEnvironmentManagedApiOutput() IntegrationServiceEnvironmentManagedApiOutput {
+func (i *IntegrationServiceEnvironmentManagedApi) ToIntegrationServiceEnvironmentManagedApiOutput() IntegrationServiceEnvironmentManagedApiOutput {
 	return i.ToIntegrationServiceEnvironmentManagedApiOutputWithContext(context.Background())
 }
 
-func (i IntegrationServiceEnvironmentManagedApi) ToIntegrationServiceEnvironmentManagedApiOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiOutput {
+func (i *IntegrationServiceEnvironmentManagedApi) ToIntegrationServiceEnvironmentManagedApiOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentManagedApiOutput)
 }
 
@@ -147,7 +147,7 @@ type IntegrationServiceEnvironmentManagedApiOutput struct {
 }
 
 func (IntegrationServiceEnvironmentManagedApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApi)(nil))
 }
 
 func (o IntegrationServiceEnvironmentManagedApiOutput) ToIntegrationServiceEnvironmentManagedApiOutput() IntegrationServiceEnvironmentManagedApiOutput {

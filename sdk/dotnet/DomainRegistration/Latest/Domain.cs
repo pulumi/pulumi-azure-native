@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
     /// Information about a domain.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:domainregistration/latest:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         [Output("authCode")]

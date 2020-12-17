@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
     /// <summary>
     /// IoT Defender settings
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20200806preview:IotDefenderSetting")]
     public partial class IotDefenderSetting : Pulumi.CustomResource
     {
         /// <summary>

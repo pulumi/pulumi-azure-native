@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
     /// <summary>
     /// A SQL Server availability group listener.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener")]
     public partial class AvailabilityGroupListener : Pulumi.CustomResource
     {
         /// <summary>

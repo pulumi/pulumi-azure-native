@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
     /// <summary>
     /// Definition of the EnterprisePolicy.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy")]
     public partial class EnterprisePolicy : Pulumi.CustomResource
     {
         /// <summary>

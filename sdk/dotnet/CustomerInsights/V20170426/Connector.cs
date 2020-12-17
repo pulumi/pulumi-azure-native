@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
     /// <summary>
     /// The connector resource format.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:customerinsights/v20170426:Connector")]
     public partial class Connector : Pulumi.CustomResource
     {
         /// <summary>

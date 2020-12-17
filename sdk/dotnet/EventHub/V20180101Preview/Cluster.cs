@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
     /// <summary>
     /// Single Event Hubs Cluster resource in List or Get operations.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventhub/v20180101preview:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

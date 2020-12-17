@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Logger details.
     /// Latest API Version: 2018-01-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:ApiDiagnosticLogger")]
     public partial class ApiDiagnosticLogger : Pulumi.CustomResource
     {
         /// <summary>

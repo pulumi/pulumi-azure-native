@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180301Preview
     /// <summary>
     /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy")]
     public partial class BlobContainerImmutabilityPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
     /// <summary>
     /// The iSCSI server.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:IscsiServer")]
     public partial class IscsiServer : Pulumi.CustomResource
     {
         /// <summary>

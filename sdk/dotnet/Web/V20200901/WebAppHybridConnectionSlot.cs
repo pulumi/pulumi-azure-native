@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
     /// <summary>
     /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20200901:WebAppHybridConnectionSlot")]
     public partial class WebAppHybridConnectionSlot : Pulumi.CustomResource
     {
         /// <summary>

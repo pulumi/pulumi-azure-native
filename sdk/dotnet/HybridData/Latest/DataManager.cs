@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
     /// The DataManager resource.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybriddata/latest:DataManager")]
     public partial class DataManager : Pulumi.CustomResource
     {
         /// <summary>

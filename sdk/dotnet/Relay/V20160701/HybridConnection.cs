@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
     /// <summary>
     /// Description of HybridConnection Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:relay/v20160701:HybridConnection")]
     public partial class HybridConnection : Pulumi.CustomResource
     {
         /// <summary>

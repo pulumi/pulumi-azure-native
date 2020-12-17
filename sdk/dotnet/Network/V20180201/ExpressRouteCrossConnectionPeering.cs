@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
     /// <summary>
     /// Peering in an ExpressRoute Cross Connection resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20180201:ExpressRouteCrossConnectionPeering")]
     public partial class ExpressRouteCrossConnectionPeering : Pulumi.CustomResource
     {
         /// <summary>

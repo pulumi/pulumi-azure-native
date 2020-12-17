@@ -234,15 +234,15 @@ type WebAppInstanceFunctionSlotInput interface {
 	ToWebAppInstanceFunctionSlotOutputWithContext(ctx context.Context) WebAppInstanceFunctionSlotOutput
 }
 
-func (WebAppInstanceFunctionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppInstanceFunctionSlot)(nil)).Elem()
+func (*WebAppInstanceFunctionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppInstanceFunctionSlot)(nil))
 }
 
-func (i WebAppInstanceFunctionSlot) ToWebAppInstanceFunctionSlotOutput() WebAppInstanceFunctionSlotOutput {
+func (i *WebAppInstanceFunctionSlot) ToWebAppInstanceFunctionSlotOutput() WebAppInstanceFunctionSlotOutput {
 	return i.ToWebAppInstanceFunctionSlotOutputWithContext(context.Background())
 }
 
-func (i WebAppInstanceFunctionSlot) ToWebAppInstanceFunctionSlotOutputWithContext(ctx context.Context) WebAppInstanceFunctionSlotOutput {
+func (i *WebAppInstanceFunctionSlot) ToWebAppInstanceFunctionSlotOutputWithContext(ctx context.Context) WebAppInstanceFunctionSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppInstanceFunctionSlotOutput)
 }
 
@@ -251,7 +251,7 @@ type WebAppInstanceFunctionSlotOutput struct {
 }
 
 func (WebAppInstanceFunctionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppInstanceFunctionSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppInstanceFunctionSlot)(nil))
 }
 
 func (o WebAppInstanceFunctionSlotOutput) ToWebAppInstanceFunctionSlotOutput() WebAppInstanceFunctionSlotOutput {

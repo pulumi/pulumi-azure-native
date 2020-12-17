@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// User details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
     /// <summary>
     /// Defines the move resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:migrate/v20191001preview:MoveResource")]
     public partial class MoveResource : Pulumi.CustomResource
     {
         /// <summary>

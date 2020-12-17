@@ -192,15 +192,15 @@ type WorkloadClassifierInput interface {
 	ToWorkloadClassifierOutputWithContext(ctx context.Context) WorkloadClassifierOutput
 }
 
-func (WorkloadClassifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadClassifier)(nil)).Elem()
+func (*WorkloadClassifier) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadClassifier)(nil))
 }
 
-func (i WorkloadClassifier) ToWorkloadClassifierOutput() WorkloadClassifierOutput {
+func (i *WorkloadClassifier) ToWorkloadClassifierOutput() WorkloadClassifierOutput {
 	return i.ToWorkloadClassifierOutputWithContext(context.Background())
 }
 
-func (i WorkloadClassifier) ToWorkloadClassifierOutputWithContext(ctx context.Context) WorkloadClassifierOutput {
+func (i *WorkloadClassifier) ToWorkloadClassifierOutputWithContext(ctx context.Context) WorkloadClassifierOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadClassifierOutput)
 }
 
@@ -209,7 +209,7 @@ type WorkloadClassifierOutput struct {
 }
 
 func (WorkloadClassifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadClassifierOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkloadClassifier)(nil))
 }
 
 func (o WorkloadClassifierOutput) ToWorkloadClassifierOutput() WorkloadClassifierOutput {

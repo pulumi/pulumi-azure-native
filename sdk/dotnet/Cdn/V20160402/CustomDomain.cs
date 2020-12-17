@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
     /// <summary>
     /// CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/v20160402:CustomDomain")]
     public partial class CustomDomain : Pulumi.CustomResource
     {
         /// <summary>

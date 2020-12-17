@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
     /// <summary>
     /// Machine Learning datastore object wrapped into ARM resource envelope.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDatastore")]
     public partial class MachineLearningDatastore : Pulumi.CustomResource
     {
         /// <summary>

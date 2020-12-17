@@ -215,15 +215,15 @@ type ServiceEndpointPolicyDefinitionInput interface {
 	ToServiceEndpointPolicyDefinitionOutputWithContext(ctx context.Context) ServiceEndpointPolicyDefinitionOutput
 }
 
-func (ServiceEndpointPolicyDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointPolicyDefinition)(nil)).Elem()
+func (*ServiceEndpointPolicyDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointPolicyDefinition)(nil))
 }
 
-func (i ServiceEndpointPolicyDefinition) ToServiceEndpointPolicyDefinitionOutput() ServiceEndpointPolicyDefinitionOutput {
+func (i *ServiceEndpointPolicyDefinition) ToServiceEndpointPolicyDefinitionOutput() ServiceEndpointPolicyDefinitionOutput {
 	return i.ToServiceEndpointPolicyDefinitionOutputWithContext(context.Background())
 }
 
-func (i ServiceEndpointPolicyDefinition) ToServiceEndpointPolicyDefinitionOutputWithContext(ctx context.Context) ServiceEndpointPolicyDefinitionOutput {
+func (i *ServiceEndpointPolicyDefinition) ToServiceEndpointPolicyDefinitionOutputWithContext(ctx context.Context) ServiceEndpointPolicyDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPolicyDefinitionOutput)
 }
 
@@ -232,7 +232,7 @@ type ServiceEndpointPolicyDefinitionOutput struct {
 }
 
 func (ServiceEndpointPolicyDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointPolicyDefinitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceEndpointPolicyDefinition)(nil))
 }
 
 func (o ServiceEndpointPolicyDefinitionOutput) ToServiceEndpointPolicyDefinitionOutput() ServiceEndpointPolicyDefinitionOutput {

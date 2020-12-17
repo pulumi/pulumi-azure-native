@@ -141,15 +141,15 @@ type ReplicationRecoveryServicesProviderInput interface {
 	ToReplicationRecoveryServicesProviderOutputWithContext(ctx context.Context) ReplicationRecoveryServicesProviderOutput
 }
 
-func (ReplicationRecoveryServicesProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationRecoveryServicesProvider)(nil)).Elem()
+func (*ReplicationRecoveryServicesProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryServicesProvider)(nil))
 }
 
-func (i ReplicationRecoveryServicesProvider) ToReplicationRecoveryServicesProviderOutput() ReplicationRecoveryServicesProviderOutput {
+func (i *ReplicationRecoveryServicesProvider) ToReplicationRecoveryServicesProviderOutput() ReplicationRecoveryServicesProviderOutput {
 	return i.ToReplicationRecoveryServicesProviderOutputWithContext(context.Background())
 }
 
-func (i ReplicationRecoveryServicesProvider) ToReplicationRecoveryServicesProviderOutputWithContext(ctx context.Context) ReplicationRecoveryServicesProviderOutput {
+func (i *ReplicationRecoveryServicesProvider) ToReplicationRecoveryServicesProviderOutputWithContext(ctx context.Context) ReplicationRecoveryServicesProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryServicesProviderOutput)
 }
 
@@ -158,7 +158,7 @@ type ReplicationRecoveryServicesProviderOutput struct {
 }
 
 func (ReplicationRecoveryServicesProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationRecoveryServicesProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReplicationRecoveryServicesProvider)(nil))
 }
 
 func (o ReplicationRecoveryServicesProviderOutput) ToReplicationRecoveryServicesProviderOutput() ReplicationRecoveryServicesProviderOutput {

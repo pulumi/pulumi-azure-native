@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
     /// <summary>
     /// P2SVpnServerConfiguration Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20190601:P2sVpnServerConfiguration")]
     public partial class P2sVpnServerConfiguration : Pulumi.CustomResource
     {
         /// <summary>

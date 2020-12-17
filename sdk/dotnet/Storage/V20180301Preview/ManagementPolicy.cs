@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180301Preview
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20180301preview:ManagementPolicy")]
     public partial class ManagementPolicy : Pulumi.CustomResource
     {
         /// <summary>

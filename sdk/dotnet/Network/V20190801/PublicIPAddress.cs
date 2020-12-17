@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
     /// <summary>
     /// Public IP address resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20190801:PublicIPAddress")]
     public partial class PublicIPAddress : Pulumi.CustomResource
     {
         /// <summary>

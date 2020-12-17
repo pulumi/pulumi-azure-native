@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20181101
     /// <summary>
     /// Information about packet capture session.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20181101:PacketCapture")]
     public partial class PacketCapture : Pulumi.CustomResource
     {
         /// <summary>

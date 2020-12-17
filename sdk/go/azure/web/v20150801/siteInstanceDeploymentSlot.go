@@ -253,15 +253,15 @@ type SiteInstanceDeploymentSlotInput interface {
 	ToSiteInstanceDeploymentSlotOutputWithContext(ctx context.Context) SiteInstanceDeploymentSlotOutput
 }
 
-func (SiteInstanceDeploymentSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteInstanceDeploymentSlot)(nil)).Elem()
+func (*SiteInstanceDeploymentSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteInstanceDeploymentSlot)(nil))
 }
 
-func (i SiteInstanceDeploymentSlot) ToSiteInstanceDeploymentSlotOutput() SiteInstanceDeploymentSlotOutput {
+func (i *SiteInstanceDeploymentSlot) ToSiteInstanceDeploymentSlotOutput() SiteInstanceDeploymentSlotOutput {
 	return i.ToSiteInstanceDeploymentSlotOutputWithContext(context.Background())
 }
 
-func (i SiteInstanceDeploymentSlot) ToSiteInstanceDeploymentSlotOutputWithContext(ctx context.Context) SiteInstanceDeploymentSlotOutput {
+func (i *SiteInstanceDeploymentSlot) ToSiteInstanceDeploymentSlotOutputWithContext(ctx context.Context) SiteInstanceDeploymentSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteInstanceDeploymentSlotOutput)
 }
 
@@ -270,7 +270,7 @@ type SiteInstanceDeploymentSlotOutput struct {
 }
 
 func (SiteInstanceDeploymentSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteInstanceDeploymentSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*SiteInstanceDeploymentSlot)(nil))
 }
 
 func (o SiteInstanceDeploymentSlotOutput) ToSiteInstanceDeploymentSlotOutput() SiteInstanceDeploymentSlotOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.V20200301Preview
     /// <summary>
     /// Cluster details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:azurestackhci/v20200301preview:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

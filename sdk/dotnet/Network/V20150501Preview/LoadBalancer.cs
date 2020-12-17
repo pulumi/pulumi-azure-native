@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
     /// <summary>
     /// LoadBalancer resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20150501preview:LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>

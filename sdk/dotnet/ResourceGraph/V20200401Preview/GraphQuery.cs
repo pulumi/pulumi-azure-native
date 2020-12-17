@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
     /// <summary>
     /// Graph Query entity definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:resourcegraph/v20200401preview:GraphQuery")]
     public partial class GraphQuery : Pulumi.CustomResource
     {
         /// <summary>

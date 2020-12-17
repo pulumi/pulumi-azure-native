@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
     /// <summary>
     /// A share data transfer object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datashare/v20181101preview:Share")]
     public partial class Share : Pulumi.CustomResource
     {
         /// <summary>

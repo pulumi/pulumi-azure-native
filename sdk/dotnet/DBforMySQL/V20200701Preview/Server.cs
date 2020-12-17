@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview
     /// <summary>
     /// Represents a server.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformysql/v20200701preview:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>

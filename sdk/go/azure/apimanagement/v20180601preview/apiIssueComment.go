@@ -180,15 +180,15 @@ type ApiIssueCommentInput interface {
 	ToApiIssueCommentOutputWithContext(ctx context.Context) ApiIssueCommentOutput
 }
 
-func (ApiIssueComment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiIssueComment)(nil)).Elem()
+func (*ApiIssueComment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueComment)(nil))
 }
 
-func (i ApiIssueComment) ToApiIssueCommentOutput() ApiIssueCommentOutput {
+func (i *ApiIssueComment) ToApiIssueCommentOutput() ApiIssueCommentOutput {
 	return i.ToApiIssueCommentOutputWithContext(context.Background())
 }
 
-func (i ApiIssueComment) ToApiIssueCommentOutputWithContext(ctx context.Context) ApiIssueCommentOutput {
+func (i *ApiIssueComment) ToApiIssueCommentOutputWithContext(ctx context.Context) ApiIssueCommentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueCommentOutput)
 }
 
@@ -197,7 +197,7 @@ type ApiIssueCommentOutput struct {
 }
 
 func (ApiIssueCommentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiIssueCommentOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiIssueComment)(nil))
 }
 
 func (o ApiIssueCommentOutput) ToApiIssueCommentOutput() ApiIssueCommentOutput {

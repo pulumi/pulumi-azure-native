@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200501preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

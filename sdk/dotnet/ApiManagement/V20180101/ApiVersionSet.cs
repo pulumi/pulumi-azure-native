@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
     /// <summary>
     /// Api Version Set Contract details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:ApiVersionSet")]
     public partial class ApiVersionSet : Pulumi.CustomResource
     {
         /// <summary>

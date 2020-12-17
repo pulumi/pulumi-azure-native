@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20161002
     /// <summary>
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/v20161002:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>

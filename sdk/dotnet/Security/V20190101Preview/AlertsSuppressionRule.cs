@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
     /// <summary>
     /// Describes the suppression rule
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20190101preview:AlertsSuppressionRule")]
     public partial class AlertsSuppressionRule : Pulumi.CustomResource
     {
         /// <summary>

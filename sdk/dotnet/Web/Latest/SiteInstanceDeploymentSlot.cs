@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Represents user credentials used for publishing activity
     /// Latest API Version: 2015-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/latest:SiteInstanceDeploymentSlot")]
     public partial class SiteInstanceDeploymentSlot : Pulumi.CustomResource
     {
         /// <summary>

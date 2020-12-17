@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
     /// <summary>
     /// Job Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databox/v20201101:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>

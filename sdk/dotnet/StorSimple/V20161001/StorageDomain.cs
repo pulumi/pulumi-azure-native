@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
     /// <summary>
     /// The storage domain.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:StorageDomain")]
     public partial class StorageDomain : Pulumi.CustomResource
     {
         /// <summary>

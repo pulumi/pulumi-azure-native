@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
     /// <summary>
     /// Api details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag")]
     public partial class GatewayApiEntityTag : Pulumi.CustomResource
     {
         /// <summary>

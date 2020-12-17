@@ -125,15 +125,15 @@ type AzureADMetricInput interface {
 	ToAzureADMetricOutputWithContext(ctx context.Context) AzureADMetricOutput
 }
 
-func (AzureADMetric) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureADMetric)(nil)).Elem()
+func (*AzureADMetric) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureADMetric)(nil))
 }
 
-func (i AzureADMetric) ToAzureADMetricOutput() AzureADMetricOutput {
+func (i *AzureADMetric) ToAzureADMetricOutput() AzureADMetricOutput {
 	return i.ToAzureADMetricOutputWithContext(context.Background())
 }
 
-func (i AzureADMetric) ToAzureADMetricOutputWithContext(ctx context.Context) AzureADMetricOutput {
+func (i *AzureADMetric) ToAzureADMetricOutputWithContext(ctx context.Context) AzureADMetricOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AzureADMetricOutput)
 }
 
@@ -142,7 +142,7 @@ type AzureADMetricOutput struct {
 }
 
 func (AzureADMetricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureADMetricOutput)(nil)).Elem()
+	return reflect.TypeOf((*AzureADMetric)(nil))
 }
 
 func (o AzureADMetricOutput) ToAzureADMetricOutput() AzureADMetricOutput {

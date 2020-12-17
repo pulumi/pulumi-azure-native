@@ -130,15 +130,15 @@ type InputInput interface {
 	ToInputOutputWithContext(ctx context.Context) InputOutput
 }
 
-func (Input) ElementType() reflect.Type {
-	return reflect.TypeOf((*Input)(nil)).Elem()
+func (*Input) ElementType() reflect.Type {
+	return reflect.TypeOf((*Input)(nil))
 }
 
-func (i Input) ToInputOutput() InputOutput {
+func (i *Input) ToInputOutput() InputOutput {
 	return i.ToInputOutputWithContext(context.Background())
 }
 
-func (i Input) ToInputOutputWithContext(ctx context.Context) InputOutput {
+func (i *Input) ToInputOutputWithContext(ctx context.Context) InputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InputOutput)
 }
 
@@ -147,7 +147,7 @@ type InputOutput struct {
 }
 
 func (InputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputOutput)(nil)).Elem()
+	return reflect.TypeOf((*Input)(nil))
 }
 
 func (o InputOutput) ToInputOutput() InputOutput {

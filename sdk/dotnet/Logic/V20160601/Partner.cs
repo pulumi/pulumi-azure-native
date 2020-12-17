@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
     /// <summary>
     /// The integration account partner.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/v20160601:Partner")]
     public partial class Partner : Pulumi.CustomResource
     {
         /// <summary>

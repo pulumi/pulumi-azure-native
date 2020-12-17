@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
     /// <summary>
     /// SecurityPolicy association for AzureFrontDoor profile
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cdn/v20200901:SecurityPolicy")]
     public partial class SecurityPolicy : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]

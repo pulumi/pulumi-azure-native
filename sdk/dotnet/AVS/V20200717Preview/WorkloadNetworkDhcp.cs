@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
     /// <summary>
     /// NSX DHCP
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:avs/v20200717preview:WorkloadNetworkDhcp")]
     public partial class WorkloadNetworkDhcp : Pulumi.CustomResource
     {
         /// <summary>

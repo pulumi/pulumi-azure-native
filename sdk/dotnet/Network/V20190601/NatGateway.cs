@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
     /// <summary>
     /// Nat Gateway resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20190601:NatGateway")]
     public partial class NatGateway : Pulumi.CustomResource
     {
         /// <summary>

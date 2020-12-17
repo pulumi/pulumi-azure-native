@@ -377,15 +377,15 @@ type AgentPoolInput interface {
 	ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolOutput
 }
 
-func (AgentPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPool)(nil)).Elem()
+func (*AgentPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPool)(nil))
 }
 
-func (i AgentPool) ToAgentPoolOutput() AgentPoolOutput {
+func (i *AgentPool) ToAgentPoolOutput() AgentPoolOutput {
 	return i.ToAgentPoolOutputWithContext(context.Background())
 }
 
-func (i AgentPool) ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolOutput {
+func (i *AgentPool) ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolOutput)
 }
 
@@ -394,7 +394,7 @@ type AgentPoolOutput struct {
 }
 
 func (AgentPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*AgentPool)(nil))
 }
 
 func (o AgentPoolOutput) ToAgentPoolOutput() AgentPoolOutput {

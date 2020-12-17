@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Backend details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:Backend")]
     public partial class Backend : Pulumi.CustomResource
     {
         /// <summary>

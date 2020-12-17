@@ -190,15 +190,15 @@ type ControllerInput interface {
 	ToControllerOutputWithContext(ctx context.Context) ControllerOutput
 }
 
-func (Controller) ElementType() reflect.Type {
-	return reflect.TypeOf((*Controller)(nil)).Elem()
+func (*Controller) ElementType() reflect.Type {
+	return reflect.TypeOf((*Controller)(nil))
 }
 
-func (i Controller) ToControllerOutput() ControllerOutput {
+func (i *Controller) ToControllerOutput() ControllerOutput {
 	return i.ToControllerOutputWithContext(context.Background())
 }
 
-func (i Controller) ToControllerOutputWithContext(ctx context.Context) ControllerOutput {
+func (i *Controller) ToControllerOutputWithContext(ctx context.Context) ControllerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ControllerOutput)
 }
 
@@ -207,7 +207,7 @@ type ControllerOutput struct {
 }
 
 func (ControllerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControllerOutput)(nil)).Elem()
+	return reflect.TypeOf((*Controller)(nil))
 }
 
 func (o ControllerOutput) ToControllerOutput() ControllerOutput {

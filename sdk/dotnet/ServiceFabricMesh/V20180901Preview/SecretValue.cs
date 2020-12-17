@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
     /// <summary>
     /// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicefabricmesh/v20180901preview:SecretValue")]
     public partial class SecretValue : Pulumi.CustomResource
     {
         /// <summary>

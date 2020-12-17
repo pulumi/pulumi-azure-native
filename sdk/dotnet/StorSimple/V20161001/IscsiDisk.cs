@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
     /// <summary>
     /// The iSCSI disk.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:IscsiDisk")]
     public partial class IscsiDisk : Pulumi.CustomResource
     {
         /// <summary>

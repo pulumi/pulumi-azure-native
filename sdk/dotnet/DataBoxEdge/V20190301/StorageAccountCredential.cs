@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
     /// <summary>
     /// The storage account credential.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20190301:StorageAccountCredential")]
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {
         /// <summary>

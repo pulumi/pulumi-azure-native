@@ -253,15 +253,15 @@ type VirtualMachineScaleSetInput interface {
 	ToVirtualMachineScaleSetOutputWithContext(ctx context.Context) VirtualMachineScaleSetOutput
 }
 
-func (VirtualMachineScaleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSet)(nil)).Elem()
+func (*VirtualMachineScaleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSet)(nil))
 }
 
-func (i VirtualMachineScaleSet) ToVirtualMachineScaleSetOutput() VirtualMachineScaleSetOutput {
+func (i *VirtualMachineScaleSet) ToVirtualMachineScaleSetOutput() VirtualMachineScaleSetOutput {
 	return i.ToVirtualMachineScaleSetOutputWithContext(context.Background())
 }
 
-func (i VirtualMachineScaleSet) ToVirtualMachineScaleSetOutputWithContext(ctx context.Context) VirtualMachineScaleSetOutput {
+func (i *VirtualMachineScaleSet) ToVirtualMachineScaleSetOutputWithContext(ctx context.Context) VirtualMachineScaleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetOutput)
 }
 
@@ -270,7 +270,7 @@ type VirtualMachineScaleSetOutput struct {
 }
 
 func (VirtualMachineScaleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualMachineScaleSet)(nil))
 }
 
 func (o VirtualMachineScaleSetOutput) ToVirtualMachineScaleSetOutput() VirtualMachineScaleSetOutput {

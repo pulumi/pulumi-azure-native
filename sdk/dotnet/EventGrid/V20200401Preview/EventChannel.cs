@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
     /// <summary>
     /// Event Channel.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20200401preview:EventChannel")]
     public partial class EventChannel : Pulumi.CustomResource
     {
         /// <summary>

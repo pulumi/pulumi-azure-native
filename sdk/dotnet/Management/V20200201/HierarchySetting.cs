@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Management.V20200201
     /// <summary>
     /// Settings defined at the Management Group scope.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:management/v20200201:HierarchySetting")]
     public partial class HierarchySetting : Pulumi.CustomResource
     {
         /// <summary>

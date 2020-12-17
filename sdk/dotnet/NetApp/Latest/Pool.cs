@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
     /// Capacity pool resource
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:netapp/latest:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>

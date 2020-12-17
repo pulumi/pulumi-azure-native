@@ -178,15 +178,15 @@ type WorkloadNetworkDnsServiceInput interface {
 	ToWorkloadNetworkDnsServiceOutputWithContext(ctx context.Context) WorkloadNetworkDnsServiceOutput
 }
 
-func (WorkloadNetworkDnsService) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDnsService)(nil)).Elem()
+func (*WorkloadNetworkDnsService) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkDnsService)(nil))
 }
 
-func (i WorkloadNetworkDnsService) ToWorkloadNetworkDnsServiceOutput() WorkloadNetworkDnsServiceOutput {
+func (i *WorkloadNetworkDnsService) ToWorkloadNetworkDnsServiceOutput() WorkloadNetworkDnsServiceOutput {
 	return i.ToWorkloadNetworkDnsServiceOutputWithContext(context.Background())
 }
 
-func (i WorkloadNetworkDnsService) ToWorkloadNetworkDnsServiceOutputWithContext(ctx context.Context) WorkloadNetworkDnsServiceOutput {
+func (i *WorkloadNetworkDnsService) ToWorkloadNetworkDnsServiceOutputWithContext(ctx context.Context) WorkloadNetworkDnsServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDnsServiceOutput)
 }
 
@@ -195,7 +195,7 @@ type WorkloadNetworkDnsServiceOutput struct {
 }
 
 func (WorkloadNetworkDnsServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDnsServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkloadNetworkDnsService)(nil))
 }
 
 func (o WorkloadNetworkDnsServiceOutput) ToWorkloadNetworkDnsServiceOutput() WorkloadNetworkDnsServiceOutput {

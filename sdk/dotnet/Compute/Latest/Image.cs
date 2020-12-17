@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/latest:Image")]
     public partial class Image : Pulumi.CustomResource
     {
         /// <summary>

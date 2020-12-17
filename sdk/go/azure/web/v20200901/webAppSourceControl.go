@@ -199,15 +199,15 @@ type WebAppSourceControlInput interface {
 	ToWebAppSourceControlOutputWithContext(ctx context.Context) WebAppSourceControlOutput
 }
 
-func (WebAppSourceControl) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSourceControl)(nil)).Elem()
+func (*WebAppSourceControl) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSourceControl)(nil))
 }
 
-func (i WebAppSourceControl) ToWebAppSourceControlOutput() WebAppSourceControlOutput {
+func (i *WebAppSourceControl) ToWebAppSourceControlOutput() WebAppSourceControlOutput {
 	return i.ToWebAppSourceControlOutputWithContext(context.Background())
 }
 
-func (i WebAppSourceControl) ToWebAppSourceControlOutputWithContext(ctx context.Context) WebAppSourceControlOutput {
+func (i *WebAppSourceControl) ToWebAppSourceControlOutputWithContext(ctx context.Context) WebAppSourceControlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSourceControlOutput)
 }
 
@@ -216,7 +216,7 @@ type WebAppSourceControlOutput struct {
 }
 
 func (WebAppSourceControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSourceControlOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppSourceControl)(nil))
 }
 
 func (o WebAppSourceControlOutput) ToWebAppSourceControlOutput() WebAppSourceControlOutput {

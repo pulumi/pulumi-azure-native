@@ -125,15 +125,15 @@ type ServerAzureADOnlyAuthenticationInput interface {
 	ToServerAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ServerAzureADOnlyAuthenticationOutput
 }
 
-func (ServerAzureADOnlyAuthentication) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAzureADOnlyAuthentication)(nil)).Elem()
+func (*ServerAzureADOnlyAuthentication) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAzureADOnlyAuthentication)(nil))
 }
 
-func (i ServerAzureADOnlyAuthentication) ToServerAzureADOnlyAuthenticationOutput() ServerAzureADOnlyAuthenticationOutput {
+func (i *ServerAzureADOnlyAuthentication) ToServerAzureADOnlyAuthenticationOutput() ServerAzureADOnlyAuthenticationOutput {
 	return i.ToServerAzureADOnlyAuthenticationOutputWithContext(context.Background())
 }
 
-func (i ServerAzureADOnlyAuthentication) ToServerAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ServerAzureADOnlyAuthenticationOutput {
+func (i *ServerAzureADOnlyAuthentication) ToServerAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ServerAzureADOnlyAuthenticationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureADOnlyAuthenticationOutput)
 }
 
@@ -142,7 +142,7 @@ type ServerAzureADOnlyAuthenticationOutput struct {
 }
 
 func (ServerAzureADOnlyAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAzureADOnlyAuthenticationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerAzureADOnlyAuthentication)(nil))
 }
 
 func (o ServerAzureADOnlyAuthenticationOutput) ToServerAzureADOnlyAuthenticationOutput() ServerAzureADOnlyAuthenticationOutput {

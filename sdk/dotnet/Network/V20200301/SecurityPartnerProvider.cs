@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
     /// <summary>
     /// Security Partner Provider resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200301:SecurityPartnerProvider")]
     public partial class SecurityPartnerProvider : Pulumi.CustomResource
     {
         /// <summary>

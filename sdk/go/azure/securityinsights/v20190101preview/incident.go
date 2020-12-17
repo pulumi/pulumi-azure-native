@@ -278,15 +278,15 @@ type IncidentInput interface {
 	ToIncidentOutputWithContext(ctx context.Context) IncidentOutput
 }
 
-func (Incident) ElementType() reflect.Type {
-	return reflect.TypeOf((*Incident)(nil)).Elem()
+func (*Incident) ElementType() reflect.Type {
+	return reflect.TypeOf((*Incident)(nil))
 }
 
-func (i Incident) ToIncidentOutput() IncidentOutput {
+func (i *Incident) ToIncidentOutput() IncidentOutput {
 	return i.ToIncidentOutputWithContext(context.Background())
 }
 
-func (i Incident) ToIncidentOutputWithContext(ctx context.Context) IncidentOutput {
+func (i *Incident) ToIncidentOutputWithContext(ctx context.Context) IncidentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentOutput)
 }
 
@@ -295,7 +295,7 @@ type IncidentOutput struct {
 }
 
 func (IncidentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentOutput)(nil)).Elem()
+	return reflect.TypeOf((*Incident)(nil))
 }
 
 func (o IncidentOutput) ToIncidentOutput() IncidentOutput {

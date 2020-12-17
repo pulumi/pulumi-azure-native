@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
     /// <summary>
     /// Configuration of App Service site logs.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20200901:WebAppDiagnosticLogsConfiguration")]
     public partial class WebAppDiagnosticLogsConfiguration : Pulumi.CustomResource
     {
         /// <summary>

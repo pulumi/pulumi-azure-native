@@ -185,15 +185,15 @@ type EventHubConnectionInput interface {
 	ToEventHubConnectionOutputWithContext(ctx context.Context) EventHubConnectionOutput
 }
 
-func (EventHubConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubConnection)(nil)).Elem()
+func (*EventHubConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubConnection)(nil))
 }
 
-func (i EventHubConnection) ToEventHubConnectionOutput() EventHubConnectionOutput {
+func (i *EventHubConnection) ToEventHubConnectionOutput() EventHubConnectionOutput {
 	return i.ToEventHubConnectionOutputWithContext(context.Background())
 }
 
-func (i EventHubConnection) ToEventHubConnectionOutputWithContext(ctx context.Context) EventHubConnectionOutput {
+func (i *EventHubConnection) ToEventHubConnectionOutputWithContext(ctx context.Context) EventHubConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubConnectionOutput)
 }
 
@@ -202,7 +202,7 @@ type EventHubConnectionOutput struct {
 }
 
 func (EventHubConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventHubConnection)(nil))
 }
 
 func (o EventHubConnectionOutput) ToEventHubConnectionOutput() EventHubConnectionOutput {

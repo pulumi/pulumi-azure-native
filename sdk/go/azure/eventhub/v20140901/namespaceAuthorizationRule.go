@@ -148,15 +148,15 @@ type NamespaceAuthorizationRuleInput interface {
 	ToNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleOutput
 }
 
-func (NamespaceAuthorizationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil)).Elem()
+func (*NamespaceAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil))
 }
 
-func (i NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutput() NamespaceAuthorizationRuleOutput {
+func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutput() NamespaceAuthorizationRuleOutput {
 	return i.ToNamespaceAuthorizationRuleOutputWithContext(context.Background())
 }
 
-func (i NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleOutput {
+func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleOutput)
 }
 
@@ -165,7 +165,7 @@ type NamespaceAuthorizationRuleOutput struct {
 }
 
 func (NamespaceAuthorizationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceAuthorizationRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil))
 }
 
 func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutput() NamespaceAuthorizationRuleOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cache.V20150801
     /// <summary>
     /// A Redis item in CreateOrUpdate Operation response.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cache/v20150801:Redis")]
     public partial class Redis : Pulumi.CustomResource
     {
         /// <summary>

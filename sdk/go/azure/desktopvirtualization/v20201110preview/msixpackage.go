@@ -228,15 +228,15 @@ type MSIXPackageInput interface {
 	ToMSIXPackageOutputWithContext(ctx context.Context) MSIXPackageOutput
 }
 
-func (MSIXPackage) ElementType() reflect.Type {
-	return reflect.TypeOf((*MSIXPackage)(nil)).Elem()
+func (*MSIXPackage) ElementType() reflect.Type {
+	return reflect.TypeOf((*MSIXPackage)(nil))
 }
 
-func (i MSIXPackage) ToMSIXPackageOutput() MSIXPackageOutput {
+func (i *MSIXPackage) ToMSIXPackageOutput() MSIXPackageOutput {
 	return i.ToMSIXPackageOutputWithContext(context.Background())
 }
 
-func (i MSIXPackage) ToMSIXPackageOutputWithContext(ctx context.Context) MSIXPackageOutput {
+func (i *MSIXPackage) ToMSIXPackageOutputWithContext(ctx context.Context) MSIXPackageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MSIXPackageOutput)
 }
 
@@ -245,7 +245,7 @@ type MSIXPackageOutput struct {
 }
 
 func (MSIXPackageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MSIXPackageOutput)(nil)).Elem()
+	return reflect.TypeOf((*MSIXPackage)(nil))
 }
 
 func (o MSIXPackageOutput) ToMSIXPackageOutput() MSIXPackageOutput {

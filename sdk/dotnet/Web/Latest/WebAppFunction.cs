@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Function information.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppFunction")]
     public partial class WebAppFunction : Pulumi.CustomResource
     {
         /// <summary>

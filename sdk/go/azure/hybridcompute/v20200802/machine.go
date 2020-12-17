@@ -274,15 +274,15 @@ type MachineInput interface {
 	ToMachineOutputWithContext(ctx context.Context) MachineOutput
 }
 
-func (Machine) ElementType() reflect.Type {
-	return reflect.TypeOf((*Machine)(nil)).Elem()
+func (*Machine) ElementType() reflect.Type {
+	return reflect.TypeOf((*Machine)(nil))
 }
 
-func (i Machine) ToMachineOutput() MachineOutput {
+func (i *Machine) ToMachineOutput() MachineOutput {
 	return i.ToMachineOutputWithContext(context.Background())
 }
 
-func (i Machine) ToMachineOutputWithContext(ctx context.Context) MachineOutput {
+func (i *Machine) ToMachineOutputWithContext(ctx context.Context) MachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MachineOutput)
 }
 
@@ -291,7 +291,7 @@ type MachineOutput struct {
 }
 
 func (MachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineOutput)(nil)).Elem()
+	return reflect.TypeOf((*Machine)(nil))
 }
 
 func (o MachineOutput) ToMachineOutput() MachineOutput {

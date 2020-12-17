@@ -111,8 +111,8 @@ export const PartitionKind = {
 export type PartitionKind = (typeof PartitionKind)[keyof typeof PartitionKind];
 
 export const ServerVersion = {
-    _3_2: "3.2",
-    _3_6: "3.6",
+    ServerVersion_3_2: "3.2",
+    ServerVersion_3_6: "3.6",
 } as const;
 
 /**

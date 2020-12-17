@@ -158,15 +158,15 @@ type ConfigurationStoreInput interface {
 	ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput
 }
 
-func (ConfigurationStore) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStore)(nil)).Elem()
+func (*ConfigurationStore) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationStore)(nil))
 }
 
-func (i ConfigurationStore) ToConfigurationStoreOutput() ConfigurationStoreOutput {
+func (i *ConfigurationStore) ToConfigurationStoreOutput() ConfigurationStoreOutput {
 	return i.ToConfigurationStoreOutputWithContext(context.Background())
 }
 
-func (i ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput {
+func (i *ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreOutput)
 }
 
@@ -175,7 +175,7 @@ type ConfigurationStoreOutput struct {
 }
 
 func (ConfigurationStoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStoreOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConfigurationStore)(nil))
 }
 
 func (o ConfigurationStoreOutput) ToConfigurationStoreOutput() ConfigurationStoreOutput {

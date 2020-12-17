@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
     /// Represents a server firewall rule.
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbformariadb/latest:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>

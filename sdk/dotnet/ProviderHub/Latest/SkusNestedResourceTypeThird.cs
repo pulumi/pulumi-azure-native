@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
     /// <summary>
     /// Latest API Version: 2020-11-20.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:providerhub/latest:SkusNestedResourceTypeThird")]
     public partial class SkusNestedResourceTypeThird : Pulumi.CustomResource
     {
         /// <summary>

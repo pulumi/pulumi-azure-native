@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
     /// <summary>
     /// Default rollout definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:providerhub/v20201120:DefaultRollout")]
     public partial class DefaultRollout : Pulumi.CustomResource
     {
         /// <summary>

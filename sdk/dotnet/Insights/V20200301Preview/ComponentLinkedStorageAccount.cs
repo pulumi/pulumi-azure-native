@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200301Preview
     /// <summary>
     /// An Application Insights component linked storage accounts
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount")]
     public partial class ComponentLinkedStorageAccount : Pulumi.CustomResource
     {
         /// <summary>

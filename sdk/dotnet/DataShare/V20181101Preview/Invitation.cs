@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
     /// <summary>
     /// A Invitation data transfer object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datashare/v20181101preview:Invitation")]
     public partial class Invitation : Pulumi.CustomResource
     {
         /// <summary>

@@ -155,15 +155,15 @@ type DiagnosticLoggerInput interface {
 	ToDiagnosticLoggerOutputWithContext(ctx context.Context) DiagnosticLoggerOutput
 }
 
-func (DiagnosticLogger) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticLogger)(nil)).Elem()
+func (*DiagnosticLogger) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticLogger)(nil))
 }
 
-func (i DiagnosticLogger) ToDiagnosticLoggerOutput() DiagnosticLoggerOutput {
+func (i *DiagnosticLogger) ToDiagnosticLoggerOutput() DiagnosticLoggerOutput {
 	return i.ToDiagnosticLoggerOutputWithContext(context.Background())
 }
 
-func (i DiagnosticLogger) ToDiagnosticLoggerOutputWithContext(ctx context.Context) DiagnosticLoggerOutput {
+func (i *DiagnosticLogger) ToDiagnosticLoggerOutputWithContext(ctx context.Context) DiagnosticLoggerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticLoggerOutput)
 }
 
@@ -172,7 +172,7 @@ type DiagnosticLoggerOutput struct {
 }
 
 func (DiagnosticLoggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticLoggerOutput)(nil)).Elem()
+	return reflect.TypeOf((*DiagnosticLogger)(nil))
 }
 
 func (o DiagnosticLoggerOutput) ToDiagnosticLoggerOutput() DiagnosticLoggerOutput {

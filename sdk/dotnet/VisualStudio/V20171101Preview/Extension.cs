@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
     /// <summary>
     /// The response to an extension resource GET request.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:visualstudio/v20171101preview:Extension")]
     public partial class Extension : Pulumi.CustomResource
     {
         /// <summary>

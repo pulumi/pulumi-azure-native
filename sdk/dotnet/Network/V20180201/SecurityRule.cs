@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
     /// <summary>
     /// Network security rule.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20180201:SecurityRule")]
     public partial class SecurityRule : Pulumi.CustomResource
     {
         /// <summary>

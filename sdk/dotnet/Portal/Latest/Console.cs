@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Portal.Latest
     /// Cloud shell console
     /// Latest API Version: 2018-10-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:portal/latest:Console")]
     public partial class Console : Pulumi.CustomResource
     {
         /// <summary>

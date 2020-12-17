@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
     /// The properties of a storage account’s Blob service.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/latest:BlobServiceProperties")]
     public partial class BlobServiceProperties : Pulumi.CustomResource
     {
         /// <summary>

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
     /// An Azure Cosmos DB Cassandra keyspace.
     /// Latest API Version: 2016-03-31.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/latest:DatabaseAccountCassandraKeyspace")]
     public partial class DatabaseAccountCassandraKeyspace : Pulumi.CustomResource
     {
         /// <summary>

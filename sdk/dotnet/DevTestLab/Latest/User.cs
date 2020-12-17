@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// Profile of a lab user.
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

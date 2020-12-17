@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule")]
     public partial class EventHubAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

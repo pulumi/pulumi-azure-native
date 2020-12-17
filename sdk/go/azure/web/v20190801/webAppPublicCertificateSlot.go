@@ -170,15 +170,15 @@ type WebAppPublicCertificateSlotInput interface {
 	ToWebAppPublicCertificateSlotOutputWithContext(ctx context.Context) WebAppPublicCertificateSlotOutput
 }
 
-func (WebAppPublicCertificateSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPublicCertificateSlot)(nil)).Elem()
+func (*WebAppPublicCertificateSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPublicCertificateSlot)(nil))
 }
 
-func (i WebAppPublicCertificateSlot) ToWebAppPublicCertificateSlotOutput() WebAppPublicCertificateSlotOutput {
+func (i *WebAppPublicCertificateSlot) ToWebAppPublicCertificateSlotOutput() WebAppPublicCertificateSlotOutput {
 	return i.ToWebAppPublicCertificateSlotOutputWithContext(context.Background())
 }
 
-func (i WebAppPublicCertificateSlot) ToWebAppPublicCertificateSlotOutputWithContext(ctx context.Context) WebAppPublicCertificateSlotOutput {
+func (i *WebAppPublicCertificateSlot) ToWebAppPublicCertificateSlotOutputWithContext(ctx context.Context) WebAppPublicCertificateSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPublicCertificateSlotOutput)
 }
 
@@ -187,7 +187,7 @@ type WebAppPublicCertificateSlotOutput struct {
 }
 
 func (WebAppPublicCertificateSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPublicCertificateSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppPublicCertificateSlot)(nil))
 }
 
 func (o WebAppPublicCertificateSlotOutput) ToWebAppPublicCertificateSlotOutput() WebAppPublicCertificateSlotOutput {

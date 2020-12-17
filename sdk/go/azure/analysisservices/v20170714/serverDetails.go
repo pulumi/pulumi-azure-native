@@ -198,15 +198,15 @@ type ServerDetailsInput interface {
 	ToServerDetailsOutputWithContext(ctx context.Context) ServerDetailsOutput
 }
 
-func (ServerDetails) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDetails)(nil)).Elem()
+func (*ServerDetails) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDetails)(nil))
 }
 
-func (i ServerDetails) ToServerDetailsOutput() ServerDetailsOutput {
+func (i *ServerDetails) ToServerDetailsOutput() ServerDetailsOutput {
 	return i.ToServerDetailsOutputWithContext(context.Background())
 }
 
-func (i ServerDetails) ToServerDetailsOutputWithContext(ctx context.Context) ServerDetailsOutput {
+func (i *ServerDetails) ToServerDetailsOutputWithContext(ctx context.Context) ServerDetailsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerDetailsOutput)
 }
 
@@ -215,7 +215,7 @@ type ServerDetailsOutput struct {
 }
 
 func (ServerDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDetailsOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerDetails)(nil))
 }
 
 func (o ServerDetailsOutput) ToServerDetailsOutput() ServerDetailsOutput {

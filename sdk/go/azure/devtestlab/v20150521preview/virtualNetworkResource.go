@@ -196,15 +196,15 @@ type VirtualNetworkResourceInput interface {
 	ToVirtualNetworkResourceOutputWithContext(ctx context.Context) VirtualNetworkResourceOutput
 }
 
-func (VirtualNetworkResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkResource)(nil)).Elem()
+func (*VirtualNetworkResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkResource)(nil))
 }
 
-func (i VirtualNetworkResource) ToVirtualNetworkResourceOutput() VirtualNetworkResourceOutput {
+func (i *VirtualNetworkResource) ToVirtualNetworkResourceOutput() VirtualNetworkResourceOutput {
 	return i.ToVirtualNetworkResourceOutputWithContext(context.Background())
 }
 
-func (i VirtualNetworkResource) ToVirtualNetworkResourceOutputWithContext(ctx context.Context) VirtualNetworkResourceOutput {
+func (i *VirtualNetworkResource) ToVirtualNetworkResourceOutputWithContext(ctx context.Context) VirtualNetworkResourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkResourceOutput)
 }
 
@@ -213,7 +213,7 @@ type VirtualNetworkResourceOutput struct {
 }
 
 func (VirtualNetworkResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkResourceOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualNetworkResource)(nil))
 }
 
 func (o VirtualNetworkResourceOutput) ToVirtualNetworkResourceOutput() VirtualNetworkResourceOutput {

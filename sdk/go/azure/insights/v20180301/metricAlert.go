@@ -262,15 +262,15 @@ type MetricAlertInput interface {
 	ToMetricAlertOutputWithContext(ctx context.Context) MetricAlertOutput
 }
 
-func (MetricAlert) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlert)(nil)).Elem()
+func (*MetricAlert) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlert)(nil))
 }
 
-func (i MetricAlert) ToMetricAlertOutput() MetricAlertOutput {
+func (i *MetricAlert) ToMetricAlertOutput() MetricAlertOutput {
 	return i.ToMetricAlertOutputWithContext(context.Background())
 }
 
-func (i MetricAlert) ToMetricAlertOutputWithContext(ctx context.Context) MetricAlertOutput {
+func (i *MetricAlert) ToMetricAlertOutputWithContext(ctx context.Context) MetricAlertOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertOutput)
 }
 
@@ -279,7 +279,7 @@ type MetricAlertOutput struct {
 }
 
 func (MetricAlertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertOutput)(nil)).Elem()
+	return reflect.TypeOf((*MetricAlert)(nil))
 }
 
 func (o MetricAlertOutput) ToMetricAlertOutput() MetricAlertOutput {

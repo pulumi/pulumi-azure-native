@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
     /// <summary>
     /// The file server.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:FileServer")]
     public partial class FileServer : Pulumi.CustomResource
     {
         /// <summary>

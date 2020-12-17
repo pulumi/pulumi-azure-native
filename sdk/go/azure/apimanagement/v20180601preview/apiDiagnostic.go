@@ -200,15 +200,15 @@ type ApiDiagnosticInput interface {
 	ToApiDiagnosticOutputWithContext(ctx context.Context) ApiDiagnosticOutput
 }
 
-func (ApiDiagnostic) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiDiagnostic)(nil)).Elem()
+func (*ApiDiagnostic) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnostic)(nil))
 }
 
-func (i ApiDiagnostic) ToApiDiagnosticOutput() ApiDiagnosticOutput {
+func (i *ApiDiagnostic) ToApiDiagnosticOutput() ApiDiagnosticOutput {
 	return i.ToApiDiagnosticOutputWithContext(context.Background())
 }
 
-func (i ApiDiagnostic) ToApiDiagnosticOutputWithContext(ctx context.Context) ApiDiagnosticOutput {
+func (i *ApiDiagnostic) ToApiDiagnosticOutputWithContext(ctx context.Context) ApiDiagnosticOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticOutput)
 }
 
@@ -217,7 +217,7 @@ type ApiDiagnosticOutput struct {
 }
 
 func (ApiDiagnosticOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiDiagnosticOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiDiagnostic)(nil))
 }
 
 func (o ApiDiagnosticOutput) ToApiDiagnosticOutput() ApiDiagnosticOutput {

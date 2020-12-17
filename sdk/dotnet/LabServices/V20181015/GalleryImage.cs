@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
     /// <summary>
     /// Represents an image from the Azure Marketplace
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:labservices/v20181015:GalleryImage")]
     public partial class GalleryImage : Pulumi.CustomResource
     {
         /// <summary>

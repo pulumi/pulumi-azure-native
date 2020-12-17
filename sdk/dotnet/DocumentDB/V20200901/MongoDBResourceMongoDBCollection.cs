@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200901
     /// <summary>
     /// An Azure Cosmos DB MongoDB collection.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection")]
     public partial class MongoDBResourceMongoDBCollection : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
     /// <summary>
     /// Inbound NAT rule of the load balancer.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20180201:InboundNatRule")]
     public partial class InboundNatRule : Pulumi.CustomResource
     {
         /// <summary>

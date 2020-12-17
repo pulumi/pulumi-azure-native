@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
     /// <summary>
     /// A hostname binding object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20200901:WebAppHostNameBindingSlot")]
     public partial class WebAppHostNameBindingSlot : Pulumi.CustomResource
     {
         /// <summary>

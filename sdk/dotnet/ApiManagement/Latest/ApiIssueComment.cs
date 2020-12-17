@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Issue Comment Contract details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:ApiIssueComment")]
     public partial class ApiIssueComment : Pulumi.CustomResource
     {
         /// <summary>

@@ -119,15 +119,15 @@ type ManagementConfigurationInput interface {
 	ToManagementConfigurationOutputWithContext(ctx context.Context) ManagementConfigurationOutput
 }
 
-func (ManagementConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementConfiguration)(nil)).Elem()
+func (*ManagementConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementConfiguration)(nil))
 }
 
-func (i ManagementConfiguration) ToManagementConfigurationOutput() ManagementConfigurationOutput {
+func (i *ManagementConfiguration) ToManagementConfigurationOutput() ManagementConfigurationOutput {
 	return i.ToManagementConfigurationOutputWithContext(context.Background())
 }
 
-func (i ManagementConfiguration) ToManagementConfigurationOutputWithContext(ctx context.Context) ManagementConfigurationOutput {
+func (i *ManagementConfiguration) ToManagementConfigurationOutputWithContext(ctx context.Context) ManagementConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementConfigurationOutput)
 }
 
@@ -136,7 +136,7 @@ type ManagementConfigurationOutput struct {
 }
 
 func (ManagementConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagementConfiguration)(nil))
 }
 
 func (o ManagementConfigurationOutput) ToManagementConfigurationOutput() ManagementConfigurationOutput {

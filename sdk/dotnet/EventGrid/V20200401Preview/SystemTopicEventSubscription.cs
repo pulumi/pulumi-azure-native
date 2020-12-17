@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
     /// <summary>
     /// Event Subscription
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20200401preview:SystemTopicEventSubscription")]
     public partial class SystemTopicEventSubscription : Pulumi.CustomResource
     {
         /// <summary>

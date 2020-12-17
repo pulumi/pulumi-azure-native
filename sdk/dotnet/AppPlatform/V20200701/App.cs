@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
     /// <summary>
     /// App resource payload
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:appplatform/v20200701:App")]
     public partial class App : Pulumi.CustomResource
     {
         /// <summary>

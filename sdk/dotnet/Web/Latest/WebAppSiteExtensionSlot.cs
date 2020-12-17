@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Site Extension Information.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppSiteExtensionSlot")]
     public partial class WebAppSiteExtensionSlot : Pulumi.CustomResource
     {
         /// <summary>

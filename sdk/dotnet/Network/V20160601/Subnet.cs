@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20160601
     /// <summary>
     /// Subnet in a VirtualNetwork resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20160601:Subnet")]
     public partial class Subnet : Pulumi.CustomResource
     {
         /// <summary>

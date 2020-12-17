@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
     /// <summary>
     /// Linked storage accounts top level resource container.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20200801:LinkedStorageAccount")]
     public partial class LinkedStorageAccount : Pulumi.CustomResource
     {
         /// <summary>

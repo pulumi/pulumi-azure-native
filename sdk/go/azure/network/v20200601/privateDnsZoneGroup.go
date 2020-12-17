@@ -148,15 +148,15 @@ type PrivateDnsZoneGroupInput interface {
 	ToPrivateDnsZoneGroupOutputWithContext(ctx context.Context) PrivateDnsZoneGroupOutput
 }
 
-func (PrivateDnsZoneGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateDnsZoneGroup)(nil)).Elem()
+func (*PrivateDnsZoneGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsZoneGroup)(nil))
 }
 
-func (i PrivateDnsZoneGroup) ToPrivateDnsZoneGroupOutput() PrivateDnsZoneGroupOutput {
+func (i *PrivateDnsZoneGroup) ToPrivateDnsZoneGroupOutput() PrivateDnsZoneGroupOutput {
 	return i.ToPrivateDnsZoneGroupOutputWithContext(context.Background())
 }
 
-func (i PrivateDnsZoneGroup) ToPrivateDnsZoneGroupOutputWithContext(ctx context.Context) PrivateDnsZoneGroupOutput {
+func (i *PrivateDnsZoneGroup) ToPrivateDnsZoneGroupOutputWithContext(ctx context.Context) PrivateDnsZoneGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsZoneGroupOutput)
 }
 
@@ -165,7 +165,7 @@ type PrivateDnsZoneGroupOutput struct {
 }
 
 func (PrivateDnsZoneGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateDnsZoneGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateDnsZoneGroup)(nil))
 }
 
 func (o PrivateDnsZoneGroupOutput) ToPrivateDnsZoneGroupOutput() PrivateDnsZoneGroupOutput {

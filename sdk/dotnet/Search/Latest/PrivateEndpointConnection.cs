@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Search.Latest
     /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:search/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

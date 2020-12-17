@@ -238,15 +238,15 @@ type IntegrationAccountAgreementInput interface {
 	ToIntegrationAccountAgreementOutputWithContext(ctx context.Context) IntegrationAccountAgreementOutput
 }
 
-func (IntegrationAccountAgreement) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAgreement)(nil)).Elem()
+func (*IntegrationAccountAgreement) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAgreement)(nil))
 }
 
-func (i IntegrationAccountAgreement) ToIntegrationAccountAgreementOutput() IntegrationAccountAgreementOutput {
+func (i *IntegrationAccountAgreement) ToIntegrationAccountAgreementOutput() IntegrationAccountAgreementOutput {
 	return i.ToIntegrationAccountAgreementOutputWithContext(context.Background())
 }
 
-func (i IntegrationAccountAgreement) ToIntegrationAccountAgreementOutputWithContext(ctx context.Context) IntegrationAccountAgreementOutput {
+func (i *IntegrationAccountAgreement) ToIntegrationAccountAgreementOutputWithContext(ctx context.Context) IntegrationAccountAgreementOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementOutput)
 }
 
@@ -255,7 +255,7 @@ type IntegrationAccountAgreementOutput struct {
 }
 
 func (IntegrationAccountAgreementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAgreementOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationAccountAgreement)(nil))
 }
 
 func (o IntegrationAccountAgreementOutput) ToIntegrationAccountAgreementOutput() IntegrationAccountAgreementOutput {

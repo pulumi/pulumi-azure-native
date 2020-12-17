@@ -152,15 +152,15 @@ type DeploymentAtManagementGroupScopeInput interface {
 	ToDeploymentAtManagementGroupScopeOutputWithContext(ctx context.Context) DeploymentAtManagementGroupScopeOutput
 }
 
-func (DeploymentAtManagementGroupScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtManagementGroupScope)(nil)).Elem()
+func (*DeploymentAtManagementGroupScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtManagementGroupScope)(nil))
 }
 
-func (i DeploymentAtManagementGroupScope) ToDeploymentAtManagementGroupScopeOutput() DeploymentAtManagementGroupScopeOutput {
+func (i *DeploymentAtManagementGroupScope) ToDeploymentAtManagementGroupScopeOutput() DeploymentAtManagementGroupScopeOutput {
 	return i.ToDeploymentAtManagementGroupScopeOutputWithContext(context.Background())
 }
 
-func (i DeploymentAtManagementGroupScope) ToDeploymentAtManagementGroupScopeOutputWithContext(ctx context.Context) DeploymentAtManagementGroupScopeOutput {
+func (i *DeploymentAtManagementGroupScope) ToDeploymentAtManagementGroupScopeOutputWithContext(ctx context.Context) DeploymentAtManagementGroupScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtManagementGroupScopeOutput)
 }
 
@@ -169,7 +169,7 @@ type DeploymentAtManagementGroupScopeOutput struct {
 }
 
 func (DeploymentAtManagementGroupScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtManagementGroupScopeOutput)(nil)).Elem()
+	return reflect.TypeOf((*DeploymentAtManagementGroupScope)(nil))
 }
 
 func (o DeploymentAtManagementGroupScopeOutput) ToDeploymentAtManagementGroupScopeOutput() DeploymentAtManagementGroupScopeOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.IoTCentral.V20170701PrivatePreview
     /// <summary>
     /// The IoT Central application.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:iotcentral/v20170701privatepreview:App")]
     public partial class App : Pulumi.CustomResource
     {
         /// <summary>

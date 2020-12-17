@@ -156,15 +156,15 @@ type TransformInput interface {
 	ToTransformOutputWithContext(ctx context.Context) TransformOutput
 }
 
-func (Transform) ElementType() reflect.Type {
-	return reflect.TypeOf((*Transform)(nil)).Elem()
+func (*Transform) ElementType() reflect.Type {
+	return reflect.TypeOf((*Transform)(nil))
 }
 
-func (i Transform) ToTransformOutput() TransformOutput {
+func (i *Transform) ToTransformOutput() TransformOutput {
 	return i.ToTransformOutputWithContext(context.Background())
 }
 
-func (i Transform) ToTransformOutputWithContext(ctx context.Context) TransformOutput {
+func (i *Transform) ToTransformOutputWithContext(ctx context.Context) TransformOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutput)
 }
 
@@ -173,7 +173,7 @@ type TransformOutput struct {
 }
 
 func (TransformOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransformOutput)(nil)).Elem()
+	return reflect.TypeOf((*Transform)(nil))
 }
 
 func (o TransformOutput) ToTransformOutput() TransformOutput {

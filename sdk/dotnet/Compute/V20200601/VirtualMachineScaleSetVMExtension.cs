@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
     /// <summary>
     /// Describes a VMSS VM Extension.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension")]
     public partial class VirtualMachineScaleSetVMExtension : Pulumi.CustomResource
     {
         /// <summary>

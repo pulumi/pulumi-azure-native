@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20170301Preview
     /// <summary>
     /// A SQL server registration.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:azuredata/v20170301preview:SqlServerRegistration")]
     public partial class SqlServerRegistration : Pulumi.CustomResource
     {
         /// <summary>

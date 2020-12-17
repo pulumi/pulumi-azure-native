@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
     /// <summary>
     /// Single item in a List or Get IpFilterRules operation
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventhub/v20180101preview:NamespaceIpFilterRule")]
     public partial class NamespaceIpFilterRule : Pulumi.CustomResource
     {
         /// <summary>

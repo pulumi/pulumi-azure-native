@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
     /// The integration account RosettaNet process configuration.
     /// Latest API Version: 2016-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/latest:RosettaNetProcessConfiguration")]
     public partial class RosettaNetProcessConfiguration : Pulumi.CustomResource
     {
         /// <summary>

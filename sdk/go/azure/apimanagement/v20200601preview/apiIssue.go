@@ -202,15 +202,15 @@ type ApiIssueInput interface {
 	ToApiIssueOutputWithContext(ctx context.Context) ApiIssueOutput
 }
 
-func (ApiIssue) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiIssue)(nil)).Elem()
+func (*ApiIssue) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssue)(nil))
 }
 
-func (i ApiIssue) ToApiIssueOutput() ApiIssueOutput {
+func (i *ApiIssue) ToApiIssueOutput() ApiIssueOutput {
 	return i.ToApiIssueOutputWithContext(context.Background())
 }
 
-func (i ApiIssue) ToApiIssueOutputWithContext(ctx context.Context) ApiIssueOutput {
+func (i *ApiIssue) ToApiIssueOutputWithContext(ctx context.Context) ApiIssueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueOutput)
 }
 
@@ -219,7 +219,7 @@ type ApiIssueOutput struct {
 }
 
 func (ApiIssueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiIssueOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiIssue)(nil))
 }
 
 func (o ApiIssueOutput) ToApiIssueOutput() ApiIssueOutput {

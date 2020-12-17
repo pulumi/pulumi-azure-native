@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Management.V20200901
     /// <summary>
     /// The policy definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:management/v20200901:PolicyDefinitionAtManagementGroup")]
     public partial class PolicyDefinitionAtManagementGroup : Pulumi.CustomResource
     {
         /// <summary>

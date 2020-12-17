@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
     /// <summary>
     /// Describes a database on the RedisEnterprise cluster
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:cache/v20201001preview:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>

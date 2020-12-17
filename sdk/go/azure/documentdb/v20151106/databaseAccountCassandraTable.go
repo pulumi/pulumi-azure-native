@@ -169,15 +169,15 @@ type DatabaseAccountCassandraTableInput interface {
 	ToDatabaseAccountCassandraTableOutputWithContext(ctx context.Context) DatabaseAccountCassandraTableOutput
 }
 
-func (DatabaseAccountCassandraTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraTable)(nil)).Elem()
+func (*DatabaseAccountCassandraTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountCassandraTable)(nil))
 }
 
-func (i DatabaseAccountCassandraTable) ToDatabaseAccountCassandraTableOutput() DatabaseAccountCassandraTableOutput {
+func (i *DatabaseAccountCassandraTable) ToDatabaseAccountCassandraTableOutput() DatabaseAccountCassandraTableOutput {
 	return i.ToDatabaseAccountCassandraTableOutputWithContext(context.Background())
 }
 
-func (i DatabaseAccountCassandraTable) ToDatabaseAccountCassandraTableOutputWithContext(ctx context.Context) DatabaseAccountCassandraTableOutput {
+func (i *DatabaseAccountCassandraTable) ToDatabaseAccountCassandraTableOutputWithContext(ctx context.Context) DatabaseAccountCassandraTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountCassandraTableOutput)
 }
 
@@ -186,7 +186,7 @@ type DatabaseAccountCassandraTableOutput struct {
 }
 
 func (DatabaseAccountCassandraTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraTableOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatabaseAccountCassandraTable)(nil))
 }
 
 func (o DatabaseAccountCassandraTableOutput) ToDatabaseAccountCassandraTableOutput() DatabaseAccountCassandraTableOutput {

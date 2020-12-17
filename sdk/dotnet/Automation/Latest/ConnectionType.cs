@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
     /// Definition of the connection type.
     /// Latest API Version: 2015-10-31.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/latest:ConnectionType")]
     public partial class ConnectionType : Pulumi.CustomResource
     {
         /// <summary>

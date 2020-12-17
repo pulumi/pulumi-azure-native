@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
     /// <summary>
     /// Definition of generic ARM proxy resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation")]
     public partial class DataCollectionRuleAssociation : Pulumi.CustomResource
     {
         /// <summary>

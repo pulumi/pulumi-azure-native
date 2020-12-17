@@ -164,15 +164,15 @@ type VirtualHubBgpConnectionInput interface {
 	ToVirtualHubBgpConnectionOutputWithContext(ctx context.Context) VirtualHubBgpConnectionOutput
 }
 
-func (VirtualHubBgpConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubBgpConnection)(nil)).Elem()
+func (*VirtualHubBgpConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubBgpConnection)(nil))
 }
 
-func (i VirtualHubBgpConnection) ToVirtualHubBgpConnectionOutput() VirtualHubBgpConnectionOutput {
+func (i *VirtualHubBgpConnection) ToVirtualHubBgpConnectionOutput() VirtualHubBgpConnectionOutput {
 	return i.ToVirtualHubBgpConnectionOutputWithContext(context.Background())
 }
 
-func (i VirtualHubBgpConnection) ToVirtualHubBgpConnectionOutputWithContext(ctx context.Context) VirtualHubBgpConnectionOutput {
+func (i *VirtualHubBgpConnection) ToVirtualHubBgpConnectionOutputWithContext(ctx context.Context) VirtualHubBgpConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubBgpConnectionOutput)
 }
 
@@ -181,7 +181,7 @@ type VirtualHubBgpConnectionOutput struct {
 }
 
 func (VirtualHubBgpConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubBgpConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualHubBgpConnection)(nil))
 }
 
 func (o VirtualHubBgpConnectionOutput) ToVirtualHubBgpConnectionOutput() VirtualHubBgpConnectionOutput {

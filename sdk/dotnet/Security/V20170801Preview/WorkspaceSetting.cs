@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
     /// <summary>
     /// Configures where to store the OMS agent data for workspaces under a scope
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:security/v20170801preview:WorkspaceSetting")]
     public partial class WorkspaceSetting : Pulumi.CustomResource
     {
         /// <summary>

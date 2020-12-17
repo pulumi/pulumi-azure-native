@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
     /// <summary>
     /// A sql pool resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20200401preview:SqlPoolsV3")]
     public partial class SqlPoolsV3 : Pulumi.CustomResource
     {
         /// <summary>

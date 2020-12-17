@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
     /// <summary>
     /// A virtual network.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20160515:VirtualNetwork")]
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>

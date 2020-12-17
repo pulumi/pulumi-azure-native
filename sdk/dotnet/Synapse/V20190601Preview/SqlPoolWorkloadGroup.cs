@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     /// <summary>
     /// Workload group operations for a sql pool
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup")]
     public partial class SqlPoolWorkloadGroup : Pulumi.CustomResource
     {
         /// <summary>

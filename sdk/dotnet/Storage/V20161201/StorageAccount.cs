@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20161201
     /// <summary>
     /// The storage account.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20161201:StorageAccount")]
     public partial class StorageAccount : Pulumi.CustomResource
     {
         /// <summary>

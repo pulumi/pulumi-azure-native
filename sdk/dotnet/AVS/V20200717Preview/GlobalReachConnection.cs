@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
     /// <summary>
     /// A global reach connection resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:avs/v20200717preview:GlobalReachConnection")]
     public partial class GlobalReachConnection : Pulumi.CustomResource
     {
         /// <summary>

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Describes a Virtual Machine Extension.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/latest:VirtualMachineExtension")]
     public partial class VirtualMachineExtension : Pulumi.CustomResource
     {
         /// <summary>

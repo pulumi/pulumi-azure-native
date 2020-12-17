@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
     /// <summary>
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20190301:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

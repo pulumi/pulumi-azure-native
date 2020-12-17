@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Attestation.V20180901Preview
     /// <summary>
     /// Attestation service response message.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:attestation/v20180901preview:AttestationProvider")]
     public partial class AttestationProvider : Pulumi.CustomResource
     {
         /// <summary>

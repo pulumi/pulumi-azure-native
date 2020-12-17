@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Route resource.
     /// Latest API Version: 2020-07-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/latest:Route")]
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>

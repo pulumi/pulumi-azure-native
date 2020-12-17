@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
     /// <summary>
     /// Represents an incident comment
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:securityinsights/v20190101preview:IncidentComment")]
     public partial class IncidentComment : Pulumi.CustomResource
     {
         /// <summary>

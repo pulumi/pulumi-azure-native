@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
     /// An Azure Cosmos DB MongoDB database.
     /// Latest API Version: 2016-03-31.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/latest:DatabaseAccountMongoDBDatabase")]
     public partial class DatabaseAccountMongoDBDatabase : Pulumi.CustomResource
     {
         /// <summary>

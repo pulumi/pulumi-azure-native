@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
     /// Represents an environment instance
     /// Latest API Version: 2018-10-15.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:labservices/latest:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Devices.V20190322Preview
     /// <summary>
     /// The properties of the EventHubConsumerGroupInfo object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devices/v20190322preview:IotHubResourceEventHubConsumerGroup")]
     public partial class IotHubResourceEventHubConsumerGroup : Pulumi.CustomResource
     {
         /// <summary>

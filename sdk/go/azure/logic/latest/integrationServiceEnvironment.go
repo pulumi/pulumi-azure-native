@@ -146,15 +146,15 @@ type IntegrationServiceEnvironmentInput interface {
 	ToIntegrationServiceEnvironmentOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentOutput
 }
 
-func (IntegrationServiceEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironment)(nil)).Elem()
+func (*IntegrationServiceEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironment)(nil))
 }
 
-func (i IntegrationServiceEnvironment) ToIntegrationServiceEnvironmentOutput() IntegrationServiceEnvironmentOutput {
+func (i *IntegrationServiceEnvironment) ToIntegrationServiceEnvironmentOutput() IntegrationServiceEnvironmentOutput {
 	return i.ToIntegrationServiceEnvironmentOutputWithContext(context.Background())
 }
 
-func (i IntegrationServiceEnvironment) ToIntegrationServiceEnvironmentOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentOutput {
+func (i *IntegrationServiceEnvironment) ToIntegrationServiceEnvironmentOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentOutput)
 }
 
@@ -163,7 +163,7 @@ type IntegrationServiceEnvironmentOutput struct {
 }
 
 func (IntegrationServiceEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationServiceEnvironment)(nil))
 }
 
 func (o IntegrationServiceEnvironmentOutput) ToIntegrationServiceEnvironmentOutput() IntegrationServiceEnvironmentOutput {

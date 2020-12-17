@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview
     /// <summary>
     /// Describes a DNS RecordSet (a set of DNS records with the same name and type).
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20150504preview:RecordSet")]
     public partial class RecordSet : Pulumi.CustomResource
     {
         /// <summary>

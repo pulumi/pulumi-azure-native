@@ -372,15 +372,15 @@ type SecurityRuleInput interface {
 	ToSecurityRuleOutputWithContext(ctx context.Context) SecurityRuleOutput
 }
 
-func (SecurityRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityRule)(nil)).Elem()
+func (*SecurityRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityRule)(nil))
 }
 
-func (i SecurityRule) ToSecurityRuleOutput() SecurityRuleOutput {
+func (i *SecurityRule) ToSecurityRuleOutput() SecurityRuleOutput {
 	return i.ToSecurityRuleOutputWithContext(context.Background())
 }
 
-func (i SecurityRule) ToSecurityRuleOutputWithContext(ctx context.Context) SecurityRuleOutput {
+func (i *SecurityRule) ToSecurityRuleOutputWithContext(ctx context.Context) SecurityRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityRuleOutput)
 }
 
@@ -389,7 +389,7 @@ type SecurityRuleOutput struct {
 }
 
 func (SecurityRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecurityRule)(nil))
 }
 
 func (o SecurityRuleOutput) ToSecurityRuleOutput() SecurityRuleOutput {

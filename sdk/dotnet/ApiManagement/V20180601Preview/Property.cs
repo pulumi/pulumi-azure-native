@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
     /// <summary>
     /// Property details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180601preview:Property")]
     public partial class Property : Pulumi.CustomResource
     {
         /// <summary>

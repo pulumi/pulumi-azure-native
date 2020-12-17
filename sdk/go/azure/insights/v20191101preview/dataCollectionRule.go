@@ -185,15 +185,15 @@ type DataCollectionRuleInput interface {
 	ToDataCollectionRuleOutputWithContext(ctx context.Context) DataCollectionRuleOutput
 }
 
-func (DataCollectionRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRule)(nil)).Elem()
+func (*DataCollectionRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRule)(nil))
 }
 
-func (i DataCollectionRule) ToDataCollectionRuleOutput() DataCollectionRuleOutput {
+func (i *DataCollectionRule) ToDataCollectionRuleOutput() DataCollectionRuleOutput {
 	return i.ToDataCollectionRuleOutputWithContext(context.Background())
 }
 
-func (i DataCollectionRule) ToDataCollectionRuleOutputWithContext(ctx context.Context) DataCollectionRuleOutput {
+func (i *DataCollectionRule) ToDataCollectionRuleOutputWithContext(ctx context.Context) DataCollectionRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleOutput)
 }
 
@@ -202,7 +202,7 @@ type DataCollectionRuleOutput struct {
 }
 
 func (DataCollectionRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataCollectionRule)(nil))
 }
 
 func (o DataCollectionRuleOutput) ToDataCollectionRuleOutput() DataCollectionRuleOutput {

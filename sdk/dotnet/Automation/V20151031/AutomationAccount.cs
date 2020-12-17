@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
     /// <summary>
     /// Definition of the automation account type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:AutomationAccount")]
     public partial class AutomationAccount : Pulumi.CustomResource
     {
         /// <summary>

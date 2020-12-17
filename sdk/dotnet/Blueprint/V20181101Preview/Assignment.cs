@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
     /// <summary>
     /// Represents a blueprint assignment.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:blueprint/v20181101preview:Assignment")]
     public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>

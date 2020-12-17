@@ -210,15 +210,15 @@ type PrivateEndpointInput interface {
 	ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput
 }
 
-func (PrivateEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
+func (*PrivateEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpoint)(nil))
 }
 
-func (i PrivateEndpoint) ToPrivateEndpointOutput() PrivateEndpointOutput {
+func (i *PrivateEndpoint) ToPrivateEndpointOutput() PrivateEndpointOutput {
 	return i.ToPrivateEndpointOutputWithContext(context.Background())
 }
 
-func (i PrivateEndpoint) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
+func (i *PrivateEndpoint) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput)
 }
 
@@ -227,7 +227,7 @@ type PrivateEndpointOutput struct {
 }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateEndpoint)(nil))
 }
 
 func (o PrivateEndpointOutput) ToPrivateEndpointOutput() PrivateEndpointOutput {

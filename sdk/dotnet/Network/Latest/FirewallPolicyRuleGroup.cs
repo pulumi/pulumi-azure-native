@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Rule Group resource.
     /// Latest API Version: 2020-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/latest:FirewallPolicyRuleGroup")]
     public partial class FirewallPolicyRuleGroup : Pulumi.CustomResource
     {
         /// <summary>

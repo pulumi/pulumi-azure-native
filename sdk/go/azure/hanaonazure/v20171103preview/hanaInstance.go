@@ -191,15 +191,15 @@ type HanaInstanceInput interface {
 	ToHanaInstanceOutputWithContext(ctx context.Context) HanaInstanceOutput
 }
 
-func (HanaInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaInstance)(nil)).Elem()
+func (*HanaInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*HanaInstance)(nil))
 }
 
-func (i HanaInstance) ToHanaInstanceOutput() HanaInstanceOutput {
+func (i *HanaInstance) ToHanaInstanceOutput() HanaInstanceOutput {
 	return i.ToHanaInstanceOutputWithContext(context.Background())
 }
 
-func (i HanaInstance) ToHanaInstanceOutputWithContext(ctx context.Context) HanaInstanceOutput {
+func (i *HanaInstance) ToHanaInstanceOutputWithContext(ctx context.Context) HanaInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HanaInstanceOutput)
 }
 
@@ -208,7 +208,7 @@ type HanaInstanceOutput struct {
 }
 
 func (HanaInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaInstanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*HanaInstance)(nil))
 }
 
 func (o HanaInstanceOutput) ToHanaInstanceOutput() HanaInstanceOutput {

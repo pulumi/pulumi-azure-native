@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     /// <summary>
     /// An Azure SQL Database sync agent.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:SyncAgent")]
     public partial class SyncAgent : Pulumi.CustomResource
     {
         /// <summary>

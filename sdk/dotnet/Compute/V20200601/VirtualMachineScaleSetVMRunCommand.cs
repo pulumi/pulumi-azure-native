@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
     /// <summary>
     /// Describes a Virtual Machine run command.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand")]
     public partial class VirtualMachineScaleSetVMRunCommand : Pulumi.CustomResource
     {
         /// <summary>

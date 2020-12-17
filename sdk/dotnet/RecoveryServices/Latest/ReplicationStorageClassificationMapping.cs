@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
     /// Storage mapping object.
     /// Latest API Version: 2018-07-10.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping")]
     public partial class ReplicationStorageClassificationMapping : Pulumi.CustomResource
     {
         /// <summary>

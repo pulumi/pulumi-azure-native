@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
     /// <summary>
     /// The integration account schema.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/v20180701preview:IntegrationAccountSchema")]
     public partial class IntegrationAccountSchema : Pulumi.CustomResource
     {
         /// <summary>

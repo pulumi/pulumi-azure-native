@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
     /// <summary>
     /// ExpressRoute Circuit Authorization
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:avs/v20200320:Authorization")]
     public partial class Authorization : Pulumi.CustomResource
     {
         /// <summary>

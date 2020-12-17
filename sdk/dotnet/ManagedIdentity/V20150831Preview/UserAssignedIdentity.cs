@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.V20150831Preview
     /// <summary>
     /// Describes an identity resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity")]
     public partial class UserAssignedIdentity : Pulumi.CustomResource
     {
         /// <summary>

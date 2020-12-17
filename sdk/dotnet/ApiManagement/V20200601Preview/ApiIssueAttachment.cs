@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
     /// <summary>
     /// Issue Attachment Contract details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment")]
     public partial class ApiIssueAttachment : Pulumi.CustomResource
     {
         /// <summary>

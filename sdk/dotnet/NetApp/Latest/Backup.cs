@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
     /// Backup of a Volume
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:netapp/latest:Backup")]
     public partial class Backup : Pulumi.CustomResource
     {
         /// <summary>

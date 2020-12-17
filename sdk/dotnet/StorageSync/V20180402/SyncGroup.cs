@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20180402
     /// <summary>
     /// Sync Group object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storagesync/v20180402:SyncGroup")]
     public partial class SyncGroup : Pulumi.CustomResource
     {
         /// <summary>

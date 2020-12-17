@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
     /// <summary>
     /// The order details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20190301:Order")]
     public partial class Order : Pulumi.CustomResource
     {
         /// <summary>

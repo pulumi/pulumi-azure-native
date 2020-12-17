@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
     /// <summary>
     /// The manged cluster resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicefabric/v20200101preview:ManagedCluster")]
     public partial class ManagedCluster : Pulumi.CustomResource
     {
         /// <summary>

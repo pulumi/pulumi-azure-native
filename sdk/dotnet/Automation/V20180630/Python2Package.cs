@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20180630
     /// <summary>
     /// Definition of the module type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20180630:Python2Package")]
     public partial class Python2Package : Pulumi.CustomResource
     {
         /// <summary>

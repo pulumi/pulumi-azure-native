@@ -132,15 +132,15 @@ type ManagementLockAtResourceGroupLevelInput interface {
 	ToManagementLockAtResourceGroupLevelOutputWithContext(ctx context.Context) ManagementLockAtResourceGroupLevelOutput
 }
 
-func (ManagementLockAtResourceGroupLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockAtResourceGroupLevel)(nil)).Elem()
+func (*ManagementLockAtResourceGroupLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockAtResourceGroupLevel)(nil))
 }
 
-func (i ManagementLockAtResourceGroupLevel) ToManagementLockAtResourceGroupLevelOutput() ManagementLockAtResourceGroupLevelOutput {
+func (i *ManagementLockAtResourceGroupLevel) ToManagementLockAtResourceGroupLevelOutput() ManagementLockAtResourceGroupLevelOutput {
 	return i.ToManagementLockAtResourceGroupLevelOutputWithContext(context.Background())
 }
 
-func (i ManagementLockAtResourceGroupLevel) ToManagementLockAtResourceGroupLevelOutputWithContext(ctx context.Context) ManagementLockAtResourceGroupLevelOutput {
+func (i *ManagementLockAtResourceGroupLevel) ToManagementLockAtResourceGroupLevelOutputWithContext(ctx context.Context) ManagementLockAtResourceGroupLevelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockAtResourceGroupLevelOutput)
 }
 
@@ -149,7 +149,7 @@ type ManagementLockAtResourceGroupLevelOutput struct {
 }
 
 func (ManagementLockAtResourceGroupLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockAtResourceGroupLevelOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagementLockAtResourceGroupLevel)(nil))
 }
 
 func (o ManagementLockAtResourceGroupLevelOutput) ToManagementLockAtResourceGroupLevelOutput() ManagementLockAtResourceGroupLevelOutput {

@@ -115,8 +115,8 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerVersion _6 { get; } = new ServerVersion("5.6");
-        public static ServerVersion _7 { get; } = new ServerVersion("5.7");
+        public static ServerVersion ServerVersion_5_6 { get; } = new ServerVersion("5.6");
+        public static ServerVersion ServerVersion_5_7 { get; } = new ServerVersion("5.7");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
         public static bool operator !=(ServerVersion left, ServerVersion right) => !left.Equals(right);

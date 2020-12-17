@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
     /// <summary>
     /// An Log Analytics QueryPack definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20190901preview:QueryPack")]
     public partial class QueryPack : Pulumi.CustomResource
     {
         /// <summary>

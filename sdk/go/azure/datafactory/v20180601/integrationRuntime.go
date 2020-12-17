@@ -134,15 +134,15 @@ type IntegrationRuntimeInput interface {
 	ToIntegrationRuntimeOutputWithContext(ctx context.Context) IntegrationRuntimeOutput
 }
 
-func (IntegrationRuntime) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntime)(nil)).Elem()
+func (*IntegrationRuntime) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntime)(nil))
 }
 
-func (i IntegrationRuntime) ToIntegrationRuntimeOutput() IntegrationRuntimeOutput {
+func (i *IntegrationRuntime) ToIntegrationRuntimeOutput() IntegrationRuntimeOutput {
 	return i.ToIntegrationRuntimeOutputWithContext(context.Background())
 }
 
-func (i IntegrationRuntime) ToIntegrationRuntimeOutputWithContext(ctx context.Context) IntegrationRuntimeOutput {
+func (i *IntegrationRuntime) ToIntegrationRuntimeOutputWithContext(ctx context.Context) IntegrationRuntimeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeOutput)
 }
 
@@ -151,7 +151,7 @@ type IntegrationRuntimeOutput struct {
 }
 
 func (IntegrationRuntimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationRuntime)(nil))
 }
 
 func (o IntegrationRuntimeOutput) ToIntegrationRuntimeOutput() IntegrationRuntimeOutput {

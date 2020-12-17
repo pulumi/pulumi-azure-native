@@ -236,15 +236,15 @@ type WebAppDeploymentInput interface {
 	ToWebAppDeploymentOutputWithContext(ctx context.Context) WebAppDeploymentOutput
 }
 
-func (WebAppDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDeployment)(nil)).Elem()
+func (*WebAppDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDeployment)(nil))
 }
 
-func (i WebAppDeployment) ToWebAppDeploymentOutput() WebAppDeploymentOutput {
+func (i *WebAppDeployment) ToWebAppDeploymentOutput() WebAppDeploymentOutput {
 	return i.ToWebAppDeploymentOutputWithContext(context.Background())
 }
 
-func (i WebAppDeployment) ToWebAppDeploymentOutputWithContext(ctx context.Context) WebAppDeploymentOutput {
+func (i *WebAppDeployment) ToWebAppDeploymentOutputWithContext(ctx context.Context) WebAppDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppDeploymentOutput)
 }
 
@@ -253,7 +253,7 @@ type WebAppDeploymentOutput struct {
 }
 
 func (WebAppDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDeploymentOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAppDeployment)(nil))
 }
 
 func (o WebAppDeploymentOutput) ToWebAppDeploymentOutput() WebAppDeploymentOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201
     /// <summary>
     /// VpnConnection Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20181201:VpnConnection")]
     public partial class VpnConnection : Pulumi.CustomResource
     {
         /// <summary>

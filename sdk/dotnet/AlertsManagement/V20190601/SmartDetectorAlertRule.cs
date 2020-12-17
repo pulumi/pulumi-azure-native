@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190601
     /// <summary>
     /// The alert rule information
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule")]
     public partial class SmartDetectorAlertRule : Pulumi.CustomResource
     {
         /// <summary>

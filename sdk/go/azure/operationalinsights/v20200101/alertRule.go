@@ -135,15 +135,15 @@ type AlertRuleInput interface {
 	ToAlertRuleOutputWithContext(ctx context.Context) AlertRuleOutput
 }
 
-func (AlertRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRule)(nil)).Elem()
+func (*AlertRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRule)(nil))
 }
 
-func (i AlertRule) ToAlertRuleOutput() AlertRuleOutput {
+func (i *AlertRule) ToAlertRuleOutput() AlertRuleOutput {
 	return i.ToAlertRuleOutputWithContext(context.Background())
 }
 
-func (i AlertRule) ToAlertRuleOutputWithContext(ctx context.Context) AlertRuleOutput {
+func (i *AlertRule) ToAlertRuleOutputWithContext(ctx context.Context) AlertRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleOutput)
 }
 
@@ -152,7 +152,7 @@ type AlertRuleOutput struct {
 }
 
 func (AlertRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*AlertRule)(nil))
 }
 
 func (o AlertRuleOutput) ToAlertRuleOutput() AlertRuleOutput {

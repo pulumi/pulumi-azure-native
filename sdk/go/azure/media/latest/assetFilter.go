@@ -153,15 +153,15 @@ type AssetFilterInput interface {
 	ToAssetFilterOutputWithContext(ctx context.Context) AssetFilterOutput
 }
 
-func (AssetFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetFilter)(nil)).Elem()
+func (*AssetFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilter)(nil))
 }
 
-func (i AssetFilter) ToAssetFilterOutput() AssetFilterOutput {
+func (i *AssetFilter) ToAssetFilterOutput() AssetFilterOutput {
 	return i.ToAssetFilterOutputWithContext(context.Background())
 }
 
-func (i AssetFilter) ToAssetFilterOutputWithContext(ctx context.Context) AssetFilterOutput {
+func (i *AssetFilter) ToAssetFilterOutputWithContext(ctx context.Context) AssetFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterOutput)
 }
 
@@ -170,7 +170,7 @@ type AssetFilterOutput struct {
 }
 
 func (AssetFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetFilterOutput)(nil)).Elem()
+	return reflect.TypeOf((*AssetFilter)(nil))
 }
 
 func (o AssetFilterOutput) ToAssetFilterOutput() AssetFilterOutput {

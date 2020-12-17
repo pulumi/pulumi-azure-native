@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20180601PrivatePreview
     /// <summary>
     /// A private endpoint connection
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

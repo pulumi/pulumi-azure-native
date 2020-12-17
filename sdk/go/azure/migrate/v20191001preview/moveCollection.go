@@ -145,15 +145,15 @@ type MoveCollectionInput interface {
 	ToMoveCollectionOutputWithContext(ctx context.Context) MoveCollectionOutput
 }
 
-func (MoveCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*MoveCollection)(nil)).Elem()
+func (*MoveCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*MoveCollection)(nil))
 }
 
-func (i MoveCollection) ToMoveCollectionOutput() MoveCollectionOutput {
+func (i *MoveCollection) ToMoveCollectionOutput() MoveCollectionOutput {
 	return i.ToMoveCollectionOutputWithContext(context.Background())
 }
 
-func (i MoveCollection) ToMoveCollectionOutputWithContext(ctx context.Context) MoveCollectionOutput {
+func (i *MoveCollection) ToMoveCollectionOutputWithContext(ctx context.Context) MoveCollectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MoveCollectionOutput)
 }
 
@@ -162,7 +162,7 @@ type MoveCollectionOutput struct {
 }
 
 func (MoveCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MoveCollectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*MoveCollection)(nil))
 }
 
 func (o MoveCollectionOutput) ToMoveCollectionOutput() MoveCollectionOutput {

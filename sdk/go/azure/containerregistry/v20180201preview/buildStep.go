@@ -119,15 +119,15 @@ type BuildStepInput interface {
 	ToBuildStepOutputWithContext(ctx context.Context) BuildStepOutput
 }
 
-func (BuildStep) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildStep)(nil)).Elem()
+func (*BuildStep) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildStep)(nil))
 }
 
-func (i BuildStep) ToBuildStepOutput() BuildStepOutput {
+func (i *BuildStep) ToBuildStepOutput() BuildStepOutput {
 	return i.ToBuildStepOutputWithContext(context.Background())
 }
 
-func (i BuildStep) ToBuildStepOutputWithContext(ctx context.Context) BuildStepOutput {
+func (i *BuildStep) ToBuildStepOutputWithContext(ctx context.Context) BuildStepOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildStepOutput)
 }
 
@@ -136,7 +136,7 @@ type BuildStepOutput struct {
 }
 
 func (BuildStepOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildStepOutput)(nil)).Elem()
+	return reflect.TypeOf((*BuildStep)(nil))
 }
 
 func (o BuildStepOutput) ToBuildStepOutput() BuildStepOutput {

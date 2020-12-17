@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20200301Preview
     /// <summary>
     /// PrivateLink Policy configuration object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd")]
     public partial class PrivateLinkForAzureAd : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
     /// <summary>
     /// A NetworkInterface in a resource group
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20150501preview:NetworkInterface")]
     public partial class NetworkInterface : Pulumi.CustomResource
     {
         /// <summary>

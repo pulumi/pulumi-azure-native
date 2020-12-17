@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
     /// <summary>
     /// The subscription diagnostic setting resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting")]
     public partial class SubscriptionDiagnosticSetting : Pulumi.CustomResource
     {
         /// <summary>

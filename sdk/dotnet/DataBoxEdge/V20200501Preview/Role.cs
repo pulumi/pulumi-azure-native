@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
     /// <summary>
     /// Compute role.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200501preview:Role")]
     public partial class Role : Pulumi.CustomResource
     {
         /// <summary>

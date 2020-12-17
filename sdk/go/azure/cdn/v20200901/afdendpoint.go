@@ -176,15 +176,15 @@ type AFDEndpointInput interface {
 	ToAFDEndpointOutputWithContext(ctx context.Context) AFDEndpointOutput
 }
 
-func (AFDEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*AFDEndpoint)(nil)).Elem()
+func (*AFDEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*AFDEndpoint)(nil))
 }
 
-func (i AFDEndpoint) ToAFDEndpointOutput() AFDEndpointOutput {
+func (i *AFDEndpoint) ToAFDEndpointOutput() AFDEndpointOutput {
 	return i.ToAFDEndpointOutputWithContext(context.Background())
 }
 
-func (i AFDEndpoint) ToAFDEndpointOutputWithContext(ctx context.Context) AFDEndpointOutput {
+func (i *AFDEndpoint) ToAFDEndpointOutputWithContext(ctx context.Context) AFDEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AFDEndpointOutput)
 }
 
@@ -193,7 +193,7 @@ type AFDEndpointOutput struct {
 }
 
 func (AFDEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AFDEndpointOutput)(nil)).Elem()
+	return reflect.TypeOf((*AFDEndpoint)(nil))
 }
 
 func (o AFDEndpointOutput) ToAFDEndpointOutput() AFDEndpointOutput {

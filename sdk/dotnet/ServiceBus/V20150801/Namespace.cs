@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
     /// <summary>
     /// Description of a namespace resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/v20150801:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>

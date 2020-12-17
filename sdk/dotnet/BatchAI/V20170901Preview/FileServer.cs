@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
     /// <summary>
     /// Contains information about the File Server.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:batchai/v20170901preview:FileServer")]
     public partial class FileServer : Pulumi.CustomResource
     {
         [Output("creationTime")]

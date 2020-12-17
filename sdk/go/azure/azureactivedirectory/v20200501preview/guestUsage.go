@@ -129,15 +129,15 @@ type GuestUsageInput interface {
 	ToGuestUsageOutputWithContext(ctx context.Context) GuestUsageOutput
 }
 
-func (GuestUsage) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestUsage)(nil)).Elem()
+func (*GuestUsage) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestUsage)(nil))
 }
 
-func (i GuestUsage) ToGuestUsageOutput() GuestUsageOutput {
+func (i *GuestUsage) ToGuestUsageOutput() GuestUsageOutput {
 	return i.ToGuestUsageOutputWithContext(context.Background())
 }
 
-func (i GuestUsage) ToGuestUsageOutputWithContext(ctx context.Context) GuestUsageOutput {
+func (i *GuestUsage) ToGuestUsageOutputWithContext(ctx context.Context) GuestUsageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GuestUsageOutput)
 }
 
@@ -146,7 +146,7 @@ type GuestUsageOutput struct {
 }
 
 func (GuestUsageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestUsageOutput)(nil)).Elem()
+	return reflect.TypeOf((*GuestUsage)(nil))
 }
 
 func (o GuestUsageOutput) ToGuestUsageOutput() GuestUsageOutput {

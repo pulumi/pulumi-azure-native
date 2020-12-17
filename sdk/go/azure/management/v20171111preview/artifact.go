@@ -119,15 +119,15 @@ type ArtifactInput interface {
 	ToArtifactOutputWithContext(ctx context.Context) ArtifactOutput
 }
 
-func (Artifact) ElementType() reflect.Type {
-	return reflect.TypeOf((*Artifact)(nil)).Elem()
+func (*Artifact) ElementType() reflect.Type {
+	return reflect.TypeOf((*Artifact)(nil))
 }
 
-func (i Artifact) ToArtifactOutput() ArtifactOutput {
+func (i *Artifact) ToArtifactOutput() ArtifactOutput {
 	return i.ToArtifactOutputWithContext(context.Background())
 }
 
-func (i Artifact) ToArtifactOutputWithContext(ctx context.Context) ArtifactOutput {
+func (i *Artifact) ToArtifactOutputWithContext(ctx context.Context) ArtifactOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactOutput)
 }
 
@@ -136,7 +136,7 @@ type ArtifactOutput struct {
 }
 
 func (ArtifactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArtifactOutput)(nil)).Elem()
+	return reflect.TypeOf((*Artifact)(nil))
 }
 
 func (o ArtifactOutput) ToArtifactOutput() ArtifactOutput {

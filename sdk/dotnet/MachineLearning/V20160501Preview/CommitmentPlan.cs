@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
     /// <summary>
     /// An Azure ML commitment plan resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:machinelearning/v20160501preview:CommitmentPlan")]
     public partial class CommitmentPlan : Pulumi.CustomResource
     {
         /// <summary>

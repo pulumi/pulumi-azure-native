@@ -159,15 +159,15 @@ type DedicatedCloudServiceInput interface {
 	ToDedicatedCloudServiceOutputWithContext(ctx context.Context) DedicatedCloudServiceOutput
 }
 
-func (DedicatedCloudService) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedCloudService)(nil)).Elem()
+func (*DedicatedCloudService) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedCloudService)(nil))
 }
 
-func (i DedicatedCloudService) ToDedicatedCloudServiceOutput() DedicatedCloudServiceOutput {
+func (i *DedicatedCloudService) ToDedicatedCloudServiceOutput() DedicatedCloudServiceOutput {
 	return i.ToDedicatedCloudServiceOutputWithContext(context.Background())
 }
 
-func (i DedicatedCloudService) ToDedicatedCloudServiceOutputWithContext(ctx context.Context) DedicatedCloudServiceOutput {
+func (i *DedicatedCloudService) ToDedicatedCloudServiceOutputWithContext(ctx context.Context) DedicatedCloudServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedCloudServiceOutput)
 }
 
@@ -176,7 +176,7 @@ type DedicatedCloudServiceOutput struct {
 }
 
 func (DedicatedCloudServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedCloudServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*DedicatedCloudService)(nil))
 }
 
 func (o DedicatedCloudServiceOutput) ToDedicatedCloudServiceOutput() DedicatedCloudServiceOutput {

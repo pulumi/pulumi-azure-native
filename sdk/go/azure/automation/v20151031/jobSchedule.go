@@ -164,15 +164,15 @@ type JobScheduleInput interface {
 	ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput
 }
 
-func (JobSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobSchedule)(nil)).Elem()
+func (*JobSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSchedule)(nil))
 }
 
-func (i JobSchedule) ToJobScheduleOutput() JobScheduleOutput {
+func (i *JobSchedule) ToJobScheduleOutput() JobScheduleOutput {
 	return i.ToJobScheduleOutputWithContext(context.Background())
 }
 
-func (i JobSchedule) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
+func (i *JobSchedule) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleOutput)
 }
 
@@ -181,7 +181,7 @@ type JobScheduleOutput struct {
 }
 
 func (JobScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobScheduleOutput)(nil)).Elem()
+	return reflect.TypeOf((*JobSchedule)(nil))
 }
 
 func (o JobScheduleOutput) ToJobScheduleOutput() JobScheduleOutput {

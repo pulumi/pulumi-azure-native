@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
     /// <summary>
     /// Source control configuration for an app.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20200901:WebAppSourceControl")]
     public partial class WebAppSourceControl : Pulumi.CustomResource
     {
         /// <summary>

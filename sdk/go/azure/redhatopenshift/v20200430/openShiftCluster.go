@@ -218,15 +218,15 @@ type OpenShiftClusterInput interface {
 	ToOpenShiftClusterOutputWithContext(ctx context.Context) OpenShiftClusterOutput
 }
 
-func (OpenShiftCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftCluster)(nil)).Elem()
+func (*OpenShiftCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftCluster)(nil))
 }
 
-func (i OpenShiftCluster) ToOpenShiftClusterOutput() OpenShiftClusterOutput {
+func (i *OpenShiftCluster) ToOpenShiftClusterOutput() OpenShiftClusterOutput {
 	return i.ToOpenShiftClusterOutputWithContext(context.Background())
 }
 
-func (i OpenShiftCluster) ToOpenShiftClusterOutputWithContext(ctx context.Context) OpenShiftClusterOutput {
+func (i *OpenShiftCluster) ToOpenShiftClusterOutputWithContext(ctx context.Context) OpenShiftClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftClusterOutput)
 }
 
@@ -235,7 +235,7 @@ type OpenShiftClusterOutput struct {
 }
 
 func (OpenShiftClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*OpenShiftCluster)(nil))
 }
 
 func (o OpenShiftClusterOutput) ToOpenShiftClusterOutput() OpenShiftClusterOutput {

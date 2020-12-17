@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190801
     /// <summary>
     /// Capacity pool resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:netapp/v20190801:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>

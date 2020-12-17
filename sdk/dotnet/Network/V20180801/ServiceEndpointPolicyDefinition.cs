@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
     /// <summary>
     /// Service Endpoint policy definitions.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20180801:ServiceEndpointPolicyDefinition")]
     public partial class ServiceEndpointPolicyDefinition : Pulumi.CustomResource
     {
         /// <summary>

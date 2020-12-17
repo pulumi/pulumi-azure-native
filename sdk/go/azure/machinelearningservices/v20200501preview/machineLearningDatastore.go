@@ -263,15 +263,15 @@ type MachineLearningDatastoreInput interface {
 	ToMachineLearningDatastoreOutputWithContext(ctx context.Context) MachineLearningDatastoreOutput
 }
 
-func (MachineLearningDatastore) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningDatastore)(nil)).Elem()
+func (*MachineLearningDatastore) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineLearningDatastore)(nil))
 }
 
-func (i MachineLearningDatastore) ToMachineLearningDatastoreOutput() MachineLearningDatastoreOutput {
+func (i *MachineLearningDatastore) ToMachineLearningDatastoreOutput() MachineLearningDatastoreOutput {
 	return i.ToMachineLearningDatastoreOutputWithContext(context.Background())
 }
 
-func (i MachineLearningDatastore) ToMachineLearningDatastoreOutputWithContext(ctx context.Context) MachineLearningDatastoreOutput {
+func (i *MachineLearningDatastore) ToMachineLearningDatastoreOutputWithContext(ctx context.Context) MachineLearningDatastoreOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningDatastoreOutput)
 }
 
@@ -280,7 +280,7 @@ type MachineLearningDatastoreOutput struct {
 }
 
 func (MachineLearningDatastoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningDatastoreOutput)(nil)).Elem()
+	return reflect.TypeOf((*MachineLearningDatastore)(nil))
 }
 
 func (o MachineLearningDatastoreOutput) ToMachineLearningDatastoreOutput() MachineLearningDatastoreOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
     /// <summary>
     /// The top level Log Analytics cluster resource container.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20201001:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

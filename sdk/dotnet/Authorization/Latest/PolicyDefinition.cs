@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
     /// The policy definition.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:authorization/latest:PolicyDefinition")]
     public partial class PolicyDefinition : Pulumi.CustomResource
     {
         /// <summary>

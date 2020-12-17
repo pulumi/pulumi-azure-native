@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20191101Preview
     /// <summary>
     /// An application type version resource for the specified application type name resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicefabric/v20191101preview:ApplicationTypeVersion")]
     public partial class ApplicationTypeVersion : Pulumi.CustomResource
     {
         /// <summary>

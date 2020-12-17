@@ -92,15 +92,15 @@ type OnPremiseIotSensorInput interface {
 	ToOnPremiseIotSensorOutputWithContext(ctx context.Context) OnPremiseIotSensorOutput
 }
 
-func (OnPremiseIotSensor) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnPremiseIotSensor)(nil)).Elem()
+func (*OnPremiseIotSensor) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseIotSensor)(nil))
 }
 
-func (i OnPremiseIotSensor) ToOnPremiseIotSensorOutput() OnPremiseIotSensorOutput {
+func (i *OnPremiseIotSensor) ToOnPremiseIotSensorOutput() OnPremiseIotSensorOutput {
 	return i.ToOnPremiseIotSensorOutputWithContext(context.Background())
 }
 
-func (i OnPremiseIotSensor) ToOnPremiseIotSensorOutputWithContext(ctx context.Context) OnPremiseIotSensorOutput {
+func (i *OnPremiseIotSensor) ToOnPremiseIotSensorOutputWithContext(ctx context.Context) OnPremiseIotSensorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseIotSensorOutput)
 }
 
@@ -109,7 +109,7 @@ type OnPremiseIotSensorOutput struct {
 }
 
 func (OnPremiseIotSensorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnPremiseIotSensorOutput)(nil)).Elem()
+	return reflect.TypeOf((*OnPremiseIotSensor)(nil))
 }
 
 func (o OnPremiseIotSensorOutput) ToOnPremiseIotSensorOutput() OnPremiseIotSensorOutput {

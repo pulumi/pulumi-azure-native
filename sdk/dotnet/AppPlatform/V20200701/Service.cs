@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
     /// <summary>
     /// Service resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:appplatform/v20200701:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

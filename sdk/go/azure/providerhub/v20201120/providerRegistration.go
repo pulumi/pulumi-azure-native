@@ -100,15 +100,15 @@ type ProviderRegistrationInput interface {
 	ToProviderRegistrationOutputWithContext(ctx context.Context) ProviderRegistrationOutput
 }
 
-func (ProviderRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderRegistration)(nil)).Elem()
+func (*ProviderRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderRegistration)(nil))
 }
 
-func (i ProviderRegistration) ToProviderRegistrationOutput() ProviderRegistrationOutput {
+func (i *ProviderRegistration) ToProviderRegistrationOutput() ProviderRegistrationOutput {
 	return i.ToProviderRegistrationOutputWithContext(context.Background())
 }
 
-func (i ProviderRegistration) ToProviderRegistrationOutputWithContext(ctx context.Context) ProviderRegistrationOutput {
+func (i *ProviderRegistration) ToProviderRegistrationOutputWithContext(ctx context.Context) ProviderRegistrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderRegistrationOutput)
 }
 
@@ -117,7 +117,7 @@ type ProviderRegistrationOutput struct {
 }
 
 func (ProviderRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderRegistrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProviderRegistration)(nil))
 }
 
 func (o ProviderRegistrationOutput) ToProviderRegistrationOutput() ProviderRegistrationOutput {

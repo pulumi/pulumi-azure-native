@@ -308,15 +308,15 @@ type WatchlistInput interface {
 	ToWatchlistOutputWithContext(ctx context.Context) WatchlistOutput
 }
 
-func (Watchlist) ElementType() reflect.Type {
-	return reflect.TypeOf((*Watchlist)(nil)).Elem()
+func (*Watchlist) ElementType() reflect.Type {
+	return reflect.TypeOf((*Watchlist)(nil))
 }
 
-func (i Watchlist) ToWatchlistOutput() WatchlistOutput {
+func (i *Watchlist) ToWatchlistOutput() WatchlistOutput {
 	return i.ToWatchlistOutputWithContext(context.Background())
 }
 
-func (i Watchlist) ToWatchlistOutputWithContext(ctx context.Context) WatchlistOutput {
+func (i *Watchlist) ToWatchlistOutputWithContext(ctx context.Context) WatchlistOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistOutput)
 }
 
@@ -325,7 +325,7 @@ type WatchlistOutput struct {
 }
 
 func (WatchlistOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WatchlistOutput)(nil)).Elem()
+	return reflect.TypeOf((*Watchlist)(nil))
 }
 
 func (o WatchlistOutput) ToWatchlistOutput() WatchlistOutput {

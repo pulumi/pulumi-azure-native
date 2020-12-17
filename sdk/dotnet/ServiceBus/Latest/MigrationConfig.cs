@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
     /// Single item in List or Get Migration Config operation
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/latest:MigrationConfig")]
     public partial class MigrationConfig : Pulumi.CustomResource
     {
         /// <summary>

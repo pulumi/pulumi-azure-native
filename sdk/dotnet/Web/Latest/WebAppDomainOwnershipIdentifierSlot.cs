@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// A domain specific resource identifier.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppDomainOwnershipIdentifierSlot")]
     public partial class WebAppDomainOwnershipIdentifierSlot : Pulumi.CustomResource
     {
         /// <summary>

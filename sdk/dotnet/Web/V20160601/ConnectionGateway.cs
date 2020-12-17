@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20160601
     /// <summary>
     /// The gateway definition
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20160601:ConnectionGateway")]
     public partial class ConnectionGateway : Pulumi.CustomResource
     {
         /// <summary>

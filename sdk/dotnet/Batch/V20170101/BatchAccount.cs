@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Batch.V20170101
     /// <summary>
     /// Contains information about an Azure Batch account.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:batch/v20170101:BatchAccount")]
     public partial class BatchAccount : Pulumi.CustomResource
     {
         /// <summary>

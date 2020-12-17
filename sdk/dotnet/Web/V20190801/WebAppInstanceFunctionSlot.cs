@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
     /// <summary>
     /// Function information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot")]
     public partial class WebAppInstanceFunctionSlot : Pulumi.CustomResource
     {
         /// <summary>

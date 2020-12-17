@@ -259,15 +259,15 @@ type DedicatedCloudNodeInput interface {
 	ToDedicatedCloudNodeOutputWithContext(ctx context.Context) DedicatedCloudNodeOutput
 }
 
-func (DedicatedCloudNode) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedCloudNode)(nil)).Elem()
+func (*DedicatedCloudNode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedCloudNode)(nil))
 }
 
-func (i DedicatedCloudNode) ToDedicatedCloudNodeOutput() DedicatedCloudNodeOutput {
+func (i *DedicatedCloudNode) ToDedicatedCloudNodeOutput() DedicatedCloudNodeOutput {
 	return i.ToDedicatedCloudNodeOutputWithContext(context.Background())
 }
 
-func (i DedicatedCloudNode) ToDedicatedCloudNodeOutputWithContext(ctx context.Context) DedicatedCloudNodeOutput {
+func (i *DedicatedCloudNode) ToDedicatedCloudNodeOutputWithContext(ctx context.Context) DedicatedCloudNodeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedCloudNodeOutput)
 }
 
@@ -276,7 +276,7 @@ type DedicatedCloudNodeOutput struct {
 }
 
 func (DedicatedCloudNodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedCloudNodeOutput)(nil)).Elem()
+	return reflect.TypeOf((*DedicatedCloudNode)(nil))
 }
 
 func (o DedicatedCloudNodeOutput) ToDedicatedCloudNodeOutput() DedicatedCloudNodeOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     /// <summary>
     /// A SQL Analytics pool
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:SqlPool")]
     public partial class SqlPool : Pulumi.CustomResource
     {
         /// <summary>

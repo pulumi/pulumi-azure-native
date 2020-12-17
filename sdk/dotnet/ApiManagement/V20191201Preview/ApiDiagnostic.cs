@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
     /// <summary>
     /// Diagnostic details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20191201preview:ApiDiagnostic")]
     public partial class ApiDiagnostic : Pulumi.CustomResource
     {
         /// <summary>

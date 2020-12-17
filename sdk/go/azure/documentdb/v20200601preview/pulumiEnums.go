@@ -443,8 +443,8 @@ func (e RoleDefinitionType) ToStringPtrOutputWithContext(ctx context.Context) pu
 type ServerVersion pulumi.String
 
 const (
-	ServerVersion__2 = ServerVersion("3.2")
-	ServerVersion__6 = ServerVersion("3.6")
+	ServerVersion_3_2 = ServerVersion("3.2")
+	ServerVersion_3_6 = ServerVersion("3.6")
 )
 
 func (ServerVersion) ElementType() reflect.Type {

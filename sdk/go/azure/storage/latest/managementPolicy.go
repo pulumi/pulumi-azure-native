@@ -144,15 +144,15 @@ type ManagementPolicyInput interface {
 	ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput
 }
 
-func (ManagementPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementPolicy)(nil)).Elem()
+func (*ManagementPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicy)(nil))
 }
 
-func (i ManagementPolicy) ToManagementPolicyOutput() ManagementPolicyOutput {
+func (i *ManagementPolicy) ToManagementPolicyOutput() ManagementPolicyOutput {
 	return i.ToManagementPolicyOutputWithContext(context.Background())
 }
 
-func (i ManagementPolicy) ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput {
+func (i *ManagementPolicy) ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyOutput)
 }
 
@@ -161,7 +161,7 @@ type ManagementPolicyOutput struct {
 }
 
 func (ManagementPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagementPolicy)(nil))
 }
 
 func (o ManagementPolicyOutput) ToManagementPolicyOutput() ManagementPolicyOutput {

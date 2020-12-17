@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     /// <summary>
     /// Sku sub resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybridnetwork/v20200101preview:VendorSkus")]
     public partial class VendorSkus : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
     /// <summary>
     /// The Managed Network Peering Policy resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy")]
     public partial class ManagedNetworkPeeringPolicy : Pulumi.CustomResource
     {
         /// <summary>

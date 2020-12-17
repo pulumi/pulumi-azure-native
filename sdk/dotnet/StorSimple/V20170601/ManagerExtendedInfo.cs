@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
     /// <summary>
     /// The extended info of the manager.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storsimple/v20170601:ManagerExtendedInfo")]
     public partial class ManagerExtendedInfo : Pulumi.CustomResource
     {
         /// <summary>

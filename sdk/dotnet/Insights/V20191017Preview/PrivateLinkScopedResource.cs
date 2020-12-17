@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
     /// <summary>
     /// A private link scoped resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20191017preview:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : Pulumi.CustomResource
     {
         /// <summary>

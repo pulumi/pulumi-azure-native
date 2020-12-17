@@ -164,15 +164,15 @@ type SqlServerRegistrationInput interface {
 	ToSqlServerRegistrationOutputWithContext(ctx context.Context) SqlServerRegistrationOutput
 }
 
-func (SqlServerRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerRegistration)(nil)).Elem()
+func (*SqlServerRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerRegistration)(nil))
 }
 
-func (i SqlServerRegistration) ToSqlServerRegistrationOutput() SqlServerRegistrationOutput {
+func (i *SqlServerRegistration) ToSqlServerRegistrationOutput() SqlServerRegistrationOutput {
 	return i.ToSqlServerRegistrationOutputWithContext(context.Background())
 }
 
-func (i SqlServerRegistration) ToSqlServerRegistrationOutputWithContext(ctx context.Context) SqlServerRegistrationOutput {
+func (i *SqlServerRegistration) ToSqlServerRegistrationOutputWithContext(ctx context.Context) SqlServerRegistrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerRegistrationOutput)
 }
 
@@ -181,7 +181,7 @@ type SqlServerRegistrationOutput struct {
 }
 
 func (SqlServerRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerRegistrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlServerRegistration)(nil))
 }
 
 func (o SqlServerRegistrationOutput) ToSqlServerRegistrationOutput() SqlServerRegistrationOutput {

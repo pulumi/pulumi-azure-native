@@ -239,15 +239,15 @@ type MachineExtensionInput interface {
 	ToMachineExtensionOutputWithContext(ctx context.Context) MachineExtensionOutput
 }
 
-func (MachineExtension) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtension)(nil)).Elem()
+func (*MachineExtension) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtension)(nil))
 }
 
-func (i MachineExtension) ToMachineExtensionOutput() MachineExtensionOutput {
+func (i *MachineExtension) ToMachineExtensionOutput() MachineExtensionOutput {
 	return i.ToMachineExtensionOutputWithContext(context.Background())
 }
 
-func (i MachineExtension) ToMachineExtensionOutputWithContext(ctx context.Context) MachineExtensionOutput {
+func (i *MachineExtension) ToMachineExtensionOutputWithContext(ctx context.Context) MachineExtensionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionOutput)
 }
 
@@ -256,7 +256,7 @@ type MachineExtensionOutput struct {
 }
 
 func (MachineExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtensionOutput)(nil)).Elem()
+	return reflect.TypeOf((*MachineExtension)(nil))
 }
 
 func (o MachineExtensionOutput) ToMachineExtensionOutput() MachineExtensionOutput {

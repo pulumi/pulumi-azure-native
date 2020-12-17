@@ -149,15 +149,15 @@ type UserAssignedIdentityInput interface {
 	ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput
 }
 
-func (UserAssignedIdentity) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
+func (*UserAssignedIdentity) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentity)(nil))
 }
 
-func (i UserAssignedIdentity) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+func (i *UserAssignedIdentity) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
 	return i.ToUserAssignedIdentityOutputWithContext(context.Background())
 }
 
-func (i UserAssignedIdentity) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+func (i *UserAssignedIdentity) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
 }
 
@@ -166,7 +166,7 @@ type UserAssignedIdentityOutput struct {
 }
 
 func (UserAssignedIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserAssignedIdentity)(nil))
 }
 
 func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {

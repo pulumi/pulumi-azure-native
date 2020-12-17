@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
     /// <summary>
     /// Workload classifier operations for a data warehouse
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20190601preview:WorkloadClassifier")]
     public partial class WorkloadClassifier : Pulumi.CustomResource
     {
         /// <summary>

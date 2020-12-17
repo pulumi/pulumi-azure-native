@@ -230,9 +230,9 @@ export const SslState = {
 export type SslState = (typeof SslState)[keyof typeof SslState];
 
 export const SupportedTlsVersions = {
-    _1_0: "1.0",
-    _1_1: "1.1",
-    _1_2: "1.2",
+    SupportedTlsVersions_1_0: "1.0",
+    SupportedTlsVersions_1_1: "1.1",
+    SupportedTlsVersions_1_2: "1.2",
 } as const;
 
 /**

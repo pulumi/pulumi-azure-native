@@ -116,15 +116,15 @@ type NamespaceVirtualNetworkRuleInput interface {
 	ToNamespaceVirtualNetworkRuleOutputWithContext(ctx context.Context) NamespaceVirtualNetworkRuleOutput
 }
 
-func (NamespaceVirtualNetworkRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceVirtualNetworkRule)(nil)).Elem()
+func (*NamespaceVirtualNetworkRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceVirtualNetworkRule)(nil))
 }
 
-func (i NamespaceVirtualNetworkRule) ToNamespaceVirtualNetworkRuleOutput() NamespaceVirtualNetworkRuleOutput {
+func (i *NamespaceVirtualNetworkRule) ToNamespaceVirtualNetworkRuleOutput() NamespaceVirtualNetworkRuleOutput {
 	return i.ToNamespaceVirtualNetworkRuleOutputWithContext(context.Background())
 }
 
-func (i NamespaceVirtualNetworkRule) ToNamespaceVirtualNetworkRuleOutputWithContext(ctx context.Context) NamespaceVirtualNetworkRuleOutput {
+func (i *NamespaceVirtualNetworkRule) ToNamespaceVirtualNetworkRuleOutputWithContext(ctx context.Context) NamespaceVirtualNetworkRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceVirtualNetworkRuleOutput)
 }
 
@@ -133,7 +133,7 @@ type NamespaceVirtualNetworkRuleOutput struct {
 }
 
 func (NamespaceVirtualNetworkRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceVirtualNetworkRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*NamespaceVirtualNetworkRule)(nil))
 }
 
 func (o NamespaceVirtualNetworkRuleOutput) ToNamespaceVirtualNetworkRuleOutput() NamespaceVirtualNetworkRuleOutput {

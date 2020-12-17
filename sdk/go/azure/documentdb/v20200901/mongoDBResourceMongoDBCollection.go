@@ -171,15 +171,15 @@ type MongoDBResourceMongoDBCollectionInput interface {
 	ToMongoDBResourceMongoDBCollectionOutputWithContext(ctx context.Context) MongoDBResourceMongoDBCollectionOutput
 }
 
-func (MongoDBResourceMongoDBCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBCollection)(nil)).Elem()
+func (*MongoDBResourceMongoDBCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBResourceMongoDBCollection)(nil))
 }
 
-func (i MongoDBResourceMongoDBCollection) ToMongoDBResourceMongoDBCollectionOutput() MongoDBResourceMongoDBCollectionOutput {
+func (i *MongoDBResourceMongoDBCollection) ToMongoDBResourceMongoDBCollectionOutput() MongoDBResourceMongoDBCollectionOutput {
 	return i.ToMongoDBResourceMongoDBCollectionOutputWithContext(context.Background())
 }
 
-func (i MongoDBResourceMongoDBCollection) ToMongoDBResourceMongoDBCollectionOutputWithContext(ctx context.Context) MongoDBResourceMongoDBCollectionOutput {
+func (i *MongoDBResourceMongoDBCollection) ToMongoDBResourceMongoDBCollectionOutputWithContext(ctx context.Context) MongoDBResourceMongoDBCollectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBCollectionOutput)
 }
 
@@ -188,7 +188,7 @@ type MongoDBResourceMongoDBCollectionOutput struct {
 }
 
 func (MongoDBResourceMongoDBCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBCollectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*MongoDBResourceMongoDBCollection)(nil))
 }
 
 func (o MongoDBResourceMongoDBCollectionOutput) ToMongoDBResourceMongoDBCollectionOutput() MongoDBResourceMongoDBCollectionOutput {

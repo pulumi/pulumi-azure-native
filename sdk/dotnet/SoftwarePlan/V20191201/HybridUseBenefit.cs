@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.SoftwarePlan.V20191201
     /// <summary>
     /// Response on GET of a hybrid use benefit
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:softwareplan/v20191201:HybridUseBenefit")]
     public partial class HybridUseBenefit : Pulumi.CustomResource
     {
         /// <summary>

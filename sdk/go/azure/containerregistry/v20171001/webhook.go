@@ -197,15 +197,15 @@ type WebhookInput interface {
 	ToWebhookOutputWithContext(ctx context.Context) WebhookOutput
 }
 
-func (Webhook) ElementType() reflect.Type {
-	return reflect.TypeOf((*Webhook)(nil)).Elem()
+func (*Webhook) ElementType() reflect.Type {
+	return reflect.TypeOf((*Webhook)(nil))
 }
 
-func (i Webhook) ToWebhookOutput() WebhookOutput {
+func (i *Webhook) ToWebhookOutput() WebhookOutput {
 	return i.ToWebhookOutputWithContext(context.Background())
 }
 
-func (i Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput {
+func (i *Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookOutput)
 }
 
@@ -214,7 +214,7 @@ type WebhookOutput struct {
 }
 
 func (WebhookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookOutput)(nil)).Elem()
+	return reflect.TypeOf((*Webhook)(nil))
 }
 
 func (o WebhookOutput) ToWebhookOutput() WebhookOutput {

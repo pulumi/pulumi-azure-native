@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
     /// <summary>
     /// Linked service resource type.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datafactory/v20180601:LinkedService")]
     public partial class LinkedService : Pulumi.CustomResource
     {
         /// <summary>

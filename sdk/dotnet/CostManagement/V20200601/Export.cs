@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200601
     /// <summary>
     /// An export resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:costmanagement/v20200601:Export")]
     public partial class Export : Pulumi.CustomResource
     {
         /// <summary>

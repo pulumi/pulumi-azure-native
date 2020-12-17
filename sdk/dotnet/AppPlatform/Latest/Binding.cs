@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
     /// Binding resource payload
     /// Latest API Version: 2020-07-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:appplatform/latest:Binding")]
     public partial class Binding : Pulumi.CustomResource
     {
         /// <summary>

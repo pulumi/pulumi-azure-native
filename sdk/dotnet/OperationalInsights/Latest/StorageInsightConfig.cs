@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     /// The top level storage insight resource container.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/latest:StorageInsightConfig")]
     public partial class StorageInsightConfig : Pulumi.CustomResource
     {
         /// <summary>

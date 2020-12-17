@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Specifies information about the proximity placement group.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/latest:ProximityPlacementGroup")]
     public partial class ProximityPlacementGroup : Pulumi.CustomResource
     {
         /// <summary>

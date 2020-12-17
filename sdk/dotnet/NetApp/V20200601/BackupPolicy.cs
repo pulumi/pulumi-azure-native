@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
     /// <summary>
     /// Backup policy information
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:netapp/v20200601:BackupPolicy")]
     public partial class BackupPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -214,15 +214,15 @@ type SiteSourceControlInput interface {
 	ToSiteSourceControlOutputWithContext(ctx context.Context) SiteSourceControlOutput
 }
 
-func (SiteSourceControl) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSourceControl)(nil)).Elem()
+func (*SiteSourceControl) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteSourceControl)(nil))
 }
 
-func (i SiteSourceControl) ToSiteSourceControlOutput() SiteSourceControlOutput {
+func (i *SiteSourceControl) ToSiteSourceControlOutput() SiteSourceControlOutput {
 	return i.ToSiteSourceControlOutputWithContext(context.Background())
 }
 
-func (i SiteSourceControl) ToSiteSourceControlOutputWithContext(ctx context.Context) SiteSourceControlOutput {
+func (i *SiteSourceControl) ToSiteSourceControlOutputWithContext(ctx context.Context) SiteSourceControlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSourceControlOutput)
 }
 
@@ -231,7 +231,7 @@ type SiteSourceControlOutput struct {
 }
 
 func (SiteSourceControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSourceControlOutput)(nil)).Elem()
+	return reflect.TypeOf((*SiteSourceControl)(nil))
 }
 
 func (o SiteSourceControlOutput) ToSiteSourceControlOutput() SiteSourceControlOutput {

@@ -221,15 +221,15 @@ type LiveOutputInput interface {
 	ToLiveOutputOutputWithContext(ctx context.Context) LiveOutputOutput
 }
 
-func (LiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveOutput)(nil)).Elem()
+func (*LiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveOutput)(nil))
 }
 
-func (i LiveOutput) ToLiveOutputOutput() LiveOutputOutput {
+func (i *LiveOutput) ToLiveOutputOutput() LiveOutputOutput {
 	return i.ToLiveOutputOutputWithContext(context.Background())
 }
 
-func (i LiveOutput) ToLiveOutputOutputWithContext(ctx context.Context) LiveOutputOutput {
+func (i *LiveOutput) ToLiveOutputOutputWithContext(ctx context.Context) LiveOutputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LiveOutputOutput)
 }
 
@@ -238,7 +238,7 @@ type LiveOutputOutput struct {
 }
 
 func (LiveOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveOutputOutput)(nil)).Elem()
+	return reflect.TypeOf((*LiveOutput)(nil))
 }
 
 func (o LiveOutputOutput) ToLiveOutputOutput() LiveOutputOutput {

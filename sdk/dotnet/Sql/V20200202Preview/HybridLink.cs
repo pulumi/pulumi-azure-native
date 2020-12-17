@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     /// <summary>
     /// Hybrid link between box and Sql Managed Instance.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:HybridLink")]
     public partial class HybridLink : Pulumi.CustomResource
     {
         /// <summary>

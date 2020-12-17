@@ -179,15 +179,15 @@ type BillingRoleAssignmentByBillingAccountInput interface {
 	ToBillingRoleAssignmentByBillingAccountOutputWithContext(ctx context.Context) BillingRoleAssignmentByBillingAccountOutput
 }
 
-func (BillingRoleAssignmentByBillingAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingRoleAssignmentByBillingAccount)(nil)).Elem()
+func (*BillingRoleAssignmentByBillingAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingRoleAssignmentByBillingAccount)(nil))
 }
 
-func (i BillingRoleAssignmentByBillingAccount) ToBillingRoleAssignmentByBillingAccountOutput() BillingRoleAssignmentByBillingAccountOutput {
+func (i *BillingRoleAssignmentByBillingAccount) ToBillingRoleAssignmentByBillingAccountOutput() BillingRoleAssignmentByBillingAccountOutput {
 	return i.ToBillingRoleAssignmentByBillingAccountOutputWithContext(context.Background())
 }
 
-func (i BillingRoleAssignmentByBillingAccount) ToBillingRoleAssignmentByBillingAccountOutputWithContext(ctx context.Context) BillingRoleAssignmentByBillingAccountOutput {
+func (i *BillingRoleAssignmentByBillingAccount) ToBillingRoleAssignmentByBillingAccountOutputWithContext(ctx context.Context) BillingRoleAssignmentByBillingAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BillingRoleAssignmentByBillingAccountOutput)
 }
 
@@ -196,7 +196,7 @@ type BillingRoleAssignmentByBillingAccountOutput struct {
 }
 
 func (BillingRoleAssignmentByBillingAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingRoleAssignmentByBillingAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*BillingRoleAssignmentByBillingAccount)(nil))
 }
 
 func (o BillingRoleAssignmentByBillingAccountOutput) ToBillingRoleAssignmentByBillingAccountOutput() BillingRoleAssignmentByBillingAccountOutput {

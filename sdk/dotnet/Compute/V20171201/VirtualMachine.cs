@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
     /// <summary>
     /// Describes a Virtual Machine.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:compute/v20171201:VirtualMachine")]
     public partial class VirtualMachine : Pulumi.CustomResource
     {
         /// <summary>

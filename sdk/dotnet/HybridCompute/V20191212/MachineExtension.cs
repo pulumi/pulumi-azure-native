@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20191212
     /// <summary>
     /// Describes a Machine Extension.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybridcompute/v20191212:MachineExtension")]
     public partial class MachineExtension : Pulumi.CustomResource
     {
         /// <summary>

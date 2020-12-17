@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
     /// <summary>
     /// A task resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:datamigration/v20180715preview:ServiceTask")]
     public partial class ServiceTask : Pulumi.CustomResource
     {
         /// <summary>

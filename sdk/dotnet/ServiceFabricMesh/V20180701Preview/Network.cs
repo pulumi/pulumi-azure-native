@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
     /// <summary>
     /// This type describes a network resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicefabricmesh/v20180701preview:Network")]
     public partial class Network : Pulumi.CustomResource
     {
         /// <summary>

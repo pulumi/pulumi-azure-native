@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
     /// <summary>
     /// Properties of the file share, including Id, resource name, resource type, Etag.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storage/v20200801preview:FileShare")]
     public partial class FileShare : Pulumi.CustomResource
     {
         /// <summary>

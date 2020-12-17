@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20160901
     /// <summary>
     /// App Service Environment ARM resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20160901:AppServiceEnvironment")]
     public partial class AppServiceEnvironment : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
     /// <summary>
     /// A sql database resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:synapse/v20200401preview:SqlDatabase")]
     public partial class SqlDatabase : Pulumi.CustomResource
     {
         /// <summary>

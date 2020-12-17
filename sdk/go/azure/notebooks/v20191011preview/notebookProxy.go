@@ -115,15 +115,15 @@ type NotebookProxyInput interface {
 	ToNotebookProxyOutputWithContext(ctx context.Context) NotebookProxyOutput
 }
 
-func (NotebookProxy) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookProxy)(nil)).Elem()
+func (*NotebookProxy) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookProxy)(nil))
 }
 
-func (i NotebookProxy) ToNotebookProxyOutput() NotebookProxyOutput {
+func (i *NotebookProxy) ToNotebookProxyOutput() NotebookProxyOutput {
 	return i.ToNotebookProxyOutputWithContext(context.Background())
 }
 
-func (i NotebookProxy) ToNotebookProxyOutputWithContext(ctx context.Context) NotebookProxyOutput {
+func (i *NotebookProxy) ToNotebookProxyOutputWithContext(ctx context.Context) NotebookProxyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookProxyOutput)
 }
 
@@ -132,7 +132,7 @@ type NotebookProxyOutput struct {
 }
 
 func (NotebookProxyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookProxyOutput)(nil)).Elem()
+	return reflect.TypeOf((*NotebookProxy)(nil))
 }
 
 func (o NotebookProxyOutput) ToNotebookProxyOutput() NotebookProxyOutput {

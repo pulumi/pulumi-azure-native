@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Premier add-on.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppPremierAddOnSlot")]
     public partial class WebAppPremierAddOnSlot : Pulumi.CustomResource
     {
         /// <summary>

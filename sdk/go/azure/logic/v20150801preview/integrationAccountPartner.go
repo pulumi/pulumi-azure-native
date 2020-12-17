@@ -194,15 +194,15 @@ type IntegrationAccountPartnerInput interface {
 	ToIntegrationAccountPartnerOutputWithContext(ctx context.Context) IntegrationAccountPartnerOutput
 }
 
-func (IntegrationAccountPartner) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountPartner)(nil)).Elem()
+func (*IntegrationAccountPartner) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountPartner)(nil))
 }
 
-func (i IntegrationAccountPartner) ToIntegrationAccountPartnerOutput() IntegrationAccountPartnerOutput {
+func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerOutput() IntegrationAccountPartnerOutput {
 	return i.ToIntegrationAccountPartnerOutputWithContext(context.Background())
 }
 
-func (i IntegrationAccountPartner) ToIntegrationAccountPartnerOutputWithContext(ctx context.Context) IntegrationAccountPartnerOutput {
+func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerOutputWithContext(ctx context.Context) IntegrationAccountPartnerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerOutput)
 }
 
@@ -211,7 +211,7 @@ type IntegrationAccountPartnerOutput struct {
 }
 
 func (IntegrationAccountPartnerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountPartnerOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationAccountPartner)(nil))
 }
 
 func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerOutput() IntegrationAccountPartnerOutput {

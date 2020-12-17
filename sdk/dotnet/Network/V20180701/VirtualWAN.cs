@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
     /// <summary>
     /// VirtualWAN Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20180701:VirtualWAN")]
     public partial class VirtualWAN : Pulumi.CustomResource
     {
         /// <summary>

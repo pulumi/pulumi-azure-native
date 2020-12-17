@@ -238,15 +238,15 @@ type AgreementInput interface {
 	ToAgreementOutputWithContext(ctx context.Context) AgreementOutput
 }
 
-func (Agreement) ElementType() reflect.Type {
-	return reflect.TypeOf((*Agreement)(nil)).Elem()
+func (*Agreement) ElementType() reflect.Type {
+	return reflect.TypeOf((*Agreement)(nil))
 }
 
-func (i Agreement) ToAgreementOutput() AgreementOutput {
+func (i *Agreement) ToAgreementOutput() AgreementOutput {
 	return i.ToAgreementOutputWithContext(context.Background())
 }
 
-func (i Agreement) ToAgreementOutputWithContext(ctx context.Context) AgreementOutput {
+func (i *Agreement) ToAgreementOutputWithContext(ctx context.Context) AgreementOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementOutput)
 }
 
@@ -255,7 +255,7 @@ type AgreementOutput struct {
 }
 
 func (AgreementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgreementOutput)(nil)).Elem()
+	return reflect.TypeOf((*Agreement)(nil))
 }
 
 func (o AgreementOutput) ToAgreementOutput() AgreementOutput {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
     /// <summary>
     /// Experiment information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:batchai/v20180501:Experiment")]
     public partial class Experiment : Pulumi.CustomResource
     {
         /// <summary>

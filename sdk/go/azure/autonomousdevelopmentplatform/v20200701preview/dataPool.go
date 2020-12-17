@@ -131,15 +131,15 @@ type DataPoolInput interface {
 	ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutput
 }
 
-func (DataPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataPool)(nil)).Elem()
+func (*DataPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPool)(nil))
 }
 
-func (i DataPool) ToDataPoolOutput() DataPoolOutput {
+func (i *DataPool) ToDataPoolOutput() DataPoolOutput {
 	return i.ToDataPoolOutputWithContext(context.Background())
 }
 
-func (i DataPool) ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutput {
+func (i *DataPool) ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataPoolOutput)
 }
 
@@ -148,7 +148,7 @@ type DataPoolOutput struct {
 }
 
 func (DataPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataPool)(nil))
 }
 
 func (o DataPoolOutput) ToDataPoolOutput() DataPoolOutput {

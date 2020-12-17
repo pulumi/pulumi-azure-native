@@ -138,15 +138,15 @@ type RegistrationDefinitionInput interface {
 	ToRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationDefinitionOutput
 }
 
-func (RegistrationDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationDefinition)(nil)).Elem()
+func (*RegistrationDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationDefinition)(nil))
 }
 
-func (i RegistrationDefinition) ToRegistrationDefinitionOutput() RegistrationDefinitionOutput {
+func (i *RegistrationDefinition) ToRegistrationDefinitionOutput() RegistrationDefinitionOutput {
 	return i.ToRegistrationDefinitionOutputWithContext(context.Background())
 }
 
-func (i RegistrationDefinition) ToRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationDefinitionOutput {
+func (i *RegistrationDefinition) ToRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionOutput)
 }
 
@@ -155,7 +155,7 @@ type RegistrationDefinitionOutput struct {
 }
 
 func (RegistrationDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationDefinitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*RegistrationDefinition)(nil))
 }
 
 func (o RegistrationDefinitionOutput) ToRegistrationDefinitionOutput() RegistrationDefinitionOutput {

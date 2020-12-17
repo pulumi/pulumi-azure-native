@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
     /// <summary>
     /// Contains information about a Cluster.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:batchai/v20170901preview:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

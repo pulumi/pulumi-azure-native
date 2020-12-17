@@ -232,15 +232,15 @@ type ApiOperationInput interface {
 	ToApiOperationOutputWithContext(ctx context.Context) ApiOperationOutput
 }
 
-func (ApiOperation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperation)(nil)).Elem()
+func (*ApiOperation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperation)(nil))
 }
 
-func (i ApiOperation) ToApiOperationOutput() ApiOperationOutput {
+func (i *ApiOperation) ToApiOperationOutput() ApiOperationOutput {
 	return i.ToApiOperationOutputWithContext(context.Background())
 }
 
-func (i ApiOperation) ToApiOperationOutputWithContext(ctx context.Context) ApiOperationOutput {
+func (i *ApiOperation) ToApiOperationOutputWithContext(ctx context.Context) ApiOperationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationOutput)
 }
 
@@ -249,7 +249,7 @@ type ApiOperationOutput struct {
 }
 
 func (ApiOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiOperation)(nil))
 }
 
 func (o ApiOperationOutput) ToApiOperationOutput() ApiOperationOutput {

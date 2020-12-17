@@ -198,15 +198,15 @@ type JobStepInput interface {
 	ToJobStepOutputWithContext(ctx context.Context) JobStepOutput
 }
 
-func (JobStep) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStep)(nil)).Elem()
+func (*JobStep) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStep)(nil))
 }
 
-func (i JobStep) ToJobStepOutput() JobStepOutput {
+func (i *JobStep) ToJobStepOutput() JobStepOutput {
 	return i.ToJobStepOutputWithContext(context.Background())
 }
 
-func (i JobStep) ToJobStepOutputWithContext(ctx context.Context) JobStepOutput {
+func (i *JobStep) ToJobStepOutputWithContext(ctx context.Context) JobStepOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutput)
 }
 
@@ -215,7 +215,7 @@ type JobStepOutput struct {
 }
 
 func (JobStepOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStepOutput)(nil)).Elem()
+	return reflect.TypeOf((*JobStep)(nil))
 }
 
 func (o JobStepOutput) ToJobStepOutput() JobStepOutput {

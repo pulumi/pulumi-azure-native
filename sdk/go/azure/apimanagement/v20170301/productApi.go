@@ -221,15 +221,15 @@ type ProductApiInput interface {
 	ToProductApiOutputWithContext(ctx context.Context) ProductApiOutput
 }
 
-func (ProductApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductApi)(nil)).Elem()
+func (*ProductApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductApi)(nil))
 }
 
-func (i ProductApi) ToProductApiOutput() ProductApiOutput {
+func (i *ProductApi) ToProductApiOutput() ProductApiOutput {
 	return i.ToProductApiOutputWithContext(context.Background())
 }
 
-func (i ProductApi) ToProductApiOutputWithContext(ctx context.Context) ProductApiOutput {
+func (i *ProductApi) ToProductApiOutputWithContext(ctx context.Context) ProductApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductApiOutput)
 }
 
@@ -238,7 +238,7 @@ type ProductApiOutput struct {
 }
 
 func (ProductApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductApiOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProductApi)(nil))
 }
 
 func (o ProductApiOutput) ToProductApiOutput() ProductApiOutput {

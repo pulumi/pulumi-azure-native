@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20160601
     /// <summary>
     /// ApplicationGateways resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20160601:ApplicationGateway")]
     public partial class ApplicationGateway : Pulumi.CustomResource
     {
         /// <summary>

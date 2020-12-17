@@ -163,15 +163,15 @@ type ScopeMapInput interface {
 	ToScopeMapOutputWithContext(ctx context.Context) ScopeMapOutput
 }
 
-func (ScopeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScopeMap)(nil)).Elem()
+func (*ScopeMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeMap)(nil))
 }
 
-func (i ScopeMap) ToScopeMapOutput() ScopeMapOutput {
+func (i *ScopeMap) ToScopeMapOutput() ScopeMapOutput {
 	return i.ToScopeMapOutputWithContext(context.Background())
 }
 
-func (i ScopeMap) ToScopeMapOutputWithContext(ctx context.Context) ScopeMapOutput {
+func (i *ScopeMap) ToScopeMapOutputWithContext(ctx context.Context) ScopeMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeMapOutput)
 }
 
@@ -180,7 +180,7 @@ type ScopeMapOutput struct {
 }
 
 func (ScopeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScopeMapOutput)(nil)).Elem()
+	return reflect.TypeOf((*ScopeMap)(nil))
 }
 
 func (o ScopeMapOutput) ToScopeMapOutput() ScopeMapOutput {

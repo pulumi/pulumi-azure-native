@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:relay/v20160701:WCFRelayAuthorizationRule")]
     public partial class WCFRelayAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

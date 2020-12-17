@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview
     /// <summary>
     /// Schema for MSIX Package properties.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization/v20201110preview:MSIXPackage")]
     public partial class MSIXPackage : Pulumi.CustomResource
     {
         /// <summary>

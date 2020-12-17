@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
     /// <summary>
     /// Class that represents a BizTalk Hybrid Connection
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteRelayServiceConnectionSlot")]
     public partial class SiteRelayServiceConnectionSlot : Pulumi.CustomResource
     {
         [Output("biztalkUri")]

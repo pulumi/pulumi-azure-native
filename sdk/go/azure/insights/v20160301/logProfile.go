@@ -180,15 +180,15 @@ type LogProfileInput interface {
 	ToLogProfileOutputWithContext(ctx context.Context) LogProfileOutput
 }
 
-func (LogProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogProfile)(nil)).Elem()
+func (*LogProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogProfile)(nil))
 }
 
-func (i LogProfile) ToLogProfileOutput() LogProfileOutput {
+func (i *LogProfile) ToLogProfileOutput() LogProfileOutput {
 	return i.ToLogProfileOutputWithContext(context.Background())
 }
 
-func (i LogProfile) ToLogProfileOutputWithContext(ctx context.Context) LogProfileOutput {
+func (i *LogProfile) ToLogProfileOutputWithContext(ctx context.Context) LogProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileOutput)
 }
 
@@ -197,7 +197,7 @@ type LogProfileOutput struct {
 }
 
 func (LogProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogProfileOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogProfile)(nil))
 }
 
 func (o LogProfileOutput) ToLogProfileOutput() LogProfileOutput {

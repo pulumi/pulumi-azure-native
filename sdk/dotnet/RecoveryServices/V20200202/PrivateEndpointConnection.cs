@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20200202
     /// <summary>
     /// Private Endpoint Connection Response Properties
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20200202:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

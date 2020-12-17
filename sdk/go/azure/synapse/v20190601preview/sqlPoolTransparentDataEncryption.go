@@ -129,15 +129,15 @@ type SqlPoolTransparentDataEncryptionInput interface {
 	ToSqlPoolTransparentDataEncryptionOutputWithContext(ctx context.Context) SqlPoolTransparentDataEncryptionOutput
 }
 
-func (SqlPoolTransparentDataEncryption) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolTransparentDataEncryption)(nil)).Elem()
+func (*SqlPoolTransparentDataEncryption) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolTransparentDataEncryption)(nil))
 }
 
-func (i SqlPoolTransparentDataEncryption) ToSqlPoolTransparentDataEncryptionOutput() SqlPoolTransparentDataEncryptionOutput {
+func (i *SqlPoolTransparentDataEncryption) ToSqlPoolTransparentDataEncryptionOutput() SqlPoolTransparentDataEncryptionOutput {
 	return i.ToSqlPoolTransparentDataEncryptionOutputWithContext(context.Background())
 }
 
-func (i SqlPoolTransparentDataEncryption) ToSqlPoolTransparentDataEncryptionOutputWithContext(ctx context.Context) SqlPoolTransparentDataEncryptionOutput {
+func (i *SqlPoolTransparentDataEncryption) ToSqlPoolTransparentDataEncryptionOutputWithContext(ctx context.Context) SqlPoolTransparentDataEncryptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolTransparentDataEncryptionOutput)
 }
 
@@ -146,7 +146,7 @@ type SqlPoolTransparentDataEncryptionOutput struct {
 }
 
 func (SqlPoolTransparentDataEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolTransparentDataEncryptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlPoolTransparentDataEncryption)(nil))
 }
 
 func (o SqlPoolTransparentDataEncryptionOutput) ToSqlPoolTransparentDataEncryptionOutput() SqlPoolTransparentDataEncryptionOutput {

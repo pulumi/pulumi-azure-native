@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
     /// <summary>
     /// Trigger details.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20190301:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {
         /// <summary>

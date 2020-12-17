@@ -195,15 +195,15 @@ type ApplicationGroupInput interface {
 	ToApplicationGroupOutputWithContext(ctx context.Context) ApplicationGroupOutput
 }
 
-func (ApplicationGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGroup)(nil)).Elem()
+func (*ApplicationGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGroup)(nil))
 }
 
-func (i ApplicationGroup) ToApplicationGroupOutput() ApplicationGroupOutput {
+func (i *ApplicationGroup) ToApplicationGroupOutput() ApplicationGroupOutput {
 	return i.ToApplicationGroupOutputWithContext(context.Background())
 }
 
-func (i ApplicationGroup) ToApplicationGroupOutputWithContext(ctx context.Context) ApplicationGroupOutput {
+func (i *ApplicationGroup) ToApplicationGroupOutputWithContext(ctx context.Context) ApplicationGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGroupOutput)
 }
 
@@ -212,7 +212,7 @@ type ApplicationGroupOutput struct {
 }
 
 func (ApplicationGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApplicationGroup)(nil))
 }
 
 func (o ApplicationGroupOutput) ToApplicationGroupOutput() ApplicationGroupOutput {

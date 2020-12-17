@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
     /// <summary>
     /// Properties of an artifact source.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20150521preview:ArtifactSourceResource")]
     public partial class ArtifactSourceResource : Pulumi.CustomResource
     {
         /// <summary>

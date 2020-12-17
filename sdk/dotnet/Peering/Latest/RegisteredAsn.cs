@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
     /// The customer's ASN that is registered by the peering service provider.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:peering/latest:RegisteredAsn")]
     public partial class RegisteredAsn : Pulumi.CustomResource
     {
         /// <summary>

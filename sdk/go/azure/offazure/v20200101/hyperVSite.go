@@ -147,15 +147,15 @@ type HyperVSiteInput interface {
 	ToHyperVSiteOutputWithContext(ctx context.Context) HyperVSiteOutput
 }
 
-func (HyperVSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVSite)(nil)).Elem()
+func (*HyperVSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*HyperVSite)(nil))
 }
 
-func (i HyperVSite) ToHyperVSiteOutput() HyperVSiteOutput {
+func (i *HyperVSite) ToHyperVSiteOutput() HyperVSiteOutput {
 	return i.ToHyperVSiteOutputWithContext(context.Background())
 }
 
-func (i HyperVSite) ToHyperVSiteOutputWithContext(ctx context.Context) HyperVSiteOutput {
+func (i *HyperVSite) ToHyperVSiteOutputWithContext(ctx context.Context) HyperVSiteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteOutput)
 }
 
@@ -164,7 +164,7 @@ type HyperVSiteOutput struct {
 }
 
 func (HyperVSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVSiteOutput)(nil)).Elem()
+	return reflect.TypeOf((*HyperVSite)(nil))
 }
 
 func (o HyperVSiteOutput) ToHyperVSiteOutput() HyperVSiteOutput {

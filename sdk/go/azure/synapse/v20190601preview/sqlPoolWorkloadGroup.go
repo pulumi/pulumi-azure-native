@@ -182,15 +182,15 @@ type SqlPoolWorkloadGroupInput interface {
 	ToSqlPoolWorkloadGroupOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupOutput
 }
 
-func (SqlPoolWorkloadGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadGroup)(nil)).Elem()
+func (*SqlPoolWorkloadGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolWorkloadGroup)(nil))
 }
 
-func (i SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutput() SqlPoolWorkloadGroupOutput {
+func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutput() SqlPoolWorkloadGroupOutput {
 	return i.ToSqlPoolWorkloadGroupOutputWithContext(context.Background())
 }
 
-func (i SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupOutput {
+func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadGroupOutput)
 }
 
@@ -199,7 +199,7 @@ type SqlPoolWorkloadGroupOutput struct {
 }
 
 func (SqlPoolWorkloadGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlPoolWorkloadGroup)(nil))
 }
 
 func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupOutput() SqlPoolWorkloadGroupOutput {

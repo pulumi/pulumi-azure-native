@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190801
     /// <summary>
     /// Contains information about a pool.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:batch/v20190801:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         [Output("allocationState")]

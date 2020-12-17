@@ -195,15 +195,15 @@ type DatabasePrincipalAssignmentInput interface {
 	ToDatabasePrincipalAssignmentOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentOutput
 }
 
-func (DatabasePrincipalAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipalAssignment)(nil)).Elem()
+func (*DatabasePrincipalAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalAssignment)(nil))
 }
 
-func (i DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutput() DatabasePrincipalAssignmentOutput {
+func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutput() DatabasePrincipalAssignmentOutput {
 	return i.ToDatabasePrincipalAssignmentOutputWithContext(context.Background())
 }
 
-func (i DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentOutput {
+func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentOutput)
 }
 
@@ -212,7 +212,7 @@ type DatabasePrincipalAssignmentOutput struct {
 }
 
 func (DatabasePrincipalAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipalAssignmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatabasePrincipalAssignment)(nil))
 }
 
 func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentOutput() DatabasePrincipalAssignmentOutput {

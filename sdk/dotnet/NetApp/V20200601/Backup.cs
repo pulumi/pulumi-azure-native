@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
     /// <summary>
     /// Backup of a Volume
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:netapp/v20200601:Backup")]
     public partial class Backup : Pulumi.CustomResource
     {
         /// <summary>

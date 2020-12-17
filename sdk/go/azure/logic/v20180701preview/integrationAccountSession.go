@@ -160,15 +160,15 @@ type IntegrationAccountSessionInput interface {
 	ToIntegrationAccountSessionOutputWithContext(ctx context.Context) IntegrationAccountSessionOutput
 }
 
-func (IntegrationAccountSession) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountSession)(nil)).Elem()
+func (*IntegrationAccountSession) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountSession)(nil))
 }
 
-func (i IntegrationAccountSession) ToIntegrationAccountSessionOutput() IntegrationAccountSessionOutput {
+func (i *IntegrationAccountSession) ToIntegrationAccountSessionOutput() IntegrationAccountSessionOutput {
 	return i.ToIntegrationAccountSessionOutputWithContext(context.Background())
 }
 
-func (i IntegrationAccountSession) ToIntegrationAccountSessionOutputWithContext(ctx context.Context) IntegrationAccountSessionOutput {
+func (i *IntegrationAccountSession) ToIntegrationAccountSessionOutputWithContext(ctx context.Context) IntegrationAccountSessionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSessionOutput)
 }
 
@@ -177,7 +177,7 @@ type IntegrationAccountSessionOutput struct {
 }
 
 func (IntegrationAccountSessionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountSessionOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationAccountSession)(nil))
 }
 
 func (o IntegrationAccountSessionOutput) ToIntegrationAccountSessionOutput() IntegrationAccountSessionOutput {

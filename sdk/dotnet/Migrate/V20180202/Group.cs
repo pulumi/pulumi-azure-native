@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
     /// <summary>
     /// A group created in a Migration project.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:migrate/v20180202:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

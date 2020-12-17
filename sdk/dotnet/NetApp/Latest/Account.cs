@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
     /// NetApp account resource
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:netapp/latest:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

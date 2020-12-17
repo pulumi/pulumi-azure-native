@@ -164,15 +164,15 @@ type AdaptiveApplicationControlInput interface {
 	ToAdaptiveApplicationControlOutputWithContext(ctx context.Context) AdaptiveApplicationControlOutput
 }
 
-func (AdaptiveApplicationControl) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdaptiveApplicationControl)(nil)).Elem()
+func (*AdaptiveApplicationControl) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdaptiveApplicationControl)(nil))
 }
 
-func (i AdaptiveApplicationControl) ToAdaptiveApplicationControlOutput() AdaptiveApplicationControlOutput {
+func (i *AdaptiveApplicationControl) ToAdaptiveApplicationControlOutput() AdaptiveApplicationControlOutput {
 	return i.ToAdaptiveApplicationControlOutputWithContext(context.Background())
 }
 
-func (i AdaptiveApplicationControl) ToAdaptiveApplicationControlOutputWithContext(ctx context.Context) AdaptiveApplicationControlOutput {
+func (i *AdaptiveApplicationControl) ToAdaptiveApplicationControlOutputWithContext(ctx context.Context) AdaptiveApplicationControlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdaptiveApplicationControlOutput)
 }
 
@@ -181,7 +181,7 @@ type AdaptiveApplicationControlOutput struct {
 }
 
 func (AdaptiveApplicationControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdaptiveApplicationControlOutput)(nil)).Elem()
+	return reflect.TypeOf((*AdaptiveApplicationControl)(nil))
 }
 
 func (o AdaptiveApplicationControlOutput) ToAdaptiveApplicationControlOutput() AdaptiveApplicationControlOutput {

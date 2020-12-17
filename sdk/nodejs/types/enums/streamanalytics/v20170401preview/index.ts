@@ -14,7 +14,7 @@ export const AuthenticationMode = {
 export type AuthenticationMode = (typeof AuthenticationMode)[keyof typeof AuthenticationMode];
 
 export const CompatibilityLevel = {
-    _1_0: "1.0",
+    CompatibilityLevel_1_0: "1.0",
 } as const;
 
 /**

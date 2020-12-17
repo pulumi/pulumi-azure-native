@@ -125,15 +125,15 @@ type ManagementLockInput interface {
 	ToManagementLockOutputWithContext(ctx context.Context) ManagementLockOutput
 }
 
-func (ManagementLock) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLock)(nil)).Elem()
+func (*ManagementLock) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLock)(nil))
 }
 
-func (i ManagementLock) ToManagementLockOutput() ManagementLockOutput {
+func (i *ManagementLock) ToManagementLockOutput() ManagementLockOutput {
 	return i.ToManagementLockOutputWithContext(context.Background())
 }
 
-func (i ManagementLock) ToManagementLockOutputWithContext(ctx context.Context) ManagementLockOutput {
+func (i *ManagementLock) ToManagementLockOutputWithContext(ctx context.Context) ManagementLockOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOutput)
 }
 
@@ -142,7 +142,7 @@ type ManagementLockOutput struct {
 }
 
 func (ManagementLockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagementLock)(nil))
 }
 
 func (o ManagementLockOutput) ToManagementLockOutput() ManagementLockOutput {

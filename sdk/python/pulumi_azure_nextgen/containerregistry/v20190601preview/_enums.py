@@ -28,7 +28,7 @@ class Architecture(str, Enum):
     """
     AMD64 = "amd64"
     X86 = "x86"
-    _386 = "386"
+    ARCHITECTURE_386 = "386"
     ARM = "arm"
     ARM64 = "arm64"
 

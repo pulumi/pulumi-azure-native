@@ -118,8 +118,8 @@ export const SampleName = {
 export type SampleName = (typeof SampleName)[keyof typeof SampleName];
 
 export const ServerVersion = {
-    _2_0: "2.0",
-    _12_0: "12.0",
+    ServerVersion_2_0: "2.0",
+    ServerVersion_12_0: "12.0",
 } as const;
 
 /**

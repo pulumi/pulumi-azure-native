@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
     /// <summary>
     /// An Azure SQL Database sync member.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20190601preview:SyncMember")]
     public partial class SyncMember : Pulumi.CustomResource
     {
         /// <summary>

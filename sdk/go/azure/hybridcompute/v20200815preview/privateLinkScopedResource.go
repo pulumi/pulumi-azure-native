@@ -122,15 +122,15 @@ type PrivateLinkScopedResourceInput interface {
 	ToPrivateLinkScopedResourceOutputWithContext(ctx context.Context) PrivateLinkScopedResourceOutput
 }
 
-func (PrivateLinkScopedResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScopedResource)(nil)).Elem()
+func (*PrivateLinkScopedResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopedResource)(nil))
 }
 
-func (i PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput {
+func (i *PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput {
 	return i.ToPrivateLinkScopedResourceOutputWithContext(context.Background())
 }
 
-func (i PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutputWithContext(ctx context.Context) PrivateLinkScopedResourceOutput {
+func (i *PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutputWithContext(ctx context.Context) PrivateLinkScopedResourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceOutput)
 }
 
@@ -139,7 +139,7 @@ type PrivateLinkScopedResourceOutput struct {
 }
 
 func (PrivateLinkScopedResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScopedResourceOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateLinkScopedResource)(nil))
 }
 
 func (o PrivateLinkScopedResourceOutput) ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput {

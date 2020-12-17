@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20191001
     /// <summary>
     /// An object that represents a machine learning workspace.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:machinelearning/v20191001:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>

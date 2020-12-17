@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200101
     /// <summary>
     /// Data connector.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20200101:DataConnector")]
     public partial class DataConnector : Pulumi.CustomResource
     {
         /// <summary>

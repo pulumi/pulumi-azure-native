@@ -138,15 +138,15 @@ type ServiceTopologyInput interface {
 	ToServiceTopologyOutputWithContext(ctx context.Context) ServiceTopologyOutput
 }
 
-func (ServiceTopology) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTopology)(nil)).Elem()
+func (*ServiceTopology) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTopology)(nil))
 }
 
-func (i ServiceTopology) ToServiceTopologyOutput() ServiceTopologyOutput {
+func (i *ServiceTopology) ToServiceTopologyOutput() ServiceTopologyOutput {
 	return i.ToServiceTopologyOutputWithContext(context.Background())
 }
 
-func (i ServiceTopology) ToServiceTopologyOutputWithContext(ctx context.Context) ServiceTopologyOutput {
+func (i *ServiceTopology) ToServiceTopologyOutputWithContext(ctx context.Context) ServiceTopologyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTopologyOutput)
 }
 
@@ -155,7 +155,7 @@ type ServiceTopologyOutput struct {
 }
 
 func (ServiceTopologyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTopologyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceTopology)(nil))
 }
 
 func (o ServiceTopologyOutput) ToServiceTopologyOutput() ServiceTopologyOutput {

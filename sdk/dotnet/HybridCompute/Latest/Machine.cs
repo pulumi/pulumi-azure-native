@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
     /// Describes a hybrid machine.
     /// Latest API Version: 2020-08-02.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:hybridcompute/latest:Machine")]
     public partial class Machine : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
     /// <summary>
     /// ExpressRoutePort resource definition.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200601:ExpressRoutePort")]
     public partial class ExpressRoutePort : Pulumi.CustomResource
     {
         /// <summary>

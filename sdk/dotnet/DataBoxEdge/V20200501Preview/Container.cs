@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
     /// <summary>
     /// Represents a container on the  Data Box Edge/Gateway device.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200501preview:Container")]
     public partial class Container : Pulumi.CustomResource
     {
         /// <summary>

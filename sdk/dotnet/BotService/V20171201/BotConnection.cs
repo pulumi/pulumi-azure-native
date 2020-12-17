@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
     /// <summary>
     /// Bot channel resource definition
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:botservice/v20171201:BotConnection")]
     public partial class BotConnection : Pulumi.CustomResource
     {
         /// <summary>

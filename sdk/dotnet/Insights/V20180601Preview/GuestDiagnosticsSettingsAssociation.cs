@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180601Preview
     /// <summary>
     /// Virtual machine guest diagnostic settings resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20180601preview:GuestDiagnosticsSettingsAssociation")]
     public partial class GuestDiagnosticsSettingsAssociation : Pulumi.CustomResource
     {
         /// <summary>

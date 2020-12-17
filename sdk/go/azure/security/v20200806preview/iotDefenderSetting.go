@@ -111,15 +111,15 @@ type IotDefenderSettingInput interface {
 	ToIotDefenderSettingOutputWithContext(ctx context.Context) IotDefenderSettingOutput
 }
 
-func (IotDefenderSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotDefenderSetting)(nil)).Elem()
+func (*IotDefenderSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDefenderSetting)(nil))
 }
 
-func (i IotDefenderSetting) ToIotDefenderSettingOutput() IotDefenderSettingOutput {
+func (i *IotDefenderSetting) ToIotDefenderSettingOutput() IotDefenderSettingOutput {
 	return i.ToIotDefenderSettingOutputWithContext(context.Background())
 }
 
-func (i IotDefenderSetting) ToIotDefenderSettingOutputWithContext(ctx context.Context) IotDefenderSettingOutput {
+func (i *IotDefenderSetting) ToIotDefenderSettingOutputWithContext(ctx context.Context) IotDefenderSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotDefenderSettingOutput)
 }
 
@@ -128,7 +128,7 @@ type IotDefenderSettingOutput struct {
 }
 
 func (IotDefenderSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotDefenderSettingOutput)(nil)).Elem()
+	return reflect.TypeOf((*IotDefenderSetting)(nil))
 }
 
 func (o IotDefenderSettingOutput) ToIotDefenderSettingOutput() IotDefenderSettingOutput {

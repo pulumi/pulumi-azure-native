@@ -141,15 +141,15 @@ type SignalRPrivateEndpointConnectionInput interface {
 	ToSignalRPrivateEndpointConnectionOutputWithContext(ctx context.Context) SignalRPrivateEndpointConnectionOutput
 }
 
-func (SignalRPrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRPrivateEndpointConnection)(nil)).Elem()
+func (*SignalRPrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRPrivateEndpointConnection)(nil))
 }
 
-func (i SignalRPrivateEndpointConnection) ToSignalRPrivateEndpointConnectionOutput() SignalRPrivateEndpointConnectionOutput {
+func (i *SignalRPrivateEndpointConnection) ToSignalRPrivateEndpointConnectionOutput() SignalRPrivateEndpointConnectionOutput {
 	return i.ToSignalRPrivateEndpointConnectionOutputWithContext(context.Background())
 }
 
-func (i SignalRPrivateEndpointConnection) ToSignalRPrivateEndpointConnectionOutputWithContext(ctx context.Context) SignalRPrivateEndpointConnectionOutput {
+func (i *SignalRPrivateEndpointConnection) ToSignalRPrivateEndpointConnectionOutputWithContext(ctx context.Context) SignalRPrivateEndpointConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRPrivateEndpointConnectionOutput)
 }
 
@@ -158,7 +158,7 @@ type SignalRPrivateEndpointConnectionOutput struct {
 }
 
 func (SignalRPrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRPrivateEndpointConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SignalRPrivateEndpointConnection)(nil))
 }
 
 func (o SignalRPrivateEndpointConnectionOutput) ToSignalRPrivateEndpointConnectionOutput() SignalRPrivateEndpointConnectionOutput {

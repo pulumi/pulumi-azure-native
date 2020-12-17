@@ -236,15 +236,15 @@ type SiteVNETConnectionInput interface {
 	ToSiteVNETConnectionOutputWithContext(ctx context.Context) SiteVNETConnectionOutput
 }
 
-func (SiteVNETConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteVNETConnection)(nil)).Elem()
+func (*SiteVNETConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteVNETConnection)(nil))
 }
 
-func (i SiteVNETConnection) ToSiteVNETConnectionOutput() SiteVNETConnectionOutput {
+func (i *SiteVNETConnection) ToSiteVNETConnectionOutput() SiteVNETConnectionOutput {
 	return i.ToSiteVNETConnectionOutputWithContext(context.Background())
 }
 
-func (i SiteVNETConnection) ToSiteVNETConnectionOutputWithContext(ctx context.Context) SiteVNETConnectionOutput {
+func (i *SiteVNETConnection) ToSiteVNETConnectionOutputWithContext(ctx context.Context) SiteVNETConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteVNETConnectionOutput)
 }
 
@@ -253,7 +253,7 @@ type SiteVNETConnectionOutput struct {
 }
 
 func (SiteVNETConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteVNETConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SiteVNETConnection)(nil))
 }
 
 func (o SiteVNETConnectionOutput) ToSiteVNETConnectionOutput() SiteVNETConnectionOutput {

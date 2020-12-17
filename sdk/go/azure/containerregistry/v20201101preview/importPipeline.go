@@ -177,15 +177,15 @@ type ImportPipelineInput interface {
 	ToImportPipelineOutputWithContext(ctx context.Context) ImportPipelineOutput
 }
 
-func (ImportPipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImportPipeline)(nil)).Elem()
+func (*ImportPipeline) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImportPipeline)(nil))
 }
 
-func (i ImportPipeline) ToImportPipelineOutput() ImportPipelineOutput {
+func (i *ImportPipeline) ToImportPipelineOutput() ImportPipelineOutput {
 	return i.ToImportPipelineOutputWithContext(context.Background())
 }
 
-func (i ImportPipeline) ToImportPipelineOutputWithContext(ctx context.Context) ImportPipelineOutput {
+func (i *ImportPipeline) ToImportPipelineOutputWithContext(ctx context.Context) ImportPipelineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImportPipelineOutput)
 }
 
@@ -194,7 +194,7 @@ type ImportPipelineOutput struct {
 }
 
 func (ImportPipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImportPipelineOutput)(nil)).Elem()
+	return reflect.TypeOf((*ImportPipeline)(nil))
 }
 
 func (o ImportPipelineOutput) ToImportPipelineOutput() ImportPipelineOutput {

@@ -183,15 +183,15 @@ type PrivateZoneInput interface {
 	ToPrivateZoneOutputWithContext(ctx context.Context) PrivateZoneOutput
 }
 
-func (PrivateZone) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateZone)(nil)).Elem()
+func (*PrivateZone) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateZone)(nil))
 }
 
-func (i PrivateZone) ToPrivateZoneOutput() PrivateZoneOutput {
+func (i *PrivateZone) ToPrivateZoneOutput() PrivateZoneOutput {
 	return i.ToPrivateZoneOutputWithContext(context.Background())
 }
 
-func (i PrivateZone) ToPrivateZoneOutputWithContext(ctx context.Context) PrivateZoneOutput {
+func (i *PrivateZone) ToPrivateZoneOutputWithContext(ctx context.Context) PrivateZoneOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateZoneOutput)
 }
 
@@ -200,7 +200,7 @@ type PrivateZoneOutput struct {
 }
 
 func (PrivateZoneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateZoneOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateZone)(nil))
 }
 
 func (o PrivateZoneOutput) ToPrivateZoneOutput() PrivateZoneOutput {

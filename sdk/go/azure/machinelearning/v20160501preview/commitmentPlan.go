@@ -148,15 +148,15 @@ type CommitmentPlanInput interface {
 	ToCommitmentPlanOutputWithContext(ctx context.Context) CommitmentPlanOutput
 }
 
-func (CommitmentPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommitmentPlan)(nil)).Elem()
+func (*CommitmentPlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlan)(nil))
 }
 
-func (i CommitmentPlan) ToCommitmentPlanOutput() CommitmentPlanOutput {
+func (i *CommitmentPlan) ToCommitmentPlanOutput() CommitmentPlanOutput {
 	return i.ToCommitmentPlanOutputWithContext(context.Background())
 }
 
-func (i CommitmentPlan) ToCommitmentPlanOutputWithContext(ctx context.Context) CommitmentPlanOutput {
+func (i *CommitmentPlan) ToCommitmentPlanOutputWithContext(ctx context.Context) CommitmentPlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanOutput)
 }
 
@@ -165,7 +165,7 @@ type CommitmentPlanOutput struct {
 }
 
 func (CommitmentPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommitmentPlanOutput)(nil)).Elem()
+	return reflect.TypeOf((*CommitmentPlan)(nil))
 }
 
 func (o CommitmentPlanOutput) ToCommitmentPlanOutput() CommitmentPlanOutput {

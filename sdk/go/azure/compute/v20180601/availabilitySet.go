@@ -217,15 +217,15 @@ type AvailabilitySetInput interface {
 	ToAvailabilitySetOutputWithContext(ctx context.Context) AvailabilitySetOutput
 }
 
-func (AvailabilitySet) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilitySet)(nil)).Elem()
+func (*AvailabilitySet) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilitySet)(nil))
 }
 
-func (i AvailabilitySet) ToAvailabilitySetOutput() AvailabilitySetOutput {
+func (i *AvailabilitySet) ToAvailabilitySetOutput() AvailabilitySetOutput {
 	return i.ToAvailabilitySetOutputWithContext(context.Background())
 }
 
-func (i AvailabilitySet) ToAvailabilitySetOutputWithContext(ctx context.Context) AvailabilitySetOutput {
+func (i *AvailabilitySet) ToAvailabilitySetOutputWithContext(ctx context.Context) AvailabilitySetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetOutput)
 }
 
@@ -234,7 +234,7 @@ type AvailabilitySetOutput struct {
 }
 
 func (AvailabilitySetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilitySetOutput)(nil)).Elem()
+	return reflect.TypeOf((*AvailabilitySet)(nil))
 }
 
 func (o AvailabilitySetOutput) ToAvailabilitySetOutput() AvailabilitySetOutput {

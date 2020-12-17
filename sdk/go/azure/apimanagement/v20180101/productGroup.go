@@ -161,15 +161,15 @@ type ProductGroupInput interface {
 	ToProductGroupOutputWithContext(ctx context.Context) ProductGroupOutput
 }
 
-func (ProductGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductGroup)(nil)).Elem()
+func (*ProductGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductGroup)(nil))
 }
 
-func (i ProductGroup) ToProductGroupOutput() ProductGroupOutput {
+func (i *ProductGroup) ToProductGroupOutput() ProductGroupOutput {
 	return i.ToProductGroupOutputWithContext(context.Background())
 }
 
-func (i ProductGroup) ToProductGroupOutputWithContext(ctx context.Context) ProductGroupOutput {
+func (i *ProductGroup) ToProductGroupOutputWithContext(ctx context.Context) ProductGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductGroupOutput)
 }
 
@@ -178,7 +178,7 @@ type ProductGroupOutput struct {
 }
 
 func (ProductGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProductGroup)(nil))
 }
 
 func (o ProductGroupOutput) ToProductGroupOutput() ProductGroupOutput {

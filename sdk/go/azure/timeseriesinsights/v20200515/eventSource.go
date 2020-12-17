@@ -161,15 +161,15 @@ type EventSourceInput interface {
 	ToEventSourceOutputWithContext(ctx context.Context) EventSourceOutput
 }
 
-func (EventSource) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSource)(nil)).Elem()
+func (*EventSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSource)(nil))
 }
 
-func (i EventSource) ToEventSourceOutput() EventSourceOutput {
+func (i *EventSource) ToEventSourceOutput() EventSourceOutput {
 	return i.ToEventSourceOutputWithContext(context.Background())
 }
 
-func (i EventSource) ToEventSourceOutputWithContext(ctx context.Context) EventSourceOutput {
+func (i *EventSource) ToEventSourceOutputWithContext(ctx context.Context) EventSourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceOutput)
 }
 
@@ -178,7 +178,7 @@ type EventSourceOutput struct {
 }
 
 func (EventSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSourceOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventSource)(nil))
 }
 
 func (o EventSourceOutput) ToEventSourceOutput() EventSourceOutput {

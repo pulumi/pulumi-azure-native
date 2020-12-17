@@ -135,15 +135,15 @@ type GuestDiagnosticsSettingsAssociationInput interface {
 	ToGuestDiagnosticsSettingsAssociationOutputWithContext(ctx context.Context) GuestDiagnosticsSettingsAssociationOutput
 }
 
-func (GuestDiagnosticsSettingsAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestDiagnosticsSettingsAssociation)(nil)).Elem()
+func (*GuestDiagnosticsSettingsAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestDiagnosticsSettingsAssociation)(nil))
 }
 
-func (i GuestDiagnosticsSettingsAssociation) ToGuestDiagnosticsSettingsAssociationOutput() GuestDiagnosticsSettingsAssociationOutput {
+func (i *GuestDiagnosticsSettingsAssociation) ToGuestDiagnosticsSettingsAssociationOutput() GuestDiagnosticsSettingsAssociationOutput {
 	return i.ToGuestDiagnosticsSettingsAssociationOutputWithContext(context.Background())
 }
 
-func (i GuestDiagnosticsSettingsAssociation) ToGuestDiagnosticsSettingsAssociationOutputWithContext(ctx context.Context) GuestDiagnosticsSettingsAssociationOutput {
+func (i *GuestDiagnosticsSettingsAssociation) ToGuestDiagnosticsSettingsAssociationOutputWithContext(ctx context.Context) GuestDiagnosticsSettingsAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GuestDiagnosticsSettingsAssociationOutput)
 }
 
@@ -152,7 +152,7 @@ type GuestDiagnosticsSettingsAssociationOutput struct {
 }
 
 func (GuestDiagnosticsSettingsAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestDiagnosticsSettingsAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*GuestDiagnosticsSettingsAssociation)(nil))
 }
 
 func (o GuestDiagnosticsSettingsAssociationOutput) ToGuestDiagnosticsSettingsAssociationOutput() GuestDiagnosticsSettingsAssociationOutput {

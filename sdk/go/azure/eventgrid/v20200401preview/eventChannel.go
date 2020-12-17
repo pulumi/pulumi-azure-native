@@ -178,15 +178,15 @@ type EventChannelInput interface {
 	ToEventChannelOutputWithContext(ctx context.Context) EventChannelOutput
 }
 
-func (EventChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventChannel)(nil)).Elem()
+func (*EventChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannel)(nil))
 }
 
-func (i EventChannel) ToEventChannelOutput() EventChannelOutput {
+func (i *EventChannel) ToEventChannelOutput() EventChannelOutput {
 	return i.ToEventChannelOutputWithContext(context.Background())
 }
 
-func (i EventChannel) ToEventChannelOutputWithContext(ctx context.Context) EventChannelOutput {
+func (i *EventChannel) ToEventChannelOutputWithContext(ctx context.Context) EventChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventChannelOutput)
 }
 
@@ -195,7 +195,7 @@ type EventChannelOutput struct {
 }
 
 func (EventChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventChannel)(nil))
 }
 
 func (o EventChannelOutput) ToEventChannelOutput() EventChannelOutput {

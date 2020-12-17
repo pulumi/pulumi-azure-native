@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
     /// <summary>
     /// Migration item.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem")]
     public partial class ReplicationMigrationItem : Pulumi.CustomResource
     {
         /// <summary>

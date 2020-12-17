@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
     /// <summary>
     /// Description of an hostingEnvironment (App Service Environment)
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/v20150801:HostingEnvironment")]
     public partial class HostingEnvironment : Pulumi.CustomResource
     {
         /// <summary>

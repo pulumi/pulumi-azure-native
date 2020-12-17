@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
     /// <summary>
     /// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20180201preview:BuildTask")]
     public partial class BuildTask : Pulumi.CustomResource
     {
         /// <summary>

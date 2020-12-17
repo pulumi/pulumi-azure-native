@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
     /// <summary>
     /// The Managed Network resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:managednetwork/v20190601preview:ManagedNetwork")]
     public partial class ManagedNetwork : Pulumi.CustomResource
     {
         /// <summary>

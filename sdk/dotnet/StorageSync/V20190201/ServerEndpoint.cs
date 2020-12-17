@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20190201
     /// <summary>
     /// Server Endpoint object.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:storagesync/v20190201:ServerEndpoint")]
     public partial class ServerEndpoint : Pulumi.CustomResource
     {
         /// <summary>

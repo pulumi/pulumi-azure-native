@@ -81,9 +81,9 @@ export const PublicNetworkAccessEnum = {
 export type PublicNetworkAccessEnum = (typeof PublicNetworkAccessEnum)[keyof typeof PublicNetworkAccessEnum];
 
 export const ServerVersion = {
-    _5_6: "5.6",
-    _5_7: "5.7",
-    _8_0: "8.0",
+    ServerVersion_5_6: "5.6",
+    ServerVersion_5_7: "5.7",
+    ServerVersion_8_0: "8.0",
 } as const;
 
 /**

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
     /// <summary>
     /// Single item in List or Get Migration Config operation
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/v20170401:MigrationConfig")]
     public partial class MigrationConfig : Pulumi.CustomResource
     {
         /// <summary>

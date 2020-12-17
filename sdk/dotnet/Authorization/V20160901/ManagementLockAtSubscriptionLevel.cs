@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20160901
     /// <summary>
     /// The lock information.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel")]
     public partial class ManagementLockAtSubscriptionLevel : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
     /// <summary>
     /// Software update configuration properties.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName")]
     public partial class SoftwareUpdateConfigurationByName : Pulumi.CustomResource
     {
         /// <summary>

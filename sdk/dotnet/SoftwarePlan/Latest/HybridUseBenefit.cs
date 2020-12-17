@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.SoftwarePlan.Latest
     /// Response on GET of a hybrid use benefit
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:softwareplan/latest:HybridUseBenefit")]
     public partial class HybridUseBenefit : Pulumi.CustomResource
     {
         /// <summary>

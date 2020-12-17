@@ -169,15 +169,15 @@ type DatabaseAccountGremlinDatabaseInput interface {
 	ToDatabaseAccountGremlinDatabaseOutputWithContext(ctx context.Context) DatabaseAccountGremlinDatabaseOutput
 }
 
-func (DatabaseAccountGremlinDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinDatabase)(nil)).Elem()
+func (*DatabaseAccountGremlinDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountGremlinDatabase)(nil))
 }
 
-func (i DatabaseAccountGremlinDatabase) ToDatabaseAccountGremlinDatabaseOutput() DatabaseAccountGremlinDatabaseOutput {
+func (i *DatabaseAccountGremlinDatabase) ToDatabaseAccountGremlinDatabaseOutput() DatabaseAccountGremlinDatabaseOutput {
 	return i.ToDatabaseAccountGremlinDatabaseOutputWithContext(context.Background())
 }
 
-func (i DatabaseAccountGremlinDatabase) ToDatabaseAccountGremlinDatabaseOutputWithContext(ctx context.Context) DatabaseAccountGremlinDatabaseOutput {
+func (i *DatabaseAccountGremlinDatabase) ToDatabaseAccountGremlinDatabaseOutputWithContext(ctx context.Context) DatabaseAccountGremlinDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountGremlinDatabaseOutput)
 }
 
@@ -186,7 +186,7 @@ type DatabaseAccountGremlinDatabaseOutput struct {
 }
 
 func (DatabaseAccountGremlinDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinDatabaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatabaseAccountGremlinDatabase)(nil))
 }
 
 func (o DatabaseAccountGremlinDatabaseOutput) ToDatabaseAccountGremlinDatabaseOutput() DatabaseAccountGremlinDatabaseOutput {

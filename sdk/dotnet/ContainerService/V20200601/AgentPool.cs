@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200601
     /// <summary>
     /// Agent Pool.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerservice/v20200601:AgentPool")]
     public partial class AgentPool : Pulumi.CustomResource
     {
         /// <summary>

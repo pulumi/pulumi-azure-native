@@ -51,7 +51,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20191101
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ReplicationSchedule _10minutely { get; } = new ReplicationSchedule("_10minutely");
+        public static ReplicationSchedule ReplicationSchedule_10minutely { get; } = new ReplicationSchedule("_10minutely");
         public static ReplicationSchedule Hourly { get; } = new ReplicationSchedule("hourly");
         public static ReplicationSchedule Daily { get; } = new ReplicationSchedule("daily");
 

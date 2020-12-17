@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventhub/latest:DisasterRecoveryConfig")]
     public partial class DisasterRecoveryConfig : Pulumi.CustomResource
     {
         /// <summary>

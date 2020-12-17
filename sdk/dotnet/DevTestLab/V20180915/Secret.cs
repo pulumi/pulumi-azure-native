@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
     /// <summary>
     /// A secret.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20180915:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
         /// <summary>

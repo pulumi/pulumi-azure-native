@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
     /// <summary>
     /// An object that represents a token for a container registry.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20201101preview:Token")]
     public partial class Token : Pulumi.CustomResource
     {
         /// <summary>

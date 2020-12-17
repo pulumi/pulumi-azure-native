@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
     /// The notification registration definition.
     /// Latest API Version: 2020-11-20.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:providerhub/latest:NotificationRegistration")]
     public partial class NotificationRegistration : Pulumi.CustomResource
     {
         /// <summary>

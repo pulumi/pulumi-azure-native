@@ -139,15 +139,15 @@ type SolutionInput interface {
 	ToSolutionOutputWithContext(ctx context.Context) SolutionOutput
 }
 
-func (Solution) ElementType() reflect.Type {
-	return reflect.TypeOf((*Solution)(nil)).Elem()
+func (*Solution) ElementType() reflect.Type {
+	return reflect.TypeOf((*Solution)(nil))
 }
 
-func (i Solution) ToSolutionOutput() SolutionOutput {
+func (i *Solution) ToSolutionOutput() SolutionOutput {
 	return i.ToSolutionOutputWithContext(context.Background())
 }
 
-func (i Solution) ToSolutionOutputWithContext(ctx context.Context) SolutionOutput {
+func (i *Solution) ToSolutionOutputWithContext(ctx context.Context) SolutionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionOutput)
 }
 
@@ -156,7 +156,7 @@ type SolutionOutput struct {
 }
 
 func (SolutionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SolutionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Solution)(nil))
 }
 
 func (o SolutionOutput) ToSolutionOutput() SolutionOutput {

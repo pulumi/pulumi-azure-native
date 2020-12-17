@@ -268,15 +268,15 @@ type RouteTableInput interface {
 	ToRouteTableOutputWithContext(ctx context.Context) RouteTableOutput
 }
 
-func (RouteTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteTable)(nil)).Elem()
+func (*RouteTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTable)(nil))
 }
 
-func (i RouteTable) ToRouteTableOutput() RouteTableOutput {
+func (i *RouteTable) ToRouteTableOutput() RouteTableOutput {
 	return i.ToRouteTableOutputWithContext(context.Background())
 }
 
-func (i RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTableOutput {
+func (i *RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableOutput)
 }
 
@@ -285,7 +285,7 @@ type RouteTableOutput struct {
 }
 
 func (RouteTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteTableOutput)(nil)).Elem()
+	return reflect.TypeOf((*RouteTable)(nil))
 }
 
 func (o RouteTableOutput) ToRouteTableOutput() RouteTableOutput {

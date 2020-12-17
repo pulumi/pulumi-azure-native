@@ -135,15 +135,15 @@ type DataConnectorInput interface {
 	ToDataConnectorOutputWithContext(ctx context.Context) DataConnectorOutput
 }
 
-func (DataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnector)(nil)).Elem()
+func (*DataConnector) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnector)(nil))
 }
 
-func (i DataConnector) ToDataConnectorOutput() DataConnectorOutput {
+func (i *DataConnector) ToDataConnectorOutput() DataConnectorOutput {
 	return i.ToDataConnectorOutputWithContext(context.Background())
 }
 
-func (i DataConnector) ToDataConnectorOutputWithContext(ctx context.Context) DataConnectorOutput {
+func (i *DataConnector) ToDataConnectorOutputWithContext(ctx context.Context) DataConnectorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOutput)
 }
 
@@ -152,7 +152,7 @@ type DataConnectorOutput struct {
 }
 
 func (DataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataConnector)(nil))
 }
 
 func (o DataConnectorOutput) ToDataConnectorOutput() DataConnectorOutput {

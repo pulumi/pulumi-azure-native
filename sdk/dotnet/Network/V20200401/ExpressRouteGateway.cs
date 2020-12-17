@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
     /// <summary>
     /// ExpressRoute gateway resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:network/v20200401:ExpressRouteGateway")]
     public partial class ExpressRouteGateway : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200101
     /// <summary>
     /// Site REST Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:offazure/v20200101:Site")]
     public partial class Site : Pulumi.CustomResource
     {
         /// <summary>

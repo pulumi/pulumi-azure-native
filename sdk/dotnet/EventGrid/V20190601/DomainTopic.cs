@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190601
     /// <summary>
     /// Domain Topic.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20190601:DomainTopic")]
     public partial class DomainTopic : Pulumi.CustomResource
     {
         /// <summary>

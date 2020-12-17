@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
     /// <summary>
     /// An Azure Cosmos DB storedProcedure.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure")]
     public partial class SqlResourceSqlStoredProcedure : Pulumi.CustomResource
     {
         /// <summary>

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
     /// A PostgreSQL Server key.
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/latest:ServerKey")]
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
     /// <summary>
     /// Description of topic resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicebus/v20150801:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>

@@ -150,15 +150,15 @@ type PipelineRunInput interface {
 	ToPipelineRunOutputWithContext(ctx context.Context) PipelineRunOutput
 }
 
-func (PipelineRun) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineRun)(nil)).Elem()
+func (*PipelineRun) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRun)(nil))
 }
 
-func (i PipelineRun) ToPipelineRunOutput() PipelineRunOutput {
+func (i *PipelineRun) ToPipelineRunOutput() PipelineRunOutput {
 	return i.ToPipelineRunOutputWithContext(context.Background())
 }
 
-func (i PipelineRun) ToPipelineRunOutputWithContext(ctx context.Context) PipelineRunOutput {
+func (i *PipelineRun) ToPipelineRunOutputWithContext(ctx context.Context) PipelineRunOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunOutput)
 }
 
@@ -167,7 +167,7 @@ type PipelineRunOutput struct {
 }
 
 func (PipelineRunOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineRunOutput)(nil)).Elem()
+	return reflect.TypeOf((*PipelineRun)(nil))
 }
 
 func (o PipelineRunOutput) ToPipelineRunOutput() PipelineRunOutput {

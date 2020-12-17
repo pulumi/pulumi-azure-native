@@ -177,15 +177,15 @@ type StorageInsightInput interface {
 	ToStorageInsightOutputWithContext(ctx context.Context) StorageInsightOutput
 }
 
-func (StorageInsight) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsight)(nil)).Elem()
+func (*StorageInsight) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsight)(nil))
 }
 
-func (i StorageInsight) ToStorageInsightOutput() StorageInsightOutput {
+func (i *StorageInsight) ToStorageInsightOutput() StorageInsightOutput {
 	return i.ToStorageInsightOutputWithContext(context.Background())
 }
 
-func (i StorageInsight) ToStorageInsightOutputWithContext(ctx context.Context) StorageInsightOutput {
+func (i *StorageInsight) ToStorageInsightOutputWithContext(ctx context.Context) StorageInsightOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightOutput)
 }
 
@@ -194,7 +194,7 @@ type StorageInsightOutput struct {
 }
 
 func (StorageInsightOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsightOutput)(nil)).Elem()
+	return reflect.TypeOf((*StorageInsight)(nil))
 }
 
 func (o StorageInsightOutput) ToStorageInsightOutput() StorageInsightOutput {

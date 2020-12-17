@@ -201,15 +201,15 @@ type SnapshotPolicyInput interface {
 	ToSnapshotPolicyOutputWithContext(ctx context.Context) SnapshotPolicyOutput
 }
 
-func (SnapshotPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotPolicy)(nil)).Elem()
+func (*SnapshotPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicy)(nil))
 }
 
-func (i SnapshotPolicy) ToSnapshotPolicyOutput() SnapshotPolicyOutput {
+func (i *SnapshotPolicy) ToSnapshotPolicyOutput() SnapshotPolicyOutput {
 	return i.ToSnapshotPolicyOutputWithContext(context.Background())
 }
 
-func (i SnapshotPolicy) ToSnapshotPolicyOutputWithContext(ctx context.Context) SnapshotPolicyOutput {
+func (i *SnapshotPolicy) ToSnapshotPolicyOutputWithContext(ctx context.Context) SnapshotPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyOutput)
 }
 
@@ -218,7 +218,7 @@ type SnapshotPolicyOutput struct {
 }
 
 func (SnapshotPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*SnapshotPolicy)(nil))
 }
 
 func (o SnapshotPolicyOutput) ToSnapshotPolicyOutput() SnapshotPolicyOutput {

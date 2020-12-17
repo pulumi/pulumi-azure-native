@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
     /// <summary>
     /// Solution REST Resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:migrate/v20180901preview:Solution")]
     public partial class Solution : Pulumi.CustomResource
     {
         /// <summary>

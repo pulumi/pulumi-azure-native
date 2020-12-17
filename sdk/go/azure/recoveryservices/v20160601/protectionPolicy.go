@@ -167,15 +167,15 @@ type ProtectionPolicyInput interface {
 	ToProtectionPolicyOutputWithContext(ctx context.Context) ProtectionPolicyOutput
 }
 
-func (ProtectionPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionPolicy)(nil)).Elem()
+func (*ProtectionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionPolicy)(nil))
 }
 
-func (i ProtectionPolicy) ToProtectionPolicyOutput() ProtectionPolicyOutput {
+func (i *ProtectionPolicy) ToProtectionPolicyOutput() ProtectionPolicyOutput {
 	return i.ToProtectionPolicyOutputWithContext(context.Background())
 }
 
-func (i ProtectionPolicy) ToProtectionPolicyOutputWithContext(ctx context.Context) ProtectionPolicyOutput {
+func (i *ProtectionPolicy) ToProtectionPolicyOutputWithContext(ctx context.Context) ProtectionPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyOutput)
 }
 
@@ -184,7 +184,7 @@ type ProtectionPolicyOutput struct {
 }
 
 func (ProtectionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProtectionPolicy)(nil))
 }
 
 func (o ProtectionPolicyOutput) ToProtectionPolicyOutput() ProtectionPolicyOutput {

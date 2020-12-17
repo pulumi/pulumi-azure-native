@@ -143,15 +143,15 @@ type DiagnosticInput interface {
 	ToDiagnosticOutputWithContext(ctx context.Context) DiagnosticOutput
 }
 
-func (Diagnostic) ElementType() reflect.Type {
-	return reflect.TypeOf((*Diagnostic)(nil)).Elem()
+func (*Diagnostic) ElementType() reflect.Type {
+	return reflect.TypeOf((*Diagnostic)(nil))
 }
 
-func (i Diagnostic) ToDiagnosticOutput() DiagnosticOutput {
+func (i *Diagnostic) ToDiagnosticOutput() DiagnosticOutput {
 	return i.ToDiagnosticOutputWithContext(context.Background())
 }
 
-func (i Diagnostic) ToDiagnosticOutputWithContext(ctx context.Context) DiagnosticOutput {
+func (i *Diagnostic) ToDiagnosticOutputWithContext(ctx context.Context) DiagnosticOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticOutput)
 }
 
@@ -160,7 +160,7 @@ type DiagnosticOutput struct {
 }
 
 func (DiagnosticOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticOutput)(nil)).Elem()
+	return reflect.TypeOf((*Diagnostic)(nil))
 }
 
 func (o DiagnosticOutput) ToDiagnosticOutput() DiagnosticOutput {

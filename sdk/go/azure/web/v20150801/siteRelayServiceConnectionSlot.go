@@ -209,15 +209,15 @@ type SiteRelayServiceConnectionSlotInput interface {
 	ToSiteRelayServiceConnectionSlotOutputWithContext(ctx context.Context) SiteRelayServiceConnectionSlotOutput
 }
 
-func (SiteRelayServiceConnectionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteRelayServiceConnectionSlot)(nil)).Elem()
+func (*SiteRelayServiceConnectionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteRelayServiceConnectionSlot)(nil))
 }
 
-func (i SiteRelayServiceConnectionSlot) ToSiteRelayServiceConnectionSlotOutput() SiteRelayServiceConnectionSlotOutput {
+func (i *SiteRelayServiceConnectionSlot) ToSiteRelayServiceConnectionSlotOutput() SiteRelayServiceConnectionSlotOutput {
 	return i.ToSiteRelayServiceConnectionSlotOutputWithContext(context.Background())
 }
 
-func (i SiteRelayServiceConnectionSlot) ToSiteRelayServiceConnectionSlotOutputWithContext(ctx context.Context) SiteRelayServiceConnectionSlotOutput {
+func (i *SiteRelayServiceConnectionSlot) ToSiteRelayServiceConnectionSlotOutputWithContext(ctx context.Context) SiteRelayServiceConnectionSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteRelayServiceConnectionSlotOutput)
 }
 
@@ -226,7 +226,7 @@ type SiteRelayServiceConnectionSlotOutput struct {
 }
 
 func (SiteRelayServiceConnectionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteRelayServiceConnectionSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*SiteRelayServiceConnectionSlot)(nil))
 }
 
 func (o SiteRelayServiceConnectionSlotOutput) ToSiteRelayServiceConnectionSlotOutput() SiteRelayServiceConnectionSlotOutput {

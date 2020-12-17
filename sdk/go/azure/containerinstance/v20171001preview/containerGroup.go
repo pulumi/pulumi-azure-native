@@ -248,15 +248,15 @@ type ContainerGroupInput interface {
 	ToContainerGroupOutputWithContext(ctx context.Context) ContainerGroupOutput
 }
 
-func (ContainerGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroup)(nil)).Elem()
+func (*ContainerGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroup)(nil))
 }
 
-func (i ContainerGroup) ToContainerGroupOutput() ContainerGroupOutput {
+func (i *ContainerGroup) ToContainerGroupOutput() ContainerGroupOutput {
 	return i.ToContainerGroupOutputWithContext(context.Background())
 }
 
-func (i ContainerGroup) ToContainerGroupOutputWithContext(ctx context.Context) ContainerGroupOutput {
+func (i *ContainerGroup) ToContainerGroupOutputWithContext(ctx context.Context) ContainerGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupOutput)
 }
 
@@ -265,7 +265,7 @@ type ContainerGroupOutput struct {
 }
 
 func (ContainerGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ContainerGroup)(nil))
 }
 
 func (o ContainerGroupOutput) ToContainerGroupOutput() ContainerGroupOutput {

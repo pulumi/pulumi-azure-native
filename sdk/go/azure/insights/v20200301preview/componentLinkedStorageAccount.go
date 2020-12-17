@@ -116,15 +116,15 @@ type ComponentLinkedStorageAccountInput interface {
 	ToComponentLinkedStorageAccountOutputWithContext(ctx context.Context) ComponentLinkedStorageAccountOutput
 }
 
-func (ComponentLinkedStorageAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentLinkedStorageAccount)(nil)).Elem()
+func (*ComponentLinkedStorageAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentLinkedStorageAccount)(nil))
 }
 
-func (i ComponentLinkedStorageAccount) ToComponentLinkedStorageAccountOutput() ComponentLinkedStorageAccountOutput {
+func (i *ComponentLinkedStorageAccount) ToComponentLinkedStorageAccountOutput() ComponentLinkedStorageAccountOutput {
 	return i.ToComponentLinkedStorageAccountOutputWithContext(context.Background())
 }
 
-func (i ComponentLinkedStorageAccount) ToComponentLinkedStorageAccountOutputWithContext(ctx context.Context) ComponentLinkedStorageAccountOutput {
+func (i *ComponentLinkedStorageAccount) ToComponentLinkedStorageAccountOutputWithContext(ctx context.Context) ComponentLinkedStorageAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentLinkedStorageAccountOutput)
 }
 
@@ -133,7 +133,7 @@ type ComponentLinkedStorageAccountOutput struct {
 }
 
 func (ComponentLinkedStorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentLinkedStorageAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*ComponentLinkedStorageAccount)(nil))
 }
 
 func (o ComponentLinkedStorageAccountOutput) ToComponentLinkedStorageAccountOutput() ComponentLinkedStorageAccountOutput {

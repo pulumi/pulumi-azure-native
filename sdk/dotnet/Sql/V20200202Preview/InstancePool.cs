@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     /// <summary>
     /// An Azure SQL instance pool.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:InstancePool")]
     public partial class InstancePool : Pulumi.CustomResource
     {
         /// <summary>

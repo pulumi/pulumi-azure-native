@@ -222,15 +222,15 @@ type AndroidMAMPolicyByNameInput interface {
 	ToAndroidMAMPolicyByNameOutputWithContext(ctx context.Context) AndroidMAMPolicyByNameOutput
 }
 
-func (AndroidMAMPolicyByName) ElementType() reflect.Type {
-	return reflect.TypeOf((*AndroidMAMPolicyByName)(nil)).Elem()
+func (*AndroidMAMPolicyByName) ElementType() reflect.Type {
+	return reflect.TypeOf((*AndroidMAMPolicyByName)(nil))
 }
 
-func (i AndroidMAMPolicyByName) ToAndroidMAMPolicyByNameOutput() AndroidMAMPolicyByNameOutput {
+func (i *AndroidMAMPolicyByName) ToAndroidMAMPolicyByNameOutput() AndroidMAMPolicyByNameOutput {
 	return i.ToAndroidMAMPolicyByNameOutputWithContext(context.Background())
 }
 
-func (i AndroidMAMPolicyByName) ToAndroidMAMPolicyByNameOutputWithContext(ctx context.Context) AndroidMAMPolicyByNameOutput {
+func (i *AndroidMAMPolicyByName) ToAndroidMAMPolicyByNameOutputWithContext(ctx context.Context) AndroidMAMPolicyByNameOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AndroidMAMPolicyByNameOutput)
 }
 
@@ -239,7 +239,7 @@ type AndroidMAMPolicyByNameOutput struct {
 }
 
 func (AndroidMAMPolicyByNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AndroidMAMPolicyByNameOutput)(nil)).Elem()
+	return reflect.TypeOf((*AndroidMAMPolicyByName)(nil))
 }
 
 func (o AndroidMAMPolicyByNameOutput) ToAndroidMAMPolicyByNameOutput() AndroidMAMPolicyByNameOutput {

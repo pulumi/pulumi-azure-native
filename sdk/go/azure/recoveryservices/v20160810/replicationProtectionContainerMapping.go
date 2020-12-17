@@ -148,15 +148,15 @@ type ReplicationProtectionContainerMappingInput interface {
 	ToReplicationProtectionContainerMappingOutputWithContext(ctx context.Context) ReplicationProtectionContainerMappingOutput
 }
 
-func (ReplicationProtectionContainerMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProtectionContainerMapping)(nil)).Elem()
+func (*ReplicationProtectionContainerMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationProtectionContainerMapping)(nil))
 }
 
-func (i ReplicationProtectionContainerMapping) ToReplicationProtectionContainerMappingOutput() ReplicationProtectionContainerMappingOutput {
+func (i *ReplicationProtectionContainerMapping) ToReplicationProtectionContainerMappingOutput() ReplicationProtectionContainerMappingOutput {
 	return i.ToReplicationProtectionContainerMappingOutputWithContext(context.Background())
 }
 
-func (i ReplicationProtectionContainerMapping) ToReplicationProtectionContainerMappingOutputWithContext(ctx context.Context) ReplicationProtectionContainerMappingOutput {
+func (i *ReplicationProtectionContainerMapping) ToReplicationProtectionContainerMappingOutputWithContext(ctx context.Context) ReplicationProtectionContainerMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectionContainerMappingOutput)
 }
 
@@ -165,7 +165,7 @@ type ReplicationProtectionContainerMappingOutput struct {
 }
 
 func (ReplicationProtectionContainerMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProtectionContainerMappingOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReplicationProtectionContainerMapping)(nil))
 }
 
 func (o ReplicationProtectionContainerMappingOutput) ToReplicationProtectionContainerMappingOutput() ReplicationProtectionContainerMappingOutput {

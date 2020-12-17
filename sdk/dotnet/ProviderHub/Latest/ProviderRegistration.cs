@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
     /// <summary>
     /// Latest API Version: 2020-11-20.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:providerhub/latest:ProviderRegistration")]
     public partial class ProviderRegistration : Pulumi.CustomResource
     {
         /// <summary>

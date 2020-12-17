@@ -136,15 +136,15 @@ type SynchronizationSettingInput interface {
 	ToSynchronizationSettingOutputWithContext(ctx context.Context) SynchronizationSettingOutput
 }
 
-func (SynchronizationSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*SynchronizationSetting)(nil)).Elem()
+func (*SynchronizationSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*SynchronizationSetting)(nil))
 }
 
-func (i SynchronizationSetting) ToSynchronizationSettingOutput() SynchronizationSettingOutput {
+func (i *SynchronizationSetting) ToSynchronizationSettingOutput() SynchronizationSettingOutput {
 	return i.ToSynchronizationSettingOutputWithContext(context.Background())
 }
 
-func (i SynchronizationSetting) ToSynchronizationSettingOutputWithContext(ctx context.Context) SynchronizationSettingOutput {
+func (i *SynchronizationSetting) ToSynchronizationSettingOutputWithContext(ctx context.Context) SynchronizationSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SynchronizationSettingOutput)
 }
 
@@ -153,7 +153,7 @@ type SynchronizationSettingOutput struct {
 }
 
 func (SynchronizationSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SynchronizationSettingOutput)(nil)).Elem()
+	return reflect.TypeOf((*SynchronizationSetting)(nil))
 }
 
 func (o SynchronizationSettingOutput) ToSynchronizationSettingOutput() SynchronizationSettingOutput {

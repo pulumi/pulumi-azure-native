@@ -151,15 +151,15 @@ type DelegatedSubnetServiceDetailsInput interface {
 	ToDelegatedSubnetServiceDetailsOutputWithContext(ctx context.Context) DelegatedSubnetServiceDetailsOutput
 }
 
-func (DelegatedSubnetServiceDetails) ElementType() reflect.Type {
-	return reflect.TypeOf((*DelegatedSubnetServiceDetails)(nil)).Elem()
+func (*DelegatedSubnetServiceDetails) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegatedSubnetServiceDetails)(nil))
 }
 
-func (i DelegatedSubnetServiceDetails) ToDelegatedSubnetServiceDetailsOutput() DelegatedSubnetServiceDetailsOutput {
+func (i *DelegatedSubnetServiceDetails) ToDelegatedSubnetServiceDetailsOutput() DelegatedSubnetServiceDetailsOutput {
 	return i.ToDelegatedSubnetServiceDetailsOutputWithContext(context.Background())
 }
 
-func (i DelegatedSubnetServiceDetails) ToDelegatedSubnetServiceDetailsOutputWithContext(ctx context.Context) DelegatedSubnetServiceDetailsOutput {
+func (i *DelegatedSubnetServiceDetails) ToDelegatedSubnetServiceDetailsOutputWithContext(ctx context.Context) DelegatedSubnetServiceDetailsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DelegatedSubnetServiceDetailsOutput)
 }
 
@@ -168,7 +168,7 @@ type DelegatedSubnetServiceDetailsOutput struct {
 }
 
 func (DelegatedSubnetServiceDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DelegatedSubnetServiceDetailsOutput)(nil)).Elem()
+	return reflect.TypeOf((*DelegatedSubnetServiceDetails)(nil))
 }
 
 func (o DelegatedSubnetServiceDetailsOutput) ToDelegatedSubnetServiceDetailsOutput() DelegatedSubnetServiceDetailsOutput {

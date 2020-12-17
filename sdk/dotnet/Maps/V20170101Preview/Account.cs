@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Maps.V20170101Preview
     /// <summary>
     /// An Azure resource which represents access to a suite of Maps REST APIs.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:maps/v20170101preview:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

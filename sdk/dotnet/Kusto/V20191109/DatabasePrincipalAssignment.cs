@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20191109
     /// <summary>
     /// Class representing a database principal assignment.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment")]
     public partial class DatabasePrincipalAssignment : Pulumi.CustomResource
     {
         /// <summary>

@@ -161,15 +161,15 @@ type MaintenanceConfigurationInput interface {
 	ToMaintenanceConfigurationOutputWithContext(ctx context.Context) MaintenanceConfigurationOutput
 }
 
-func (MaintenanceConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceConfiguration)(nil)).Elem()
+func (*MaintenanceConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceConfiguration)(nil))
 }
 
-func (i MaintenanceConfiguration) ToMaintenanceConfigurationOutput() MaintenanceConfigurationOutput {
+func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutput() MaintenanceConfigurationOutput {
 	return i.ToMaintenanceConfigurationOutputWithContext(context.Background())
 }
 
-func (i MaintenanceConfiguration) ToMaintenanceConfigurationOutputWithContext(ctx context.Context) MaintenanceConfigurationOutput {
+func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutputWithContext(ctx context.Context) MaintenanceConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceConfigurationOutput)
 }
 
@@ -178,7 +178,7 @@ type MaintenanceConfigurationOutput struct {
 }
 
 func (MaintenanceConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*MaintenanceConfiguration)(nil))
 }
 
 func (o MaintenanceConfigurationOutput) ToMaintenanceConfigurationOutput() MaintenanceConfigurationOutput {

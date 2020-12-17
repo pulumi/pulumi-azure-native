@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
     /// The relationship link resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:RelationshipLink")]
     public partial class RelationshipLink : Pulumi.CustomResource
     {
         /// <summary>

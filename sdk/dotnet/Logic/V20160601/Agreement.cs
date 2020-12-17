@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
     /// <summary>
     /// The integration account agreement.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:logic/v20160601:Agreement")]
     public partial class Agreement : Pulumi.CustomResource
     {
         /// <summary>

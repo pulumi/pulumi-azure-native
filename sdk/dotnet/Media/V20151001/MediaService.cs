@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Media.V20151001
     /// <summary>
     /// The properties of a Media Service resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:media/v20151001:MediaService")]
     public partial class MediaService : Pulumi.CustomResource
     {
         /// <summary>

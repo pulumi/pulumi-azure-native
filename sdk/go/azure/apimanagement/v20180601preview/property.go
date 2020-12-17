@@ -173,15 +173,15 @@ type PropertyInput interface {
 	ToPropertyOutputWithContext(ctx context.Context) PropertyOutput
 }
 
-func (Property) ElementType() reflect.Type {
-	return reflect.TypeOf((*Property)(nil)).Elem()
+func (*Property) ElementType() reflect.Type {
+	return reflect.TypeOf((*Property)(nil))
 }
 
-func (i Property) ToPropertyOutput() PropertyOutput {
+func (i *Property) ToPropertyOutput() PropertyOutput {
 	return i.ToPropertyOutputWithContext(context.Background())
 }
 
-func (i Property) ToPropertyOutputWithContext(ctx context.Context) PropertyOutput {
+func (i *Property) ToPropertyOutputWithContext(ctx context.Context) PropertyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PropertyOutput)
 }
 
@@ -190,7 +190,7 @@ type PropertyOutput struct {
 }
 
 func (PropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PropertyOutput)(nil)).Elem()
+	return reflect.TypeOf((*Property)(nil))
 }
 
 func (o PropertyOutput) ToPropertyOutput() PropertyOutput {

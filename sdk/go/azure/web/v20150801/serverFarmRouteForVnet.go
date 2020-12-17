@@ -235,15 +235,15 @@ type ServerFarmRouteForVnetInput interface {
 	ToServerFarmRouteForVnetOutputWithContext(ctx context.Context) ServerFarmRouteForVnetOutput
 }
 
-func (ServerFarmRouteForVnet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFarmRouteForVnet)(nil)).Elem()
+func (*ServerFarmRouteForVnet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerFarmRouteForVnet)(nil))
 }
 
-func (i ServerFarmRouteForVnet) ToServerFarmRouteForVnetOutput() ServerFarmRouteForVnetOutput {
+func (i *ServerFarmRouteForVnet) ToServerFarmRouteForVnetOutput() ServerFarmRouteForVnetOutput {
 	return i.ToServerFarmRouteForVnetOutputWithContext(context.Background())
 }
 
-func (i ServerFarmRouteForVnet) ToServerFarmRouteForVnetOutputWithContext(ctx context.Context) ServerFarmRouteForVnetOutput {
+func (i *ServerFarmRouteForVnet) ToServerFarmRouteForVnetOutputWithContext(ctx context.Context) ServerFarmRouteForVnetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerFarmRouteForVnetOutput)
 }
 
@@ -252,7 +252,7 @@ type ServerFarmRouteForVnetOutput struct {
 }
 
 func (ServerFarmRouteForVnetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFarmRouteForVnetOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerFarmRouteForVnet)(nil))
 }
 
 func (o ServerFarmRouteForVnetOutput) ToServerFarmRouteForVnetOutput() ServerFarmRouteForVnetOutput {

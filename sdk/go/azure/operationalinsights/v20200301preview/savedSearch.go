@@ -207,15 +207,15 @@ type SavedSearchInput interface {
 	ToSavedSearchOutputWithContext(ctx context.Context) SavedSearchOutput
 }
 
-func (SavedSearch) ElementType() reflect.Type {
-	return reflect.TypeOf((*SavedSearch)(nil)).Elem()
+func (*SavedSearch) ElementType() reflect.Type {
+	return reflect.TypeOf((*SavedSearch)(nil))
 }
 
-func (i SavedSearch) ToSavedSearchOutput() SavedSearchOutput {
+func (i *SavedSearch) ToSavedSearchOutput() SavedSearchOutput {
 	return i.ToSavedSearchOutputWithContext(context.Background())
 }
 
-func (i SavedSearch) ToSavedSearchOutputWithContext(ctx context.Context) SavedSearchOutput {
+func (i *SavedSearch) ToSavedSearchOutputWithContext(ctx context.Context) SavedSearchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchOutput)
 }
 
@@ -224,7 +224,7 @@ type SavedSearchOutput struct {
 }
 
 func (SavedSearchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SavedSearchOutput)(nil)).Elem()
+	return reflect.TypeOf((*SavedSearch)(nil))
 }
 
 func (o SavedSearchOutput) ToSavedSearchOutput() SavedSearchOutput {

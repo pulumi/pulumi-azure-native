@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416
     /// <summary>
     /// The Log Search Rule resource.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:insights/v20180416:ScheduledQueryRule")]
     public partial class ScheduledQueryRule : Pulumi.CustomResource
     {
         /// <summary>

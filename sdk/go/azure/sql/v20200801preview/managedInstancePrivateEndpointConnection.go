@@ -136,15 +136,15 @@ type ManagedInstancePrivateEndpointConnectionInput interface {
 	ToManagedInstancePrivateEndpointConnectionOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointConnectionOutput
 }
 
-func (ManagedInstancePrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstancePrivateEndpointConnection)(nil)).Elem()
+func (*ManagedInstancePrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstancePrivateEndpointConnection)(nil))
 }
 
-func (i ManagedInstancePrivateEndpointConnection) ToManagedInstancePrivateEndpointConnectionOutput() ManagedInstancePrivateEndpointConnectionOutput {
+func (i *ManagedInstancePrivateEndpointConnection) ToManagedInstancePrivateEndpointConnectionOutput() ManagedInstancePrivateEndpointConnectionOutput {
 	return i.ToManagedInstancePrivateEndpointConnectionOutputWithContext(context.Background())
 }
 
-func (i ManagedInstancePrivateEndpointConnection) ToManagedInstancePrivateEndpointConnectionOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointConnectionOutput {
+func (i *ManagedInstancePrivateEndpointConnection) ToManagedInstancePrivateEndpointConnectionOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePrivateEndpointConnectionOutput)
 }
 
@@ -153,7 +153,7 @@ type ManagedInstancePrivateEndpointConnectionOutput struct {
 }
 
 func (ManagedInstancePrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstancePrivateEndpointConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedInstancePrivateEndpointConnection)(nil))
 }
 
 func (o ManagedInstancePrivateEndpointConnectionOutput) ToManagedInstancePrivateEndpointConnectionOutput() ManagedInstancePrivateEndpointConnectionOutput {

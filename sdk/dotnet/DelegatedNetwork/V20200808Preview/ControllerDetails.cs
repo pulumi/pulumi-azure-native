@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
     /// <summary>
     /// Represents an instance of a DNC controller.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails")]
     public partial class ControllerDetails : Pulumi.CustomResource
     {
         /// <summary>

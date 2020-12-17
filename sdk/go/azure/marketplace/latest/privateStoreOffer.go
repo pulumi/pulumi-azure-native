@@ -192,15 +192,15 @@ type PrivateStoreOfferInput interface {
 	ToPrivateStoreOfferOutputWithContext(ctx context.Context) PrivateStoreOfferOutput
 }
 
-func (PrivateStoreOffer) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateStoreOffer)(nil)).Elem()
+func (*PrivateStoreOffer) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateStoreOffer)(nil))
 }
 
-func (i PrivateStoreOffer) ToPrivateStoreOfferOutput() PrivateStoreOfferOutput {
+func (i *PrivateStoreOffer) ToPrivateStoreOfferOutput() PrivateStoreOfferOutput {
 	return i.ToPrivateStoreOfferOutputWithContext(context.Background())
 }
 
-func (i PrivateStoreOffer) ToPrivateStoreOfferOutputWithContext(ctx context.Context) PrivateStoreOfferOutput {
+func (i *PrivateStoreOffer) ToPrivateStoreOfferOutputWithContext(ctx context.Context) PrivateStoreOfferOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateStoreOfferOutput)
 }
 
@@ -209,7 +209,7 @@ type PrivateStoreOfferOutput struct {
 }
 
 func (PrivateStoreOfferOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateStoreOfferOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateStoreOffer)(nil))
 }
 
 func (o PrivateStoreOfferOutput) ToPrivateStoreOfferOutput() PrivateStoreOfferOutput {

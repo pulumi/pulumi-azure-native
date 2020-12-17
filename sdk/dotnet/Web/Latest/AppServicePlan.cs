@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// App Service plan.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:web/latest:AppServicePlan")]
     public partial class AppServicePlan : Pulumi.CustomResource
     {
         /// <summary>

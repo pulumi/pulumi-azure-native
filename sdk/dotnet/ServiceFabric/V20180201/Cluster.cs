@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20180201
     /// <summary>
     /// The cluster resource
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:servicefabric/v20180201:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

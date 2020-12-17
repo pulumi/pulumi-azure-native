@@ -178,15 +178,15 @@ type SqlResourceSqlStoredProcedureInput interface {
 	ToSqlResourceSqlStoredProcedureOutputWithContext(ctx context.Context) SqlResourceSqlStoredProcedureOutput
 }
 
-func (SqlResourceSqlStoredProcedure) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlStoredProcedure)(nil)).Elem()
+func (*SqlResourceSqlStoredProcedure) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlStoredProcedure)(nil))
 }
 
-func (i SqlResourceSqlStoredProcedure) ToSqlResourceSqlStoredProcedureOutput() SqlResourceSqlStoredProcedureOutput {
+func (i *SqlResourceSqlStoredProcedure) ToSqlResourceSqlStoredProcedureOutput() SqlResourceSqlStoredProcedureOutput {
 	return i.ToSqlResourceSqlStoredProcedureOutputWithContext(context.Background())
 }
 
-func (i SqlResourceSqlStoredProcedure) ToSqlResourceSqlStoredProcedureOutputWithContext(ctx context.Context) SqlResourceSqlStoredProcedureOutput {
+func (i *SqlResourceSqlStoredProcedure) ToSqlResourceSqlStoredProcedureOutputWithContext(ctx context.Context) SqlResourceSqlStoredProcedureOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlStoredProcedureOutput)
 }
 
@@ -195,7 +195,7 @@ type SqlResourceSqlStoredProcedureOutput struct {
 }
 
 func (SqlResourceSqlStoredProcedureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlStoredProcedureOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlResourceSqlStoredProcedure)(nil))
 }
 
 func (o SqlResourceSqlStoredProcedureOutput) ToSqlResourceSqlStoredProcedureOutput() SqlResourceSqlStoredProcedureOutput {

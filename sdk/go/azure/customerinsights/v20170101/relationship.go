@@ -225,15 +225,15 @@ type RelationshipInput interface {
 	ToRelationshipOutputWithContext(ctx context.Context) RelationshipOutput
 }
 
-func (Relationship) ElementType() reflect.Type {
-	return reflect.TypeOf((*Relationship)(nil)).Elem()
+func (*Relationship) ElementType() reflect.Type {
+	return reflect.TypeOf((*Relationship)(nil))
 }
 
-func (i Relationship) ToRelationshipOutput() RelationshipOutput {
+func (i *Relationship) ToRelationshipOutput() RelationshipOutput {
 	return i.ToRelationshipOutputWithContext(context.Background())
 }
 
-func (i Relationship) ToRelationshipOutputWithContext(ctx context.Context) RelationshipOutput {
+func (i *Relationship) ToRelationshipOutputWithContext(ctx context.Context) RelationshipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RelationshipOutput)
 }
 
@@ -242,7 +242,7 @@ type RelationshipOutput struct {
 }
 
 func (RelationshipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipOutput)(nil)).Elem()
+	return reflect.TypeOf((*Relationship)(nil))
 }
 
 func (o RelationshipOutput) ToRelationshipOutput() RelationshipOutput {

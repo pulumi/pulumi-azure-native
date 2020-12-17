@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20170131
     /// <summary>
     /// Container service.
     /// </summary>
+    [AzureNextGenResourceType("azure-nextgen:containerservice/v20170131:ContainerService")]
     public partial class ContainerService : Pulumi.CustomResource
     {
         /// <summary>
