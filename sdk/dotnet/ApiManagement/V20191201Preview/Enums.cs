@@ -757,6 +757,36 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
     }
 
     /// <summary>
+    /// Provisioning state.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProvisioningState : IEquatable<ProvisioningState>
+    {
+        private readonly string _value;
+
+        private ProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProvisioningState Created { get; } = new ProvisioningState("created");
+
+        public static bool operator ==(ProvisioningState left, ProvisioningState right) => left.Equals(right);
+        public static bool operator !=(ProvisioningState left, ProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(ProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProvisioningState other && Equals(other);
+        public bool Equals(ProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Sampling type.
     /// </summary>
     [EnumType]

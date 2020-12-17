@@ -27,6 +27,7 @@ export * from "./contentType";
 export * from "./diagnostic";
 export * from "./emailTemplate";
 export * from "./gateway";
+export * from "./gatewayApiEntityTag";
 export * from "./gatewayHostnameConfiguration";
 export * from "./getApi";
 export * from "./getApiDiagnostic";
@@ -67,6 +68,7 @@ export * from "./getTagByOperation";
 export * from "./getTagByProduct";
 export * from "./getUser";
 export * from "./group";
+export * from "./groupUser";
 export * from "./identityProvider";
 export * from "./listAuthorizationServerSecrets";
 export * from "./listDelegationSettingSecrets";
@@ -79,9 +81,13 @@ export * from "./listTenantAccessGitSecrets";
 export * from "./listTenantAccessSecrets";
 export * from "./logger";
 export * from "./namedValue";
+export * from "./notificationRecipientEmail";
+export * from "./notificationRecipientUser";
 export * from "./openIdConnectProvider";
 export * from "./policy";
 export * from "./product";
+export * from "./productApi";
+export * from "./productGroup";
 export * from "./productPolicy";
 export * from "./subscription";
 export * from "./tag";
@@ -116,14 +122,20 @@ import { ContentType } from "./contentType";
 import { Diagnostic } from "./diagnostic";
 import { EmailTemplate } from "./emailTemplate";
 import { Gateway } from "./gateway";
+import { GatewayApiEntityTag } from "./gatewayApiEntityTag";
 import { GatewayHostnameConfiguration } from "./gatewayHostnameConfiguration";
 import { Group } from "./group";
+import { GroupUser } from "./groupUser";
 import { IdentityProvider } from "./identityProvider";
 import { Logger } from "./logger";
 import { NamedValue } from "./namedValue";
+import { NotificationRecipientEmail } from "./notificationRecipientEmail";
+import { NotificationRecipientUser } from "./notificationRecipientUser";
 import { OpenIdConnectProvider } from "./openIdConnectProvider";
 import { Policy } from "./policy";
 import { Product } from "./product";
+import { ProductApi } from "./productApi";
+import { ProductGroup } from "./productGroup";
 import { ProductPolicy } from "./productPolicy";
 import { Subscription } from "./subscription";
 import { Tag } from "./tag";
@@ -180,22 +192,34 @@ const _module = {
                 return new EmailTemplate(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag":
+                return new GatewayApiEntityTag(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration":
                 return new GatewayHostnameConfiguration(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20200601preview:GroupUser":
+                return new GroupUser(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:IdentityProvider":
                 return new IdentityProvider(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:Logger":
                 return new Logger(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:NamedValue":
                 return new NamedValue(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20200601preview:NotificationRecipientEmail":
+                return new NotificationRecipientEmail(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20200601preview:NotificationRecipientUser":
+                return new NotificationRecipientUser(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:OpenIdConnectProvider":
                 return new OpenIdConnectProvider(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:Product":
                 return new Product(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20200601preview:ProductApi":
+                return new ProductApi(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20200601preview:ProductGroup":
+                return new ProductGroup(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:ProductPolicy":
                 return new ProductPolicy(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:Subscription":

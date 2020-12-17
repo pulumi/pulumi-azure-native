@@ -682,7 +682,14 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
 
-	response, err := k.azureGet(ctx, id, res.APIVersion)
+	var response map[string]interface{}
+	switch {
+	case res.ReadWithHead:
+		err = k.azureHead(ctx, id, res.APIVersion)
+		response = oldState.Mappable()
+	default:
+		response, err = k.azureGet(ctx, id, res.APIVersion)
+	}
 	if err != nil {
 		if reqErr, ok := err.(*azure.RequestError); ok && reqErr.StatusCode == http.StatusNotFound {
 			// 404 means that the resource was deleted.
@@ -917,13 +924,17 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 	queryParameters map[string]interface{},
 	asyncStyle string) (map[string]interface{}, error) {
 
-	preparer := autorest.CreatePreparer(
+	decorators := []autorest.PrepareDecorator{
 		autorest.AsContentType("application/json; charset=utf-8"),
 		autorest.AsPut(),
 		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
-		autorest.WithJSON(bodyProps),
-		autorest.WithQueryParameters(queryParameters))
+		autorest.WithQueryParameters(queryParameters),
+	}
+	if bodyProps != nil {
+		decorators = append(decorators, autorest.WithJSON(bodyProps))
+	}
+	preparer := autorest.CreatePreparer(decorators...)
 	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
 	if err != nil {
 		return nil, err
@@ -1028,8 +1039,12 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 	queryParameters := map[string]interface{}{
 		"api-version": res.APIVersion,
 	}
+	op := autorest.AsGet()
+	if res.ReadWithHead {
+		op = autorest.AsHead()
+	}
 	preparer := autorest.CreatePreparer(
-		autorest.AsGet(),
+		op,
 		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithQueryParameters(queryParameters))
@@ -1072,7 +1087,7 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 			return fmt.Errorf("cannot create already existing subresource '%s'", id)
 		}
 		return nil
-	case http.StatusOK == resp.StatusCode:
+	case http.StatusOK == resp.StatusCode || http.StatusNoContent == resp.StatusCode:
 		return fmt.Errorf("cannot create already existing resource '%s'", id)
 	case http.StatusNotFound == resp.StatusCode:
 		return nil
@@ -1081,6 +1096,35 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 		body, _ := ioutil.ReadAll(resp.Body)
 		return fmt.Errorf("cannot check existence of resource '%s': status code %d, %s", id, resp.StatusCode, body)
 	}
+}
+
+func (k *azureNextGenProvider) azureHead(ctx context.Context, id string, apiVersion string) error {
+	queryParameters := map[string]interface{}{
+		"api-version": apiVersion,
+	}
+	preparer := autorest.CreatePreparer(
+		autorest.AsHead(),
+		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
+		autorest.WithPath(id),
+		autorest.WithQueryParameters(queryParameters))
+	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
+	if err != nil {
+		return err
+	}
+	resp, err := autorest.SendWithSender(
+		k.client,
+		prepReq,
+		azure.DoRetryWithRegistration(k.client),
+	)
+	if err != nil {
+		return err
+	}
+	err = autorest.Respond(
+		resp,
+		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
+		forceRequestErrorForStatusNotFound,
+		autorest.ByClosing())
+	return err
 }
 
 func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
@@ -1184,7 +1228,7 @@ func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []
 	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
 	params := map[string]map[string]interface{}{
-		"body": {},
+		"body": nil,
 		"query": {
 			"api-version": clientInputs["api-version"],
 		},

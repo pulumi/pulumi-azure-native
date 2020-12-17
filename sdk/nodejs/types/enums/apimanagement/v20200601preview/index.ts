@@ -371,6 +371,15 @@ export const Protocol = {
 
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
+export const ProvisioningState = {
+    Created: "created",
+} as const;
+
+/**
+ * Provisioning state.
+ */
+export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
+
 export const SamplingType = {
     /**
      * Fixed-rate sampling.

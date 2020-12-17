@@ -207,23 +207,34 @@ func addAPIPath(providers AzureProviders, path string, swagger *Spec) {
 	}
 
 	// Add a resource entry.
-	if pathItem.Put != nil && !pathItem.Put.Deprecated &&
-		pathItem.Get != nil && !pathItem.Get.Deprecated {
-		defaultBody, hasDefault := defaultResourcesStateNormalized[normalizePath(path)]
+	if pathItem.Put != nil && !pathItem.Put.Deprecated {
 		hasDelete := pathItem.Delete != nil && !pathItem.Delete.Deprecated
 
-		if hasDefault && hasDelete && containsNonEmptyCollections(defaultBody) {
-			// See the limitation in `SdkShapeConverter.isDefaultResponse()`
-			panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported for deletable resources", path))
-		}
+		switch {
+		case pathItem.Get != nil && !pathItem.Get.Deprecated:
+			defaultBody, hasDefault := defaultResourcesStateNormalized[normalizePath(path)]
+			if hasDefault && hasDelete && containsNonEmptyCollections(defaultBody) {
+				// See the limitation in `SdkShapeConverter.isDefaultResponse()`
+				panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported for deletable resources", path))
+			}
 
-		typeName := resources.ResourceName(pathItem.Get.ID)
-		if typeName != "" && (hasDelete || hasDefault) {
-			version.Resources[typeName] = &ResourceSpec{
-				Path:        path,
-				PathItem:    &pathItem,
-				Swagger:     swagger,
-				DefaultBody: defaultBody,
+			typeName := resources.ResourceName(pathItem.Get.ID)
+			if typeName != "" && (hasDelete || hasDefault) {
+				version.Resources[typeName] = &ResourceSpec{
+					Path:        path,
+					PathItem:    &pathItem,
+					Swagger:     swagger,
+					DefaultBody: defaultBody,
+				}
+			}
+		case pathItem.Head != nil && !pathItem.Head.Deprecated:
+			typeName := resources.ResourceName(pathItem.Head.ID)
+			if typeName != "" && hasDelete {
+				version.Resources[typeName] = &ResourceSpec{
+					Path:        path,
+					PathItem:    &pathItem,
+					Swagger:     swagger,
+				}
 			}
 		}
 	}

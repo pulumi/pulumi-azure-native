@@ -54,7 +54,6 @@ type AzureAPIType struct {
 type AzureAPIResource struct {
 	APIVersion    string                      `json:"apiVersion"`
 	Path          string                      `json:"path"`
-	GetParameters []AzureAPIParameter         `json:"GET"`
 	PutParameters []AzureAPIParameter         `json:"PUT"`
 	Response      map[string]AzureAPIProperty `json:"response"`
 	// A singleton resource is created by Azure with its parent.
@@ -72,6 +71,8 @@ type AzureAPIResource struct {
 	// https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
 	PutAsyncStyle    string `json:"putAsyncStyle,omitempty"`
 	DeleteAsyncStyle string `json:"deleteAsyncStyle,omitempty"`
+	// GET operation is not defined for this resource: use HEAD to check its existence.
+	ReadWithHead bool `json:"readWithHead,omitempty"`
 }
 
 // AzureAPIExample provides a pointer to examples relevant to a resource from the Azure REST API spec.
@@ -136,7 +137,7 @@ func ResourceProvider(path string) string {
 	return "Resources"
 }
 
-var verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "List", "", "list", "")
+var verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "List", "", "list", "", "CheckEntityExists", "")
 var wellKnownNames = map[string]string{
 	"Redis":               "Redis",
 	"Caches":              "Cache",

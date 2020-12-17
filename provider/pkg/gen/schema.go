@@ -423,54 +423,61 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, typeName)
 
-	parameters = swagger.MergeParameters(path.Get.Parameters, path.Parameters)
+	op := path.Get
+	if op == nil {
+		op = path.Head
+	}
+
+	parameters = swagger.MergeParameters(op.Parameters, path.Parameters)
 	requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
 	}
-	responseFunction, err := gen.genResponse(path.Get.Responses.StatusCodeResponses, swagger.ReferenceContext)
+	responseFunction, err := gen.genResponse(op.Responses.StatusCodeResponses, swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
 		return
 	}
 
-	functionSpec := pschema.FunctionSpec{
-		Inputs: &pschema.ObjectTypeSpec{
-			Description: requestFunction.description,
-			Type:        "object",
-			Properties:  requestFunction.specs,
-			Required:    requestFunction.requiredSpecs.SortedValues(),
-		},
-		Outputs: &pschema.ObjectTypeSpec{
-			Description: responseFunction.description,
-			Type:        "object",
-			Properties:  responseFunction.specs,
-			Required:    responseFunction.requiredSpecs.SortedValues(),
-		},
+	if path.Get != nil {
+		functionSpec := pschema.FunctionSpec{
+			Inputs: &pschema.ObjectTypeSpec{
+				Description: requestFunction.description,
+				Type:        "object",
+				Properties:  requestFunction.specs,
+				Required:    requestFunction.requiredSpecs.SortedValues(),
+			},
+			Outputs: &pschema.ObjectTypeSpec{
+				Description: responseFunction.description,
+				Type:        "object",
+				Properties:  responseFunction.specs,
+				Required:    responseFunction.requiredSpecs.SortedValues(),
+			},
+		}
+		g.pkg.Functions[functionTok] = functionSpec
+
+		f := resources.AzureAPIInvoke{
+			APIVersion:    swagger.Info.Version,
+			Path:          resource.Path,
+			GetParameters: requestFunction.parameters,
+			Response:      responseFunction.properties,
+		}
+		g.metadata.Invokes[functionTok] = f
 	}
-	g.pkg.Functions[functionTok] = functionSpec
 
 	r := resources.AzureAPIResource{
 		APIVersion:       swagger.Info.Version,
 		Path:             resource.Path,
-		GetParameters:    requestFunction.parameters,
 		PutParameters:    resourceRequest.parameters,
 		Response:         resourceResponse.properties,
 		DefaultBody:      resource.DefaultBody,
 		Singleton:        resource.PathItem.Delete == nil,
 		PutAsyncStyle:    g.getAsyncStyle(resource.PathItem.Put),
 		DeleteAsyncStyle: g.getAsyncStyle(resource.PathItem.Delete),
+		ReadWithHead:     resource.PathItem.Get == nil,
 	}
 	g.metadata.Resources[resourceTok] = r
-
-	f := resources.AzureAPIInvoke{
-		APIVersion:    swagger.Info.Version,
-		Path:          resource.Path,
-		GetParameters: requestFunction.parameters,
-		Response:      responseFunction.properties,
-	}
-	g.metadata.Invokes[functionTok] = f
 
 	g.generateExampleReferences(resourceTok, path, swagger)
 }

@@ -58,11 +58,16 @@ from .get_tag_by_operation import *
 from .get_tag_by_product import *
 from .get_user import *
 from .group import *
+from .group_user import *
 from .identity_provider import *
 from .logger import *
+from .notification_recipient_email import *
+from .notification_recipient_user import *
 from .open_id_connect_provider import *
 from .policy import *
 from .product import *
+from .product_api import *
+from .product_group import *
 from .product_policy import *
 from .property import *
 from .subscription import *
@@ -126,16 +131,26 @@ def _register_module():
                 return EmailTemplate(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20190101:Group":
                 return Group(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20190101:GroupUser":
+                return GroupUser(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20190101:IdentityProvider":
                 return IdentityProvider(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20190101:Logger":
                 return Logger(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20190101:NotificationRecipientEmail":
+                return NotificationRecipientEmail(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20190101:NotificationRecipientUser":
+                return NotificationRecipientUser(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20190101:OpenIdConnectProvider":
                 return OpenIdConnectProvider(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20190101:Policy":
                 return Policy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20190101:Product":
                 return Product(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20190101:ProductApi":
+                return ProductApi(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20190101:ProductGroup":
+                return ProductGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20190101:ProductPolicy":
                 return ProductPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20190101:Property":

@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./api";
 export * from "./apiDiagnostic";
+export * from "./apiDiagnosticLogger";
 export * from "./apiIssue";
 export * from "./apiIssueAttachment";
 export * from "./apiIssueComment";
@@ -25,8 +26,10 @@ export * from "./certificate";
 export * from "./contentItem";
 export * from "./contentType";
 export * from "./diagnostic";
+export * from "./diagnosticLogger";
 export * from "./emailTemplate";
 export * from "./gateway";
+export * from "./gatewayApiEntityTag";
 export * from "./gatewayHostnameConfiguration";
 export * from "./getApi";
 export * from "./getApiDiagnostic";
@@ -68,6 +71,7 @@ export * from "./getTagByOperation";
 export * from "./getTagByProduct";
 export * from "./getUser";
 export * from "./group";
+export * from "./groupUser";
 export * from "./identityProvider";
 export * from "./listAuthorizationServerSecrets";
 export * from "./listDelegationSettingSecrets";
@@ -80,9 +84,13 @@ export * from "./listTenantAccessGitSecrets";
 export * from "./listTenantAccessSecrets";
 export * from "./logger";
 export * from "./namedValue";
+export * from "./notificationRecipientEmail";
+export * from "./notificationRecipientUser";
 export * from "./openIdConnectProvider";
 export * from "./policy";
 export * from "./product";
+export * from "./productApi";
+export * from "./productGroup";
 export * from "./productPolicy";
 export * from "./property";
 export * from "./subscription";
@@ -98,6 +106,7 @@ export * from "../../types/enums/apimanagement/latest";
 // Import resources to register:
 import { Api } from "./api";
 import { ApiDiagnostic } from "./apiDiagnostic";
+import { ApiDiagnosticLogger } from "./apiDiagnosticLogger";
 import { ApiIssue } from "./apiIssue";
 import { ApiIssueAttachment } from "./apiIssueAttachment";
 import { ApiIssueComment } from "./apiIssueComment";
@@ -116,16 +125,23 @@ import { Certificate } from "./certificate";
 import { ContentItem } from "./contentItem";
 import { ContentType } from "./contentType";
 import { Diagnostic } from "./diagnostic";
+import { DiagnosticLogger } from "./diagnosticLogger";
 import { EmailTemplate } from "./emailTemplate";
 import { Gateway } from "./gateway";
+import { GatewayApiEntityTag } from "./gatewayApiEntityTag";
 import { GatewayHostnameConfiguration } from "./gatewayHostnameConfiguration";
 import { Group } from "./group";
+import { GroupUser } from "./groupUser";
 import { IdentityProvider } from "./identityProvider";
 import { Logger } from "./logger";
 import { NamedValue } from "./namedValue";
+import { NotificationRecipientEmail } from "./notificationRecipientEmail";
+import { NotificationRecipientUser } from "./notificationRecipientUser";
 import { OpenIdConnectProvider } from "./openIdConnectProvider";
 import { Policy } from "./policy";
 import { Product } from "./product";
+import { ProductApi } from "./productApi";
+import { ProductGroup } from "./productGroup";
 import { ProductPolicy } from "./productPolicy";
 import { Property } from "./property";
 import { Subscription } from "./subscription";
@@ -143,6 +159,8 @@ const _module = {
                 return new Api(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:ApiDiagnostic":
                 return new ApiDiagnostic(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/latest:ApiDiagnosticLogger":
+                return new ApiDiagnosticLogger(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:ApiIssue":
                 return new ApiIssue(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:ApiIssueAttachment":
@@ -179,26 +197,40 @@ const _module = {
                 return new ContentType(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:Diagnostic":
                 return new Diagnostic(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/latest:DiagnosticLogger":
+                return new DiagnosticLogger(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:EmailTemplate":
                 return new EmailTemplate(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/latest:GatewayApiEntityTag":
+                return new GatewayApiEntityTag(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration":
                 return new GatewayHostnameConfiguration(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/latest:GroupUser":
+                return new GroupUser(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:IdentityProvider":
                 return new IdentityProvider(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:Logger":
                 return new Logger(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:NamedValue":
                 return new NamedValue(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/latest:NotificationRecipientEmail":
+                return new NotificationRecipientEmail(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/latest:NotificationRecipientUser":
+                return new NotificationRecipientUser(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:OpenIdConnectProvider":
                 return new OpenIdConnectProvider(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:Product":
                 return new Product(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/latest:ProductApi":
+                return new ProductApi(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/latest:ProductGroup":
+                return new ProductGroup(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:ProductPolicy":
                 return new ProductPolicy(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/latest:Property":
