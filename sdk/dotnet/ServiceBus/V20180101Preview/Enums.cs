@@ -7,6 +7,35 @@ using Pulumi;
 
 namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 {
+    [EnumType]
+    public readonly struct AccessRights : IEquatable<AccessRights>
+    {
+        private readonly string _value;
+
+        private AccessRights(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessRights Manage { get; } = new AccessRights("Manage");
+        public static AccessRights Send { get; } = new AccessRights("Send");
+        public static AccessRights Listen { get; } = new AccessRights("Listen");
+
+        public static bool operator ==(AccessRights left, AccessRights right) => left.Equals(right);
+        public static bool operator !=(AccessRights left, AccessRights right) => !left.Equals(right);
+
+        public static explicit operator string(AccessRights value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessRights other && Equals(other);
+        public bool Equals(AccessRights other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Default Action for Network Rule Set
     /// </summary>
@@ -66,6 +95,75 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EndPointProvisioningState other && Equals(other);
         public bool Equals(EndPointProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enumerates the possible values for the status of a messaging entity.
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityStatus : IEquatable<EntityStatus>
+    {
+        private readonly string _value;
+
+        private EntityStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EntityStatus Active { get; } = new EntityStatus("Active");
+        public static EntityStatus Disabled { get; } = new EntityStatus("Disabled");
+        public static EntityStatus Restoring { get; } = new EntityStatus("Restoring");
+        public static EntityStatus SendDisabled { get; } = new EntityStatus("SendDisabled");
+        public static EntityStatus ReceiveDisabled { get; } = new EntityStatus("ReceiveDisabled");
+        public static EntityStatus Creating { get; } = new EntityStatus("Creating");
+        public static EntityStatus Deleting { get; } = new EntityStatus("Deleting");
+        public static EntityStatus Renaming { get; } = new EntityStatus("Renaming");
+        public static EntityStatus Unknown { get; } = new EntityStatus("Unknown");
+
+        public static bool operator ==(EntityStatus left, EntityStatus right) => left.Equals(right);
+        public static bool operator !=(EntityStatus left, EntityStatus right) => !left.Equals(right);
+
+        public static explicit operator string(EntityStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityStatus other && Equals(other);
+        public bool Equals(EntityStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Filter type that is evaluated against a BrokeredMessage.
+    /// </summary>
+    [EnumType]
+    public readonly struct FilterType : IEquatable<FilterType>
+    {
+        private readonly string _value;
+
+        private FilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FilterType SqlFilter { get; } = new FilterType("SqlFilter");
+        public static FilterType CorrelationFilter { get; } = new FilterType("CorrelationFilter");
+
+        public static bool operator ==(FilterType left, FilterType right) => left.Equals(right);
+        public static bool operator !=(FilterType left, FilterType right) => !left.Equals(right);
+
+        public static explicit operator string(FilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FilterType other && Equals(other);
+        public bool Equals(FilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

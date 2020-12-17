@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
         /// </summary>
         public readonly string? Password;
         /// <summary>
+        /// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+        /// </summary>
+        public readonly ImmutableArray<string> SecurityOperators;
+        /// <summary>
         /// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
         /// </summary>
         public readonly string? ServerRootCACertificate;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
 
             string? password,
 
+            ImmutableArray<string> securityOperators,
+
             string? serverRootCACertificate,
 
             string? site,
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
             LdapSigning = ldapSigning;
             OrganizationalUnit = organizationalUnit;
             Password = password;
+            SecurityOperators = securityOperators;
             ServerRootCACertificate = serverRootCACertificate;
             Site = site;
             SmbServerName = smbServerName;

@@ -12,7 +12,7 @@ import (
 )
 
 // NetApp account resource
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-09-01.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +85,9 @@ func NewAccount(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200801:Account"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20200901:Account"),
 		},
 	})
 	opts = append(opts, aliases)

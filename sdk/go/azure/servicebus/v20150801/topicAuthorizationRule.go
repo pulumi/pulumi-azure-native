@@ -57,6 +57,9 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:TopicAuthorizationRule"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource TopicAuthorizationRule

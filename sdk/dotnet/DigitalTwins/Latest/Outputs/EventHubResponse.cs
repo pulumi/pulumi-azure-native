@@ -14,11 +14,15 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Outputs
     public sealed class EventHubResponse
     {
         /// <summary>
-        /// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
+        /// Specifies the authentication type being used for connecting to the endpoint.
         /// </summary>
-        public readonly string ConnectionStringPrimaryKey;
+        public readonly string? AuthenticationType;
         /// <summary>
-        /// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
+        /// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+        /// </summary>
+        public readonly string? ConnectionStringPrimaryKey;
+        /// <summary>
+        /// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         /// </summary>
         public readonly string? ConnectionStringSecondaryKey;
         /// <summary>
@@ -26,14 +30,26 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Outputs
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
-        /// Dead letter storage secret. Will be obfuscated during read.
+        /// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
         /// </summary>
         public readonly string? DeadLetterSecret;
+        /// <summary>
+        /// Dead letter storage URL for identity-based authentication.
+        /// </summary>
+        public readonly string? DeadLetterUri;
         /// <summary>
         /// The type of Digital Twins endpoint
         /// Expected value is 'EventHub'.
         /// </summary>
         public readonly string EndpointType;
+        /// <summary>
+        /// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+        /// </summary>
+        public readonly string? EndpointUri;
+        /// <summary>
+        /// The EventHub name in the EventHub namespace for identity-based authentication.
+        /// </summary>
+        public readonly string? EntityPath;
         /// <summary>
         /// The provisioning state.
         /// </summary>
@@ -41,7 +57,9 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Outputs
 
         [OutputConstructor]
         private EventHubResponse(
-            string connectionStringPrimaryKey,
+            string? authenticationType,
+
+            string? connectionStringPrimaryKey,
 
             string? connectionStringSecondaryKey,
 
@@ -49,15 +67,25 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Outputs
 
             string? deadLetterSecret,
 
+            string? deadLetterUri,
+
             string endpointType,
+
+            string? endpointUri,
+
+            string? entityPath,
 
             string provisioningState)
         {
+            AuthenticationType = authenticationType;
             ConnectionStringPrimaryKey = connectionStringPrimaryKey;
             ConnectionStringSecondaryKey = connectionStringSecondaryKey;
             CreatedTime = createdTime;
             DeadLetterSecret = deadLetterSecret;
+            DeadLetterUri = deadLetterUri;
             EndpointType = endpointType;
+            EndpointUri = endpointUri;
+            EntityPath = entityPath;
             ProvisioningState = provisioningState;
         }
     }

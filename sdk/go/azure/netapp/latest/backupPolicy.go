@@ -12,7 +12,7 @@ import (
 )
 
 // Backup policy information
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-09-01.
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +73,9 @@ func NewBackupPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200801:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20200901:BackupPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

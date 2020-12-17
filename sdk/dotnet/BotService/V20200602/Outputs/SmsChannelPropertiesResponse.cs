@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
         /// <summary>
         /// The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        public readonly string AuthToken;
+        public readonly string? AuthToken;
         /// <summary>
         /// Whether this channel is enabled for the bot
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
         private SmsChannelPropertiesResponse(
             string accountSID,
 
-            string authToken,
+            string? authToken,
 
             bool isEnabled,
 

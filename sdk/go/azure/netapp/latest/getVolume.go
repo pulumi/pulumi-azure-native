@@ -61,6 +61,10 @@ type LookupVolumeResult struct {
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// The service level of the file system
 	ServiceLevel *string `pulumi:"serviceLevel"`
+	// Enables continuously available share property for smb volume. Only applicable for SMB volume
+	SmbContinuouslyAvailable *bool `pulumi:"smbContinuouslyAvailable"`
+	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+	SmbEncryption *bool `pulumi:"smbEncryption"`
 	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
 	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
 	// UUID v4 or resource identifier used to identify the Snapshot.

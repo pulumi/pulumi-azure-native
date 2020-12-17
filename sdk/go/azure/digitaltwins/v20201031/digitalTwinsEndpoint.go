@@ -49,6 +49,9 @@ func NewDigitalTwinsEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DigitalTwinsEndpoint

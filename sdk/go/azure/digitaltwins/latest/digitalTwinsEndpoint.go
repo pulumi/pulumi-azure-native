@@ -12,7 +12,7 @@ import (
 )
 
 // DigitalTwinsInstance endpoint resource.
-// Latest API Version: 2020-10-31.
+// Latest API Version: 2020-12-01.
 type DigitalTwinsEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +49,9 @@ func NewDigitalTwinsEndpoint(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint"),
 		},
 	})
 	opts = append(opts, aliases)

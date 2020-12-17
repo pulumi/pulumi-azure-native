@@ -109,6 +109,14 @@ export interface GetVolumeResult {
      */
     readonly serviceLevel?: string;
     /**
+     * Enables continuously available share property for smb volume. Only applicable for SMB volume
+     */
+    readonly smbContinuouslyAvailable?: boolean;
+    /**
+     * Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+     */
+    readonly smbEncryption?: boolean;
+    /**
      * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
      */
     readonly snapshotDirectoryVisible?: boolean;

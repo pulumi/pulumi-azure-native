@@ -28,10 +28,22 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Inputs
         public Input<string>? AccessKey2 { get; set; }
 
         /// <summary>
-        /// Dead letter storage secret. Will be obfuscated during read.
+        /// Specifies the authentication type being used for connecting to the endpoint.
+        /// </summary>
+        [Input("authenticationType")]
+        public InputUnion<string, Pulumi.AzureNextGen.DigitalTwins.Latest.AuthenticationType>? AuthenticationType { get; set; }
+
+        /// <summary>
+        /// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
         /// </summary>
         [Input("deadLetterSecret")]
         public Input<string>? DeadLetterSecret { get; set; }
+
+        /// <summary>
+        /// Dead letter storage URL for identity-based authentication.
+        /// </summary>
+        [Input("deadLetterUri")]
+        public Input<string>? DeadLetterUri { get; set; }
 
         /// <summary>
         /// The type of Digital Twins endpoint

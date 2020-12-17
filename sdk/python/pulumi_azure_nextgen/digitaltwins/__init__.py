@@ -8,4 +8,5 @@ from . import (
     latest,
     v20200301preview,
     v20201031,
+    v20201201,
 )

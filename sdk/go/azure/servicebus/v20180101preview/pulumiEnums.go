@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type AccessRights pulumi.String
+
+const (
+	AccessRightsManage = AccessRights("Manage")
+	AccessRightsSend   = AccessRights("Send")
+	AccessRightsListen = AccessRights("Listen")
+)
+
+func (AccessRights) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AccessRights) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessRights) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessRights) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccessRights) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Default Action for Network Rule Set
 type DefaultAction pulumi.String
 
@@ -67,6 +95,69 @@ func (e EndPointProvisioningState) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e EndPointProvisioningState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Enumerates the possible values for the status of a messaging entity.
+type EntityStatus pulumi.String
+
+const (
+	EntityStatusActive          = EntityStatus("Active")
+	EntityStatusDisabled        = EntityStatus("Disabled")
+	EntityStatusRestoring       = EntityStatus("Restoring")
+	EntityStatusSendDisabled    = EntityStatus("SendDisabled")
+	EntityStatusReceiveDisabled = EntityStatus("ReceiveDisabled")
+	EntityStatusCreating        = EntityStatus("Creating")
+	EntityStatusDeleting        = EntityStatus("Deleting")
+	EntityStatusRenaming        = EntityStatus("Renaming")
+	EntityStatusUnknown         = EntityStatus("Unknown")
+)
+
+func (EntityStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EntityStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Filter type that is evaluated against a BrokeredMessage.
+type FilterType pulumi.String
+
+const (
+	FilterTypeSqlFilter         = FilterType("SqlFilter")
+	FilterTypeCorrelationFilter = FilterType("CorrelationFilter")
+)
+
+func (FilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e FilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

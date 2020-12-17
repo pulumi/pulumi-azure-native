@@ -12,7 +12,7 @@ import (
 )
 
 // The description of the DigitalTwins service.
-// Latest API Version: 2020-10-31.
+// Latest API Version: 2020-12-01.
 type DigitalTwin struct {
 	pulumi.CustomResourceState
 
@@ -20,14 +20,19 @@ type DigitalTwin struct {
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// Api endpoint to work with DigitalTwinsInstance.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
+	// The managed identity for the DigitalTwinsInstance.
+	Identity DigitalTwinsIdentityResponsePtrOutput `pulumi:"identity"`
 	// Time when DigitalTwinsInstance was updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// The resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// The provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Public network access for the DigitalTwinsInstance.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The resource type.
@@ -57,6 +62,9 @@ func NewDigitalTwin(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20201031:DigitalTwin"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:digitaltwins/v20201201:DigitalTwin"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DigitalTwin
@@ -85,14 +93,19 @@ type digitalTwinState struct {
 	CreatedTime *string `pulumi:"createdTime"`
 	// Api endpoint to work with DigitalTwinsInstance.
 	HostName *string `pulumi:"hostName"`
+	// The managed identity for the DigitalTwinsInstance.
+	Identity *DigitalTwinsIdentityResponse `pulumi:"identity"`
 	// Time when DigitalTwinsInstance was updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
-	Name *string `pulumi:"name"`
+	Name                       *string                             `pulumi:"name"`
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Public network access for the DigitalTwinsInstance.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
@@ -104,14 +117,19 @@ type DigitalTwinState struct {
 	CreatedTime pulumi.StringPtrInput
 	// Api endpoint to work with DigitalTwinsInstance.
 	HostName pulumi.StringPtrInput
+	// The managed identity for the DigitalTwinsInstance.
+	Identity DigitalTwinsIdentityResponsePtrInput
 	// Time when DigitalTwinsInstance was updated.
 	LastUpdatedTime pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The resource name.
-	Name pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// The provisioning state.
 	ProvisioningState pulumi.StringPtrInput
+	// Public network access for the DigitalTwinsInstance.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The resource type.
@@ -123,8 +141,13 @@ func (DigitalTwinState) ElementType() reflect.Type {
 }
 
 type digitalTwinArgs struct {
+	// The managed identity for the DigitalTwinsInstance.
+	Identity *DigitalTwinsIdentity `pulumi:"identity"`
 	// The resource location.
-	Location string `pulumi:"location"`
+	Location                   string                          `pulumi:"location"`
+	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
+	// Public network access for the DigitalTwinsInstance.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the DigitalTwinsInstance.
@@ -135,8 +158,13 @@ type digitalTwinArgs struct {
 
 // The set of arguments for constructing a DigitalTwin resource.
 type DigitalTwinArgs struct {
+	// The managed identity for the DigitalTwinsInstance.
+	Identity DigitalTwinsIdentityPtrInput
 	// The resource location.
-	Location pulumi.StringInput
+	Location                   pulumi.StringInput
+	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
+	// Public network access for the DigitalTwinsInstance.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName pulumi.StringInput
 	// The name of the DigitalTwinsInstance.

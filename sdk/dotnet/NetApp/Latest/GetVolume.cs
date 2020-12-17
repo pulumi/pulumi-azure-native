@@ -116,6 +116,14 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         public readonly string? ServiceLevel;
         /// <summary>
+        /// Enables continuously available share property for smb volume. Only applicable for SMB volume
+        /// </summary>
+        public readonly bool? SmbContinuouslyAvailable;
+        /// <summary>
+        /// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+        /// </summary>
+        public readonly bool? SmbEncryption;
+        /// <summary>
         /// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
         /// </summary>
         public readonly bool? SnapshotDirectoryVisible;
@@ -179,6 +187,10 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 
             string? serviceLevel,
 
+            bool? smbContinuouslyAvailable,
+
+            bool? smbEncryption,
+
             bool? snapshotDirectoryVisible,
 
             string? snapshotId,
@@ -211,6 +223,8 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
             ProvisioningState = provisioningState;
             SecurityStyle = securityStyle;
             ServiceLevel = serviceLevel;
+            SmbContinuouslyAvailable = smbContinuouslyAvailable;
+            SmbEncryption = smbEncryption;
             SnapshotDirectoryVisible = snapshotDirectoryVisible;
             SnapshotId = snapshotId;
             SubnetId = subnetId;

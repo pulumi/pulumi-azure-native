@@ -13,6 +13,7 @@ import * as authorization from "./authorization";
 import * as automanage from "./automanage";
 import * as automation from "./automation";
 import * as avs from "./avs";
+import * as azureactivedirectory from "./azureactivedirectory";
 import * as azurestack from "./azurestack";
 import * as batch from "./batch";
 import * as batchai from "./batchai";
@@ -97,6 +98,7 @@ import * as portal from "./portal";
 import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
+import * as purview from "./purview";
 import * as recoveryservices from "./recoveryservices";
 import * as relay from "./relay";
 import * as resources from "./resources";
@@ -138,6 +140,7 @@ export {
     automanage,
     automation,
     avs,
+    azureactivedirectory,
     azurestack,
     batch,
     batchai,
@@ -222,6 +225,7 @@ export {
     powerbi,
     powerbidedicated,
     powerplatform,
+    purview,
     recoveryservices,
     relay,
     resources,

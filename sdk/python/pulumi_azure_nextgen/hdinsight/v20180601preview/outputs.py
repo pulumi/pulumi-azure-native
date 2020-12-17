@@ -24,6 +24,7 @@ __all__ = [
     'ClusterGetPropertiesResponse',
     'ClusterIdentityResponse',
     'ClusterIdentityResponseUserAssignedIdentities',
+    'ComputeIsolationPropertiesResponse',
     'ComputeProfileResponse',
     'ConnectivityEndpointResponse',
     'DataDisksGroupsResponse',
@@ -635,6 +636,7 @@ class ClusterGetPropertiesResponse(dict):
                  cluster_id: Optional[str] = None,
                  cluster_state: Optional[str] = None,
                  cluster_version: Optional[str] = None,
+                 compute_isolation_properties: Optional['outputs.ComputeIsolationPropertiesResponse'] = None,
                  compute_profile: Optional['outputs.ComputeProfileResponse'] = None,
                  connectivity_endpoints: Optional[Sequence['outputs.ConnectivityEndpointResponse']] = None,
                  created_date: Optional[str] = None,
@@ -655,6 +657,7 @@ class ClusterGetPropertiesResponse(dict):
         :param str cluster_id: The cluster id.
         :param str cluster_state: The state of the cluster.
         :param str cluster_version: The version of the cluster.
+        :param 'ComputeIsolationPropertiesResponseArgs' compute_isolation_properties: The compute isolation properties.
         :param 'ComputeProfileResponseArgs' compute_profile: The compute profile.
         :param Sequence['ConnectivityEndpointResponseArgs'] connectivity_endpoints: The list of connectivity endpoints.
         :param str created_date: The date on which the cluster was created.
@@ -677,6 +680,8 @@ class ClusterGetPropertiesResponse(dict):
             pulumi.set(__self__, "cluster_state", cluster_state)
         if cluster_version is not None:
             pulumi.set(__self__, "cluster_version", cluster_version)
+        if compute_isolation_properties is not None:
+            pulumi.set(__self__, "compute_isolation_properties", compute_isolation_properties)
         if compute_profile is not None:
             pulumi.set(__self__, "compute_profile", compute_profile)
         if connectivity_endpoints is not None:
@@ -737,6 +742,14 @@ class ClusterGetPropertiesResponse(dict):
         The version of the cluster.
         """
         return pulumi.get(self, "cluster_version")
+
+    @property
+    @pulumi.getter(name="computeIsolationProperties")
+    def compute_isolation_properties(self) -> Optional['outputs.ComputeIsolationPropertiesResponse']:
+        """
+        The compute isolation properties.
+        """
+        return pulumi.get(self, "compute_isolation_properties")
 
     @property
     @pulumi.getter(name="computeProfile")
@@ -941,6 +954,44 @@ class ClusterIdentityResponseUserAssignedIdentities(dict):
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ComputeIsolationPropertiesResponse(dict):
+    """
+    The compute isolation properties.
+    """
+    def __init__(__self__, *,
+                 enable_compute_isolation: Optional[bool] = None,
+                 host_sku: Optional[str] = None):
+        """
+        The compute isolation properties.
+        :param bool enable_compute_isolation: The flag indicates whether enable compute isolation or not.
+        :param str host_sku: The host sku.
+        """
+        if enable_compute_isolation is not None:
+            pulumi.set(__self__, "enable_compute_isolation", enable_compute_isolation)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="enableComputeIsolation")
+    def enable_compute_isolation(self) -> Optional[bool]:
+        """
+        The flag indicates whether enable compute isolation or not.
+        """
+        return pulumi.get(self, "enable_compute_isolation")
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[str]:
+        """
+        The host sku.
+        """
+        return pulumi.get(self, "host_sku")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

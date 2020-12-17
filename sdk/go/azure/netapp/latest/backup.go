@@ -12,7 +12,7 @@ import (
 )
 
 // Backup of a Volume
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-09-01.
 type Backup struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +73,9 @@ func NewBackup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200801:Backup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20200901:Backup"),
 		},
 	})
 	opts = append(opts, aliases)

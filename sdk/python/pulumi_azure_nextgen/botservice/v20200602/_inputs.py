@@ -131,11 +131,13 @@ class BotPropertiesArgs:
                  display_name: pulumi.Input[str],
                  endpoint: pulumi.Input[str],
                  msa_app_id: pulumi.Input[str],
+                 cmek_key_vault_url: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  developer_app_insight_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
+                 is_cmek_enabled: Optional[pulumi.Input[bool]] = None,
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None):
         """
@@ -143,17 +145,21 @@ class BotPropertiesArgs:
         :param pulumi.Input[str] display_name: The Name of the bot
         :param pulumi.Input[str] endpoint: The bot's endpoint
         :param pulumi.Input[str] msa_app_id: Microsoft App Id for the bot
+        :param pulumi.Input[str] cmek_key_vault_url: The CMK Url
         :param pulumi.Input[str] description: The description of the bot
         :param pulumi.Input[str] developer_app_insight_key: The Application Insights key
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights Api Key
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights App Id
         :param pulumi.Input[str] icon_url: The Icon Url of the bot
+        :param pulumi.Input[bool] is_cmek_enabled: Whether Cmek is enabled
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: Collection of LUIS App Ids
         :param pulumi.Input[str] luis_key: The LUIS Key
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "msa_app_id", msa_app_id)
+        if cmek_key_vault_url is not None:
+            pulumi.set(__self__, "cmek_key_vault_url", cmek_key_vault_url)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if developer_app_insight_key is not None:
@@ -164,6 +170,8 @@ class BotPropertiesArgs:
             pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
         if icon_url is not None:
             pulumi.set(__self__, "icon_url", icon_url)
+        if is_cmek_enabled is not None:
+            pulumi.set(__self__, "is_cmek_enabled", is_cmek_enabled)
         if luis_app_ids is not None:
             pulumi.set(__self__, "luis_app_ids", luis_app_ids)
         if luis_key is not None:
@@ -204,6 +212,18 @@ class BotPropertiesArgs:
     @msa_app_id.setter
     def msa_app_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "msa_app_id", value)
+
+    @property
+    @pulumi.getter(name="cmekKeyVaultUrl")
+    def cmek_key_vault_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CMK Url
+        """
+        return pulumi.get(self, "cmek_key_vault_url")
+
+    @cmek_key_vault_url.setter
+    def cmek_key_vault_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cmek_key_vault_url", value)
 
     @property
     @pulumi.getter
@@ -264,6 +284,18 @@ class BotPropertiesArgs:
     @icon_url.setter
     def icon_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "icon_url", value)
+
+    @property
+    @pulumi.getter(name="isCmekEnabled")
+    def is_cmek_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Cmek is enabled
+        """
+        return pulumi.get(self, "is_cmek_enabled")
+
+    @is_cmek_enabled.setter
+    def is_cmek_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_cmek_enabled", value)
 
     @property
     @pulumi.getter(name="luisAppIds")
@@ -773,7 +805,7 @@ class EmailChannelPropertiesArgs:
     def __init__(__self__, *,
                  email_address: pulumi.Input[str],
                  is_enabled: pulumi.Input[bool],
-                 password: pulumi.Input[str]):
+                 password: Optional[pulumi.Input[str]] = None):
         """
         The parameters to provide for the Email channel.
         :param pulumi.Input[str] email_address: The email address
@@ -782,7 +814,8 @@ class EmailChannelPropertiesArgs:
         """
         pulumi.set(__self__, "email_address", email_address)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "password", password)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -810,14 +843,14 @@ class EmailChannelPropertiesArgs:
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
+    def password(self) -> Optional[pulumi.Input[str]]:
         """
         The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: pulumi.Input[str]):
+    def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
 
@@ -866,19 +899,20 @@ class FacebookChannelArgs:
 class FacebookChannelPropertiesArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
-                 app_secret: pulumi.Input[str],
                  is_enabled: pulumi.Input[bool],
+                 app_secret: Optional[pulumi.Input[str]] = None,
                  pages: Optional[pulumi.Input[Sequence[pulumi.Input['FacebookPageArgs']]]] = None):
         """
         The parameters to provide for the Facebook channel.
         :param pulumi.Input[str] app_id: Facebook application id
-        :param pulumi.Input[str] app_secret: Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
+        :param pulumi.Input[str] app_secret: Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[Sequence[pulumi.Input['FacebookPageArgs']]] pages: The list of Facebook pages
         """
         pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "app_secret", app_secret)
         pulumi.set(__self__, "is_enabled", is_enabled)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
         if pages is not None:
             pulumi.set(__self__, "pages", pages)
 
@@ -895,18 +929,6 @@ class FacebookChannelPropertiesArgs:
         pulumi.set(self, "app_id", value)
 
     @property
-    @pulumi.getter(name="appSecret")
-    def app_secret(self) -> pulumi.Input[str]:
-        """
-        Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        return pulumi.get(self, "app_secret")
-
-    @app_secret.setter
-    def app_secret(self, value: pulumi.Input[str]):
-        pulumi.set(self, "app_secret", value)
-
-    @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Input[bool]:
         """
@@ -917,6 +939,18 @@ class FacebookChannelPropertiesArgs:
     @is_enabled.setter
     def is_enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @app_secret.setter
+    def app_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret", value)
 
     @property
     @pulumi.getter
@@ -934,27 +968,16 @@ class FacebookChannelPropertiesArgs:
 @pulumi.input_type
 class FacebookPageArgs:
     def __init__(__self__, *,
-                 access_token: pulumi.Input[str],
-                 id: pulumi.Input[str]):
+                 id: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         A Facebook page for Facebook channel registration
-        :param pulumi.Input[str] access_token: Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[str] id: Page id
+        :param pulumi.Input[str] access_token: Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
         """
-        pulumi.set(__self__, "access_token", access_token)
         pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="accessToken")
-    def access_token(self) -> pulumi.Input[str]:
-        """
-        Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        return pulumi.get(self, "access_token")
-
-    @access_token.setter
-    def access_token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "access_token", value)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -967,6 +990,18 @@ class FacebookPageArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
@@ -1013,34 +1048,23 @@ class KikChannelArgs:
 @pulumi.input_type
 class KikChannelPropertiesArgs:
     def __init__(__self__, *,
-                 api_key: pulumi.Input[str],
                  is_enabled: pulumi.Input[bool],
                  user_name: pulumi.Input[str],
+                 api_key: Optional[pulumi.Input[str]] = None,
                  is_validated: Optional[pulumi.Input[bool]] = None):
         """
         The parameters to provide for the Kik channel.
-        :param pulumi.Input[str] api_key: Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
         :param pulumi.Input[str] user_name: The Kik user name
+        :param pulumi.Input[str] api_key: Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[bool] is_validated: Whether this channel is validated for the bot
         """
-        pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "user_name", user_name)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
         if is_validated is not None:
             pulumi.set(__self__, "is_validated", is_validated)
-
-    @property
-    @pulumi.getter(name="apiKey")
-    def api_key(self) -> pulumi.Input[str]:
-        """
-        Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        return pulumi.get(self, "api_key")
-
-    @api_key.setter
-    def api_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "api_key", value)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -1065,6 +1089,18 @@ class KikChannelPropertiesArgs:
     @user_name.setter
     def user_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_name", value)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_key", value)
 
     @property
     @pulumi.getter(name="isValidated")
@@ -1538,53 +1574,32 @@ class SlackChannelArgs:
 @pulumi.input_type
 class SlackChannelPropertiesArgs:
     def __init__(__self__, *,
-                 client_id: pulumi.Input[str],
-                 client_secret: pulumi.Input[str],
                  is_enabled: pulumi.Input[bool],
-                 verification_token: pulumi.Input[str],
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
                  landing_page_url: Optional[pulumi.Input[str]] = None,
-                 signing_secret: Optional[pulumi.Input[str]] = None):
+                 signing_secret: Optional[pulumi.Input[str]] = None,
+                 verification_token: Optional[pulumi.Input[str]] = None):
         """
         The parameters to provide for the Slack channel.
+        :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
         :param pulumi.Input[str] client_id: The Slack client id
         :param pulumi.Input[str] client_secret: The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
-        :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
-        :param pulumi.Input[str] verification_token: The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[str] landing_page_url: The Slack landing page Url
         :param pulumi.Input[str] signing_secret: The Slack signing secret.
+        :param pulumi.Input[str] verification_token: The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "verification_token", verification_token)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
         if landing_page_url is not None:
             pulumi.set(__self__, "landing_page_url", landing_page_url)
         if signing_secret is not None:
             pulumi.set(__self__, "signing_secret", signing_secret)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> pulumi.Input[str]:
-        """
-        The Slack client id
-        """
-        return pulumi.get(self, "client_id")
-
-    @client_id.setter
-    def client_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "client_id", value)
-
-    @property
-    @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[str]:
-        """
-        The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        return pulumi.get(self, "client_secret")
-
-    @client_secret.setter
-    def client_secret(self, value: pulumi.Input[str]):
-        pulumi.set(self, "client_secret", value)
+        if verification_token is not None:
+            pulumi.set(__self__, "verification_token", verification_token)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -1599,16 +1614,28 @@ class SlackChannelPropertiesArgs:
         pulumi.set(self, "is_enabled", value)
 
     @property
-    @pulumi.getter(name="verificationToken")
-    def verification_token(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
+        The Slack client id
         """
-        return pulumi.get(self, "verification_token")
+        return pulumi.get(self, "client_id")
 
-    @verification_token.setter
-    def verification_token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "verification_token", value)
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
 
     @property
     @pulumi.getter(name="landingPageUrl")
@@ -1633,6 +1660,18 @@ class SlackChannelPropertiesArgs:
     @signing_secret.setter
     def signing_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "signing_secret", value)
+
+    @property
+    @pulumi.getter(name="verificationToken")
+    def verification_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "verification_token")
+
+    @verification_token.setter
+    def verification_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "verification_token", value)
 
 
 @pulumi.input_type
@@ -1680,22 +1719,23 @@ class SmsChannelArgs:
 class SmsChannelPropertiesArgs:
     def __init__(__self__, *,
                  account_sid: pulumi.Input[str],
-                 auth_token: pulumi.Input[str],
                  is_enabled: pulumi.Input[bool],
                  phone: pulumi.Input[str],
+                 auth_token: Optional[pulumi.Input[str]] = None,
                  is_validated: Optional[pulumi.Input[bool]] = None):
         """
         The parameters to provide for the Sms channel.
         :param pulumi.Input[str] account_sid: The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
-        :param pulumi.Input[str] auth_token: The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
         :param pulumi.Input[str] phone: The Sms phone
+        :param pulumi.Input[str] auth_token: The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[bool] is_validated: Whether this channel is validated for the bot
         """
         pulumi.set(__self__, "account_sid", account_sid)
-        pulumi.set(__self__, "auth_token", auth_token)
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "phone", phone)
+        if auth_token is not None:
+            pulumi.set(__self__, "auth_token", auth_token)
         if is_validated is not None:
             pulumi.set(__self__, "is_validated", is_validated)
 
@@ -1710,18 +1750,6 @@ class SmsChannelPropertiesArgs:
     @account_sid.setter
     def account_sid(self, value: pulumi.Input[str]):
         pulumi.set(self, "account_sid", value)
-
-    @property
-    @pulumi.getter(name="authToken")
-    def auth_token(self) -> pulumi.Input[str]:
-        """
-        The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        return pulumi.get(self, "auth_token")
-
-    @auth_token.setter
-    def auth_token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "auth_token", value)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -1746,6 +1774,18 @@ class SmsChannelPropertiesArgs:
     @phone.setter
     def phone(self, value: pulumi.Input[str]):
         pulumi.set(self, "phone", value)
+
+    @property
+    @pulumi.getter(name="authToken")
+    def auth_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "auth_token")
+
+    @auth_token.setter
+    def auth_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_token", value)
 
     @property
     @pulumi.getter(name="isValidated")
@@ -1804,31 +1844,20 @@ class TelegramChannelArgs:
 @pulumi.input_type
 class TelegramChannelPropertiesArgs:
     def __init__(__self__, *,
-                 access_token: pulumi.Input[str],
                  is_enabled: pulumi.Input[bool],
+                 access_token: Optional[pulumi.Input[str]] = None,
                  is_validated: Optional[pulumi.Input[bool]] = None):
         """
         The parameters to provide for the Telegram channel.
-        :param pulumi.Input[str] access_token: The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
+        :param pulumi.Input[str] access_token: The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[bool] is_validated: Whether this channel is validated for the bot
         """
-        pulumi.set(__self__, "access_token", access_token)
         pulumi.set(__self__, "is_enabled", is_enabled)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
         if is_validated is not None:
             pulumi.set(__self__, "is_validated", is_validated)
-
-    @property
-    @pulumi.getter(name="accessToken")
-    def access_token(self) -> pulumi.Input[str]:
-        """
-        The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        return pulumi.get(self, "access_token")
-
-    @access_token.setter
-    def access_token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "access_token", value)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -1841,6 +1870,18 @@ class TelegramChannelPropertiesArgs:
     @is_enabled.setter
     def is_enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
     @property
     @pulumi.getter(name="isValidated")

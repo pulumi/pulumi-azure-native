@@ -24,8 +24,8 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Inputs
         /// <summary>
         /// The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
-        [Input("authToken", required: true)]
-        public Input<string> AuthToken { get; set; } = null!;
+        [Input("authToken")]
+        public Input<string>? AuthToken { get; set; }
 
         /// <summary>
         /// Whether this channel is enabled for the bot

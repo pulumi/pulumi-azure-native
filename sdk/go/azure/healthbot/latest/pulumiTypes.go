@@ -195,7 +195,7 @@ type SkuArgs struct {
 	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 	Family pulumi.StringPtrInput `pulumi:"family"`
 	// The name of the HealthBot SKU
-	Name pulumi.StringInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.

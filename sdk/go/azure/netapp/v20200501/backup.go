@@ -71,6 +71,9 @@ func NewBackup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200801:Backup"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20200901:Backup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Backup

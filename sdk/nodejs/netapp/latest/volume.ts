@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Volume resource
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-09-01.
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -97,6 +97,14 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly serviceLevel!: pulumi.Output<string | undefined>;
     /**
+     * Enables continuously available share property for smb volume. Only applicable for SMB volume
+     */
+    public readonly smbContinuouslyAvailable!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+     */
+    public readonly smbEncryption!: pulumi.Output<boolean | undefined>;
+    /**
      * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
      */
     public readonly snapshotDirectoryVisible!: pulumi.Output<boolean | undefined>;
@@ -174,6 +182,8 @@ export class Volume extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["securityStyle"] = args ? args.securityStyle : undefined;
             inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
+            inputs["smbContinuouslyAvailable"] = args ? args.smbContinuouslyAvailable : undefined;
+            inputs["smbEncryption"] = args ? args.smbEncryption : undefined;
             inputs["snapshotDirectoryVisible"] = args ? args.snapshotDirectoryVisible : undefined;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
@@ -203,6 +213,8 @@ export class Volume extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["securityStyle"] = undefined /*out*/;
             inputs["serviceLevel"] = undefined /*out*/;
+            inputs["smbContinuouslyAvailable"] = undefined /*out*/;
+            inputs["smbEncryption"] = undefined /*out*/;
             inputs["snapshotDirectoryVisible"] = undefined /*out*/;
             inputs["snapshotId"] = undefined /*out*/;
             inputs["subnetId"] = undefined /*out*/;
@@ -219,7 +231,7 @@ export class Volume extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20170815:Volume" }, { type: "azure-nextgen:netapp/v20190501:Volume" }, { type: "azure-nextgen:netapp/v20190601:Volume" }, { type: "azure-nextgen:netapp/v20190701:Volume" }, { type: "azure-nextgen:netapp/v20190801:Volume" }, { type: "azure-nextgen:netapp/v20191001:Volume" }, { type: "azure-nextgen:netapp/v20191101:Volume" }, { type: "azure-nextgen:netapp/v20200201:Volume" }, { type: "azure-nextgen:netapp/v20200301:Volume" }, { type: "azure-nextgen:netapp/v20200501:Volume" }, { type: "azure-nextgen:netapp/v20200601:Volume" }, { type: "azure-nextgen:netapp/v20200701:Volume" }, { type: "azure-nextgen:netapp/v20200801:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20170815:Volume" }, { type: "azure-nextgen:netapp/v20190501:Volume" }, { type: "azure-nextgen:netapp/v20190601:Volume" }, { type: "azure-nextgen:netapp/v20190701:Volume" }, { type: "azure-nextgen:netapp/v20190801:Volume" }, { type: "azure-nextgen:netapp/v20191001:Volume" }, { type: "azure-nextgen:netapp/v20191101:Volume" }, { type: "azure-nextgen:netapp/v20200201:Volume" }, { type: "azure-nextgen:netapp/v20200301:Volume" }, { type: "azure-nextgen:netapp/v20200501:Volume" }, { type: "azure-nextgen:netapp/v20200601:Volume" }, { type: "azure-nextgen:netapp/v20200701:Volume" }, { type: "azure-nextgen:netapp/v20200801:Volume" }, { type: "azure-nextgen:netapp/v20200901:Volume" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Volume.__pulumiType, name, inputs, opts);
     }
@@ -285,6 +297,14 @@ export interface VolumeArgs {
      * The service level of the file system
      */
     readonly serviceLevel?: pulumi.Input<string | enums.netapp.latest.ServiceLevel>;
+    /**
+     * Enables continuously available share property for smb volume. Only applicable for SMB volume
+     */
+    readonly smbContinuouslyAvailable?: pulumi.Input<boolean>;
+    /**
+     * Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+     */
+    readonly smbEncryption?: pulumi.Input<boolean>;
     /**
      * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
      */

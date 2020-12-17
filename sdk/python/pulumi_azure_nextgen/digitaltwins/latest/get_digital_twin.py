@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetDigitalTwinResult',
@@ -19,7 +20,7 @@ class GetDigitalTwinResult:
     """
     The description of the DigitalTwins service.
     """
-    def __init__(__self__, created_time=None, host_name=None, id=None, last_updated_time=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, created_time=None, host_name=None, id=None, identity=None, last_updated_time=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -29,6 +30,9 @@ class GetDigitalTwinResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -38,9 +42,15 @@ class GetDigitalTwinResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -73,6 +83,14 @@ class GetDigitalTwinResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.DigitalTwinsIdentityResponse']:
+        """
+        The managed identity for the DigitalTwinsInstance.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> str:
         """
@@ -97,12 +115,25 @@ class GetDigitalTwinResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         The provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Public network access for the DigitalTwinsInstance.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter
@@ -130,10 +161,13 @@ class AwaitableGetDigitalTwinResult(GetDigitalTwinResult):
             created_time=self.created_time,
             host_name=self.host_name,
             id=self.id,
+            identity=self.identity,
             last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             tags=self.tags,
             type=self.type)
 
@@ -160,9 +194,12 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
         created_time=__ret__.created_time,
         host_name=__ret__.host_name,
         id=__ret__.id,
+        identity=__ret__.identity,
         last_updated_time=__ret__.last_updated_time,
         location=__ret__.location,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         tags=__ret__.tags,
         type=__ret__.type)

@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
     public sealed class BotPropertiesResponse
     {
         /// <summary>
+        /// The CMK Url
+        /// </summary>
+        public readonly string? CmekKeyVaultUrl;
+        /// <summary>
         /// Collection of channels for which the bot is configured
         /// </summary>
         public readonly ImmutableArray<string> ConfiguredChannels;
@@ -54,6 +58,10 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
         /// </summary>
         public readonly string? IconUrl;
         /// <summary>
+        /// Whether Cmek is enabled
+        /// </summary>
+        public readonly bool? IsCmekEnabled;
+        /// <summary>
         /// Collection of LUIS App Ids
         /// </summary>
         public readonly ImmutableArray<string> LuisAppIds;
@@ -68,6 +76,8 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
 
         [OutputConstructor]
         private BotPropertiesResponse(
+            string? cmekKeyVaultUrl,
+
             ImmutableArray<string> configuredChannels,
 
             string? description,
@@ -88,12 +98,15 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
 
             string? iconUrl,
 
+            bool? isCmekEnabled,
+
             ImmutableArray<string> luisAppIds,
 
             string? luisKey,
 
             string msaAppId)
         {
+            CmekKeyVaultUrl = cmekKeyVaultUrl;
             ConfiguredChannels = configuredChannels;
             Description = description;
             DeveloperAppInsightKey = developerAppInsightKey;
@@ -104,6 +117,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Outputs
             Endpoint = endpoint;
             EndpointVersion = endpointVersion;
             IconUrl = iconUrl;
+            IsCmekEnabled = isCmekEnabled;
             LuisAppIds = luisAppIds;
             LuisKey = luisKey;
             MsaAppId = msaAppId;
