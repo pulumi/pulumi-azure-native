@@ -530,7 +530,7 @@ func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*r
 
 	if diff == nil {
 		return &rpc.DiffResponse{
-			Changes:             0,
+			Changes:             rpc.DiffResponse_DIFF_NONE,
 			Replaces:            []string{},
 			Stables:             []string{},
 			DeleteBeforeReplace: false,
@@ -544,10 +544,7 @@ func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*r
 	}
 
 	// Calculate the detailed diff object containing information about replacements.
-	detailedDiff, err := calculateDetailedDiff(&res, diff)
-	if err != nil {
-		return nil, errors.Wrap(err, "calculating detailed diff")
-	}
+	detailedDiff := calculateDetailedDiff(&res, diff, req.IgnoreChanges)
 
 	// Based on the detailed diff above, calculate the list of changes and replacements.
 	var changes, replaces []string
@@ -564,9 +561,13 @@ func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*r
 
 	// TODO: Define delete-before-replace only if autonaming is off.
 	deleteBeforeReplace := len(replaces) > 0
+	changeType := rpc.DiffResponse_DIFF_NONE
+	if len(detailedDiff) > 0 {
+		changeType = rpc.DiffResponse_DIFF_SOME
+	}
 
 	response := rpc.DiffResponse{
-		Changes:             rpc.DiffResponse_DIFF_SOME,
+		Changes:             changeType,
 		Replaces:            replaces,
 		Stables:             []string{},
 		DeleteBeforeReplace: deleteBeforeReplace,

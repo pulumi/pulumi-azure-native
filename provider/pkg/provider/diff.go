@@ -3,6 +3,7 @@
 package provider
 
 import (
+	"fmt"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
@@ -14,7 +15,7 @@ const body = "body"
 // calculateDetailedDiff produced a property diff for a given object diff and a resource definition. It inspects
 // the schema of the resource to find out if the requested diff can be performed in-place or requires a replacement.
 func calculateDetailedDiff(resource *resources.AzureAPIResource,
-	diff *resource.ObjectDiff) (map[string]*rpc.PropertyDiff, error) {
+	diff *resource.ObjectDiff, ignoreChanges []string) map[string]*rpc.PropertyDiff {
 	replaceKeys := codegen.NewStringSet()
 
 	for _, p := range resource.PutParameters {
@@ -42,41 +43,32 @@ func calculateDetailedDiff(resource *resources.AzureAPIResource,
 		}
 	}
 
-	d := differ{replaceKeys: replaceKeys}
-	return d.calculateDetailedDiff(diff, "")
+	d := differ{replaceKeys: replaceKeys, ignoreChanges: codegen.NewStringSet(ignoreChanges...)}
+	return d.calculateObjectDiff(diff, "")
 }
 
 type differ struct {
-	replaceKeys codegen.StringSet
+	replaceKeys   codegen.StringSet
+	ignoreChanges codegen.StringSet
 }
 
-func (d *differ) calculateDetailedDiff(diff *resource.ObjectDiff, base string) (map[string]*rpc.PropertyDiff, error) {
+func (d *differ) calculateObjectDiff(diff *resource.ObjectDiff, base string) map[string]*rpc.PropertyDiff {
 	detailedDiff := map[string]*rpc.PropertyDiff{}
 	for k, v := range diff.Updates {
 		key := base + string(k)
-		if v.Object == nil {
-			kind := rpc.PropertyDiff_UPDATE
-			if d.replaceKeys.Has(key) {
-				kind = rpc.PropertyDiff_UPDATE_REPLACE
-			}
-			detailedDiff[key] = &rpc.PropertyDiff{Kind: kind}
-		} else {
-			subDiff, err := d.calculateDetailedDiff(v.Object, key+".")
-			if err != nil {
-				return nil, err
-			}
-
-			for sk, sv := range subDiff {
-				if sv.Kind == rpc.PropertyDiff_UPDATE && d.replaceKeys.Has(key) {
-					// If the parent property causes a replacement, all child properties cause a replacement.
-					sv.Kind = rpc.PropertyDiff_UPDATE_REPLACE
-				}
-				detailedDiff[sk] = sv
-			}
+		if d.ignoreChanges.Has(key) {
+			continue
+		}
+		subDiff := d.calculateValueDiff(&v, key)
+		for sk, sv := range subDiff {
+			detailedDiff[sk] = sv
 		}
 	}
 	for k := range diff.Adds {
 		key := base + string(k)
+		if d.ignoreChanges.Has(key) {
+			continue
+		}
 		kind := rpc.PropertyDiff_ADD
 		if d.replaceKeys.Has(key) {
 			kind = rpc.PropertyDiff_ADD_REPLACE
@@ -85,6 +77,9 @@ func (d *differ) calculateDetailedDiff(diff *resource.ObjectDiff, base string) (
 	}
 	for k := range diff.Deletes {
 		key := base + string(k)
+		if d.ignoreChanges.Has(key) {
+			continue
+		}
 		kind := rpc.PropertyDiff_DELETE
 		if d.replaceKeys.Has(key) {
 			kind = rpc.PropertyDiff_DELETE_REPLACE
@@ -92,7 +87,54 @@ func (d *differ) calculateDetailedDiff(diff *resource.ObjectDiff, base string) (
 		detailedDiff[key] = &rpc.PropertyDiff{Kind: kind}
 	}
 
-	return detailedDiff, nil
+	return detailedDiff
+}
+
+func (d *differ) calculateValueDiff(v *resource.ValueDiff, base string) map[string]*rpc.PropertyDiff {
+	detailedDiff := map[string]*rpc.PropertyDiff{}
+	switch {
+	case v.Object != nil:
+		subDiff := d.calculateObjectDiff(v.Object, base+".")
+		for sk, sv := range subDiff {
+			if sv.Kind == rpc.PropertyDiff_UPDATE && d.replaceKeys.Has(base) {
+				// If the parent property causes a replacement, all child properties cause a replacement.
+				sv.Kind = rpc.PropertyDiff_UPDATE_REPLACE
+			}
+			detailedDiff[sk] = sv
+		}
+	case v.Array != nil:
+		for idx, item := range v.Array.Updates {
+			key := fmt.Sprintf("%s[%d]", base, idx)
+			if d.ignoreChanges.Has(key) {
+				continue
+			}
+			subDiff := d.calculateValueDiff(&item, key)
+			for sk, sv := range subDiff {
+				detailedDiff[sk] = sv
+			}
+		}
+		for idx := range v.Array.Adds {
+			key := fmt.Sprintf("%s[%d]", base, idx)
+			if d.ignoreChanges.Has(key) {
+				continue
+			}
+			detailedDiff[key] = &rpc.PropertyDiff{Kind: rpc.PropertyDiff_ADD}
+		}
+		for idx := range v.Array.Deletes {
+			key := fmt.Sprintf("%s[%d]", base, idx)
+			if d.ignoreChanges.Has(key) {
+				continue
+			}
+			detailedDiff[key] = &rpc.PropertyDiff{Kind: rpc.PropertyDiff_DELETE}
+		}
+	default:
+		kind := rpc.PropertyDiff_UPDATE
+		if d.replaceKeys.Has(base) {
+			kind = rpc.PropertyDiff_UPDATE_REPLACE
+		}
+		detailedDiff[base] = &rpc.PropertyDiff{Kind: kind}
+	}
+	return detailedDiff
 }
 
 // applyDiff produces a new map as a merge of a calculated diff into an existing map of values.
