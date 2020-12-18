@@ -89,6 +89,7 @@ const (
 	DataConnectorKindAmazonWebServicesCloudTrail               = DataConnectorKind("AmazonWebServicesCloudTrail")
 	DataConnectorKindAzureAdvancedThreatProtection             = DataConnectorKind("AzureAdvancedThreatProtection")
 	DataConnectorKindMicrosoftDefenderAdvancedThreatProtection = DataConnectorKind("MicrosoftDefenderAdvancedThreatProtection")
+	DataConnectorKindDynamics365                               = DataConnectorKind("Dynamics365")
 )
 
 func (DataConnectorKind) ElementType() reflect.Type {

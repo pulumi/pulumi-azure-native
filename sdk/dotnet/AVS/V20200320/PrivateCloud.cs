@@ -155,7 +155,6 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:avs/latest:PrivateCloud"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20190809preview:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:PrivateCloud"},
                 },
             };

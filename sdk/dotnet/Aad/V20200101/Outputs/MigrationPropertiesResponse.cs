@@ -16,23 +16,23 @@ namespace Pulumi.AzureNextGen.Aad.V20200101.Outputs
         /// <summary>
         /// Migration Progress
         /// </summary>
-        public readonly Outputs.MigrationProgressResponse? MigrationProgress;
+        public readonly Outputs.MigrationProgressResponse MigrationProgress;
         /// <summary>
         /// Old Subnet Id
         /// </summary>
-        public readonly string? OldSubnetId;
+        public readonly string OldSubnetId;
         /// <summary>
         /// Old Vnet Site Id
         /// </summary>
-        public readonly string? OldVnetSiteId;
+        public readonly string OldVnetSiteId;
 
         [OutputConstructor]
         private MigrationPropertiesResponse(
-            Outputs.MigrationProgressResponse? migrationProgress,
+            Outputs.MigrationProgressResponse migrationProgress,
 
-            string? oldSubnetId,
+            string oldSubnetId,
 
-            string? oldVnetSiteId)
+            string oldVnetSiteId)
         {
             MigrationProgress = migrationProgress;
             OldSubnetId = oldSubnetId;

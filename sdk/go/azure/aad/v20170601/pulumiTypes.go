@@ -1551,159 +1551,6 @@ func (o LdapsSettingsResponsePtrOutput) PublicCertificate() pulumi.StringPtrOutp
 }
 
 // Migration Progress
-type MigrationProgress struct {
-	// Completion Percentage
-	CompletionPercentage *float64 `pulumi:"completionPercentage"`
-	// Progress Message
-	ProgressMessage *string `pulumi:"progressMessage"`
-}
-
-// MigrationProgressInput is an input type that accepts MigrationProgressArgs and MigrationProgressOutput values.
-// You can construct a concrete instance of `MigrationProgressInput` via:
-//
-//          MigrationProgressArgs{...}
-type MigrationProgressInput interface {
-	pulumi.Input
-
-	ToMigrationProgressOutput() MigrationProgressOutput
-	ToMigrationProgressOutputWithContext(context.Context) MigrationProgressOutput
-}
-
-// Migration Progress
-type MigrationProgressArgs struct {
-	// Completion Percentage
-	CompletionPercentage pulumi.Float64PtrInput `pulumi:"completionPercentage"`
-	// Progress Message
-	ProgressMessage pulumi.StringPtrInput `pulumi:"progressMessage"`
-}
-
-func (MigrationProgressArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrationProgress)(nil)).Elem()
-}
-
-func (i MigrationProgressArgs) ToMigrationProgressOutput() MigrationProgressOutput {
-	return i.ToMigrationProgressOutputWithContext(context.Background())
-}
-
-func (i MigrationProgressArgs) ToMigrationProgressOutputWithContext(ctx context.Context) MigrationProgressOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationProgressOutput)
-}
-
-func (i MigrationProgressArgs) ToMigrationProgressPtrOutput() MigrationProgressPtrOutput {
-	return i.ToMigrationProgressPtrOutputWithContext(context.Background())
-}
-
-func (i MigrationProgressArgs) ToMigrationProgressPtrOutputWithContext(ctx context.Context) MigrationProgressPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationProgressOutput).ToMigrationProgressPtrOutputWithContext(ctx)
-}
-
-// MigrationProgressPtrInput is an input type that accepts MigrationProgressArgs, MigrationProgressPtr and MigrationProgressPtrOutput values.
-// You can construct a concrete instance of `MigrationProgressPtrInput` via:
-//
-//          MigrationProgressArgs{...}
-//
-//  or:
-//
-//          nil
-type MigrationProgressPtrInput interface {
-	pulumi.Input
-
-	ToMigrationProgressPtrOutput() MigrationProgressPtrOutput
-	ToMigrationProgressPtrOutputWithContext(context.Context) MigrationProgressPtrOutput
-}
-
-type migrationProgressPtrType MigrationProgressArgs
-
-func MigrationProgressPtr(v *MigrationProgressArgs) MigrationProgressPtrInput {
-	return (*migrationProgressPtrType)(v)
-}
-
-func (*migrationProgressPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrationProgress)(nil)).Elem()
-}
-
-func (i *migrationProgressPtrType) ToMigrationProgressPtrOutput() MigrationProgressPtrOutput {
-	return i.ToMigrationProgressPtrOutputWithContext(context.Background())
-}
-
-func (i *migrationProgressPtrType) ToMigrationProgressPtrOutputWithContext(ctx context.Context) MigrationProgressPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationProgressPtrOutput)
-}
-
-// Migration Progress
-type MigrationProgressOutput struct{ *pulumi.OutputState }
-
-func (MigrationProgressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrationProgress)(nil)).Elem()
-}
-
-func (o MigrationProgressOutput) ToMigrationProgressOutput() MigrationProgressOutput {
-	return o
-}
-
-func (o MigrationProgressOutput) ToMigrationProgressOutputWithContext(ctx context.Context) MigrationProgressOutput {
-	return o
-}
-
-func (o MigrationProgressOutput) ToMigrationProgressPtrOutput() MigrationProgressPtrOutput {
-	return o.ToMigrationProgressPtrOutputWithContext(context.Background())
-}
-
-func (o MigrationProgressOutput) ToMigrationProgressPtrOutputWithContext(ctx context.Context) MigrationProgressPtrOutput {
-	return o.ApplyT(func(v MigrationProgress) *MigrationProgress {
-		return &v
-	}).(MigrationProgressPtrOutput)
-}
-
-// Completion Percentage
-func (o MigrationProgressOutput) CompletionPercentage() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v MigrationProgress) *float64 { return v.CompletionPercentage }).(pulumi.Float64PtrOutput)
-}
-
-// Progress Message
-func (o MigrationProgressOutput) ProgressMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrationProgress) *string { return v.ProgressMessage }).(pulumi.StringPtrOutput)
-}
-
-type MigrationProgressPtrOutput struct{ *pulumi.OutputState }
-
-func (MigrationProgressPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrationProgress)(nil)).Elem()
-}
-
-func (o MigrationProgressPtrOutput) ToMigrationProgressPtrOutput() MigrationProgressPtrOutput {
-	return o
-}
-
-func (o MigrationProgressPtrOutput) ToMigrationProgressPtrOutputWithContext(ctx context.Context) MigrationProgressPtrOutput {
-	return o
-}
-
-func (o MigrationProgressPtrOutput) Elem() MigrationProgressOutput {
-	return o.ApplyT(func(v *MigrationProgress) MigrationProgress { return *v }).(MigrationProgressOutput)
-}
-
-// Completion Percentage
-func (o MigrationProgressPtrOutput) CompletionPercentage() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MigrationProgress) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.CompletionPercentage
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Progress Message
-func (o MigrationProgressPtrOutput) ProgressMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrationProgress) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProgressMessage
-	}).(pulumi.StringPtrOutput)
-}
-
-// Migration Progress
 type MigrationProgressResponse struct {
 	// Completion Percentage
 	CompletionPercentage *float64 `pulumi:"completionPercentage"`
@@ -1857,185 +1704,13 @@ func (o MigrationProgressResponsePtrOutput) ProgressMessage() pulumi.StringPtrOu
 }
 
 // Migration Properties
-type MigrationProperties struct {
-	// Migration Progress
-	MigrationProgress *MigrationProgress `pulumi:"migrationProgress"`
-	// Old Subnet Id
-	OldSubnetId *string `pulumi:"oldSubnetId"`
-	// Old Vnet Site Id
-	OldVnetSiteId *string `pulumi:"oldVnetSiteId"`
-}
-
-// MigrationPropertiesInput is an input type that accepts MigrationPropertiesArgs and MigrationPropertiesOutput values.
-// You can construct a concrete instance of `MigrationPropertiesInput` via:
-//
-//          MigrationPropertiesArgs{...}
-type MigrationPropertiesInput interface {
-	pulumi.Input
-
-	ToMigrationPropertiesOutput() MigrationPropertiesOutput
-	ToMigrationPropertiesOutputWithContext(context.Context) MigrationPropertiesOutput
-}
-
-// Migration Properties
-type MigrationPropertiesArgs struct {
-	// Migration Progress
-	MigrationProgress MigrationProgressPtrInput `pulumi:"migrationProgress"`
-	// Old Subnet Id
-	OldSubnetId pulumi.StringPtrInput `pulumi:"oldSubnetId"`
-	// Old Vnet Site Id
-	OldVnetSiteId pulumi.StringPtrInput `pulumi:"oldVnetSiteId"`
-}
-
-func (MigrationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrationProperties)(nil)).Elem()
-}
-
-func (i MigrationPropertiesArgs) ToMigrationPropertiesOutput() MigrationPropertiesOutput {
-	return i.ToMigrationPropertiesOutputWithContext(context.Background())
-}
-
-func (i MigrationPropertiesArgs) ToMigrationPropertiesOutputWithContext(ctx context.Context) MigrationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationPropertiesOutput)
-}
-
-func (i MigrationPropertiesArgs) ToMigrationPropertiesPtrOutput() MigrationPropertiesPtrOutput {
-	return i.ToMigrationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i MigrationPropertiesArgs) ToMigrationPropertiesPtrOutputWithContext(ctx context.Context) MigrationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationPropertiesOutput).ToMigrationPropertiesPtrOutputWithContext(ctx)
-}
-
-// MigrationPropertiesPtrInput is an input type that accepts MigrationPropertiesArgs, MigrationPropertiesPtr and MigrationPropertiesPtrOutput values.
-// You can construct a concrete instance of `MigrationPropertiesPtrInput` via:
-//
-//          MigrationPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type MigrationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToMigrationPropertiesPtrOutput() MigrationPropertiesPtrOutput
-	ToMigrationPropertiesPtrOutputWithContext(context.Context) MigrationPropertiesPtrOutput
-}
-
-type migrationPropertiesPtrType MigrationPropertiesArgs
-
-func MigrationPropertiesPtr(v *MigrationPropertiesArgs) MigrationPropertiesPtrInput {
-	return (*migrationPropertiesPtrType)(v)
-}
-
-func (*migrationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrationProperties)(nil)).Elem()
-}
-
-func (i *migrationPropertiesPtrType) ToMigrationPropertiesPtrOutput() MigrationPropertiesPtrOutput {
-	return i.ToMigrationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *migrationPropertiesPtrType) ToMigrationPropertiesPtrOutputWithContext(ctx context.Context) MigrationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationPropertiesPtrOutput)
-}
-
-// Migration Properties
-type MigrationPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MigrationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrationProperties)(nil)).Elem()
-}
-
-func (o MigrationPropertiesOutput) ToMigrationPropertiesOutput() MigrationPropertiesOutput {
-	return o
-}
-
-func (o MigrationPropertiesOutput) ToMigrationPropertiesOutputWithContext(ctx context.Context) MigrationPropertiesOutput {
-	return o
-}
-
-func (o MigrationPropertiesOutput) ToMigrationPropertiesPtrOutput() MigrationPropertiesPtrOutput {
-	return o.ToMigrationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o MigrationPropertiesOutput) ToMigrationPropertiesPtrOutputWithContext(ctx context.Context) MigrationPropertiesPtrOutput {
-	return o.ApplyT(func(v MigrationProperties) *MigrationProperties {
-		return &v
-	}).(MigrationPropertiesPtrOutput)
-}
-
-// Migration Progress
-func (o MigrationPropertiesOutput) MigrationProgress() MigrationProgressPtrOutput {
-	return o.ApplyT(func(v MigrationProperties) *MigrationProgress { return v.MigrationProgress }).(MigrationProgressPtrOutput)
-}
-
-// Old Subnet Id
-func (o MigrationPropertiesOutput) OldSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrationProperties) *string { return v.OldSubnetId }).(pulumi.StringPtrOutput)
-}
-
-// Old Vnet Site Id
-func (o MigrationPropertiesOutput) OldVnetSiteId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrationProperties) *string { return v.OldVnetSiteId }).(pulumi.StringPtrOutput)
-}
-
-type MigrationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (MigrationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrationProperties)(nil)).Elem()
-}
-
-func (o MigrationPropertiesPtrOutput) ToMigrationPropertiesPtrOutput() MigrationPropertiesPtrOutput {
-	return o
-}
-
-func (o MigrationPropertiesPtrOutput) ToMigrationPropertiesPtrOutputWithContext(ctx context.Context) MigrationPropertiesPtrOutput {
-	return o
-}
-
-func (o MigrationPropertiesPtrOutput) Elem() MigrationPropertiesOutput {
-	return o.ApplyT(func(v *MigrationProperties) MigrationProperties { return *v }).(MigrationPropertiesOutput)
-}
-
-// Migration Progress
-func (o MigrationPropertiesPtrOutput) MigrationProgress() MigrationProgressPtrOutput {
-	return o.ApplyT(func(v *MigrationProperties) *MigrationProgress {
-		if v == nil {
-			return nil
-		}
-		return v.MigrationProgress
-	}).(MigrationProgressPtrOutput)
-}
-
-// Old Subnet Id
-func (o MigrationPropertiesPtrOutput) OldSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OldSubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Old Vnet Site Id
-func (o MigrationPropertiesPtrOutput) OldVnetSiteId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OldVnetSiteId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Migration Properties
 type MigrationPropertiesResponse struct {
 	// Migration Progress
-	MigrationProgress *MigrationProgressResponse `pulumi:"migrationProgress"`
+	MigrationProgress MigrationProgressResponse `pulumi:"migrationProgress"`
 	// Old Subnet Id
-	OldSubnetId *string `pulumi:"oldSubnetId"`
+	OldSubnetId string `pulumi:"oldSubnetId"`
 	// Old Vnet Site Id
-	OldVnetSiteId *string `pulumi:"oldVnetSiteId"`
+	OldVnetSiteId string `pulumi:"oldVnetSiteId"`
 }
 
 // MigrationPropertiesResponseInput is an input type that accepts MigrationPropertiesResponseArgs and MigrationPropertiesResponseOutput values.
@@ -2052,11 +1727,11 @@ type MigrationPropertiesResponseInput interface {
 // Migration Properties
 type MigrationPropertiesResponseArgs struct {
 	// Migration Progress
-	MigrationProgress MigrationProgressResponsePtrInput `pulumi:"migrationProgress"`
+	MigrationProgress MigrationProgressResponseInput `pulumi:"migrationProgress"`
 	// Old Subnet Id
-	OldSubnetId pulumi.StringPtrInput `pulumi:"oldSubnetId"`
+	OldSubnetId pulumi.StringInput `pulumi:"oldSubnetId"`
 	// Old Vnet Site Id
-	OldVnetSiteId pulumi.StringPtrInput `pulumi:"oldVnetSiteId"`
+	OldVnetSiteId pulumi.StringInput `pulumi:"oldVnetSiteId"`
 }
 
 func (MigrationPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2138,18 +1813,18 @@ func (o MigrationPropertiesResponseOutput) ToMigrationPropertiesResponsePtrOutpu
 }
 
 // Migration Progress
-func (o MigrationPropertiesResponseOutput) MigrationProgress() MigrationProgressResponsePtrOutput {
-	return o.ApplyT(func(v MigrationPropertiesResponse) *MigrationProgressResponse { return v.MigrationProgress }).(MigrationProgressResponsePtrOutput)
+func (o MigrationPropertiesResponseOutput) MigrationProgress() MigrationProgressResponseOutput {
+	return o.ApplyT(func(v MigrationPropertiesResponse) MigrationProgressResponse { return v.MigrationProgress }).(MigrationProgressResponseOutput)
 }
 
 // Old Subnet Id
-func (o MigrationPropertiesResponseOutput) OldSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrationPropertiesResponse) *string { return v.OldSubnetId }).(pulumi.StringPtrOutput)
+func (o MigrationPropertiesResponseOutput) OldSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationPropertiesResponse) string { return v.OldSubnetId }).(pulumi.StringOutput)
 }
 
 // Old Vnet Site Id
-func (o MigrationPropertiesResponseOutput) OldVnetSiteId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrationPropertiesResponse) *string { return v.OldVnetSiteId }).(pulumi.StringPtrOutput)
+func (o MigrationPropertiesResponseOutput) OldVnetSiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationPropertiesResponse) string { return v.OldVnetSiteId }).(pulumi.StringOutput)
 }
 
 type MigrationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2176,7 +1851,7 @@ func (o MigrationPropertiesResponsePtrOutput) MigrationProgress() MigrationProgr
 		if v == nil {
 			return nil
 		}
-		return v.MigrationProgress
+		return &v.MigrationProgress
 	}).(MigrationProgressResponsePtrOutput)
 }
 
@@ -2186,7 +1861,7 @@ func (o MigrationPropertiesResponsePtrOutput) OldSubnetId() pulumi.StringPtrOutp
 		if v == nil {
 			return nil
 		}
-		return v.OldSubnetId
+		return &v.OldSubnetId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2196,7 +1871,7 @@ func (o MigrationPropertiesResponsePtrOutput) OldVnetSiteId() pulumi.StringPtrOu
 		if v == nil {
 			return nil
 		}
-		return v.OldVnetSiteId
+		return &v.OldVnetSiteId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2869,12 +2544,8 @@ func init() {
 	pulumi.RegisterOutputType(LdapsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(LdapsSettingsResponseOutput{})
 	pulumi.RegisterOutputType(LdapsSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(MigrationProgressOutput{})
-	pulumi.RegisterOutputType(MigrationProgressPtrOutput{})
 	pulumi.RegisterOutputType(MigrationProgressResponseOutput{})
 	pulumi.RegisterOutputType(MigrationProgressResponsePtrOutput{})
-	pulumi.RegisterOutputType(MigrationPropertiesOutput{})
-	pulumi.RegisterOutputType(MigrationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MigrationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MigrationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsOutput{})

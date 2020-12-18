@@ -14,10 +14,16 @@ __all__ = [
     'ActivityTimelineItemResponseResult',
     'BookmarkTimelineItemResponseResult',
     'ClientInfoResponse',
+    'EntityInsightItemResponseResult',
+    'EntityInsightItemResponseQueryTimeIntervalResult',
+    'GetInsightsErrorResponseResult',
+    'GetInsightsResultsMetadataResponseResult',
     'IncidentAdditionalDataResponse',
     'IncidentInfoResponse',
     'IncidentLabelResponse',
     'IncidentOwnerInfoResponse',
+    'InsightsTableResultResponseResult',
+    'InsightsTableResultResponseColumnsResult',
     'SecurityAlertTimelineItemResponseResult',
     'TimelineAggregationResponseResult',
     'TimelineErrorResponseResult',
@@ -302,6 +308,179 @@ class ClientInfoResponse(dict):
 
 
 @pulumi.output_type
+class EntityInsightItemResponseResult(dict):
+    """
+    Entity insight Item.
+    """
+    def __init__(__self__, *,
+                 chart_query_results: Optional[Sequence['outputs.InsightsTableResultResponseResult']] = None,
+                 query_id: Optional[str] = None,
+                 query_time_interval: Optional['outputs.EntityInsightItemResponseQueryTimeIntervalResult'] = None,
+                 table_query_results: Optional['outputs.InsightsTableResultResponseResult'] = None):
+        """
+        Entity insight Item.
+        :param Sequence['InsightsTableResultResponseArgs'] chart_query_results: Query results for table insights query.
+        :param str query_id: The query id of the insight
+        :param 'EntityInsightItemResponseQueryTimeIntervalArgs' query_time_interval: The Time interval that the query actually executed on.
+        :param 'InsightsTableResultResponseArgs' table_query_results: Query results for table insights query.
+        """
+        if chart_query_results is not None:
+            pulumi.set(__self__, "chart_query_results", chart_query_results)
+        if query_id is not None:
+            pulumi.set(__self__, "query_id", query_id)
+        if query_time_interval is not None:
+            pulumi.set(__self__, "query_time_interval", query_time_interval)
+        if table_query_results is not None:
+            pulumi.set(__self__, "table_query_results", table_query_results)
+
+    @property
+    @pulumi.getter(name="chartQueryResults")
+    def chart_query_results(self) -> Optional[Sequence['outputs.InsightsTableResultResponseResult']]:
+        """
+        Query results for table insights query.
+        """
+        return pulumi.get(self, "chart_query_results")
+
+    @property
+    @pulumi.getter(name="queryId")
+    def query_id(self) -> Optional[str]:
+        """
+        The query id of the insight
+        """
+        return pulumi.get(self, "query_id")
+
+    @property
+    @pulumi.getter(name="queryTimeInterval")
+    def query_time_interval(self) -> Optional['outputs.EntityInsightItemResponseQueryTimeIntervalResult']:
+        """
+        The Time interval that the query actually executed on.
+        """
+        return pulumi.get(self, "query_time_interval")
+
+    @property
+    @pulumi.getter(name="tableQueryResults")
+    def table_query_results(self) -> Optional['outputs.InsightsTableResultResponseResult']:
+        """
+        Query results for table insights query.
+        """
+        return pulumi.get(self, "table_query_results")
+
+
+@pulumi.output_type
+class EntityInsightItemResponseQueryTimeIntervalResult(dict):
+    """
+    The Time interval that the query actually executed on.
+    """
+    def __init__(__self__, *,
+                 end_time: Optional[str] = None,
+                 start_time: Optional[str] = None):
+        """
+        The Time interval that the query actually executed on.
+        :param str end_time: Insight query end time
+        :param str start_time: Insight query start time
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        Insight query end time
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Insight query start time
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class GetInsightsErrorResponseResult(dict):
+    """
+    GetInsights Query Errors.
+    """
+    def __init__(__self__, *,
+                 error_message: str,
+                 kind: str,
+                 query_id: Optional[str] = None):
+        """
+        GetInsights Query Errors.
+        :param str error_message: the error message
+        :param str kind: the query kind
+        :param str query_id: the query id
+        """
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "kind", kind)
+        if query_id is not None:
+            pulumi.set(__self__, "query_id", query_id)
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        the error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        the query kind
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="queryId")
+    def query_id(self) -> Optional[str]:
+        """
+        the query id
+        """
+        return pulumi.get(self, "query_id")
+
+
+@pulumi.output_type
+class GetInsightsResultsMetadataResponseResult(dict):
+    """
+    Get Insights result metadata.
+    """
+    def __init__(__self__, *,
+                 total_count: int,
+                 errors: Optional[Sequence['outputs.GetInsightsErrorResponseResult']] = None):
+        """
+        Get Insights result metadata.
+        :param int total_count: the total items found for the insights request
+        :param Sequence['GetInsightsErrorResponseArgs'] errors: information about the failed queries
+        """
+        pulumi.set(__self__, "total_count", total_count)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+
+    @property
+    @pulumi.getter(name="totalCount")
+    def total_count(self) -> int:
+        """
+        the total items found for the insights request
+        """
+        return pulumi.get(self, "total_count")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['outputs.GetInsightsErrorResponseResult']]:
+        """
+        information about the failed queries
+        """
+        return pulumi.get(self, "errors")
+
+
+@pulumi.output_type
 class IncidentAdditionalDataResponse(dict):
     """
     Incident additional data property bag.
@@ -524,6 +703,72 @@ class IncidentOwnerInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InsightsTableResultResponseResult(dict):
+    """
+    Query results for table insights query.
+    """
+    def __init__(__self__, *,
+                 columns: Optional[Sequence['outputs.InsightsTableResultResponseColumnsResult']] = None,
+                 rows: Optional[Sequence[Sequence[str]]] = None):
+        """
+        Query results for table insights query.
+        :param Sequence['InsightsTableResultResponseColumnsArgs'] columns: Columns Metadata of the table
+        :param Sequence[Sequence[str]] rows: Rows data of the table
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if rows is not None:
+            pulumi.set(__self__, "rows", rows)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.InsightsTableResultResponseColumnsResult']]:
+        """
+        Columns Metadata of the table
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def rows(self) -> Optional[Sequence[Sequence[str]]]:
+        """
+        Rows data of the table
+        """
+        return pulumi.get(self, "rows")
+
+
+@pulumi.output_type
+class InsightsTableResultResponseColumnsResult(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: the name of the colum
+        :param str type: the type of the colum
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        the name of the colum
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        the type of the colum
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

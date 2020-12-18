@@ -52,6 +52,7 @@ export const DataConnectorKind = {
     AmazonWebServicesCloudTrail: "AmazonWebServicesCloudTrail",
     AzureAdvancedThreatProtection: "AzureAdvancedThreatProtection",
     MicrosoftDefenderAdvancedThreatProtection: "MicrosoftDefenderAdvancedThreatProtection",
+    Dynamics365: "Dynamics365",
 } as const;
 
 /**
