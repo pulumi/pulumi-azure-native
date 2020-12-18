@@ -4,10 +4,11 @@
 package examples
 
 import (
+	"encoding/json"
 	"path/filepath"
 	"testing"
-
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestAccApiTs(t *testing.T) {
@@ -88,6 +89,27 @@ func TestMessagingTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "messaging"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestSecretsTs(t *testing.T) {
+	secretMessage := "secret message for testing"
+
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "secrets"),
+			Config: map[string]string{
+				"message": secretMessage,
+			},
+			ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+				assert.NotNil(t, stackInfo.Deployment)
+				state, err := json.Marshal(stackInfo.Deployment)
+				assert.NoError(t, err)
+
+				assert.NotContains(t, string(state), secretMessage)
+			},
 		})
 
 	integration.ProgramTest(t, &test)
