@@ -592,12 +592,18 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 		return nil, err
 	}
 
+	resourceKey := string(urn.Type())
+	res, ok := k.resourceMap.Resources[resourceKey]
+	if !ok {
+		return nil, errors.Errorf("Resource type %s not found", resourceKey)
+	}
+
 	if req.GetPreview() {
-		// Currently, the preview outputs are conservative: the provider returns the inputs back, removing the unknowns.
-		// The effect is the same as if Create did not support provider-side preview at all.
+		// Calculate the preview of outputs using the current inputs and marking all other response properties
+		// as computed.
 		previewState, err := plugin.MarshalProperties(
-			inputs,
-			plugin.MarshalOptions{Label: fmt.Sprintf("%s.previewState", label), KeepUnknowns: false, SkipNulls: true},
+			k.converter.PreviewOutputs(inputs, res.Response),
+			plugin.MarshalOptions{Label: fmt.Sprintf("%s.previewState", label), KeepUnknowns: true},
 		)
 		if err != nil {
 			return nil, err
@@ -606,12 +612,6 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 		return &rpc.CreateResponse{
 			Properties: previewState,
 		}, nil
-	}
-
-	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap.Resources[resourceKey]
-	if !ok {
-		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
 
 	// Construct ARM REST API body and query from intputs
@@ -764,11 +764,17 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 		return nil, err
 	}
 
+	resourceKey := string(urn.Type())
+	res, ok := k.resourceMap.Resources[resourceKey]
+	if !ok {
+		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
+	}
+
 	if req.GetPreview() {
 		// The preview outputs are inputs + a limited list of outputs that are universally immutable.
 		// We know that their values won't change, so it's safe to propagate the values to dependent
 		// resources during the preview.
-		outputs := inputs
+		outputs := k.converter.PreviewOutputs(inputs, res.Response)
 
 		oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
 			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
@@ -796,12 +802,6 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 		return &rpc.UpdateResponse{
 			Properties: previewOutputs,
 		}, nil
-	}
-
-	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap.Resources[resourceKey]
-	if !ok {
-		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
 
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(

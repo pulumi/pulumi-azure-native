@@ -1,5 +1,8 @@
 import * as random from "@pulumi/random";
+// TODO change to latest when https://github.com/Azure/azure-rest-api-specs/issues/11634 is fixed
+import * as containerinstance from "@pulumi/azure-nextgen/containerinstance/v20191201";
 import * as keyvault from "@pulumi/azure-nextgen/keyvault/latest";
+import * as managedidentity from "@pulumi/azure-nextgen/managedidentity/latest";
 import * as resources from "@pulumi/azure-nextgen/resources/latest";
 
 const randomString = new random.RandomString("random", {
@@ -12,6 +15,37 @@ const randomString = new random.RandomString("random", {
 const resourceGroup = new resources.ResourceGroup("rg", {
     resourceGroupName: randomString,
     location: "westus2",
+});
+
+const userIdentity = new managedidentity.UserAssignedIdentity("uai", {
+    resourceGroupName: resourceGroup.name,
+    location: resourceGroup.location,
+    resourceName: randomString,
+});
+
+const container = new containerinstance.ContainerGroup("containergroup", {
+    resourceGroupName: resourceGroup.name,
+    containerGroupName: randomString,
+    location: "westus2",
+    osType: containerinstance.OperatingSystemTypes.Linux,
+    containers: [{
+        name: "foo",
+        image: "nginx",
+        resources: {
+            requests: {
+                memoryInGB: 1,
+                cpu: 1,
+            },
+        },
+    }],
+    identity: {
+        type: containerinstance.ResourceIdentityType.UserAssigned,
+        userAssignedIdentities: userIdentity.id.apply(id => {
+            const dict: { [key: string] : object } = {};
+            dict[id] = {};
+            return dict;
+        }),
+    },
 });
 
 // TODO: read IDs with an invoke when it's available
@@ -43,6 +77,12 @@ const vault = new keyvault.Vault("vault", {
                     keyvault.SecretPermissions.Recover,
                     keyvault.SecretPermissions.Purge,
                 ],
+            },
+            tenantId,
+        }, {
+            objectId: container.identity.apply(i => i?.userAssignedIdentities!).apply(uai => Object.values(uai)[0].principalId),
+            permissions: {
+                secrets: [keyvault.SecretPermissions.Get],
             },
             tenantId,
         }],

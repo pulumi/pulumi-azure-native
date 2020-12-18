@@ -5,6 +5,7 @@ package resources
 import (
 	"testing"
 
+	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -421,4 +422,50 @@ func TestSDKOutputsToSDKInputs(t *testing.T) {
 	}
 	inputs := c.SDKOutputsToSDKInputs(resourceMap.Resources["r1"].PutParameters, outputs)
 	assert.Equal(t, sampleSdkProps, inputs)
+}
+
+func TestPreviewOutputs(t *testing.T) {
+	inputs := map[string]interface{}{
+		"name":      "MyResource",
+		"threshold": 123,
+		"structure": map[string]interface{}{
+			"v1": "value1",
+			"v2": 2,
+		},
+		"p1": "prop1",
+		"untypedArray": []interface{}{
+			map[string]interface{}{"key1": "value1"},
+			map[string]interface{}{"key1": "value2"},
+		},
+		"untypedDict": map[string]interface{}{
+			"key1": "value1",
+			"key2": "value2",
+		},
+	}
+	inputMap := resource.NewPropertyMapFromMap(inputs)
+	outputs := c.PreviewOutputs(inputMap, resourceMap.Resources["r1"].Response)
+	expected := resource.PropertyMap{
+		resource.PropertyKey("name"):      resource.NewStringProperty("MyResource"),
+		resource.PropertyKey("threshold"): resource.NewNumberProperty(123),
+		resource.PropertyKey("p1"):        resource.NewStringProperty("prop1"),
+		resource.PropertyKey("p2"):        resource.MakeComputed(resource.NewStringProperty("<output>")),
+		resource.PropertyKey("p3"):        resource.MakeComputed(resource.NewStringProperty("<output>")),
+		resource.PropertyKey("readOnly"):  resource.MakeComputed(resource.NewStringProperty("<output>")),
+		resource.PropertyKey("structure"): resource.NewObjectProperty(resource.PropertyMap{
+			"v1":         resource.NewStringProperty("value1"),
+			"v2":         resource.NewNumberProperty(2),
+			"v3":         resource.MakeComputed(resource.NewStringProperty("<output>")),
+			"v4":         resource.MakeComputed(resource.NewStringProperty("<output>")),
+			"v5ReadOnly": resource.MakeComputed(resource.NewStringProperty("<output>")),
+		}),
+		resource.PropertyKey("more"):  resource.MakeComputed(resource.NewStringProperty("<output>")),
+		resource.PropertyKey("tags"):  resource.MakeComputed(resource.NewStringProperty("<output>")),
+		resource.PropertyKey("union"): resource.MakeComputed(resource.NewStringProperty("<output>")),
+		resource.PropertyKey("untypedArray"): resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{"key1": resource.NewStringProperty("value1")}),
+			resource.NewObjectProperty(resource.PropertyMap{"key1": resource.NewStringProperty("value2")}),
+		}),
+		resource.PropertyKey("untypedDict"): resource.NewObjectProperty(resource.PropertyMap{}),
+	}
+	assert.Equal(t, expected, outputs)
 }

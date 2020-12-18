@@ -5,6 +5,7 @@ package resources
 import (
 	"fmt"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"reflect"
 	"regexp"
 	"strings"
@@ -228,6 +229,45 @@ func (k *SdkShapeConverter) IsDefaultResponse(putParameters []AzureAPIParameter,
 		}
 	}
 	return true
+}
+
+// PreviewOutputs calculates a map of outputs at the time of initial resource creation. It takes the provided resource
+// inputs and maps them to the outputs shape, adding unknowns for all properties that are not defined in inputs.
+func (k *SdkShapeConverter) PreviewOutputs(inputs resource.PropertyMap,
+	props map[string]AzureAPIProperty) resource.PropertyMap {
+	result := resource.PropertyMap{}
+	for name, prop := range props {
+		p := prop
+		if prop.SdkName != "" {
+			name = prop.SdkName
+		}
+		key := resource.PropertyKey(name)
+		if inputValue, ok := inputs[key]; ok {
+			result[key] = k.previewOutputValue(inputValue, &p)
+		} else {
+			result[key] = resource.MakeComputed(resource.NewStringProperty("<output>"))
+		}
+	}
+	return result
+}
+
+func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue,
+	prop *AzureAPIProperty) resource.PropertyValue {
+	switch {
+	case prop.Items != nil:
+		var items []resource.PropertyValue
+		for _, item := range inputValue.ArrayValue() {
+			items = append(items, k.previewOutputValue(item, prop.Items))
+		}
+		return resource.NewArrayProperty(items)
+	case prop.Ref != "":
+		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
+		typ := k.Types[typeName]
+		v := k.PreviewOutputs(inputValue.ObjectValue(), typ.Properties)
+		return resource.NewObjectProperty(v)
+	default:
+		return inputValue
+	}
 }
 
 // ParseResourceID extracts templated values from the given resource ID based on the names of those templated
