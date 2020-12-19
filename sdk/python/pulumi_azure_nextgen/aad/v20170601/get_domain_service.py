@@ -206,7 +206,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter(name="migrationProperties")
-    def migration_properties(self) -> Optional['outputs.MigrationPropertiesResponse']:
+    def migration_properties(self) -> 'outputs.MigrationPropertiesResponse':
         """
         Migration Properties
         """

@@ -53,6 +53,7 @@ class DataConnectorKind(str, Enum):
     AMAZON_WEB_SERVICES_CLOUD_TRAIL = "AmazonWebServicesCloudTrail"
     AZURE_ADVANCED_THREAT_PROTECTION = "AzureAdvancedThreatProtection"
     MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "MicrosoftDefenderAdvancedThreatProtection"
+    DYNAMICS365 = "Dynamics365"
 
 
 class EntityTimelineKind(str, Enum):

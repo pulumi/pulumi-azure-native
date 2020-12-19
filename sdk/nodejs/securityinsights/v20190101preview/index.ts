@@ -16,6 +16,7 @@ export * from "./getBookmark";
 export * from "./getBookmarkRelation";
 export * from "./getDataConnector";
 export * from "./getEntitiesGetTimeline";
+export * from "./getEntityInsights";
 export * from "./getIncident";
 export * from "./getIncidentComment";
 export * from "./getIncidentRelation";

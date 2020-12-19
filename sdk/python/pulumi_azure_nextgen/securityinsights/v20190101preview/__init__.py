@@ -15,6 +15,7 @@ from .get_bookmark import *
 from .get_bookmark_relation import *
 from .get_data_connector import *
 from .get_entities_get_timeline import *
+from .get_entity_insights import *
 from .get_incident import *
 from .get_incident_comment import *
 from .get_incident_relation import *
