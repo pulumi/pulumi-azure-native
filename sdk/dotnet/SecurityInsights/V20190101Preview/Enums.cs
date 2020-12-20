@@ -111,6 +111,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public static DataConnectorKind AmazonWebServicesCloudTrail { get; } = new DataConnectorKind("AmazonWebServicesCloudTrail");
         public static DataConnectorKind AzureAdvancedThreatProtection { get; } = new DataConnectorKind("AzureAdvancedThreatProtection");
         public static DataConnectorKind MicrosoftDefenderAdvancedThreatProtection { get; } = new DataConnectorKind("MicrosoftDefenderAdvancedThreatProtection");
+        public static DataConnectorKind Dynamics365 { get; } = new DataConnectorKind("Dynamics365");
 
         public static bool operator ==(DataConnectorKind left, DataConnectorKind right) => left.Equals(right);
         public static bool operator !=(DataConnectorKind left, DataConnectorKind right) => !left.Equals(right);

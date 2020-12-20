@@ -26,7 +26,6 @@ class DomainService(pulumi.CustomResource):
                  filtered_sync: Optional[pulumi.Input[Union[str, 'FilteredSync']]] = None,
                  ldaps_settings: Optional[pulumi.Input[pulumi.InputType['LdapsSettingsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 migration_properties: Optional[pulumi.Input[pulumi.InputType['MigrationPropertiesArgs']]] = None,
                  notification_settings: Optional[pulumi.Input[pulumi.InputType['NotificationSettingsArgs']]] = None,
                  replica_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]]] = None,
                  resource_forest_settings: Optional[pulumi.Input[pulumi.InputType['ResourceForestSettingsArgs']]] = None,
@@ -50,7 +49,6 @@ class DomainService(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'FilteredSync']] filtered_sync: Enabled or Disabled flag to turn on Group-based filtered sync
         :param pulumi.Input[pulumi.InputType['LdapsSettingsArgs']] ldaps_settings: Secure LDAP Settings
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[pulumi.InputType['MigrationPropertiesArgs']] migration_properties: Migration Properties
         :param pulumi.Input[pulumi.InputType['NotificationSettingsArgs']] notification_settings: Notification Settings
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]] replica_sets: List of ReplicaSets
         :param pulumi.Input[pulumi.InputType['ResourceForestSettingsArgs']] resource_forest_settings: Resource Forest Settings
@@ -85,7 +83,6 @@ class DomainService(pulumi.CustomResource):
             __props__['filtered_sync'] = filtered_sync
             __props__['ldaps_settings'] = ldaps_settings
             __props__['location'] = location
-            __props__['migration_properties'] = migration_properties
             __props__['notification_settings'] = notification_settings
             __props__['replica_sets'] = replica_sets
             __props__['resource_forest_settings'] = resource_forest_settings
@@ -95,6 +92,7 @@ class DomainService(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['deployment_id'] = None
+            __props__['migration_properties'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['sync_owner'] = None
@@ -193,7 +191,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="migrationProperties")
-    def migration_properties(self) -> pulumi.Output[Optional['outputs.MigrationPropertiesResponse']]:
+    def migration_properties(self) -> pulumi.Output['outputs.MigrationPropertiesResponse']:
         """
         Migration Properties
         """

@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// <summary>
         /// Migration Properties
         /// </summary>
-        public readonly Outputs.MigrationPropertiesResponse? MigrationProperties;
+        public readonly Outputs.MigrationPropertiesResponse MigrationProperties;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
 
             string? location,
 
-            Outputs.MigrationPropertiesResponse? migrationProperties,
+            Outputs.MigrationPropertiesResponse migrationProperties,
 
             string name,
 

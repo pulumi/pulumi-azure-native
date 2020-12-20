@@ -73,7 +73,7 @@ export interface GetDomainServiceResult {
     /**
      * Migration Properties
      */
-    readonly migrationProperties?: outputs.aad.latest.MigrationPropertiesResponse;
+    readonly migrationProperties: outputs.aad.latest.MigrationPropertiesResponse;
     /**
      * Resource name
      */
