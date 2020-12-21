@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// Migration Properties
         /// </summary>
         [Output("migrationProperties")]
-        public Output<Outputs.MigrationPropertiesResponse?> MigrationProperties { get; private set; } = null!;
+        public Output<Outputs.MigrationPropertiesResponse> MigrationProperties { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -234,12 +234,6 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Migration Properties
-        /// </summary>
-        [Input("migrationProperties")]
-        public Input<Inputs.MigrationPropertiesArgs>? MigrationProperties { get; set; }
 
         /// <summary>
         /// Notification Settings

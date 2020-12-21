@@ -55,9 +55,6 @@ func NewCluster(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:avs/latest:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20190809preview:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-nextgen:avs/v20200320:Cluster"),
 		},
 	})

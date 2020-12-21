@@ -499,25 +499,22 @@ class MigrationPropertiesResponse(dict):
     Migration Properties
     """
     def __init__(__self__, *,
-                 migration_progress: Optional['outputs.MigrationProgressResponse'] = None,
-                 old_subnet_id: Optional[str] = None,
-                 old_vnet_site_id: Optional[str] = None):
+                 migration_progress: 'outputs.MigrationProgressResponse',
+                 old_subnet_id: str,
+                 old_vnet_site_id: str):
         """
         Migration Properties
         :param 'MigrationProgressResponseArgs' migration_progress: Migration Progress
         :param str old_subnet_id: Old Subnet Id
         :param str old_vnet_site_id: Old Vnet Site Id
         """
-        if migration_progress is not None:
-            pulumi.set(__self__, "migration_progress", migration_progress)
-        if old_subnet_id is not None:
-            pulumi.set(__self__, "old_subnet_id", old_subnet_id)
-        if old_vnet_site_id is not None:
-            pulumi.set(__self__, "old_vnet_site_id", old_vnet_site_id)
+        pulumi.set(__self__, "migration_progress", migration_progress)
+        pulumi.set(__self__, "old_subnet_id", old_subnet_id)
+        pulumi.set(__self__, "old_vnet_site_id", old_vnet_site_id)
 
     @property
     @pulumi.getter(name="migrationProgress")
-    def migration_progress(self) -> Optional['outputs.MigrationProgressResponse']:
+    def migration_progress(self) -> 'outputs.MigrationProgressResponse':
         """
         Migration Progress
         """
@@ -525,7 +522,7 @@ class MigrationPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="oldSubnetId")
-    def old_subnet_id(self) -> Optional[str]:
+    def old_subnet_id(self) -> str:
         """
         Old Subnet Id
         """
@@ -533,7 +530,7 @@ class MigrationPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="oldVnetSiteId")
-    def old_vnet_site_id(self) -> Optional[str]:
+    def old_vnet_site_id(self) -> str:
         """
         Old Vnet Site Id
         """

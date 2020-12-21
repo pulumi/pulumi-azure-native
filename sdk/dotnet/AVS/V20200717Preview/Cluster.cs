@@ -83,7 +83,6 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:avs/latest:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20190809preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:Cluster"},
                 },
             };

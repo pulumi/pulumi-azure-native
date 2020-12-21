@@ -452,6 +452,472 @@ func (o ClientInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Entity insight Item.
+type EntityInsightItemResponse struct {
+	// Query results for table insights query.
+	ChartQueryResults []InsightsTableResultResponse `pulumi:"chartQueryResults"`
+	// The query id of the insight
+	QueryId *string `pulumi:"queryId"`
+	// The Time interval that the query actually executed on.
+	QueryTimeInterval *EntityInsightItemResponseQueryTimeInterval `pulumi:"queryTimeInterval"`
+	// Query results for table insights query.
+	TableQueryResults *InsightsTableResultResponse `pulumi:"tableQueryResults"`
+}
+
+// EntityInsightItemResponseInput is an input type that accepts EntityInsightItemResponseArgs and EntityInsightItemResponseOutput values.
+// You can construct a concrete instance of `EntityInsightItemResponseInput` via:
+//
+//          EntityInsightItemResponseArgs{...}
+type EntityInsightItemResponseInput interface {
+	pulumi.Input
+
+	ToEntityInsightItemResponseOutput() EntityInsightItemResponseOutput
+	ToEntityInsightItemResponseOutputWithContext(context.Context) EntityInsightItemResponseOutput
+}
+
+// Entity insight Item.
+type EntityInsightItemResponseArgs struct {
+	// Query results for table insights query.
+	ChartQueryResults InsightsTableResultResponseArrayInput `pulumi:"chartQueryResults"`
+	// The query id of the insight
+	QueryId pulumi.StringPtrInput `pulumi:"queryId"`
+	// The Time interval that the query actually executed on.
+	QueryTimeInterval EntityInsightItemResponseQueryTimeIntervalPtrInput `pulumi:"queryTimeInterval"`
+	// Query results for table insights query.
+	TableQueryResults InsightsTableResultResponsePtrInput `pulumi:"tableQueryResults"`
+}
+
+func (EntityInsightItemResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityInsightItemResponse)(nil)).Elem()
+}
+
+func (i EntityInsightItemResponseArgs) ToEntityInsightItemResponseOutput() EntityInsightItemResponseOutput {
+	return i.ToEntityInsightItemResponseOutputWithContext(context.Background())
+}
+
+func (i EntityInsightItemResponseArgs) ToEntityInsightItemResponseOutputWithContext(ctx context.Context) EntityInsightItemResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityInsightItemResponseOutput)
+}
+
+// EntityInsightItemResponseArrayInput is an input type that accepts EntityInsightItemResponseArray and EntityInsightItemResponseArrayOutput values.
+// You can construct a concrete instance of `EntityInsightItemResponseArrayInput` via:
+//
+//          EntityInsightItemResponseArray{ EntityInsightItemResponseArgs{...} }
+type EntityInsightItemResponseArrayInput interface {
+	pulumi.Input
+
+	ToEntityInsightItemResponseArrayOutput() EntityInsightItemResponseArrayOutput
+	ToEntityInsightItemResponseArrayOutputWithContext(context.Context) EntityInsightItemResponseArrayOutput
+}
+
+type EntityInsightItemResponseArray []EntityInsightItemResponseInput
+
+func (EntityInsightItemResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityInsightItemResponse)(nil)).Elem()
+}
+
+func (i EntityInsightItemResponseArray) ToEntityInsightItemResponseArrayOutput() EntityInsightItemResponseArrayOutput {
+	return i.ToEntityInsightItemResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EntityInsightItemResponseArray) ToEntityInsightItemResponseArrayOutputWithContext(ctx context.Context) EntityInsightItemResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityInsightItemResponseArrayOutput)
+}
+
+// Entity insight Item.
+type EntityInsightItemResponseOutput struct{ *pulumi.OutputState }
+
+func (EntityInsightItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityInsightItemResponse)(nil)).Elem()
+}
+
+func (o EntityInsightItemResponseOutput) ToEntityInsightItemResponseOutput() EntityInsightItemResponseOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseOutput) ToEntityInsightItemResponseOutputWithContext(ctx context.Context) EntityInsightItemResponseOutput {
+	return o
+}
+
+// Query results for table insights query.
+func (o EntityInsightItemResponseOutput) ChartQueryResults() InsightsTableResultResponseArrayOutput {
+	return o.ApplyT(func(v EntityInsightItemResponse) []InsightsTableResultResponse { return v.ChartQueryResults }).(InsightsTableResultResponseArrayOutput)
+}
+
+// The query id of the insight
+func (o EntityInsightItemResponseOutput) QueryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityInsightItemResponse) *string { return v.QueryId }).(pulumi.StringPtrOutput)
+}
+
+// The Time interval that the query actually executed on.
+func (o EntityInsightItemResponseOutput) QueryTimeInterval() EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return o.ApplyT(func(v EntityInsightItemResponse) *EntityInsightItemResponseQueryTimeInterval {
+		return v.QueryTimeInterval
+	}).(EntityInsightItemResponseQueryTimeIntervalPtrOutput)
+}
+
+// Query results for table insights query.
+func (o EntityInsightItemResponseOutput) TableQueryResults() InsightsTableResultResponsePtrOutput {
+	return o.ApplyT(func(v EntityInsightItemResponse) *InsightsTableResultResponse { return v.TableQueryResults }).(InsightsTableResultResponsePtrOutput)
+}
+
+type EntityInsightItemResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EntityInsightItemResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityInsightItemResponse)(nil)).Elem()
+}
+
+func (o EntityInsightItemResponseArrayOutput) ToEntityInsightItemResponseArrayOutput() EntityInsightItemResponseArrayOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseArrayOutput) ToEntityInsightItemResponseArrayOutputWithContext(ctx context.Context) EntityInsightItemResponseArrayOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseArrayOutput) Index(i pulumi.IntInput) EntityInsightItemResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityInsightItemResponse {
+		return vs[0].([]EntityInsightItemResponse)[vs[1].(int)]
+	}).(EntityInsightItemResponseOutput)
+}
+
+// The Time interval that the query actually executed on.
+type EntityInsightItemResponseQueryTimeInterval struct {
+	// Insight query end time
+	EndTime *string `pulumi:"endTime"`
+	// Insight query start time
+	StartTime *string `pulumi:"startTime"`
+}
+
+// EntityInsightItemResponseQueryTimeIntervalInput is an input type that accepts EntityInsightItemResponseQueryTimeIntervalArgs and EntityInsightItemResponseQueryTimeIntervalOutput values.
+// You can construct a concrete instance of `EntityInsightItemResponseQueryTimeIntervalInput` via:
+//
+//          EntityInsightItemResponseQueryTimeIntervalArgs{...}
+type EntityInsightItemResponseQueryTimeIntervalInput interface {
+	pulumi.Input
+
+	ToEntityInsightItemResponseQueryTimeIntervalOutput() EntityInsightItemResponseQueryTimeIntervalOutput
+	ToEntityInsightItemResponseQueryTimeIntervalOutputWithContext(context.Context) EntityInsightItemResponseQueryTimeIntervalOutput
+}
+
+// The Time interval that the query actually executed on.
+type EntityInsightItemResponseQueryTimeIntervalArgs struct {
+	// Insight query end time
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// Insight query start time
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (EntityInsightItemResponseQueryTimeIntervalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityInsightItemResponseQueryTimeInterval)(nil)).Elem()
+}
+
+func (i EntityInsightItemResponseQueryTimeIntervalArgs) ToEntityInsightItemResponseQueryTimeIntervalOutput() EntityInsightItemResponseQueryTimeIntervalOutput {
+	return i.ToEntityInsightItemResponseQueryTimeIntervalOutputWithContext(context.Background())
+}
+
+func (i EntityInsightItemResponseQueryTimeIntervalArgs) ToEntityInsightItemResponseQueryTimeIntervalOutputWithContext(ctx context.Context) EntityInsightItemResponseQueryTimeIntervalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityInsightItemResponseQueryTimeIntervalOutput)
+}
+
+func (i EntityInsightItemResponseQueryTimeIntervalArgs) ToEntityInsightItemResponseQueryTimeIntervalPtrOutput() EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return i.ToEntityInsightItemResponseQueryTimeIntervalPtrOutputWithContext(context.Background())
+}
+
+func (i EntityInsightItemResponseQueryTimeIntervalArgs) ToEntityInsightItemResponseQueryTimeIntervalPtrOutputWithContext(ctx context.Context) EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityInsightItemResponseQueryTimeIntervalOutput).ToEntityInsightItemResponseQueryTimeIntervalPtrOutputWithContext(ctx)
+}
+
+// EntityInsightItemResponseQueryTimeIntervalPtrInput is an input type that accepts EntityInsightItemResponseQueryTimeIntervalArgs, EntityInsightItemResponseQueryTimeIntervalPtr and EntityInsightItemResponseQueryTimeIntervalPtrOutput values.
+// You can construct a concrete instance of `EntityInsightItemResponseQueryTimeIntervalPtrInput` via:
+//
+//          EntityInsightItemResponseQueryTimeIntervalArgs{...}
+//
+//  or:
+//
+//          nil
+type EntityInsightItemResponseQueryTimeIntervalPtrInput interface {
+	pulumi.Input
+
+	ToEntityInsightItemResponseQueryTimeIntervalPtrOutput() EntityInsightItemResponseQueryTimeIntervalPtrOutput
+	ToEntityInsightItemResponseQueryTimeIntervalPtrOutputWithContext(context.Context) EntityInsightItemResponseQueryTimeIntervalPtrOutput
+}
+
+type entityInsightItemResponseQueryTimeIntervalPtrType EntityInsightItemResponseQueryTimeIntervalArgs
+
+func EntityInsightItemResponseQueryTimeIntervalPtr(v *EntityInsightItemResponseQueryTimeIntervalArgs) EntityInsightItemResponseQueryTimeIntervalPtrInput {
+	return (*entityInsightItemResponseQueryTimeIntervalPtrType)(v)
+}
+
+func (*entityInsightItemResponseQueryTimeIntervalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityInsightItemResponseQueryTimeInterval)(nil)).Elem()
+}
+
+func (i *entityInsightItemResponseQueryTimeIntervalPtrType) ToEntityInsightItemResponseQueryTimeIntervalPtrOutput() EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return i.ToEntityInsightItemResponseQueryTimeIntervalPtrOutputWithContext(context.Background())
+}
+
+func (i *entityInsightItemResponseQueryTimeIntervalPtrType) ToEntityInsightItemResponseQueryTimeIntervalPtrOutputWithContext(ctx context.Context) EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityInsightItemResponseQueryTimeIntervalPtrOutput)
+}
+
+// The Time interval that the query actually executed on.
+type EntityInsightItemResponseQueryTimeIntervalOutput struct{ *pulumi.OutputState }
+
+func (EntityInsightItemResponseQueryTimeIntervalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityInsightItemResponseQueryTimeInterval)(nil)).Elem()
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalOutput) ToEntityInsightItemResponseQueryTimeIntervalOutput() EntityInsightItemResponseQueryTimeIntervalOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalOutput) ToEntityInsightItemResponseQueryTimeIntervalOutputWithContext(ctx context.Context) EntityInsightItemResponseQueryTimeIntervalOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalOutput) ToEntityInsightItemResponseQueryTimeIntervalPtrOutput() EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return o.ToEntityInsightItemResponseQueryTimeIntervalPtrOutputWithContext(context.Background())
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalOutput) ToEntityInsightItemResponseQueryTimeIntervalPtrOutputWithContext(ctx context.Context) EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return o.ApplyT(func(v EntityInsightItemResponseQueryTimeInterval) *EntityInsightItemResponseQueryTimeInterval {
+		return &v
+	}).(EntityInsightItemResponseQueryTimeIntervalPtrOutput)
+}
+
+// Insight query end time
+func (o EntityInsightItemResponseQueryTimeIntervalOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityInsightItemResponseQueryTimeInterval) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Insight query start time
+func (o EntityInsightItemResponseQueryTimeIntervalOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityInsightItemResponseQueryTimeInterval) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type EntityInsightItemResponseQueryTimeIntervalPtrOutput struct{ *pulumi.OutputState }
+
+func (EntityInsightItemResponseQueryTimeIntervalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityInsightItemResponseQueryTimeInterval)(nil)).Elem()
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) ToEntityInsightItemResponseQueryTimeIntervalPtrOutput() EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) ToEntityInsightItemResponseQueryTimeIntervalPtrOutputWithContext(ctx context.Context) EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) Elem() EntityInsightItemResponseQueryTimeIntervalOutput {
+	return o.ApplyT(func(v *EntityInsightItemResponseQueryTimeInterval) EntityInsightItemResponseQueryTimeInterval {
+		return *v
+	}).(EntityInsightItemResponseQueryTimeIntervalOutput)
+}
+
+// Insight query end time
+func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityInsightItemResponseQueryTimeInterval) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Insight query start time
+func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityInsightItemResponseQueryTimeInterval) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// GetInsights Query Errors.
+type GetInsightsErrorResponse struct {
+	// the error message
+	ErrorMessage string `pulumi:"errorMessage"`
+	// the query kind
+	Kind string `pulumi:"kind"`
+	// the query id
+	QueryId *string `pulumi:"queryId"`
+}
+
+// GetInsightsErrorResponseInput is an input type that accepts GetInsightsErrorResponseArgs and GetInsightsErrorResponseOutput values.
+// You can construct a concrete instance of `GetInsightsErrorResponseInput` via:
+//
+//          GetInsightsErrorResponseArgs{...}
+type GetInsightsErrorResponseInput interface {
+	pulumi.Input
+
+	ToGetInsightsErrorResponseOutput() GetInsightsErrorResponseOutput
+	ToGetInsightsErrorResponseOutputWithContext(context.Context) GetInsightsErrorResponseOutput
+}
+
+// GetInsights Query Errors.
+type GetInsightsErrorResponseArgs struct {
+	// the error message
+	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
+	// the query kind
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// the query id
+	QueryId pulumi.StringPtrInput `pulumi:"queryId"`
+}
+
+func (GetInsightsErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInsightsErrorResponse)(nil)).Elem()
+}
+
+func (i GetInsightsErrorResponseArgs) ToGetInsightsErrorResponseOutput() GetInsightsErrorResponseOutput {
+	return i.ToGetInsightsErrorResponseOutputWithContext(context.Background())
+}
+
+func (i GetInsightsErrorResponseArgs) ToGetInsightsErrorResponseOutputWithContext(ctx context.Context) GetInsightsErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInsightsErrorResponseOutput)
+}
+
+// GetInsightsErrorResponseArrayInput is an input type that accepts GetInsightsErrorResponseArray and GetInsightsErrorResponseArrayOutput values.
+// You can construct a concrete instance of `GetInsightsErrorResponseArrayInput` via:
+//
+//          GetInsightsErrorResponseArray{ GetInsightsErrorResponseArgs{...} }
+type GetInsightsErrorResponseArrayInput interface {
+	pulumi.Input
+
+	ToGetInsightsErrorResponseArrayOutput() GetInsightsErrorResponseArrayOutput
+	ToGetInsightsErrorResponseArrayOutputWithContext(context.Context) GetInsightsErrorResponseArrayOutput
+}
+
+type GetInsightsErrorResponseArray []GetInsightsErrorResponseInput
+
+func (GetInsightsErrorResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInsightsErrorResponse)(nil)).Elem()
+}
+
+func (i GetInsightsErrorResponseArray) ToGetInsightsErrorResponseArrayOutput() GetInsightsErrorResponseArrayOutput {
+	return i.ToGetInsightsErrorResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GetInsightsErrorResponseArray) ToGetInsightsErrorResponseArrayOutputWithContext(ctx context.Context) GetInsightsErrorResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInsightsErrorResponseArrayOutput)
+}
+
+// GetInsights Query Errors.
+type GetInsightsErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (GetInsightsErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInsightsErrorResponse)(nil)).Elem()
+}
+
+func (o GetInsightsErrorResponseOutput) ToGetInsightsErrorResponseOutput() GetInsightsErrorResponseOutput {
+	return o
+}
+
+func (o GetInsightsErrorResponseOutput) ToGetInsightsErrorResponseOutputWithContext(ctx context.Context) GetInsightsErrorResponseOutput {
+	return o
+}
+
+// the error message
+func (o GetInsightsErrorResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInsightsErrorResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// the query kind
+func (o GetInsightsErrorResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInsightsErrorResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// the query id
+func (o GetInsightsErrorResponseOutput) QueryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInsightsErrorResponse) *string { return v.QueryId }).(pulumi.StringPtrOutput)
+}
+
+type GetInsightsErrorResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInsightsErrorResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInsightsErrorResponse)(nil)).Elem()
+}
+
+func (o GetInsightsErrorResponseArrayOutput) ToGetInsightsErrorResponseArrayOutput() GetInsightsErrorResponseArrayOutput {
+	return o
+}
+
+func (o GetInsightsErrorResponseArrayOutput) ToGetInsightsErrorResponseArrayOutputWithContext(ctx context.Context) GetInsightsErrorResponseArrayOutput {
+	return o
+}
+
+func (o GetInsightsErrorResponseArrayOutput) Index(i pulumi.IntInput) GetInsightsErrorResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInsightsErrorResponse {
+		return vs[0].([]GetInsightsErrorResponse)[vs[1].(int)]
+	}).(GetInsightsErrorResponseOutput)
+}
+
+// Get Insights result metadata.
+type GetInsightsResultsMetadataResponse struct {
+	// information about the failed queries
+	Errors []GetInsightsErrorResponse `pulumi:"errors"`
+	// the total items found for the insights request
+	TotalCount int `pulumi:"totalCount"`
+}
+
+// GetInsightsResultsMetadataResponseInput is an input type that accepts GetInsightsResultsMetadataResponseArgs and GetInsightsResultsMetadataResponseOutput values.
+// You can construct a concrete instance of `GetInsightsResultsMetadataResponseInput` via:
+//
+//          GetInsightsResultsMetadataResponseArgs{...}
+type GetInsightsResultsMetadataResponseInput interface {
+	pulumi.Input
+
+	ToGetInsightsResultsMetadataResponseOutput() GetInsightsResultsMetadataResponseOutput
+	ToGetInsightsResultsMetadataResponseOutputWithContext(context.Context) GetInsightsResultsMetadataResponseOutput
+}
+
+// Get Insights result metadata.
+type GetInsightsResultsMetadataResponseArgs struct {
+	// information about the failed queries
+	Errors GetInsightsErrorResponseArrayInput `pulumi:"errors"`
+	// the total items found for the insights request
+	TotalCount pulumi.IntInput `pulumi:"totalCount"`
+}
+
+func (GetInsightsResultsMetadataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInsightsResultsMetadataResponse)(nil)).Elem()
+}
+
+func (i GetInsightsResultsMetadataResponseArgs) ToGetInsightsResultsMetadataResponseOutput() GetInsightsResultsMetadataResponseOutput {
+	return i.ToGetInsightsResultsMetadataResponseOutputWithContext(context.Background())
+}
+
+func (i GetInsightsResultsMetadataResponseArgs) ToGetInsightsResultsMetadataResponseOutputWithContext(ctx context.Context) GetInsightsResultsMetadataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInsightsResultsMetadataResponseOutput)
+}
+
+// Get Insights result metadata.
+type GetInsightsResultsMetadataResponseOutput struct{ *pulumi.OutputState }
+
+func (GetInsightsResultsMetadataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInsightsResultsMetadataResponse)(nil)).Elem()
+}
+
+func (o GetInsightsResultsMetadataResponseOutput) ToGetInsightsResultsMetadataResponseOutput() GetInsightsResultsMetadataResponseOutput {
+	return o
+}
+
+func (o GetInsightsResultsMetadataResponseOutput) ToGetInsightsResultsMetadataResponseOutputWithContext(ctx context.Context) GetInsightsResultsMetadataResponseOutput {
+	return o
+}
+
+// information about the failed queries
+func (o GetInsightsResultsMetadataResponseOutput) Errors() GetInsightsErrorResponseArrayOutput {
+	return o.ApplyT(func(v GetInsightsResultsMetadataResponse) []GetInsightsErrorResponse { return v.Errors }).(GetInsightsErrorResponseArrayOutput)
+}
+
+// the total items found for the insights request
+func (o GetInsightsResultsMetadataResponseOutput) TotalCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInsightsResultsMetadataResponse) int { return v.TotalCount }).(pulumi.IntOutput)
+}
+
 // Incident additional data property bag.
 type IncidentAdditionalDataResponse struct {
 	// List of product names of alerts in the incident
@@ -1635,6 +2101,310 @@ func (o IncidentOwnerInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Query results for table insights query.
+type InsightsTableResultResponse struct {
+	// Columns Metadata of the table
+	Columns []InsightsTableResultResponseColumns `pulumi:"columns"`
+	// Rows data of the table
+	Rows [][]string `pulumi:"rows"`
+}
+
+// InsightsTableResultResponseInput is an input type that accepts InsightsTableResultResponseArgs and InsightsTableResultResponseOutput values.
+// You can construct a concrete instance of `InsightsTableResultResponseInput` via:
+//
+//          InsightsTableResultResponseArgs{...}
+type InsightsTableResultResponseInput interface {
+	pulumi.Input
+
+	ToInsightsTableResultResponseOutput() InsightsTableResultResponseOutput
+	ToInsightsTableResultResponseOutputWithContext(context.Context) InsightsTableResultResponseOutput
+}
+
+// Query results for table insights query.
+type InsightsTableResultResponseArgs struct {
+	// Columns Metadata of the table
+	Columns InsightsTableResultResponseColumnsArrayInput `pulumi:"columns"`
+	// Rows data of the table
+	Rows pulumi.StringArrayArrayInput `pulumi:"rows"`
+}
+
+func (InsightsTableResultResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightsTableResultResponse)(nil)).Elem()
+}
+
+func (i InsightsTableResultResponseArgs) ToInsightsTableResultResponseOutput() InsightsTableResultResponseOutput {
+	return i.ToInsightsTableResultResponseOutputWithContext(context.Background())
+}
+
+func (i InsightsTableResultResponseArgs) ToInsightsTableResultResponseOutputWithContext(ctx context.Context) InsightsTableResultResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightsTableResultResponseOutput)
+}
+
+func (i InsightsTableResultResponseArgs) ToInsightsTableResultResponsePtrOutput() InsightsTableResultResponsePtrOutput {
+	return i.ToInsightsTableResultResponsePtrOutputWithContext(context.Background())
+}
+
+func (i InsightsTableResultResponseArgs) ToInsightsTableResultResponsePtrOutputWithContext(ctx context.Context) InsightsTableResultResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightsTableResultResponseOutput).ToInsightsTableResultResponsePtrOutputWithContext(ctx)
+}
+
+// InsightsTableResultResponsePtrInput is an input type that accepts InsightsTableResultResponseArgs, InsightsTableResultResponsePtr and InsightsTableResultResponsePtrOutput values.
+// You can construct a concrete instance of `InsightsTableResultResponsePtrInput` via:
+//
+//          InsightsTableResultResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type InsightsTableResultResponsePtrInput interface {
+	pulumi.Input
+
+	ToInsightsTableResultResponsePtrOutput() InsightsTableResultResponsePtrOutput
+	ToInsightsTableResultResponsePtrOutputWithContext(context.Context) InsightsTableResultResponsePtrOutput
+}
+
+type insightsTableResultResponsePtrType InsightsTableResultResponseArgs
+
+func InsightsTableResultResponsePtr(v *InsightsTableResultResponseArgs) InsightsTableResultResponsePtrInput {
+	return (*insightsTableResultResponsePtrType)(v)
+}
+
+func (*insightsTableResultResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InsightsTableResultResponse)(nil)).Elem()
+}
+
+func (i *insightsTableResultResponsePtrType) ToInsightsTableResultResponsePtrOutput() InsightsTableResultResponsePtrOutput {
+	return i.ToInsightsTableResultResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *insightsTableResultResponsePtrType) ToInsightsTableResultResponsePtrOutputWithContext(ctx context.Context) InsightsTableResultResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightsTableResultResponsePtrOutput)
+}
+
+// InsightsTableResultResponseArrayInput is an input type that accepts InsightsTableResultResponseArray and InsightsTableResultResponseArrayOutput values.
+// You can construct a concrete instance of `InsightsTableResultResponseArrayInput` via:
+//
+//          InsightsTableResultResponseArray{ InsightsTableResultResponseArgs{...} }
+type InsightsTableResultResponseArrayInput interface {
+	pulumi.Input
+
+	ToInsightsTableResultResponseArrayOutput() InsightsTableResultResponseArrayOutput
+	ToInsightsTableResultResponseArrayOutputWithContext(context.Context) InsightsTableResultResponseArrayOutput
+}
+
+type InsightsTableResultResponseArray []InsightsTableResultResponseInput
+
+func (InsightsTableResultResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightsTableResultResponse)(nil)).Elem()
+}
+
+func (i InsightsTableResultResponseArray) ToInsightsTableResultResponseArrayOutput() InsightsTableResultResponseArrayOutput {
+	return i.ToInsightsTableResultResponseArrayOutputWithContext(context.Background())
+}
+
+func (i InsightsTableResultResponseArray) ToInsightsTableResultResponseArrayOutputWithContext(ctx context.Context) InsightsTableResultResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightsTableResultResponseArrayOutput)
+}
+
+// Query results for table insights query.
+type InsightsTableResultResponseOutput struct{ *pulumi.OutputState }
+
+func (InsightsTableResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightsTableResultResponse)(nil)).Elem()
+}
+
+func (o InsightsTableResultResponseOutput) ToInsightsTableResultResponseOutput() InsightsTableResultResponseOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseOutput) ToInsightsTableResultResponseOutputWithContext(ctx context.Context) InsightsTableResultResponseOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseOutput) ToInsightsTableResultResponsePtrOutput() InsightsTableResultResponsePtrOutput {
+	return o.ToInsightsTableResultResponsePtrOutputWithContext(context.Background())
+}
+
+func (o InsightsTableResultResponseOutput) ToInsightsTableResultResponsePtrOutputWithContext(ctx context.Context) InsightsTableResultResponsePtrOutput {
+	return o.ApplyT(func(v InsightsTableResultResponse) *InsightsTableResultResponse {
+		return &v
+	}).(InsightsTableResultResponsePtrOutput)
+}
+
+// Columns Metadata of the table
+func (o InsightsTableResultResponseOutput) Columns() InsightsTableResultResponseColumnsArrayOutput {
+	return o.ApplyT(func(v InsightsTableResultResponse) []InsightsTableResultResponseColumns { return v.Columns }).(InsightsTableResultResponseColumnsArrayOutput)
+}
+
+// Rows data of the table
+func (o InsightsTableResultResponseOutput) Rows() pulumi.StringArrayArrayOutput {
+	return o.ApplyT(func(v InsightsTableResultResponse) [][]string { return v.Rows }).(pulumi.StringArrayArrayOutput)
+}
+
+type InsightsTableResultResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (InsightsTableResultResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InsightsTableResultResponse)(nil)).Elem()
+}
+
+func (o InsightsTableResultResponsePtrOutput) ToInsightsTableResultResponsePtrOutput() InsightsTableResultResponsePtrOutput {
+	return o
+}
+
+func (o InsightsTableResultResponsePtrOutput) ToInsightsTableResultResponsePtrOutputWithContext(ctx context.Context) InsightsTableResultResponsePtrOutput {
+	return o
+}
+
+func (o InsightsTableResultResponsePtrOutput) Elem() InsightsTableResultResponseOutput {
+	return o.ApplyT(func(v *InsightsTableResultResponse) InsightsTableResultResponse { return *v }).(InsightsTableResultResponseOutput)
+}
+
+// Columns Metadata of the table
+func (o InsightsTableResultResponsePtrOutput) Columns() InsightsTableResultResponseColumnsArrayOutput {
+	return o.ApplyT(func(v *InsightsTableResultResponse) []InsightsTableResultResponseColumns {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(InsightsTableResultResponseColumnsArrayOutput)
+}
+
+// Rows data of the table
+func (o InsightsTableResultResponsePtrOutput) Rows() pulumi.StringArrayArrayOutput {
+	return o.ApplyT(func(v *InsightsTableResultResponse) [][]string {
+		if v == nil {
+			return nil
+		}
+		return v.Rows
+	}).(pulumi.StringArrayArrayOutput)
+}
+
+type InsightsTableResultResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightsTableResultResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightsTableResultResponse)(nil)).Elem()
+}
+
+func (o InsightsTableResultResponseArrayOutput) ToInsightsTableResultResponseArrayOutput() InsightsTableResultResponseArrayOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseArrayOutput) ToInsightsTableResultResponseArrayOutputWithContext(ctx context.Context) InsightsTableResultResponseArrayOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseArrayOutput) Index(i pulumi.IntInput) InsightsTableResultResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightsTableResultResponse {
+		return vs[0].([]InsightsTableResultResponse)[vs[1].(int)]
+	}).(InsightsTableResultResponseOutput)
+}
+
+type InsightsTableResultResponseColumns struct {
+	// the name of the colum
+	Name *string `pulumi:"name"`
+	// the type of the colum
+	Type *string `pulumi:"type"`
+}
+
+// InsightsTableResultResponseColumnsInput is an input type that accepts InsightsTableResultResponseColumnsArgs and InsightsTableResultResponseColumnsOutput values.
+// You can construct a concrete instance of `InsightsTableResultResponseColumnsInput` via:
+//
+//          InsightsTableResultResponseColumnsArgs{...}
+type InsightsTableResultResponseColumnsInput interface {
+	pulumi.Input
+
+	ToInsightsTableResultResponseColumnsOutput() InsightsTableResultResponseColumnsOutput
+	ToInsightsTableResultResponseColumnsOutputWithContext(context.Context) InsightsTableResultResponseColumnsOutput
+}
+
+type InsightsTableResultResponseColumnsArgs struct {
+	// the name of the colum
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// the type of the colum
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (InsightsTableResultResponseColumnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightsTableResultResponseColumns)(nil)).Elem()
+}
+
+func (i InsightsTableResultResponseColumnsArgs) ToInsightsTableResultResponseColumnsOutput() InsightsTableResultResponseColumnsOutput {
+	return i.ToInsightsTableResultResponseColumnsOutputWithContext(context.Background())
+}
+
+func (i InsightsTableResultResponseColumnsArgs) ToInsightsTableResultResponseColumnsOutputWithContext(ctx context.Context) InsightsTableResultResponseColumnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightsTableResultResponseColumnsOutput)
+}
+
+// InsightsTableResultResponseColumnsArrayInput is an input type that accepts InsightsTableResultResponseColumnsArray and InsightsTableResultResponseColumnsArrayOutput values.
+// You can construct a concrete instance of `InsightsTableResultResponseColumnsArrayInput` via:
+//
+//          InsightsTableResultResponseColumnsArray{ InsightsTableResultResponseColumnsArgs{...} }
+type InsightsTableResultResponseColumnsArrayInput interface {
+	pulumi.Input
+
+	ToInsightsTableResultResponseColumnsArrayOutput() InsightsTableResultResponseColumnsArrayOutput
+	ToInsightsTableResultResponseColumnsArrayOutputWithContext(context.Context) InsightsTableResultResponseColumnsArrayOutput
+}
+
+type InsightsTableResultResponseColumnsArray []InsightsTableResultResponseColumnsInput
+
+func (InsightsTableResultResponseColumnsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightsTableResultResponseColumns)(nil)).Elem()
+}
+
+func (i InsightsTableResultResponseColumnsArray) ToInsightsTableResultResponseColumnsArrayOutput() InsightsTableResultResponseColumnsArrayOutput {
+	return i.ToInsightsTableResultResponseColumnsArrayOutputWithContext(context.Background())
+}
+
+func (i InsightsTableResultResponseColumnsArray) ToInsightsTableResultResponseColumnsArrayOutputWithContext(ctx context.Context) InsightsTableResultResponseColumnsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightsTableResultResponseColumnsArrayOutput)
+}
+
+type InsightsTableResultResponseColumnsOutput struct{ *pulumi.OutputState }
+
+func (InsightsTableResultResponseColumnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightsTableResultResponseColumns)(nil)).Elem()
+}
+
+func (o InsightsTableResultResponseColumnsOutput) ToInsightsTableResultResponseColumnsOutput() InsightsTableResultResponseColumnsOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseColumnsOutput) ToInsightsTableResultResponseColumnsOutputWithContext(ctx context.Context) InsightsTableResultResponseColumnsOutput {
+	return o
+}
+
+// the name of the colum
+func (o InsightsTableResultResponseColumnsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InsightsTableResultResponseColumns) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// the type of the colum
+func (o InsightsTableResultResponseColumnsOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InsightsTableResultResponseColumns) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type InsightsTableResultResponseColumnsArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightsTableResultResponseColumnsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightsTableResultResponseColumns)(nil)).Elem()
+}
+
+func (o InsightsTableResultResponseColumnsArrayOutput) ToInsightsTableResultResponseColumnsArrayOutput() InsightsTableResultResponseColumnsArrayOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseColumnsArrayOutput) ToInsightsTableResultResponseColumnsArrayOutputWithContext(ctx context.Context) InsightsTableResultResponseColumnsArrayOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseColumnsArrayOutput) Index(i pulumi.IntInput) InsightsTableResultResponseColumnsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightsTableResultResponseColumns {
+		return vs[0].([]InsightsTableResultResponseColumns)[vs[1].(int)]
+	}).(InsightsTableResultResponseColumnsOutput)
+}
+
 // Represents security alert timeline item.
 type SecurityAlertTimelineItemResponse struct {
 	// The name of the alert type.
@@ -2603,6 +3373,13 @@ func init() {
 	pulumi.RegisterOutputType(BookmarkTimelineItemResponseOutput{})
 	pulumi.RegisterOutputType(ClientInfoResponseOutput{})
 	pulumi.RegisterOutputType(ClientInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(EntityInsightItemResponseOutput{})
+	pulumi.RegisterOutputType(EntityInsightItemResponseArrayOutput{})
+	pulumi.RegisterOutputType(EntityInsightItemResponseQueryTimeIntervalOutput{})
+	pulumi.RegisterOutputType(EntityInsightItemResponseQueryTimeIntervalPtrOutput{})
+	pulumi.RegisterOutputType(GetInsightsErrorResponseOutput{})
+	pulumi.RegisterOutputType(GetInsightsErrorResponseArrayOutput{})
+	pulumi.RegisterOutputType(GetInsightsResultsMetadataResponseOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponseOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentInfoOutput{})
@@ -2617,6 +3394,11 @@ func init() {
 	pulumi.RegisterOutputType(IncidentOwnerInfoPtrOutput{})
 	pulumi.RegisterOutputType(IncidentOwnerInfoResponseOutput{})
 	pulumi.RegisterOutputType(IncidentOwnerInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(InsightsTableResultResponseOutput{})
+	pulumi.RegisterOutputType(InsightsTableResultResponsePtrOutput{})
+	pulumi.RegisterOutputType(InsightsTableResultResponseArrayOutput{})
+	pulumi.RegisterOutputType(InsightsTableResultResponseColumnsOutput{})
+	pulumi.RegisterOutputType(InsightsTableResultResponseColumnsArrayOutput{})
 	pulumi.RegisterOutputType(SecurityAlertTimelineItemResponseOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceGranularMarkingModelOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceGranularMarkingModelArrayOutput{})

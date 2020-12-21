@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// <summary>
         /// Migration Properties
         /// </summary>
-        public readonly Outputs.MigrationPropertiesResponse? MigrationProperties;
+        public readonly Outputs.MigrationPropertiesResponse MigrationProperties;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
 
             string? location,
 
-            Outputs.MigrationPropertiesResponse? migrationProperties,
+            Outputs.MigrationPropertiesResponse migrationProperties,
 
             string name,
 
