@@ -82,7 +82,7 @@ export interface GetSmartDetectorAlertRuleResult {
     /**
      * The resource tags.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * The alert rule throttling information.
      */

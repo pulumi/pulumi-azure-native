@@ -28,7 +28,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  severity: Optional[pulumi.Input[Union[str, 'Severity']]] = None,
                  state: Optional[pulumi.Input[Union[str, 'AlertRuleState']]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throttling: Optional[pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -48,7 +48,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope: The alert rule resources scope.
         :param pulumi.Input[Union[str, 'Severity']] severity: The alert rule severity.
         :param pulumi.Input[Union[str, 'AlertRuleState']] state: The alert rule state.
-        :param Any tags: The resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']] throttling: The alert rule throttling information.
         """
         if __name__ is not None:
@@ -198,7 +198,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """

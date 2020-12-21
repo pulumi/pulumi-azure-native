@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
         /// The resource tags.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The alert rule throttling information.
@@ -204,11 +204,17 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
         [Input("state", required: true)]
         public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.Latest.AlertRuleState> State { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// The resource tags.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The alert rule throttling information.

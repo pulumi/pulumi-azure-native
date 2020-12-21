@@ -34,7 +34,7 @@ type SmartDetectorAlertRule struct {
 	// The alert rule state.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The resource tags.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The alert rule throttling information.
 	Throttling ThrottlingInformationResponsePtrOutput `pulumi:"throttling"`
 	// The resource type.
@@ -122,7 +122,7 @@ type smartDetectorAlertRuleState struct {
 	// The alert rule state.
 	State *string `pulumi:"state"`
 	// The resource tags.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The alert rule throttling information.
 	Throttling *ThrottlingInformationResponse `pulumi:"throttling"`
 	// The resource type.
@@ -149,7 +149,7 @@ type SmartDetectorAlertRuleState struct {
 	// The alert rule state.
 	State pulumi.StringPtrInput
 	// The resource tags.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The alert rule throttling information.
 	Throttling ThrottlingInformationResponsePtrInput
 	// The resource type.
@@ -182,7 +182,7 @@ type smartDetectorAlertRuleArgs struct {
 	// The alert rule state.
 	State string `pulumi:"state"`
 	// The resource tags.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The alert rule throttling information.
 	Throttling *ThrottlingInformation `pulumi:"throttling"`
 }
@@ -210,7 +210,7 @@ type SmartDetectorAlertRuleArgs struct {
 	// The alert rule state.
 	State pulumi.StringInput
 	// The resource tags.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The alert rule throttling information.
 	Throttling ThrottlingInformationPtrInput
 }
