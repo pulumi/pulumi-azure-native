@@ -47,8 +47,7 @@ const storageAccount = new storage.StorageAccount("websitesa", {
 
 // Web endpoint to the website
 export const staticEndpoint = storageAccount.primaryEndpoints.web;
-// TODO: figure out why this output is resolved to undefined during the preview, which breaks the URL constructor call.
-const staticHostname = staticEndpoint.apply(url => url ? new URL(url).hostname : "<preview>");
+const staticHostname = staticEndpoint.apply(url => new URL(url).hostname);
 
 // We can add a CDN in front of the website
 const profile =  new cdn.Profile("website-cdn", {

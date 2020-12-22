@@ -2,10 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
 
 import * as compute from "@pulumi/azure-nextgen/compute/latest";
-// TODO change to latest when https://github.com/Azure/azure-rest-api-specs/issues/11634 is fixed
-import * as containerinstance from "@pulumi/azure-nextgen/containerinstance/v20191201";
 import * as eventgrid from "@pulumi/azure-nextgen/eventgrid/latest";
-import * as managedidentity from "@pulumi/azure-nextgen/managedidentity/latest";
 import * as network from "@pulumi/azure-nextgen/network/latest";
 import * as resources from "@pulumi/azure-nextgen/resources/latest";
 import * as storage from "@pulumi/azure-nextgen/storage/latest";
@@ -39,37 +36,6 @@ const staticSite = new web.StaticSite("staticsite", {
         name: "Free",
     },
     name: randomString.result,
-});
-
-const userIdentity = new managedidentity.UserAssignedIdentity("uai", {
-    resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
-    resourceName: randomString.result,
-});
-
-const container = new containerinstance.ContainerGroup("containergroup", {
-    resourceGroupName: resourceGroup.name,
-    containerGroupName: randomString.result,
-    location: "westus2",
-    osType: containerinstance.OperatingSystemTypes.Linux,
-    containers: [{
-        name: "foo",
-        image: "nginx",
-        resources: {
-            requests: {
-                memoryInGB: 1,
-                cpu: 1,
-            },
-        },
-    }],
-    identity: {
-        type: containerinstance.ResourceIdentityType.UserAssigned,
-        userAssignedIdentities: userIdentity.id.apply(id => {
-            const dict: { [key: string] : object } = {};
-            dict[id] = {};
-            return dict;
-        }),
-    },
 });
 
 const vnet = new network.VirtualNetwork("vnet", {
