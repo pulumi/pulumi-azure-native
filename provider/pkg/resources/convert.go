@@ -245,7 +245,7 @@ func (k *SdkShapeConverter) PreviewOutputs(inputs resource.PropertyMap,
 		if inputValue, ok := inputs[key]; ok {
 			result[key] = k.previewOutputValue(inputValue, &p)
 		} else {
-			result[key] = resource.MakeComputed(resource.NewStringProperty("<output>"))
+			result[key] = resource.MakeComputed(resource.NewStringProperty(""))
 		}
 	}
 	return result
@@ -254,13 +254,13 @@ func (k *SdkShapeConverter) PreviewOutputs(inputs resource.PropertyMap,
 func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue,
 	prop *AzureAPIProperty) resource.PropertyValue {
 	switch {
-	case prop.Items != nil:
+	case prop.Items != nil && inputValue.IsArray():
 		var items []resource.PropertyValue
 		for _, item := range inputValue.ArrayValue() {
 			items = append(items, k.previewOutputValue(item, prop.Items))
 		}
 		return resource.NewArrayProperty(items)
-	case prop.Ref != "":
+	case strings.HasPrefix(prop.Ref, "#/types/") && inputValue.IsObject():
 		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
 		typ := k.Types[typeName]
 		v := k.PreviewOutputs(inputValue.ObjectValue(), typ.Properties)

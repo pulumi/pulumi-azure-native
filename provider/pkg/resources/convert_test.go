@@ -445,27 +445,30 @@ func TestPreviewOutputs(t *testing.T) {
 	inputMap := resource.NewPropertyMapFromMap(inputs)
 	outputs := c.PreviewOutputs(inputMap, resourceMap.Resources["r1"].Response)
 	expected := resource.PropertyMap{
-		resource.PropertyKey("name"):      resource.NewStringProperty("MyResource"),
-		resource.PropertyKey("threshold"): resource.NewNumberProperty(123),
-		resource.PropertyKey("p1"):        resource.NewStringProperty("prop1"),
-		resource.PropertyKey("p2"):        resource.MakeComputed(resource.NewStringProperty("<output>")),
-		resource.PropertyKey("p3"):        resource.MakeComputed(resource.NewStringProperty("<output>")),
-		resource.PropertyKey("readOnly"):  resource.MakeComputed(resource.NewStringProperty("<output>")),
-		resource.PropertyKey("structure"): resource.NewObjectProperty(resource.PropertyMap{
+		"name":      resource.NewStringProperty("MyResource"),
+		"threshold": resource.NewNumberProperty(123),
+		"p1":        resource.NewStringProperty("prop1"),
+		"p2":        resource.MakeComputed(resource.NewStringProperty("")),
+		"p3":        resource.MakeComputed(resource.NewStringProperty("")),
+		"readOnly":  resource.MakeComputed(resource.NewStringProperty("")),
+		"structure": resource.NewObjectProperty(resource.PropertyMap{
 			"v1":         resource.NewStringProperty("value1"),
 			"v2":         resource.NewNumberProperty(2),
-			"v3":         resource.MakeComputed(resource.NewStringProperty("<output>")),
-			"v4":         resource.MakeComputed(resource.NewStringProperty("<output>")),
-			"v5ReadOnly": resource.MakeComputed(resource.NewStringProperty("<output>")),
+			"v3":         resource.MakeComputed(resource.NewStringProperty("")),
+			"v4":         resource.MakeComputed(resource.NewStringProperty("")),
+			"v5ReadOnly": resource.MakeComputed(resource.NewStringProperty("")),
 		}),
-		resource.PropertyKey("more"):  resource.MakeComputed(resource.NewStringProperty("<output>")),
-		resource.PropertyKey("tags"):  resource.MakeComputed(resource.NewStringProperty("<output>")),
-		resource.PropertyKey("union"): resource.MakeComputed(resource.NewStringProperty("<output>")),
-		resource.PropertyKey("untypedArray"): resource.NewArrayProperty([]resource.PropertyValue{
+		"more":  resource.MakeComputed(resource.NewStringProperty("")),
+		"tags":  resource.MakeComputed(resource.NewStringProperty("")),
+		"union": resource.MakeComputed(resource.NewStringProperty("")),
+		"untypedArray": resource.NewArrayProperty([]resource.PropertyValue{
 			resource.NewObjectProperty(resource.PropertyMap{"key1": resource.NewStringProperty("value1")}),
 			resource.NewObjectProperty(resource.PropertyMap{"key1": resource.NewStringProperty("value2")}),
 		}),
-		resource.PropertyKey("untypedDict"): resource.NewObjectProperty(resource.PropertyMap{}),
+		"untypedDict": resource.NewObjectProperty(resource.PropertyMap{
+			"key1": resource.NewStringProperty("value1"),
+			"key2": resource.NewStringProperty("value2"),
+		}),
 	}
 	assert.Equal(t, expected, outputs)
 }
