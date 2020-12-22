@@ -68,6 +68,7 @@ class EventSource(str, Enum):
     ALERTS = "Alerts"
     SECURE_SCORES = "SecureScores"
     SECURE_SCORE_CONTROLS = "SecureScoreControls"
+    REGULATORY_COMPLIANCE_ASSESSMENT = "RegulatoryComplianceAssessment"
 
 
 class ImplementationEffort(str, Enum):

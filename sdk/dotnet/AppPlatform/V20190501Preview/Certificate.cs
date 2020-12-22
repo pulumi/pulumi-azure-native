@@ -60,6 +60,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

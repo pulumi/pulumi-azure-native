@@ -68,7 +68,7 @@ class CustomDomain(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/latest:CustomDomain"), pulumi.Alias(type_="azure-nextgen:appplatform/v20200701:CustomDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/latest:CustomDomain"), pulumi.Alias(type_="azure-nextgen:appplatform/v20200701:CustomDomain"), pulumi.Alias(type_="azure-nextgen:appplatform/v20201101preview:CustomDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomDomain, __self__).__init__(
             'azure-nextgen:appplatform/v20190501preview:CustomDomain',

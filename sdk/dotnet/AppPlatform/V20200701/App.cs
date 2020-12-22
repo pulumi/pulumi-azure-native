@@ -72,6 +72,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:App"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:App"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
