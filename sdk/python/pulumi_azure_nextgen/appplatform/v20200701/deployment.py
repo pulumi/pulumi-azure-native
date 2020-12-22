@@ -72,7 +72,7 @@ class Deployment(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/latest:Deployment"), pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:Deployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/latest:Deployment"), pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:Deployment"), pulumi.Alias(type_="azure-nextgen:appplatform/v20201101preview:Deployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Deployment, __self__).__init__(
             'azure-nextgen:appplatform/v20200701:Deployment',

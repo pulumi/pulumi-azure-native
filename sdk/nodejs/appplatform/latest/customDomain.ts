@@ -90,7 +90,7 @@ export class CustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/v20190501preview:CustomDomain" }, { type: "azure-nextgen:appplatform/v20200701:CustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/v20190501preview:CustomDomain" }, { type: "azure-nextgen:appplatform/v20200701:CustomDomain" }, { type: "azure-nextgen:appplatform/v20201101preview:CustomDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomDomain.__pulumiType, name, inputs, opts);
     }

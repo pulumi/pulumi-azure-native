@@ -72,6 +72,7 @@ export const EventSource = {
     Alerts: "Alerts",
     SecureScores: "SecureScores",
     SecureScoreControls: "SecureScoreControls",
+    RegulatoryComplianceAssessment: "RegulatoryComplianceAssessment",
 } as const;
 
 /**

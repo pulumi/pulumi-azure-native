@@ -173,6 +173,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         public static EventSource Alerts { get; } = new EventSource("Alerts");
         public static EventSource SecureScores { get; } = new EventSource("SecureScores");
         public static EventSource SecureScoreControls { get; } = new EventSource("SecureScoreControls");
+        public static EventSource RegulatoryComplianceAssessment { get; } = new EventSource("RegulatoryComplianceAssessment");
 
         public static bool operator ==(EventSource left, EventSource right) => left.Equals(right);
         public static bool operator !=(EventSource left, EventSource right) => !left.Equals(right);

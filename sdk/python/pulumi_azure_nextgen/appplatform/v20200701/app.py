@@ -70,7 +70,7 @@ class App(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/latest:App"), pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:App")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/latest:App"), pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:App"), pulumi.Alias(type_="azure-nextgen:appplatform/v20201101preview:App")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(App, __self__).__init__(
             'azure-nextgen:appplatform/v20200701:App',

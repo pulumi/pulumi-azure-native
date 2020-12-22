@@ -138,11 +138,12 @@ func (e Category) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 type EventSource pulumi.String
 
 const (
-	EventSourceAssessments         = EventSource("Assessments")
-	EventSourceSubAssessments      = EventSource("SubAssessments")
-	EventSourceAlerts              = EventSource("Alerts")
-	EventSourceSecureScores        = EventSource("SecureScores")
-	EventSourceSecureScoreControls = EventSource("SecureScoreControls")
+	EventSourceAssessments                    = EventSource("Assessments")
+	EventSourceSubAssessments                 = EventSource("SubAssessments")
+	EventSourceAlerts                         = EventSource("Alerts")
+	EventSourceSecureScores                   = EventSource("SecureScores")
+	EventSourceSecureScoreControls            = EventSource("SecureScoreControls")
+	EventSourceRegulatoryComplianceAssessment = EventSource("RegulatoryComplianceAssessment")
 )
 
 func (EventSource) ElementType() reflect.Type {

@@ -60,6 +60,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:CustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
