@@ -544,7 +544,7 @@ func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*r
 	}
 
 	// Calculate the detailed diff object containing information about replacements.
-	detailedDiff := calculateDetailedDiff(&res, diff, req.IgnoreChanges)
+	detailedDiff := calculateDetailedDiff(&res, diff)
 
 	// Based on the detailed diff above, calculate the list of changes and replacements.
 	var changes, replaces []string

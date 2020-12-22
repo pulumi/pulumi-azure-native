@@ -15,7 +15,7 @@ const body = "body"
 // calculateDetailedDiff produced a property diff for a given object diff and a resource definition. It inspects
 // the schema of the resource to find out if the requested diff can be performed in-place or requires a replacement.
 func calculateDetailedDiff(resource *resources.AzureAPIResource,
-	diff *resource.ObjectDiff, ignoreChanges []string) map[string]*rpc.PropertyDiff {
+	diff *resource.ObjectDiff) map[string]*rpc.PropertyDiff {
 	replaceKeys := codegen.NewStringSet()
 
 	for _, p := range resource.PutParameters {
@@ -43,22 +43,18 @@ func calculateDetailedDiff(resource *resources.AzureAPIResource,
 		}
 	}
 
-	d := differ{replaceKeys: replaceKeys, ignoreChanges: codegen.NewStringSet(ignoreChanges...)}
+	d := differ{replaceKeys: replaceKeys}
 	return d.calculateObjectDiff(diff, "")
 }
 
 type differ struct {
-	replaceKeys   codegen.StringSet
-	ignoreChanges codegen.StringSet
+	replaceKeys codegen.StringSet
 }
 
 func (d *differ) calculateObjectDiff(diff *resource.ObjectDiff, base string) map[string]*rpc.PropertyDiff {
 	detailedDiff := map[string]*rpc.PropertyDiff{}
 	for k, v := range diff.Updates {
 		key := base + string(k)
-		if d.ignoreChanges.Has(key) {
-			continue
-		}
 		subDiff := d.calculateValueDiff(&v, key)
 		for sk, sv := range subDiff {
 			detailedDiff[sk] = sv
@@ -66,9 +62,6 @@ func (d *differ) calculateObjectDiff(diff *resource.ObjectDiff, base string) map
 	}
 	for k := range diff.Adds {
 		key := base + string(k)
-		if d.ignoreChanges.Has(key) {
-			continue
-		}
 		kind := rpc.PropertyDiff_ADD
 		if d.replaceKeys.Has(key) {
 			kind = rpc.PropertyDiff_ADD_REPLACE
@@ -77,9 +70,6 @@ func (d *differ) calculateObjectDiff(diff *resource.ObjectDiff, base string) map
 	}
 	for k := range diff.Deletes {
 		key := base + string(k)
-		if d.ignoreChanges.Has(key) {
-			continue
-		}
 		kind := rpc.PropertyDiff_DELETE
 		if d.replaceKeys.Has(key) {
 			kind = rpc.PropertyDiff_DELETE_REPLACE
@@ -105,9 +95,6 @@ func (d *differ) calculateValueDiff(v *resource.ValueDiff, base string) map[stri
 	case v.Array != nil:
 		for idx, item := range v.Array.Updates {
 			key := fmt.Sprintf("%s[%d]", base, idx)
-			if d.ignoreChanges.Has(key) {
-				continue
-			}
 			subDiff := d.calculateValueDiff(&item, key)
 			for sk, sv := range subDiff {
 				detailedDiff[sk] = sv
@@ -115,16 +102,10 @@ func (d *differ) calculateValueDiff(v *resource.ValueDiff, base string) map[stri
 		}
 		for idx := range v.Array.Adds {
 			key := fmt.Sprintf("%s[%d]", base, idx)
-			if d.ignoreChanges.Has(key) {
-				continue
-			}
 			detailedDiff[key] = &rpc.PropertyDiff{Kind: rpc.PropertyDiff_ADD}
 		}
 		for idx := range v.Array.Deletes {
 			key := fmt.Sprintf("%s[%d]", base, idx)
-			if d.ignoreChanges.Has(key) {
-				continue
-			}
 			detailedDiff[key] = &rpc.PropertyDiff{Kind: rpc.PropertyDiff_DELETE}
 		}
 	default:
