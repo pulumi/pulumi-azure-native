@@ -4444,6 +4444,10 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 type KubeletConfig struct {
 	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
+	// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+	ContainerLogMaxFiles *int `pulumi:"containerLogMaxFiles"`
+	// The maximum size (e.g. 10Mi) of container log file before it is rotated.
+	ContainerLogMaxSizeMB *int `pulumi:"containerLogMaxSizeMB"`
 	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
 	CpuCfsQuota *bool `pulumi:"cpuCfsQuota"`
 	// Sets CPU CFS quota period value.
@@ -4456,6 +4460,8 @@ type KubeletConfig struct {
 	ImageGcHighThreshold *int `pulumi:"imageGcHighThreshold"`
 	// The percent of disk usage before which image garbage collection is never run.
 	ImageGcLowThreshold *int `pulumi:"imageGcLowThreshold"`
+	// The maximum number of processes per pod.
+	PodMaxPids *int `pulumi:"podMaxPids"`
 	// Topology Manager policy to use.
 	TopologyManagerPolicy *string `pulumi:"topologyManagerPolicy"`
 }
@@ -4475,6 +4481,10 @@ type KubeletConfigInput interface {
 type KubeletConfigArgs struct {
 	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
+	// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+	ContainerLogMaxFiles pulumi.IntPtrInput `pulumi:"containerLogMaxFiles"`
+	// The maximum size (e.g. 10Mi) of container log file before it is rotated.
+	ContainerLogMaxSizeMB pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMB"`
 	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
 	CpuCfsQuota pulumi.BoolPtrInput `pulumi:"cpuCfsQuota"`
 	// Sets CPU CFS quota period value.
@@ -4487,6 +4497,8 @@ type KubeletConfigArgs struct {
 	ImageGcHighThreshold pulumi.IntPtrInput `pulumi:"imageGcHighThreshold"`
 	// The percent of disk usage before which image garbage collection is never run.
 	ImageGcLowThreshold pulumi.IntPtrInput `pulumi:"imageGcLowThreshold"`
+	// The maximum number of processes per pod.
+	PodMaxPids pulumi.IntPtrInput `pulumi:"podMaxPids"`
 	// Topology Manager policy to use.
 	TopologyManagerPolicy pulumi.StringPtrInput `pulumi:"topologyManagerPolicy"`
 }
@@ -4574,6 +4586,16 @@ func (o KubeletConfigOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubeletConfig) []string { return v.AllowedUnsafeSysctls }).(pulumi.StringArrayOutput)
 }
 
+// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+func (o KubeletConfigOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubeletConfig) *int { return v.ContainerLogMaxFiles }).(pulumi.IntPtrOutput)
+}
+
+// The maximum size (e.g. 10Mi) of container log file before it is rotated.
+func (o KubeletConfigOutput) ContainerLogMaxSizeMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubeletConfig) *int { return v.ContainerLogMaxSizeMB }).(pulumi.IntPtrOutput)
+}
+
 // Enable CPU CFS quota enforcement for containers that specify CPU limits.
 func (o KubeletConfigOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *bool { return v.CpuCfsQuota }).(pulumi.BoolPtrOutput)
@@ -4602,6 +4624,11 @@ func (o KubeletConfigOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
 // The percent of disk usage before which image garbage collection is never run.
 func (o KubeletConfigOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfig) *int { return v.ImageGcLowThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of processes per pod.
+func (o KubeletConfigOutput) PodMaxPids() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubeletConfig) *int { return v.PodMaxPids }).(pulumi.IntPtrOutput)
 }
 
 // Topology Manager policy to use.
@@ -4635,6 +4662,26 @@ func (o KubeletConfigPtrOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput 
 		}
 		return v.AllowedUnsafeSysctls
 	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+func (o KubeletConfigPtrOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogMaxFiles
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum size (e.g. 10Mi) of container log file before it is rotated.
+func (o KubeletConfigPtrOutput) ContainerLogMaxSizeMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogMaxSizeMB
+	}).(pulumi.IntPtrOutput)
 }
 
 // Enable CPU CFS quota enforcement for containers that specify CPU limits.
@@ -4697,6 +4744,16 @@ func (o KubeletConfigPtrOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of processes per pod.
+func (o KubeletConfigPtrOutput) PodMaxPids() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PodMaxPids
+	}).(pulumi.IntPtrOutput)
+}
+
 // Topology Manager policy to use.
 func (o KubeletConfigPtrOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubeletConfig) *string {
@@ -4711,6 +4768,10 @@ func (o KubeletConfigPtrOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
 type KubeletConfigResponse struct {
 	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
+	// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+	ContainerLogMaxFiles *int `pulumi:"containerLogMaxFiles"`
+	// The maximum size (e.g. 10Mi) of container log file before it is rotated.
+	ContainerLogMaxSizeMB *int `pulumi:"containerLogMaxSizeMB"`
 	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
 	CpuCfsQuota *bool `pulumi:"cpuCfsQuota"`
 	// Sets CPU CFS quota period value.
@@ -4723,6 +4784,8 @@ type KubeletConfigResponse struct {
 	ImageGcHighThreshold *int `pulumi:"imageGcHighThreshold"`
 	// The percent of disk usage before which image garbage collection is never run.
 	ImageGcLowThreshold *int `pulumi:"imageGcLowThreshold"`
+	// The maximum number of processes per pod.
+	PodMaxPids *int `pulumi:"podMaxPids"`
 	// Topology Manager policy to use.
 	TopologyManagerPolicy *string `pulumi:"topologyManagerPolicy"`
 }
@@ -4742,6 +4805,10 @@ type KubeletConfigResponseInput interface {
 type KubeletConfigResponseArgs struct {
 	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
 	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
+	// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+	ContainerLogMaxFiles pulumi.IntPtrInput `pulumi:"containerLogMaxFiles"`
+	// The maximum size (e.g. 10Mi) of container log file before it is rotated.
+	ContainerLogMaxSizeMB pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMB"`
 	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
 	CpuCfsQuota pulumi.BoolPtrInput `pulumi:"cpuCfsQuota"`
 	// Sets CPU CFS quota period value.
@@ -4754,6 +4821,8 @@ type KubeletConfigResponseArgs struct {
 	ImageGcHighThreshold pulumi.IntPtrInput `pulumi:"imageGcHighThreshold"`
 	// The percent of disk usage before which image garbage collection is never run.
 	ImageGcLowThreshold pulumi.IntPtrInput `pulumi:"imageGcLowThreshold"`
+	// The maximum number of processes per pod.
+	PodMaxPids pulumi.IntPtrInput `pulumi:"podMaxPids"`
 	// Topology Manager policy to use.
 	TopologyManagerPolicy pulumi.StringPtrInput `pulumi:"topologyManagerPolicy"`
 }
@@ -4841,6 +4910,16 @@ func (o KubeletConfigResponseOutput) AllowedUnsafeSysctls() pulumi.StringArrayOu
 	return o.ApplyT(func(v KubeletConfigResponse) []string { return v.AllowedUnsafeSysctls }).(pulumi.StringArrayOutput)
 }
 
+// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+func (o KubeletConfigResponseOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) *int { return v.ContainerLogMaxFiles }).(pulumi.IntPtrOutput)
+}
+
+// The maximum size (e.g. 10Mi) of container log file before it is rotated.
+func (o KubeletConfigResponseOutput) ContainerLogMaxSizeMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) *int { return v.ContainerLogMaxSizeMB }).(pulumi.IntPtrOutput)
+}
+
 // Enable CPU CFS quota enforcement for containers that specify CPU limits.
 func (o KubeletConfigResponseOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *bool { return v.CpuCfsQuota }).(pulumi.BoolPtrOutput)
@@ -4869,6 +4948,11 @@ func (o KubeletConfigResponseOutput) ImageGcHighThreshold() pulumi.IntPtrOutput 
 // The percent of disk usage before which image garbage collection is never run.
 func (o KubeletConfigResponseOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubeletConfigResponse) *int { return v.ImageGcLowThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of processes per pod.
+func (o KubeletConfigResponseOutput) PodMaxPids() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) *int { return v.PodMaxPids }).(pulumi.IntPtrOutput)
 }
 
 // Topology Manager policy to use.
@@ -4902,6 +4986,26 @@ func (o KubeletConfigResponsePtrOutput) AllowedUnsafeSysctls() pulumi.StringArra
 		}
 		return v.AllowedUnsafeSysctls
 	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+func (o KubeletConfigResponsePtrOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogMaxFiles
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum size (e.g. 10Mi) of container log file before it is rotated.
+func (o KubeletConfigResponsePtrOutput) ContainerLogMaxSizeMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogMaxSizeMB
+	}).(pulumi.IntPtrOutput)
 }
 
 // Enable CPU CFS quota enforcement for containers that specify CPU limits.
@@ -4961,6 +5065,16 @@ func (o KubeletConfigResponsePtrOutput) ImageGcLowThreshold() pulumi.IntPtrOutpu
 			return nil
 		}
 		return v.ImageGcLowThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of processes per pod.
+func (o KubeletConfigResponsePtrOutput) PodMaxPids() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PodMaxPids
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -6508,10 +6622,14 @@ type ManagedClusterAgentPoolProfile struct {
 	Count *int `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Whether to enable EncryptionAtHost
+	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig *KubeletConfig `pulumi:"kubeletConfig"`
+	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 	LinuxOSConfig *LinuxOSConfig `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
@@ -6577,10 +6695,14 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	Count pulumi.IntPtrInput `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
+	// Whether to enable EncryptionAtHost
+	EnableEncryptionAtHost pulumi.BoolPtrInput `pulumi:"enableEncryptionAtHost"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig KubeletConfigPtrInput `pulumi:"kubeletConfig"`
+	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	KubeletDiskType pulumi.StringPtrInput `pulumi:"kubeletDiskType"`
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 	LinuxOSConfig LinuxOSConfigPtrInput `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
@@ -6694,6 +6816,11 @@ func (o ManagedClusterAgentPoolProfileOutput) EnableAutoScaling() pulumi.BoolPtr
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable EncryptionAtHost
+func (o ManagedClusterAgentPoolProfileOutput) EnableEncryptionAtHost() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableEncryptionAtHost }).(pulumi.BoolPtrOutput)
+}
+
 // Enable public IP for nodes
 func (o ManagedClusterAgentPoolProfileOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
@@ -6702,6 +6829,11 @@ func (o ManagedClusterAgentPoolProfileOutput) EnableNodePublicIP() pulumi.BoolPt
 // KubeletConfig specifies the configuration of kubelet on agent nodes.
 func (o ManagedClusterAgentPoolProfileOutput) KubeletConfig() KubeletConfigPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *KubeletConfig { return v.KubeletConfig }).(KubeletConfigPtrOutput)
+}
+
+// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+func (o ManagedClusterAgentPoolProfileOutput) KubeletDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.KubeletDiskType }).(pulumi.StringPtrOutput)
 }
 
 // LinuxOSConfig specifies the OS configuration of linux agent nodes.
@@ -6842,10 +6974,14 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	Count *int `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Whether to enable EncryptionAtHost
+	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig *KubeletConfigResponse `pulumi:"kubeletConfig"`
+	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 	LinuxOSConfig *LinuxOSConfigResponse `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
@@ -6917,10 +7053,14 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	Count pulumi.IntPtrInput `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
+	// Whether to enable EncryptionAtHost
+	EnableEncryptionAtHost pulumi.BoolPtrInput `pulumi:"enableEncryptionAtHost"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig KubeletConfigResponsePtrInput `pulumi:"kubeletConfig"`
+	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	KubeletDiskType pulumi.StringPtrInput `pulumi:"kubeletDiskType"`
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 	LinuxOSConfig LinuxOSConfigResponsePtrInput `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
@@ -7040,6 +7180,11 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) EnableAutoScaling() pulumi
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable EncryptionAtHost
+func (o ManagedClusterAgentPoolProfileResponseOutput) EnableEncryptionAtHost() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableEncryptionAtHost }).(pulumi.BoolPtrOutput)
+}
+
 // Enable public IP for nodes
 func (o ManagedClusterAgentPoolProfileResponseOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
@@ -7048,6 +7193,11 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) EnableNodePublicIP() pulum
 // KubeletConfig specifies the configuration of kubelet on agent nodes.
 func (o ManagedClusterAgentPoolProfileResponseOutput) KubeletConfig() KubeletConfigResponsePtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *KubeletConfigResponse { return v.KubeletConfig }).(KubeletConfigResponsePtrOutput)
+}
+
+// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+func (o ManagedClusterAgentPoolProfileResponseOutput) KubeletDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.KubeletDiskType }).(pulumi.StringPtrOutput)
 }
 
 // LinuxOSConfig specifies the OS configuration of linux agent nodes.
@@ -10092,6 +10242,7 @@ type ManagedClusterPropertiesAutoScalerProfile struct {
 	Expander                      *string `pulumi:"expander"`
 	MaxEmptyBulkDelete            *string `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     *string `pulumi:"maxGracefulTerminationSec"`
+	MaxNodeProvisionTime          *string `pulumi:"maxNodeProvisionTime"`
 	MaxTotalUnreadyPercentage     *string `pulumi:"maxTotalUnreadyPercentage"`
 	NewPodScaleUpDelay            *string `pulumi:"newPodScaleUpDelay"`
 	OkTotalUnreadyCount           *string `pulumi:"okTotalUnreadyCount"`
@@ -10123,6 +10274,7 @@ type ManagedClusterPropertiesAutoScalerProfileArgs struct {
 	Expander                      pulumi.StringPtrInput `pulumi:"expander"`
 	MaxEmptyBulkDelete            pulumi.StringPtrInput `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	MaxNodeProvisionTime          pulumi.StringPtrInput `pulumi:"maxNodeProvisionTime"`
 	MaxTotalUnreadyPercentage     pulumi.StringPtrInput `pulumi:"maxTotalUnreadyPercentage"`
 	NewPodScaleUpDelay            pulumi.StringPtrInput `pulumi:"newPodScaleUpDelay"`
 	OkTotalUnreadyCount           pulumi.StringPtrInput `pulumi:"okTotalUnreadyCount"`
@@ -10230,6 +10382,10 @@ func (o ManagedClusterPropertiesAutoScalerProfileOutput) MaxGracefulTerminationS
 	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) MaxNodeProvisionTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.MaxNodeProvisionTime }).(pulumi.StringPtrOutput)
+}
+
 func (o ManagedClusterPropertiesAutoScalerProfileOutput) MaxTotalUnreadyPercentage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.MaxTotalUnreadyPercentage }).(pulumi.StringPtrOutput)
 }
@@ -10331,6 +10487,15 @@ func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) MaxGracefulTerminati
 			return nil
 		}
 		return v.MaxGracefulTerminationSec
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) MaxNodeProvisionTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxNodeProvisionTime
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10563,6 +10728,7 @@ type ManagedClusterPropertiesResponseAutoScalerProfile struct {
 	Expander                      *string `pulumi:"expander"`
 	MaxEmptyBulkDelete            *string `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     *string `pulumi:"maxGracefulTerminationSec"`
+	MaxNodeProvisionTime          *string `pulumi:"maxNodeProvisionTime"`
 	MaxTotalUnreadyPercentage     *string `pulumi:"maxTotalUnreadyPercentage"`
 	NewPodScaleUpDelay            *string `pulumi:"newPodScaleUpDelay"`
 	OkTotalUnreadyCount           *string `pulumi:"okTotalUnreadyCount"`
@@ -10594,6 +10760,7 @@ type ManagedClusterPropertiesResponseAutoScalerProfileArgs struct {
 	Expander                      pulumi.StringPtrInput `pulumi:"expander"`
 	MaxEmptyBulkDelete            pulumi.StringPtrInput `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	MaxNodeProvisionTime          pulumi.StringPtrInput `pulumi:"maxNodeProvisionTime"`
 	MaxTotalUnreadyPercentage     pulumi.StringPtrInput `pulumi:"maxTotalUnreadyPercentage"`
 	NewPodScaleUpDelay            pulumi.StringPtrInput `pulumi:"newPodScaleUpDelay"`
 	OkTotalUnreadyCount           pulumi.StringPtrInput `pulumi:"okTotalUnreadyCount"`
@@ -10701,6 +10868,10 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) MaxGracefulTerm
 	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) MaxNodeProvisionTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.MaxNodeProvisionTime }).(pulumi.StringPtrOutput)
+}
+
 func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) MaxTotalUnreadyPercentage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.MaxTotalUnreadyPercentage }).(pulumi.StringPtrOutput)
 }
@@ -10804,6 +10975,15 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) MaxGracefulT
 			return nil
 		}
 		return v.MaxGracefulTerminationSec
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) MaxNodeProvisionTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxNodeProvisionTime
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15492,10 +15672,14 @@ type SysctlConfig struct {
 	NetCoreNetdevMaxBacklog *int `pulumi:"netCoreNetdevMaxBacklog"`
 	// Sysctl setting net.core.optmem_max.
 	NetCoreOptmemMax *int `pulumi:"netCoreOptmemMax"`
+	// Sysctl setting net.core.rmem_default.
+	NetCoreRmemDefault *int `pulumi:"netCoreRmemDefault"`
 	// Sysctl setting net.core.rmem_max.
 	NetCoreRmemMax *int `pulumi:"netCoreRmemMax"`
 	// Sysctl setting net.core.somaxconn.
 	NetCoreSomaxconn *int `pulumi:"netCoreSomaxconn"`
+	// Sysctl setting net.core.wmem_default.
+	NetCoreWmemDefault *int `pulumi:"netCoreWmemDefault"`
 	// Sysctl setting net.core.wmem_max.
 	NetCoreWmemMax *int `pulumi:"netCoreWmemMax"`
 	// Sysctl setting net.ipv4.ip_local_port_range.
@@ -15516,12 +15700,8 @@ type SysctlConfig struct {
 	NetIpv4TcpMaxSynBacklog *int `pulumi:"netIpv4TcpMaxSynBacklog"`
 	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
 	NetIpv4TcpMaxTwBuckets *int `pulumi:"netIpv4TcpMaxTwBuckets"`
-	// Sysctl setting net.ipv4.tcp_rmem.
-	NetIpv4TcpRmem *int `pulumi:"netIpv4TcpRmem"`
 	// Sysctl setting net.ipv4.tcp_tw_reuse.
 	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
-	// Sysctl setting net.ipv4.tcp_wmem.
-	NetIpv4TcpWmem *int `pulumi:"netIpv4TcpWmem"`
 	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
 	NetIpv4TcpkeepaliveIntvl *int `pulumi:"netIpv4TcpkeepaliveIntvl"`
 	// Sysctl setting net.netfilter.nf_conntrack_buckets.
@@ -15563,10 +15743,14 @@ type SysctlConfigArgs struct {
 	NetCoreNetdevMaxBacklog pulumi.IntPtrInput `pulumi:"netCoreNetdevMaxBacklog"`
 	// Sysctl setting net.core.optmem_max.
 	NetCoreOptmemMax pulumi.IntPtrInput `pulumi:"netCoreOptmemMax"`
+	// Sysctl setting net.core.rmem_default.
+	NetCoreRmemDefault pulumi.IntPtrInput `pulumi:"netCoreRmemDefault"`
 	// Sysctl setting net.core.rmem_max.
 	NetCoreRmemMax pulumi.IntPtrInput `pulumi:"netCoreRmemMax"`
 	// Sysctl setting net.core.somaxconn.
 	NetCoreSomaxconn pulumi.IntPtrInput `pulumi:"netCoreSomaxconn"`
+	// Sysctl setting net.core.wmem_default.
+	NetCoreWmemDefault pulumi.IntPtrInput `pulumi:"netCoreWmemDefault"`
 	// Sysctl setting net.core.wmem_max.
 	NetCoreWmemMax pulumi.IntPtrInput `pulumi:"netCoreWmemMax"`
 	// Sysctl setting net.ipv4.ip_local_port_range.
@@ -15587,12 +15771,8 @@ type SysctlConfigArgs struct {
 	NetIpv4TcpMaxSynBacklog pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxSynBacklog"`
 	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
 	NetIpv4TcpMaxTwBuckets pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxTwBuckets"`
-	// Sysctl setting net.ipv4.tcp_rmem.
-	NetIpv4TcpRmem pulumi.IntPtrInput `pulumi:"netIpv4TcpRmem"`
 	// Sysctl setting net.ipv4.tcp_tw_reuse.
 	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
-	// Sysctl setting net.ipv4.tcp_wmem.
-	NetIpv4TcpWmem pulumi.IntPtrInput `pulumi:"netIpv4TcpWmem"`
 	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
 	NetIpv4TcpkeepaliveIntvl pulumi.IntPtrInput `pulumi:"netIpv4TcpkeepaliveIntvl"`
 	// Sysctl setting net.netfilter.nf_conntrack_buckets.
@@ -15720,6 +15900,11 @@ func (o SysctlConfigOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreOptmemMax }).(pulumi.IntPtrOutput)
 }
 
+// Sysctl setting net.core.rmem_default.
+func (o SysctlConfigOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreRmemDefault }).(pulumi.IntPtrOutput)
+}
+
 // Sysctl setting net.core.rmem_max.
 func (o SysctlConfigOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreRmemMax }).(pulumi.IntPtrOutput)
@@ -15728,6 +15913,11 @@ func (o SysctlConfigOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 // Sysctl setting net.core.somaxconn.
 func (o SysctlConfigOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreSomaxconn }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.wmem_default.
+func (o SysctlConfigOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreWmemDefault }).(pulumi.IntPtrOutput)
 }
 
 // Sysctl setting net.core.wmem_max.
@@ -15780,19 +15970,9 @@ func (o SysctlConfigOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpMaxTwBuckets }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_rmem.
-func (o SysctlConfigOutput) NetIpv4TcpRmem() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpRmem }).(pulumi.IntPtrOutput)
-}
-
 // Sysctl setting net.ipv4.tcp_tw_reuse.
 func (o SysctlConfigOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SysctlConfig) *bool { return v.NetIpv4TcpTwReuse }).(pulumi.BoolPtrOutput)
-}
-
-// Sysctl setting net.ipv4.tcp_wmem.
-func (o SysctlConfigOutput) NetIpv4TcpWmem() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpWmem }).(pulumi.IntPtrOutput)
 }
 
 // Sysctl setting net.ipv4.tcp_keepalive_intvl.
@@ -15913,6 +16093,16 @@ func (o SysctlConfigPtrOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Sysctl setting net.core.rmem_default.
+func (o SysctlConfigPtrOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreRmemDefault
+	}).(pulumi.IntPtrOutput)
+}
+
 // Sysctl setting net.core.rmem_max.
 func (o SysctlConfigPtrOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *int {
@@ -15930,6 +16120,16 @@ func (o SysctlConfigPtrOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
 			return nil
 		}
 		return v.NetCoreSomaxconn
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.wmem_default.
+func (o SysctlConfigPtrOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreWmemDefault
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -16033,16 +16233,6 @@ func (o SysctlConfigPtrOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_rmem.
-func (o SysctlConfigPtrOutput) NetIpv4TcpRmem() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SysctlConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NetIpv4TcpRmem
-	}).(pulumi.IntPtrOutput)
-}
-
 // Sysctl setting net.ipv4.tcp_tw_reuse.
 func (o SysctlConfigPtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SysctlConfig) *bool {
@@ -16051,16 +16241,6 @@ func (o SysctlConfigPtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 		}
 		return v.NetIpv4TcpTwReuse
 	}).(pulumi.BoolPtrOutput)
-}
-
-// Sysctl setting net.ipv4.tcp_wmem.
-func (o SysctlConfigPtrOutput) NetIpv4TcpWmem() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SysctlConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NetIpv4TcpWmem
-	}).(pulumi.IntPtrOutput)
 }
 
 // Sysctl setting net.ipv4.tcp_keepalive_intvl.
@@ -16139,10 +16319,14 @@ type SysctlConfigResponse struct {
 	NetCoreNetdevMaxBacklog *int `pulumi:"netCoreNetdevMaxBacklog"`
 	// Sysctl setting net.core.optmem_max.
 	NetCoreOptmemMax *int `pulumi:"netCoreOptmemMax"`
+	// Sysctl setting net.core.rmem_default.
+	NetCoreRmemDefault *int `pulumi:"netCoreRmemDefault"`
 	// Sysctl setting net.core.rmem_max.
 	NetCoreRmemMax *int `pulumi:"netCoreRmemMax"`
 	// Sysctl setting net.core.somaxconn.
 	NetCoreSomaxconn *int `pulumi:"netCoreSomaxconn"`
+	// Sysctl setting net.core.wmem_default.
+	NetCoreWmemDefault *int `pulumi:"netCoreWmemDefault"`
 	// Sysctl setting net.core.wmem_max.
 	NetCoreWmemMax *int `pulumi:"netCoreWmemMax"`
 	// Sysctl setting net.ipv4.ip_local_port_range.
@@ -16163,12 +16347,8 @@ type SysctlConfigResponse struct {
 	NetIpv4TcpMaxSynBacklog *int `pulumi:"netIpv4TcpMaxSynBacklog"`
 	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
 	NetIpv4TcpMaxTwBuckets *int `pulumi:"netIpv4TcpMaxTwBuckets"`
-	// Sysctl setting net.ipv4.tcp_rmem.
-	NetIpv4TcpRmem *int `pulumi:"netIpv4TcpRmem"`
 	// Sysctl setting net.ipv4.tcp_tw_reuse.
 	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
-	// Sysctl setting net.ipv4.tcp_wmem.
-	NetIpv4TcpWmem *int `pulumi:"netIpv4TcpWmem"`
 	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
 	NetIpv4TcpkeepaliveIntvl *int `pulumi:"netIpv4TcpkeepaliveIntvl"`
 	// Sysctl setting net.netfilter.nf_conntrack_buckets.
@@ -16210,10 +16390,14 @@ type SysctlConfigResponseArgs struct {
 	NetCoreNetdevMaxBacklog pulumi.IntPtrInput `pulumi:"netCoreNetdevMaxBacklog"`
 	// Sysctl setting net.core.optmem_max.
 	NetCoreOptmemMax pulumi.IntPtrInput `pulumi:"netCoreOptmemMax"`
+	// Sysctl setting net.core.rmem_default.
+	NetCoreRmemDefault pulumi.IntPtrInput `pulumi:"netCoreRmemDefault"`
 	// Sysctl setting net.core.rmem_max.
 	NetCoreRmemMax pulumi.IntPtrInput `pulumi:"netCoreRmemMax"`
 	// Sysctl setting net.core.somaxconn.
 	NetCoreSomaxconn pulumi.IntPtrInput `pulumi:"netCoreSomaxconn"`
+	// Sysctl setting net.core.wmem_default.
+	NetCoreWmemDefault pulumi.IntPtrInput `pulumi:"netCoreWmemDefault"`
 	// Sysctl setting net.core.wmem_max.
 	NetCoreWmemMax pulumi.IntPtrInput `pulumi:"netCoreWmemMax"`
 	// Sysctl setting net.ipv4.ip_local_port_range.
@@ -16234,12 +16418,8 @@ type SysctlConfigResponseArgs struct {
 	NetIpv4TcpMaxSynBacklog pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxSynBacklog"`
 	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
 	NetIpv4TcpMaxTwBuckets pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxTwBuckets"`
-	// Sysctl setting net.ipv4.tcp_rmem.
-	NetIpv4TcpRmem pulumi.IntPtrInput `pulumi:"netIpv4TcpRmem"`
 	// Sysctl setting net.ipv4.tcp_tw_reuse.
 	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
-	// Sysctl setting net.ipv4.tcp_wmem.
-	NetIpv4TcpWmem pulumi.IntPtrInput `pulumi:"netIpv4TcpWmem"`
 	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
 	NetIpv4TcpkeepaliveIntvl pulumi.IntPtrInput `pulumi:"netIpv4TcpkeepaliveIntvl"`
 	// Sysctl setting net.netfilter.nf_conntrack_buckets.
@@ -16367,6 +16547,11 @@ func (o SysctlConfigResponseOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreOptmemMax }).(pulumi.IntPtrOutput)
 }
 
+// Sysctl setting net.core.rmem_default.
+func (o SysctlConfigResponseOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreRmemDefault }).(pulumi.IntPtrOutput)
+}
+
 // Sysctl setting net.core.rmem_max.
 func (o SysctlConfigResponseOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreRmemMax }).(pulumi.IntPtrOutput)
@@ -16375,6 +16560,11 @@ func (o SysctlConfigResponseOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 // Sysctl setting net.core.somaxconn.
 func (o SysctlConfigResponseOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreSomaxconn }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.wmem_default.
+func (o SysctlConfigResponseOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreWmemDefault }).(pulumi.IntPtrOutput)
 }
 
 // Sysctl setting net.core.wmem_max.
@@ -16427,19 +16617,9 @@ func (o SysctlConfigResponseOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput
 	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpMaxTwBuckets }).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_rmem.
-func (o SysctlConfigResponseOutput) NetIpv4TcpRmem() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpRmem }).(pulumi.IntPtrOutput)
-}
-
 // Sysctl setting net.ipv4.tcp_tw_reuse.
 func (o SysctlConfigResponseOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SysctlConfigResponse) *bool { return v.NetIpv4TcpTwReuse }).(pulumi.BoolPtrOutput)
-}
-
-// Sysctl setting net.ipv4.tcp_wmem.
-func (o SysctlConfigResponseOutput) NetIpv4TcpWmem() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpWmem }).(pulumi.IntPtrOutput)
 }
 
 // Sysctl setting net.ipv4.tcp_keepalive_intvl.
@@ -16560,6 +16740,16 @@ func (o SysctlConfigResponsePtrOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Sysctl setting net.core.rmem_default.
+func (o SysctlConfigResponsePtrOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreRmemDefault
+	}).(pulumi.IntPtrOutput)
+}
+
 // Sysctl setting net.core.rmem_max.
 func (o SysctlConfigResponsePtrOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *int {
@@ -16577,6 +16767,16 @@ func (o SysctlConfigResponsePtrOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
 			return nil
 		}
 		return v.NetCoreSomaxconn
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.wmem_default.
+func (o SysctlConfigResponsePtrOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreWmemDefault
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -16680,16 +16880,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sysctl setting net.ipv4.tcp_rmem.
-func (o SysctlConfigResponsePtrOutput) NetIpv4TcpRmem() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SysctlConfigResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NetIpv4TcpRmem
-	}).(pulumi.IntPtrOutput)
-}
-
 // Sysctl setting net.ipv4.tcp_tw_reuse.
 func (o SysctlConfigResponsePtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SysctlConfigResponse) *bool {
@@ -16698,16 +16888,6 @@ func (o SysctlConfigResponsePtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput 
 		}
 		return v.NetIpv4TcpTwReuse
 	}).(pulumi.BoolPtrOutput)
-}
-
-// Sysctl setting net.ipv4.tcp_wmem.
-func (o SysctlConfigResponsePtrOutput) NetIpv4TcpWmem() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SysctlConfigResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NetIpv4TcpWmem
-	}).(pulumi.IntPtrOutput)
 }
 
 // Sysctl setting net.ipv4.tcp_keepalive_intvl.
@@ -16768,6 +16948,671 @@ func (o SysctlConfigResponsePtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput 
 		}
 		return v.VmVfsCachePressure
 	}).(pulumi.IntPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time in a week.
+type TimeInWeek struct {
+	// A day in a week.
+	Day *string `pulumi:"day"`
+	// hour slots in a day.
+	HourSlots []int `pulumi:"hourSlots"`
+}
+
+// TimeInWeekInput is an input type that accepts TimeInWeekArgs and TimeInWeekOutput values.
+// You can construct a concrete instance of `TimeInWeekInput` via:
+//
+//          TimeInWeekArgs{...}
+type TimeInWeekInput interface {
+	pulumi.Input
+
+	ToTimeInWeekOutput() TimeInWeekOutput
+	ToTimeInWeekOutputWithContext(context.Context) TimeInWeekOutput
+}
+
+// Time in a week.
+type TimeInWeekArgs struct {
+	// A day in a week.
+	Day pulumi.StringPtrInput `pulumi:"day"`
+	// hour slots in a day.
+	HourSlots pulumi.IntArrayInput `pulumi:"hourSlots"`
+}
+
+func (TimeInWeekArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeInWeek)(nil)).Elem()
+}
+
+func (i TimeInWeekArgs) ToTimeInWeekOutput() TimeInWeekOutput {
+	return i.ToTimeInWeekOutputWithContext(context.Background())
+}
+
+func (i TimeInWeekArgs) ToTimeInWeekOutputWithContext(ctx context.Context) TimeInWeekOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeInWeekOutput)
+}
+
+// TimeInWeekArrayInput is an input type that accepts TimeInWeekArray and TimeInWeekArrayOutput values.
+// You can construct a concrete instance of `TimeInWeekArrayInput` via:
+//
+//          TimeInWeekArray{ TimeInWeekArgs{...} }
+type TimeInWeekArrayInput interface {
+	pulumi.Input
+
+	ToTimeInWeekArrayOutput() TimeInWeekArrayOutput
+	ToTimeInWeekArrayOutputWithContext(context.Context) TimeInWeekArrayOutput
+}
+
+type TimeInWeekArray []TimeInWeekInput
+
+func (TimeInWeekArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeInWeek)(nil)).Elem()
+}
+
+func (i TimeInWeekArray) ToTimeInWeekArrayOutput() TimeInWeekArrayOutput {
+	return i.ToTimeInWeekArrayOutputWithContext(context.Background())
+}
+
+func (i TimeInWeekArray) ToTimeInWeekArrayOutputWithContext(ctx context.Context) TimeInWeekArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeInWeekArrayOutput)
+}
+
+// Time in a week.
+type TimeInWeekOutput struct{ *pulumi.OutputState }
+
+func (TimeInWeekOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeInWeek)(nil)).Elem()
+}
+
+func (o TimeInWeekOutput) ToTimeInWeekOutput() TimeInWeekOutput {
+	return o
+}
+
+func (o TimeInWeekOutput) ToTimeInWeekOutputWithContext(ctx context.Context) TimeInWeekOutput {
+	return o
+}
+
+// A day in a week.
+func (o TimeInWeekOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimeInWeek) *string { return v.Day }).(pulumi.StringPtrOutput)
+}
+
+// hour slots in a day.
+func (o TimeInWeekOutput) HourSlots() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v TimeInWeek) []int { return v.HourSlots }).(pulumi.IntArrayOutput)
+}
+
+type TimeInWeekArrayOutput struct{ *pulumi.OutputState }
+
+func (TimeInWeekArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeInWeek)(nil)).Elem()
+}
+
+func (o TimeInWeekArrayOutput) ToTimeInWeekArrayOutput() TimeInWeekArrayOutput {
+	return o
+}
+
+func (o TimeInWeekArrayOutput) ToTimeInWeekArrayOutputWithContext(ctx context.Context) TimeInWeekArrayOutput {
+	return o
+}
+
+func (o TimeInWeekArrayOutput) Index(i pulumi.IntInput) TimeInWeekOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeInWeek {
+		return vs[0].([]TimeInWeek)[vs[1].(int)]
+	}).(TimeInWeekOutput)
+}
+
+// Time in a week.
+type TimeInWeekResponse struct {
+	// A day in a week.
+	Day *string `pulumi:"day"`
+	// hour slots in a day.
+	HourSlots []int `pulumi:"hourSlots"`
+}
+
+// TimeInWeekResponseInput is an input type that accepts TimeInWeekResponseArgs and TimeInWeekResponseOutput values.
+// You can construct a concrete instance of `TimeInWeekResponseInput` via:
+//
+//          TimeInWeekResponseArgs{...}
+type TimeInWeekResponseInput interface {
+	pulumi.Input
+
+	ToTimeInWeekResponseOutput() TimeInWeekResponseOutput
+	ToTimeInWeekResponseOutputWithContext(context.Context) TimeInWeekResponseOutput
+}
+
+// Time in a week.
+type TimeInWeekResponseArgs struct {
+	// A day in a week.
+	Day pulumi.StringPtrInput `pulumi:"day"`
+	// hour slots in a day.
+	HourSlots pulumi.IntArrayInput `pulumi:"hourSlots"`
+}
+
+func (TimeInWeekResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeInWeekResponse)(nil)).Elem()
+}
+
+func (i TimeInWeekResponseArgs) ToTimeInWeekResponseOutput() TimeInWeekResponseOutput {
+	return i.ToTimeInWeekResponseOutputWithContext(context.Background())
+}
+
+func (i TimeInWeekResponseArgs) ToTimeInWeekResponseOutputWithContext(ctx context.Context) TimeInWeekResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeInWeekResponseOutput)
+}
+
+// TimeInWeekResponseArrayInput is an input type that accepts TimeInWeekResponseArray and TimeInWeekResponseArrayOutput values.
+// You can construct a concrete instance of `TimeInWeekResponseArrayInput` via:
+//
+//          TimeInWeekResponseArray{ TimeInWeekResponseArgs{...} }
+type TimeInWeekResponseArrayInput interface {
+	pulumi.Input
+
+	ToTimeInWeekResponseArrayOutput() TimeInWeekResponseArrayOutput
+	ToTimeInWeekResponseArrayOutputWithContext(context.Context) TimeInWeekResponseArrayOutput
+}
+
+type TimeInWeekResponseArray []TimeInWeekResponseInput
+
+func (TimeInWeekResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeInWeekResponse)(nil)).Elem()
+}
+
+func (i TimeInWeekResponseArray) ToTimeInWeekResponseArrayOutput() TimeInWeekResponseArrayOutput {
+	return i.ToTimeInWeekResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TimeInWeekResponseArray) ToTimeInWeekResponseArrayOutputWithContext(ctx context.Context) TimeInWeekResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeInWeekResponseArrayOutput)
+}
+
+// Time in a week.
+type TimeInWeekResponseOutput struct{ *pulumi.OutputState }
+
+func (TimeInWeekResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeInWeekResponse)(nil)).Elem()
+}
+
+func (o TimeInWeekResponseOutput) ToTimeInWeekResponseOutput() TimeInWeekResponseOutput {
+	return o
+}
+
+func (o TimeInWeekResponseOutput) ToTimeInWeekResponseOutputWithContext(ctx context.Context) TimeInWeekResponseOutput {
+	return o
+}
+
+// A day in a week.
+func (o TimeInWeekResponseOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimeInWeekResponse) *string { return v.Day }).(pulumi.StringPtrOutput)
+}
+
+// hour slots in a day.
+func (o TimeInWeekResponseOutput) HourSlots() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v TimeInWeekResponse) []int { return v.HourSlots }).(pulumi.IntArrayOutput)
+}
+
+type TimeInWeekResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TimeInWeekResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeInWeekResponse)(nil)).Elem()
+}
+
+func (o TimeInWeekResponseArrayOutput) ToTimeInWeekResponseArrayOutput() TimeInWeekResponseArrayOutput {
+	return o
+}
+
+func (o TimeInWeekResponseArrayOutput) ToTimeInWeekResponseArrayOutputWithContext(ctx context.Context) TimeInWeekResponseArrayOutput {
+	return o
+}
+
+func (o TimeInWeekResponseArrayOutput) Index(i pulumi.IntInput) TimeInWeekResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeInWeekResponse {
+		return vs[0].([]TimeInWeekResponse)[vs[1].(int)]
+	}).(TimeInWeekResponseOutput)
+}
+
+// The time span with start and end properties.
+type TimeSpan struct {
+	// The end of a time span
+	End *string `pulumi:"end"`
+	// The start of a time span
+	Start *string `pulumi:"start"`
+}
+
+// TimeSpanInput is an input type that accepts TimeSpanArgs and TimeSpanOutput values.
+// You can construct a concrete instance of `TimeSpanInput` via:
+//
+//          TimeSpanArgs{...}
+type TimeSpanInput interface {
+	pulumi.Input
+
+	ToTimeSpanOutput() TimeSpanOutput
+	ToTimeSpanOutputWithContext(context.Context) TimeSpanOutput
+}
+
+// The time span with start and end properties.
+type TimeSpanArgs struct {
+	// The end of a time span
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// The start of a time span
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (TimeSpanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSpan)(nil)).Elem()
+}
+
+func (i TimeSpanArgs) ToTimeSpanOutput() TimeSpanOutput {
+	return i.ToTimeSpanOutputWithContext(context.Background())
+}
+
+func (i TimeSpanArgs) ToTimeSpanOutputWithContext(ctx context.Context) TimeSpanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSpanOutput)
+}
+
+// TimeSpanArrayInput is an input type that accepts TimeSpanArray and TimeSpanArrayOutput values.
+// You can construct a concrete instance of `TimeSpanArrayInput` via:
+//
+//          TimeSpanArray{ TimeSpanArgs{...} }
+type TimeSpanArrayInput interface {
+	pulumi.Input
+
+	ToTimeSpanArrayOutput() TimeSpanArrayOutput
+	ToTimeSpanArrayOutputWithContext(context.Context) TimeSpanArrayOutput
+}
+
+type TimeSpanArray []TimeSpanInput
+
+func (TimeSpanArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeSpan)(nil)).Elem()
+}
+
+func (i TimeSpanArray) ToTimeSpanArrayOutput() TimeSpanArrayOutput {
+	return i.ToTimeSpanArrayOutputWithContext(context.Background())
+}
+
+func (i TimeSpanArray) ToTimeSpanArrayOutputWithContext(ctx context.Context) TimeSpanArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSpanArrayOutput)
+}
+
+// The time span with start and end properties.
+type TimeSpanOutput struct{ *pulumi.OutputState }
+
+func (TimeSpanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSpan)(nil)).Elem()
+}
+
+func (o TimeSpanOutput) ToTimeSpanOutput() TimeSpanOutput {
+	return o
+}
+
+func (o TimeSpanOutput) ToTimeSpanOutputWithContext(ctx context.Context) TimeSpanOutput {
+	return o
+}
+
+// The end of a time span
+func (o TimeSpanOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimeSpan) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// The start of a time span
+func (o TimeSpanOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimeSpan) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type TimeSpanArrayOutput struct{ *pulumi.OutputState }
+
+func (TimeSpanArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeSpan)(nil)).Elem()
+}
+
+func (o TimeSpanArrayOutput) ToTimeSpanArrayOutput() TimeSpanArrayOutput {
+	return o
+}
+
+func (o TimeSpanArrayOutput) ToTimeSpanArrayOutputWithContext(ctx context.Context) TimeSpanArrayOutput {
+	return o
+}
+
+func (o TimeSpanArrayOutput) Index(i pulumi.IntInput) TimeSpanOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeSpan {
+		return vs[0].([]TimeSpan)[vs[1].(int)]
+	}).(TimeSpanOutput)
+}
+
+// The time span with start and end properties.
+type TimeSpanResponse struct {
+	// The end of a time span
+	End *string `pulumi:"end"`
+	// The start of a time span
+	Start *string `pulumi:"start"`
+}
+
+// TimeSpanResponseInput is an input type that accepts TimeSpanResponseArgs and TimeSpanResponseOutput values.
+// You can construct a concrete instance of `TimeSpanResponseInput` via:
+//
+//          TimeSpanResponseArgs{...}
+type TimeSpanResponseInput interface {
+	pulumi.Input
+
+	ToTimeSpanResponseOutput() TimeSpanResponseOutput
+	ToTimeSpanResponseOutputWithContext(context.Context) TimeSpanResponseOutput
+}
+
+// The time span with start and end properties.
+type TimeSpanResponseArgs struct {
+	// The end of a time span
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// The start of a time span
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (TimeSpanResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSpanResponse)(nil)).Elem()
+}
+
+func (i TimeSpanResponseArgs) ToTimeSpanResponseOutput() TimeSpanResponseOutput {
+	return i.ToTimeSpanResponseOutputWithContext(context.Background())
+}
+
+func (i TimeSpanResponseArgs) ToTimeSpanResponseOutputWithContext(ctx context.Context) TimeSpanResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSpanResponseOutput)
+}
+
+// TimeSpanResponseArrayInput is an input type that accepts TimeSpanResponseArray and TimeSpanResponseArrayOutput values.
+// You can construct a concrete instance of `TimeSpanResponseArrayInput` via:
+//
+//          TimeSpanResponseArray{ TimeSpanResponseArgs{...} }
+type TimeSpanResponseArrayInput interface {
+	pulumi.Input
+
+	ToTimeSpanResponseArrayOutput() TimeSpanResponseArrayOutput
+	ToTimeSpanResponseArrayOutputWithContext(context.Context) TimeSpanResponseArrayOutput
+}
+
+type TimeSpanResponseArray []TimeSpanResponseInput
+
+func (TimeSpanResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeSpanResponse)(nil)).Elem()
+}
+
+func (i TimeSpanResponseArray) ToTimeSpanResponseArrayOutput() TimeSpanResponseArrayOutput {
+	return i.ToTimeSpanResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TimeSpanResponseArray) ToTimeSpanResponseArrayOutputWithContext(ctx context.Context) TimeSpanResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSpanResponseArrayOutput)
+}
+
+// The time span with start and end properties.
+type TimeSpanResponseOutput struct{ *pulumi.OutputState }
+
+func (TimeSpanResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSpanResponse)(nil)).Elem()
+}
+
+func (o TimeSpanResponseOutput) ToTimeSpanResponseOutput() TimeSpanResponseOutput {
+	return o
+}
+
+func (o TimeSpanResponseOutput) ToTimeSpanResponseOutputWithContext(ctx context.Context) TimeSpanResponseOutput {
+	return o
+}
+
+// The end of a time span
+func (o TimeSpanResponseOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimeSpanResponse) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// The start of a time span
+func (o TimeSpanResponseOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimeSpanResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type TimeSpanResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TimeSpanResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeSpanResponse)(nil)).Elem()
+}
+
+func (o TimeSpanResponseArrayOutput) ToTimeSpanResponseArrayOutput() TimeSpanResponseArrayOutput {
+	return o
+}
+
+func (o TimeSpanResponseArrayOutput) ToTimeSpanResponseArrayOutputWithContext(ctx context.Context) TimeSpanResponseArrayOutput {
+	return o
+}
+
+func (o TimeSpanResponseArrayOutput) Index(i pulumi.IntInput) TimeSpanResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeSpanResponse {
+		return vs[0].([]TimeSpanResponse)[vs[1].(int)]
+	}).(TimeSpanResponseOutput)
 }
 
 type UserAssignedIdentity struct {
@@ -17104,6 +17949,16 @@ func init() {
 	pulumi.RegisterOutputType(SysctlConfigPtrOutput{})
 	pulumi.RegisterOutputType(SysctlConfigResponseOutput{})
 	pulumi.RegisterOutputType(SysctlConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(TimeInWeekOutput{})
+	pulumi.RegisterOutputType(TimeInWeekArrayOutput{})
+	pulumi.RegisterOutputType(TimeInWeekResponseOutput{})
+	pulumi.RegisterOutputType(TimeInWeekResponseArrayOutput{})
+	pulumi.RegisterOutputType(TimeSpanOutput{})
+	pulumi.RegisterOutputType(TimeSpanArrayOutput{})
+	pulumi.RegisterOutputType(TimeSpanResponseOutput{})
+	pulumi.RegisterOutputType(TimeSpanResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 }

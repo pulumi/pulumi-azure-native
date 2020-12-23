@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 {
     /// <summary>
     /// Agent Pool.
-    /// Latest API Version: 2020-11-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:containerservice/latest:AgentPool")]
     public partial class AgentPool : Pulumi.CustomResource
@@ -35,6 +35,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         public Output<bool?> EnableAutoScaling { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to enable EncryptionAtHost
+        /// </summary>
+        [Output("enableEncryptionAtHost")]
+        public Output<bool?> EnableEncryptionAtHost { get; private set; } = null!;
+
+        /// <summary>
         /// Enable public IP for nodes
         /// </summary>
         [Output("enableNodePublicIP")]
@@ -45,6 +51,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         [Output("kubeletConfig")]
         public Output<Outputs.KubeletConfigResponse?> KubeletConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+        /// </summary>
+        [Output("kubeletDiskType")]
+        public Output<string?> KubeletDiskType { get; private set; } = null!;
 
         /// <summary>
         /// LinuxOSConfig specifies the OS configuration of linux agent nodes.
@@ -235,6 +247,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200701:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200901:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201101:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -289,6 +302,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
+        /// Whether to enable EncryptionAtHost
+        /// </summary>
+        [Input("enableEncryptionAtHost")]
+        public Input<bool>? EnableEncryptionAtHost { get; set; }
+
+        /// <summary>
         /// Enable public IP for nodes
         /// </summary>
         [Input("enableNodePublicIP")]
@@ -299,6 +318,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         [Input("kubeletConfig")]
         public Input<Inputs.KubeletConfigArgs>? KubeletConfig { get; set; }
+
+        /// <summary>
+        /// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+        /// </summary>
+        [Input("kubeletDiskType")]
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.KubeletDiskType>? KubeletDiskType { get; set; }
 
         /// <summary>
         /// LinuxOSConfig specifies the OS configuration of linux agent nodes.

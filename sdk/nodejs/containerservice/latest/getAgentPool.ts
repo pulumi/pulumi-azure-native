@@ -52,6 +52,10 @@ export interface GetAgentPoolResult {
      */
     readonly enableAutoScaling?: boolean;
     /**
+     * Whether to enable EncryptionAtHost
+     */
+    readonly enableEncryptionAtHost?: boolean;
+    /**
      * Enable public IP for nodes
      */
     readonly enableNodePublicIP?: boolean;
@@ -63,6 +67,10 @@ export interface GetAgentPoolResult {
      * KubeletConfig specifies the configuration of kubelet on agent nodes.
      */
     readonly kubeletConfig?: outputs.containerservice.latest.KubeletConfigResponse;
+    /**
+     * KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+     */
+    readonly kubeletDiskType?: string;
     /**
      * LinuxOSConfig specifies the OS configuration of linux agent nodes.
      */

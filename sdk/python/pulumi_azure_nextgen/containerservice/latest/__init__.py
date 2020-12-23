@@ -8,6 +8,7 @@ from .agent_pool import *
 from .container_service import *
 from .get_agent_pool import *
 from .get_container_service import *
+from .get_maintenance_configuration import *
 from .get_managed_cluster import *
 from .get_open_shift_managed_cluster import *
 from .get_private_endpoint_connection import *
@@ -15,6 +16,7 @@ from .list_managed_cluster_access_profile import *
 from .list_managed_cluster_admin_credentials import *
 from .list_managed_cluster_monitoring_user_credentials import *
 from .list_managed_cluster_user_credentials import *
+from .maintenance_configuration import *
 from .managed_cluster import *
 from .open_shift_managed_cluster import *
 from .private_endpoint_connection import *
@@ -37,6 +39,8 @@ def _register_module():
                 return AgentPool(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:containerservice/latest:ContainerService":
                 return ContainerService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:containerservice/latest:MaintenanceConfiguration":
+                return MaintenanceConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:containerservice/latest:ManagedCluster":
                 return ManagedCluster(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:containerservice/latest:OpenShiftManagedCluster":

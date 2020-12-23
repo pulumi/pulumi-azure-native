@@ -12,7 +12,7 @@ import (
 )
 
 // Agent Pool.
-// Latest API Version: 2020-11-01.
+// Latest API Version: 2020-12-01.
 type AgentPool struct {
 	pulumi.CustomResourceState
 
@@ -22,10 +22,14 @@ type AgentPool struct {
 	Count pulumi.IntPtrOutput `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
+	// Whether to enable EncryptionAtHost
+	EnableEncryptionAtHost pulumi.BoolPtrOutput `pulumi:"enableEncryptionAtHost"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrOutput `pulumi:"enableNodePublicIP"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig KubeletConfigResponsePtrOutput `pulumi:"kubeletConfig"`
+	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	KubeletDiskType pulumi.StringPtrOutput `pulumi:"kubeletDiskType"`
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 	LinuxOSConfig LinuxOSConfigResponsePtrOutput `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
@@ -137,6 +141,9 @@ func NewAgentPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201101:AgentPool"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20201201:AgentPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AgentPool
@@ -167,10 +174,14 @@ type agentPoolState struct {
 	Count *int `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Whether to enable EncryptionAtHost
+	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig *KubeletConfigResponse `pulumi:"kubeletConfig"`
+	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 	LinuxOSConfig *LinuxOSConfigResponse `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
@@ -230,10 +241,14 @@ type AgentPoolState struct {
 	Count pulumi.IntPtrInput
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrInput
+	// Whether to enable EncryptionAtHost
+	EnableEncryptionAtHost pulumi.BoolPtrInput
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig KubeletConfigResponsePtrInput
+	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	KubeletDiskType pulumi.StringPtrInput
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 	LinuxOSConfig LinuxOSConfigResponsePtrInput
 	// Maximum number of nodes for auto-scaling
@@ -299,10 +314,14 @@ type agentPoolArgs struct {
 	Count *int `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Whether to enable EncryptionAtHost
+	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig *KubeletConfig `pulumi:"kubeletConfig"`
+	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 	LinuxOSConfig *LinuxOSConfig `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
@@ -361,10 +380,14 @@ type AgentPoolArgs struct {
 	Count pulumi.IntPtrInput
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrInput
+	// Whether to enable EncryptionAtHost
+	EnableEncryptionAtHost pulumi.BoolPtrInput
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig KubeletConfigPtrInput
+	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	KubeletDiskType pulumi.StringPtrInput
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 	LinuxOSConfig LinuxOSConfigPtrInput
 	// Maximum number of nodes for auto-scaling

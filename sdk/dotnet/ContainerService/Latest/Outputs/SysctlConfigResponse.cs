@@ -42,6 +42,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
         /// </summary>
         public readonly int? NetCoreOptmemMax;
         /// <summary>
+        /// Sysctl setting net.core.rmem_default.
+        /// </summary>
+        public readonly int? NetCoreRmemDefault;
+        /// <summary>
         /// Sysctl setting net.core.rmem_max.
         /// </summary>
         public readonly int? NetCoreRmemMax;
@@ -49,6 +53,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
         /// Sysctl setting net.core.somaxconn.
         /// </summary>
         public readonly int? NetCoreSomaxconn;
+        /// <summary>
+        /// Sysctl setting net.core.wmem_default.
+        /// </summary>
+        public readonly int? NetCoreWmemDefault;
         /// <summary>
         /// Sysctl setting net.core.wmem_max.
         /// </summary>
@@ -90,17 +98,9 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
         /// </summary>
         public readonly int? NetIpv4TcpMaxTwBuckets;
         /// <summary>
-        /// Sysctl setting net.ipv4.tcp_rmem.
-        /// </summary>
-        public readonly int? NetIpv4TcpRmem;
-        /// <summary>
         /// Sysctl setting net.ipv4.tcp_tw_reuse.
         /// </summary>
         public readonly bool? NetIpv4TcpTwReuse;
-        /// <summary>
-        /// Sysctl setting net.ipv4.tcp_wmem.
-        /// </summary>
-        public readonly int? NetIpv4TcpWmem;
         /// <summary>
         /// Sysctl setting net.ipv4.tcp_keepalive_intvl.
         /// </summary>
@@ -142,9 +142,13 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
 
             int? netCoreOptmemMax,
 
+            int? netCoreRmemDefault,
+
             int? netCoreRmemMax,
 
             int? netCoreSomaxconn,
+
+            int? netCoreWmemDefault,
 
             int? netCoreWmemMax,
 
@@ -166,11 +170,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
 
             int? netIpv4TcpMaxTwBuckets,
 
-            int? netIpv4TcpRmem,
-
             bool? netIpv4TcpTwReuse,
-
-            int? netIpv4TcpWmem,
 
             int? netIpv4TcpkeepaliveIntvl,
 
@@ -191,8 +191,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
             KernelThreadsMax = kernelThreadsMax;
             NetCoreNetdevMaxBacklog = netCoreNetdevMaxBacklog;
             NetCoreOptmemMax = netCoreOptmemMax;
+            NetCoreRmemDefault = netCoreRmemDefault;
             NetCoreRmemMax = netCoreRmemMax;
             NetCoreSomaxconn = netCoreSomaxconn;
+            NetCoreWmemDefault = netCoreWmemDefault;
             NetCoreWmemMax = netCoreWmemMax;
             NetIpv4IpLocalPortRange = netIpv4IpLocalPortRange;
             NetIpv4NeighDefaultGcThresh1 = netIpv4NeighDefaultGcThresh1;
@@ -203,9 +205,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
             NetIpv4TcpKeepaliveTime = netIpv4TcpKeepaliveTime;
             NetIpv4TcpMaxSynBacklog = netIpv4TcpMaxSynBacklog;
             NetIpv4TcpMaxTwBuckets = netIpv4TcpMaxTwBuckets;
-            NetIpv4TcpRmem = netIpv4TcpRmem;
             NetIpv4TcpTwReuse = netIpv4TcpTwReuse;
-            NetIpv4TcpWmem = netIpv4TcpWmem;
             NetIpv4TcpkeepaliveIntvl = netIpv4TcpkeepaliveIntvl;
             NetNetfilterNfConntrackBuckets = netNetfilterNfConntrackBuckets;
             NetNetfilterNfConntrackMax = netNetfilterNfConntrackMax;

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Agent Pool.
- * Latest API Version: 2020-11-01.
+ * Latest API Version: 2020-12-01.
  */
 export class AgentPool extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly enableAutoScaling!: pulumi.Output<boolean | undefined>;
     /**
+     * Whether to enable EncryptionAtHost
+     */
+    public readonly enableEncryptionAtHost!: pulumi.Output<boolean | undefined>;
+    /**
      * Enable public IP for nodes
      */
     public readonly enableNodePublicIP!: pulumi.Output<boolean | undefined>;
@@ -56,6 +60,10 @@ export class AgentPool extends pulumi.CustomResource {
      * KubeletConfig specifies the configuration of kubelet on agent nodes.
      */
     public readonly kubeletConfig!: pulumi.Output<outputs.containerservice.latest.KubeletConfigResponse | undefined>;
+    /**
+     * KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+     */
+    public readonly kubeletDiskType!: pulumi.Output<string | undefined>;
     /**
      * LinuxOSConfig specifies the OS configuration of linux agent nodes.
      */
@@ -180,8 +188,10 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             inputs["count"] = args ? args.count : undefined;
             inputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
+            inputs["enableEncryptionAtHost"] = args ? args.enableEncryptionAtHost : undefined;
             inputs["enableNodePublicIP"] = args ? args.enableNodePublicIP : undefined;
             inputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
+            inputs["kubeletDiskType"] = args ? args.kubeletDiskType : undefined;
             inputs["linuxOSConfig"] = args ? args.linuxOSConfig : undefined;
             inputs["maxCount"] = args ? args.maxCount : undefined;
             inputs["maxPods"] = args ? args.maxPods : undefined;
@@ -213,8 +223,10 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["availabilityZones"] = undefined /*out*/;
             inputs["count"] = undefined /*out*/;
             inputs["enableAutoScaling"] = undefined /*out*/;
+            inputs["enableEncryptionAtHost"] = undefined /*out*/;
             inputs["enableNodePublicIP"] = undefined /*out*/;
             inputs["kubeletConfig"] = undefined /*out*/;
+            inputs["kubeletDiskType"] = undefined /*out*/;
             inputs["linuxOSConfig"] = undefined /*out*/;
             inputs["maxCount"] = undefined /*out*/;
             inputs["maxPods"] = undefined /*out*/;
@@ -248,7 +260,7 @@ export class AgentPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20190201:AgentPool" }, { type: "azure-nextgen:containerservice/v20190401:AgentPool" }, { type: "azure-nextgen:containerservice/v20190601:AgentPool" }, { type: "azure-nextgen:containerservice/v20190801:AgentPool" }, { type: "azure-nextgen:containerservice/v20191001:AgentPool" }, { type: "azure-nextgen:containerservice/v20191101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200201:AgentPool" }, { type: "azure-nextgen:containerservice/v20200301:AgentPool" }, { type: "azure-nextgen:containerservice/v20200401:AgentPool" }, { type: "azure-nextgen:containerservice/v20200601:AgentPool" }, { type: "azure-nextgen:containerservice/v20200701:AgentPool" }, { type: "azure-nextgen:containerservice/v20200901:AgentPool" }, { type: "azure-nextgen:containerservice/v20201101:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20190201:AgentPool" }, { type: "azure-nextgen:containerservice/v20190401:AgentPool" }, { type: "azure-nextgen:containerservice/v20190601:AgentPool" }, { type: "azure-nextgen:containerservice/v20190801:AgentPool" }, { type: "azure-nextgen:containerservice/v20191001:AgentPool" }, { type: "azure-nextgen:containerservice/v20191101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200201:AgentPool" }, { type: "azure-nextgen:containerservice/v20200301:AgentPool" }, { type: "azure-nextgen:containerservice/v20200401:AgentPool" }, { type: "azure-nextgen:containerservice/v20200601:AgentPool" }, { type: "azure-nextgen:containerservice/v20200701:AgentPool" }, { type: "azure-nextgen:containerservice/v20200901:AgentPool" }, { type: "azure-nextgen:containerservice/v20201101:AgentPool" }, { type: "azure-nextgen:containerservice/v20201201:AgentPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AgentPool.__pulumiType, name, inputs, opts);
     }
@@ -275,6 +287,10 @@ export interface AgentPoolArgs {
      */
     readonly enableAutoScaling?: pulumi.Input<boolean>;
     /**
+     * Whether to enable EncryptionAtHost
+     */
+    readonly enableEncryptionAtHost?: pulumi.Input<boolean>;
+    /**
      * Enable public IP for nodes
      */
     readonly enableNodePublicIP?: pulumi.Input<boolean>;
@@ -282,6 +298,10 @@ export interface AgentPoolArgs {
      * KubeletConfig specifies the configuration of kubelet on agent nodes.
      */
     readonly kubeletConfig?: pulumi.Input<inputs.containerservice.latest.KubeletConfig>;
+    /**
+     * KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+     */
+    readonly kubeletDiskType?: pulumi.Input<string | enums.containerservice.latest.KubeletDiskType>;
     /**
      * LinuxOSConfig specifies the OS configuration of linux agent nodes.
      */

@@ -40,6 +40,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
+        /// Whether to enable EncryptionAtHost
+        /// </summary>
+        [Input("enableEncryptionAtHost")]
+        public Input<bool>? EnableEncryptionAtHost { get; set; }
+
+        /// <summary>
         /// Enable public IP for nodes
         /// </summary>
         [Input("enableNodePublicIP")]
@@ -50,6 +56,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// </summary>
         [Input("kubeletConfig")]
         public Input<Inputs.KubeletConfigArgs>? KubeletConfig { get; set; }
+
+        /// <summary>
+        /// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+        /// </summary>
+        [Input("kubeletDiskType")]
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.KubeletDiskType>? KubeletDiskType { get; set; }
 
         /// <summary>
         /// LinuxOSConfig specifies the OS configuration of linux agent nodes.

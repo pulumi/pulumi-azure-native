@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 {
     /// <summary>
     /// A private endpoint connection
-    /// Latest API Version: 2020-11-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:containerservice/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
@@ -75,6 +75,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200701:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200901:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201101:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

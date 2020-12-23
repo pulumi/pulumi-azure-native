@@ -350,6 +350,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 
         public static Expander Least_waste { get; } = new Expander("least-waste");
         public static Expander Most_pods { get; } = new Expander("most-pods");
+        public static Expander Priority { get; } = new Expander("priority");
         public static Expander Random { get; } = new Expander("random");
 
         public static bool operator ==(Expander left, Expander right) => left.Equals(right);
@@ -360,6 +361,36 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Expander other && Equals(other);
         public bool Equals(Expander other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+    /// </summary>
+    [EnumType]
+    public readonly struct KubeletDiskType : IEquatable<KubeletDiskType>
+    {
+        private readonly string _value;
+
+        private KubeletDiskType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KubeletDiskType OS { get; } = new KubeletDiskType("OS");
+
+        public static bool operator ==(KubeletDiskType left, KubeletDiskType right) => left.Equals(right);
+        public static bool operator !=(KubeletDiskType left, KubeletDiskType right) => !left.Equals(right);
+
+        public static explicit operator string(KubeletDiskType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KubeletDiskType other && Equals(other);
+        public bool Equals(KubeletDiskType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -889,6 +920,42 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UpgradeChannel other && Equals(other);
         public bool Equals(UpgradeChannel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A day in a week.
+    /// </summary>
+    [EnumType]
+    public readonly struct WeekDay : IEquatable<WeekDay>
+    {
+        private readonly string _value;
+
+        private WeekDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WeekDay Sunday { get; } = new WeekDay("Sunday");
+        public static WeekDay Monday { get; } = new WeekDay("Monday");
+        public static WeekDay Tuesday { get; } = new WeekDay("Tuesday");
+        public static WeekDay Wednesday { get; } = new WeekDay("Wednesday");
+        public static WeekDay Thursday { get; } = new WeekDay("Thursday");
+        public static WeekDay Friday { get; } = new WeekDay("Friday");
+        public static WeekDay Saturday { get; } = new WeekDay("Saturday");
+
+        public static bool operator ==(WeekDay left, WeekDay right) => left.Equals(right);
+        public static bool operator !=(WeekDay left, WeekDay right) => !left.Equals(right);
+
+        public static explicit operator string(WeekDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WeekDay other && Equals(other);
+        public bool Equals(WeekDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

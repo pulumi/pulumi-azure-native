@@ -27,6 +27,9 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         [Input("maxGracefulTerminationSec")]
         public Input<string>? MaxGracefulTerminationSec { get; set; }
 
+        [Input("maxNodeProvisionTime")]
+        public Input<string>? MaxNodeProvisionTime { get; set; }
+
         [Input("maxTotalUnreadyPercentage")]
         public Input<string>? MaxTotalUnreadyPercentage { get; set; }
 

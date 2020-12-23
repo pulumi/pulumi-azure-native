@@ -331,6 +331,7 @@ type Expander pulumi.String
 const (
 	Expander_Least_waste = Expander("least-waste")
 	Expander_Most_pods   = Expander("most-pods")
+	ExpanderPriority     = Expander("priority")
 	ExpanderRandom       = Expander("random")
 )
 
@@ -351,6 +352,33 @@ func (e Expander) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e Expander) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+type KubeletDiskType pulumi.String
+
+const (
+	KubeletDiskTypeOS = KubeletDiskType("OS")
+)
+
+func (KubeletDiskType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e KubeletDiskType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KubeletDiskType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KubeletDiskType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KubeletDiskType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -832,5 +860,38 @@ func (e UpgradeChannel) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e UpgradeChannel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// A day in a week.
+type WeekDay pulumi.String
+
+const (
+	WeekDaySunday    = WeekDay("Sunday")
+	WeekDayMonday    = WeekDay("Monday")
+	WeekDayTuesday   = WeekDay("Tuesday")
+	WeekDayWednesday = WeekDay("Wednesday")
+	WeekDayThursday  = WeekDay("Thursday")
+	WeekDayFriday    = WeekDay("Friday")
+	WeekDaySaturday  = WeekDay("Saturday")
+)
+
+func (WeekDay) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e WeekDay) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WeekDay) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WeekDay) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WeekDay) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
