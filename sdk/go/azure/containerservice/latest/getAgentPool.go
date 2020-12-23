@@ -33,12 +33,16 @@ type LookupAgentPoolResult struct {
 	Count *int `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Whether to enable EncryptionAtHost
+	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig *KubeletConfigResponse `pulumi:"kubeletConfig"`
+	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
 	LinuxOSConfig *LinuxOSConfigResponse `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling

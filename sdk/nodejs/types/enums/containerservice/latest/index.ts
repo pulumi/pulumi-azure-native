@@ -231,10 +231,20 @@ export type ContainerServiceVMSizeTypes = (typeof ContainerServiceVMSizeTypes)[k
 export const Expander = {
     Least_waste: "least-waste",
     Most_pods: "most-pods",
+    Priority: "priority",
     Random: "random",
 } as const;
 
 export type Expander = (typeof Expander)[keyof typeof Expander];
+
+export const KubeletDiskType = {
+    OS: "OS",
+} as const;
+
+/**
+ * KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+ */
+export type KubeletDiskType = (typeof KubeletDiskType)[keyof typeof KubeletDiskType];
 
 export const LicenseType = {
     None: "None",
@@ -428,3 +438,18 @@ export const UpgradeChannel = {
  * upgrade channel for auto upgrade.
  */
 export type UpgradeChannel = (typeof UpgradeChannel)[keyof typeof UpgradeChannel];
+
+export const WeekDay = {
+    Sunday: "Sunday",
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+} as const;
+
+/**
+ * A day in a week.
+ */
+export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];

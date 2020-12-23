@@ -9,6 +9,7 @@ export * from "./agentPool";
 export * from "./containerService";
 export * from "./getAgentPool";
 export * from "./getContainerService";
+export * from "./getMaintenanceConfiguration";
 export * from "./getManagedCluster";
 export * from "./getOpenShiftManagedCluster";
 export * from "./getPrivateEndpointConnection";
@@ -16,6 +17,7 @@ export * from "./listManagedClusterAccessProfile";
 export * from "./listManagedClusterAdminCredentials";
 export * from "./listManagedClusterMonitoringUserCredentials";
 export * from "./listManagedClusterUserCredentials";
+export * from "./maintenanceConfiguration";
 export * from "./managedCluster";
 export * from "./openShiftManagedCluster";
 export * from "./privateEndpointConnection";
@@ -26,6 +28,7 @@ export * from "../../types/enums/containerservice/latest";
 // Import resources to register:
 import { AgentPool } from "./agentPool";
 import { ContainerService } from "./containerService";
+import { MaintenanceConfiguration } from "./maintenanceConfiguration";
 import { ManagedCluster } from "./managedCluster";
 import { OpenShiftManagedCluster } from "./openShiftManagedCluster";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
@@ -38,6 +41,8 @@ const _module = {
                 return new AgentPool(name, <any>undefined, { urn })
             case "azure-nextgen:containerservice/latest:ContainerService":
                 return new ContainerService(name, <any>undefined, { urn })
+            case "azure-nextgen:containerservice/latest:MaintenanceConfiguration":
+                return new MaintenanceConfiguration(name, <any>undefined, { urn })
             case "azure-nextgen:containerservice/latest:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
             case "azure-nextgen:containerservice/latest:OpenShiftManagedCluster":

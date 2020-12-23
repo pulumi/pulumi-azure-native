@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection
- * Latest API Version: 2020-11-01.
+ * Latest API Version: 2020-12-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20200601:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200701:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200901:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20201101:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20200601:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200701:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200901:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20201101:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20201201:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

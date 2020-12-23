@@ -11,6 +11,7 @@ __all__ = [
     'ContainerServiceOrchestratorTypes',
     'ContainerServiceVMSizeTypes',
     'Expander',
+    'KubeletDiskType',
     'LicenseType',
     'LoadBalancerSku',
     'ManagedClusterSKUName',
@@ -27,6 +28,7 @@ __all__ = [
     'ScaleSetEvictionPolicy',
     'ScaleSetPriority',
     'UpgradeChannel',
+    'WeekDay',
 ]
 
 
@@ -249,7 +251,15 @@ class ContainerServiceVMSizeTypes(str, Enum):
 class Expander(str, Enum):
     LEAST_WASTE = "least-waste"
     MOST_PODS = "most-pods"
+    PRIORITY = "priority"
     RANDOM = "random"
+
+
+class KubeletDiskType(str, Enum):
+    """
+    KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+    """
+    OS = "OS"
 
 
 class LicenseType(str, Enum):
@@ -411,3 +421,16 @@ class UpgradeChannel(str, Enum):
     STABLE = "stable"
     PATCH = "patch"
     NONE = "none"
+
+
+class WeekDay(str, Enum):
+    """
+    A day in a week.
+    """
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"

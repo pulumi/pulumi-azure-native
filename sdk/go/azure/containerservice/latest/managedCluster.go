@@ -12,7 +12,7 @@ import (
 )
 
 // Managed cluster.
-// Latest API Version: 2020-11-01.
+// Latest API Version: 2020-12-01.
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 
@@ -143,6 +143,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201101:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20201201:ManagedCluster"),
 		},
 	})
 	opts = append(opts, aliases)

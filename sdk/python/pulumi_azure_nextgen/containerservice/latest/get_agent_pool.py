@@ -20,7 +20,7 @@ class GetAgentPoolResult:
     """
     Agent Pool.
     """
-    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_node_public_ip=None, id=None, kubelet_config=None, linux_os_config=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
+    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_encryption_at_host=None, enable_node_public_ip=None, id=None, kubelet_config=None, kubelet_disk_type=None, linux_os_config=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -30,6 +30,9 @@ class GetAgentPoolResult:
         if enable_auto_scaling and not isinstance(enable_auto_scaling, bool):
             raise TypeError("Expected argument 'enable_auto_scaling' to be a bool")
         pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+        if enable_encryption_at_host and not isinstance(enable_encryption_at_host, bool):
+            raise TypeError("Expected argument 'enable_encryption_at_host' to be a bool")
+        pulumi.set(__self__, "enable_encryption_at_host", enable_encryption_at_host)
         if enable_node_public_ip and not isinstance(enable_node_public_ip, bool):
             raise TypeError("Expected argument 'enable_node_public_ip' to be a bool")
         pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
@@ -39,6 +42,9 @@ class GetAgentPoolResult:
         if kubelet_config and not isinstance(kubelet_config, dict):
             raise TypeError("Expected argument 'kubelet_config' to be a dict")
         pulumi.set(__self__, "kubelet_config", kubelet_config)
+        if kubelet_disk_type and not isinstance(kubelet_disk_type, str):
+            raise TypeError("Expected argument 'kubelet_disk_type' to be a str")
+        pulumi.set(__self__, "kubelet_disk_type", kubelet_disk_type)
         if linux_os_config and not isinstance(linux_os_config, dict):
             raise TypeError("Expected argument 'linux_os_config' to be a dict")
         pulumi.set(__self__, "linux_os_config", linux_os_config)
@@ -140,6 +146,14 @@ class GetAgentPoolResult:
         return pulumi.get(self, "enable_auto_scaling")
 
     @property
+    @pulumi.getter(name="enableEncryptionAtHost")
+    def enable_encryption_at_host(self) -> Optional[bool]:
+        """
+        Whether to enable EncryptionAtHost
+        """
+        return pulumi.get(self, "enable_encryption_at_host")
+
+    @property
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> Optional[bool]:
         """
@@ -162,6 +176,14 @@ class GetAgentPoolResult:
         KubeletConfig specifies the configuration of kubelet on agent nodes.
         """
         return pulumi.get(self, "kubelet_config")
+
+    @property
+    @pulumi.getter(name="kubeletDiskType")
+    def kubelet_disk_type(self) -> Optional[str]:
+        """
+        KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+        """
+        return pulumi.get(self, "kubelet_disk_type")
 
     @property
     @pulumi.getter(name="linuxOSConfig")
@@ -373,9 +395,11 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             availability_zones=self.availability_zones,
             count=self.count,
             enable_auto_scaling=self.enable_auto_scaling,
+            enable_encryption_at_host=self.enable_encryption_at_host,
             enable_node_public_ip=self.enable_node_public_ip,
             id=self.id,
             kubelet_config=self.kubelet_config,
+            kubelet_disk_type=self.kubelet_disk_type,
             linux_os_config=self.linux_os_config,
             max_count=self.max_count,
             max_pods=self.max_pods,
@@ -428,9 +452,11 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         availability_zones=__ret__.availability_zones,
         count=__ret__.count,
         enable_auto_scaling=__ret__.enable_auto_scaling,
+        enable_encryption_at_host=__ret__.enable_encryption_at_host,
         enable_node_public_ip=__ret__.enable_node_public_ip,
         id=__ret__.id,
         kubelet_config=__ret__.kubelet_config,
+        kubelet_disk_type=__ret__.kubelet_disk_type,
         linux_os_config=__ret__.linux_os_config,
         max_count=__ret__.max_count,
         max_pods=__ret__.max_pods,

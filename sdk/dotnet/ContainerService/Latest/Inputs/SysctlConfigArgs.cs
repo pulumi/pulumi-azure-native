@@ -58,6 +58,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         public Input<int>? NetCoreOptmemMax { get; set; }
 
         /// <summary>
+        /// Sysctl setting net.core.rmem_default.
+        /// </summary>
+        [Input("netCoreRmemDefault")]
+        public Input<int>? NetCoreRmemDefault { get; set; }
+
+        /// <summary>
         /// Sysctl setting net.core.rmem_max.
         /// </summary>
         [Input("netCoreRmemMax")]
@@ -68,6 +74,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// </summary>
         [Input("netCoreSomaxconn")]
         public Input<int>? NetCoreSomaxconn { get; set; }
+
+        /// <summary>
+        /// Sysctl setting net.core.wmem_default.
+        /// </summary>
+        [Input("netCoreWmemDefault")]
+        public Input<int>? NetCoreWmemDefault { get; set; }
 
         /// <summary>
         /// Sysctl setting net.core.wmem_max.
@@ -130,22 +142,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         public Input<int>? NetIpv4TcpMaxTwBuckets { get; set; }
 
         /// <summary>
-        /// Sysctl setting net.ipv4.tcp_rmem.
-        /// </summary>
-        [Input("netIpv4TcpRmem")]
-        public Input<int>? NetIpv4TcpRmem { get; set; }
-
-        /// <summary>
         /// Sysctl setting net.ipv4.tcp_tw_reuse.
         /// </summary>
         [Input("netIpv4TcpTwReuse")]
         public Input<bool>? NetIpv4TcpTwReuse { get; set; }
-
-        /// <summary>
-        /// Sysctl setting net.ipv4.tcp_wmem.
-        /// </summary>
-        [Input("netIpv4TcpWmem")]
-        public Input<int>? NetIpv4TcpWmem { get; set; }
 
         /// <summary>
         /// Sysctl setting net.ipv4.tcp_keepalive_intvl.

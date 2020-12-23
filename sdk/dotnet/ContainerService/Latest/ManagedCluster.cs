@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 {
     /// <summary>
     /// Managed cluster.
-    /// Latest API Version: 2020-11-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:containerservice/latest:ManagedCluster")]
     public partial class ManagedCluster : Pulumi.CustomResource
@@ -232,6 +232,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200701:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200901:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201101:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

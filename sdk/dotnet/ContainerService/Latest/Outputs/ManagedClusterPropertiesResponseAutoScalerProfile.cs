@@ -17,6 +17,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
         public readonly string? Expander;
         public readonly string? MaxEmptyBulkDelete;
         public readonly string? MaxGracefulTerminationSec;
+        public readonly string? MaxNodeProvisionTime;
         public readonly string? MaxTotalUnreadyPercentage;
         public readonly string? NewPodScaleUpDelay;
         public readonly string? OkTotalUnreadyCount;
@@ -39,6 +40,8 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
             string? maxEmptyBulkDelete,
 
             string? maxGracefulTerminationSec,
+
+            string? maxNodeProvisionTime,
 
             string? maxTotalUnreadyPercentage,
 
@@ -68,6 +71,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
             Expander = expander;
             MaxEmptyBulkDelete = maxEmptyBulkDelete;
             MaxGracefulTerminationSec = maxGracefulTerminationSec;
+            MaxNodeProvisionTime = maxNodeProvisionTime;
             MaxTotalUnreadyPercentage = maxTotalUnreadyPercentage;
             NewPodScaleUpDelay = newPodScaleUpDelay;
             OkTotalUnreadyCount = okTotalUnreadyCount;

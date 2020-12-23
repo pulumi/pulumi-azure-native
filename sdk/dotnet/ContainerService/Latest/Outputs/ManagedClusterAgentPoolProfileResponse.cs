@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
         /// </summary>
         public readonly bool? EnableAutoScaling;
         /// <summary>
+        /// Whether to enable EncryptionAtHost
+        /// </summary>
+        public readonly bool? EnableEncryptionAtHost;
+        /// <summary>
         /// Enable public IP for nodes
         /// </summary>
         public readonly bool? EnableNodePublicIP;
@@ -33,6 +37,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
         /// KubeletConfig specifies the configuration of kubelet on agent nodes.
         /// </summary>
         public readonly Outputs.KubeletConfigResponse? KubeletConfig;
+        /// <summary>
+        /// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+        /// </summary>
+        public readonly string? KubeletDiskType;
         /// <summary>
         /// LinuxOSConfig specifies the OS configuration of linux agent nodes.
         /// </summary>
@@ -142,9 +150,13 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
 
             bool? enableAutoScaling,
 
+            bool? enableEncryptionAtHost,
+
             bool? enableNodePublicIP,
 
             Outputs.KubeletConfigResponse? kubeletConfig,
+
+            string? kubeletDiskType,
 
             Outputs.LinuxOSConfigResponse? linuxOSConfig,
 
@@ -199,8 +211,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
             AvailabilityZones = availabilityZones;
             Count = count;
             EnableAutoScaling = enableAutoScaling;
+            EnableEncryptionAtHost = enableEncryptionAtHost;
             EnableNodePublicIP = enableNodePublicIP;
             KubeletConfig = kubeletConfig;
+            KubeletDiskType = kubeletDiskType;
             LinuxOSConfig = linuxOSConfig;
             MaxCount = maxCount;
             MaxPods = maxPods;

@@ -18,6 +18,14 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedUnsafeSysctls;
         /// <summary>
+        /// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+        /// </summary>
+        public readonly int? ContainerLogMaxFiles;
+        /// <summary>
+        /// The maximum size (e.g. 10Mi) of container log file before it is rotated.
+        /// </summary>
+        public readonly int? ContainerLogMaxSizeMB;
+        /// <summary>
         /// Enable CPU CFS quota enforcement for containers that specify CPU limits.
         /// </summary>
         public readonly bool? CpuCfsQuota;
@@ -42,6 +50,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
         /// </summary>
         public readonly int? ImageGcLowThreshold;
         /// <summary>
+        /// The maximum number of processes per pod.
+        /// </summary>
+        public readonly int? PodMaxPids;
+        /// <summary>
         /// Topology Manager policy to use.
         /// </summary>
         public readonly string? TopologyManagerPolicy;
@@ -49,6 +61,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
         [OutputConstructor]
         private KubeletConfigResponse(
             ImmutableArray<string> allowedUnsafeSysctls,
+
+            int? containerLogMaxFiles,
+
+            int? containerLogMaxSizeMB,
 
             bool? cpuCfsQuota,
 
@@ -62,15 +78,20 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
 
             int? imageGcLowThreshold,
 
+            int? podMaxPids,
+
             string? topologyManagerPolicy)
         {
             AllowedUnsafeSysctls = allowedUnsafeSysctls;
+            ContainerLogMaxFiles = containerLogMaxFiles;
+            ContainerLogMaxSizeMB = containerLogMaxSizeMB;
             CpuCfsQuota = cpuCfsQuota;
             CpuCfsQuotaPeriod = cpuCfsQuotaPeriod;
             CpuManagerPolicy = cpuManagerPolicy;
             FailSwapOn = failSwapOn;
             ImageGcHighThreshold = imageGcHighThreshold;
             ImageGcLowThreshold = imageGcLowThreshold;
+            PodMaxPids = podMaxPids;
             TopologyManagerPolicy = topologyManagerPolicy;
         }
     }

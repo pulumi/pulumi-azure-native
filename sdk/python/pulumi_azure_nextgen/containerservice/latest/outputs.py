@@ -63,6 +63,9 @@ __all__ = [
     'PurchasePlanResponse',
     'ResourceReferenceResponse',
     'SysctlConfigResponse',
+    'SystemDataResponse',
+    'TimeInWeekResponse',
+    'TimeSpanResponse',
     'UserAssignedIdentityResponse',
 ]
 
@@ -736,26 +739,36 @@ class KubeletConfigResponse(dict):
     """
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: Optional[Sequence[str]] = None,
+                 container_log_max_files: Optional[int] = None,
+                 container_log_max_size_mb: Optional[int] = None,
                  cpu_cfs_quota: Optional[bool] = None,
                  cpu_cfs_quota_period: Optional[str] = None,
                  cpu_manager_policy: Optional[str] = None,
                  fail_swap_on: Optional[bool] = None,
                  image_gc_high_threshold: Optional[int] = None,
                  image_gc_low_threshold: Optional[int] = None,
+                 pod_max_pids: Optional[int] = None,
                  topology_manager_policy: Optional[str] = None):
         """
         Kubelet configurations of agent nodes.
         :param Sequence[str] allowed_unsafe_sysctls: Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+        :param int container_log_max_files: The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+        :param int container_log_max_size_mb: The maximum size (e.g. 10Mi) of container log file before it is rotated.
         :param bool cpu_cfs_quota: Enable CPU CFS quota enforcement for containers that specify CPU limits.
         :param str cpu_cfs_quota_period: Sets CPU CFS quota period value.
         :param str cpu_manager_policy: CPU Manager policy to use.
         :param bool fail_swap_on: If set to true it will make the Kubelet fail to start if swap is enabled on the node.
         :param int image_gc_high_threshold: The percent of disk usage after which image garbage collection is always run.
         :param int image_gc_low_threshold: The percent of disk usage before which image garbage collection is never run.
+        :param int pod_max_pids: The maximum number of processes per pod.
         :param str topology_manager_policy: Topology Manager policy to use.
         """
         if allowed_unsafe_sysctls is not None:
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
+        if container_log_max_files is not None:
+            pulumi.set(__self__, "container_log_max_files", container_log_max_files)
+        if container_log_max_size_mb is not None:
+            pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
         if cpu_cfs_quota is not None:
             pulumi.set(__self__, "cpu_cfs_quota", cpu_cfs_quota)
         if cpu_cfs_quota_period is not None:
@@ -768,6 +781,8 @@ class KubeletConfigResponse(dict):
             pulumi.set(__self__, "image_gc_high_threshold", image_gc_high_threshold)
         if image_gc_low_threshold is not None:
             pulumi.set(__self__, "image_gc_low_threshold", image_gc_low_threshold)
+        if pod_max_pids is not None:
+            pulumi.set(__self__, "pod_max_pids", pod_max_pids)
         if topology_manager_policy is not None:
             pulumi.set(__self__, "topology_manager_policy", topology_manager_policy)
 
@@ -778,6 +793,22 @@ class KubeletConfigResponse(dict):
         Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
         """
         return pulumi.get(self, "allowed_unsafe_sysctls")
+
+    @property
+    @pulumi.getter(name="containerLogMaxFiles")
+    def container_log_max_files(self) -> Optional[int]:
+        """
+        The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+        """
+        return pulumi.get(self, "container_log_max_files")
+
+    @property
+    @pulumi.getter(name="containerLogMaxSizeMB")
+    def container_log_max_size_mb(self) -> Optional[int]:
+        """
+        The maximum size (e.g. 10Mi) of container log file before it is rotated.
+        """
+        return pulumi.get(self, "container_log_max_size_mb")
 
     @property
     @pulumi.getter(name="cpuCfsQuota")
@@ -826,6 +857,14 @@ class KubeletConfigResponse(dict):
         The percent of disk usage before which image garbage collection is never run.
         """
         return pulumi.get(self, "image_gc_low_threshold")
+
+    @property
+    @pulumi.getter(name="podMaxPids")
+    def pod_max_pids(self) -> Optional[int]:
+        """
+        The maximum number of processes per pod.
+        """
+        return pulumi.get(self, "pod_max_pids")
 
     @property
     @pulumi.getter(name="topologyManagerPolicy")
@@ -1160,8 +1199,10 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  availability_zones: Optional[Sequence[str]] = None,
                  count: Optional[int] = None,
                  enable_auto_scaling: Optional[bool] = None,
+                 enable_encryption_at_host: Optional[bool] = None,
                  enable_node_public_ip: Optional[bool] = None,
                  kubelet_config: Optional['outputs.KubeletConfigResponse'] = None,
+                 kubelet_disk_type: Optional[str] = None,
                  linux_os_config: Optional['outputs.LinuxOSConfigResponse'] = None,
                  max_count: Optional[int] = None,
                  max_pods: Optional[int] = None,
@@ -1192,8 +1233,10 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param Sequence[str] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
         :param int count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param bool enable_auto_scaling: Whether to enable auto-scaler
+        :param bool enable_encryption_at_host: Whether to enable EncryptionAtHost
         :param bool enable_node_public_ip: Enable public IP for nodes
         :param 'KubeletConfigResponseArgs' kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
+        :param str kubelet_disk_type: KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
         :param 'LinuxOSConfigResponseArgs' linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
         :param int max_count: Maximum number of nodes for auto-scaling
         :param int max_pods: Maximum number of pods that can run on a node.
@@ -1226,10 +1269,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "count", count)
         if enable_auto_scaling is not None:
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+        if enable_encryption_at_host is not None:
+            pulumi.set(__self__, "enable_encryption_at_host", enable_encryption_at_host)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if kubelet_config is not None:
             pulumi.set(__self__, "kubelet_config", kubelet_config)
+        if kubelet_disk_type is not None:
+            pulumi.set(__self__, "kubelet_disk_type", kubelet_disk_type)
         if linux_os_config is not None:
             pulumi.set(__self__, "linux_os_config", linux_os_config)
         if max_count is not None:
@@ -1330,6 +1377,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         return pulumi.get(self, "enable_auto_scaling")
 
     @property
+    @pulumi.getter(name="enableEncryptionAtHost")
+    def enable_encryption_at_host(self) -> Optional[bool]:
+        """
+        Whether to enable EncryptionAtHost
+        """
+        return pulumi.get(self, "enable_encryption_at_host")
+
+    @property
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> Optional[bool]:
         """
@@ -1344,6 +1399,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         KubeletConfig specifies the configuration of kubelet on agent nodes.
         """
         return pulumi.get(self, "kubelet_config")
+
+    @property
+    @pulumi.getter(name="kubeletDiskType")
+    def kubelet_disk_type(self) -> Optional[str]:
+        """
+        KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+        """
+        return pulumi.get(self, "kubelet_disk_type")
 
     @property
     @pulumi.getter(name="linuxOSConfig")
@@ -1981,6 +2044,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
                  expander: Optional[str] = None,
                  max_empty_bulk_delete: Optional[str] = None,
                  max_graceful_termination_sec: Optional[str] = None,
+                 max_node_provision_time: Optional[str] = None,
                  max_total_unready_percentage: Optional[str] = None,
                  new_pod_scale_up_delay: Optional[str] = None,
                  ok_total_unready_count: Optional[str] = None,
@@ -2004,6 +2068,8 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
             pulumi.set(__self__, "max_empty_bulk_delete", max_empty_bulk_delete)
         if max_graceful_termination_sec is not None:
             pulumi.set(__self__, "max_graceful_termination_sec", max_graceful_termination_sec)
+        if max_node_provision_time is not None:
+            pulumi.set(__self__, "max_node_provision_time", max_node_provision_time)
         if max_total_unready_percentage is not None:
             pulumi.set(__self__, "max_total_unready_percentage", max_total_unready_percentage)
         if new_pod_scale_up_delay is not None:
@@ -2048,6 +2114,11 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="maxGracefulTerminationSec")
     def max_graceful_termination_sec(self) -> Optional[str]:
         return pulumi.get(self, "max_graceful_termination_sec")
+
+    @property
+    @pulumi.getter(name="maxNodeProvisionTime")
+    def max_node_provision_time(self) -> Optional[str]:
+        return pulumi.get(self, "max_node_provision_time")
 
     @property
     @pulumi.getter(name="maxTotalUnreadyPercentage")
@@ -2862,8 +2933,10 @@ class SysctlConfigResponse(dict):
                  kernel_threads_max: Optional[int] = None,
                  net_core_netdev_max_backlog: Optional[int] = None,
                  net_core_optmem_max: Optional[int] = None,
+                 net_core_rmem_default: Optional[int] = None,
                  net_core_rmem_max: Optional[int] = None,
                  net_core_somaxconn: Optional[int] = None,
+                 net_core_wmem_default: Optional[int] = None,
                  net_core_wmem_max: Optional[int] = None,
                  net_ipv4_ip_local_port_range: Optional[str] = None,
                  net_ipv4_neigh_default_gc_thresh1: Optional[int] = None,
@@ -2874,9 +2947,7 @@ class SysctlConfigResponse(dict):
                  net_ipv4_tcp_keepalive_time: Optional[int] = None,
                  net_ipv4_tcp_max_syn_backlog: Optional[int] = None,
                  net_ipv4_tcp_max_tw_buckets: Optional[int] = None,
-                 net_ipv4_tcp_rmem: Optional[int] = None,
                  net_ipv4_tcp_tw_reuse: Optional[bool] = None,
-                 net_ipv4_tcp_wmem: Optional[int] = None,
                  net_ipv4_tcpkeepalive_intvl: Optional[int] = None,
                  net_netfilter_nf_conntrack_buckets: Optional[int] = None,
                  net_netfilter_nf_conntrack_max: Optional[int] = None,
@@ -2892,8 +2963,10 @@ class SysctlConfigResponse(dict):
         :param int kernel_threads_max: Sysctl setting kernel.threads-max.
         :param int net_core_netdev_max_backlog: Sysctl setting net.core.netdev_max_backlog.
         :param int net_core_optmem_max: Sysctl setting net.core.optmem_max.
+        :param int net_core_rmem_default: Sysctl setting net.core.rmem_default.
         :param int net_core_rmem_max: Sysctl setting net.core.rmem_max.
         :param int net_core_somaxconn: Sysctl setting net.core.somaxconn.
+        :param int net_core_wmem_default: Sysctl setting net.core.wmem_default.
         :param int net_core_wmem_max: Sysctl setting net.core.wmem_max.
         :param str net_ipv4_ip_local_port_range: Sysctl setting net.ipv4.ip_local_port_range.
         :param int net_ipv4_neigh_default_gc_thresh1: Sysctl setting net.ipv4.neigh.default.gc_thresh1.
@@ -2904,9 +2977,7 @@ class SysctlConfigResponse(dict):
         :param int net_ipv4_tcp_keepalive_time: Sysctl setting net.ipv4.tcp_keepalive_time.
         :param int net_ipv4_tcp_max_syn_backlog: Sysctl setting net.ipv4.tcp_max_syn_backlog.
         :param int net_ipv4_tcp_max_tw_buckets: Sysctl setting net.ipv4.tcp_max_tw_buckets.
-        :param int net_ipv4_tcp_rmem: Sysctl setting net.ipv4.tcp_rmem.
         :param bool net_ipv4_tcp_tw_reuse: Sysctl setting net.ipv4.tcp_tw_reuse.
-        :param int net_ipv4_tcp_wmem: Sysctl setting net.ipv4.tcp_wmem.
         :param int net_ipv4_tcpkeepalive_intvl: Sysctl setting net.ipv4.tcp_keepalive_intvl.
         :param int net_netfilter_nf_conntrack_buckets: Sysctl setting net.netfilter.nf_conntrack_buckets.
         :param int net_netfilter_nf_conntrack_max: Sysctl setting net.netfilter.nf_conntrack_max.
@@ -2928,10 +2999,14 @@ class SysctlConfigResponse(dict):
             pulumi.set(__self__, "net_core_netdev_max_backlog", net_core_netdev_max_backlog)
         if net_core_optmem_max is not None:
             pulumi.set(__self__, "net_core_optmem_max", net_core_optmem_max)
+        if net_core_rmem_default is not None:
+            pulumi.set(__self__, "net_core_rmem_default", net_core_rmem_default)
         if net_core_rmem_max is not None:
             pulumi.set(__self__, "net_core_rmem_max", net_core_rmem_max)
         if net_core_somaxconn is not None:
             pulumi.set(__self__, "net_core_somaxconn", net_core_somaxconn)
+        if net_core_wmem_default is not None:
+            pulumi.set(__self__, "net_core_wmem_default", net_core_wmem_default)
         if net_core_wmem_max is not None:
             pulumi.set(__self__, "net_core_wmem_max", net_core_wmem_max)
         if net_ipv4_ip_local_port_range is not None:
@@ -2952,12 +3027,8 @@ class SysctlConfigResponse(dict):
             pulumi.set(__self__, "net_ipv4_tcp_max_syn_backlog", net_ipv4_tcp_max_syn_backlog)
         if net_ipv4_tcp_max_tw_buckets is not None:
             pulumi.set(__self__, "net_ipv4_tcp_max_tw_buckets", net_ipv4_tcp_max_tw_buckets)
-        if net_ipv4_tcp_rmem is not None:
-            pulumi.set(__self__, "net_ipv4_tcp_rmem", net_ipv4_tcp_rmem)
         if net_ipv4_tcp_tw_reuse is not None:
             pulumi.set(__self__, "net_ipv4_tcp_tw_reuse", net_ipv4_tcp_tw_reuse)
-        if net_ipv4_tcp_wmem is not None:
-            pulumi.set(__self__, "net_ipv4_tcp_wmem", net_ipv4_tcp_wmem)
         if net_ipv4_tcpkeepalive_intvl is not None:
             pulumi.set(__self__, "net_ipv4_tcpkeepalive_intvl", net_ipv4_tcpkeepalive_intvl)
         if net_netfilter_nf_conntrack_buckets is not None:
@@ -3028,6 +3099,14 @@ class SysctlConfigResponse(dict):
         return pulumi.get(self, "net_core_optmem_max")
 
     @property
+    @pulumi.getter(name="netCoreRmemDefault")
+    def net_core_rmem_default(self) -> Optional[int]:
+        """
+        Sysctl setting net.core.rmem_default.
+        """
+        return pulumi.get(self, "net_core_rmem_default")
+
+    @property
     @pulumi.getter(name="netCoreRmemMax")
     def net_core_rmem_max(self) -> Optional[int]:
         """
@@ -3042,6 +3121,14 @@ class SysctlConfigResponse(dict):
         Sysctl setting net.core.somaxconn.
         """
         return pulumi.get(self, "net_core_somaxconn")
+
+    @property
+    @pulumi.getter(name="netCoreWmemDefault")
+    def net_core_wmem_default(self) -> Optional[int]:
+        """
+        Sysctl setting net.core.wmem_default.
+        """
+        return pulumi.get(self, "net_core_wmem_default")
 
     @property
     @pulumi.getter(name="netCoreWmemMax")
@@ -3124,28 +3211,12 @@ class SysctlConfigResponse(dict):
         return pulumi.get(self, "net_ipv4_tcp_max_tw_buckets")
 
     @property
-    @pulumi.getter(name="netIpv4TcpRmem")
-    def net_ipv4_tcp_rmem(self) -> Optional[int]:
-        """
-        Sysctl setting net.ipv4.tcp_rmem.
-        """
-        return pulumi.get(self, "net_ipv4_tcp_rmem")
-
-    @property
     @pulumi.getter(name="netIpv4TcpTwReuse")
     def net_ipv4_tcp_tw_reuse(self) -> Optional[bool]:
         """
         Sysctl setting net.ipv4.tcp_tw_reuse.
         """
         return pulumi.get(self, "net_ipv4_tcp_tw_reuse")
-
-    @property
-    @pulumi.getter(name="netIpv4TcpWmem")
-    def net_ipv4_tcp_wmem(self) -> Optional[int]:
-        """
-        Sysctl setting net.ipv4.tcp_wmem.
-        """
-        return pulumi.get(self, "net_ipv4_tcp_wmem")
 
     @property
     @pulumi.getter(name="netIpv4TcpkeepaliveIntvl")
@@ -3194,6 +3265,168 @@ class SysctlConfigResponse(dict):
         Sysctl setting vm.vfs_cache_pressure.
         """
         return pulumi.get(self, "vm_vfs_cache_pressure")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TimeInWeekResponse(dict):
+    """
+    Time in a week.
+    """
+    def __init__(__self__, *,
+                 day: Optional[str] = None,
+                 hour_slots: Optional[Sequence[int]] = None):
+        """
+        Time in a week.
+        :param str day: A day in a week.
+        :param Sequence[int] hour_slots: hour slots in a day.
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if hour_slots is not None:
+            pulumi.set(__self__, "hour_slots", hour_slots)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[str]:
+        """
+        A day in a week.
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter(name="hourSlots")
+    def hour_slots(self) -> Optional[Sequence[int]]:
+        """
+        hour slots in a day.
+        """
+        return pulumi.get(self, "hour_slots")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TimeSpanResponse(dict):
+    """
+    The time span with start and end properties.
+    """
+    def __init__(__self__, *,
+                 end: Optional[str] = None,
+                 start: Optional[str] = None):
+        """
+        The time span with start and end properties.
+        :param str end: The end of a time span
+        :param str start: The start of a time span
+        """
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        The end of a time span
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        The start of a time span
+        """
+        return pulumi.get(self, "start")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

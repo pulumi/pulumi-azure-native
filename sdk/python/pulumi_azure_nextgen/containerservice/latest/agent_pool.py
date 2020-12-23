@@ -22,8 +22,10 @@ class AgentPool(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  count: Optional[pulumi.Input[int]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+                 enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubeletConfigArgs']]] = None,
+                 kubelet_disk_type: Optional[pulumi.Input[Union[str, 'KubeletDiskType']]] = None,
                  linux_os_config: Optional[pulumi.Input[pulumi.InputType['LinuxOSConfigArgs']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
@@ -52,7 +54,7 @@ class AgentPool(pulumi.CustomResource):
                  __opts__=None):
         """
         Agent Pool.
-        Latest API Version: 2020-11-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -60,8 +62,10 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
+        :param pulumi.Input[bool] enable_encryption_at_host: Whether to enable EncryptionAtHost
         :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
         :param pulumi.Input[pulumi.InputType['KubeletConfigArgs']] kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
+        :param pulumi.Input[Union[str, 'KubeletDiskType']] kubelet_disk_type: KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
         :param pulumi.Input[pulumi.InputType['LinuxOSConfigArgs']] linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
         :param pulumi.Input[int] max_count: Maximum number of nodes for auto-scaling
         :param pulumi.Input[int] max_pods: Maximum number of pods that can run on a node.
@@ -109,8 +113,10 @@ class AgentPool(pulumi.CustomResource):
             __props__['availability_zones'] = availability_zones
             __props__['count'] = count
             __props__['enable_auto_scaling'] = enable_auto_scaling
+            __props__['enable_encryption_at_host'] = enable_encryption_at_host
             __props__['enable_node_public_ip'] = enable_node_public_ip
             __props__['kubelet_config'] = kubelet_config
+            __props__['kubelet_disk_type'] = kubelet_disk_type
             __props__['linux_os_config'] = linux_os_config
             __props__['max_count'] = max_count
             __props__['max_pods'] = max_pods
@@ -142,7 +148,7 @@ class AgentPool(pulumi.CustomResource):
             __props__['node_image_version'] = None
             __props__['power_state'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:AgentPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201201:AgentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AgentPool, __self__).__init__(
             'azure-nextgen:containerservice/latest:AgentPool',
@@ -193,6 +199,14 @@ class AgentPool(pulumi.CustomResource):
         return pulumi.get(self, "enable_auto_scaling")
 
     @property
+    @pulumi.getter(name="enableEncryptionAtHost")
+    def enable_encryption_at_host(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable EncryptionAtHost
+        """
+        return pulumi.get(self, "enable_encryption_at_host")
+
+    @property
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -207,6 +221,14 @@ class AgentPool(pulumi.CustomResource):
         KubeletConfig specifies the configuration of kubelet on agent nodes.
         """
         return pulumi.get(self, "kubelet_config")
+
+    @property
+    @pulumi.getter(name="kubeletDiskType")
+    def kubelet_disk_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+        """
+        return pulumi.get(self, "kubelet_disk_type")
 
     @property
     @pulumi.getter(name="linuxOSConfig")

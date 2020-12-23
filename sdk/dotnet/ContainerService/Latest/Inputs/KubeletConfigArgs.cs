@@ -28,6 +28,18 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         }
 
         /// <summary>
+        /// The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+        /// </summary>
+        [Input("containerLogMaxFiles")]
+        public Input<int>? ContainerLogMaxFiles { get; set; }
+
+        /// <summary>
+        /// The maximum size (e.g. 10Mi) of container log file before it is rotated.
+        /// </summary>
+        [Input("containerLogMaxSizeMB")]
+        public Input<int>? ContainerLogMaxSizeMB { get; set; }
+
+        /// <summary>
         /// Enable CPU CFS quota enforcement for containers that specify CPU limits.
         /// </summary>
         [Input("cpuCfsQuota")]
@@ -62,6 +74,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// </summary>
         [Input("imageGcLowThreshold")]
         public Input<int>? ImageGcLowThreshold { get; set; }
+
+        /// <summary>
+        /// The maximum number of processes per pod.
+        /// </summary>
+        [Input("podMaxPids")]
+        public Input<int>? PodMaxPids { get; set; }
 
         /// <summary>
         /// Topology Manager policy to use.
