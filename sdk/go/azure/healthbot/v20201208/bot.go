@@ -19,10 +19,10 @@ type Bot struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The set of properties specific to healthcare bot resource.
+	// The set of properties specific to Healthbot resource.
 	Properties HealthBotPropertiesResponseOutput `pulumi:"properties"`
 	// SKU of the HealthBot.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	Sku SkuResponseOutput `pulumi:"sku"`
 	// Metadata pertaining to creation and last modification of the resource
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -46,6 +46,9 @@ func NewBot(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -88,7 +91,7 @@ type botState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The set of properties specific to healthcare bot resource.
+	// The set of properties specific to Healthbot resource.
 	Properties *HealthBotPropertiesResponse `pulumi:"properties"`
 	// SKU of the HealthBot.
 	Sku *SkuResponse `pulumi:"sku"`
@@ -105,7 +108,7 @@ type BotState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The set of properties specific to healthcare bot resource.
+	// The set of properties specific to Healthbot resource.
 	Properties HealthBotPropertiesResponsePtrInput
 	// SKU of the HealthBot.
 	Sku SkuResponsePtrInput
@@ -129,7 +132,7 @@ type botArgs struct {
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU of the HealthBot.
-	Sku *Sku `pulumi:"sku"`
+	Sku Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -143,7 +146,7 @@ type BotArgs struct {
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName pulumi.StringInput
 	// SKU of the HealthBot.
-	Sku SkuPtrInput
+	Sku SkuInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

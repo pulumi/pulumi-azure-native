@@ -45,13 +45,13 @@ export class Bot extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The set of properties specific to healthcare bot resource.
+     * The set of properties specific to Healthbot resource.
      */
     public /*out*/ readonly properties!: pulumi.Output<outputs.healthbot.latest.HealthBotPropertiesResponse>;
     /**
      * SKU of the HealthBot.
      */
-    public readonly sku!: pulumi.Output<outputs.healthbot.latest.SkuResponse | undefined>;
+    public readonly sku!: pulumi.Output<outputs.healthbot.latest.SkuResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource
      */
@@ -83,6 +83,9 @@ export class Bot extends pulumi.CustomResource {
             }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'sku'");
             }
             inputs["botName"] = args ? args.botName : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -134,7 +137,7 @@ export interface BotArgs {
     /**
      * SKU of the HealthBot.
      */
-    readonly sku?: pulumi.Input<inputs.healthbot.latest.Sku>;
+    readonly sku: pulumi.Input<inputs.healthbot.latest.Sku>;
     /**
      * Resource tags.
      */

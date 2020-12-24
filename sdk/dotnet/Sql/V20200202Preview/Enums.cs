@@ -723,37 +723,6 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
     }
 
     /// <summary>
-    /// The replication mode of hybrid link. Parameter will be ignored during link creation.
-    /// </summary>
-    [EnumType]
-    public readonly struct ReplicationMode : IEquatable<ReplicationMode>
-    {
-        private readonly string _value;
-
-        private ReplicationMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ReplicationMode Async { get; } = new ReplicationMode("Async");
-        public static ReplicationMode Sync { get; } = new ReplicationMode("Sync");
-
-        public static bool operator ==(ReplicationMode left, ReplicationMode right) => left.Equals(right);
-        public static bool operator !=(ReplicationMode left, ReplicationMode right) => !left.Equals(right);
-
-        public static explicit operator string(ReplicationMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ReplicationMode other && Equals(other);
-        public bool Equals(ReplicationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The name of the sample schema to apply when creating this database.
     /// </summary>
     [EnumType]

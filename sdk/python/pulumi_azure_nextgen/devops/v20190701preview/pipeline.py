@@ -78,6 +78,8 @@ class Pipeline(pulumi.CustomResource):
             __props__['name'] = None
             __props__['pipeline_id'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devops/v20200713preview:Pipeline")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pipeline, __self__).__init__(
             'azure-nextgen:devops/v20190701preview:Pipeline',
             resource_name,
