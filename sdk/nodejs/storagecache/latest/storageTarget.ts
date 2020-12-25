@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Type of the Storage Target.
- * Latest API Version: 2020-03-01.
+ * Latest API Version: 2020-10-01.
  */
 export class StorageTarget extends pulumi.CustomResource {
     /**
@@ -131,7 +131,7 @@ export class StorageTarget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache/v20190801preview:StorageTarget" }, { type: "azure-nextgen:storagecache/v20191101:StorageTarget" }, { type: "azure-nextgen:storagecache/v20200301:StorageTarget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache/v20190801preview:StorageTarget" }, { type: "azure-nextgen:storagecache/v20191101:StorageTarget" }, { type: "azure-nextgen:storagecache/v20200301:StorageTarget" }, { type: "azure-nextgen:storagecache/v20201001:StorageTarget" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageTarget.__pulumiType, name, inputs, opts);
     }
@@ -142,7 +142,7 @@ export class StorageTarget extends pulumi.CustomResource {
  */
 export interface StorageTargetArgs {
     /**
-     * Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     readonly cacheName: pulumi.Input<string>;
     /**
@@ -166,7 +166,7 @@ export interface StorageTargetArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+     * Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     readonly storageTargetName: pulumi.Input<string>;
     /**

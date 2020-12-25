@@ -15,11 +15,17 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
     /// </summary>
     public sealed class CacheSecuritySettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("accessPolicies")]
+        private InputList<Inputs.NfsAccessPolicyArgs>? _accessPolicies;
+
         /// <summary>
-        /// root squash of cache property.
+        /// NFS access policies defined for this cache.
         /// </summary>
-        [Input("rootSquash")]
-        public Input<bool>? RootSquash { get; set; }
+        public InputList<Inputs.NfsAccessPolicyArgs> AccessPolicies
+        {
+            get => _accessPolicies ?? (_accessPolicies = new InputList<Inputs.NfsAccessPolicyArgs>());
+            set => _accessPolicies = value;
+        }
 
         public CacheSecuritySettingsArgs()
         {

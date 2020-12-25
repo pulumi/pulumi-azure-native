@@ -16,7 +16,6 @@ from .get_database_vulnerability_assessment_rule_baseline import *
 from .get_elastic_pool import *
 from .get_failover_group import *
 from .get_firewall_rule import *
-from .get_hybrid_link import *
 from .get_instance_failover_group import *
 from .get_instance_pool import *
 from .get_job import *
@@ -50,7 +49,6 @@ from .get_transparent_data_encryption import *
 from .get_virtual_network_rule import *
 from .get_workload_classifier import *
 from .get_workload_group import *
-from .hybrid_link import *
 from .instance_failover_group import *
 from .instance_pool import *
 from .job import *
@@ -111,8 +109,6 @@ def _register_module():
                 return FailoverGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:sql/v20200202preview:FirewallRule":
                 return FirewallRule(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:sql/v20200202preview:HybridLink":
-                return HybridLink(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:sql/v20200202preview:InstanceFailoverGroup":
                 return InstanceFailoverGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:sql/v20200202preview:InstancePool":

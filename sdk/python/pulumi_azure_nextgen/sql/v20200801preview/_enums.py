@@ -27,7 +27,6 @@ __all__ = [
     'PrivateLinkServiceConnectionStateStatus',
     'ReadOnlyEndpointFailoverPolicy',
     'ReadWriteEndpointFailoverPolicy',
-    'ReplicationMode',
     'SampleName',
     'SecondaryType',
     'SensitivityLabelRank',
@@ -248,14 +247,6 @@ class ReadWriteEndpointFailoverPolicy(str, Enum):
     """
     MANUAL = "Manual"
     AUTOMATIC = "Automatic"
-
-
-class ReplicationMode(str, Enum):
-    """
-    The replication mode of hybrid link. Parameter will be ignored during link creation.
-    """
-    ASYNC_ = "Async"
-    SYNC = "Sync"
 
 
 class SampleName(str, Enum):

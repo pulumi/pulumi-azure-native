@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Outputs
         /// </summary>
         public readonly string? NamespacePath;
         /// <summary>
+        /// Name of the access policy applied to this junction.
+        /// </summary>
+        public readonly string? NfsAccessPolicy;
+        /// <summary>
         /// NFS export where targetPath exists.
         /// </summary>
         public readonly string? NfsExport;
@@ -30,11 +34,14 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Outputs
         private NamespaceJunctionResponse(
             string? namespacePath,
 
+            string? nfsAccessPolicy,
+
             string? nfsExport,
 
             string? targetPath)
         {
             NamespacePath = namespacePath;
+            NfsAccessPolicy = nfsAccessPolicy;
             NfsExport = nfsExport;
             TargetPath = targetPath;
         }

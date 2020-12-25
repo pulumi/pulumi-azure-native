@@ -255,16 +255,6 @@ export const ReadWriteEndpointFailoverPolicy = {
  */
 export type ReadWriteEndpointFailoverPolicy = (typeof ReadWriteEndpointFailoverPolicy)[keyof typeof ReadWriteEndpointFailoverPolicy];
 
-export const ReplicationMode = {
-    Async: "Async",
-    Sync: "Sync",
-} as const;
-
-/**
- * The replication mode of hybrid link. Parameter will be ignored during link creation.
- */
-export type ReplicationMode = (typeof ReplicationMode)[keyof typeof ReplicationMode];
-
 export const SampleName = {
     AdventureWorksLT: "AdventureWorksLT",
     WideWorldImportersStd: "WideWorldImportersStd",

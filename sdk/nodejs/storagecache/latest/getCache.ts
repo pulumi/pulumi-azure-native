@@ -21,7 +21,7 @@ export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetCacheArgs {
     /**
-     * Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     readonly cacheName: string;
     /**
@@ -38,6 +38,10 @@ export interface GetCacheResult {
      * The size of this Cache, in GB.
      */
     readonly cacheSizeGB?: number;
+    /**
+     * Specifies Directory Services settings of the cache.
+     */
+    readonly directoryServicesSettings?: outputs.storagecache.latest.CacheDirectorySettingsResponse;
     /**
      * Specifies encryption settings of the cache.
      */

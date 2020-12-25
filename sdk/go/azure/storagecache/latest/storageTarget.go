@@ -12,7 +12,7 @@ import (
 )
 
 // Type of the Storage Target.
-// Latest API Version: 2020-03-01.
+// Latest API Version: 2020-10-01.
 type StorageTarget struct {
 	pulumi.CustomResourceState
 
@@ -66,6 +66,9 @@ func NewStorageTarget(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20200301:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storagecache/v20201001:StorageTarget"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -141,7 +144,7 @@ func (StorageTargetState) ElementType() reflect.Type {
 }
 
 type storageTargetArgs struct {
-	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
 	CacheName string `pulumi:"cacheName"`
 	// Properties when targetType is clfs.
 	Clfs *ClfsTarget `pulumi:"clfs"`
@@ -153,7 +156,7 @@ type storageTargetArgs struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
 	StorageTargetName string `pulumi:"storageTargetName"`
 	// Type of the Storage Target.
 	TargetType string `pulumi:"targetType"`
@@ -163,7 +166,7 @@ type storageTargetArgs struct {
 
 // The set of arguments for constructing a StorageTarget resource.
 type StorageTargetArgs struct {
-	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
 	CacheName pulumi.StringInput
 	// Properties when targetType is clfs.
 	Clfs ClfsTargetPtrInput
@@ -175,7 +178,7 @@ type StorageTargetArgs struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Target resource group.
 	ResourceGroupName pulumi.StringInput
-	// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
 	StorageTargetName pulumi.StringInput
 	// Type of the Storage Target.
 	TargetType pulumi.StringInput

@@ -52,13 +52,13 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201208
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The set of properties specific to healthcare bot resource.
+        /// The set of properties specific to Healthbot resource.
         /// </summary>
         public readonly Outputs.HealthBotPropertiesResponse Properties;
         /// <summary>
         /// SKU of the HealthBot.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201208
 
             Outputs.HealthBotPropertiesResponse properties,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuResponse sku,
 
             Outputs.SystemDataResponse systemData,
 
