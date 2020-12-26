@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
     public sealed class GetStorageTargetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+        /// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("cacheName", required: true)]
         public string CacheName { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+        /// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("storageTargetName", required: true)]
         public string StorageTargetName { get; set; } = null!;

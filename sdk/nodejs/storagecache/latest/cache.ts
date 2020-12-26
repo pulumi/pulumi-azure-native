@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
- * Latest API Version: 2020-03-01.
+ * Latest API Version: 2020-10-01.
  */
 export class Cache extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class Cache extends pulumi.CustomResource {
      * The size of this Cache, in GB.
      */
     public readonly cacheSizeGB!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies Directory Services settings of the cache.
+     */
+    public readonly directoryServicesSettings!: pulumi.Output<outputs.storagecache.latest.CacheDirectorySettingsResponse | undefined>;
     /**
      * Specifies encryption settings of the cache.
      */
@@ -119,6 +123,7 @@ export class Cache extends pulumi.CustomResource {
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;
             inputs["cacheSizeGB"] = args ? args.cacheSizeGB : undefined;
+            inputs["directoryServicesSettings"] = args ? args.directoryServicesSettings : undefined;
             inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -137,6 +142,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["upgradeStatus"] = undefined /*out*/;
         } else {
             inputs["cacheSizeGB"] = undefined /*out*/;
+            inputs["directoryServicesSettings"] = undefined /*out*/;
             inputs["encryptionSettings"] = undefined /*out*/;
             inputs["health"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
@@ -160,7 +166,7 @@ export class Cache extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache/v20190801preview:Cache" }, { type: "azure-nextgen:storagecache/v20191101:Cache" }, { type: "azure-nextgen:storagecache/v20200301:Cache" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache/v20190801preview:Cache" }, { type: "azure-nextgen:storagecache/v20191101:Cache" }, { type: "azure-nextgen:storagecache/v20200301:Cache" }, { type: "azure-nextgen:storagecache/v20201001:Cache" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cache.__pulumiType, name, inputs, opts);
     }
@@ -171,13 +177,17 @@ export class Cache extends pulumi.CustomResource {
  */
 export interface CacheArgs {
     /**
-     * Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     readonly cacheName: pulumi.Input<string>;
     /**
      * The size of this Cache, in GB.
      */
     readonly cacheSizeGB?: pulumi.Input<number>;
+    /**
+     * Specifies Directory Services settings of the cache.
+     */
+    readonly directoryServicesSettings?: pulumi.Input<inputs.storagecache.latest.CacheDirectorySettings>;
     /**
      * Specifies encryption settings of the cache.
      */

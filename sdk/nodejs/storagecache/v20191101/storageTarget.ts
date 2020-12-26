@@ -115,7 +115,7 @@ export class StorageTarget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache/latest:StorageTarget" }, { type: "azure-nextgen:storagecache/v20190801preview:StorageTarget" }, { type: "azure-nextgen:storagecache/v20200301:StorageTarget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache/latest:StorageTarget" }, { type: "azure-nextgen:storagecache/v20190801preview:StorageTarget" }, { type: "azure-nextgen:storagecache/v20200301:StorageTarget" }, { type: "azure-nextgen:storagecache/v20201001:StorageTarget" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageTarget.__pulumiType, name, inputs, opts);
     }

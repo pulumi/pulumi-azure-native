@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
 {
     /// <summary>
     /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-    /// Latest API Version: 2020-03-01.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:storagecache/latest:Cache")]
     public partial class Cache : Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         /// </summary>
         [Output("cacheSizeGB")]
         public Output<int?> CacheSizeGB { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies Directory Services settings of the cache.
+        /// </summary>
+        [Output("directoryServicesSettings")]
+        public Output<Outputs.CacheDirectorySettingsResponse?> DirectoryServicesSettings { get; private set; } = null!;
 
         /// <summary>
         /// Specifies encryption settings of the cache.
@@ -140,6 +146,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20190801preview:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20191101:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20200301:Cache"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20201001:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -164,7 +171,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
     public sealed class CacheArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+        /// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("cacheName", required: true)]
         public Input<string> CacheName { get; set; } = null!;
@@ -174,6 +181,12 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         /// </summary>
         [Input("cacheSizeGB")]
         public Input<int>? CacheSizeGB { get; set; }
+
+        /// <summary>
+        /// Specifies Directory Services settings of the cache.
+        /// </summary>
+        [Input("directoryServicesSettings")]
+        public Input<Inputs.CacheDirectorySettingsArgs>? DirectoryServicesSettings { get; set; }
 
         /// <summary>
         /// Specifies encryption settings of the cache.

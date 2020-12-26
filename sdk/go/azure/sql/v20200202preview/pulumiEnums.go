@@ -659,34 +659,6 @@ func (e ReadWriteEndpointFailoverPolicy) ToStringPtrOutputWithContext(ctx contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The replication mode of hybrid link. Parameter will be ignored during link creation.
-type ReplicationMode pulumi.String
-
-const (
-	ReplicationModeAsync = ReplicationMode("Async")
-	ReplicationModeSync  = ReplicationMode("Sync")
-)
-
-func (ReplicationMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ReplicationMode) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ReplicationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ReplicationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ReplicationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The name of the sample schema to apply when creating this database.
 type SampleName pulumi.String
 

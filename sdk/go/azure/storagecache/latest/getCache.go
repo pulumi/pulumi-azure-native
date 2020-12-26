@@ -17,7 +17,7 @@ func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.Invo
 }
 
 type LookupCacheArgs struct {
-	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
 	CacheName string `pulumi:"cacheName"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -27,6 +27,8 @@ type LookupCacheArgs struct {
 type LookupCacheResult struct {
 	// The size of this Cache, in GB.
 	CacheSizeGB *int `pulumi:"cacheSizeGB"`
+	// Specifies Directory Services settings of the cache.
+	DirectoryServicesSettings *CacheDirectorySettingsResponse `pulumi:"directoryServicesSettings"`
 	// Specifies encryption settings of the cache.
 	EncryptionSettings *CacheEncryptionSettingsResponse `pulumi:"encryptionSettings"`
 	// Health of the Cache.

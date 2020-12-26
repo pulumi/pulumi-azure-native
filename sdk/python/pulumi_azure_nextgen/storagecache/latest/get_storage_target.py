@@ -170,9 +170,9 @@ def get_storage_target(cache_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str cache_name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+    :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param str resource_group_name: Target resource group.
-    :param str storage_target_name: Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+    :param str storage_target_name: Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     """
     __args__ = dict()
     __args__['cacheName'] = cache_name

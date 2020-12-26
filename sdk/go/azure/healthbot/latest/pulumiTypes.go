@@ -14,7 +14,7 @@ import (
 type HealthBotPropertiesResponse struct {
 	// The link.
 	BotManagementPortalLink string `pulumi:"botManagementPortalLink"`
-	// The provisioning state of the Healthcare bot resource.
+	// The provisioning state of the Healthbot resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
@@ -33,7 +33,7 @@ type HealthBotPropertiesResponseInput interface {
 type HealthBotPropertiesResponseArgs struct {
 	// The link.
 	BotManagementPortalLink pulumi.StringInput `pulumi:"botManagementPortalLink"`
-	// The provisioning state of the Healthcare bot resource.
+	// The provisioning state of the Healthbot resource.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
 
@@ -120,7 +120,7 @@ func (o HealthBotPropertiesResponseOutput) BotManagementPortalLink() pulumi.Stri
 	return o.ApplyT(func(v HealthBotPropertiesResponse) string { return v.BotManagementPortalLink }).(pulumi.StringOutput)
 }
 
-// The provisioning state of the Healthcare bot resource.
+// The provisioning state of the Healthbot resource.
 func (o HealthBotPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthBotPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -153,7 +153,7 @@ func (o HealthBotPropertiesResponsePtrOutput) BotManagementPortalLink() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state of the Healthcare bot resource.
+// The provisioning state of the Healthbot resource.
 func (o HealthBotPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HealthBotPropertiesResponse) *string {
 		if v == nil {
@@ -165,16 +165,8 @@ func (o HealthBotPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringP
 
 // The resource model definition representing SKU
 type Sku struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
 	// The name of the HealthBot SKU
 	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -190,16 +182,8 @@ type SkuInput interface {
 
 // The resource model definition representing SKU
 type SkuArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
 	// The name of the HealthBot SKU
 	Name SkuName `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier SkuTier `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -280,29 +264,9 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o SkuOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
-}
-
 // The name of the HealthBot SKU
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o SkuOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o SkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -323,26 +287,6 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Sku) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
 // The name of the HealthBot SKU
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
@@ -353,38 +297,10 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
 // The resource model definition representing SKU
 type SkuResponse struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
 	// The name of the HealthBot SKU
 	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -400,16 +316,8 @@ type SkuResponseInput interface {
 
 // The resource model definition representing SKU
 type SkuResponseArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
 	// The name of the HealthBot SKU
 	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -490,29 +398,9 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
-}
-
 // The name of the HealthBot SKU
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type SkuResponsePtrOutput struct{ *pulumi.OutputState }
@@ -533,26 +421,6 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
 // The name of the HealthBot SKU
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
@@ -560,26 +428,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 
