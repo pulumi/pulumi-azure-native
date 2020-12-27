@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
 {
     /// <summary>
     /// Type of the Storage Target.
-    /// Latest API Version: 2020-03-01.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:storagecache/latest:StorageTarget")]
     public partial class StorageTarget : Pulumi.CustomResource
@@ -104,6 +104,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20190801preview:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20191101:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20200301:StorageTarget"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20201001:StorageTarget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +129,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
     public sealed class StorageTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+        /// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("cacheName", required: true)]
         public Input<string> CacheName { get; set; } = null!;
@@ -170,7 +171,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+        /// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("storageTargetName", required: true)]
         public Input<string> StorageTargetName { get; set; } = null!;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
 {
 
     /// <summary>
-    /// Properties pertained to UnknownTarget
+    /// Properties pertaining to the UnknownTarget
     /// </summary>
     public sealed class UnknownTargetArgs : Pulumi.ResourceArgs
     {

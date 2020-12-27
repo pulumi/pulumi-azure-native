@@ -63,6 +63,8 @@ class Bot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if sku is None and not opts.urn:
+                raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['name'] = None
@@ -115,13 +117,13 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.HealthBotPropertiesResponse']:
         """
-        The set of properties specific to healthcare bot resource.
+        The set of properties specific to Healthbot resource.
         """
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         SKU of the HealthBot.
         """

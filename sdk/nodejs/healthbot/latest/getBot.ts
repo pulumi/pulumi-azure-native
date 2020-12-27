@@ -47,13 +47,13 @@ export interface GetBotResult {
      */
     readonly name: string;
     /**
-     * The set of properties specific to healthcare bot resource.
+     * The set of properties specific to Healthbot resource.
      */
     readonly properties: outputs.healthbot.latest.HealthBotPropertiesResponse;
     /**
      * SKU of the HealthBot.
      */
-    readonly sku?: outputs.healthbot.latest.SkuResponse;
+    readonly sku: outputs.healthbot.latest.SkuResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource
      */

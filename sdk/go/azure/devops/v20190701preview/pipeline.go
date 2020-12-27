@@ -55,6 +55,12 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devops/v20200713preview:Pipeline"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Pipeline
 	err := ctx.RegisterResource("azure-nextgen:devops/v20190701preview:Pipeline", name, args, &resource, opts...)
 	if err != nil {

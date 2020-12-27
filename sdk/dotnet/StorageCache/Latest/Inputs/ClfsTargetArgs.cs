@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
 {
 
     /// <summary>
-    /// Properties pertained to ClfsTarget
+    /// Properties pertaining to the ClfsTarget
     /// </summary>
     public sealed class ClfsTargetArgs : Pulumi.ResourceArgs
     {

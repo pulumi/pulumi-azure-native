@@ -20,10 +20,13 @@ class GetCacheResult:
     """
     A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
-    def __init__(__self__, cache_size_gb=None, encryption_settings=None, health=None, id=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, provisioning_state=None, security_settings=None, sku=None, subnet=None, system_data=None, tags=None, type=None, upgrade_status=None):
+    def __init__(__self__, cache_size_gb=None, directory_services_settings=None, encryption_settings=None, health=None, id=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, provisioning_state=None, security_settings=None, sku=None, subnet=None, system_data=None, tags=None, type=None, upgrade_status=None):
         if cache_size_gb and not isinstance(cache_size_gb, int):
             raise TypeError("Expected argument 'cache_size_gb' to be a int")
         pulumi.set(__self__, "cache_size_gb", cache_size_gb)
+        if directory_services_settings and not isinstance(directory_services_settings, dict):
+            raise TypeError("Expected argument 'directory_services_settings' to be a dict")
+        pulumi.set(__self__, "directory_services_settings", directory_services_settings)
         if encryption_settings and not isinstance(encryption_settings, dict):
             raise TypeError("Expected argument 'encryption_settings' to be a dict")
         pulumi.set(__self__, "encryption_settings", encryption_settings)
@@ -80,6 +83,14 @@ class GetCacheResult:
         The size of this Cache, in GB.
         """
         return pulumi.get(self, "cache_size_gb")
+
+    @property
+    @pulumi.getter(name="directoryServicesSettings")
+    def directory_services_settings(self) -> Optional['outputs.CacheDirectorySettingsResponse']:
+        """
+        Specifies Directory Services settings of the cache.
+        """
+        return pulumi.get(self, "directory_services_settings")
 
     @property
     @pulumi.getter(name="encryptionSettings")
@@ -217,6 +228,7 @@ class AwaitableGetCacheResult(GetCacheResult):
             yield self
         return GetCacheResult(
             cache_size_gb=self.cache_size_gb,
+            directory_services_settings=self.directory_services_settings,
             encryption_settings=self.encryption_settings,
             health=self.health,
             id=self.id,
@@ -241,7 +253,7 @@ def get_cache(cache_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str cache_name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+    :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param str resource_group_name: Target resource group.
     """
     __args__ = dict()
@@ -255,6 +267,7 @@ def get_cache(cache_name: Optional[str] = None,
 
     return AwaitableGetCacheResult(
         cache_size_gb=__ret__.cache_size_gb,
+        directory_services_settings=__ret__.directory_services_settings,
         encryption_settings=__ret__.encryption_settings,
         health=__ret__.health,
         id=__ret__.id,

@@ -12,12 +12,14 @@ import (
 )
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-// Latest API Version: 2020-03-01.
+// Latest API Version: 2020-10-01.
 type Cache struct {
 	pulumi.CustomResourceState
 
 	// The size of this Cache, in GB.
 	CacheSizeGB pulumi.IntPtrOutput `pulumi:"cacheSizeGB"`
+	// Specifies Directory Services settings of the cache.
+	DirectoryServicesSettings CacheDirectorySettingsResponsePtrOutput `pulumi:"directoryServicesSettings"`
 	// Specifies encryption settings of the cache.
 	EncryptionSettings CacheEncryptionSettingsResponsePtrOutput `pulumi:"encryptionSettings"`
 	// Health of the Cache.
@@ -73,6 +75,9 @@ func NewCache(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20200301:Cache"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:storagecache/v20201001:Cache"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Cache
@@ -99,6 +104,8 @@ func GetCache(ctx *pulumi.Context,
 type cacheState struct {
 	// The size of this Cache, in GB.
 	CacheSizeGB *int `pulumi:"cacheSizeGB"`
+	// Specifies Directory Services settings of the cache.
+	DirectoryServicesSettings *CacheDirectorySettingsResponse `pulumi:"directoryServicesSettings"`
 	// Specifies encryption settings of the cache.
 	EncryptionSettings *CacheEncryptionSettingsResponse `pulumi:"encryptionSettings"`
 	// Health of the Cache.
@@ -134,6 +141,8 @@ type cacheState struct {
 type CacheState struct {
 	// The size of this Cache, in GB.
 	CacheSizeGB pulumi.IntPtrInput
+	// Specifies Directory Services settings of the cache.
+	DirectoryServicesSettings CacheDirectorySettingsResponsePtrInput
 	// Specifies encryption settings of the cache.
 	EncryptionSettings CacheEncryptionSettingsResponsePtrInput
 	// Health of the Cache.
@@ -171,10 +180,12 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
-	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
 	CacheName string `pulumi:"cacheName"`
 	// The size of this Cache, in GB.
 	CacheSizeGB *int `pulumi:"cacheSizeGB"`
+	// Specifies Directory Services settings of the cache.
+	DirectoryServicesSettings *CacheDirectorySettings `pulumi:"directoryServicesSettings"`
 	// Specifies encryption settings of the cache.
 	EncryptionSettings *CacheEncryptionSettings `pulumi:"encryptionSettings"`
 	// The identity of the cache, if configured.
@@ -199,10 +210,12 @@ type cacheArgs struct {
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
-	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
 	CacheName pulumi.StringInput
 	// The size of this Cache, in GB.
 	CacheSizeGB pulumi.IntPtrInput
+	// Specifies Directory Services settings of the cache.
+	DirectoryServicesSettings CacheDirectorySettingsPtrInput
 	// Specifies encryption settings of the cache.
 	EncryptionSettings CacheEncryptionSettingsPtrInput
 	// The identity of the cache, if configured.

@@ -59,6 +59,9 @@ func NewStorageTarget(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20200301:StorageTarget"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:storagecache/v20201001:StorageTarget"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StorageTarget

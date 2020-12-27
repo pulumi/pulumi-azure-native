@@ -10,6 +10,1101 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Active Directory settings used to join a cache to a domain.
+type CacheActiveDirectorySettings struct {
+	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+	CacheNetBiosName string `pulumi:"cacheNetBiosName"`
+	// Active Directory admin credentials used to join the HPC Cache to a domain.
+	Credentials *CacheActiveDirectorySettingsCredentials `pulumi:"credentials"`
+	// The fully qualified domain name of the Active Directory domain controller.
+	DomainName string `pulumi:"domainName"`
+	// The Active Directory domain's NetBIOS name.
+	DomainNetBiosName string `pulumi:"domainNetBiosName"`
+	// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	PrimaryDnsIpAddress string `pulumi:"primaryDnsIpAddress"`
+	// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	SecondaryDnsIpAddress *string `pulumi:"secondaryDnsIpAddress"`
+}
+
+// CacheActiveDirectorySettingsInput is an input type that accepts CacheActiveDirectorySettingsArgs and CacheActiveDirectorySettingsOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsInput` via:
+//
+//          CacheActiveDirectorySettingsArgs{...}
+type CacheActiveDirectorySettingsInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsOutput() CacheActiveDirectorySettingsOutput
+	ToCacheActiveDirectorySettingsOutputWithContext(context.Context) CacheActiveDirectorySettingsOutput
+}
+
+// Active Directory settings used to join a cache to a domain.
+type CacheActiveDirectorySettingsArgs struct {
+	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+	CacheNetBiosName pulumi.StringInput `pulumi:"cacheNetBiosName"`
+	// Active Directory admin credentials used to join the HPC Cache to a domain.
+	Credentials CacheActiveDirectorySettingsCredentialsPtrInput `pulumi:"credentials"`
+	// The fully qualified domain name of the Active Directory domain controller.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The Active Directory domain's NetBIOS name.
+	DomainNetBiosName pulumi.StringInput `pulumi:"domainNetBiosName"`
+	// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	PrimaryDnsIpAddress pulumi.StringInput `pulumi:"primaryDnsIpAddress"`
+	// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	SecondaryDnsIpAddress pulumi.StringPtrInput `pulumi:"secondaryDnsIpAddress"`
+}
+
+func (CacheActiveDirectorySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettings)(nil)).Elem()
+}
+
+func (i CacheActiveDirectorySettingsArgs) ToCacheActiveDirectorySettingsOutput() CacheActiveDirectorySettingsOutput {
+	return i.ToCacheActiveDirectorySettingsOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsArgs) ToCacheActiveDirectorySettingsOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsOutput)
+}
+
+func (i CacheActiveDirectorySettingsArgs) ToCacheActiveDirectorySettingsPtrOutput() CacheActiveDirectorySettingsPtrOutput {
+	return i.ToCacheActiveDirectorySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsArgs) ToCacheActiveDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsOutput).ToCacheActiveDirectorySettingsPtrOutputWithContext(ctx)
+}
+
+// CacheActiveDirectorySettingsPtrInput is an input type that accepts CacheActiveDirectorySettingsArgs, CacheActiveDirectorySettingsPtr and CacheActiveDirectorySettingsPtrOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsPtrInput` via:
+//
+//          CacheActiveDirectorySettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheActiveDirectorySettingsPtrInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsPtrOutput() CacheActiveDirectorySettingsPtrOutput
+	ToCacheActiveDirectorySettingsPtrOutputWithContext(context.Context) CacheActiveDirectorySettingsPtrOutput
+}
+
+type cacheActiveDirectorySettingsPtrType CacheActiveDirectorySettingsArgs
+
+func CacheActiveDirectorySettingsPtr(v *CacheActiveDirectorySettingsArgs) CacheActiveDirectorySettingsPtrInput {
+	return (*cacheActiveDirectorySettingsPtrType)(v)
+}
+
+func (*cacheActiveDirectorySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettings)(nil)).Elem()
+}
+
+func (i *cacheActiveDirectorySettingsPtrType) ToCacheActiveDirectorySettingsPtrOutput() CacheActiveDirectorySettingsPtrOutput {
+	return i.ToCacheActiveDirectorySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheActiveDirectorySettingsPtrType) ToCacheActiveDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsPtrOutput)
+}
+
+// Active Directory settings used to join a cache to a domain.
+type CacheActiveDirectorySettingsOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettings)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsOutput) ToCacheActiveDirectorySettingsOutput() CacheActiveDirectorySettingsOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsOutput) ToCacheActiveDirectorySettingsOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsOutput) ToCacheActiveDirectorySettingsPtrOutput() CacheActiveDirectorySettingsPtrOutput {
+	return o.ToCacheActiveDirectorySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheActiveDirectorySettingsOutput) ToCacheActiveDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsPtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettings) *CacheActiveDirectorySettings {
+		return &v
+	}).(CacheActiveDirectorySettingsPtrOutput)
+}
+
+// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+func (o CacheActiveDirectorySettingsOutput) CacheNetBiosName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettings) string { return v.CacheNetBiosName }).(pulumi.StringOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+func (o CacheActiveDirectorySettingsOutput) Credentials() CacheActiveDirectorySettingsCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettings) *CacheActiveDirectorySettingsCredentials { return v.Credentials }).(CacheActiveDirectorySettingsCredentialsPtrOutput)
+}
+
+// The fully qualified domain name of the Active Directory domain controller.
+func (o CacheActiveDirectorySettingsOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettings) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The Active Directory domain's NetBIOS name.
+func (o CacheActiveDirectorySettingsOutput) DomainNetBiosName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettings) string { return v.DomainNetBiosName }).(pulumi.StringOutput)
+}
+
+// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsOutput) PrimaryDnsIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettings) string { return v.PrimaryDnsIpAddress }).(pulumi.StringOutput)
+}
+
+// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsOutput) SecondaryDnsIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettings) *string { return v.SecondaryDnsIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type CacheActiveDirectorySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettings)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsPtrOutput) ToCacheActiveDirectorySettingsPtrOutput() CacheActiveDirectorySettingsPtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsPtrOutput) ToCacheActiveDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsPtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsPtrOutput) Elem() CacheActiveDirectorySettingsOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettings) CacheActiveDirectorySettings { return *v }).(CacheActiveDirectorySettingsOutput)
+}
+
+// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+func (o CacheActiveDirectorySettingsPtrOutput) CacheNetBiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CacheNetBiosName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+func (o CacheActiveDirectorySettingsPtrOutput) Credentials() CacheActiveDirectorySettingsCredentialsPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettings) *CacheActiveDirectorySettingsCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(CacheActiveDirectorySettingsCredentialsPtrOutput)
+}
+
+// The fully qualified domain name of the Active Directory domain controller.
+func (o CacheActiveDirectorySettingsPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Active Directory domain's NetBIOS name.
+func (o CacheActiveDirectorySettingsPtrOutput) DomainNetBiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainNetBiosName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsPtrOutput) PrimaryDnsIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryDnsIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsPtrOutput) SecondaryDnsIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryDnsIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+type CacheActiveDirectorySettingsCredentials struct {
+	// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Password string `pulumi:"password"`
+	// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Username string `pulumi:"username"`
+}
+
+// CacheActiveDirectorySettingsCredentialsInput is an input type that accepts CacheActiveDirectorySettingsCredentialsArgs and CacheActiveDirectorySettingsCredentialsOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsCredentialsInput` via:
+//
+//          CacheActiveDirectorySettingsCredentialsArgs{...}
+type CacheActiveDirectorySettingsCredentialsInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsCredentialsOutput() CacheActiveDirectorySettingsCredentialsOutput
+	ToCacheActiveDirectorySettingsCredentialsOutputWithContext(context.Context) CacheActiveDirectorySettingsCredentialsOutput
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+type CacheActiveDirectorySettingsCredentialsArgs struct {
+	// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (CacheActiveDirectorySettingsCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettingsCredentials)(nil)).Elem()
+}
+
+func (i CacheActiveDirectorySettingsCredentialsArgs) ToCacheActiveDirectorySettingsCredentialsOutput() CacheActiveDirectorySettingsCredentialsOutput {
+	return i.ToCacheActiveDirectorySettingsCredentialsOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsCredentialsArgs) ToCacheActiveDirectorySettingsCredentialsOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsCredentialsOutput)
+}
+
+func (i CacheActiveDirectorySettingsCredentialsArgs) ToCacheActiveDirectorySettingsCredentialsPtrOutput() CacheActiveDirectorySettingsCredentialsPtrOutput {
+	return i.ToCacheActiveDirectorySettingsCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsCredentialsArgs) ToCacheActiveDirectorySettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsCredentialsOutput).ToCacheActiveDirectorySettingsCredentialsPtrOutputWithContext(ctx)
+}
+
+// CacheActiveDirectorySettingsCredentialsPtrInput is an input type that accepts CacheActiveDirectorySettingsCredentialsArgs, CacheActiveDirectorySettingsCredentialsPtr and CacheActiveDirectorySettingsCredentialsPtrOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsCredentialsPtrInput` via:
+//
+//          CacheActiveDirectorySettingsCredentialsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheActiveDirectorySettingsCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsCredentialsPtrOutput() CacheActiveDirectorySettingsCredentialsPtrOutput
+	ToCacheActiveDirectorySettingsCredentialsPtrOutputWithContext(context.Context) CacheActiveDirectorySettingsCredentialsPtrOutput
+}
+
+type cacheActiveDirectorySettingsCredentialsPtrType CacheActiveDirectorySettingsCredentialsArgs
+
+func CacheActiveDirectorySettingsCredentialsPtr(v *CacheActiveDirectorySettingsCredentialsArgs) CacheActiveDirectorySettingsCredentialsPtrInput {
+	return (*cacheActiveDirectorySettingsCredentialsPtrType)(v)
+}
+
+func (*cacheActiveDirectorySettingsCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettingsCredentials)(nil)).Elem()
+}
+
+func (i *cacheActiveDirectorySettingsCredentialsPtrType) ToCacheActiveDirectorySettingsCredentialsPtrOutput() CacheActiveDirectorySettingsCredentialsPtrOutput {
+	return i.ToCacheActiveDirectorySettingsCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheActiveDirectorySettingsCredentialsPtrType) ToCacheActiveDirectorySettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsCredentialsPtrOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+type CacheActiveDirectorySettingsCredentialsOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettingsCredentials)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsCredentialsOutput) ToCacheActiveDirectorySettingsCredentialsOutput() CacheActiveDirectorySettingsCredentialsOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsCredentialsOutput) ToCacheActiveDirectorySettingsCredentialsOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsCredentialsOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsCredentialsOutput) ToCacheActiveDirectorySettingsCredentialsPtrOutput() CacheActiveDirectorySettingsCredentialsPtrOutput {
+	return o.ToCacheActiveDirectorySettingsCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheActiveDirectorySettingsCredentialsOutput) ToCacheActiveDirectorySettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsCredentials) *CacheActiveDirectorySettingsCredentials {
+		return &v
+	}).(CacheActiveDirectorySettingsCredentialsPtrOutput)
+}
+
+// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsCredentialsOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsCredentials) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsCredentialsOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsCredentials) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type CacheActiveDirectorySettingsCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettingsCredentials)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsCredentialsPtrOutput) ToCacheActiveDirectorySettingsCredentialsPtrOutput() CacheActiveDirectorySettingsCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsCredentialsPtrOutput) ToCacheActiveDirectorySettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsCredentialsPtrOutput) Elem() CacheActiveDirectorySettingsCredentialsOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsCredentials) CacheActiveDirectorySettingsCredentials { return *v }).(CacheActiveDirectorySettingsCredentialsOutput)
+}
+
+// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// Active Directory settings used to join a cache to a domain.
+type CacheActiveDirectorySettingsResponse struct {
+	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+	CacheNetBiosName string `pulumi:"cacheNetBiosName"`
+	// Active Directory admin credentials used to join the HPC Cache to a domain.
+	Credentials *CacheActiveDirectorySettingsResponseCredentials `pulumi:"credentials"`
+	// True if the HPC Cache is joined to the Active Directory domain.
+	DomainJoined string `pulumi:"domainJoined"`
+	// The fully qualified domain name of the Active Directory domain controller.
+	DomainName string `pulumi:"domainName"`
+	// The Active Directory domain's NetBIOS name.
+	DomainNetBiosName string `pulumi:"domainNetBiosName"`
+	// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	PrimaryDnsIpAddress string `pulumi:"primaryDnsIpAddress"`
+	// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	SecondaryDnsIpAddress *string `pulumi:"secondaryDnsIpAddress"`
+}
+
+// CacheActiveDirectorySettingsResponseInput is an input type that accepts CacheActiveDirectorySettingsResponseArgs and CacheActiveDirectorySettingsResponseOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsResponseInput` via:
+//
+//          CacheActiveDirectorySettingsResponseArgs{...}
+type CacheActiveDirectorySettingsResponseInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsResponseOutput() CacheActiveDirectorySettingsResponseOutput
+	ToCacheActiveDirectorySettingsResponseOutputWithContext(context.Context) CacheActiveDirectorySettingsResponseOutput
+}
+
+// Active Directory settings used to join a cache to a domain.
+type CacheActiveDirectorySettingsResponseArgs struct {
+	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+	CacheNetBiosName pulumi.StringInput `pulumi:"cacheNetBiosName"`
+	// Active Directory admin credentials used to join the HPC Cache to a domain.
+	Credentials CacheActiveDirectorySettingsResponseCredentialsPtrInput `pulumi:"credentials"`
+	// True if the HPC Cache is joined to the Active Directory domain.
+	DomainJoined pulumi.StringInput `pulumi:"domainJoined"`
+	// The fully qualified domain name of the Active Directory domain controller.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The Active Directory domain's NetBIOS name.
+	DomainNetBiosName pulumi.StringInput `pulumi:"domainNetBiosName"`
+	// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	PrimaryDnsIpAddress pulumi.StringInput `pulumi:"primaryDnsIpAddress"`
+	// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	SecondaryDnsIpAddress pulumi.StringPtrInput `pulumi:"secondaryDnsIpAddress"`
+}
+
+func (CacheActiveDirectorySettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettingsResponse)(nil)).Elem()
+}
+
+func (i CacheActiveDirectorySettingsResponseArgs) ToCacheActiveDirectorySettingsResponseOutput() CacheActiveDirectorySettingsResponseOutput {
+	return i.ToCacheActiveDirectorySettingsResponseOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsResponseArgs) ToCacheActiveDirectorySettingsResponseOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsResponseOutput)
+}
+
+func (i CacheActiveDirectorySettingsResponseArgs) ToCacheActiveDirectorySettingsResponsePtrOutput() CacheActiveDirectorySettingsResponsePtrOutput {
+	return i.ToCacheActiveDirectorySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsResponseArgs) ToCacheActiveDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsResponseOutput).ToCacheActiveDirectorySettingsResponsePtrOutputWithContext(ctx)
+}
+
+// CacheActiveDirectorySettingsResponsePtrInput is an input type that accepts CacheActiveDirectorySettingsResponseArgs, CacheActiveDirectorySettingsResponsePtr and CacheActiveDirectorySettingsResponsePtrOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsResponsePtrInput` via:
+//
+//          CacheActiveDirectorySettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheActiveDirectorySettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsResponsePtrOutput() CacheActiveDirectorySettingsResponsePtrOutput
+	ToCacheActiveDirectorySettingsResponsePtrOutputWithContext(context.Context) CacheActiveDirectorySettingsResponsePtrOutput
+}
+
+type cacheActiveDirectorySettingsResponsePtrType CacheActiveDirectorySettingsResponseArgs
+
+func CacheActiveDirectorySettingsResponsePtr(v *CacheActiveDirectorySettingsResponseArgs) CacheActiveDirectorySettingsResponsePtrInput {
+	return (*cacheActiveDirectorySettingsResponsePtrType)(v)
+}
+
+func (*cacheActiveDirectorySettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettingsResponse)(nil)).Elem()
+}
+
+func (i *cacheActiveDirectorySettingsResponsePtrType) ToCacheActiveDirectorySettingsResponsePtrOutput() CacheActiveDirectorySettingsResponsePtrOutput {
+	return i.ToCacheActiveDirectorySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheActiveDirectorySettingsResponsePtrType) ToCacheActiveDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsResponsePtrOutput)
+}
+
+// Active Directory settings used to join a cache to a domain.
+type CacheActiveDirectorySettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettingsResponse)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsResponseOutput) ToCacheActiveDirectorySettingsResponseOutput() CacheActiveDirectorySettingsResponseOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsResponseOutput) ToCacheActiveDirectorySettingsResponseOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponseOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsResponseOutput) ToCacheActiveDirectorySettingsResponsePtrOutput() CacheActiveDirectorySettingsResponsePtrOutput {
+	return o.ToCacheActiveDirectorySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CacheActiveDirectorySettingsResponseOutput) ToCacheActiveDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponsePtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) *CacheActiveDirectorySettingsResponse {
+		return &v
+	}).(CacheActiveDirectorySettingsResponsePtrOutput)
+}
+
+// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+func (o CacheActiveDirectorySettingsResponseOutput) CacheNetBiosName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) string { return v.CacheNetBiosName }).(pulumi.StringOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+func (o CacheActiveDirectorySettingsResponseOutput) Credentials() CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) *CacheActiveDirectorySettingsResponseCredentials {
+		return v.Credentials
+	}).(CacheActiveDirectorySettingsResponseCredentialsPtrOutput)
+}
+
+// True if the HPC Cache is joined to the Active Directory domain.
+func (o CacheActiveDirectorySettingsResponseOutput) DomainJoined() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) string { return v.DomainJoined }).(pulumi.StringOutput)
+}
+
+// The fully qualified domain name of the Active Directory domain controller.
+func (o CacheActiveDirectorySettingsResponseOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The Active Directory domain's NetBIOS name.
+func (o CacheActiveDirectorySettingsResponseOutput) DomainNetBiosName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) string { return v.DomainNetBiosName }).(pulumi.StringOutput)
+}
+
+// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsResponseOutput) PrimaryDnsIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) string { return v.PrimaryDnsIpAddress }).(pulumi.StringOutput)
+}
+
+// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsResponseOutput) SecondaryDnsIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) *string { return v.SecondaryDnsIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type CacheActiveDirectorySettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettingsResponse)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsResponsePtrOutput) ToCacheActiveDirectorySettingsResponsePtrOutput() CacheActiveDirectorySettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsResponsePtrOutput) ToCacheActiveDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsResponsePtrOutput) Elem() CacheActiveDirectorySettingsResponseOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) CacheActiveDirectorySettingsResponse { return *v }).(CacheActiveDirectorySettingsResponseOutput)
+}
+
+// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+func (o CacheActiveDirectorySettingsResponsePtrOutput) CacheNetBiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CacheNetBiosName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+func (o CacheActiveDirectorySettingsResponsePtrOutput) Credentials() CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *CacheActiveDirectorySettingsResponseCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(CacheActiveDirectorySettingsResponseCredentialsPtrOutput)
+}
+
+// True if the HPC Cache is joined to the Active Directory domain.
+func (o CacheActiveDirectorySettingsResponsePtrOutput) DomainJoined() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainJoined
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name of the Active Directory domain controller.
+func (o CacheActiveDirectorySettingsResponsePtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Active Directory domain's NetBIOS name.
+func (o CacheActiveDirectorySettingsResponsePtrOutput) DomainNetBiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainNetBiosName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsResponsePtrOutput) PrimaryDnsIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryDnsIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsResponsePtrOutput) SecondaryDnsIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryDnsIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+type CacheActiveDirectorySettingsResponseCredentials struct {
+	// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Password string `pulumi:"password"`
+	// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Username string `pulumi:"username"`
+}
+
+// CacheActiveDirectorySettingsResponseCredentialsInput is an input type that accepts CacheActiveDirectorySettingsResponseCredentialsArgs and CacheActiveDirectorySettingsResponseCredentialsOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsResponseCredentialsInput` via:
+//
+//          CacheActiveDirectorySettingsResponseCredentialsArgs{...}
+type CacheActiveDirectorySettingsResponseCredentialsInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsResponseCredentialsOutput() CacheActiveDirectorySettingsResponseCredentialsOutput
+	ToCacheActiveDirectorySettingsResponseCredentialsOutputWithContext(context.Context) CacheActiveDirectorySettingsResponseCredentialsOutput
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+type CacheActiveDirectorySettingsResponseCredentialsArgs struct {
+	// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (CacheActiveDirectorySettingsResponseCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettingsResponseCredentials)(nil)).Elem()
+}
+
+func (i CacheActiveDirectorySettingsResponseCredentialsArgs) ToCacheActiveDirectorySettingsResponseCredentialsOutput() CacheActiveDirectorySettingsResponseCredentialsOutput {
+	return i.ToCacheActiveDirectorySettingsResponseCredentialsOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsResponseCredentialsArgs) ToCacheActiveDirectorySettingsResponseCredentialsOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponseCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsResponseCredentialsOutput)
+}
+
+func (i CacheActiveDirectorySettingsResponseCredentialsArgs) ToCacheActiveDirectorySettingsResponseCredentialsPtrOutput() CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
+	return i.ToCacheActiveDirectorySettingsResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsResponseCredentialsArgs) ToCacheActiveDirectorySettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsResponseCredentialsOutput).ToCacheActiveDirectorySettingsResponseCredentialsPtrOutputWithContext(ctx)
+}
+
+// CacheActiveDirectorySettingsResponseCredentialsPtrInput is an input type that accepts CacheActiveDirectorySettingsResponseCredentialsArgs, CacheActiveDirectorySettingsResponseCredentialsPtr and CacheActiveDirectorySettingsResponseCredentialsPtrOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsResponseCredentialsPtrInput` via:
+//
+//          CacheActiveDirectorySettingsResponseCredentialsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheActiveDirectorySettingsResponseCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsResponseCredentialsPtrOutput() CacheActiveDirectorySettingsResponseCredentialsPtrOutput
+	ToCacheActiveDirectorySettingsResponseCredentialsPtrOutputWithContext(context.Context) CacheActiveDirectorySettingsResponseCredentialsPtrOutput
+}
+
+type cacheActiveDirectorySettingsResponseCredentialsPtrType CacheActiveDirectorySettingsResponseCredentialsArgs
+
+func CacheActiveDirectorySettingsResponseCredentialsPtr(v *CacheActiveDirectorySettingsResponseCredentialsArgs) CacheActiveDirectorySettingsResponseCredentialsPtrInput {
+	return (*cacheActiveDirectorySettingsResponseCredentialsPtrType)(v)
+}
+
+func (*cacheActiveDirectorySettingsResponseCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettingsResponseCredentials)(nil)).Elem()
+}
+
+func (i *cacheActiveDirectorySettingsResponseCredentialsPtrType) ToCacheActiveDirectorySettingsResponseCredentialsPtrOutput() CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
+	return i.ToCacheActiveDirectorySettingsResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheActiveDirectorySettingsResponseCredentialsPtrType) ToCacheActiveDirectorySettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsResponseCredentialsPtrOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+type CacheActiveDirectorySettingsResponseCredentialsOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsResponseCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettingsResponseCredentials)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsResponseCredentialsOutput) ToCacheActiveDirectorySettingsResponseCredentialsOutput() CacheActiveDirectorySettingsResponseCredentialsOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsResponseCredentialsOutput) ToCacheActiveDirectorySettingsResponseCredentialsOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponseCredentialsOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsResponseCredentialsOutput) ToCacheActiveDirectorySettingsResponseCredentialsPtrOutput() CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
+	return o.ToCacheActiveDirectorySettingsResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheActiveDirectorySettingsResponseCredentialsOutput) ToCacheActiveDirectorySettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsResponseCredentials) *CacheActiveDirectorySettingsResponseCredentials {
+		return &v
+	}).(CacheActiveDirectorySettingsResponseCredentialsPtrOutput)
+}
+
+// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsResponseCredentialsOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsResponseCredentials) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsResponseCredentialsOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsResponseCredentials) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type CacheActiveDirectorySettingsResponseCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsResponseCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettingsResponseCredentials)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) ToCacheActiveDirectorySettingsResponseCredentialsPtrOutput() CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) ToCacheActiveDirectorySettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) Elem() CacheActiveDirectorySettingsResponseCredentialsOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponseCredentials) CacheActiveDirectorySettingsResponseCredentials {
+		return *v
+	}).(CacheActiveDirectorySettingsResponseCredentialsOutput)
+}
+
+// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponseCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponseCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// Cache Directory Services settings.
+type CacheDirectorySettings struct {
+	// Specifies settings for joining the HPC Cache to an Active Directory domain.
+	ActiveDirectory *CacheActiveDirectorySettings `pulumi:"activeDirectory"`
+	// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+	UsernameDownload *CacheUsernameDownloadSettings `pulumi:"usernameDownload"`
+}
+
+// CacheDirectorySettingsInput is an input type that accepts CacheDirectorySettingsArgs and CacheDirectorySettingsOutput values.
+// You can construct a concrete instance of `CacheDirectorySettingsInput` via:
+//
+//          CacheDirectorySettingsArgs{...}
+type CacheDirectorySettingsInput interface {
+	pulumi.Input
+
+	ToCacheDirectorySettingsOutput() CacheDirectorySettingsOutput
+	ToCacheDirectorySettingsOutputWithContext(context.Context) CacheDirectorySettingsOutput
+}
+
+// Cache Directory Services settings.
+type CacheDirectorySettingsArgs struct {
+	// Specifies settings for joining the HPC Cache to an Active Directory domain.
+	ActiveDirectory CacheActiveDirectorySettingsPtrInput `pulumi:"activeDirectory"`
+	// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+	UsernameDownload CacheUsernameDownloadSettingsPtrInput `pulumi:"usernameDownload"`
+}
+
+func (CacheDirectorySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectorySettings)(nil)).Elem()
+}
+
+func (i CacheDirectorySettingsArgs) ToCacheDirectorySettingsOutput() CacheDirectorySettingsOutput {
+	return i.ToCacheDirectorySettingsOutputWithContext(context.Background())
+}
+
+func (i CacheDirectorySettingsArgs) ToCacheDirectorySettingsOutputWithContext(ctx context.Context) CacheDirectorySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectorySettingsOutput)
+}
+
+func (i CacheDirectorySettingsArgs) ToCacheDirectorySettingsPtrOutput() CacheDirectorySettingsPtrOutput {
+	return i.ToCacheDirectorySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheDirectorySettingsArgs) ToCacheDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheDirectorySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectorySettingsOutput).ToCacheDirectorySettingsPtrOutputWithContext(ctx)
+}
+
+// CacheDirectorySettingsPtrInput is an input type that accepts CacheDirectorySettingsArgs, CacheDirectorySettingsPtr and CacheDirectorySettingsPtrOutput values.
+// You can construct a concrete instance of `CacheDirectorySettingsPtrInput` via:
+//
+//          CacheDirectorySettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheDirectorySettingsPtrInput interface {
+	pulumi.Input
+
+	ToCacheDirectorySettingsPtrOutput() CacheDirectorySettingsPtrOutput
+	ToCacheDirectorySettingsPtrOutputWithContext(context.Context) CacheDirectorySettingsPtrOutput
+}
+
+type cacheDirectorySettingsPtrType CacheDirectorySettingsArgs
+
+func CacheDirectorySettingsPtr(v *CacheDirectorySettingsArgs) CacheDirectorySettingsPtrInput {
+	return (*cacheDirectorySettingsPtrType)(v)
+}
+
+func (*cacheDirectorySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectorySettings)(nil)).Elem()
+}
+
+func (i *cacheDirectorySettingsPtrType) ToCacheDirectorySettingsPtrOutput() CacheDirectorySettingsPtrOutput {
+	return i.ToCacheDirectorySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheDirectorySettingsPtrType) ToCacheDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheDirectorySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectorySettingsPtrOutput)
+}
+
+// Cache Directory Services settings.
+type CacheDirectorySettingsOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectorySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectorySettings)(nil)).Elem()
+}
+
+func (o CacheDirectorySettingsOutput) ToCacheDirectorySettingsOutput() CacheDirectorySettingsOutput {
+	return o
+}
+
+func (o CacheDirectorySettingsOutput) ToCacheDirectorySettingsOutputWithContext(ctx context.Context) CacheDirectorySettingsOutput {
+	return o
+}
+
+func (o CacheDirectorySettingsOutput) ToCacheDirectorySettingsPtrOutput() CacheDirectorySettingsPtrOutput {
+	return o.ToCacheDirectorySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheDirectorySettingsOutput) ToCacheDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheDirectorySettingsPtrOutput {
+	return o.ApplyT(func(v CacheDirectorySettings) *CacheDirectorySettings {
+		return &v
+	}).(CacheDirectorySettingsPtrOutput)
+}
+
+// Specifies settings for joining the HPC Cache to an Active Directory domain.
+func (o CacheDirectorySettingsOutput) ActiveDirectory() CacheActiveDirectorySettingsPtrOutput {
+	return o.ApplyT(func(v CacheDirectorySettings) *CacheActiveDirectorySettings { return v.ActiveDirectory }).(CacheActiveDirectorySettingsPtrOutput)
+}
+
+// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+func (o CacheDirectorySettingsOutput) UsernameDownload() CacheUsernameDownloadSettingsPtrOutput {
+	return o.ApplyT(func(v CacheDirectorySettings) *CacheUsernameDownloadSettings { return v.UsernameDownload }).(CacheUsernameDownloadSettingsPtrOutput)
+}
+
+type CacheDirectorySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectorySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectorySettings)(nil)).Elem()
+}
+
+func (o CacheDirectorySettingsPtrOutput) ToCacheDirectorySettingsPtrOutput() CacheDirectorySettingsPtrOutput {
+	return o
+}
+
+func (o CacheDirectorySettingsPtrOutput) ToCacheDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheDirectorySettingsPtrOutput {
+	return o
+}
+
+func (o CacheDirectorySettingsPtrOutput) Elem() CacheDirectorySettingsOutput {
+	return o.ApplyT(func(v *CacheDirectorySettings) CacheDirectorySettings { return *v }).(CacheDirectorySettingsOutput)
+}
+
+// Specifies settings for joining the HPC Cache to an Active Directory domain.
+func (o CacheDirectorySettingsPtrOutput) ActiveDirectory() CacheActiveDirectorySettingsPtrOutput {
+	return o.ApplyT(func(v *CacheDirectorySettings) *CacheActiveDirectorySettings {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectory
+	}).(CacheActiveDirectorySettingsPtrOutput)
+}
+
+// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+func (o CacheDirectorySettingsPtrOutput) UsernameDownload() CacheUsernameDownloadSettingsPtrOutput {
+	return o.ApplyT(func(v *CacheDirectorySettings) *CacheUsernameDownloadSettings {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameDownload
+	}).(CacheUsernameDownloadSettingsPtrOutput)
+}
+
+// Cache Directory Services settings.
+type CacheDirectorySettingsResponse struct {
+	// Specifies settings for joining the HPC Cache to an Active Directory domain.
+	ActiveDirectory *CacheActiveDirectorySettingsResponse `pulumi:"activeDirectory"`
+	// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+	UsernameDownload *CacheUsernameDownloadSettingsResponse `pulumi:"usernameDownload"`
+}
+
+// CacheDirectorySettingsResponseInput is an input type that accepts CacheDirectorySettingsResponseArgs and CacheDirectorySettingsResponseOutput values.
+// You can construct a concrete instance of `CacheDirectorySettingsResponseInput` via:
+//
+//          CacheDirectorySettingsResponseArgs{...}
+type CacheDirectorySettingsResponseInput interface {
+	pulumi.Input
+
+	ToCacheDirectorySettingsResponseOutput() CacheDirectorySettingsResponseOutput
+	ToCacheDirectorySettingsResponseOutputWithContext(context.Context) CacheDirectorySettingsResponseOutput
+}
+
+// Cache Directory Services settings.
+type CacheDirectorySettingsResponseArgs struct {
+	// Specifies settings for joining the HPC Cache to an Active Directory domain.
+	ActiveDirectory CacheActiveDirectorySettingsResponsePtrInput `pulumi:"activeDirectory"`
+	// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+	UsernameDownload CacheUsernameDownloadSettingsResponsePtrInput `pulumi:"usernameDownload"`
+}
+
+func (CacheDirectorySettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectorySettingsResponse)(nil)).Elem()
+}
+
+func (i CacheDirectorySettingsResponseArgs) ToCacheDirectorySettingsResponseOutput() CacheDirectorySettingsResponseOutput {
+	return i.ToCacheDirectorySettingsResponseOutputWithContext(context.Background())
+}
+
+func (i CacheDirectorySettingsResponseArgs) ToCacheDirectorySettingsResponseOutputWithContext(ctx context.Context) CacheDirectorySettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectorySettingsResponseOutput)
+}
+
+func (i CacheDirectorySettingsResponseArgs) ToCacheDirectorySettingsResponsePtrOutput() CacheDirectorySettingsResponsePtrOutput {
+	return i.ToCacheDirectorySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CacheDirectorySettingsResponseArgs) ToCacheDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheDirectorySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectorySettingsResponseOutput).ToCacheDirectorySettingsResponsePtrOutputWithContext(ctx)
+}
+
+// CacheDirectorySettingsResponsePtrInput is an input type that accepts CacheDirectorySettingsResponseArgs, CacheDirectorySettingsResponsePtr and CacheDirectorySettingsResponsePtrOutput values.
+// You can construct a concrete instance of `CacheDirectorySettingsResponsePtrInput` via:
+//
+//          CacheDirectorySettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheDirectorySettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToCacheDirectorySettingsResponsePtrOutput() CacheDirectorySettingsResponsePtrOutput
+	ToCacheDirectorySettingsResponsePtrOutputWithContext(context.Context) CacheDirectorySettingsResponsePtrOutput
+}
+
+type cacheDirectorySettingsResponsePtrType CacheDirectorySettingsResponseArgs
+
+func CacheDirectorySettingsResponsePtr(v *CacheDirectorySettingsResponseArgs) CacheDirectorySettingsResponsePtrInput {
+	return (*cacheDirectorySettingsResponsePtrType)(v)
+}
+
+func (*cacheDirectorySettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectorySettingsResponse)(nil)).Elem()
+}
+
+func (i *cacheDirectorySettingsResponsePtrType) ToCacheDirectorySettingsResponsePtrOutput() CacheDirectorySettingsResponsePtrOutput {
+	return i.ToCacheDirectorySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheDirectorySettingsResponsePtrType) ToCacheDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheDirectorySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectorySettingsResponsePtrOutput)
+}
+
+// Cache Directory Services settings.
+type CacheDirectorySettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectorySettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectorySettingsResponse)(nil)).Elem()
+}
+
+func (o CacheDirectorySettingsResponseOutput) ToCacheDirectorySettingsResponseOutput() CacheDirectorySettingsResponseOutput {
+	return o
+}
+
+func (o CacheDirectorySettingsResponseOutput) ToCacheDirectorySettingsResponseOutputWithContext(ctx context.Context) CacheDirectorySettingsResponseOutput {
+	return o
+}
+
+func (o CacheDirectorySettingsResponseOutput) ToCacheDirectorySettingsResponsePtrOutput() CacheDirectorySettingsResponsePtrOutput {
+	return o.ToCacheDirectorySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CacheDirectorySettingsResponseOutput) ToCacheDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheDirectorySettingsResponsePtrOutput {
+	return o.ApplyT(func(v CacheDirectorySettingsResponse) *CacheDirectorySettingsResponse {
+		return &v
+	}).(CacheDirectorySettingsResponsePtrOutput)
+}
+
+// Specifies settings for joining the HPC Cache to an Active Directory domain.
+func (o CacheDirectorySettingsResponseOutput) ActiveDirectory() CacheActiveDirectorySettingsResponsePtrOutput {
+	return o.ApplyT(func(v CacheDirectorySettingsResponse) *CacheActiveDirectorySettingsResponse { return v.ActiveDirectory }).(CacheActiveDirectorySettingsResponsePtrOutput)
+}
+
+// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+func (o CacheDirectorySettingsResponseOutput) UsernameDownload() CacheUsernameDownloadSettingsResponsePtrOutput {
+	return o.ApplyT(func(v CacheDirectorySettingsResponse) *CacheUsernameDownloadSettingsResponse {
+		return v.UsernameDownload
+	}).(CacheUsernameDownloadSettingsResponsePtrOutput)
+}
+
+type CacheDirectorySettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectorySettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectorySettingsResponse)(nil)).Elem()
+}
+
+func (o CacheDirectorySettingsResponsePtrOutput) ToCacheDirectorySettingsResponsePtrOutput() CacheDirectorySettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheDirectorySettingsResponsePtrOutput) ToCacheDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheDirectorySettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheDirectorySettingsResponsePtrOutput) Elem() CacheDirectorySettingsResponseOutput {
+	return o.ApplyT(func(v *CacheDirectorySettingsResponse) CacheDirectorySettingsResponse { return *v }).(CacheDirectorySettingsResponseOutput)
+}
+
+// Specifies settings for joining the HPC Cache to an Active Directory domain.
+func (o CacheDirectorySettingsResponsePtrOutput) ActiveDirectory() CacheActiveDirectorySettingsResponsePtrOutput {
+	return o.ApplyT(func(v *CacheDirectorySettingsResponse) *CacheActiveDirectorySettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectory
+	}).(CacheActiveDirectorySettingsResponsePtrOutput)
+}
+
+// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+func (o CacheDirectorySettingsResponsePtrOutput) UsernameDownload() CacheUsernameDownloadSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *CacheDirectorySettingsResponse) *CacheUsernameDownloadSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameDownload
+	}).(CacheUsernameDownloadSettingsResponsePtrOutput)
+}
+
 // Cache encryption settings.
 type CacheEncryptionSettings struct {
 	// Specifies the location of the key encryption key in Key Vault.
@@ -1160,8 +2255,8 @@ func (o CacheResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 
 // Cache security settings.
 type CacheSecuritySettings struct {
-	// root squash of cache property.
-	RootSquash *bool `pulumi:"rootSquash"`
+	// NFS access policies defined for this cache.
+	AccessPolicies []NfsAccessPolicy `pulumi:"accessPolicies"`
 }
 
 // CacheSecuritySettingsInput is an input type that accepts CacheSecuritySettingsArgs and CacheSecuritySettingsOutput values.
@@ -1177,8 +2272,8 @@ type CacheSecuritySettingsInput interface {
 
 // Cache security settings.
 type CacheSecuritySettingsArgs struct {
-	// root squash of cache property.
-	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
+	// NFS access policies defined for this cache.
+	AccessPolicies NfsAccessPolicyArrayInput `pulumi:"accessPolicies"`
 }
 
 func (CacheSecuritySettingsArgs) ElementType() reflect.Type {
@@ -1259,9 +2354,9 @@ func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsPtrOutputWithContext
 	}).(CacheSecuritySettingsPtrOutput)
 }
 
-// root squash of cache property.
-func (o CacheSecuritySettingsOutput) RootSquash() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CacheSecuritySettings) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
+// NFS access policies defined for this cache.
+func (o CacheSecuritySettingsOutput) AccessPolicies() NfsAccessPolicyArrayOutput {
+	return o.ApplyT(func(v CacheSecuritySettings) []NfsAccessPolicy { return v.AccessPolicies }).(NfsAccessPolicyArrayOutput)
 }
 
 type CacheSecuritySettingsPtrOutput struct{ *pulumi.OutputState }
@@ -1282,20 +2377,20 @@ func (o CacheSecuritySettingsPtrOutput) Elem() CacheSecuritySettingsOutput {
 	return o.ApplyT(func(v *CacheSecuritySettings) CacheSecuritySettings { return *v }).(CacheSecuritySettingsOutput)
 }
 
-// root squash of cache property.
-func (o CacheSecuritySettingsPtrOutput) RootSquash() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CacheSecuritySettings) *bool {
+// NFS access policies defined for this cache.
+func (o CacheSecuritySettingsPtrOutput) AccessPolicies() NfsAccessPolicyArrayOutput {
+	return o.ApplyT(func(v *CacheSecuritySettings) []NfsAccessPolicy {
 		if v == nil {
 			return nil
 		}
-		return v.RootSquash
-	}).(pulumi.BoolPtrOutput)
+		return v.AccessPolicies
+	}).(NfsAccessPolicyArrayOutput)
 }
 
 // Cache security settings.
 type CacheSecuritySettingsResponse struct {
-	// root squash of cache property.
-	RootSquash *bool `pulumi:"rootSquash"`
+	// NFS access policies defined for this cache.
+	AccessPolicies []NfsAccessPolicyResponse `pulumi:"accessPolicies"`
 }
 
 // CacheSecuritySettingsResponseInput is an input type that accepts CacheSecuritySettingsResponseArgs and CacheSecuritySettingsResponseOutput values.
@@ -1311,8 +2406,8 @@ type CacheSecuritySettingsResponseInput interface {
 
 // Cache security settings.
 type CacheSecuritySettingsResponseArgs struct {
-	// root squash of cache property.
-	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
+	// NFS access policies defined for this cache.
+	AccessPolicies NfsAccessPolicyResponseArrayInput `pulumi:"accessPolicies"`
 }
 
 func (CacheSecuritySettingsResponseArgs) ElementType() reflect.Type {
@@ -1393,9 +2488,9 @@ func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponsePtrO
 	}).(CacheSecuritySettingsResponsePtrOutput)
 }
 
-// root squash of cache property.
-func (o CacheSecuritySettingsResponseOutput) RootSquash() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CacheSecuritySettingsResponse) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
+// NFS access policies defined for this cache.
+func (o CacheSecuritySettingsResponseOutput) AccessPolicies() NfsAccessPolicyResponseArrayOutput {
+	return o.ApplyT(func(v CacheSecuritySettingsResponse) []NfsAccessPolicyResponse { return v.AccessPolicies }).(NfsAccessPolicyResponseArrayOutput)
 }
 
 type CacheSecuritySettingsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1416,14 +2511,14 @@ func (o CacheSecuritySettingsResponsePtrOutput) Elem() CacheSecuritySettingsResp
 	return o.ApplyT(func(v *CacheSecuritySettingsResponse) CacheSecuritySettingsResponse { return *v }).(CacheSecuritySettingsResponseOutput)
 }
 
-// root squash of cache property.
-func (o CacheSecuritySettingsResponsePtrOutput) RootSquash() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CacheSecuritySettingsResponse) *bool {
+// NFS access policies defined for this cache.
+func (o CacheSecuritySettingsResponsePtrOutput) AccessPolicies() NfsAccessPolicyResponseArrayOutput {
+	return o.ApplyT(func(v *CacheSecuritySettingsResponse) []NfsAccessPolicyResponse {
 		if v == nil {
 			return nil
 		}
-		return v.RootSquash
-	}).(pulumi.BoolPtrOutput)
+		return v.AccessPolicies
+	}).(NfsAccessPolicyResponseArrayOutput)
 }
 
 // SKU for the Cache.
@@ -1770,7 +2865,984 @@ func (o CacheUpgradeStatusResponsePtrOutput) PendingFirmwareVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertained to ClfsTarget
+// Settings for Extended Groups username and group download.
+type CacheUsernameDownloadSettings struct {
+	// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+	AutoDownloadCertificate *bool `pulumi:"autoDownloadCertificate"`
+	// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+	CaCertificateURI *string `pulumi:"caCertificateURI"`
+	// When present, these are the credentials for the secure LDAP connection.
+	Credentials *CacheUsernameDownloadSettingsCredentials `pulumi:"credentials"`
+	// Whether or not the LDAP connection should be encrypted.
+	EncryptLdapConnection *bool `pulumi:"encryptLdapConnection"`
+	// Whether or not Extended Groups is enabled.
+	ExtendedGroupsEnabled *bool `pulumi:"extendedGroupsEnabled"`
+	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+	GroupFileURI *string `pulumi:"groupFileURI"`
+	// The base distinguished name for the LDAP domain.
+	LdapBaseDn *string `pulumi:"ldapBaseDn"`
+	// The fully qualified domain name or IP address of the LDAP server to use.
+	LdapServer *string `pulumi:"ldapServer"`
+	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+	RequireValidCertificate *bool `pulumi:"requireValidCertificate"`
+	// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+	UserFileURI *string `pulumi:"userFileURI"`
+	// This setting determines how the cache gets username and group names for clients.
+	UsernameSource *string `pulumi:"usernameSource"`
+}
+
+// CacheUsernameDownloadSettingsInput is an input type that accepts CacheUsernameDownloadSettingsArgs and CacheUsernameDownloadSettingsOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsInput` via:
+//
+//          CacheUsernameDownloadSettingsArgs{...}
+type CacheUsernameDownloadSettingsInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsOutput() CacheUsernameDownloadSettingsOutput
+	ToCacheUsernameDownloadSettingsOutputWithContext(context.Context) CacheUsernameDownloadSettingsOutput
+}
+
+// Settings for Extended Groups username and group download.
+type CacheUsernameDownloadSettingsArgs struct {
+	// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+	AutoDownloadCertificate pulumi.BoolPtrInput `pulumi:"autoDownloadCertificate"`
+	// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+	CaCertificateURI pulumi.StringPtrInput `pulumi:"caCertificateURI"`
+	// When present, these are the credentials for the secure LDAP connection.
+	Credentials CacheUsernameDownloadSettingsCredentialsPtrInput `pulumi:"credentials"`
+	// Whether or not the LDAP connection should be encrypted.
+	EncryptLdapConnection pulumi.BoolPtrInput `pulumi:"encryptLdapConnection"`
+	// Whether or not Extended Groups is enabled.
+	ExtendedGroupsEnabled pulumi.BoolPtrInput `pulumi:"extendedGroupsEnabled"`
+	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+	GroupFileURI pulumi.StringPtrInput `pulumi:"groupFileURI"`
+	// The base distinguished name for the LDAP domain.
+	LdapBaseDn pulumi.StringPtrInput `pulumi:"ldapBaseDn"`
+	// The fully qualified domain name or IP address of the LDAP server to use.
+	LdapServer pulumi.StringPtrInput `pulumi:"ldapServer"`
+	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+	RequireValidCertificate pulumi.BoolPtrInput `pulumi:"requireValidCertificate"`
+	// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+	UserFileURI pulumi.StringPtrInput `pulumi:"userFileURI"`
+	// This setting determines how the cache gets username and group names for clients.
+	UsernameSource pulumi.StringPtrInput `pulumi:"usernameSource"`
+}
+
+func (CacheUsernameDownloadSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettings)(nil)).Elem()
+}
+
+func (i CacheUsernameDownloadSettingsArgs) ToCacheUsernameDownloadSettingsOutput() CacheUsernameDownloadSettingsOutput {
+	return i.ToCacheUsernameDownloadSettingsOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsArgs) ToCacheUsernameDownloadSettingsOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsOutput)
+}
+
+func (i CacheUsernameDownloadSettingsArgs) ToCacheUsernameDownloadSettingsPtrOutput() CacheUsernameDownloadSettingsPtrOutput {
+	return i.ToCacheUsernameDownloadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsArgs) ToCacheUsernameDownloadSettingsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsOutput).ToCacheUsernameDownloadSettingsPtrOutputWithContext(ctx)
+}
+
+// CacheUsernameDownloadSettingsPtrInput is an input type that accepts CacheUsernameDownloadSettingsArgs, CacheUsernameDownloadSettingsPtr and CacheUsernameDownloadSettingsPtrOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsPtrInput` via:
+//
+//          CacheUsernameDownloadSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheUsernameDownloadSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsPtrOutput() CacheUsernameDownloadSettingsPtrOutput
+	ToCacheUsernameDownloadSettingsPtrOutputWithContext(context.Context) CacheUsernameDownloadSettingsPtrOutput
+}
+
+type cacheUsernameDownloadSettingsPtrType CacheUsernameDownloadSettingsArgs
+
+func CacheUsernameDownloadSettingsPtr(v *CacheUsernameDownloadSettingsArgs) CacheUsernameDownloadSettingsPtrInput {
+	return (*cacheUsernameDownloadSettingsPtrType)(v)
+}
+
+func (*cacheUsernameDownloadSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettings)(nil)).Elem()
+}
+
+func (i *cacheUsernameDownloadSettingsPtrType) ToCacheUsernameDownloadSettingsPtrOutput() CacheUsernameDownloadSettingsPtrOutput {
+	return i.ToCacheUsernameDownloadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheUsernameDownloadSettingsPtrType) ToCacheUsernameDownloadSettingsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsPtrOutput)
+}
+
+// Settings for Extended Groups username and group download.
+type CacheUsernameDownloadSettingsOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettings)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsOutput) ToCacheUsernameDownloadSettingsOutput() CacheUsernameDownloadSettingsOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsOutput) ToCacheUsernameDownloadSettingsOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsOutput) ToCacheUsernameDownloadSettingsPtrOutput() CacheUsernameDownloadSettingsPtrOutput {
+	return o.ToCacheUsernameDownloadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheUsernameDownloadSettingsOutput) ToCacheUsernameDownloadSettingsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *CacheUsernameDownloadSettings {
+		return &v
+	}).(CacheUsernameDownloadSettingsPtrOutput)
+}
+
+// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+func (o CacheUsernameDownloadSettingsOutput) AutoDownloadCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *bool { return v.AutoDownloadCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+func (o CacheUsernameDownloadSettingsOutput) CaCertificateURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.CaCertificateURI }).(pulumi.StringPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+func (o CacheUsernameDownloadSettingsOutput) Credentials() CacheUsernameDownloadSettingsCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *CacheUsernameDownloadSettingsCredentials { return v.Credentials }).(CacheUsernameDownloadSettingsCredentialsPtrOutput)
+}
+
+// Whether or not the LDAP connection should be encrypted.
+func (o CacheUsernameDownloadSettingsOutput) EncryptLdapConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *bool { return v.EncryptLdapConnection }).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not Extended Groups is enabled.
+func (o CacheUsernameDownloadSettingsOutput) ExtendedGroupsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *bool { return v.ExtendedGroupsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsOutput) GroupFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.GroupFileURI }).(pulumi.StringPtrOutput)
+}
+
+// The base distinguished name for the LDAP domain.
+func (o CacheUsernameDownloadSettingsOutput) LdapBaseDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.LdapBaseDn }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name or IP address of the LDAP server to use.
+func (o CacheUsernameDownloadSettingsOutput) LdapServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.LdapServer }).(pulumi.StringPtrOutput)
+}
+
+// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+func (o CacheUsernameDownloadSettingsOutput) RequireValidCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *bool { return v.RequireValidCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsOutput) UserFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.UserFileURI }).(pulumi.StringPtrOutput)
+}
+
+// This setting determines how the cache gets username and group names for clients.
+func (o CacheUsernameDownloadSettingsOutput) UsernameSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.UsernameSource }).(pulumi.StringPtrOutput)
+}
+
+type CacheUsernameDownloadSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettings)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsPtrOutput) ToCacheUsernameDownloadSettingsPtrOutput() CacheUsernameDownloadSettingsPtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsPtrOutput) ToCacheUsernameDownloadSettingsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsPtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsPtrOutput) Elem() CacheUsernameDownloadSettingsOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) CacheUsernameDownloadSettings { return *v }).(CacheUsernameDownloadSettingsOutput)
+}
+
+// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+func (o CacheUsernameDownloadSettingsPtrOutput) AutoDownloadCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoDownloadCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+func (o CacheUsernameDownloadSettingsPtrOutput) CaCertificateURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaCertificateURI
+	}).(pulumi.StringPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+func (o CacheUsernameDownloadSettingsPtrOutput) Credentials() CacheUsernameDownloadSettingsCredentialsPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *CacheUsernameDownloadSettingsCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(CacheUsernameDownloadSettingsCredentialsPtrOutput)
+}
+
+// Whether or not the LDAP connection should be encrypted.
+func (o CacheUsernameDownloadSettingsPtrOutput) EncryptLdapConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptLdapConnection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not Extended Groups is enabled.
+func (o CacheUsernameDownloadSettingsPtrOutput) ExtendedGroupsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExtendedGroupsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsPtrOutput) GroupFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupFileURI
+	}).(pulumi.StringPtrOutput)
+}
+
+// The base distinguished name for the LDAP domain.
+func (o CacheUsernameDownloadSettingsPtrOutput) LdapBaseDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapBaseDn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name or IP address of the LDAP server to use.
+func (o CacheUsernameDownloadSettingsPtrOutput) LdapServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapServer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+func (o CacheUsernameDownloadSettingsPtrOutput) RequireValidCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireValidCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsPtrOutput) UserFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserFileURI
+	}).(pulumi.StringPtrOutput)
+}
+
+// This setting determines how the cache gets username and group names for clients.
+func (o CacheUsernameDownloadSettingsPtrOutput) UsernameSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+type CacheUsernameDownloadSettingsCredentials struct {
+	// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindDn *string `pulumi:"bindDn"`
+	// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindPassword *string `pulumi:"bindPassword"`
+}
+
+// CacheUsernameDownloadSettingsCredentialsInput is an input type that accepts CacheUsernameDownloadSettingsCredentialsArgs and CacheUsernameDownloadSettingsCredentialsOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsCredentialsInput` via:
+//
+//          CacheUsernameDownloadSettingsCredentialsArgs{...}
+type CacheUsernameDownloadSettingsCredentialsInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsCredentialsOutput() CacheUsernameDownloadSettingsCredentialsOutput
+	ToCacheUsernameDownloadSettingsCredentialsOutputWithContext(context.Context) CacheUsernameDownloadSettingsCredentialsOutput
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+type CacheUsernameDownloadSettingsCredentialsArgs struct {
+	// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindDn pulumi.StringPtrInput `pulumi:"bindDn"`
+	// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindPassword pulumi.StringPtrInput `pulumi:"bindPassword"`
+}
+
+func (CacheUsernameDownloadSettingsCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettingsCredentials)(nil)).Elem()
+}
+
+func (i CacheUsernameDownloadSettingsCredentialsArgs) ToCacheUsernameDownloadSettingsCredentialsOutput() CacheUsernameDownloadSettingsCredentialsOutput {
+	return i.ToCacheUsernameDownloadSettingsCredentialsOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsCredentialsArgs) ToCacheUsernameDownloadSettingsCredentialsOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsCredentialsOutput)
+}
+
+func (i CacheUsernameDownloadSettingsCredentialsArgs) ToCacheUsernameDownloadSettingsCredentialsPtrOutput() CacheUsernameDownloadSettingsCredentialsPtrOutput {
+	return i.ToCacheUsernameDownloadSettingsCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsCredentialsArgs) ToCacheUsernameDownloadSettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsCredentialsOutput).ToCacheUsernameDownloadSettingsCredentialsPtrOutputWithContext(ctx)
+}
+
+// CacheUsernameDownloadSettingsCredentialsPtrInput is an input type that accepts CacheUsernameDownloadSettingsCredentialsArgs, CacheUsernameDownloadSettingsCredentialsPtr and CacheUsernameDownloadSettingsCredentialsPtrOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsCredentialsPtrInput` via:
+//
+//          CacheUsernameDownloadSettingsCredentialsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheUsernameDownloadSettingsCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsCredentialsPtrOutput() CacheUsernameDownloadSettingsCredentialsPtrOutput
+	ToCacheUsernameDownloadSettingsCredentialsPtrOutputWithContext(context.Context) CacheUsernameDownloadSettingsCredentialsPtrOutput
+}
+
+type cacheUsernameDownloadSettingsCredentialsPtrType CacheUsernameDownloadSettingsCredentialsArgs
+
+func CacheUsernameDownloadSettingsCredentialsPtr(v *CacheUsernameDownloadSettingsCredentialsArgs) CacheUsernameDownloadSettingsCredentialsPtrInput {
+	return (*cacheUsernameDownloadSettingsCredentialsPtrType)(v)
+}
+
+func (*cacheUsernameDownloadSettingsCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettingsCredentials)(nil)).Elem()
+}
+
+func (i *cacheUsernameDownloadSettingsCredentialsPtrType) ToCacheUsernameDownloadSettingsCredentialsPtrOutput() CacheUsernameDownloadSettingsCredentialsPtrOutput {
+	return i.ToCacheUsernameDownloadSettingsCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheUsernameDownloadSettingsCredentialsPtrType) ToCacheUsernameDownloadSettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsCredentialsPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+type CacheUsernameDownloadSettingsCredentialsOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettingsCredentials)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsCredentialsOutput) ToCacheUsernameDownloadSettingsCredentialsOutput() CacheUsernameDownloadSettingsCredentialsOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsCredentialsOutput) ToCacheUsernameDownloadSettingsCredentialsOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsCredentialsOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsCredentialsOutput) ToCacheUsernameDownloadSettingsCredentialsPtrOutput() CacheUsernameDownloadSettingsCredentialsPtrOutput {
+	return o.ToCacheUsernameDownloadSettingsCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheUsernameDownloadSettingsCredentialsOutput) ToCacheUsernameDownloadSettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsCredentials) *CacheUsernameDownloadSettingsCredentials {
+		return &v
+	}).(CacheUsernameDownloadSettingsCredentialsPtrOutput)
+}
+
+// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsCredentialsOutput) BindDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsCredentials) *string { return v.BindDn }).(pulumi.StringPtrOutput)
+}
+
+// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsCredentialsOutput) BindPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsCredentials) *string { return v.BindPassword }).(pulumi.StringPtrOutput)
+}
+
+type CacheUsernameDownloadSettingsCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettingsCredentials)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) ToCacheUsernameDownloadSettingsCredentialsPtrOutput() CacheUsernameDownloadSettingsCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) ToCacheUsernameDownloadSettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) Elem() CacheUsernameDownloadSettingsCredentialsOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsCredentials) CacheUsernameDownloadSettingsCredentials { return *v }).(CacheUsernameDownloadSettingsCredentialsOutput)
+}
+
+// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) BindDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BindDn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) BindPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BindPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for Extended Groups username and group download.
+type CacheUsernameDownloadSettingsResponse struct {
+	// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+	AutoDownloadCertificate *bool `pulumi:"autoDownloadCertificate"`
+	// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+	CaCertificateURI *string `pulumi:"caCertificateURI"`
+	// When present, these are the credentials for the secure LDAP connection.
+	Credentials *CacheUsernameDownloadSettingsResponseCredentials `pulumi:"credentials"`
+	// Whether or not the LDAP connection should be encrypted.
+	EncryptLdapConnection *bool `pulumi:"encryptLdapConnection"`
+	// Whether or not Extended Groups is enabled.
+	ExtendedGroupsEnabled *bool `pulumi:"extendedGroupsEnabled"`
+	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+	GroupFileURI *string `pulumi:"groupFileURI"`
+	// The base distinguished name for the LDAP domain.
+	LdapBaseDn *string `pulumi:"ldapBaseDn"`
+	// The fully qualified domain name or IP address of the LDAP server to use.
+	LdapServer *string `pulumi:"ldapServer"`
+	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+	RequireValidCertificate *bool `pulumi:"requireValidCertificate"`
+	// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+	UserFileURI *string `pulumi:"userFileURI"`
+	// Indicates whether or not the HPC Cache has performed the username download successfully.
+	UsernameDownloaded string `pulumi:"usernameDownloaded"`
+	// This setting determines how the cache gets username and group names for clients.
+	UsernameSource *string `pulumi:"usernameSource"`
+}
+
+// CacheUsernameDownloadSettingsResponseInput is an input type that accepts CacheUsernameDownloadSettingsResponseArgs and CacheUsernameDownloadSettingsResponseOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsResponseInput` via:
+//
+//          CacheUsernameDownloadSettingsResponseArgs{...}
+type CacheUsernameDownloadSettingsResponseInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsResponseOutput() CacheUsernameDownloadSettingsResponseOutput
+	ToCacheUsernameDownloadSettingsResponseOutputWithContext(context.Context) CacheUsernameDownloadSettingsResponseOutput
+}
+
+// Settings for Extended Groups username and group download.
+type CacheUsernameDownloadSettingsResponseArgs struct {
+	// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+	AutoDownloadCertificate pulumi.BoolPtrInput `pulumi:"autoDownloadCertificate"`
+	// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+	CaCertificateURI pulumi.StringPtrInput `pulumi:"caCertificateURI"`
+	// When present, these are the credentials for the secure LDAP connection.
+	Credentials CacheUsernameDownloadSettingsResponseCredentialsPtrInput `pulumi:"credentials"`
+	// Whether or not the LDAP connection should be encrypted.
+	EncryptLdapConnection pulumi.BoolPtrInput `pulumi:"encryptLdapConnection"`
+	// Whether or not Extended Groups is enabled.
+	ExtendedGroupsEnabled pulumi.BoolPtrInput `pulumi:"extendedGroupsEnabled"`
+	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+	GroupFileURI pulumi.StringPtrInput `pulumi:"groupFileURI"`
+	// The base distinguished name for the LDAP domain.
+	LdapBaseDn pulumi.StringPtrInput `pulumi:"ldapBaseDn"`
+	// The fully qualified domain name or IP address of the LDAP server to use.
+	LdapServer pulumi.StringPtrInput `pulumi:"ldapServer"`
+	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+	RequireValidCertificate pulumi.BoolPtrInput `pulumi:"requireValidCertificate"`
+	// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+	UserFileURI pulumi.StringPtrInput `pulumi:"userFileURI"`
+	// Indicates whether or not the HPC Cache has performed the username download successfully.
+	UsernameDownloaded pulumi.StringInput `pulumi:"usernameDownloaded"`
+	// This setting determines how the cache gets username and group names for clients.
+	UsernameSource pulumi.StringPtrInput `pulumi:"usernameSource"`
+}
+
+func (CacheUsernameDownloadSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettingsResponse)(nil)).Elem()
+}
+
+func (i CacheUsernameDownloadSettingsResponseArgs) ToCacheUsernameDownloadSettingsResponseOutput() CacheUsernameDownloadSettingsResponseOutput {
+	return i.ToCacheUsernameDownloadSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsResponseArgs) ToCacheUsernameDownloadSettingsResponseOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsResponseOutput)
+}
+
+func (i CacheUsernameDownloadSettingsResponseArgs) ToCacheUsernameDownloadSettingsResponsePtrOutput() CacheUsernameDownloadSettingsResponsePtrOutput {
+	return i.ToCacheUsernameDownloadSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsResponseArgs) ToCacheUsernameDownloadSettingsResponsePtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsResponseOutput).ToCacheUsernameDownloadSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// CacheUsernameDownloadSettingsResponsePtrInput is an input type that accepts CacheUsernameDownloadSettingsResponseArgs, CacheUsernameDownloadSettingsResponsePtr and CacheUsernameDownloadSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsResponsePtrInput` via:
+//
+//          CacheUsernameDownloadSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheUsernameDownloadSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsResponsePtrOutput() CacheUsernameDownloadSettingsResponsePtrOutput
+	ToCacheUsernameDownloadSettingsResponsePtrOutputWithContext(context.Context) CacheUsernameDownloadSettingsResponsePtrOutput
+}
+
+type cacheUsernameDownloadSettingsResponsePtrType CacheUsernameDownloadSettingsResponseArgs
+
+func CacheUsernameDownloadSettingsResponsePtr(v *CacheUsernameDownloadSettingsResponseArgs) CacheUsernameDownloadSettingsResponsePtrInput {
+	return (*cacheUsernameDownloadSettingsResponsePtrType)(v)
+}
+
+func (*cacheUsernameDownloadSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettingsResponse)(nil)).Elem()
+}
+
+func (i *cacheUsernameDownloadSettingsResponsePtrType) ToCacheUsernameDownloadSettingsResponsePtrOutput() CacheUsernameDownloadSettingsResponsePtrOutput {
+	return i.ToCacheUsernameDownloadSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheUsernameDownloadSettingsResponsePtrType) ToCacheUsernameDownloadSettingsResponsePtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsResponsePtrOutput)
+}
+
+// Settings for Extended Groups username and group download.
+type CacheUsernameDownloadSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettingsResponse)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsResponseOutput) ToCacheUsernameDownloadSettingsResponseOutput() CacheUsernameDownloadSettingsResponseOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsResponseOutput) ToCacheUsernameDownloadSettingsResponseOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponseOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsResponseOutput) ToCacheUsernameDownloadSettingsResponsePtrOutput() CacheUsernameDownloadSettingsResponsePtrOutput {
+	return o.ToCacheUsernameDownloadSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CacheUsernameDownloadSettingsResponseOutput) ToCacheUsernameDownloadSettingsResponsePtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponsePtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *CacheUsernameDownloadSettingsResponse {
+		return &v
+	}).(CacheUsernameDownloadSettingsResponsePtrOutput)
+}
+
+// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+func (o CacheUsernameDownloadSettingsResponseOutput) AutoDownloadCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *bool { return v.AutoDownloadCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+func (o CacheUsernameDownloadSettingsResponseOutput) CaCertificateURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.CaCertificateURI }).(pulumi.StringPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+func (o CacheUsernameDownloadSettingsResponseOutput) Credentials() CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *CacheUsernameDownloadSettingsResponseCredentials {
+		return v.Credentials
+	}).(CacheUsernameDownloadSettingsResponseCredentialsPtrOutput)
+}
+
+// Whether or not the LDAP connection should be encrypted.
+func (o CacheUsernameDownloadSettingsResponseOutput) EncryptLdapConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *bool { return v.EncryptLdapConnection }).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not Extended Groups is enabled.
+func (o CacheUsernameDownloadSettingsResponseOutput) ExtendedGroupsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *bool { return v.ExtendedGroupsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsResponseOutput) GroupFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.GroupFileURI }).(pulumi.StringPtrOutput)
+}
+
+// The base distinguished name for the LDAP domain.
+func (o CacheUsernameDownloadSettingsResponseOutput) LdapBaseDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.LdapBaseDn }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name or IP address of the LDAP server to use.
+func (o CacheUsernameDownloadSettingsResponseOutput) LdapServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.LdapServer }).(pulumi.StringPtrOutput)
+}
+
+// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+func (o CacheUsernameDownloadSettingsResponseOutput) RequireValidCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *bool { return v.RequireValidCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsResponseOutput) UserFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.UserFileURI }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether or not the HPC Cache has performed the username download successfully.
+func (o CacheUsernameDownloadSettingsResponseOutput) UsernameDownloaded() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) string { return v.UsernameDownloaded }).(pulumi.StringOutput)
+}
+
+// This setting determines how the cache gets username and group names for clients.
+func (o CacheUsernameDownloadSettingsResponseOutput) UsernameSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.UsernameSource }).(pulumi.StringPtrOutput)
+}
+
+type CacheUsernameDownloadSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettingsResponse)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) ToCacheUsernameDownloadSettingsResponsePtrOutput() CacheUsernameDownloadSettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) ToCacheUsernameDownloadSettingsResponsePtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) Elem() CacheUsernameDownloadSettingsResponseOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) CacheUsernameDownloadSettingsResponse { return *v }).(CacheUsernameDownloadSettingsResponseOutput)
+}
+
+// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) AutoDownloadCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoDownloadCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) CaCertificateURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaCertificateURI
+	}).(pulumi.StringPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) Credentials() CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *CacheUsernameDownloadSettingsResponseCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(CacheUsernameDownloadSettingsResponseCredentialsPtrOutput)
+}
+
+// Whether or not the LDAP connection should be encrypted.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) EncryptLdapConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptLdapConnection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not Extended Groups is enabled.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) ExtendedGroupsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExtendedGroupsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) GroupFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupFileURI
+	}).(pulumi.StringPtrOutput)
+}
+
+// The base distinguished name for the LDAP domain.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) LdapBaseDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapBaseDn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name or IP address of the LDAP server to use.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) LdapServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapServer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) RequireValidCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireValidCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) UserFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserFileURI
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether or not the HPC Cache has performed the username download successfully.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) UsernameDownloaded() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UsernameDownloaded
+	}).(pulumi.StringPtrOutput)
+}
+
+// This setting determines how the cache gets username and group names for clients.
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) UsernameSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+type CacheUsernameDownloadSettingsResponseCredentials struct {
+	// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindDn *string `pulumi:"bindDn"`
+	// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindPassword *string `pulumi:"bindPassword"`
+}
+
+// CacheUsernameDownloadSettingsResponseCredentialsInput is an input type that accepts CacheUsernameDownloadSettingsResponseCredentialsArgs and CacheUsernameDownloadSettingsResponseCredentialsOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsResponseCredentialsInput` via:
+//
+//          CacheUsernameDownloadSettingsResponseCredentialsArgs{...}
+type CacheUsernameDownloadSettingsResponseCredentialsInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsResponseCredentialsOutput() CacheUsernameDownloadSettingsResponseCredentialsOutput
+	ToCacheUsernameDownloadSettingsResponseCredentialsOutputWithContext(context.Context) CacheUsernameDownloadSettingsResponseCredentialsOutput
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+type CacheUsernameDownloadSettingsResponseCredentialsArgs struct {
+	// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindDn pulumi.StringPtrInput `pulumi:"bindDn"`
+	// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindPassword pulumi.StringPtrInput `pulumi:"bindPassword"`
+}
+
+func (CacheUsernameDownloadSettingsResponseCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettingsResponseCredentials)(nil)).Elem()
+}
+
+func (i CacheUsernameDownloadSettingsResponseCredentialsArgs) ToCacheUsernameDownloadSettingsResponseCredentialsOutput() CacheUsernameDownloadSettingsResponseCredentialsOutput {
+	return i.ToCacheUsernameDownloadSettingsResponseCredentialsOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsResponseCredentialsArgs) ToCacheUsernameDownloadSettingsResponseCredentialsOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponseCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsResponseCredentialsOutput)
+}
+
+func (i CacheUsernameDownloadSettingsResponseCredentialsArgs) ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutput() CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
+	return i.ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsResponseCredentialsArgs) ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsResponseCredentialsOutput).ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutputWithContext(ctx)
+}
+
+// CacheUsernameDownloadSettingsResponseCredentialsPtrInput is an input type that accepts CacheUsernameDownloadSettingsResponseCredentialsArgs, CacheUsernameDownloadSettingsResponseCredentialsPtr and CacheUsernameDownloadSettingsResponseCredentialsPtrOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsResponseCredentialsPtrInput` via:
+//
+//          CacheUsernameDownloadSettingsResponseCredentialsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheUsernameDownloadSettingsResponseCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutput() CacheUsernameDownloadSettingsResponseCredentialsPtrOutput
+	ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutputWithContext(context.Context) CacheUsernameDownloadSettingsResponseCredentialsPtrOutput
+}
+
+type cacheUsernameDownloadSettingsResponseCredentialsPtrType CacheUsernameDownloadSettingsResponseCredentialsArgs
+
+func CacheUsernameDownloadSettingsResponseCredentialsPtr(v *CacheUsernameDownloadSettingsResponseCredentialsArgs) CacheUsernameDownloadSettingsResponseCredentialsPtrInput {
+	return (*cacheUsernameDownloadSettingsResponseCredentialsPtrType)(v)
+}
+
+func (*cacheUsernameDownloadSettingsResponseCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettingsResponseCredentials)(nil)).Elem()
+}
+
+func (i *cacheUsernameDownloadSettingsResponseCredentialsPtrType) ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutput() CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
+	return i.ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheUsernameDownloadSettingsResponseCredentialsPtrType) ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsResponseCredentialsPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+type CacheUsernameDownloadSettingsResponseCredentialsOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsResponseCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettingsResponseCredentials)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) ToCacheUsernameDownloadSettingsResponseCredentialsOutput() CacheUsernameDownloadSettingsResponseCredentialsOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) ToCacheUsernameDownloadSettingsResponseCredentialsOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponseCredentialsOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutput() CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
+	return o.ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponseCredentials) *CacheUsernameDownloadSettingsResponseCredentials {
+		return &v
+	}).(CacheUsernameDownloadSettingsResponseCredentialsPtrOutput)
+}
+
+// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) BindDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponseCredentials) *string { return v.BindDn }).(pulumi.StringPtrOutput)
+}
+
+// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) BindPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponseCredentials) *string { return v.BindPassword }).(pulumi.StringPtrOutput)
+}
+
+type CacheUsernameDownloadSettingsResponseCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettingsResponseCredentials)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutput() CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) Elem() CacheUsernameDownloadSettingsResponseCredentialsOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponseCredentials) CacheUsernameDownloadSettingsResponseCredentials {
+		return *v
+	}).(CacheUsernameDownloadSettingsResponseCredentialsOutput)
+}
+
+// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) BindDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponseCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BindDn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) BindPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponseCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BindPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties pertaining to the ClfsTarget
 type ClfsTarget struct {
 	// Resource ID of storage container.
 	Target *string `pulumi:"target"`
@@ -1787,7 +3859,7 @@ type ClfsTargetInput interface {
 	ToClfsTargetOutputWithContext(context.Context) ClfsTargetOutput
 }
 
-// Properties pertained to ClfsTarget
+// Properties pertaining to the ClfsTarget
 type ClfsTargetArgs struct {
 	// Resource ID of storage container.
 	Target pulumi.StringPtrInput `pulumi:"target"`
@@ -1846,7 +3918,7 @@ func (i *clfsTargetPtrType) ToClfsTargetPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetPtrOutput)
 }
 
-// Properties pertained to ClfsTarget
+// Properties pertaining to the ClfsTarget
 type ClfsTargetOutput struct{ *pulumi.OutputState }
 
 func (ClfsTargetOutput) ElementType() reflect.Type {
@@ -1904,7 +3976,7 @@ func (o ClfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertained to ClfsTarget
+// Properties pertaining to the ClfsTarget
 type ClfsTargetResponse struct {
 	// Resource ID of storage container.
 	Target *string `pulumi:"target"`
@@ -1921,7 +3993,7 @@ type ClfsTargetResponseInput interface {
 	ToClfsTargetResponseOutputWithContext(context.Context) ClfsTargetResponseOutput
 }
 
-// Properties pertained to ClfsTarget
+// Properties pertaining to the ClfsTarget
 type ClfsTargetResponseArgs struct {
 	// Resource ID of storage container.
 	Target pulumi.StringPtrInput `pulumi:"target"`
@@ -1980,7 +4052,7 @@ func (i *clfsTargetResponsePtrType) ToClfsTargetResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetResponsePtrOutput)
 }
 
-// Properties pertained to ClfsTarget
+// Properties pertaining to the ClfsTarget
 type ClfsTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (ClfsTargetResponseOutput) ElementType() reflect.Type {
@@ -2616,6 +4688,8 @@ func (o KeyVaultKeyReferenceSourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 type NamespaceJunction struct {
 	// Namespace path on a Cache for a Storage Target.
 	NamespacePath *string `pulumi:"namespacePath"`
+	// Name of the access policy applied to this junction.
+	NfsAccessPolicy *string `pulumi:"nfsAccessPolicy"`
 	// NFS export where targetPath exists.
 	NfsExport *string `pulumi:"nfsExport"`
 	// Path in Storage Target to which namespacePath points.
@@ -2637,6 +4711,8 @@ type NamespaceJunctionInput interface {
 type NamespaceJunctionArgs struct {
 	// Namespace path on a Cache for a Storage Target.
 	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
+	// Name of the access policy applied to this junction.
+	NfsAccessPolicy pulumi.StringPtrInput `pulumi:"nfsAccessPolicy"`
 	// NFS export where targetPath exists.
 	NfsExport pulumi.StringPtrInput `pulumi:"nfsExport"`
 	// Path in Storage Target to which namespacePath points.
@@ -2700,6 +4776,11 @@ func (o NamespaceJunctionOutput) NamespacePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
 }
 
+// Name of the access policy applied to this junction.
+func (o NamespaceJunctionOutput) NfsAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunction) *string { return v.NfsAccessPolicy }).(pulumi.StringPtrOutput)
+}
+
 // NFS export where targetPath exists.
 func (o NamespaceJunctionOutput) NfsExport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
@@ -2734,6 +4815,8 @@ func (o NamespaceJunctionArrayOutput) Index(i pulumi.IntInput) NamespaceJunction
 type NamespaceJunctionResponse struct {
 	// Namespace path on a Cache for a Storage Target.
 	NamespacePath *string `pulumi:"namespacePath"`
+	// Name of the access policy applied to this junction.
+	NfsAccessPolicy *string `pulumi:"nfsAccessPolicy"`
 	// NFS export where targetPath exists.
 	NfsExport *string `pulumi:"nfsExport"`
 	// Path in Storage Target to which namespacePath points.
@@ -2755,6 +4838,8 @@ type NamespaceJunctionResponseInput interface {
 type NamespaceJunctionResponseArgs struct {
 	// Namespace path on a Cache for a Storage Target.
 	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
+	// Name of the access policy applied to this junction.
+	NfsAccessPolicy pulumi.StringPtrInput `pulumi:"nfsAccessPolicy"`
 	// NFS export where targetPath exists.
 	NfsExport pulumi.StringPtrInput `pulumi:"nfsExport"`
 	// Path in Storage Target to which namespacePath points.
@@ -2818,6 +4903,11 @@ func (o NamespaceJunctionResponseOutput) NamespacePath() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
 }
 
+// Name of the access policy applied to this junction.
+func (o NamespaceJunctionResponseOutput) NfsAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NfsAccessPolicy }).(pulumi.StringPtrOutput)
+}
+
 // NFS export where targetPath exists.
 func (o NamespaceJunctionResponseOutput) NfsExport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
@@ -2848,11 +4938,11 @@ func (o NamespaceJunctionResponseArrayOutput) Index(i pulumi.IntInput) Namespace
 	}).(NamespaceJunctionResponseOutput)
 }
 
-// Properties pertained to Nfs3Target
+// Properties pertaining to the Nfs3Target
 type Nfs3Target struct {
 	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 	Target *string `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -2867,11 +4957,11 @@ type Nfs3TargetInput interface {
 	ToNfs3TargetOutputWithContext(context.Context) Nfs3TargetOutput
 }
 
-// Properties pertained to Nfs3Target
+// Properties pertaining to the Nfs3Target
 type Nfs3TargetArgs struct {
 	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -2928,7 +5018,7 @@ func (i *nfs3TargetPtrType) ToNfs3TargetPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetPtrOutput)
 }
 
-// Properties pertained to Nfs3Target
+// Properties pertaining to the Nfs3Target
 type Nfs3TargetOutput struct{ *pulumi.OutputState }
 
 func (Nfs3TargetOutput) ElementType() reflect.Type {
@@ -2958,7 +5048,7 @@ func (o Nfs3TargetOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3Target) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3Target) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -2991,7 +5081,7 @@ func (o Nfs3TargetPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3Target) *string {
 		if v == nil {
@@ -3001,11 +5091,11 @@ func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertained to Nfs3Target
+// Properties pertaining to the Nfs3Target
 type Nfs3TargetResponse struct {
 	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 	Target *string `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -3020,11 +5110,11 @@ type Nfs3TargetResponseInput interface {
 	ToNfs3TargetResponseOutputWithContext(context.Context) Nfs3TargetResponseOutput
 }
 
-// Properties pertained to Nfs3Target
+// Properties pertaining to the Nfs3Target
 type Nfs3TargetResponseArgs struct {
 	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -3081,7 +5171,7 @@ func (i *nfs3TargetResponsePtrType) ToNfs3TargetResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetResponsePtrOutput)
 }
 
-// Properties pertained to Nfs3Target
+// Properties pertaining to the Nfs3Target
 type Nfs3TargetResponseOutput struct{ *pulumi.OutputState }
 
 func (Nfs3TargetResponseOutput) ElementType() reflect.Type {
@@ -3111,7 +5201,7 @@ func (o Nfs3TargetResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetResponseOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -3144,7 +5234,7 @@ func (o Nfs3TargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3TargetResponse) *string {
 		if v == nil {
@@ -3152,6 +5242,550 @@ func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 		}
 		return v.UsageModel
 	}).(pulumi.StringPtrOutput)
+}
+
+// A set of rules describing access policies applied to NFSv3 clients of the cache.
+type NfsAccessPolicy struct {
+	// The set of rules describing client accesses allowed under this policy.
+	AccessRules []NfsAccessRule `pulumi:"accessRules"`
+	// Name identifying this policy. Access Policy names are not case sensitive.
+	Name string `pulumi:"name"`
+}
+
+// NfsAccessPolicyInput is an input type that accepts NfsAccessPolicyArgs and NfsAccessPolicyOutput values.
+// You can construct a concrete instance of `NfsAccessPolicyInput` via:
+//
+//          NfsAccessPolicyArgs{...}
+type NfsAccessPolicyInput interface {
+	pulumi.Input
+
+	ToNfsAccessPolicyOutput() NfsAccessPolicyOutput
+	ToNfsAccessPolicyOutputWithContext(context.Context) NfsAccessPolicyOutput
+}
+
+// A set of rules describing access policies applied to NFSv3 clients of the cache.
+type NfsAccessPolicyArgs struct {
+	// The set of rules describing client accesses allowed under this policy.
+	AccessRules NfsAccessRuleArrayInput `pulumi:"accessRules"`
+	// Name identifying this policy. Access Policy names are not case sensitive.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (NfsAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessPolicy)(nil)).Elem()
+}
+
+func (i NfsAccessPolicyArgs) ToNfsAccessPolicyOutput() NfsAccessPolicyOutput {
+	return i.ToNfsAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i NfsAccessPolicyArgs) ToNfsAccessPolicyOutputWithContext(ctx context.Context) NfsAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessPolicyOutput)
+}
+
+// NfsAccessPolicyArrayInput is an input type that accepts NfsAccessPolicyArray and NfsAccessPolicyArrayOutput values.
+// You can construct a concrete instance of `NfsAccessPolicyArrayInput` via:
+//
+//          NfsAccessPolicyArray{ NfsAccessPolicyArgs{...} }
+type NfsAccessPolicyArrayInput interface {
+	pulumi.Input
+
+	ToNfsAccessPolicyArrayOutput() NfsAccessPolicyArrayOutput
+	ToNfsAccessPolicyArrayOutputWithContext(context.Context) NfsAccessPolicyArrayOutput
+}
+
+type NfsAccessPolicyArray []NfsAccessPolicyInput
+
+func (NfsAccessPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessPolicy)(nil)).Elem()
+}
+
+func (i NfsAccessPolicyArray) ToNfsAccessPolicyArrayOutput() NfsAccessPolicyArrayOutput {
+	return i.ToNfsAccessPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i NfsAccessPolicyArray) ToNfsAccessPolicyArrayOutputWithContext(ctx context.Context) NfsAccessPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessPolicyArrayOutput)
+}
+
+// A set of rules describing access policies applied to NFSv3 clients of the cache.
+type NfsAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessPolicy)(nil)).Elem()
+}
+
+func (o NfsAccessPolicyOutput) ToNfsAccessPolicyOutput() NfsAccessPolicyOutput {
+	return o
+}
+
+func (o NfsAccessPolicyOutput) ToNfsAccessPolicyOutputWithContext(ctx context.Context) NfsAccessPolicyOutput {
+	return o
+}
+
+// The set of rules describing client accesses allowed under this policy.
+func (o NfsAccessPolicyOutput) AccessRules() NfsAccessRuleArrayOutput {
+	return o.ApplyT(func(v NfsAccessPolicy) []NfsAccessRule { return v.AccessRules }).(NfsAccessRuleArrayOutput)
+}
+
+// Name identifying this policy. Access Policy names are not case sensitive.
+func (o NfsAccessPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NfsAccessPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type NfsAccessPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessPolicy)(nil)).Elem()
+}
+
+func (o NfsAccessPolicyArrayOutput) ToNfsAccessPolicyArrayOutput() NfsAccessPolicyArrayOutput {
+	return o
+}
+
+func (o NfsAccessPolicyArrayOutput) ToNfsAccessPolicyArrayOutputWithContext(ctx context.Context) NfsAccessPolicyArrayOutput {
+	return o
+}
+
+func (o NfsAccessPolicyArrayOutput) Index(i pulumi.IntInput) NfsAccessPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NfsAccessPolicy {
+		return vs[0].([]NfsAccessPolicy)[vs[1].(int)]
+	}).(NfsAccessPolicyOutput)
+}
+
+// A set of rules describing access policies applied to NFSv3 clients of the cache.
+type NfsAccessPolicyResponse struct {
+	// The set of rules describing client accesses allowed under this policy.
+	AccessRules []NfsAccessRuleResponse `pulumi:"accessRules"`
+	// Name identifying this policy. Access Policy names are not case sensitive.
+	Name string `pulumi:"name"`
+}
+
+// NfsAccessPolicyResponseInput is an input type that accepts NfsAccessPolicyResponseArgs and NfsAccessPolicyResponseOutput values.
+// You can construct a concrete instance of `NfsAccessPolicyResponseInput` via:
+//
+//          NfsAccessPolicyResponseArgs{...}
+type NfsAccessPolicyResponseInput interface {
+	pulumi.Input
+
+	ToNfsAccessPolicyResponseOutput() NfsAccessPolicyResponseOutput
+	ToNfsAccessPolicyResponseOutputWithContext(context.Context) NfsAccessPolicyResponseOutput
+}
+
+// A set of rules describing access policies applied to NFSv3 clients of the cache.
+type NfsAccessPolicyResponseArgs struct {
+	// The set of rules describing client accesses allowed under this policy.
+	AccessRules NfsAccessRuleResponseArrayInput `pulumi:"accessRules"`
+	// Name identifying this policy. Access Policy names are not case sensitive.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (NfsAccessPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessPolicyResponse)(nil)).Elem()
+}
+
+func (i NfsAccessPolicyResponseArgs) ToNfsAccessPolicyResponseOutput() NfsAccessPolicyResponseOutput {
+	return i.ToNfsAccessPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i NfsAccessPolicyResponseArgs) ToNfsAccessPolicyResponseOutputWithContext(ctx context.Context) NfsAccessPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessPolicyResponseOutput)
+}
+
+// NfsAccessPolicyResponseArrayInput is an input type that accepts NfsAccessPolicyResponseArray and NfsAccessPolicyResponseArrayOutput values.
+// You can construct a concrete instance of `NfsAccessPolicyResponseArrayInput` via:
+//
+//          NfsAccessPolicyResponseArray{ NfsAccessPolicyResponseArgs{...} }
+type NfsAccessPolicyResponseArrayInput interface {
+	pulumi.Input
+
+	ToNfsAccessPolicyResponseArrayOutput() NfsAccessPolicyResponseArrayOutput
+	ToNfsAccessPolicyResponseArrayOutputWithContext(context.Context) NfsAccessPolicyResponseArrayOutput
+}
+
+type NfsAccessPolicyResponseArray []NfsAccessPolicyResponseInput
+
+func (NfsAccessPolicyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessPolicyResponse)(nil)).Elem()
+}
+
+func (i NfsAccessPolicyResponseArray) ToNfsAccessPolicyResponseArrayOutput() NfsAccessPolicyResponseArrayOutput {
+	return i.ToNfsAccessPolicyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NfsAccessPolicyResponseArray) ToNfsAccessPolicyResponseArrayOutputWithContext(ctx context.Context) NfsAccessPolicyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessPolicyResponseArrayOutput)
+}
+
+// A set of rules describing access policies applied to NFSv3 clients of the cache.
+type NfsAccessPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessPolicyResponse)(nil)).Elem()
+}
+
+func (o NfsAccessPolicyResponseOutput) ToNfsAccessPolicyResponseOutput() NfsAccessPolicyResponseOutput {
+	return o
+}
+
+func (o NfsAccessPolicyResponseOutput) ToNfsAccessPolicyResponseOutputWithContext(ctx context.Context) NfsAccessPolicyResponseOutput {
+	return o
+}
+
+// The set of rules describing client accesses allowed under this policy.
+func (o NfsAccessPolicyResponseOutput) AccessRules() NfsAccessRuleResponseArrayOutput {
+	return o.ApplyT(func(v NfsAccessPolicyResponse) []NfsAccessRuleResponse { return v.AccessRules }).(NfsAccessRuleResponseArrayOutput)
+}
+
+// Name identifying this policy. Access Policy names are not case sensitive.
+func (o NfsAccessPolicyResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NfsAccessPolicyResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type NfsAccessPolicyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessPolicyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessPolicyResponse)(nil)).Elem()
+}
+
+func (o NfsAccessPolicyResponseArrayOutput) ToNfsAccessPolicyResponseArrayOutput() NfsAccessPolicyResponseArrayOutput {
+	return o
+}
+
+func (o NfsAccessPolicyResponseArrayOutput) ToNfsAccessPolicyResponseArrayOutputWithContext(ctx context.Context) NfsAccessPolicyResponseArrayOutput {
+	return o
+}
+
+func (o NfsAccessPolicyResponseArrayOutput) Index(i pulumi.IntInput) NfsAccessPolicyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NfsAccessPolicyResponse {
+		return vs[0].([]NfsAccessPolicyResponse)[vs[1].(int)]
+	}).(NfsAccessPolicyResponseOutput)
+}
+
+// Rule to place restrictions on portions of the cache namespace being presented to clients.
+type NfsAccessRule struct {
+	// Access allowed by this rule.
+	Access string `pulumi:"access"`
+	// GID value that replaces 0 when rootSquash is true.
+	AnonymousGID *string `pulumi:"anonymousGID"`
+	// UID value that replaces 0 when rootSquash is true.
+	AnonymousUID *string `pulumi:"anonymousUID"`
+	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
+	Filter *string `pulumi:"filter"`
+	// Map root accesses to anonymousUID and anonymousGID.
+	RootSquash *bool `pulumi:"rootSquash"`
+	// Scope for this rule. The scope and filter determine which clients match the rule.
+	Scope string `pulumi:"scope"`
+	// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
+	SubmountAccess *bool `pulumi:"submountAccess"`
+	// Allow SUID semantics.
+	Suid *bool `pulumi:"suid"`
+}
+
+// NfsAccessRuleInput is an input type that accepts NfsAccessRuleArgs and NfsAccessRuleOutput values.
+// You can construct a concrete instance of `NfsAccessRuleInput` via:
+//
+//          NfsAccessRuleArgs{...}
+type NfsAccessRuleInput interface {
+	pulumi.Input
+
+	ToNfsAccessRuleOutput() NfsAccessRuleOutput
+	ToNfsAccessRuleOutputWithContext(context.Context) NfsAccessRuleOutput
+}
+
+// Rule to place restrictions on portions of the cache namespace being presented to clients.
+type NfsAccessRuleArgs struct {
+	// Access allowed by this rule.
+	Access pulumi.StringInput `pulumi:"access"`
+	// GID value that replaces 0 when rootSquash is true.
+	AnonymousGID pulumi.StringPtrInput `pulumi:"anonymousGID"`
+	// UID value that replaces 0 when rootSquash is true.
+	AnonymousUID pulumi.StringPtrInput `pulumi:"anonymousUID"`
+	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	// Map root accesses to anonymousUID and anonymousGID.
+	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
+	// Scope for this rule. The scope and filter determine which clients match the rule.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
+	SubmountAccess pulumi.BoolPtrInput `pulumi:"submountAccess"`
+	// Allow SUID semantics.
+	Suid pulumi.BoolPtrInput `pulumi:"suid"`
+}
+
+func (NfsAccessRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessRule)(nil)).Elem()
+}
+
+func (i NfsAccessRuleArgs) ToNfsAccessRuleOutput() NfsAccessRuleOutput {
+	return i.ToNfsAccessRuleOutputWithContext(context.Background())
+}
+
+func (i NfsAccessRuleArgs) ToNfsAccessRuleOutputWithContext(ctx context.Context) NfsAccessRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessRuleOutput)
+}
+
+// NfsAccessRuleArrayInput is an input type that accepts NfsAccessRuleArray and NfsAccessRuleArrayOutput values.
+// You can construct a concrete instance of `NfsAccessRuleArrayInput` via:
+//
+//          NfsAccessRuleArray{ NfsAccessRuleArgs{...} }
+type NfsAccessRuleArrayInput interface {
+	pulumi.Input
+
+	ToNfsAccessRuleArrayOutput() NfsAccessRuleArrayOutput
+	ToNfsAccessRuleArrayOutputWithContext(context.Context) NfsAccessRuleArrayOutput
+}
+
+type NfsAccessRuleArray []NfsAccessRuleInput
+
+func (NfsAccessRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessRule)(nil)).Elem()
+}
+
+func (i NfsAccessRuleArray) ToNfsAccessRuleArrayOutput() NfsAccessRuleArrayOutput {
+	return i.ToNfsAccessRuleArrayOutputWithContext(context.Background())
+}
+
+func (i NfsAccessRuleArray) ToNfsAccessRuleArrayOutputWithContext(ctx context.Context) NfsAccessRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessRuleArrayOutput)
+}
+
+// Rule to place restrictions on portions of the cache namespace being presented to clients.
+type NfsAccessRuleOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessRule)(nil)).Elem()
+}
+
+func (o NfsAccessRuleOutput) ToNfsAccessRuleOutput() NfsAccessRuleOutput {
+	return o
+}
+
+func (o NfsAccessRuleOutput) ToNfsAccessRuleOutputWithContext(ctx context.Context) NfsAccessRuleOutput {
+	return o
+}
+
+// Access allowed by this rule.
+func (o NfsAccessRuleOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v NfsAccessRule) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// GID value that replaces 0 when rootSquash is true.
+func (o NfsAccessRuleOutput) AnonymousGID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsAccessRule) *string { return v.AnonymousGID }).(pulumi.StringPtrOutput)
+}
+
+// UID value that replaces 0 when rootSquash is true.
+func (o NfsAccessRuleOutput) AnonymousUID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsAccessRule) *string { return v.AnonymousUID }).(pulumi.StringPtrOutput)
+}
+
+// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
+func (o NfsAccessRuleOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsAccessRule) *string { return v.Filter }).(pulumi.StringPtrOutput)
+}
+
+// Map root accesses to anonymousUID and anonymousGID.
+func (o NfsAccessRuleOutput) RootSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NfsAccessRule) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
+}
+
+// Scope for this rule. The scope and filter determine which clients match the rule.
+func (o NfsAccessRuleOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v NfsAccessRule) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
+func (o NfsAccessRuleOutput) SubmountAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NfsAccessRule) *bool { return v.SubmountAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Allow SUID semantics.
+func (o NfsAccessRuleOutput) Suid() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NfsAccessRule) *bool { return v.Suid }).(pulumi.BoolPtrOutput)
+}
+
+type NfsAccessRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessRule)(nil)).Elem()
+}
+
+func (o NfsAccessRuleArrayOutput) ToNfsAccessRuleArrayOutput() NfsAccessRuleArrayOutput {
+	return o
+}
+
+func (o NfsAccessRuleArrayOutput) ToNfsAccessRuleArrayOutputWithContext(ctx context.Context) NfsAccessRuleArrayOutput {
+	return o
+}
+
+func (o NfsAccessRuleArrayOutput) Index(i pulumi.IntInput) NfsAccessRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NfsAccessRule {
+		return vs[0].([]NfsAccessRule)[vs[1].(int)]
+	}).(NfsAccessRuleOutput)
+}
+
+// Rule to place restrictions on portions of the cache namespace being presented to clients.
+type NfsAccessRuleResponse struct {
+	// Access allowed by this rule.
+	Access string `pulumi:"access"`
+	// GID value that replaces 0 when rootSquash is true.
+	AnonymousGID *string `pulumi:"anonymousGID"`
+	// UID value that replaces 0 when rootSquash is true.
+	AnonymousUID *string `pulumi:"anonymousUID"`
+	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
+	Filter *string `pulumi:"filter"`
+	// Map root accesses to anonymousUID and anonymousGID.
+	RootSquash *bool `pulumi:"rootSquash"`
+	// Scope for this rule. The scope and filter determine which clients match the rule.
+	Scope string `pulumi:"scope"`
+	// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
+	SubmountAccess *bool `pulumi:"submountAccess"`
+	// Allow SUID semantics.
+	Suid *bool `pulumi:"suid"`
+}
+
+// NfsAccessRuleResponseInput is an input type that accepts NfsAccessRuleResponseArgs and NfsAccessRuleResponseOutput values.
+// You can construct a concrete instance of `NfsAccessRuleResponseInput` via:
+//
+//          NfsAccessRuleResponseArgs{...}
+type NfsAccessRuleResponseInput interface {
+	pulumi.Input
+
+	ToNfsAccessRuleResponseOutput() NfsAccessRuleResponseOutput
+	ToNfsAccessRuleResponseOutputWithContext(context.Context) NfsAccessRuleResponseOutput
+}
+
+// Rule to place restrictions on portions of the cache namespace being presented to clients.
+type NfsAccessRuleResponseArgs struct {
+	// Access allowed by this rule.
+	Access pulumi.StringInput `pulumi:"access"`
+	// GID value that replaces 0 when rootSquash is true.
+	AnonymousGID pulumi.StringPtrInput `pulumi:"anonymousGID"`
+	// UID value that replaces 0 when rootSquash is true.
+	AnonymousUID pulumi.StringPtrInput `pulumi:"anonymousUID"`
+	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	// Map root accesses to anonymousUID and anonymousGID.
+	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
+	// Scope for this rule. The scope and filter determine which clients match the rule.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
+	SubmountAccess pulumi.BoolPtrInput `pulumi:"submountAccess"`
+	// Allow SUID semantics.
+	Suid pulumi.BoolPtrInput `pulumi:"suid"`
+}
+
+func (NfsAccessRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessRuleResponse)(nil)).Elem()
+}
+
+func (i NfsAccessRuleResponseArgs) ToNfsAccessRuleResponseOutput() NfsAccessRuleResponseOutput {
+	return i.ToNfsAccessRuleResponseOutputWithContext(context.Background())
+}
+
+func (i NfsAccessRuleResponseArgs) ToNfsAccessRuleResponseOutputWithContext(ctx context.Context) NfsAccessRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessRuleResponseOutput)
+}
+
+// NfsAccessRuleResponseArrayInput is an input type that accepts NfsAccessRuleResponseArray and NfsAccessRuleResponseArrayOutput values.
+// You can construct a concrete instance of `NfsAccessRuleResponseArrayInput` via:
+//
+//          NfsAccessRuleResponseArray{ NfsAccessRuleResponseArgs{...} }
+type NfsAccessRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToNfsAccessRuleResponseArrayOutput() NfsAccessRuleResponseArrayOutput
+	ToNfsAccessRuleResponseArrayOutputWithContext(context.Context) NfsAccessRuleResponseArrayOutput
+}
+
+type NfsAccessRuleResponseArray []NfsAccessRuleResponseInput
+
+func (NfsAccessRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessRuleResponse)(nil)).Elem()
+}
+
+func (i NfsAccessRuleResponseArray) ToNfsAccessRuleResponseArrayOutput() NfsAccessRuleResponseArrayOutput {
+	return i.ToNfsAccessRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NfsAccessRuleResponseArray) ToNfsAccessRuleResponseArrayOutputWithContext(ctx context.Context) NfsAccessRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessRuleResponseArrayOutput)
+}
+
+// Rule to place restrictions on portions of the cache namespace being presented to clients.
+type NfsAccessRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessRuleResponse)(nil)).Elem()
+}
+
+func (o NfsAccessRuleResponseOutput) ToNfsAccessRuleResponseOutput() NfsAccessRuleResponseOutput {
+	return o
+}
+
+func (o NfsAccessRuleResponseOutput) ToNfsAccessRuleResponseOutputWithContext(ctx context.Context) NfsAccessRuleResponseOutput {
+	return o
+}
+
+// Access allowed by this rule.
+func (o NfsAccessRuleResponseOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v NfsAccessRuleResponse) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// GID value that replaces 0 when rootSquash is true.
+func (o NfsAccessRuleResponseOutput) AnonymousGID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleResponse) *string { return v.AnonymousGID }).(pulumi.StringPtrOutput)
+}
+
+// UID value that replaces 0 when rootSquash is true.
+func (o NfsAccessRuleResponseOutput) AnonymousUID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleResponse) *string { return v.AnonymousUID }).(pulumi.StringPtrOutput)
+}
+
+// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
+func (o NfsAccessRuleResponseOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleResponse) *string { return v.Filter }).(pulumi.StringPtrOutput)
+}
+
+// Map root accesses to anonymousUID and anonymousGID.
+func (o NfsAccessRuleResponseOutput) RootSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleResponse) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
+}
+
+// Scope for this rule. The scope and filter determine which clients match the rule.
+func (o NfsAccessRuleResponseOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v NfsAccessRuleResponse) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
+func (o NfsAccessRuleResponseOutput) SubmountAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleResponse) *bool { return v.SubmountAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Allow SUID semantics.
+func (o NfsAccessRuleResponseOutput) Suid() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleResponse) *bool { return v.Suid }).(pulumi.BoolPtrOutput)
+}
+
+type NfsAccessRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessRuleResponse)(nil)).Elem()
+}
+
+func (o NfsAccessRuleResponseArrayOutput) ToNfsAccessRuleResponseArrayOutput() NfsAccessRuleResponseArrayOutput {
+	return o
+}
+
+func (o NfsAccessRuleResponseArrayOutput) ToNfsAccessRuleResponseArrayOutputWithContext(ctx context.Context) NfsAccessRuleResponseArrayOutput {
+	return o
+}
+
+func (o NfsAccessRuleResponseArrayOutput) Index(i pulumi.IntInput) NfsAccessRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NfsAccessRuleResponse {
+		return vs[0].([]NfsAccessRuleResponse)[vs[1].(int)]
+	}).(NfsAccessRuleResponseOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -3383,7 +6017,7 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertained to UnknownTarget
+// Properties pertaining to the UnknownTarget
 type UnknownTarget struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap map[string]string `pulumi:"unknownMap"`
@@ -3400,7 +6034,7 @@ type UnknownTargetInput interface {
 	ToUnknownTargetOutputWithContext(context.Context) UnknownTargetOutput
 }
 
-// Properties pertained to UnknownTarget
+// Properties pertaining to the UnknownTarget
 type UnknownTargetArgs struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
@@ -3459,7 +6093,7 @@ func (i *unknownTargetPtrType) ToUnknownTargetPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetPtrOutput)
 }
 
-// Properties pertained to UnknownTarget
+// Properties pertaining to the UnknownTarget
 type UnknownTargetOutput struct{ *pulumi.OutputState }
 
 func (UnknownTargetOutput) ElementType() reflect.Type {
@@ -3517,7 +6151,7 @@ func (o UnknownTargetPtrOutput) UnknownMap() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Properties pertained to UnknownTarget
+// Properties pertaining to the UnknownTarget
 type UnknownTargetResponse struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap map[string]string `pulumi:"unknownMap"`
@@ -3534,7 +6168,7 @@ type UnknownTargetResponseInput interface {
 	ToUnknownTargetResponseOutputWithContext(context.Context) UnknownTargetResponseOutput
 }
 
-// Properties pertained to UnknownTarget
+// Properties pertaining to the UnknownTarget
 type UnknownTargetResponseArgs struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
@@ -3593,7 +6227,7 @@ func (i *unknownTargetResponsePtrType) ToUnknownTargetResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetResponsePtrOutput)
 }
 
-// Properties pertained to UnknownTarget
+// Properties pertaining to the UnknownTarget
 type UnknownTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (UnknownTargetResponseOutput) ElementType() reflect.Type {
@@ -3652,6 +6286,18 @@ func (o UnknownTargetResponsePtrOutput) UnknownMap() pulumi.StringMapOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsOutput{})
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsCredentialsOutput{})
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsResponseOutput{})
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsResponseCredentialsOutput{})
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsResponseCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(CacheDirectorySettingsOutput{})
+	pulumi.RegisterOutputType(CacheDirectorySettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheDirectorySettingsResponseOutput{})
+	pulumi.RegisterOutputType(CacheDirectorySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsResponseOutput{})
@@ -3676,6 +6322,14 @@ func init() {
 	pulumi.RegisterOutputType(CacheSkuPtrOutput{})
 	pulumi.RegisterOutputType(CacheUpgradeStatusResponseOutput{})
 	pulumi.RegisterOutputType(CacheUpgradeStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsCredentialsOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsResponseOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsResponseCredentialsOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsResponseCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ClfsTargetOutput{})
 	pulumi.RegisterOutputType(ClfsTargetPtrOutput{})
 	pulumi.RegisterOutputType(ClfsTargetResponseOutput{})
@@ -3696,6 +6350,14 @@ func init() {
 	pulumi.RegisterOutputType(Nfs3TargetPtrOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetResponseOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetResponsePtrOutput{})
+	pulumi.RegisterOutputType(NfsAccessPolicyOutput{})
+	pulumi.RegisterOutputType(NfsAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(NfsAccessPolicyResponseOutput{})
+	pulumi.RegisterOutputType(NfsAccessPolicyResponseArrayOutput{})
+	pulumi.RegisterOutputType(NfsAccessRuleOutput{})
+	pulumi.RegisterOutputType(NfsAccessRuleArrayOutput{})
+	pulumi.RegisterOutputType(NfsAccessRuleResponseOutput{})
+	pulumi.RegisterOutputType(NfsAccessRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UnknownTargetOutput{})

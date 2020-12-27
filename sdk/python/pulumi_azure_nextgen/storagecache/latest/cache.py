@@ -20,6 +20,7 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  cache_size_gb: Optional[pulumi.Input[int]] = None,
+                 directory_services_settings: Optional[pulumi.Input[pulumi.InputType['CacheDirectorySettingsArgs']]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['CacheEncryptionSettingsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -35,12 +36,13 @@ class Cache(pulumi.CustomResource):
                  __opts__=None):
         """
         A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        Latest API Version: 2020-03-01.
+        Latest API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cache_name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+        :param pulumi.Input[str] cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         :param pulumi.Input[int] cache_size_gb: The size of this Cache, in GB.
+        :param pulumi.Input[pulumi.InputType['CacheDirectorySettingsArgs']] directory_services_settings: Specifies Directory Services settings of the cache.
         :param pulumi.Input[pulumi.InputType['CacheEncryptionSettingsArgs']] encryption_settings: Specifies encryption settings of the cache.
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: The identity of the cache, if configured.
         :param pulumi.Input[str] location: Region name string.
@@ -73,6 +75,7 @@ class Cache(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cache_name'")
             __props__['cache_name'] = cache_name
             __props__['cache_size_gb'] = cache_size_gb
+            __props__['directory_services_settings'] = directory_services_settings
             __props__['encryption_settings'] = encryption_settings
             __props__['identity'] = identity
             __props__['location'] = location
@@ -91,7 +94,7 @@ class Cache(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['type'] = None
             __props__['upgrade_status'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagecache/v20190801preview:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20191101:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20200301:Cache")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagecache/v20190801preview:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20191101:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20200301:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20201001:Cache")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cache, __self__).__init__(
             'azure-nextgen:storagecache/latest:Cache',
@@ -124,6 +127,14 @@ class Cache(pulumi.CustomResource):
         The size of this Cache, in GB.
         """
         return pulumi.get(self, "cache_size_gb")
+
+    @property
+    @pulumi.getter(name="directoryServicesSettings")
+    def directory_services_settings(self) -> pulumi.Output[Optional['outputs.CacheDirectorySettingsResponse']]:
+        """
+        Specifies Directory Services settings of the cache.
+        """
+        return pulumi.get(self, "directory_services_settings")
 
     @property
     @pulumi.getter(name="encryptionSettings")

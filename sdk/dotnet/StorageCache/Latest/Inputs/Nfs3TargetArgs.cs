@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
 {
 
     /// <summary>
-    /// Properties pertained to Nfs3Target
+    /// Properties pertaining to the Nfs3Target
     /// </summary>
     public sealed class Nfs3TargetArgs : Pulumi.ResourceArgs
     {
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+        /// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
         /// </summary>
         [Input("usageModel")]
         public Input<string>? UsageModel { get; set; }
