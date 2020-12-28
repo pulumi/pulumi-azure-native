@@ -45,6 +45,12 @@ var resourceMap = &AzureAPIMetadata{
 						Ref: "#/types/azure-nextgen:testing:MoreItem",
 					},
 				},
+				"itemsMap": {
+					Type: "object",
+					AdditionalProperties: &AzureAPIProperty{
+						Ref: "#/types/azure-nextgen:testing:MoreItem",
+					},
+				},
 			},
 		},
 		"azure-nextgen:testing:MoreItem": {
@@ -190,6 +196,10 @@ var sampleAPIPackage = map[string]interface{}{
 				map[string]interface{}{"aaa": "111", "ccc": map[string]interface{}{"bbb": "333"}},
 				map[string]interface{}{"aaa": "222"},
 			},
+			"itemsMap": map[string]interface{}{
+				"key1": map[string]interface{}{"aaa": "444", "ccc": map[string]interface{}{"bbb": "555"}},
+				"key2": map[string]interface{}{"aaa": "666"},
+			},
 		},
 	},
 	"union": map[string]interface{}{
@@ -227,6 +237,10 @@ var sampleSdkProps = map[string]interface{}{
 		"items": []interface{}{
 			map[string]interface{}{"Aaa": "111", "bbb": "333"},
 			map[string]interface{}{"Aaa": "222"},
+		},
+		"itemsMap": map[string]interface{}{
+			"key1": map[string]interface{}{"Aaa": "444", "bbb": "555"},
+			"key2": map[string]interface{}{"Aaa": "666"},
 		},
 	},
 	"union": map[string]interface{}{
@@ -323,6 +337,10 @@ var responseForInputCalculation = map[string]interface{}{
 				map[string]interface{}{"aaa": "111", "ccc": map[string]interface{}{"bbb": "333"}},
 				map[string]interface{}{"aaa": "222"},
 			},
+			"itemsMap": map[string]interface{}{
+				"key1": map[string]interface{}{"aaa": "444", "ccc": map[string]interface{}{"bbb": "555"}},
+				"key2": map[string]interface{}{"aaa": "666"},
+			},
 		},
 	},
 	"union": map[string]interface{}{
@@ -359,6 +377,10 @@ var calculatedInputs = map[string]interface{}{
 		"items": []interface{}{
 			map[string]interface{}{"Aaa": "111", "bbb": "333"},
 			map[string]interface{}{"Aaa": "222"},
+		},
+		"itemsMap": map[string]interface{}{
+			"key1": map[string]interface{}{"Aaa": "444", "bbb": "555"},
+			"key2": map[string]interface{}{"Aaa": "666"},
 		},
 	},
 	"union": map[string]interface{}{
@@ -400,6 +422,10 @@ func TestSDKOutputsToSDKInputs(t *testing.T) {
 			"items": []interface{}{
 				map[string]interface{}{"Aaa": "111", "bbb": "333"},
 				map[string]interface{}{"Aaa": "222"},
+			},
+			"itemsMap": map[string]interface{}{
+				"key1": map[string]interface{}{"Aaa": "444", "bbb": "555"},
+				"key2": map[string]interface{}{"Aaa": "666"},
 			},
 		},
 		"union": map[string]interface{}{

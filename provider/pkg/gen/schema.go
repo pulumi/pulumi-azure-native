@@ -857,9 +857,10 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				result.requiredSpecs.Add(sdkName)
 			}
 			apiProperty = resources.AzureAPIProperty{
-				OneOf: m.getOneOfValues(propertySpec),
-				Ref:   propertySpec.Ref,
-				Items: m.itemTypeToProperty(propertySpec.Items),
+				OneOf:                m.getOneOfValues(propertySpec),
+				Ref:                  propertySpec.Ref,
+				Items:                m.itemTypeToProperty(propertySpec.Items),
+				AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
 			}
 		} else {
 			if m.isEnum(&propertySpec.TypeSpec) {
@@ -869,15 +870,16 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				}
 			} else {
 				apiProperty = resources.AzureAPIProperty{
-					Type:      propertySpec.Type,
-					OneOf:     m.getOneOfValues(propertySpec),
-					Ref:       propertySpec.Ref,
-					Minimum:   resolvedProperty.Minimum,
-					Maximum:   resolvedProperty.Maximum,
-					MinLength: resolvedProperty.MinLength,
-					MaxLength: resolvedProperty.MaxLength,
-					Pattern:   resolvedProperty.Pattern,
-					Items:     m.itemTypeToProperty(propertySpec.Items),
+					Type:                 propertySpec.Type,
+					OneOf:                m.getOneOfValues(propertySpec),
+					Ref:                  propertySpec.Ref,
+					Minimum:              resolvedProperty.Minimum,
+					Maximum:              resolvedProperty.Maximum,
+					MinLength:            resolvedProperty.MinLength,
+					MaxLength:            resolvedProperty.MaxLength,
+					Pattern:              resolvedProperty.Pattern,
+					Items:                m.itemTypeToProperty(propertySpec.Items),
+					AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
 				}
 			}
 
@@ -1007,11 +1009,11 @@ func (m *moduleGenerator) getOneOfValues(property *pschema.PropertySpec) (values
 	return
 }
 
-// itemTypeToProperty converts a type of an element in an array to a corresponding API property
-// definition of that element type. It only converts the relevant subset of properties, and does
-// so recursively.
+// itemTypeToProperty converts a type of an element in an array or a dictionary to a corresponding
+// API property definition of that element type. It only converts the relevant subset of properties,
+// and does so recursively.
 func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *resources.AzureAPIProperty {
-	if typ == nil {
+	if typ == nil || typ.Ref == "pulumi.json#/Any" {
 		return nil
 	}
 
@@ -1029,10 +1031,11 @@ func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *resources.Az
 	}
 
 	return &resources.AzureAPIProperty{
-		Type:  typ.Type,
-		Ref:   typ.Ref,
-		OneOf: oneOf,
-		Items: m.itemTypeToProperty(typ.Items),
+		Type:                 typ.Type,
+		Ref:                  typ.Ref,
+		OneOf:                oneOf,
+		Items:                m.itemTypeToProperty(typ.Items),
+		AdditionalProperties: m.itemTypeToProperty(typ.AdditionalProperties),
 	}
 }
 
