@@ -60,6 +60,10 @@ export interface GetDataPoolResult {
      */
     readonly provisioningState: string;
     /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.autonomousdevelopmentplatform.v20200701preview.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
