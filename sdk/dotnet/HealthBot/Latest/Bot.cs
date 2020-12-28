@@ -29,7 +29,7 @@ namespace Pulumi.AzureNextGen.HealthBot.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The set of properties specific to healthcare bot resource.
+        /// The set of properties specific to Healthbot resource.
         /// </summary>
         [Output("properties")]
         public Output<Outputs.HealthBotPropertiesResponse> Properties { get; private set; } = null!;
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.HealthBot.Latest
         /// SKU of the HealthBot.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource
@@ -131,8 +131,8 @@ namespace Pulumi.AzureNextGen.HealthBot.Latest
         /// <summary>
         /// SKU of the HealthBot.
         /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
+        [Input("sku", required: true)]
+        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

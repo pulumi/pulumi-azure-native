@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201208.Outputs
         /// </summary>
         public readonly string BotManagementPortalLink;
         /// <summary>
-        /// The provisioning state of the Healthcare bot resource.
+        /// The provisioning state of the Healthbot resource.
         /// </summary>
         public readonly string ProvisioningState;
 

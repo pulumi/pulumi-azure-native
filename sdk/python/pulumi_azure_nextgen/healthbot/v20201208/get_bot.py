@@ -74,13 +74,13 @@ class GetBotResult:
     @pulumi.getter
     def properties(self) -> 'outputs.HealthBotPropertiesResponse':
         """
-        The set of properties specific to healthcare bot resource.
+        The set of properties specific to Healthbot resource.
         """
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> 'outputs.SkuResponse':
         """
         SKU of the HealthBot.
         """

@@ -22,7 +22,7 @@ export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.Invok
 
 export interface GetStorageTargetArgs {
     /**
-     * Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     readonly cacheName: string;
     /**
@@ -30,7 +30,7 @@ export interface GetStorageTargetArgs {
      */
     readonly resourceGroupName: string;
     /**
-     * Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+     * Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     readonly storageTargetName: string;
 }

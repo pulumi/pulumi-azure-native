@@ -17,7 +17,6 @@ export * from "./getDatabaseVulnerabilityAssessmentRuleBaseline";
 export * from "./getElasticPool";
 export * from "./getFailoverGroup";
 export * from "./getFirewallRule";
-export * from "./getHybridLink";
 export * from "./getInstanceFailoverGroup";
 export * from "./getInstancePool";
 export * from "./getJob";
@@ -51,7 +50,6 @@ export * from "./getTransparentDataEncryption";
 export * from "./getVirtualNetworkRule";
 export * from "./getWorkloadClassifier";
 export * from "./getWorkloadGroup";
-export * from "./hybridLink";
 export * from "./instanceFailoverGroup";
 export * from "./instancePool";
 export * from "./job";
@@ -96,7 +94,6 @@ import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabi
 import { ElasticPool } from "./elasticPool";
 import { FailoverGroup } from "./failoverGroup";
 import { FirewallRule } from "./firewallRule";
-import { HybridLink } from "./hybridLink";
 import { InstanceFailoverGroup } from "./instanceFailoverGroup";
 import { InstancePool } from "./instancePool";
 import { Job } from "./job";
@@ -147,8 +144,6 @@ const _module = {
                 return new FailoverGroup(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20200801preview:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:HybridLink":
-                return new HybridLink(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20200801preview:InstanceFailoverGroup":
                 return new InstanceFailoverGroup(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20200801preview:InstancePool":

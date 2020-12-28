@@ -38,6 +38,64 @@ func (e CacheIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Access allowed by this rule.
+type NfsAccessRuleAccess pulumi.String
+
+const (
+	NfsAccessRuleAccessNo = NfsAccessRuleAccess("no")
+	NfsAccessRuleAccessRo = NfsAccessRuleAccess("ro")
+	NfsAccessRuleAccessRw = NfsAccessRuleAccess("rw")
+)
+
+func (NfsAccessRuleAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NfsAccessRuleAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NfsAccessRuleAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NfsAccessRuleAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NfsAccessRuleAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Scope for this rule. The scope and filter determine which clients match the rule.
+type NfsAccessRuleScope pulumi.String
+
+const (
+	NfsAccessRuleScopeDefault = NfsAccessRuleScope("default")
+	NfsAccessRuleScopeNetwork = NfsAccessRuleScope("network")
+	NfsAccessRuleScopeHost    = NfsAccessRuleScope("host")
+)
+
+func (NfsAccessRuleScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NfsAccessRuleScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NfsAccessRuleScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NfsAccessRuleScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NfsAccessRuleScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 type ProvisioningStateType pulumi.String
 
@@ -96,5 +154,35 @@ func (e StorageTargetType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e StorageTargetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// This setting determines how the cache gets username and group names for clients.
+type UsernameSource pulumi.String
+
+const (
+	UsernameSourceAD   = UsernameSource("AD")
+	UsernameSourceLDAP = UsernameSource("LDAP")
+	UsernameSourceFile = UsernameSource("File")
+	UsernameSourceNone = UsernameSource("None")
+)
+
+func (UsernameSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e UsernameSource) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsernameSource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsernameSource) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UsernameSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

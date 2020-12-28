@@ -14,14 +14,14 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Outputs
     public sealed class CacheSecuritySettingsResponse
     {
         /// <summary>
-        /// root squash of cache property.
+        /// NFS access policies defined for this cache.
         /// </summary>
-        public readonly bool? RootSquash;
+        public readonly ImmutableArray<Outputs.NfsAccessPolicyResponse> AccessPolicies;
 
         [OutputConstructor]
-        private CacheSecuritySettingsResponse(bool? rootSquash)
+        private CacheSecuritySettingsResponse(ImmutableArray<Outputs.NfsAccessPolicyResponse> accessPolicies)
         {
-            RootSquash = rootSquash;
+            AccessPolicies = accessPolicies;
         }
     }
 }

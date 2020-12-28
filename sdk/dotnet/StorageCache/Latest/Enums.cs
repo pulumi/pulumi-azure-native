@@ -39,6 +39,70 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
     }
 
     /// <summary>
+    /// Access allowed by this rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct NfsAccessRuleAccess : IEquatable<NfsAccessRuleAccess>
+    {
+        private readonly string _value;
+
+        private NfsAccessRuleAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NfsAccessRuleAccess No { get; } = new NfsAccessRuleAccess("no");
+        public static NfsAccessRuleAccess Ro { get; } = new NfsAccessRuleAccess("ro");
+        public static NfsAccessRuleAccess Rw { get; } = new NfsAccessRuleAccess("rw");
+
+        public static bool operator ==(NfsAccessRuleAccess left, NfsAccessRuleAccess right) => left.Equals(right);
+        public static bool operator !=(NfsAccessRuleAccess left, NfsAccessRuleAccess right) => !left.Equals(right);
+
+        public static explicit operator string(NfsAccessRuleAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NfsAccessRuleAccess other && Equals(other);
+        public bool Equals(NfsAccessRuleAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Scope for this rule. The scope and filter determine which clients match the rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct NfsAccessRuleScope : IEquatable<NfsAccessRuleScope>
+    {
+        private readonly string _value;
+
+        private NfsAccessRuleScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NfsAccessRuleScope @Default { get; } = new NfsAccessRuleScope("default");
+        public static NfsAccessRuleScope Network { get; } = new NfsAccessRuleScope("network");
+        public static NfsAccessRuleScope Host { get; } = new NfsAccessRuleScope("host");
+
+        public static bool operator ==(NfsAccessRuleScope left, NfsAccessRuleScope right) => left.Equals(right);
+        public static bool operator !=(NfsAccessRuleScope left, NfsAccessRuleScope right) => !left.Equals(right);
+
+        public static explicit operator string(NfsAccessRuleScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NfsAccessRuleScope other && Equals(other);
+        public bool Equals(NfsAccessRuleScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
     /// </summary>
     [EnumType]
@@ -98,6 +162,39 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageTargetType other && Equals(other);
         public bool Equals(StorageTargetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This setting determines how the cache gets username and group names for clients.
+    /// </summary>
+    [EnumType]
+    public readonly struct UsernameSource : IEquatable<UsernameSource>
+    {
+        private readonly string _value;
+
+        private UsernameSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UsernameSource AD { get; } = new UsernameSource("AD");
+        public static UsernameSource LDAP { get; } = new UsernameSource("LDAP");
+        public static UsernameSource File { get; } = new UsernameSource("File");
+        public static UsernameSource None { get; } = new UsernameSource("None");
+
+        public static bool operator ==(UsernameSource left, UsernameSource right) => left.Equals(right);
+        public static bool operator !=(UsernameSource left, UsernameSource right) => !left.Equals(right);
+
+        public static explicit operator string(UsernameSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UsernameSource other && Equals(other);
+        public bool Equals(UsernameSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

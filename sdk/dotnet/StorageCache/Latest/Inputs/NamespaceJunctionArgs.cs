@@ -22,6 +22,12 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
         public Input<string>? NamespacePath { get; set; }
 
         /// <summary>
+        /// Name of the access policy applied to this junction.
+        /// </summary>
+        [Input("nfsAccessPolicy")]
+        public Input<string>? NfsAccessPolicy { get; set; }
+
+        /// <summary>
         /// NFS export where targetPath exists.
         /// </summary>
         [Input("nfsExport")]
