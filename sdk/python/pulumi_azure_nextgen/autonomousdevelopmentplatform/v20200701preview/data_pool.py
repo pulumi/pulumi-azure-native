@@ -66,6 +66,7 @@ class DataPool(pulumi.CustomResource):
             __props__['data_pool_id'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         super(DataPool, __self__).__init__(
             'azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool',
@@ -122,6 +123,14 @@ class DataPool(pulumi.CustomResource):
         Gets the status of the data pool at the time the operation was called.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -20,7 +20,7 @@ class GetDataPoolResult:
     """
     An ADP Data Pool.
     """
-    def __init__(__self__, data_pool_id=None, id=None, locations=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, data_pool_id=None, id=None, locations=None, name=None, provisioning_state=None, system_data=None, type=None):
         if data_pool_id and not isinstance(data_pool_id, str):
             raise TypeError("Expected argument 'data_pool_id' to be a str")
         pulumi.set(__self__, "data_pool_id", data_pool_id)
@@ -36,6 +36,9 @@ class GetDataPoolResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -81,6 +84,14 @@ class GetDataPoolResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -100,6 +111,7 @@ class AwaitableGetDataPoolResult(GetDataPoolResult):
             locations=self.locations,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -130,4 +142,5 @@ def get_data_pool(account_name: Optional[str] = None,
         locations=__ret__.locations,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         type=__ret__.type)
