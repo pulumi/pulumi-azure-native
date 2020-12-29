@@ -37,6 +37,8 @@ type LookupDataPoolResult struct {
 	Name string `pulumi:"name"`
 	// Gets the status of the data pool at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
