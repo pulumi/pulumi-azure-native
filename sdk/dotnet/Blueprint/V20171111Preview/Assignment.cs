@@ -198,6 +198,12 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
             set => _resourceGroups = value;
         }
 
+        /// <summary>
+        /// azure subscriptionId, which we assign the blueprint to.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
         public AssignmentArgs()
         {
         }

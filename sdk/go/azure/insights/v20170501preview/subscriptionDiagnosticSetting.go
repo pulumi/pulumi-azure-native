@@ -127,6 +127,8 @@ type subscriptionDiagnosticSettingArgs struct {
 	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
 	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
 	StorageAccountId *string `pulumi:"storageAccountId"`
+	// The subscription id.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
@@ -147,6 +149,8 @@ type SubscriptionDiagnosticSettingArgs struct {
 	ServiceBusRuleId pulumi.StringPtrInput
 	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
 	StorageAccountId pulumi.StringPtrInput
+	// The subscription id.
+	SubscriptionId pulumi.StringPtrInput
 	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
 	WorkspaceId pulumi.StringPtrInput
 }

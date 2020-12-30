@@ -75,6 +75,7 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'groupId'");
             }
             inputs["groupId"] = args ? args.groupId : undefined;
+            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             inputs["displayName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["parent"] = undefined /*out*/;
@@ -110,4 +111,8 @@ export interface ManagementGroupSubscriptionArgs {
      * Management Group ID.
      */
     readonly groupId: pulumi.Input<string>;
+    /**
+     * Subscription ID.
+     */
+    readonly subscriptionId?: pulumi.Input<string>;
 }

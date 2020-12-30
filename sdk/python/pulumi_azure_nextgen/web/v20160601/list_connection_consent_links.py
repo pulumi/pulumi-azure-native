@@ -47,6 +47,7 @@ class AwaitableListConnectionConsentLinksResult(ListConnectionConsentLinksResult
 def list_connection_consent_links(connection_name: Optional[str] = None,
                                   parameters: Optional[Sequence[pulumi.InputType['ConsentLinkParameterDefinitionArgs']]] = None,
                                   resource_group_name: Optional[str] = None,
+                                  subscription_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionConsentLinksResult:
     """
     Use this data source to access information about an existing resource.
@@ -54,11 +55,13 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
     :param str connection_name: Connection name
     :param Sequence[pulumi.InputType['ConsentLinkParameterDefinitionArgs']] parameters: Collection of resources
     :param str resource_group_name: The resource group
+    :param str subscription_id: Subscription Id
     """
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['parameters'] = parameters
     __args__['resourceGroupName'] = resource_group_name
+    __args__['subscriptionId'] = subscription_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

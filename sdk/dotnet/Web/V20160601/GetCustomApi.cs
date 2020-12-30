@@ -30,6 +30,12 @@ namespace Pulumi.AzureNextGen.Web.V20160601
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Subscription Id
+        /// </summary>
+        [Input("subscriptionId")]
+        public string? SubscriptionId { get; set; }
+
         public GetCustomApiArgs()
         {
         }

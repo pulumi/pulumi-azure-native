@@ -30,6 +30,12 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The customer subscription identifier
+        /// </summary>
+        [Input("subscriptionId")]
+        public string? SubscriptionId { get; set; }
+
         public GetClusterArgs()
         {
         }

@@ -17,6 +17,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -26,6 +27,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: Management Group ID.
+        :param pulumi.Input[str] subscription_id: Subscription ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -47,6 +49,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__['group_id'] = group_id
+            __props__['subscription_id'] = subscription_id
             __props__['display_name'] = None
             __props__['name'] = None
             __props__['parent'] = None

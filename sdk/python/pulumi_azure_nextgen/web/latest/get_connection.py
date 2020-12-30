@@ -114,16 +114,19 @@ class AwaitableGetConnectionResult(GetConnectionResult):
 
 def get_connection(connection_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
+                   subscription_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str connection_name: Connection name
     :param str resource_group_name: The resource group
+    :param str subscription_id: Subscription Id
     """
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['subscriptionId'] = subscription_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

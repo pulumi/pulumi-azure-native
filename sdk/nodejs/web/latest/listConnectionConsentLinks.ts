@@ -17,6 +17,7 @@ export function listConnectionConsentLinks(args: ListConnectionConsentLinksArgs,
         "connectionName": args.connectionName,
         "parameters": args.parameters,
         "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface ListConnectionConsentLinksArgs {
      * The resource group
      */
     readonly resourceGroupName: string;
+    /**
+     * Subscription Id
+     */
+    readonly subscriptionId?: string;
 }
 
 /**

@@ -163,6 +163,12 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
         public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
+        /// The subscription id.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
+        /// <summary>
         /// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
         /// </summary>
         [Input("workspaceId")]

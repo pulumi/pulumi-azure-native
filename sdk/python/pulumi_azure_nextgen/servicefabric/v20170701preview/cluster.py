@@ -34,6 +34,7 @@ class Cluster(pulumi.CustomResource):
                  reliability_level: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_proxy_certificate: Optional[pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_description: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
@@ -80,6 +81,7 @@ class Cluster(pulumi.CustomResource):
                  - Platinum - Run the System services with a target replica set count of 9.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']] reverse_proxy_certificate: The server certificate used by reverse proxy.
+        :param pulumi.Input[str] subscription_id: The customer subscription identifier
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']] upgrade_description: The policy to use when upgrading the cluster.
         :param pulumi.Input[str] upgrade_mode: The upgrade mode of the cluster when new Service Fabric runtime version is available.
@@ -132,6 +134,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['reverse_proxy_certificate'] = reverse_proxy_certificate
+            __props__['subscription_id'] = subscription_id
             __props__['tags'] = tags
             __props__['upgrade_description'] = upgrade_description
             __props__['upgrade_mode'] = upgrade_mode

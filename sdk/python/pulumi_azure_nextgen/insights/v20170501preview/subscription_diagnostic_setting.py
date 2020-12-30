@@ -24,6 +24,7 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  service_bus_rule_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -40,6 +41,7 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the diagnostic setting.
         :param pulumi.Input[str] service_bus_rule_id: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account to which you would like to send Diagnostic Logs.
+        :param pulumi.Input[str] subscription_id: The subscription id.
         :param pulumi.Input[str] workspace_id: The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
         """
         if __name__ is not None:
@@ -68,6 +70,7 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
             __props__['name'] = name
             __props__['service_bus_rule_id'] = service_bus_rule_id
             __props__['storage_account_id'] = storage_account_id
+            __props__['subscription_id'] = subscription_id
             __props__['workspace_id'] = workspace_id
             __props__['type'] = None
         super(SubscriptionDiagnosticSetting, __self__).__init__(

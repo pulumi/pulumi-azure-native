@@ -16,6 +16,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("azure-nextgen:servicefabric/v20170701preview:getCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -28,6 +29,10 @@ export interface GetClusterArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The customer subscription identifier
+     */
+    readonly subscriptionId?: string;
 }
 
 /**

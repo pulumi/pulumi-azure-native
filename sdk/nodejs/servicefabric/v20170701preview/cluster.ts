@@ -194,6 +194,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
+            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upgradeDescription"] = args ? args.upgradeDescription : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
@@ -331,6 +332,10 @@ export interface ClusterArgs {
      * The server certificate used by reverse proxy.
      */
     readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.v20170701preview.CertificateDescription>;
+    /**
+     * The customer subscription identifier
+     */
+    readonly subscriptionId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -380,6 +380,7 @@ const (
 	extensionMutability         = "x-ms-mutability"
 	extensionMutabilityCreate   = "create"
 	extensionMutabilityUpdate   = "update"
+	extensionParameterLocation  = "x-ms-parameter-location"
 )
 
 type packageGenerator struct {
@@ -697,12 +698,17 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			},
 		}
 
+		// Provider has a value defined for subscription ID, so, by default, don't include it into SDKs unless
+		// the API requires that explicitly.
+		providerHasDefaultValue := param.Name == "subscriptionId"
+
 		switch {
 		case param.In == "header":
 			continue // Header parameters aren't mapped to the SDK.
-		case param.Name == "subscriptionId":
+		case providerHasDefaultValue && !isMethodParameter(param):
+			// Don't include values with a provider-configured value to the schema unless it's a method parameter.
 		case param.Name == "api-version":
-			continue // No need to include these in the schema, they are added automatically by the provider.
+			continue // No need to include API version in the schema or meta, it is added automatically by the provider.
 		case param.In == "body":
 			// The body parameter is flattened, so that all its properties become the properties of the type.
 			if param.Schema == nil {
@@ -744,7 +750,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 				},
 			}
 			result.specs[name] = propertySpec
-			if param.Required {
+			if param.Required && !providerHasDefaultValue {
 				result.requiredSpecs.Add(name)
 			}
 		}
@@ -753,6 +759,15 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 	}
 
 	return result, nil
+}
+
+// isMethodParameter returns true if a parameter is marked with an extension location=method.
+func isMethodParameter(param *openapi.Parameter) bool {
+	if value, ok := param.Extensions.GetString(extensionParameterLocation); ok {
+		return value == "method"
+	}
+
+	return false
 }
 
 func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response, ctx *openapi.ReferenceContext) (*propertyBag, error) {

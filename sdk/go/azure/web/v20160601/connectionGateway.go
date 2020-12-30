@@ -110,6 +110,8 @@ type connectionGatewayArgs struct {
 	Properties *ConnectionGatewayDefinitionProperties `pulumi:"properties"`
 	// The resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Subscription Id
+	SubscriptionId *string `pulumi:"subscriptionId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -125,6 +127,8 @@ type ConnectionGatewayArgs struct {
 	Properties ConnectionGatewayDefinitionPropertiesPtrInput
 	// The resource group
 	ResourceGroupName pulumi.StringInput
+	// Subscription Id
+	SubscriptionId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

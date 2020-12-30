@@ -92,6 +92,7 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             inputs["workspaceId"] = args ? args.workspaceId : undefined;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -148,6 +149,10 @@ export interface SubscriptionDiagnosticSettingArgs {
      * The resource ID of the storage account to which you would like to send Diagnostic Logs.
      */
     readonly storageAccountId?: pulumi.Input<string>;
+    /**
+     * The subscription id.
+     */
+    readonly subscriptionId?: pulumi.Input<string>;
     /**
      * The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
      */

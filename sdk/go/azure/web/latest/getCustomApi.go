@@ -21,6 +21,8 @@ type LookupCustomApiArgs struct {
 	ApiName string `pulumi:"apiName"`
 	// The resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Subscription Id
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // A custom API

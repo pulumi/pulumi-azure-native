@@ -19,6 +19,8 @@ func LookupAssignment(ctx *pulumi.Context, args *LookupAssignmentArgs, opts ...p
 type LookupAssignmentArgs struct {
 	// name of the assignment.
 	AssignmentName string `pulumi:"assignmentName"`
+	// azure subscriptionId, which we assign the blueprint to.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // Represents a Blueprint assignment.

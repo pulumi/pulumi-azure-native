@@ -81,6 +81,7 @@ export class CustomApi extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -129,6 +130,10 @@ export interface CustomApiArgs {
      * The resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Subscription Id
+     */
+    readonly subscriptionId?: pulumi.Input<string>;
     /**
      * Resource tags
      */
