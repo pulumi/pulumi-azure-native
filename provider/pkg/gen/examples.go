@@ -34,7 +34,10 @@ type exampleRenderData struct {
 	LanguageToExampleProgram languageToExampleProgram
 }
 type resourceExamplesRenderData struct {
-	Data []exampleRenderData
+	Token         string
+	SampleResID   string
+	SampleResName string
+	Data          []exampleRenderData
 }
 
 // Examples renders Azure API examples to the pkgSpec for the specified list of languages.
@@ -78,7 +81,12 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 		if !ok {
 			continue
 		}
-		examplesRenderData := resourceExamplesRenderData{}
+		examplesRenderData := resourceExamplesRenderData{
+			Token: pulumiToken,
+			// The name and ID will be overridden later if we find an example that contains a sample response.
+			SampleResName: "myresource1",
+			SampleResID:   "<Azure resource ID>",
+		}
 		for _, example := range resourceExamples {
 			var items []model.BodyItem
 			if seen.Has(example.Location) {
@@ -112,6 +120,22 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 				continue
 			}
 			exampleParams := exampleJSON["parameters"].(map[string]interface{})
+
+			// Fill in sample name and ID for the import section.
+			if exampleResponses, ok := exampleJSON["responses"].(map[string]interface{}); ok {
+				for _, response := range exampleResponses {
+					if responseMap, ok := response.(map[string]interface{}); ok {
+						if body, ok := responseMap["body"].(map[string]interface{}); ok {
+							if exampleID, ok := body["id"].(string); ok {
+								examplesRenderData.SampleResID = exampleID
+							}
+							if exampleName, ok := body["name"].(string); ok {
+								examplesRenderData.SampleResName = exampleName
+							}
+						}
+					}
+				}
+			}
 
 			flattened, err := FlattenParams(exampleParams, resourceParams, metadata.Types)
 			if err != nil {
@@ -270,7 +294,14 @@ func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string,
 {{"{{% /example %}}"}}
 {{- end }}
 {{"{{% /examples %}}"}}
-`
+
+## Import
+
+An existing resource can be imported using its type token, name, and identifier, e.g.
+
+` + "```" + `sh
+$ pulumi import {{ .Token }} {{ .SampleResName }} {{ .SampleResID }} 
+` + "```\n"
 	res, ok := pkgSpec.Resources[resourceName]
 	if !ok {
 		return fmt.Errorf("missing resource from schema: %s", resourceName)
