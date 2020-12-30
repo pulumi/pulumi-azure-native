@@ -1012,6 +1012,15 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 		}
 		err = future.WaitForCompletionRef(ctx, k.client)
 		if err != nil {
+			if detailed, ok := err.(autorest.DetailedError); ok {
+				if resp.StatusCode == 202 && detailed.StatusCode == 404 && detailed.Original != nil &&
+					strings.Contains(detailed.Original.Error(), "ResourceNotFound") {
+					// Consider this specific error to be a success of deletion.
+					// Work around https://github.com/pulumi/pulumi-azure-nextgen/issues/120
+					// Upstream fix is tracked in https://github.com/Azure/go-autorest/issues/596
+					return nil
+				}
+			}
 			return err
 		}
 		resp, err = future.GetResult(k.client)
