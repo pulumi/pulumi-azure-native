@@ -19,6 +19,8 @@ type SpatialAnchorsAccount struct {
 	AccountDomain pulumi.StringOutput `pulumi:"accountDomain"`
 	// unique id of certain account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// The identity associated with this account
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
@@ -83,6 +85,8 @@ type spatialAnchorsAccountState struct {
 	AccountDomain *string `pulumi:"accountDomain"`
 	// unique id of certain account.
 	AccountId *string `pulumi:"accountId"`
+	// The identity associated with this account
+	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
@@ -98,6 +102,8 @@ type SpatialAnchorsAccountState struct {
 	AccountDomain pulumi.StringPtrInput
 	// unique id of certain account.
 	AccountId pulumi.StringPtrInput
+	// The identity associated with this account
+	Identity IdentityResponsePtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
@@ -115,6 +121,8 @@ func (SpatialAnchorsAccountState) ElementType() reflect.Type {
 type spatialAnchorsAccountArgs struct {
 	// Name of an Mixed Reality Account.
 	AccountName string `pulumi:"accountName"`
+	// The identity associated with this account
+	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Name of an Azure resource group.
@@ -127,6 +135,8 @@ type spatialAnchorsAccountArgs struct {
 type SpatialAnchorsAccountArgs struct {
 	// Name of an Mixed Reality Account.
 	AccountName pulumi.StringInput
+	// The identity associated with this account
+	Identity IdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// Name of an Azure resource group.

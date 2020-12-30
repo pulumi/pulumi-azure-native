@@ -10,6 +10,9 @@ export * from "./getSpatialAnchorsAccount";
 export * from "./remoteRenderingAccount";
 export * from "./spatialAnchorsAccount";
 
+// Export enums:
+export * from "../../types/enums/mixedreality/v20191202preview";
+
 // Import resources to register:
 import { RemoteRenderingAccount } from "./remoteRenderingAccount";
 import { SpatialAnchorsAccount } from "./spatialAnchorsAccount";

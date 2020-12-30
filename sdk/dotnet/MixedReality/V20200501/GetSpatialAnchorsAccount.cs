@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The identity associated with this account
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
 
             string id,
 
+            Outputs.IdentityResponse? identity,
+
             string location,
 
             string name,
@@ -87,6 +93,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
             AccountDomain = accountDomain;
             AccountId = accountId;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Tags = tags;

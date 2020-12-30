@@ -77,7 +77,6 @@ export * from "./listIdentityProviderSecrets";
 export * from "./listNamedValue";
 export * from "./listOpenIdConnectProviderSecrets";
 export * from "./listSubscriptionSecrets";
-export * from "./listTenantAccessGitSecrets";
 export * from "./listTenantAccessSecrets";
 export * from "./logger";
 export * from "./namedValue";
