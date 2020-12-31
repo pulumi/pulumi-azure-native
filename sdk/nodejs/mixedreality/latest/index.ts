@@ -9,6 +9,9 @@ export * from "./getSpatialAnchorsAccount";
 export * from "./listSpatialAnchorsAccountKeys";
 export * from "./spatialAnchorsAccount";
 
+// Export enums:
+export * from "../../types/enums/mixedreality/latest";
+
 // Import resources to register:
 import { SpatialAnchorsAccount } from "./spatialAnchorsAccount";
 

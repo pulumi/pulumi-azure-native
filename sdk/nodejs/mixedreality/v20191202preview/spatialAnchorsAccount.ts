@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,6 +44,10 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
+     * The identity associated with this account
+     */
+    public readonly identity!: pulumi.Output<outputs.mixedreality.v20191202preview.IdentityResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -79,6 +84,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -89,6 +95,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
         } else {
             inputs["accountDomain"] = undefined /*out*/;
             inputs["accountId"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -115,6 +122,10 @@ export interface SpatialAnchorsAccountArgs {
      * Name of an Mixed Reality Account.
      */
     readonly accountName: pulumi.Input<string>;
+    /**
+     * The identity associated with this account
+     */
+    readonly identity?: pulumi.Input<inputs.mixedreality.v20191202preview.Identity>;
     /**
      * The geo-location where the resource lives
      */

@@ -50,13 +50,17 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Identifier.
+        /// Access Information type ('access' or 'gitAccess')
         /// </summary>
         public readonly string? Id;
         /// <summary>
         /// Primary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         /// </summary>
         public readonly string? PrimaryKey;
+        /// <summary>
+        /// Principal (User) Identifier.
+        /// </summary>
+        public readonly string? PrincipalId;
         /// <summary>
         /// Secondary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         /// </summary>
@@ -70,11 +74,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 
             string? primaryKey,
 
+            string? principalId,
+
             string? secondaryKey)
         {
             Enabled = enabled;
             Id = id;
             PrimaryKey = primaryKey;
+            PrincipalId = principalId;
             SecondaryKey = secondaryKey;
         }
     }

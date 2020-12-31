@@ -19,6 +19,8 @@ type RemoteRenderingAccount struct {
 	AccountDomain pulumi.StringOutput `pulumi:"accountDomain"`
 	// unique id of certain account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// The identity associated with this account
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
@@ -77,6 +79,8 @@ type remoteRenderingAccountState struct {
 	AccountDomain *string `pulumi:"accountDomain"`
 	// unique id of certain account.
 	AccountId *string `pulumi:"accountId"`
+	// The identity associated with this account
+	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
@@ -92,6 +96,8 @@ type RemoteRenderingAccountState struct {
 	AccountDomain pulumi.StringPtrInput
 	// unique id of certain account.
 	AccountId pulumi.StringPtrInput
+	// The identity associated with this account
+	Identity IdentityResponsePtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
@@ -109,6 +115,8 @@ func (RemoteRenderingAccountState) ElementType() reflect.Type {
 type remoteRenderingAccountArgs struct {
 	// Name of an Mixed Reality Account.
 	AccountName string `pulumi:"accountName"`
+	// The identity associated with this account
+	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Name of an Azure resource group.
@@ -121,6 +129,8 @@ type remoteRenderingAccountArgs struct {
 type RemoteRenderingAccountArgs struct {
 	// Name of an Mixed Reality Account.
 	AccountName pulumi.StringInput
+	// The identity associated with this account
+	Identity IdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// Name of an Azure resource group.

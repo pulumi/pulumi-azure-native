@@ -7,6 +7,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['RemoteRenderingAccount']
 
@@ -16,6 +19,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -28,6 +32,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of an Mixed Reality Account.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity associated with this account
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -52,6 +57,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['identity'] = identity
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -104,6 +110,14 @@ class RemoteRenderingAccount(pulumi.CustomResource):
         unique id of certain account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        The identity associated with this account
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The identity associated with this account
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -107,6 +113,12 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The identity associated with this account
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
