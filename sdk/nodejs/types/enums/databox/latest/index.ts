@@ -106,6 +106,22 @@ export const JobDeliveryType = {
  */
 export type JobDeliveryType = (typeof JobDeliveryType)[keyof typeof JobDeliveryType];
 
+export const KekType = {
+    /**
+     * Key encryption key is managed by Microsoft.
+     */
+    MicrosoftManaged: "MicrosoftManaged",
+    /**
+     * Key encryption key is managed by the Customer.
+     */
+    CustomerManaged: "CustomerManaged",
+} as const;
+
+/**
+ * Type of encryption key used for key encryption.
+ */
+export type KekType = (typeof KekType)[keyof typeof KekType];
+
 export const LogCollectionLevel = {
     /**
      * Only Errors will be collected in the logs.

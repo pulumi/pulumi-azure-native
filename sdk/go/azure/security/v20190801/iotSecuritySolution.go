@@ -15,6 +15,8 @@ import (
 type IotSecuritySolution struct {
 	pulumi.CustomResourceState
 
+	// List of additional workspaces
+	AdditionalWorkspaces AdditionalWorkspacesPropertiesResponseArrayOutput `pulumi:"additionalWorkspaces"`
 	// List of resources that were automatically discovered as relevant to the security solution.
 	AutoDiscoveredResources pulumi.StringArrayOutput `pulumi:"autoDiscoveredResources"`
 	// Disabled data sources. Disabling these data sources compromises the system.
@@ -33,6 +35,8 @@ type IotSecuritySolution struct {
 	RecommendationsConfiguration RecommendationConfigurationPropertiesResponseArrayOutput `pulumi:"recommendationsConfiguration"`
 	// Status of the IoT Security solution.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -95,6 +99,8 @@ func GetIotSecuritySolution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotSecuritySolution resources.
 type iotSecuritySolutionState struct {
+	// List of additional workspaces
+	AdditionalWorkspaces []AdditionalWorkspacesPropertiesResponse `pulumi:"additionalWorkspaces"`
 	// List of resources that were automatically discovered as relevant to the security solution.
 	AutoDiscoveredResources []string `pulumi:"autoDiscoveredResources"`
 	// Disabled data sources. Disabling these data sources compromises the system.
@@ -113,6 +119,8 @@ type iotSecuritySolutionState struct {
 	RecommendationsConfiguration []RecommendationConfigurationPropertiesResponse `pulumi:"recommendationsConfiguration"`
 	// Status of the IoT Security solution.
 	Status *string `pulumi:"status"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -126,6 +134,8 @@ type iotSecuritySolutionState struct {
 }
 
 type IotSecuritySolutionState struct {
+	// List of additional workspaces
+	AdditionalWorkspaces AdditionalWorkspacesPropertiesResponseArrayInput
 	// List of resources that were automatically discovered as relevant to the security solution.
 	AutoDiscoveredResources pulumi.StringArrayInput
 	// Disabled data sources. Disabling these data sources compromises the system.
@@ -144,6 +154,8 @@ type IotSecuritySolutionState struct {
 	RecommendationsConfiguration RecommendationConfigurationPropertiesResponseArrayInput
 	// Status of the IoT Security solution.
 	Status pulumi.StringPtrInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
@@ -161,6 +173,8 @@ func (IotSecuritySolutionState) ElementType() reflect.Type {
 }
 
 type iotSecuritySolutionArgs struct {
+	// List of additional workspaces
+	AdditionalWorkspaces []AdditionalWorkspacesProperties `pulumi:"additionalWorkspaces"`
 	// Disabled data sources. Disabling these data sources compromises the system.
 	DisabledDataSources []string `pulumi:"disabledDataSources"`
 	// Resource display name.
@@ -191,6 +205,8 @@ type iotSecuritySolutionArgs struct {
 
 // The set of arguments for constructing a IotSecuritySolution resource.
 type IotSecuritySolutionArgs struct {
+	// List of additional workspaces
+	AdditionalWorkspaces AdditionalWorkspacesPropertiesArrayInput
 	// Disabled data sources. Disabling these data sources compromises the system.
 	DisabledDataSources pulumi.StringArrayInput
 	// Resource display name.

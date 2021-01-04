@@ -35,6 +35,10 @@ export interface GetIotSecuritySolutionArgs {
  */
 export interface GetIotSecuritySolutionResult {
     /**
+     * List of additional workspaces
+     */
+    readonly additionalWorkspaces?: outputs.security.v20190801.AdditionalWorkspacesPropertiesResponse[];
+    /**
      * List of resources that were automatically discovered as relevant to the security solution.
      */
     readonly autoDiscoveredResources: string[];
@@ -74,6 +78,10 @@ export interface GetIotSecuritySolutionResult {
      * Status of the IoT Security solution.
      */
     readonly status?: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.security.v20190801.SystemDataResponse;
     /**
      * Resource tags
      */

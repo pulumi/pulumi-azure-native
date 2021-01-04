@@ -47,6 +47,12 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The managed mode of the server (0 = not managed, 1 = managed).
+        /// </summary>
+        [Output("managedMode")]
+        public Output<int?> ManagedMode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Analysis Services resource.
         /// </summary>
         [Output("name")]
@@ -175,6 +181,12 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The managed mode of the server (0 = not managed, 1 = managed).
+        /// </summary>
+        [Input("managedMode")]
+        public Input<Pulumi.AzureNextGen.AnalysisServices.Latest.ManagedMode>? ManagedMode { get; set; }
 
         /// <summary>
         /// How the read-write server's participation in the query pool is controlled.&lt;br/&gt;It can have the following values: &lt;ul&gt;&lt;li&gt;readOnly - indicates that the read-write server is intended not to participate in query operations&lt;/li&gt;&lt;li&gt;all - indicates that the read-write server can participate in query operations&lt;/li&gt;&lt;/ul&gt;Specifying readOnly when capacity is 1 results in error.

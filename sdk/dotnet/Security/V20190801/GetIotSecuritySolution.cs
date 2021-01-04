@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Security.V20190801
     public sealed class GetIotSecuritySolutionResult
     {
         /// <summary>
+        /// List of additional workspaces
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AdditionalWorkspacesPropertiesResponse> AdditionalWorkspaces;
+        /// <summary>
         /// List of resources that were automatically discovered as relevant to the security solution.
         /// </summary>
         public readonly ImmutableArray<string> AutoDiscoveredResources;
@@ -80,6 +84,10 @@ namespace Pulumi.AzureNextGen.Security.V20190801
         /// </summary>
         public readonly string? Status;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -102,6 +110,8 @@ namespace Pulumi.AzureNextGen.Security.V20190801
 
         [OutputConstructor]
         private GetIotSecuritySolutionResult(
+            ImmutableArray<Outputs.AdditionalWorkspacesPropertiesResponse> additionalWorkspaces,
+
             ImmutableArray<string> autoDiscoveredResources,
 
             ImmutableArray<string> disabledDataSources,
@@ -122,6 +132,8 @@ namespace Pulumi.AzureNextGen.Security.V20190801
 
             string? status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -132,6 +144,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
 
             string? workspace)
         {
+            AdditionalWorkspaces = additionalWorkspaces;
             AutoDiscoveredResources = autoDiscoveredResources;
             DisabledDataSources = disabledDataSources;
             DisplayName = displayName;
@@ -142,6 +155,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
             Name = name;
             RecommendationsConfiguration = recommendationsConfiguration;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UnmaskedIpLoggingStatus = unmaskedIpLoggingStatus;

@@ -55,6 +55,10 @@ export interface GetServerDetailsResult {
      */
     readonly location: string;
     /**
+     * The managed mode of the server (0 = not managed, 1 = managed).
+     */
+    readonly managedMode?: number;
+    /**
      * The name of the Analysis Services resource.
      */
     readonly name: string;
@@ -66,6 +70,10 @@ export interface GetServerDetailsResult {
      * The full name of the Analysis Services resource.
      */
     readonly serverFullName: string;
+    /**
+     * The server monitor mode for AS server
+     */
+    readonly serverMonitorMode?: number;
     /**
      * The SKU of the Analysis Services resource.
      */

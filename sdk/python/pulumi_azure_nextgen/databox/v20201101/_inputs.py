@@ -20,7 +20,9 @@ __all__ = [
     'DataImportDetailsArgs',
     'EncryptionPreferencesArgs',
     'FilterFileDetailsArgs',
+    'IdentityPropertiesArgs',
     'JobDeliveryInfoArgs',
+    'KeyEncryptionKeyArgs',
     'ManagedDiskDetailsArgs',
     'NotificationPreferenceArgs',
     'PreferencesArgs',
@@ -34,6 +36,7 @@ __all__ = [
     'TransferConfigurationTransferFilterDetailsArgs',
     'TransferFilterDetailsArgs',
     'TransportPreferencesArgs',
+    'UserAssignedPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -257,6 +260,7 @@ class DataBoxDiskJobDetailsArgs:
                  data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
                  data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
                  expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
+                 key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
                  passkey: Optional[pulumi.Input[str]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
                  preferred_disks: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None,
@@ -269,6 +273,7 @@ class DataBoxDiskJobDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
         :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
         :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input['KeyEncryptionKeyArgs'] key_encryption_key: Details about which key encryption type is being used.
         :param pulumi.Input[str] passkey: User entered passkey for DataBox Disk job.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         :param pulumi.Input[Mapping[str, pulumi.Input[int]]] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
@@ -282,6 +287,8 @@ class DataBoxDiskJobDetailsArgs:
             pulumi.set(__self__, "data_import_details", data_import_details)
         if expected_data_size_in_terabytes is not None:
             pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if passkey is not None:
             pulumi.set(__self__, "passkey", passkey)
         if preferences is not None:
@@ -353,6 +360,18 @@ class DataBoxDiskJobDetailsArgs:
         pulumi.set(self, "expected_data_size_in_terabytes", value)
 
     @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional[pulumi.Input['KeyEncryptionKeyArgs']]:
+        """
+        Details about which key encryption type is being used.
+        """
+        return pulumi.get(self, "key_encryption_key")
+
+    @key_encryption_key.setter
+    def key_encryption_key(self, value: Optional[pulumi.Input['KeyEncryptionKeyArgs']]):
+        pulumi.set(self, "key_encryption_key", value)
+
+    @property
     @pulumi.getter
     def passkey(self) -> Optional[pulumi.Input[str]]:
         """
@@ -410,6 +429,7 @@ class DataBoxHeavyJobDetailsArgs:
                  data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
                  device_password: Optional[pulumi.Input[str]] = None,
                  expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
+                 key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
@@ -421,6 +441,7 @@ class DataBoxHeavyJobDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input['KeyEncryptionKeyArgs'] key_encryption_key: Details about which key encryption type is being used.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
@@ -434,6 +455,8 @@ class DataBoxHeavyJobDetailsArgs:
             pulumi.set(__self__, "device_password", device_password)
         if expected_data_size_in_terabytes is not None:
             pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if preferences is not None:
             pulumi.set(__self__, "preferences", preferences)
         if shipping_address is not None:
@@ -513,6 +536,18 @@ class DataBoxHeavyJobDetailsArgs:
         pulumi.set(self, "expected_data_size_in_terabytes", value)
 
     @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional[pulumi.Input['KeyEncryptionKeyArgs']]:
+        """
+        Details about which key encryption type is being used.
+        """
+        return pulumi.get(self, "key_encryption_key")
+
+    @key_encryption_key.setter
+    def key_encryption_key(self, value: Optional[pulumi.Input['KeyEncryptionKeyArgs']]):
+        pulumi.set(self, "key_encryption_key", value)
+
+    @property
     @pulumi.getter
     def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
         """
@@ -546,6 +581,7 @@ class DataBoxJobDetailsArgs:
                  data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
                  device_password: Optional[pulumi.Input[str]] = None,
                  expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
+                 key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
@@ -557,6 +593,7 @@ class DataBoxJobDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input['KeyEncryptionKeyArgs'] key_encryption_key: Details about which key encryption type is being used.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
@@ -570,6 +607,8 @@ class DataBoxJobDetailsArgs:
             pulumi.set(__self__, "device_password", device_password)
         if expected_data_size_in_terabytes is not None:
             pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if preferences is not None:
             pulumi.set(__self__, "preferences", preferences)
         if shipping_address is not None:
@@ -647,6 +686,18 @@ class DataBoxJobDetailsArgs:
     @expected_data_size_in_terabytes.setter
     def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expected_data_size_in_terabytes", value)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional[pulumi.Input['KeyEncryptionKeyArgs']]:
+        """
+        Details about which key encryption type is being used.
+        """
+        return pulumi.get(self, "key_encryption_key")
+
+    @key_encryption_key.setter
+    def key_encryption_key(self, value: Optional[pulumi.Input['KeyEncryptionKeyArgs']]):
+        pulumi.set(self, "key_encryption_key", value)
 
     @property
     @pulumi.getter
@@ -813,6 +864,46 @@ class FilterFileDetailsArgs:
 
 
 @pulumi.input_type
+class IdentityPropertiesArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None,
+                 user_assigned: Optional[pulumi.Input['UserAssignedPropertiesArgs']] = None):
+        """
+        Managed identity properties.
+        :param pulumi.Input[str] type: Managed service identity type.
+        :param pulumi.Input['UserAssignedPropertiesArgs'] user_assigned: User assigned identity properties.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned is not None:
+            pulumi.set(__self__, "user_assigned", user_assigned)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed service identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssigned")
+    def user_assigned(self) -> Optional[pulumi.Input['UserAssignedPropertiesArgs']]:
+        """
+        User assigned identity properties.
+        """
+        return pulumi.get(self, "user_assigned")
+
+    @user_assigned.setter
+    def user_assigned(self, value: Optional[pulumi.Input['UserAssignedPropertiesArgs']]):
+        pulumi.set(self, "user_assigned", value)
+
+
+@pulumi.input_type
 class JobDeliveryInfoArgs:
     def __init__(__self__, *,
                  scheduled_date_time: Optional[pulumi.Input[str]] = None):
@@ -834,6 +925,77 @@ class JobDeliveryInfoArgs:
     @scheduled_date_time.setter
     def scheduled_date_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scheduled_date_time", value)
+
+
+@pulumi.input_type
+class KeyEncryptionKeyArgs:
+    def __init__(__self__, *,
+                 kek_type: pulumi.Input[Union[str, 'KekType']],
+                 identity_properties: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+                 kek_url: Optional[pulumi.Input[str]] = None,
+                 kek_vault_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Encryption key containing details about key to encrypt different keys.
+        :param pulumi.Input[Union[str, 'KekType']] kek_type: Type of encryption key used for key encryption.
+        :param pulumi.Input['IdentityPropertiesArgs'] identity_properties: Managed identity properties used for key encryption.
+        :param pulumi.Input[str] kek_url: Key encryption key. It is required in case of Customer managed KekType.
+        :param pulumi.Input[str] kek_vault_resource_id: Kek vault resource id. It is required in case of Customer managed KekType.
+        """
+        pulumi.set(__self__, "kek_type", kek_type)
+        if identity_properties is not None:
+            pulumi.set(__self__, "identity_properties", identity_properties)
+        if kek_url is not None:
+            pulumi.set(__self__, "kek_url", kek_url)
+        if kek_vault_resource_id is not None:
+            pulumi.set(__self__, "kek_vault_resource_id", kek_vault_resource_id)
+
+    @property
+    @pulumi.getter(name="kekType")
+    def kek_type(self) -> pulumi.Input[Union[str, 'KekType']]:
+        """
+        Type of encryption key used for key encryption.
+        """
+        return pulumi.get(self, "kek_type")
+
+    @kek_type.setter
+    def kek_type(self, value: pulumi.Input[Union[str, 'KekType']]):
+        pulumi.set(self, "kek_type", value)
+
+    @property
+    @pulumi.getter(name="identityProperties")
+    def identity_properties(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
+        """
+        Managed identity properties used for key encryption.
+        """
+        return pulumi.get(self, "identity_properties")
+
+    @identity_properties.setter
+    def identity_properties(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
+        pulumi.set(self, "identity_properties", value)
+
+    @property
+    @pulumi.getter(name="kekUrl")
+    def kek_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key encryption key. It is required in case of Customer managed KekType.
+        """
+        return pulumi.get(self, "kek_url")
+
+    @kek_url.setter
+    def kek_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kek_url", value)
+
+    @property
+    @pulumi.getter(name="kekVaultResourceID")
+    def kek_vault_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kek vault resource id. It is required in case of Customer managed KekType.
+        """
+        return pulumi.get(self, "kek_vault_resource_id")
+
+    @kek_vault_resource_id.setter
+    def kek_vault_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kek_vault_resource_id", value)
 
 
 @pulumi.input_type
@@ -1568,5 +1730,29 @@ class TransportPreferencesArgs:
     @preferred_shipment_type.setter
     def preferred_shipment_type(self, value: pulumi.Input[Union[str, 'TransportShipmentTypes']]):
         pulumi.set(self, "preferred_shipment_type", value)
+
+
+@pulumi.input_type
+class UserAssignedPropertiesArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        User assigned identity properties.
+        :param pulumi.Input[str] resource_id: Arm resource id for user assigned identity to be used to fetch MSI token.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Arm resource id for user assigned identity to be used to fetch MSI token.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 

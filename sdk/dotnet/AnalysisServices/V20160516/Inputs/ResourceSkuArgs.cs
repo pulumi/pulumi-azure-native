@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516.Inputs
     public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The number of instances in the read only query pool.
+        /// </summary>
+        [Input("capacity")]
+        public Input<int>? Capacity { get; set; }
+
+        /// <summary>
         /// Name of the SKU level.
         /// </summary>
         [Input("name", required: true)]

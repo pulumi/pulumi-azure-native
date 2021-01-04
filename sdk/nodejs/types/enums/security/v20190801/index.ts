@@ -2,6 +2,25 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AdditionalWorkspaceDataType = {
+    Alerts: "Alerts",
+    RawEvents: "RawEvents",
+} as const;
+
+/**
+ * Data types sent to workspace.
+ */
+export type AdditionalWorkspaceDataType = (typeof AdditionalWorkspaceDataType)[keyof typeof AdditionalWorkspaceDataType];
+
+export const AdditionalWorkspaceType = {
+    Sentinel: "Sentinel",
+} as const;
+
+/**
+ * Workspace type.
+ */
+export type AdditionalWorkspaceType = (typeof AdditionalWorkspaceType)[keyof typeof AdditionalWorkspaceType];
+
 export const DataSource = {
     /**
      * Devices twin data

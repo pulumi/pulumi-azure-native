@@ -25,6 +25,8 @@ type LookupIotSecuritySolutionArgs struct {
 
 // IoT Security solution configuration and resource information.
 type LookupIotSecuritySolutionResult struct {
+	// List of additional workspaces
+	AdditionalWorkspaces []AdditionalWorkspacesPropertiesResponse `pulumi:"additionalWorkspaces"`
 	// List of resources that were automatically discovered as relevant to the security solution.
 	AutoDiscoveredResources []string `pulumi:"autoDiscoveredResources"`
 	// Disabled data sources. Disabling these data sources compromises the system.
@@ -45,6 +47,8 @@ type LookupIotSecuritySolutionResult struct {
 	RecommendationsConfiguration []RecommendationConfigurationPropertiesResponse `pulumi:"recommendationsConfiguration"`
 	// Status of the IoT Security solution.
 	Status *string `pulumi:"status"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

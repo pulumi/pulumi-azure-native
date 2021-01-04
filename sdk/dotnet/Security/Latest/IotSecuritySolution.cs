@@ -17,6 +17,12 @@ namespace Pulumi.AzureNextGen.Security.Latest
     public partial class IotSecuritySolution : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of additional workspaces
+        /// </summary>
+        [Output("additionalWorkspaces")]
+        public Output<ImmutableArray<Outputs.AdditionalWorkspacesPropertiesResponse>> AdditionalWorkspaces { get; private set; } = null!;
+
+        /// <summary>
         /// List of resources that were automatically discovered as relevant to the security solution.
         /// </summary>
         [Output("autoDiscoveredResources")]
@@ -69,6 +75,12 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -150,6 +162,18 @@ namespace Pulumi.AzureNextGen.Security.Latest
 
     public sealed class IotSecuritySolutionArgs : Pulumi.ResourceArgs
     {
+        [Input("additionalWorkspaces")]
+        private InputList<Inputs.AdditionalWorkspacesPropertiesArgs>? _additionalWorkspaces;
+
+        /// <summary>
+        /// List of additional workspaces
+        /// </summary>
+        public InputList<Inputs.AdditionalWorkspacesPropertiesArgs> AdditionalWorkspaces
+        {
+            get => _additionalWorkspaces ?? (_additionalWorkspaces = new InputList<Inputs.AdditionalWorkspacesPropertiesArgs>());
+            set => _additionalWorkspaces = value;
+        }
+
         [Input("disabledDataSources")]
         private InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.DataSource>>? _disabledDataSources;
 

@@ -25,6 +25,8 @@ type ServerDetails struct {
 	IpV4FirewallSettings IPv4FirewallSettingsResponsePtrOutput `pulumi:"ipV4FirewallSettings"`
 	// Location of the Analysis Services resource.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The managed mode of the server (0 = not managed, 1 = managed).
+	ManagedMode pulumi.IntPtrOutput `pulumi:"managedMode"`
 	// The name of the Analysis Services resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
@@ -109,6 +111,8 @@ type serverDetailsState struct {
 	IpV4FirewallSettings *IPv4FirewallSettingsResponse `pulumi:"ipV4FirewallSettings"`
 	// Location of the Analysis Services resource.
 	Location *string `pulumi:"location"`
+	// The managed mode of the server (0 = not managed, 1 = managed).
+	ManagedMode *int `pulumi:"managedMode"`
 	// The name of the Analysis Services resource.
 	Name *string `pulumi:"name"`
 	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
@@ -138,6 +142,8 @@ type ServerDetailsState struct {
 	IpV4FirewallSettings IPv4FirewallSettingsResponsePtrInput
 	// Location of the Analysis Services resource.
 	Location pulumi.StringPtrInput
+	// The managed mode of the server (0 = not managed, 1 = managed).
+	ManagedMode pulumi.IntPtrInput
 	// The name of the Analysis Services resource.
 	Name pulumi.StringPtrInput
 	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
@@ -171,6 +177,8 @@ type serverDetailsArgs struct {
 	IpV4FirewallSettings *IPv4FirewallSettings `pulumi:"ipV4FirewallSettings"`
 	// Location of the Analysis Services resource.
 	Location string `pulumi:"location"`
+	// The managed mode of the server (0 = not managed, 1 = managed).
+	ManagedMode *string `pulumi:"managedMode"`
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -195,6 +203,8 @@ type ServerDetailsArgs struct {
 	IpV4FirewallSettings IPv4FirewallSettingsPtrInput
 	// Location of the Analysis Services resource.
 	Location pulumi.StringInput
+	// The managed mode of the server (0 = not managed, 1 = managed).
+	ManagedMode ManagedMode
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
 	QuerypoolConnectionMode ConnectionMode
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.

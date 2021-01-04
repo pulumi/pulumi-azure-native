@@ -10,6 +10,7 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'AdditionalWorkspacesPropertiesArgs',
     'AllowlistCustomAlertRuleArgs',
     'AssessmentStatusArgs',
     'AzureResourceDetailsArgs',
@@ -33,6 +34,62 @@ __all__ = [
     'UserRecommendationArgs',
     'VmRecommendationArgs',
 ]
+
+@pulumi.input_type
+class AdditionalWorkspacesPropertiesArgs:
+    def __init__(__self__, *,
+                 data_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AdditionalWorkspaceDataType']]]]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'AdditionalWorkspaceType']]] = None,
+                 workspace: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of the additional workspaces.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AdditionalWorkspaceDataType']]]] data_types: List of data types sent to workspace
+        :param pulumi.Input[Union[str, 'AdditionalWorkspaceType']] type: Workspace type.
+        :param pulumi.Input[str] workspace: Workspace resource id
+        """
+        if data_types is not None:
+            pulumi.set(__self__, "data_types", data_types)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if workspace is not None:
+            pulumi.set(__self__, "workspace", workspace)
+
+    @property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AdditionalWorkspaceDataType']]]]]:
+        """
+        List of data types sent to workspace
+        """
+        return pulumi.get(self, "data_types")
+
+    @data_types.setter
+    def data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AdditionalWorkspaceDataType']]]]]):
+        pulumi.set(self, "data_types", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'AdditionalWorkspaceType']]]:
+        """
+        Workspace type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'AdditionalWorkspaceType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def workspace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workspace resource id
+        """
+        return pulumi.get(self, "workspace")
+
+    @workspace.setter
+    def workspace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace", value)
+
 
 @pulumi.input_type
 class AllowlistCustomAlertRuleArgs:

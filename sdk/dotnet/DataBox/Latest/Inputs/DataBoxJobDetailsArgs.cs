@@ -65,6 +65,12 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
         public Input<string> JobDetailsType { get; set; } = null!;
 
         /// <summary>
+        /// Details about which key encryption type is being used.
+        /// </summary>
+        [Input("keyEncryptionKey")]
+        public Input<Inputs.KeyEncryptionKeyArgs>? KeyEncryptionKey { get; set; }
+
+        /// <summary>
         /// Preferences for the order.
         /// </summary>
         [Input("preferences")]

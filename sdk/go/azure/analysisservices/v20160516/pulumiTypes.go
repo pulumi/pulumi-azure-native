@@ -12,6 +12,8 @@ import (
 
 // Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSku struct {
+	// The number of instances in the read only query pool.
+	Capacity *int `pulumi:"capacity"`
 	// Name of the SKU level.
 	Name string `pulumi:"name"`
 	// The name of the Azure pricing tier to which the SKU applies.
@@ -31,6 +33,8 @@ type ResourceSkuInput interface {
 
 // Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuArgs struct {
+	// The number of instances in the read only query pool.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Name of the SKU level.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Azure pricing tier to which the SKU applies.
@@ -115,6 +119,11 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context
 	}).(ResourceSkuPtrOutput)
 }
 
+// The number of instances in the read only query pool.
+func (o ResourceSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
 // Name of the SKU level.
 func (o ResourceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSku) string { return v.Name }).(pulumi.StringOutput)
@@ -143,6 +152,16 @@ func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
 	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
 }
 
+// The number of instances in the read only query pool.
+func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceSku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
 // Name of the SKU level.
 func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
@@ -165,6 +184,8 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 
 // Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponse struct {
+	// The number of instances in the read only query pool.
+	Capacity *int `pulumi:"capacity"`
 	// Name of the SKU level.
 	Name string `pulumi:"name"`
 	// The name of the Azure pricing tier to which the SKU applies.
@@ -184,6 +205,8 @@ type ResourceSkuResponseInput interface {
 
 // Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponseArgs struct {
+	// The number of instances in the read only query pool.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Name of the SKU level.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Azure pricing tier to which the SKU applies.
@@ -268,6 +291,11 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx
 	}).(ResourceSkuResponsePtrOutput)
 }
 
+// The number of instances in the read only query pool.
+func (o ResourceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
 // Name of the SKU level.
 func (o ResourceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
@@ -294,6 +322,16 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+}
+
+// The number of instances in the read only query pool.
+func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceSkuResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // Name of the SKU level.

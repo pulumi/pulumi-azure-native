@@ -56,6 +56,10 @@ export class ServerDetails extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The managed mode of the server (0 = not managed, 1 = managed).
+     */
+    public readonly managedMode!: pulumi.Output<number | undefined>;
+    /**
      * The name of the Analysis Services resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -71,6 +75,10 @@ export class ServerDetails extends pulumi.CustomResource {
      * The full name of the Analysis Services resource.
      */
     public /*out*/ readonly serverFullName!: pulumi.Output<string>;
+    /**
+     * The server monitor mode for AS server
+     */
+    public readonly serverMonitorMode!: pulumi.Output<number | undefined>;
     /**
      * The SKU of the Analysis Services resource.
      */
@@ -115,8 +123,10 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["gatewayDetails"] = args ? args.gatewayDetails : undefined;
             inputs["ipV4FirewallSettings"] = args ? args.ipV4FirewallSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedMode"] = args ? args.managedMode : undefined;
             inputs["querypoolConnectionMode"] = args ? args.querypoolConnectionMode : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverMonitorMode"] = args ? args.serverMonitorMode : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -131,10 +141,12 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["gatewayDetails"] = undefined /*out*/;
             inputs["ipV4FirewallSettings"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["managedMode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["querypoolConnectionMode"] = undefined /*out*/;
             inputs["serverFullName"] = undefined /*out*/;
+            inputs["serverMonitorMode"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -178,6 +190,10 @@ export interface ServerDetailsArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * The managed mode of the server (0 = not managed, 1 = managed).
+     */
+    readonly managedMode?: pulumi.Input<enums.analysisservices.v20170801beta.ManagedMode>;
+    /**
      * How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
      */
     readonly querypoolConnectionMode?: pulumi.Input<enums.analysisservices.v20170801beta.ConnectionMode>;
@@ -185,6 +201,10 @@ export interface ServerDetailsArgs {
      * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The server monitor mode for AS server
+     */
+    readonly serverMonitorMode?: pulumi.Input<enums.analysisservices.v20170801beta.ServerMonitorMode>;
     /**
      * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
      */

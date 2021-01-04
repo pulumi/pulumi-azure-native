@@ -815,12 +815,12 @@ class DataBoxDiskJobDetailsResponse(dict):
                  disks_and_size_details: Mapping[str, int],
                  job_details_type: str,
                  job_stages: Sequence['outputs.JobStagesResponse'],
-                 key_encryption_key: 'outputs.KeyEncryptionKeyResponse',
                  return_package: 'outputs.PackageShippingDetailsResponse',
                  reverse_shipment_label_sas_key: str,
                  data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
                  data_import_details: Optional[Sequence['outputs.DataImportDetailsResponse']] = None,
                  expected_data_size_in_terabytes: Optional[int] = None,
+                 key_encryption_key: Optional['outputs.KeyEncryptionKeyResponse'] = None,
                  passkey: Optional[str] = None,
                  preferences: Optional['outputs.PreferencesResponse'] = None,
                  preferred_disks: Optional[Mapping[str, int]] = None,
@@ -836,12 +836,12 @@ class DataBoxDiskJobDetailsResponse(dict):
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxDisk'.
         :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
-        :param 'KeyEncryptionKeyResponseArgs' key_encryption_key: Details about which key encryption type is being used.
         :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
         :param Sequence['DataExportDetailsResponseArgs'] data_export_details: Details of the data to be exported from azure.
         :param Sequence['DataImportDetailsResponseArgs'] data_import_details: Details of the data to be imported into azure.
         :param int expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param 'KeyEncryptionKeyResponseArgs' key_encryption_key: Details about which key encryption type is being used.
         :param str passkey: User entered passkey for DataBox Disk job.
         :param 'PreferencesResponseArgs' preferences: Preferences for the order.
         :param Mapping[str, int] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
@@ -855,7 +855,6 @@ class DataBoxDiskJobDetailsResponse(dict):
         pulumi.set(__self__, "disks_and_size_details", disks_and_size_details)
         pulumi.set(__self__, "job_details_type", 'DataBoxDisk')
         pulumi.set(__self__, "job_stages", job_stages)
-        pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         pulumi.set(__self__, "return_package", return_package)
         pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
         if data_export_details is not None:
@@ -864,6 +863,8 @@ class DataBoxDiskJobDetailsResponse(dict):
             pulumi.set(__self__, "data_import_details", data_import_details)
         if expected_data_size_in_terabytes is not None:
             pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if passkey is not None:
             pulumi.set(__self__, "passkey", passkey)
         if preferences is not None:
@@ -939,14 +940,6 @@ class DataBoxDiskJobDetailsResponse(dict):
         return pulumi.get(self, "job_stages")
 
     @property
-    @pulumi.getter(name="keyEncryptionKey")
-    def key_encryption_key(self) -> 'outputs.KeyEncryptionKeyResponse':
-        """
-        Details about which key encryption type is being used.
-        """
-        return pulumi.get(self, "key_encryption_key")
-
-    @property
     @pulumi.getter(name="returnPackage")
     def return_package(self) -> 'outputs.PackageShippingDetailsResponse':
         """
@@ -985,6 +978,14 @@ class DataBoxDiskJobDetailsResponse(dict):
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_terabytes")
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional['outputs.KeyEncryptionKeyResponse']:
+        """
+        Details about which key encryption type is being used.
+        """
+        return pulumi.get(self, "key_encryption_key")
 
     @property
     @pulumi.getter
@@ -1174,13 +1175,13 @@ class DataBoxHeavyJobDetailsResponse(dict):
                  delivery_package: 'outputs.PackageShippingDetailsResponse',
                  job_details_type: str,
                  job_stages: Sequence['outputs.JobStagesResponse'],
-                 key_encryption_key: 'outputs.KeyEncryptionKeyResponse',
                  return_package: 'outputs.PackageShippingDetailsResponse',
                  reverse_shipment_label_sas_key: str,
                  data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
                  data_import_details: Optional[Sequence['outputs.DataImportDetailsResponse']] = None,
                  device_password: Optional[str] = None,
                  expected_data_size_in_terabytes: Optional[int] = None,
+                 key_encryption_key: Optional['outputs.KeyEncryptionKeyResponse'] = None,
                  preferences: Optional['outputs.PreferencesResponse'] = None,
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
@@ -1193,13 +1194,13 @@ class DataBoxHeavyJobDetailsResponse(dict):
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxHeavy'.
         :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
-        :param 'KeyEncryptionKeyResponseArgs' key_encryption_key: Details about which key encryption type is being used.
         :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
         :param Sequence['DataExportDetailsResponseArgs'] data_export_details: Details of the data to be exported from azure.
         :param Sequence['DataImportDetailsResponseArgs'] data_import_details: Details of the data to be imported into azure.
         :param str device_password: Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         :param int expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param 'KeyEncryptionKeyResponseArgs' key_encryption_key: Details about which key encryption type is being used.
         :param 'PreferencesResponseArgs' preferences: Preferences for the order.
         :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
         """
@@ -1210,7 +1211,6 @@ class DataBoxHeavyJobDetailsResponse(dict):
         pulumi.set(__self__, "delivery_package", delivery_package)
         pulumi.set(__self__, "job_details_type", 'DataBoxHeavy')
         pulumi.set(__self__, "job_stages", job_stages)
-        pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         pulumi.set(__self__, "return_package", return_package)
         pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
         if data_export_details is not None:
@@ -1221,6 +1221,8 @@ class DataBoxHeavyJobDetailsResponse(dict):
             pulumi.set(__self__, "device_password", device_password)
         if expected_data_size_in_terabytes is not None:
             pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if preferences is not None:
             pulumi.set(__self__, "preferences", preferences)
         if shipping_address is not None:
@@ -1284,14 +1286,6 @@ class DataBoxHeavyJobDetailsResponse(dict):
         return pulumi.get(self, "job_stages")
 
     @property
-    @pulumi.getter(name="keyEncryptionKey")
-    def key_encryption_key(self) -> 'outputs.KeyEncryptionKeyResponse':
-        """
-        Details about which key encryption type is being used.
-        """
-        return pulumi.get(self, "key_encryption_key")
-
-    @property
     @pulumi.getter(name="returnPackage")
     def return_package(self) -> 'outputs.PackageShippingDetailsResponse':
         """
@@ -1338,6 +1332,14 @@ class DataBoxHeavyJobDetailsResponse(dict):
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_terabytes")
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional['outputs.KeyEncryptionKeyResponse']:
+        """
+        Details about which key encryption type is being used.
+        """
+        return pulumi.get(self, "key_encryption_key")
 
     @property
     @pulumi.getter
@@ -1495,13 +1497,13 @@ class DataBoxJobDetailsResponse(dict):
                  delivery_package: 'outputs.PackageShippingDetailsResponse',
                  job_details_type: str,
                  job_stages: Sequence['outputs.JobStagesResponse'],
-                 key_encryption_key: 'outputs.KeyEncryptionKeyResponse',
                  return_package: 'outputs.PackageShippingDetailsResponse',
                  reverse_shipment_label_sas_key: str,
                  data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
                  data_import_details: Optional[Sequence['outputs.DataImportDetailsResponse']] = None,
                  device_password: Optional[str] = None,
                  expected_data_size_in_terabytes: Optional[int] = None,
+                 key_encryption_key: Optional['outputs.KeyEncryptionKeyResponse'] = None,
                  preferences: Optional['outputs.PreferencesResponse'] = None,
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
@@ -1514,13 +1516,13 @@ class DataBoxJobDetailsResponse(dict):
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBox'.
         :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
-        :param 'KeyEncryptionKeyResponseArgs' key_encryption_key: Details about which key encryption type is being used.
         :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
         :param Sequence['DataExportDetailsResponseArgs'] data_export_details: Details of the data to be exported from azure.
         :param Sequence['DataImportDetailsResponseArgs'] data_import_details: Details of the data to be imported into azure.
         :param str device_password: Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         :param int expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param 'KeyEncryptionKeyResponseArgs' key_encryption_key: Details about which key encryption type is being used.
         :param 'PreferencesResponseArgs' preferences: Preferences for the order.
         :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
         """
@@ -1531,7 +1533,6 @@ class DataBoxJobDetailsResponse(dict):
         pulumi.set(__self__, "delivery_package", delivery_package)
         pulumi.set(__self__, "job_details_type", 'DataBox')
         pulumi.set(__self__, "job_stages", job_stages)
-        pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         pulumi.set(__self__, "return_package", return_package)
         pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
         if data_export_details is not None:
@@ -1542,6 +1543,8 @@ class DataBoxJobDetailsResponse(dict):
             pulumi.set(__self__, "device_password", device_password)
         if expected_data_size_in_terabytes is not None:
             pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if preferences is not None:
             pulumi.set(__self__, "preferences", preferences)
         if shipping_address is not None:
@@ -1605,14 +1608,6 @@ class DataBoxJobDetailsResponse(dict):
         return pulumi.get(self, "job_stages")
 
     @property
-    @pulumi.getter(name="keyEncryptionKey")
-    def key_encryption_key(self) -> 'outputs.KeyEncryptionKeyResponse':
-        """
-        Details about which key encryption type is being used.
-        """
-        return pulumi.get(self, "key_encryption_key")
-
-    @property
     @pulumi.getter(name="returnPackage")
     def return_package(self) -> 'outputs.PackageShippingDetailsResponse':
         """
@@ -1659,6 +1654,14 @@ class DataBoxJobDetailsResponse(dict):
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_terabytes")
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional['outputs.KeyEncryptionKeyResponse']:
+        """
+        Details about which key encryption type is being used.
+        """
+        return pulumi.get(self, "key_encryption_key")
 
     @property
     @pulumi.getter

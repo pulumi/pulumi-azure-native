@@ -18,13 +18,17 @@ __all__ = [
 class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
                  tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None):
         """
         Represents the SKU name and Azure pricing tier for Analysis Services resource.
         :param pulumi.Input[str] name: Name of the SKU level.
+        :param pulumi.Input[int] capacity: The number of instances in the read only query pool.
         :param pulumi.Input[Union[str, 'SkuTier']] tier: The name of the Azure pricing tier to which the SKU applies.
         """
         pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
@@ -39,6 +43,18 @@ class ResourceSkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of instances in the read only query pool.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
 
     @property
     @pulumi.getter

@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The managed mode of the server (0 = not managed, 1 = managed).
+        /// </summary>
+        public readonly int? ManagedMode;
+        /// <summary>
         /// The name of the Analysis Services resource.
         /// </summary>
         public readonly string Name;
@@ -67,6 +71,10 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
         /// The full name of the Analysis Services resource.
         /// </summary>
         public readonly string ServerFullName;
+        /// <summary>
+        /// The server monitor mode for AS server
+        /// </summary>
+        public readonly int? ServerMonitorMode;
         /// <summary>
         /// The SKU of the Analysis Services resource.
         /// </summary>
@@ -94,11 +102,15 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
 
             string location,
 
+            int? managedMode,
+
             string name,
 
             string provisioningState,
 
             string serverFullName,
+
+            int? serverMonitorMode,
 
             Outputs.ResourceSkuResponse sku,
 
@@ -112,9 +124,11 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
             BackupBlobContainerUri = backupBlobContainerUri;
             Id = id;
             Location = location;
+            ManagedMode = managedMode;
             Name = name;
             ProvisioningState = provisioningState;
             ServerFullName = serverFullName;
+            ServerMonitorMode = serverMonitorMode;
             Sku = sku;
             State = state;
             Tags = tags;

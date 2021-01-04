@@ -2039,6 +2039,8 @@ type DataBoxDiskJobDetails struct {
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxDisk'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey *KeyEncryptionKey `pulumi:"keyEncryptionKey"`
 	// User entered passkey for DataBox Disk job.
 	Passkey *string `pulumi:"passkey"`
 	// Preferences for the order.
@@ -2073,6 +2075,8 @@ type DataBoxDiskJobDetailsArgs struct {
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxDisk'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey KeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
 	// User entered passkey for DataBox Disk job.
 	Passkey pulumi.StringPtrInput `pulumi:"passkey"`
 	// Preferences for the order.
@@ -2136,6 +2140,11 @@ func (o DataBoxDiskJobDetailsOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
 
+// Details about which key encryption type is being used.
+func (o DataBoxDiskJobDetailsOutput) KeyEncryptionKey() KeyEncryptionKeyPtrOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetails) *KeyEncryptionKey { return v.KeyEncryptionKey }).(KeyEncryptionKeyPtrOutput)
+}
+
 // User entered passkey for DataBox Disk job.
 func (o DataBoxDiskJobDetailsOutput) Passkey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetails) *string { return v.Passkey }).(pulumi.StringPtrOutput)
@@ -2182,7 +2191,7 @@ type DataBoxDiskJobDetailsResponse struct {
 	// List of stages that run in the job.
 	JobStages []JobStagesResponse `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey *KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
 	// User entered passkey for DataBox Disk job.
 	Passkey *string `pulumi:"passkey"`
 	// Preferences for the order.
@@ -2234,7 +2243,7 @@ type DataBoxDiskJobDetailsResponseArgs struct {
 	// List of stages that run in the job.
 	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponseInput `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey KeyEncryptionKeyResponsePtrInput `pulumi:"keyEncryptionKey"`
 	// User entered passkey for DataBox Disk job.
 	Passkey pulumi.StringPtrInput `pulumi:"passkey"`
 	// Preferences for the order.
@@ -2333,8 +2342,8 @@ func (o DataBoxDiskJobDetailsResponseOutput) JobStages() JobStagesResponseArrayO
 }
 
 // Details about which key encryption type is being used.
-func (o DataBoxDiskJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponseOutput {
-	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponseOutput)
+func (o DataBoxDiskJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponsePtrOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) *KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponsePtrOutput)
 }
 
 // User entered passkey for DataBox Disk job.
@@ -2570,6 +2579,8 @@ type DataBoxHeavyJobDetails struct {
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey *KeyEncryptionKey `pulumi:"keyEncryptionKey"`
 	// Preferences for the order.
 	Preferences *Preferences `pulumi:"preferences"`
 	// Shipping address of the customer.
@@ -2602,6 +2613,8 @@ type DataBoxHeavyJobDetailsArgs struct {
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey KeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
 	// Preferences for the order.
 	Preferences PreferencesPtrInput `pulumi:"preferences"`
 	// Shipping address of the customer.
@@ -2666,6 +2679,11 @@ func (o DataBoxHeavyJobDetailsOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetails) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
 
+// Details about which key encryption type is being used.
+func (o DataBoxHeavyJobDetailsOutput) KeyEncryptionKey() KeyEncryptionKeyPtrOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetails) *KeyEncryptionKey { return v.KeyEncryptionKey }).(KeyEncryptionKeyPtrOutput)
+}
+
 // Preferences for the order.
 func (o DataBoxHeavyJobDetailsOutput) Preferences() PreferencesPtrOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetails) *Preferences { return v.Preferences }).(PreferencesPtrOutput)
@@ -2702,7 +2720,7 @@ type DataBoxHeavyJobDetailsResponse struct {
 	// List of stages that run in the job.
 	JobStages []JobStagesResponse `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey *KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
 	// Preferences for the order.
 	Preferences *PreferencesResponse `pulumi:"preferences"`
 	// Return package shipping details.
@@ -2750,7 +2768,7 @@ type DataBoxHeavyJobDetailsResponseArgs struct {
 	// List of stages that run in the job.
 	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponseInput `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey KeyEncryptionKeyResponsePtrInput `pulumi:"keyEncryptionKey"`
 	// Preferences for the order.
 	Preferences PreferencesResponsePtrInput `pulumi:"preferences"`
 	// Return package shipping details.
@@ -2845,8 +2863,8 @@ func (o DataBoxHeavyJobDetailsResponseOutput) JobStages() JobStagesResponseArray
 }
 
 // Details about which key encryption type is being used.
-func (o DataBoxHeavyJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponseOutput {
-	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponseOutput)
+func (o DataBoxHeavyJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponsePtrOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) *KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponsePtrOutput)
 }
 
 // Preferences for the order.
@@ -3109,6 +3127,8 @@ type DataBoxJobDetails struct {
 	// Indicates the type of job details.
 	// Expected value is 'DataBox'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey *KeyEncryptionKey `pulumi:"keyEncryptionKey"`
 	// Preferences for the order.
 	Preferences *Preferences `pulumi:"preferences"`
 	// Shipping address of the customer.
@@ -3141,6 +3161,8 @@ type DataBoxJobDetailsArgs struct {
 	// Indicates the type of job details.
 	// Expected value is 'DataBox'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey KeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
 	// Preferences for the order.
 	Preferences PreferencesPtrInput `pulumi:"preferences"`
 	// Shipping address of the customer.
@@ -3205,6 +3227,11 @@ func (o DataBoxJobDetailsOutput) JobDetailsType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) string { return v.JobDetailsType }).(pulumi.StringOutput)
 }
 
+// Details about which key encryption type is being used.
+func (o DataBoxJobDetailsOutput) KeyEncryptionKey() KeyEncryptionKeyPtrOutput {
+	return o.ApplyT(func(v DataBoxJobDetails) *KeyEncryptionKey { return v.KeyEncryptionKey }).(KeyEncryptionKeyPtrOutput)
+}
+
 // Preferences for the order.
 func (o DataBoxJobDetailsOutput) Preferences() PreferencesPtrOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) *Preferences { return v.Preferences }).(PreferencesPtrOutput)
@@ -3241,7 +3268,7 @@ type DataBoxJobDetailsResponse struct {
 	// List of stages that run in the job.
 	JobStages []JobStagesResponse `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey *KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
 	// Preferences for the order.
 	Preferences *PreferencesResponse `pulumi:"preferences"`
 	// Return package shipping details.
@@ -3289,7 +3316,7 @@ type DataBoxJobDetailsResponseArgs struct {
 	// List of stages that run in the job.
 	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
-	KeyEncryptionKey KeyEncryptionKeyResponseInput `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey KeyEncryptionKeyResponsePtrInput `pulumi:"keyEncryptionKey"`
 	// Preferences for the order.
 	Preferences PreferencesResponsePtrInput `pulumi:"preferences"`
 	// Return package shipping details.
@@ -3384,8 +3411,8 @@ func (o DataBoxJobDetailsResponseOutput) JobStages() JobStagesResponseArrayOutpu
 }
 
 // Details about which key encryption type is being used.
-func (o DataBoxJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponseOutput {
-	return o.ApplyT(func(v DataBoxJobDetailsResponse) KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponseOutput)
+func (o DataBoxJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponsePtrOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsResponse) *KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponsePtrOutput)
 }
 
 // Preferences for the order.
@@ -4725,6 +4752,159 @@ func (o FilterFileDetailsResponseArrayOutput) Index(i pulumi.IntInput) FilterFil
 }
 
 // Managed identity properties.
+type IdentityProperties struct {
+	// Managed service identity type.
+	Type *string `pulumi:"type"`
+	// User assigned identity properties.
+	UserAssigned *UserAssignedProperties `pulumi:"userAssigned"`
+}
+
+// IdentityPropertiesInput is an input type that accepts IdentityPropertiesArgs and IdentityPropertiesOutput values.
+// You can construct a concrete instance of `IdentityPropertiesInput` via:
+//
+//          IdentityPropertiesArgs{...}
+type IdentityPropertiesInput interface {
+	pulumi.Input
+
+	ToIdentityPropertiesOutput() IdentityPropertiesOutput
+	ToIdentityPropertiesOutputWithContext(context.Context) IdentityPropertiesOutput
+}
+
+// Managed identity properties.
+type IdentityPropertiesArgs struct {
+	// Managed service identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// User assigned identity properties.
+	UserAssigned UserAssignedPropertiesPtrInput `pulumi:"userAssigned"`
+}
+
+func (IdentityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
+}
+
+func (i IdentityPropertiesArgs) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
+	return i.ToIdentityPropertiesOutputWithContext(context.Background())
+}
+
+func (i IdentityPropertiesArgs) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesOutput)
+}
+
+func (i IdentityPropertiesArgs) ToIdentityPropertiesPtrOutput() IdentityPropertiesPtrOutput {
+	return i.ToIdentityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IdentityPropertiesArgs) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesOutput).ToIdentityPropertiesPtrOutputWithContext(ctx)
+}
+
+// IdentityPropertiesPtrInput is an input type that accepts IdentityPropertiesArgs, IdentityPropertiesPtr and IdentityPropertiesPtrOutput values.
+// You can construct a concrete instance of `IdentityPropertiesPtrInput` via:
+//
+//          IdentityPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIdentityPropertiesPtrOutput() IdentityPropertiesPtrOutput
+	ToIdentityPropertiesPtrOutputWithContext(context.Context) IdentityPropertiesPtrOutput
+}
+
+type identityPropertiesPtrType IdentityPropertiesArgs
+
+func IdentityPropertiesPtr(v *IdentityPropertiesArgs) IdentityPropertiesPtrInput {
+	return (*identityPropertiesPtrType)(v)
+}
+
+func (*identityPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProperties)(nil)).Elem()
+}
+
+func (i *identityPropertiesPtrType) ToIdentityPropertiesPtrOutput() IdentityPropertiesPtrOutput {
+	return i.ToIdentityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *identityPropertiesPtrType) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesPtrOutput)
+}
+
+// Managed identity properties.
+type IdentityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdentityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
+}
+
+func (o IdentityPropertiesOutput) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
+	return o
+}
+
+func (o IdentityPropertiesOutput) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
+	return o
+}
+
+func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutput() IdentityPropertiesPtrOutput {
+	return o.ToIdentityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
+	return o.ApplyT(func(v IdentityProperties) *IdentityProperties {
+		return &v
+	}).(IdentityPropertiesPtrOutput)
+}
+
+// Managed service identity type.
+func (o IdentityPropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// User assigned identity properties.
+func (o IdentityPropertiesOutput) UserAssigned() UserAssignedPropertiesPtrOutput {
+	return o.ApplyT(func(v IdentityProperties) *UserAssignedProperties { return v.UserAssigned }).(UserAssignedPropertiesPtrOutput)
+}
+
+type IdentityPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProperties)(nil)).Elem()
+}
+
+func (o IdentityPropertiesPtrOutput) ToIdentityPropertiesPtrOutput() IdentityPropertiesPtrOutput {
+	return o
+}
+
+func (o IdentityPropertiesPtrOutput) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
+	return o
+}
+
+func (o IdentityPropertiesPtrOutput) Elem() IdentityPropertiesOutput {
+	return o.ApplyT(func(v *IdentityProperties) IdentityProperties { return *v }).(IdentityPropertiesOutput)
+}
+
+// Managed service identity type.
+func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// User assigned identity properties.
+func (o IdentityPropertiesPtrOutput) UserAssigned() UserAssignedPropertiesPtrOutput {
+	return o.ApplyT(func(v *IdentityProperties) *UserAssignedProperties {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssigned
+	}).(UserAssignedPropertiesPtrOutput)
+}
+
+// Managed identity properties.
 type IdentityPropertiesResponse struct {
 	// Managed service identity type.
 	Type *string `pulumi:"type"`
@@ -5282,6 +5462,197 @@ func (o JobStagesResponseArrayOutput) Index(i pulumi.IntInput) JobStagesResponse
 }
 
 // Encryption key containing details about key to encrypt different keys.
+type KeyEncryptionKey struct {
+	// Managed identity properties used for key encryption.
+	IdentityProperties *IdentityProperties `pulumi:"identityProperties"`
+	// Type of encryption key used for key encryption.
+	KekType string `pulumi:"kekType"`
+	// Key encryption key. It is required in case of Customer managed KekType.
+	KekUrl *string `pulumi:"kekUrl"`
+	// Kek vault resource id. It is required in case of Customer managed KekType.
+	KekVaultResourceID *string `pulumi:"kekVaultResourceID"`
+}
+
+// KeyEncryptionKeyInput is an input type that accepts KeyEncryptionKeyArgs and KeyEncryptionKeyOutput values.
+// You can construct a concrete instance of `KeyEncryptionKeyInput` via:
+//
+//          KeyEncryptionKeyArgs{...}
+type KeyEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToKeyEncryptionKeyOutput() KeyEncryptionKeyOutput
+	ToKeyEncryptionKeyOutputWithContext(context.Context) KeyEncryptionKeyOutput
+}
+
+// Encryption key containing details about key to encrypt different keys.
+type KeyEncryptionKeyArgs struct {
+	// Managed identity properties used for key encryption.
+	IdentityProperties IdentityPropertiesPtrInput `pulumi:"identityProperties"`
+	// Type of encryption key used for key encryption.
+	KekType pulumi.StringInput `pulumi:"kekType"`
+	// Key encryption key. It is required in case of Customer managed KekType.
+	KekUrl pulumi.StringPtrInput `pulumi:"kekUrl"`
+	// Kek vault resource id. It is required in case of Customer managed KekType.
+	KekVaultResourceID pulumi.StringPtrInput `pulumi:"kekVaultResourceID"`
+}
+
+func (KeyEncryptionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyEncryptionKey)(nil)).Elem()
+}
+
+func (i KeyEncryptionKeyArgs) ToKeyEncryptionKeyOutput() KeyEncryptionKeyOutput {
+	return i.ToKeyEncryptionKeyOutputWithContext(context.Background())
+}
+
+func (i KeyEncryptionKeyArgs) ToKeyEncryptionKeyOutputWithContext(ctx context.Context) KeyEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyEncryptionKeyOutput)
+}
+
+func (i KeyEncryptionKeyArgs) ToKeyEncryptionKeyPtrOutput() KeyEncryptionKeyPtrOutput {
+	return i.ToKeyEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (i KeyEncryptionKeyArgs) ToKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) KeyEncryptionKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyEncryptionKeyOutput).ToKeyEncryptionKeyPtrOutputWithContext(ctx)
+}
+
+// KeyEncryptionKeyPtrInput is an input type that accepts KeyEncryptionKeyArgs, KeyEncryptionKeyPtr and KeyEncryptionKeyPtrOutput values.
+// You can construct a concrete instance of `KeyEncryptionKeyPtrInput` via:
+//
+//          KeyEncryptionKeyArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyEncryptionKeyPtrInput interface {
+	pulumi.Input
+
+	ToKeyEncryptionKeyPtrOutput() KeyEncryptionKeyPtrOutput
+	ToKeyEncryptionKeyPtrOutputWithContext(context.Context) KeyEncryptionKeyPtrOutput
+}
+
+type keyEncryptionKeyPtrType KeyEncryptionKeyArgs
+
+func KeyEncryptionKeyPtr(v *KeyEncryptionKeyArgs) KeyEncryptionKeyPtrInput {
+	return (*keyEncryptionKeyPtrType)(v)
+}
+
+func (*keyEncryptionKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyEncryptionKey)(nil)).Elem()
+}
+
+func (i *keyEncryptionKeyPtrType) ToKeyEncryptionKeyPtrOutput() KeyEncryptionKeyPtrOutput {
+	return i.ToKeyEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *keyEncryptionKeyPtrType) ToKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) KeyEncryptionKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyEncryptionKeyPtrOutput)
+}
+
+// Encryption key containing details about key to encrypt different keys.
+type KeyEncryptionKeyOutput struct{ *pulumi.OutputState }
+
+func (KeyEncryptionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyEncryptionKey)(nil)).Elem()
+}
+
+func (o KeyEncryptionKeyOutput) ToKeyEncryptionKeyOutput() KeyEncryptionKeyOutput {
+	return o
+}
+
+func (o KeyEncryptionKeyOutput) ToKeyEncryptionKeyOutputWithContext(ctx context.Context) KeyEncryptionKeyOutput {
+	return o
+}
+
+func (o KeyEncryptionKeyOutput) ToKeyEncryptionKeyPtrOutput() KeyEncryptionKeyPtrOutput {
+	return o.ToKeyEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (o KeyEncryptionKeyOutput) ToKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) KeyEncryptionKeyPtrOutput {
+	return o.ApplyT(func(v KeyEncryptionKey) *KeyEncryptionKey {
+		return &v
+	}).(KeyEncryptionKeyPtrOutput)
+}
+
+// Managed identity properties used for key encryption.
+func (o KeyEncryptionKeyOutput) IdentityProperties() IdentityPropertiesPtrOutput {
+	return o.ApplyT(func(v KeyEncryptionKey) *IdentityProperties { return v.IdentityProperties }).(IdentityPropertiesPtrOutput)
+}
+
+// Type of encryption key used for key encryption.
+func (o KeyEncryptionKeyOutput) KekType() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyEncryptionKey) string { return v.KekType }).(pulumi.StringOutput)
+}
+
+// Key encryption key. It is required in case of Customer managed KekType.
+func (o KeyEncryptionKeyOutput) KekUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyEncryptionKey) *string { return v.KekUrl }).(pulumi.StringPtrOutput)
+}
+
+// Kek vault resource id. It is required in case of Customer managed KekType.
+func (o KeyEncryptionKeyOutput) KekVaultResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyEncryptionKey) *string { return v.KekVaultResourceID }).(pulumi.StringPtrOutput)
+}
+
+type KeyEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyEncryptionKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyEncryptionKey)(nil)).Elem()
+}
+
+func (o KeyEncryptionKeyPtrOutput) ToKeyEncryptionKeyPtrOutput() KeyEncryptionKeyPtrOutput {
+	return o
+}
+
+func (o KeyEncryptionKeyPtrOutput) ToKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) KeyEncryptionKeyPtrOutput {
+	return o
+}
+
+func (o KeyEncryptionKeyPtrOutput) Elem() KeyEncryptionKeyOutput {
+	return o.ApplyT(func(v *KeyEncryptionKey) KeyEncryptionKey { return *v }).(KeyEncryptionKeyOutput)
+}
+
+// Managed identity properties used for key encryption.
+func (o KeyEncryptionKeyPtrOutput) IdentityProperties() IdentityPropertiesPtrOutput {
+	return o.ApplyT(func(v *KeyEncryptionKey) *IdentityProperties {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityProperties
+	}).(IdentityPropertiesPtrOutput)
+}
+
+// Type of encryption key used for key encryption.
+func (o KeyEncryptionKeyPtrOutput) KekType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KekType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key encryption key. It is required in case of Customer managed KekType.
+func (o KeyEncryptionKeyPtrOutput) KekUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KekUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kek vault resource id. It is required in case of Customer managed KekType.
+func (o KeyEncryptionKeyPtrOutput) KekVaultResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KekVaultResourceID
+	}).(pulumi.StringPtrOutput)
+}
+
+// Encryption key containing details about key to encrypt different keys.
 type KeyEncryptionKeyResponse struct {
 	// Managed identity properties used for key encryption.
 	IdentityProperties *IdentityPropertiesResponse `pulumi:"identityProperties"`
@@ -5328,6 +5699,47 @@ func (i KeyEncryptionKeyResponseArgs) ToKeyEncryptionKeyResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(KeyEncryptionKeyResponseOutput)
 }
 
+func (i KeyEncryptionKeyResponseArgs) ToKeyEncryptionKeyResponsePtrOutput() KeyEncryptionKeyResponsePtrOutput {
+	return i.ToKeyEncryptionKeyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyEncryptionKeyResponseArgs) ToKeyEncryptionKeyResponsePtrOutputWithContext(ctx context.Context) KeyEncryptionKeyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyEncryptionKeyResponseOutput).ToKeyEncryptionKeyResponsePtrOutputWithContext(ctx)
+}
+
+// KeyEncryptionKeyResponsePtrInput is an input type that accepts KeyEncryptionKeyResponseArgs, KeyEncryptionKeyResponsePtr and KeyEncryptionKeyResponsePtrOutput values.
+// You can construct a concrete instance of `KeyEncryptionKeyResponsePtrInput` via:
+//
+//          KeyEncryptionKeyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyEncryptionKeyResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyEncryptionKeyResponsePtrOutput() KeyEncryptionKeyResponsePtrOutput
+	ToKeyEncryptionKeyResponsePtrOutputWithContext(context.Context) KeyEncryptionKeyResponsePtrOutput
+}
+
+type keyEncryptionKeyResponsePtrType KeyEncryptionKeyResponseArgs
+
+func KeyEncryptionKeyResponsePtr(v *KeyEncryptionKeyResponseArgs) KeyEncryptionKeyResponsePtrInput {
+	return (*keyEncryptionKeyResponsePtrType)(v)
+}
+
+func (*keyEncryptionKeyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyEncryptionKeyResponse)(nil)).Elem()
+}
+
+func (i *keyEncryptionKeyResponsePtrType) ToKeyEncryptionKeyResponsePtrOutput() KeyEncryptionKeyResponsePtrOutput {
+	return i.ToKeyEncryptionKeyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyEncryptionKeyResponsePtrType) ToKeyEncryptionKeyResponsePtrOutputWithContext(ctx context.Context) KeyEncryptionKeyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyEncryptionKeyResponsePtrOutput)
+}
+
 // Encryption key containing details about key to encrypt different keys.
 type KeyEncryptionKeyResponseOutput struct{ *pulumi.OutputState }
 
@@ -5341,6 +5753,16 @@ func (o KeyEncryptionKeyResponseOutput) ToKeyEncryptionKeyResponseOutput() KeyEn
 
 func (o KeyEncryptionKeyResponseOutput) ToKeyEncryptionKeyResponseOutputWithContext(ctx context.Context) KeyEncryptionKeyResponseOutput {
 	return o
+}
+
+func (o KeyEncryptionKeyResponseOutput) ToKeyEncryptionKeyResponsePtrOutput() KeyEncryptionKeyResponsePtrOutput {
+	return o.ToKeyEncryptionKeyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyEncryptionKeyResponseOutput) ToKeyEncryptionKeyResponsePtrOutputWithContext(ctx context.Context) KeyEncryptionKeyResponsePtrOutput {
+	return o.ApplyT(func(v KeyEncryptionKeyResponse) *KeyEncryptionKeyResponse {
+		return &v
+	}).(KeyEncryptionKeyResponsePtrOutput)
 }
 
 // Managed identity properties used for key encryption.
@@ -5361,6 +5783,64 @@ func (o KeyEncryptionKeyResponseOutput) KekUrl() pulumi.StringPtrOutput {
 // Kek vault resource id. It is required in case of Customer managed KekType.
 func (o KeyEncryptionKeyResponseOutput) KekVaultResourceID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyEncryptionKeyResponse) *string { return v.KekVaultResourceID }).(pulumi.StringPtrOutput)
+}
+
+type KeyEncryptionKeyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyEncryptionKeyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyEncryptionKeyResponse)(nil)).Elem()
+}
+
+func (o KeyEncryptionKeyResponsePtrOutput) ToKeyEncryptionKeyResponsePtrOutput() KeyEncryptionKeyResponsePtrOutput {
+	return o
+}
+
+func (o KeyEncryptionKeyResponsePtrOutput) ToKeyEncryptionKeyResponsePtrOutputWithContext(ctx context.Context) KeyEncryptionKeyResponsePtrOutput {
+	return o
+}
+
+func (o KeyEncryptionKeyResponsePtrOutput) Elem() KeyEncryptionKeyResponseOutput {
+	return o.ApplyT(func(v *KeyEncryptionKeyResponse) KeyEncryptionKeyResponse { return *v }).(KeyEncryptionKeyResponseOutput)
+}
+
+// Managed identity properties used for key encryption.
+func (o KeyEncryptionKeyResponsePtrOutput) IdentityProperties() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *KeyEncryptionKeyResponse) *IdentityPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityProperties
+	}).(IdentityPropertiesResponsePtrOutput)
+}
+
+// Type of encryption key used for key encryption.
+func (o KeyEncryptionKeyResponsePtrOutput) KekType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyEncryptionKeyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KekType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key encryption key. It is required in case of Customer managed KekType.
+func (o KeyEncryptionKeyResponsePtrOutput) KekUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyEncryptionKeyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KekUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kek vault resource id. It is required in case of Customer managed KekType.
+func (o KeyEncryptionKeyResponsePtrOutput) KekVaultResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyEncryptionKeyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KekVaultResourceID
+	}).(pulumi.StringPtrOutput)
 }
 
 // Details of the managed disks.
@@ -9665,6 +10145,140 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 }
 
 // User assigned identity properties.
+type UserAssignedProperties struct {
+	// Arm resource id for user assigned identity to be used to fetch MSI token.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// UserAssignedPropertiesInput is an input type that accepts UserAssignedPropertiesArgs and UserAssignedPropertiesOutput values.
+// You can construct a concrete instance of `UserAssignedPropertiesInput` via:
+//
+//          UserAssignedPropertiesArgs{...}
+type UserAssignedPropertiesInput interface {
+	pulumi.Input
+
+	ToUserAssignedPropertiesOutput() UserAssignedPropertiesOutput
+	ToUserAssignedPropertiesOutputWithContext(context.Context) UserAssignedPropertiesOutput
+}
+
+// User assigned identity properties.
+type UserAssignedPropertiesArgs struct {
+	// Arm resource id for user assigned identity to be used to fetch MSI token.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (UserAssignedPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedProperties)(nil)).Elem()
+}
+
+func (i UserAssignedPropertiesArgs) ToUserAssignedPropertiesOutput() UserAssignedPropertiesOutput {
+	return i.ToUserAssignedPropertiesOutputWithContext(context.Background())
+}
+
+func (i UserAssignedPropertiesArgs) ToUserAssignedPropertiesOutputWithContext(ctx context.Context) UserAssignedPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedPropertiesOutput)
+}
+
+func (i UserAssignedPropertiesArgs) ToUserAssignedPropertiesPtrOutput() UserAssignedPropertiesPtrOutput {
+	return i.ToUserAssignedPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i UserAssignedPropertiesArgs) ToUserAssignedPropertiesPtrOutputWithContext(ctx context.Context) UserAssignedPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedPropertiesOutput).ToUserAssignedPropertiesPtrOutputWithContext(ctx)
+}
+
+// UserAssignedPropertiesPtrInput is an input type that accepts UserAssignedPropertiesArgs, UserAssignedPropertiesPtr and UserAssignedPropertiesPtrOutput values.
+// You can construct a concrete instance of `UserAssignedPropertiesPtrInput` via:
+//
+//          UserAssignedPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type UserAssignedPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToUserAssignedPropertiesPtrOutput() UserAssignedPropertiesPtrOutput
+	ToUserAssignedPropertiesPtrOutputWithContext(context.Context) UserAssignedPropertiesPtrOutput
+}
+
+type userAssignedPropertiesPtrType UserAssignedPropertiesArgs
+
+func UserAssignedPropertiesPtr(v *UserAssignedPropertiesArgs) UserAssignedPropertiesPtrInput {
+	return (*userAssignedPropertiesPtrType)(v)
+}
+
+func (*userAssignedPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAssignedProperties)(nil)).Elem()
+}
+
+func (i *userAssignedPropertiesPtrType) ToUserAssignedPropertiesPtrOutput() UserAssignedPropertiesPtrOutput {
+	return i.ToUserAssignedPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *userAssignedPropertiesPtrType) ToUserAssignedPropertiesPtrOutputWithContext(ctx context.Context) UserAssignedPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedPropertiesPtrOutput)
+}
+
+// User assigned identity properties.
+type UserAssignedPropertiesOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedProperties)(nil)).Elem()
+}
+
+func (o UserAssignedPropertiesOutput) ToUserAssignedPropertiesOutput() UserAssignedPropertiesOutput {
+	return o
+}
+
+func (o UserAssignedPropertiesOutput) ToUserAssignedPropertiesOutputWithContext(ctx context.Context) UserAssignedPropertiesOutput {
+	return o
+}
+
+func (o UserAssignedPropertiesOutput) ToUserAssignedPropertiesPtrOutput() UserAssignedPropertiesPtrOutput {
+	return o.ToUserAssignedPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o UserAssignedPropertiesOutput) ToUserAssignedPropertiesPtrOutputWithContext(ctx context.Context) UserAssignedPropertiesPtrOutput {
+	return o.ApplyT(func(v UserAssignedProperties) *UserAssignedProperties {
+		return &v
+	}).(UserAssignedPropertiesPtrOutput)
+}
+
+// Arm resource id for user assigned identity to be used to fetch MSI token.
+func (o UserAssignedPropertiesOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedProperties) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type UserAssignedPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAssignedProperties)(nil)).Elem()
+}
+
+func (o UserAssignedPropertiesPtrOutput) ToUserAssignedPropertiesPtrOutput() UserAssignedPropertiesPtrOutput {
+	return o
+}
+
+func (o UserAssignedPropertiesPtrOutput) ToUserAssignedPropertiesPtrOutputWithContext(ctx context.Context) UserAssignedPropertiesPtrOutput {
+	return o
+}
+
+func (o UserAssignedPropertiesPtrOutput) Elem() UserAssignedPropertiesOutput {
+	return o.ApplyT(func(v *UserAssignedProperties) UserAssignedProperties { return *v }).(UserAssignedPropertiesOutput)
+}
+
+// Arm resource id for user assigned identity to be used to fetch MSI token.
+func (o UserAssignedPropertiesPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAssignedProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// User assigned identity properties.
 type UserAssignedPropertiesResponse struct {
 	// Arm resource id for user assigned identity to be used to fetch MSI token.
 	ResourceId *string `pulumi:"resourceId"`
@@ -9857,6 +10471,8 @@ func init() {
 	pulumi.RegisterOutputType(FilterFileDetailsArrayOutput{})
 	pulumi.RegisterOutputType(FilterFileDetailsResponseOutput{})
 	pulumi.RegisterOutputType(FilterFileDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(IdentityPropertiesOutput{})
+	pulumi.RegisterOutputType(IdentityPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IdentityPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobDeliveryInfoOutput{})
@@ -9865,7 +10481,10 @@ func init() {
 	pulumi.RegisterOutputType(JobDeliveryInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobStagesResponseOutput{})
 	pulumi.RegisterOutputType(JobStagesResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyEncryptionKeyOutput{})
+	pulumi.RegisterOutputType(KeyEncryptionKeyPtrOutput{})
 	pulumi.RegisterOutputType(KeyEncryptionKeyResponseOutput{})
+	pulumi.RegisterOutputType(KeyEncryptionKeyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedDiskDetailsOutput{})
 	pulumi.RegisterOutputType(ManagedDiskDetailsResponseOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceOutput{})
@@ -9919,6 +10538,8 @@ func init() {
 	pulumi.RegisterOutputType(UnencryptedCredentialsResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
+	pulumi.RegisterOutputType(UserAssignedPropertiesOutput{})
+	pulumi.RegisterOutputType(UserAssignedPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UserAssignedPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedPropertiesResponsePtrOutput{})
 }

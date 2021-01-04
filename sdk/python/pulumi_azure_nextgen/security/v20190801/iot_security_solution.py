@@ -18,6 +18,7 @@ class IotSecuritySolution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalWorkspacesPropertiesArgs']]]]] = None,
                  disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  export: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]]] = None,
@@ -39,6 +40,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalWorkspacesPropertiesArgs']]]] additional_workspaces: List of additional workspaces
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
         :param pulumi.Input[str] display_name: Resource display name.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]] export: List of additional options for exporting to workspace data.
@@ -70,6 +72,7 @@ class IotSecuritySolution(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['additional_workspaces'] = additional_workspaces
             __props__['disabled_data_sources'] = disabled_data_sources
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
@@ -93,6 +96,7 @@ class IotSecuritySolution(pulumi.CustomResource):
             __props__['workspace'] = workspace
             __props__['auto_discovered_resources'] = None
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/latest:IotSecuritySolution"), pulumi.Alias(type_="azure-nextgen:security/v20170801preview:IotSecuritySolution")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -119,6 +123,14 @@ class IotSecuritySolution(pulumi.CustomResource):
         __props__ = dict()
 
         return IotSecuritySolution(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="additionalWorkspaces")
+    def additional_workspaces(self) -> pulumi.Output[Optional[Sequence['outputs.AdditionalWorkspacesPropertiesResponse']]]:
+        """
+        List of additional workspaces
+        """
+        return pulumi.get(self, "additional_workspaces")
 
     @property
     @pulumi.getter(name="autoDiscoveredResources")
@@ -191,6 +203,14 @@ class IotSecuritySolution(pulumi.CustomResource):
         Status of the IoT Security solution.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

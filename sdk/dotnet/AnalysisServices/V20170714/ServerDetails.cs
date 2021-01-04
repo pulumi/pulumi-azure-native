@@ -40,6 +40,12 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The managed mode of the server (0 = not managed, 1 = managed).
+        /// </summary>
+        [Output("managedMode")]
+        public Output<int?> ManagedMode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Analysis Services resource.
         /// </summary>
         [Output("name")]
@@ -56,6 +62,12 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
         /// </summary>
         [Output("serverFullName")]
         public Output<string> ServerFullName { get; private set; } = null!;
+
+        /// <summary>
+        /// The server monitor mode for AS server
+        /// </summary>
+        [Output("serverMonitorMode")]
+        public Output<int?> ServerMonitorMode { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the Analysis Services resource.
@@ -158,10 +170,22 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// The managed mode of the server (0 = not managed, 1 = managed).
+        /// </summary>
+        [Input("managedMode")]
+        public Input<Pulumi.AzureNextGen.AnalysisServices.V20170714.ManagedMode>? ManagedMode { get; set; }
+
+        /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The server monitor mode for AS server
+        /// </summary>
+        [Input("serverMonitorMode")]
+        public Input<Pulumi.AzureNextGen.AnalysisServices.V20170714.ServerMonitorMode>? ServerMonitorMode { get; set; }
 
         /// <summary>
         /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.

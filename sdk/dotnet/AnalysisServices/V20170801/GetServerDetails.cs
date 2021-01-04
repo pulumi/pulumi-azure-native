@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The managed mode of the server (0 = not managed, 1 = managed).
+        /// </summary>
+        public readonly int? ManagedMode;
+        /// <summary>
         /// The name of the Analysis Services resource.
         /// </summary>
         public readonly string Name;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801
 
             string location,
 
+            int? managedMode,
+
             string name,
 
             string provisioningState,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801
             Id = id;
             IpV4FirewallSettings = ipV4FirewallSettings;
             Location = location;
+            ManagedMode = managedMode;
             Name = name;
             ProvisioningState = provisioningState;
             QuerypoolConnectionMode = querypoolConnectionMode;

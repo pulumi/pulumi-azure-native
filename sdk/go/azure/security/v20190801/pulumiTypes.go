@@ -10,6 +10,242 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Properties of the additional workspaces.
+type AdditionalWorkspacesProperties struct {
+	// List of data types sent to workspace
+	DataTypes []string `pulumi:"dataTypes"`
+	// Workspace type.
+	Type *string `pulumi:"type"`
+	// Workspace resource id
+	Workspace *string `pulumi:"workspace"`
+}
+
+// AdditionalWorkspacesPropertiesInput is an input type that accepts AdditionalWorkspacesPropertiesArgs and AdditionalWorkspacesPropertiesOutput values.
+// You can construct a concrete instance of `AdditionalWorkspacesPropertiesInput` via:
+//
+//          AdditionalWorkspacesPropertiesArgs{...}
+type AdditionalWorkspacesPropertiesInput interface {
+	pulumi.Input
+
+	ToAdditionalWorkspacesPropertiesOutput() AdditionalWorkspacesPropertiesOutput
+	ToAdditionalWorkspacesPropertiesOutputWithContext(context.Context) AdditionalWorkspacesPropertiesOutput
+}
+
+// Properties of the additional workspaces.
+type AdditionalWorkspacesPropertiesArgs struct {
+	// List of data types sent to workspace
+	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
+	// Workspace type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Workspace resource id
+	Workspace pulumi.StringPtrInput `pulumi:"workspace"`
+}
+
+func (AdditionalWorkspacesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalWorkspacesProperties)(nil)).Elem()
+}
+
+func (i AdditionalWorkspacesPropertiesArgs) ToAdditionalWorkspacesPropertiesOutput() AdditionalWorkspacesPropertiesOutput {
+	return i.ToAdditionalWorkspacesPropertiesOutputWithContext(context.Background())
+}
+
+func (i AdditionalWorkspacesPropertiesArgs) ToAdditionalWorkspacesPropertiesOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalWorkspacesPropertiesOutput)
+}
+
+// AdditionalWorkspacesPropertiesArrayInput is an input type that accepts AdditionalWorkspacesPropertiesArray and AdditionalWorkspacesPropertiesArrayOutput values.
+// You can construct a concrete instance of `AdditionalWorkspacesPropertiesArrayInput` via:
+//
+//          AdditionalWorkspacesPropertiesArray{ AdditionalWorkspacesPropertiesArgs{...} }
+type AdditionalWorkspacesPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToAdditionalWorkspacesPropertiesArrayOutput() AdditionalWorkspacesPropertiesArrayOutput
+	ToAdditionalWorkspacesPropertiesArrayOutputWithContext(context.Context) AdditionalWorkspacesPropertiesArrayOutput
+}
+
+type AdditionalWorkspacesPropertiesArray []AdditionalWorkspacesPropertiesInput
+
+func (AdditionalWorkspacesPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdditionalWorkspacesProperties)(nil)).Elem()
+}
+
+func (i AdditionalWorkspacesPropertiesArray) ToAdditionalWorkspacesPropertiesArrayOutput() AdditionalWorkspacesPropertiesArrayOutput {
+	return i.ToAdditionalWorkspacesPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i AdditionalWorkspacesPropertiesArray) ToAdditionalWorkspacesPropertiesArrayOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalWorkspacesPropertiesArrayOutput)
+}
+
+// Properties of the additional workspaces.
+type AdditionalWorkspacesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AdditionalWorkspacesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalWorkspacesProperties)(nil)).Elem()
+}
+
+func (o AdditionalWorkspacesPropertiesOutput) ToAdditionalWorkspacesPropertiesOutput() AdditionalWorkspacesPropertiesOutput {
+	return o
+}
+
+func (o AdditionalWorkspacesPropertiesOutput) ToAdditionalWorkspacesPropertiesOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesOutput {
+	return o
+}
+
+// List of data types sent to workspace
+func (o AdditionalWorkspacesPropertiesOutput) DataTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AdditionalWorkspacesProperties) []string { return v.DataTypes }).(pulumi.StringArrayOutput)
+}
+
+// Workspace type.
+func (o AdditionalWorkspacesPropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdditionalWorkspacesProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Workspace resource id
+func (o AdditionalWorkspacesPropertiesOutput) Workspace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdditionalWorkspacesProperties) *string { return v.Workspace }).(pulumi.StringPtrOutput)
+}
+
+type AdditionalWorkspacesPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (AdditionalWorkspacesPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdditionalWorkspacesProperties)(nil)).Elem()
+}
+
+func (o AdditionalWorkspacesPropertiesArrayOutput) ToAdditionalWorkspacesPropertiesArrayOutput() AdditionalWorkspacesPropertiesArrayOutput {
+	return o
+}
+
+func (o AdditionalWorkspacesPropertiesArrayOutput) ToAdditionalWorkspacesPropertiesArrayOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesArrayOutput {
+	return o
+}
+
+func (o AdditionalWorkspacesPropertiesArrayOutput) Index(i pulumi.IntInput) AdditionalWorkspacesPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdditionalWorkspacesProperties {
+		return vs[0].([]AdditionalWorkspacesProperties)[vs[1].(int)]
+	}).(AdditionalWorkspacesPropertiesOutput)
+}
+
+// Properties of the additional workspaces.
+type AdditionalWorkspacesPropertiesResponse struct {
+	// List of data types sent to workspace
+	DataTypes []string `pulumi:"dataTypes"`
+	// Workspace type.
+	Type *string `pulumi:"type"`
+	// Workspace resource id
+	Workspace *string `pulumi:"workspace"`
+}
+
+// AdditionalWorkspacesPropertiesResponseInput is an input type that accepts AdditionalWorkspacesPropertiesResponseArgs and AdditionalWorkspacesPropertiesResponseOutput values.
+// You can construct a concrete instance of `AdditionalWorkspacesPropertiesResponseInput` via:
+//
+//          AdditionalWorkspacesPropertiesResponseArgs{...}
+type AdditionalWorkspacesPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToAdditionalWorkspacesPropertiesResponseOutput() AdditionalWorkspacesPropertiesResponseOutput
+	ToAdditionalWorkspacesPropertiesResponseOutputWithContext(context.Context) AdditionalWorkspacesPropertiesResponseOutput
+}
+
+// Properties of the additional workspaces.
+type AdditionalWorkspacesPropertiesResponseArgs struct {
+	// List of data types sent to workspace
+	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
+	// Workspace type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Workspace resource id
+	Workspace pulumi.StringPtrInput `pulumi:"workspace"`
+}
+
+func (AdditionalWorkspacesPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalWorkspacesPropertiesResponse)(nil)).Elem()
+}
+
+func (i AdditionalWorkspacesPropertiesResponseArgs) ToAdditionalWorkspacesPropertiesResponseOutput() AdditionalWorkspacesPropertiesResponseOutput {
+	return i.ToAdditionalWorkspacesPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i AdditionalWorkspacesPropertiesResponseArgs) ToAdditionalWorkspacesPropertiesResponseOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalWorkspacesPropertiesResponseOutput)
+}
+
+// AdditionalWorkspacesPropertiesResponseArrayInput is an input type that accepts AdditionalWorkspacesPropertiesResponseArray and AdditionalWorkspacesPropertiesResponseArrayOutput values.
+// You can construct a concrete instance of `AdditionalWorkspacesPropertiesResponseArrayInput` via:
+//
+//          AdditionalWorkspacesPropertiesResponseArray{ AdditionalWorkspacesPropertiesResponseArgs{...} }
+type AdditionalWorkspacesPropertiesResponseArrayInput interface {
+	pulumi.Input
+
+	ToAdditionalWorkspacesPropertiesResponseArrayOutput() AdditionalWorkspacesPropertiesResponseArrayOutput
+	ToAdditionalWorkspacesPropertiesResponseArrayOutputWithContext(context.Context) AdditionalWorkspacesPropertiesResponseArrayOutput
+}
+
+type AdditionalWorkspacesPropertiesResponseArray []AdditionalWorkspacesPropertiesResponseInput
+
+func (AdditionalWorkspacesPropertiesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdditionalWorkspacesPropertiesResponse)(nil)).Elem()
+}
+
+func (i AdditionalWorkspacesPropertiesResponseArray) ToAdditionalWorkspacesPropertiesResponseArrayOutput() AdditionalWorkspacesPropertiesResponseArrayOutput {
+	return i.ToAdditionalWorkspacesPropertiesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AdditionalWorkspacesPropertiesResponseArray) ToAdditionalWorkspacesPropertiesResponseArrayOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalWorkspacesPropertiesResponseArrayOutput)
+}
+
+// Properties of the additional workspaces.
+type AdditionalWorkspacesPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (AdditionalWorkspacesPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalWorkspacesPropertiesResponse)(nil)).Elem()
+}
+
+func (o AdditionalWorkspacesPropertiesResponseOutput) ToAdditionalWorkspacesPropertiesResponseOutput() AdditionalWorkspacesPropertiesResponseOutput {
+	return o
+}
+
+func (o AdditionalWorkspacesPropertiesResponseOutput) ToAdditionalWorkspacesPropertiesResponseOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesResponseOutput {
+	return o
+}
+
+// List of data types sent to workspace
+func (o AdditionalWorkspacesPropertiesResponseOutput) DataTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AdditionalWorkspacesPropertiesResponse) []string { return v.DataTypes }).(pulumi.StringArrayOutput)
+}
+
+// Workspace type.
+func (o AdditionalWorkspacesPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdditionalWorkspacesPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Workspace resource id
+func (o AdditionalWorkspacesPropertiesResponseOutput) Workspace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdditionalWorkspacesPropertiesResponse) *string { return v.Workspace }).(pulumi.StringPtrOutput)
+}
+
+type AdditionalWorkspacesPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AdditionalWorkspacesPropertiesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdditionalWorkspacesPropertiesResponse)(nil)).Elem()
+}
+
+func (o AdditionalWorkspacesPropertiesResponseArrayOutput) ToAdditionalWorkspacesPropertiesResponseArrayOutput() AdditionalWorkspacesPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o AdditionalWorkspacesPropertiesResponseArrayOutput) ToAdditionalWorkspacesPropertiesResponseArrayOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o AdditionalWorkspacesPropertiesResponseArrayOutput) Index(i pulumi.IntInput) AdditionalWorkspacesPropertiesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdditionalWorkspacesPropertiesResponse {
+		return vs[0].([]AdditionalWorkspacesPropertiesResponse)[vs[1].(int)]
+	}).(AdditionalWorkspacesPropertiesResponseOutput)
+}
+
 // A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRule struct {
 	// The values to allow. The format of the values depends on the rule type.
@@ -770,6 +1006,235 @@ func (o RecommendationConfigurationPropertiesResponseArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendationConfigurationPropertiesResponse {
 		return vs[0].([]RecommendationConfigurationPropertiesResponse)[vs[1].(int)]
 	}).(RecommendationConfigurationPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
 }
 
 // A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
@@ -1653,6 +2118,10 @@ func (o UserDefinedResourcesPropertiesResponsePtrOutput) QuerySubscriptions() pu
 }
 
 func init() {
+	pulumi.RegisterOutputType(AdditionalWorkspacesPropertiesOutput{})
+	pulumi.RegisterOutputType(AdditionalWorkspacesPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(AdditionalWorkspacesPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(AdditionalWorkspacesPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(AllowlistCustomAlertRuleOutput{})
 	pulumi.RegisterOutputType(AllowlistCustomAlertRuleArrayOutput{})
 	pulumi.RegisterOutputType(AllowlistCustomAlertRuleResponseOutput{})
@@ -1665,6 +2134,8 @@ func init() {
 	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleArrayOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleResponseOutput{})
