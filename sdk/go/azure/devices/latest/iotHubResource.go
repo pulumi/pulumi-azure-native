@@ -12,7 +12,7 @@ import (
 )
 
 // The description of the IoT hub.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-08-31.
 type IotHubResource struct {
 	pulumi.CustomResourceState
 
@@ -96,6 +96,12 @@ func NewIotHubResource(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200801:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devices/v20200831:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devices/v20200831preview:IotHubResource"),
 		},
 	})
 	opts = append(opts, aliases)

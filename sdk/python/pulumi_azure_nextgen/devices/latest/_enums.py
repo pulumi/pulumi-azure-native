@@ -10,10 +10,12 @@ __all__ = [
     'AllocationPolicy',
     'AuthenticationType',
     'Capabilities',
+    'DefaultAction',
     'IotDpsSku',
     'IotHubSku',
     'IpFilterActionType',
     'IpFilterTargetType',
+    'NetworkRuleIPAction',
     'PrivateLinkServiceConnectionStatus',
     'PublicNetworkAccess',
     'RoutingSource',
@@ -79,6 +81,14 @@ class Capabilities(str, Enum):
     DEVICE_MANAGEMENT = "DeviceManagement"
 
 
+class DefaultAction(str, Enum):
+    """
+    Default Action for Network Rule Set
+    """
+    DENY = "Deny"
+    ALLOW = "Allow"
+
+
 class IotDpsSku(str, Enum):
     """
     Sku name.
@@ -114,6 +124,13 @@ class IpFilterTargetType(str, Enum):
     ALL = "all"
     SERVICE_API = "serviceApi"
     DEVICE_API = "deviceApi"
+
+
+class NetworkRuleIPAction(str, Enum):
+    """
+    IP Filter Action
+    """
+    ALLOW = "Allow"
 
 
 class PrivateLinkServiceConnectionStatus(str, Enum):

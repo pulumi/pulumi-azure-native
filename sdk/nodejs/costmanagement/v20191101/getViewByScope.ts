@@ -53,7 +53,7 @@ export interface GetViewByScopeResult {
     /**
      * Has definition for data in this report config.
      */
-    readonly dataset?: outputs.costmanagement.v20191101.ReportConfigDatasetResponse;
+    readonly dataSet?: outputs.costmanagement.v20191101.ReportConfigDatasetResponse;
     /**
      * Selected date range for viewing cost in.
      */
@@ -70,6 +70,10 @@ export interface GetViewByScopeResult {
      * Resource Id.
      */
     readonly id: string;
+    /**
+     * Include monetary commitment
+     */
+    readonly includeMonetaryCommitment: boolean;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */

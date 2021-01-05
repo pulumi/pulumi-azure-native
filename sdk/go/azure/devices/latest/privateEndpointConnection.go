@@ -12,7 +12,7 @@ import (
 )
 
 // The private endpoint connection of an IotHub
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-08-31.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +58,12 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200801:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devices/v20200831:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devices/v20200831preview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

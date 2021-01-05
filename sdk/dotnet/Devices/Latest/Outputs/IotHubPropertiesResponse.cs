@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Devices.Latest.Outputs
         /// </summary>
         public readonly string? MinTlsVersion;
         /// <summary>
+        /// Network Rule Set Properties of IotHub
+        /// </summary>
+        public readonly Outputs.NetworkRuleSetPropertiesResponse? NetworkRuleSets;
+        /// <summary>
         /// Private endpoint connections created on this IotHub
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Devices.Latest.Outputs
 
             string? minTlsVersion,
 
+            Outputs.NetworkRuleSetPropertiesResponse? networkRuleSets,
+
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest.Outputs
             Locations = locations;
             MessagingEndpoints = messagingEndpoints;
             MinTlsVersion = minTlsVersion;
+            NetworkRuleSets = networkRuleSets;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;

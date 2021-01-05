@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
 {
     /// <summary>
     /// The properties of the EventHubConsumerGroupInfo object.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-08-31.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:devices/latest:IotHubResourceEventHubConsumerGroup")]
     public partial class IotHubResourceEventHubConsumerGroup : Pulumi.CustomResource
@@ -80,6 +80,8 @@ namespace Pulumi.AzureNextGen.Devices.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200615:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200710preview:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200801:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831preview:IotHubResourceEventHubConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

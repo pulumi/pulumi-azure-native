@@ -12,7 +12,7 @@ import (
 )
 
 // Base class for backup items.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 type ProtectedItem struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +64,9 @@ func NewProtectedItem(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:ProtectedItem"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:ProtectedItem"),
 		},
 	})
 	opts = append(opts, aliases)

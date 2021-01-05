@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
 {
     /// <summary>
     /// The X509 Certificate.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-08-31.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:devices/latest:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
@@ -78,6 +78,8 @@ namespace Pulumi.AzureNextGen.Devices.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200615:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200710preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200801:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

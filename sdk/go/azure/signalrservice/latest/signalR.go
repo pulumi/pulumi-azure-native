@@ -31,7 +31,7 @@ type SignalR struct {
 	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// Prefix for the hostName of the SignalR service. Retained for future use.
 	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix pulumi.StringPtrOutput `pulumi:"hostNamePrefix"`
+	HostNamePrefix pulumi.StringOutput `pulumi:"hostNamePrefix"`
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
@@ -213,9 +213,6 @@ type signalRArgs struct {
 	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
 	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
 	Features []SignalRFeature `pulumi:"features"`
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix *string `pulumi:"hostNamePrefix"`
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind *string `pulumi:"kind"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
@@ -245,9 +242,6 @@ type SignalRArgs struct {
 	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
 	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
 	Features SignalRFeatureArrayInput
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix pulumi.StringPtrInput
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind pulumi.StringPtrInput
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.

@@ -202,8 +202,6 @@ class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  capacity: Optional[pulumi.Input[int]] = None,
-                 family: Optional[pulumi.Input[str]] = None,
-                 size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[Union[str, 'SignalRSkuTier']]] = None):
         """
         The billing information of the SignalR resource.
@@ -215,8 +213,6 @@ class ResourceSkuArgs:
                If present, following values are allowed:
                    Free: 1
                    Standard: 1,2,5,10,20,50,100
-        :param pulumi.Input[str] family: Optional string. For future use.
-        :param pulumi.Input[str] size: Optional string. For future use.
         :param pulumi.Input[Union[str, 'SignalRSkuTier']] tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
                
                `Basic` is deprecated, use `Standard` instead.
@@ -224,10 +220,6 @@ class ResourceSkuArgs:
         pulumi.set(__self__, "name", name)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
@@ -260,30 +252,6 @@ class ResourceSkuArgs:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[str]]:
-        """
-        Optional string. For future use.
-        """
-        return pulumi.get(self, "family")
-
-    @family.setter
-    def family(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "family", value)
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[str]]:
-        """
-        Optional string. For future use.
-        """
-        return pulumi.get(self, "size")
-
-    @size.setter
-    def size(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "size", value)
 
     @property
     @pulumi.getter

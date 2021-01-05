@@ -30,7 +30,7 @@ class IotHubResource(pulumi.CustomResource):
                  __opts__=None):
         """
         The description of the IoT hub.
-        Latest API Version: 2020-08-01.
+        Latest API Version: 2020-08-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -76,7 +76,7 @@ class IotHubResource(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices/v20160203:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20170119:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20170701:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180401:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20181201preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190322:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190322preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190701preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20191104:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200401:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200615:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200710preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200801:IotHubResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices/v20160203:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20170119:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20170701:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180401:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20181201preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190322:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190322preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190701preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20191104:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200401:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200615:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200710preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200801:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200831:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200831preview:IotHubResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotHubResource, __self__).__init__(
             'azure-nextgen:devices/latest:IotHubResource',

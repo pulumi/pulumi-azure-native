@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The private endpoint connection of an IotHub
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-08-31.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -89,7 +89,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/v20200301:PrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200401:PrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200615:PrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200710preview:PrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200801:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/v20200301:PrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200401:PrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200615:PrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200710preview:PrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200801:PrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200831:PrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200831preview:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

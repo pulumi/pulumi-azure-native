@@ -118,7 +118,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter(name="hostNamePrefix")
-    def host_name_prefix(self) -> Optional[str]:
+    def host_name_prefix(self) -> str:
         """
         Prefix for the hostName of the SignalR service. Retained for future use.
         The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.

@@ -59,7 +59,7 @@ export interface GetSignalRResult {
      * Prefix for the hostName of the SignalR service. Retained for future use.
      * The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
      */
-    readonly hostNamePrefix?: string;
+    readonly hostNamePrefix: string;
     /**
      * Fully qualified resource Id for the resource.
      */

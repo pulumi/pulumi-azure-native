@@ -42,8 +42,8 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        [Output("dataset")]
-        public Output<Outputs.ReportConfigDatasetResponse?> Dataset { get; private set; } = null!;
+        [Output("dataSet")]
+        public Output<Outputs.ReportConfigDatasetResponse?> DataSet { get; private set; } = null!;
 
         /// <summary>
         /// Selected date range for viewing cost in.
@@ -62,6 +62,12 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
+
+        /// <summary>
+        /// Include monetary commitment
+        /// </summary>
+        [Output("includeMonetaryCommitment")]
+        public Output<bool> IncludeMonetaryCommitment { get; private set; } = null!;
 
         /// <summary>
         /// List of KPIs to show in Cost Analysis UI.
@@ -183,8 +189,8 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        [Input("dataset")]
-        public Input<Inputs.ReportConfigDatasetArgs>? Dataset { get; set; }
+        [Input("dataSet")]
+        public Input<Inputs.ReportConfigDatasetArgs>? DataSet { get; set; }
 
         /// <summary>
         /// User input name of the view. Required.

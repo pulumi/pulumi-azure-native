@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200501
         /// The hostname will be of format: &amp;lt;hostNamePrefix&amp;gt;.service.signalr.net.
         /// </summary>
         [Output("hostNamePrefix")]
-        public Output<string?> HostNamePrefix { get; private set; } = null!;
+        public Output<string> HostNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
@@ -203,13 +203,6 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200501
             get => _features ?? (_features = new InputList<Inputs.SignalRFeatureArgs>());
             set => _features = value;
         }
-
-        /// <summary>
-        /// Prefix for the hostName of the SignalR service. Retained for future use.
-        /// The hostname will be of format: &amp;lt;hostNamePrefix&amp;gt;.service.signalr.net.
-        /// </summary>
-        [Input("hostNamePrefix")]
-        public Input<string>? HostNamePrefix { get; set; }
 
         /// <summary>
         /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"

@@ -93,6 +93,12 @@ namespace Pulumi.AzureNextGen.Devices.Latest.Inputs
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
 
+        /// <summary>
+        /// Network Rule Set Properties of IotHub
+        /// </summary>
+        [Input("networkRuleSets")]
+        public Input<Inputs.NetworkRuleSetPropertiesArgs>? NetworkRuleSets { get; set; }
+
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
 
