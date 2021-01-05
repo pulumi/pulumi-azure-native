@@ -1792,17 +1792,17 @@ class EdifactEnvelopeSettingsArgs:
                  group_application_sender_id: Optional[pulumi.Input[str]] = None,
                  group_application_sender_qualifier: Optional[pulumi.Input[str]] = None,
                  group_association_assigned_code: Optional[pulumi.Input[str]] = None,
-                 group_control_number_lower_bound: Optional[pulumi.Input[int]] = None,
+                 group_control_number_lower_bound: Optional[pulumi.Input[float]] = None,
                  group_control_number_prefix: Optional[pulumi.Input[str]] = None,
                  group_control_number_suffix: Optional[pulumi.Input[str]] = None,
-                 group_control_number_upper_bound: Optional[pulumi.Input[int]] = None,
+                 group_control_number_upper_bound: Optional[pulumi.Input[float]] = None,
                  group_controlling_agency_code: Optional[pulumi.Input[str]] = None,
                  group_message_release: Optional[pulumi.Input[str]] = None,
                  group_message_version: Optional[pulumi.Input[str]] = None,
-                 interchange_control_number_lower_bound: Optional[pulumi.Input[int]] = None,
+                 interchange_control_number_lower_bound: Optional[pulumi.Input[float]] = None,
                  interchange_control_number_prefix: Optional[pulumi.Input[str]] = None,
                  interchange_control_number_suffix: Optional[pulumi.Input[str]] = None,
-                 interchange_control_number_upper_bound: Optional[pulumi.Input[int]] = None,
+                 interchange_control_number_upper_bound: Optional[pulumi.Input[float]] = None,
                  is_test_interchange: Optional[pulumi.Input[bool]] = None,
                  overwrite_existing_transaction_set_control_number: Optional[pulumi.Input[bool]] = None,
                  processing_priority_code: Optional[pulumi.Input[str]] = None,
@@ -1817,10 +1817,10 @@ class EdifactEnvelopeSettingsArgs:
                  sender_internal_identification: Optional[pulumi.Input[str]] = None,
                  sender_internal_sub_identification: Optional[pulumi.Input[str]] = None,
                  sender_reverse_routing_address: Optional[pulumi.Input[str]] = None,
-                 transaction_set_control_number_lower_bound: Optional[pulumi.Input[int]] = None,
+                 transaction_set_control_number_lower_bound: Optional[pulumi.Input[float]] = None,
                  transaction_set_control_number_prefix: Optional[pulumi.Input[str]] = None,
                  transaction_set_control_number_suffix: Optional[pulumi.Input[str]] = None,
-                 transaction_set_control_number_upper_bound: Optional[pulumi.Input[int]] = None):
+                 transaction_set_control_number_upper_bound: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] application_reference_id: The application reference id.
         :param pulumi.Input[bool] apply_delimiter_string_advice: The value indicating whether to apply delimiter string advice.
@@ -1834,17 +1834,17 @@ class EdifactEnvelopeSettingsArgs:
         :param pulumi.Input[str] group_application_sender_id: The group application sender id.
         :param pulumi.Input[str] group_application_sender_qualifier: The group application sender qualifier.
         :param pulumi.Input[str] group_association_assigned_code: The group association assigned code.
-        :param pulumi.Input[int] group_control_number_lower_bound: The group control number lower bound.
+        :param pulumi.Input[float] group_control_number_lower_bound: The group control number lower bound.
         :param pulumi.Input[str] group_control_number_prefix: The group control number prefix.
         :param pulumi.Input[str] group_control_number_suffix: The group control number suffix.
-        :param pulumi.Input[int] group_control_number_upper_bound: The group control number upper bound.
+        :param pulumi.Input[float] group_control_number_upper_bound: The group control number upper bound.
         :param pulumi.Input[str] group_controlling_agency_code: The group controlling agency code.
         :param pulumi.Input[str] group_message_release: The group message release.
         :param pulumi.Input[str] group_message_version: The group message version.
-        :param pulumi.Input[int] interchange_control_number_lower_bound: The interchange control number lower bound.
+        :param pulumi.Input[float] interchange_control_number_lower_bound: The interchange control number lower bound.
         :param pulumi.Input[str] interchange_control_number_prefix: The interchange control number prefix.
         :param pulumi.Input[str] interchange_control_number_suffix: The interchange control number suffix.
-        :param pulumi.Input[int] interchange_control_number_upper_bound: The interchange control number upper bound.
+        :param pulumi.Input[float] interchange_control_number_upper_bound: The interchange control number upper bound.
         :param pulumi.Input[bool] is_test_interchange: The value indicating whether the message is a test interchange.
         :param pulumi.Input[bool] overwrite_existing_transaction_set_control_number: The value indicating whether to overwrite existing transaction set control number.
         :param pulumi.Input[str] processing_priority_code: The processing priority code.
@@ -1859,10 +1859,10 @@ class EdifactEnvelopeSettingsArgs:
         :param pulumi.Input[str] sender_internal_identification: The sender internal identification.
         :param pulumi.Input[str] sender_internal_sub_identification: The sender internal sub identification.
         :param pulumi.Input[str] sender_reverse_routing_address: The sender reverse routing address.
-        :param pulumi.Input[int] transaction_set_control_number_lower_bound: The transaction set control number lower bound.
+        :param pulumi.Input[float] transaction_set_control_number_lower_bound: The transaction set control number lower bound.
         :param pulumi.Input[str] transaction_set_control_number_prefix: The transaction set control number prefix.
         :param pulumi.Input[str] transaction_set_control_number_suffix: The transaction set control number suffix.
-        :param pulumi.Input[int] transaction_set_control_number_upper_bound: The transaction set control number upper bound.
+        :param pulumi.Input[float] transaction_set_control_number_upper_bound: The transaction set control number upper bound.
         """
         if application_reference_id is not None:
             pulumi.set(__self__, "application_reference_id", application_reference_id)
@@ -2093,14 +2093,14 @@ class EdifactEnvelopeSettingsArgs:
 
     @property
     @pulumi.getter(name="groupControlNumberLowerBound")
-    def group_control_number_lower_bound(self) -> Optional[pulumi.Input[int]]:
+    def group_control_number_lower_bound(self) -> Optional[pulumi.Input[float]]:
         """
         The group control number lower bound.
         """
         return pulumi.get(self, "group_control_number_lower_bound")
 
     @group_control_number_lower_bound.setter
-    def group_control_number_lower_bound(self, value: Optional[pulumi.Input[int]]):
+    def group_control_number_lower_bound(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "group_control_number_lower_bound", value)
 
     @property
@@ -2129,14 +2129,14 @@ class EdifactEnvelopeSettingsArgs:
 
     @property
     @pulumi.getter(name="groupControlNumberUpperBound")
-    def group_control_number_upper_bound(self) -> Optional[pulumi.Input[int]]:
+    def group_control_number_upper_bound(self) -> Optional[pulumi.Input[float]]:
         """
         The group control number upper bound.
         """
         return pulumi.get(self, "group_control_number_upper_bound")
 
     @group_control_number_upper_bound.setter
-    def group_control_number_upper_bound(self, value: Optional[pulumi.Input[int]]):
+    def group_control_number_upper_bound(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "group_control_number_upper_bound", value)
 
     @property
@@ -2177,14 +2177,14 @@ class EdifactEnvelopeSettingsArgs:
 
     @property
     @pulumi.getter(name="interchangeControlNumberLowerBound")
-    def interchange_control_number_lower_bound(self) -> Optional[pulumi.Input[int]]:
+    def interchange_control_number_lower_bound(self) -> Optional[pulumi.Input[float]]:
         """
         The interchange control number lower bound.
         """
         return pulumi.get(self, "interchange_control_number_lower_bound")
 
     @interchange_control_number_lower_bound.setter
-    def interchange_control_number_lower_bound(self, value: Optional[pulumi.Input[int]]):
+    def interchange_control_number_lower_bound(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "interchange_control_number_lower_bound", value)
 
     @property
@@ -2213,14 +2213,14 @@ class EdifactEnvelopeSettingsArgs:
 
     @property
     @pulumi.getter(name="interchangeControlNumberUpperBound")
-    def interchange_control_number_upper_bound(self) -> Optional[pulumi.Input[int]]:
+    def interchange_control_number_upper_bound(self) -> Optional[pulumi.Input[float]]:
         """
         The interchange control number upper bound.
         """
         return pulumi.get(self, "interchange_control_number_upper_bound")
 
     @interchange_control_number_upper_bound.setter
-    def interchange_control_number_upper_bound(self, value: Optional[pulumi.Input[int]]):
+    def interchange_control_number_upper_bound(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "interchange_control_number_upper_bound", value)
 
     @property
@@ -2393,14 +2393,14 @@ class EdifactEnvelopeSettingsArgs:
 
     @property
     @pulumi.getter(name="transactionSetControlNumberLowerBound")
-    def transaction_set_control_number_lower_bound(self) -> Optional[pulumi.Input[int]]:
+    def transaction_set_control_number_lower_bound(self) -> Optional[pulumi.Input[float]]:
         """
         The transaction set control number lower bound.
         """
         return pulumi.get(self, "transaction_set_control_number_lower_bound")
 
     @transaction_set_control_number_lower_bound.setter
-    def transaction_set_control_number_lower_bound(self, value: Optional[pulumi.Input[int]]):
+    def transaction_set_control_number_lower_bound(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "transaction_set_control_number_lower_bound", value)
 
     @property
@@ -2429,14 +2429,14 @@ class EdifactEnvelopeSettingsArgs:
 
     @property
     @pulumi.getter(name="transactionSetControlNumberUpperBound")
-    def transaction_set_control_number_upper_bound(self) -> Optional[pulumi.Input[int]]:
+    def transaction_set_control_number_upper_bound(self) -> Optional[pulumi.Input[float]]:
         """
         The transaction set control number upper bound.
         """
         return pulumi.get(self, "transaction_set_control_number_upper_bound")
 
     @transaction_set_control_number_upper_bound.setter
-    def transaction_set_control_number_upper_bound(self, value: Optional[pulumi.Input[int]]):
+    def transaction_set_control_number_upper_bound(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "transaction_set_control_number_upper_bound", value)
 
 

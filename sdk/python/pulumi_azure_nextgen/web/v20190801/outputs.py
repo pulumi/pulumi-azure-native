@@ -627,11 +627,11 @@ class BackupItemResponseResult(dict):
                  log: str,
                  name: str,
                  scheduled: bool,
-                 size_in_bytes: int,
+                 size_in_bytes: float,
                  status: str,
                  storage_account_url: str,
                  type: str,
-                 website_size_in_bytes: int,
+                 website_size_in_bytes: float,
                  kind: Optional[str] = None):
         """
         Backup description.
@@ -646,11 +646,11 @@ class BackupItemResponseResult(dict):
         :param str log: Details regarding this backup. Might contain an error message.
         :param str name: Resource Name.
         :param bool scheduled: True if this backup has been created due to a schedule being triggered.
-        :param int size_in_bytes: Size of the backup in bytes.
+        :param float size_in_bytes: Size of the backup in bytes.
         :param str status: Backup status.
         :param str storage_account_url: SAS URL for the storage account container which contains this backup.
         :param str type: Resource type.
-        :param int website_size_in_bytes: Size of the original web app which has been backed up.
+        :param float website_size_in_bytes: Size of the original web app which has been backed up.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "backup_id", backup_id)
@@ -762,7 +762,7 @@ class BackupItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> int:
+    def size_in_bytes(self) -> float:
         """
         Size of the backup in bytes.
         """
@@ -794,7 +794,7 @@ class BackupItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="websiteSizeInBytes")
-    def website_size_in_bytes(self) -> int:
+    def website_size_in_bytes(self) -> float:
         """
         Size of the original web app which has been backed up.
         """
@@ -3056,13 +3056,13 @@ class SiteLimitsResponse(dict):
     Metric limits set on an app.
     """
     def __init__(__self__, *,
-                 max_disk_size_in_mb: Optional[int] = None,
-                 max_memory_in_mb: Optional[int] = None,
+                 max_disk_size_in_mb: Optional[float] = None,
+                 max_memory_in_mb: Optional[float] = None,
                  max_percentage_cpu: Optional[float] = None):
         """
         Metric limits set on an app.
-        :param int max_disk_size_in_mb: Maximum allowed disk size usage in MB.
-        :param int max_memory_in_mb: Maximum allowed memory usage in MB.
+        :param float max_disk_size_in_mb: Maximum allowed disk size usage in MB.
+        :param float max_memory_in_mb: Maximum allowed memory usage in MB.
         :param float max_percentage_cpu: Maximum allowed CPU usage percentage.
         """
         if max_disk_size_in_mb is not None:
@@ -3074,7 +3074,7 @@ class SiteLimitsResponse(dict):
 
     @property
     @pulumi.getter(name="maxDiskSizeInMb")
-    def max_disk_size_in_mb(self) -> Optional[int]:
+    def max_disk_size_in_mb(self) -> Optional[float]:
         """
         Maximum allowed disk size usage in MB.
         """
@@ -3082,7 +3082,7 @@ class SiteLimitsResponse(dict):
 
     @property
     @pulumi.getter(name="maxMemoryInMb")
-    def max_memory_in_mb(self) -> Optional[int]:
+    def max_memory_in_mb(self) -> Optional[float]:
         """
         Maximum allowed memory usage in MB.
         """
@@ -3437,20 +3437,20 @@ class StampCapacityResponse(dict):
     Stamp capacity information.
     """
     def __init__(__self__, *,
-                 available_capacity: Optional[int] = None,
+                 available_capacity: Optional[float] = None,
                  compute_mode: Optional[str] = None,
                  exclude_from_capacity_allocation: Optional[bool] = None,
                  is_applicable_for_all_compute_modes: Optional[bool] = None,
                  is_linux: Optional[bool] = None,
                  name: Optional[str] = None,
                  site_mode: Optional[str] = None,
-                 total_capacity: Optional[int] = None,
+                 total_capacity: Optional[float] = None,
                  unit: Optional[str] = None,
                  worker_size: Optional[str] = None,
                  worker_size_id: Optional[int] = None):
         """
         Stamp capacity information.
-        :param int available_capacity: Available capacity (# of machines, bytes of storage etc...).
+        :param float available_capacity: Available capacity (# of machines, bytes of storage etc...).
         :param str compute_mode: Shared/dedicated workers.
         :param bool exclude_from_capacity_allocation: If <code>true</code>, it includes basic apps.
                Basic apps are not used for capacity allocation.
@@ -3458,7 +3458,7 @@ class StampCapacityResponse(dict):
         :param bool is_linux: Is this a linux stamp capacity
         :param str name: Name of the stamp.
         :param str site_mode: Shared or Dedicated.
-        :param int total_capacity: Total capacity (# of machines, bytes of storage etc...).
+        :param float total_capacity: Total capacity (# of machines, bytes of storage etc...).
         :param str unit: Name of the unit.
         :param str worker_size: Size of the machines.
         :param int worker_size_id: Size ID of machines: 
@@ -3491,7 +3491,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="availableCapacity")
-    def available_capacity(self) -> Optional[int]:
+    def available_capacity(self) -> Optional[float]:
         """
         Available capacity (# of machines, bytes of storage etc...).
         """
@@ -3548,7 +3548,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="totalCapacity")
-    def total_capacity(self) -> Optional[int]:
+    def total_capacity(self) -> Optional[float]:
         """
         Total capacity (# of machines, bytes of storage etc...).
         """

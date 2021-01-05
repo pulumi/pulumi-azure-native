@@ -19,7 +19,7 @@ class Service(pulumi.CustomResource):
                  billing_domain_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 quantity: Optional[pulumi.Input[int]] = None,
+                 quantity: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,7 +33,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] billing_domain_name: Windows IoT Device Service ODM AAD domain
         :param pulumi.Input[str] device_name: The name of the Windows IoT Device Service.
         :param pulumi.Input[str] notes: Windows IoT Device Service notes.
-        :param pulumi.Input[int] quantity: Windows IoT Device Service device allocation,
+        :param pulumi.Input[float] quantity: Windows IoT Device Service device allocation,
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
         """
         if __name__ is not None:
@@ -145,7 +145,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def quantity(self) -> pulumi.Output[Optional[int]]:
+    def quantity(self) -> pulumi.Output[Optional[float]]:
         """
         Windows IoT Device Service device allocation,
         """

@@ -25,7 +25,7 @@ class BackupSchedule(pulumi.CustomResource):
                  kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_count: Optional[pulumi.Input[int]] = None,
+                 retention_count: Optional[pulumi.Input[float]] = None,
                  schedule_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
                  schedule_status: Optional[pulumi.Input['ScheduleStatus']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
@@ -45,7 +45,7 @@ class BackupSchedule(pulumi.CustomResource):
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[int] retention_count: The number of backups to be retained.
+        :param pulumi.Input[float] retention_count: The number of backups to be retained.
         :param pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']] schedule_recurrence: The schedule recurrence.
         :param pulumi.Input['ScheduleStatus'] schedule_status: The schedule status.
         :param pulumi.Input[str] start_time: The start time of the schedule.
@@ -161,7 +161,7 @@ class BackupSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionCount")
-    def retention_count(self) -> pulumi.Output[int]:
+    def retention_count(self) -> pulumi.Output[float]:
         """
         The number of backups to be retained.
         """

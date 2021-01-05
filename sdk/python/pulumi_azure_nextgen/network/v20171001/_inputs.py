@@ -2781,12 +2781,12 @@ class BackendAddressPoolArgs:
 @pulumi.input_type
 class BgpSettingsArgs:
     def __init__(__self__, *,
-                 asn: Optional[pulumi.Input[int]] = None,
+                 asn: Optional[pulumi.Input[float]] = None,
                  bgp_peering_address: Optional[pulumi.Input[str]] = None,
                  peer_weight: Optional[pulumi.Input[int]] = None):
         """
         BGP settings details
-        :param pulumi.Input[int] asn: The BGP speaker's ASN.
+        :param pulumi.Input[float] asn: The BGP speaker's ASN.
         :param pulumi.Input[str] bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
         :param pulumi.Input[int] peer_weight: The weight added to routes learned from this BGP speaker.
         """
@@ -2799,14 +2799,14 @@ class BgpSettingsArgs:
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[pulumi.Input[int]]:
+    def asn(self) -> Optional[pulumi.Input[float]]:
         """
         The BGP speaker's ASN.
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[pulumi.Input[int]]):
+    def asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "asn", value)
 
     @property
@@ -3131,7 +3131,7 @@ class ExpressRouteCircuitPeeringArgs:
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  microsoft_peering_config: Optional[pulumi.Input['ExpressRouteCircuitPeeringConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peer_asn: Optional[pulumi.Input[float]] = None,
                  peering_type: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringType']]] = None,
                  primary_azure_port: Optional[pulumi.Input[str]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
@@ -3152,7 +3152,7 @@ class ExpressRouteCircuitPeeringArgs:
         :param pulumi.Input[str] last_modified_by: Gets whether the provider or the customer last modified the peering.
         :param pulumi.Input['ExpressRouteCircuitPeeringConfigArgs'] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[int] peer_asn: The peer ASN.
+        :param pulumi.Input[float] peer_asn: The peer ASN.
         :param pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringType']] peering_type: The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
         :param pulumi.Input[str] primary_azure_port: The primary port.
         :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
@@ -3290,14 +3290,14 @@ class ExpressRouteCircuitPeeringArgs:
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> Optional[pulumi.Input[int]]:
+    def peer_asn(self) -> Optional[pulumi.Input[float]]:
         """
         The peer ASN.
         """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter
-    def peer_asn(self, value: Optional[pulumi.Input[int]]):
+    def peer_asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "peer_asn", value)
 
     @property
@@ -3652,16 +3652,16 @@ class ExpressRouteCircuitSkuArgs:
 @pulumi.input_type
 class ExpressRouteCircuitStatsArgs:
     def __init__(__self__, *,
-                 primarybytes_in: Optional[pulumi.Input[int]] = None,
-                 primarybytes_out: Optional[pulumi.Input[int]] = None,
-                 secondarybytes_in: Optional[pulumi.Input[int]] = None,
-                 secondarybytes_out: Optional[pulumi.Input[int]] = None):
+                 primarybytes_in: Optional[pulumi.Input[float]] = None,
+                 primarybytes_out: Optional[pulumi.Input[float]] = None,
+                 secondarybytes_in: Optional[pulumi.Input[float]] = None,
+                 secondarybytes_out: Optional[pulumi.Input[float]] = None):
         """
         Contains stats associated with the peering.
-        :param pulumi.Input[int] primarybytes_in: Gets BytesIn of the peering.
-        :param pulumi.Input[int] primarybytes_out: Gets BytesOut of the peering.
-        :param pulumi.Input[int] secondarybytes_in: Gets BytesIn of the peering.
-        :param pulumi.Input[int] secondarybytes_out: Gets BytesOut of the peering.
+        :param pulumi.Input[float] primarybytes_in: Gets BytesIn of the peering.
+        :param pulumi.Input[float] primarybytes_out: Gets BytesOut of the peering.
+        :param pulumi.Input[float] secondarybytes_in: Gets BytesIn of the peering.
+        :param pulumi.Input[float] secondarybytes_out: Gets BytesOut of the peering.
         """
         if primarybytes_in is not None:
             pulumi.set(__self__, "primarybytes_in", primarybytes_in)
@@ -3674,50 +3674,50 @@ class ExpressRouteCircuitStatsArgs:
 
     @property
     @pulumi.getter(name="primarybytesIn")
-    def primarybytes_in(self) -> Optional[pulumi.Input[int]]:
+    def primarybytes_in(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesIn of the peering.
         """
         return pulumi.get(self, "primarybytes_in")
 
     @primarybytes_in.setter
-    def primarybytes_in(self, value: Optional[pulumi.Input[int]]):
+    def primarybytes_in(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "primarybytes_in", value)
 
     @property
     @pulumi.getter(name="primarybytesOut")
-    def primarybytes_out(self) -> Optional[pulumi.Input[int]]:
+    def primarybytes_out(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesOut of the peering.
         """
         return pulumi.get(self, "primarybytes_out")
 
     @primarybytes_out.setter
-    def primarybytes_out(self, value: Optional[pulumi.Input[int]]):
+    def primarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "primarybytes_out", value)
 
     @property
     @pulumi.getter(name="secondarybytesIn")
-    def secondarybytes_in(self) -> Optional[pulumi.Input[int]]:
+    def secondarybytes_in(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesIn of the peering.
         """
         return pulumi.get(self, "secondarybytes_in")
 
     @secondarybytes_in.setter
-    def secondarybytes_in(self, value: Optional[pulumi.Input[int]]):
+    def secondarybytes_in(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_in", value)
 
     @property
     @pulumi.getter(name="secondarybytesOut")
-    def secondarybytes_out(self) -> Optional[pulumi.Input[int]]:
+    def secondarybytes_out(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesOut of the peering.
         """
         return pulumi.get(self, "secondarybytes_out")
 
     @secondarybytes_out.setter
-    def secondarybytes_out(self, value: Optional[pulumi.Input[int]]):
+    def secondarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_out", value)
 
 
@@ -6932,21 +6932,21 @@ class ServiceEndpointPropertiesFormatArgs:
 class SoaRecordArgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input[str]] = None,
-                 expire_time: Optional[pulumi.Input[int]] = None,
+                 expire_time: Optional[pulumi.Input[float]] = None,
                  host: Optional[pulumi.Input[str]] = None,
-                 minimum_ttl: Optional[pulumi.Input[int]] = None,
-                 refresh_time: Optional[pulumi.Input[int]] = None,
-                 retry_time: Optional[pulumi.Input[int]] = None,
-                 serial_number: Optional[pulumi.Input[int]] = None):
+                 minimum_ttl: Optional[pulumi.Input[float]] = None,
+                 refresh_time: Optional[pulumi.Input[float]] = None,
+                 retry_time: Optional[pulumi.Input[float]] = None,
+                 serial_number: Optional[pulumi.Input[float]] = None):
         """
         An SOA record.
         :param pulumi.Input[str] email: The email contact for this SOA record.
-        :param pulumi.Input[int] expire_time: The expire time for this SOA record.
+        :param pulumi.Input[float] expire_time: The expire time for this SOA record.
         :param pulumi.Input[str] host: The domain name of the authoritative name server for this SOA record.
-        :param pulumi.Input[int] minimum_ttl: The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-        :param pulumi.Input[int] refresh_time: The refresh value for this SOA record.
-        :param pulumi.Input[int] retry_time: The retry time for this SOA record.
-        :param pulumi.Input[int] serial_number: The serial number for this SOA record.
+        :param pulumi.Input[float] minimum_ttl: The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+        :param pulumi.Input[float] refresh_time: The refresh value for this SOA record.
+        :param pulumi.Input[float] retry_time: The retry time for this SOA record.
+        :param pulumi.Input[float] serial_number: The serial number for this SOA record.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -6977,14 +6977,14 @@ class SoaRecordArgs:
 
     @property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[pulumi.Input[int]]:
+    def expire_time(self) -> Optional[pulumi.Input[float]]:
         """
         The expire time for this SOA record.
         """
         return pulumi.get(self, "expire_time")
 
     @expire_time.setter
-    def expire_time(self, value: Optional[pulumi.Input[int]]):
+    def expire_time(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "expire_time", value)
 
     @property
@@ -7001,50 +7001,50 @@ class SoaRecordArgs:
 
     @property
     @pulumi.getter(name="minimumTtl")
-    def minimum_ttl(self) -> Optional[pulumi.Input[int]]:
+    def minimum_ttl(self) -> Optional[pulumi.Input[float]]:
         """
         The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
         """
         return pulumi.get(self, "minimum_ttl")
 
     @minimum_ttl.setter
-    def minimum_ttl(self, value: Optional[pulumi.Input[int]]):
+    def minimum_ttl(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "minimum_ttl", value)
 
     @property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[pulumi.Input[int]]:
+    def refresh_time(self) -> Optional[pulumi.Input[float]]:
         """
         The refresh value for this SOA record.
         """
         return pulumi.get(self, "refresh_time")
 
     @refresh_time.setter
-    def refresh_time(self, value: Optional[pulumi.Input[int]]):
+    def refresh_time(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "refresh_time", value)
 
     @property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[pulumi.Input[int]]:
+    def retry_time(self) -> Optional[pulumi.Input[float]]:
         """
         The retry time for this SOA record.
         """
         return pulumi.get(self, "retry_time")
 
     @retry_time.setter
-    def retry_time(self, value: Optional[pulumi.Input[int]]):
+    def retry_time(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "retry_time", value)
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[int]]:
+    def serial_number(self) -> Optional[pulumi.Input[float]]:
         """
         The serial number for this SOA record.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[int]]):
+    def serial_number(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "serial_number", value)
 
 

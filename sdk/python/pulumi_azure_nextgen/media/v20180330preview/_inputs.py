@@ -722,7 +722,7 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
                  fair_play_pfx_password: pulumi.Input[str],
                  odata_type: pulumi.Input[str],
                  rental_and_lease_key_type: pulumi.Input[Union[str, 'ContentKeyPolicyFairPlayRentalAndLeaseKeyType']],
-                 rental_duration: pulumi.Input[int]):
+                 rental_duration: pulumi.Input[float]):
         """
         Specifies a configuration for FairPlay licenses.
         :param pulumi.Input[str] ask: The key that must be used as FairPlay ASk.
@@ -731,7 +731,7 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
         :param pulumi.Input[Union[str, 'ContentKeyPolicyFairPlayRentalAndLeaseKeyType']] rental_and_lease_key_type: The rental and lease key type.
-        :param pulumi.Input[int] rental_duration: The rental duration. Must be greater than or equal to 0.
+        :param pulumi.Input[float] rental_duration: The rental duration. Must be greater than or equal to 0.
         """
         pulumi.set(__self__, "ask", ask)
         pulumi.set(__self__, "fair_play_pfx", fair_play_pfx)
@@ -803,14 +803,14 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
 
     @property
     @pulumi.getter(name="rentalDuration")
-    def rental_duration(self) -> pulumi.Input[int]:
+    def rental_duration(self) -> pulumi.Input[float]:
         """
         The rental duration. Must be greater than or equal to 0.
         """
         return pulumi.get(self, "rental_duration")
 
     @rental_duration.setter
-    def rental_duration(self, value: pulumi.Input[int]):
+    def rental_duration(self, value: pulumi.Input[float]):
         pulumi.set(self, "rental_duration", value)
 
 

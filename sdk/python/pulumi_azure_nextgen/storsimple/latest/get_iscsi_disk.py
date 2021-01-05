@@ -35,8 +35,8 @@ class GetIscsiDiskResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if local_used_capacity_in_bytes and not isinstance(local_used_capacity_in_bytes, int):
-            raise TypeError("Expected argument 'local_used_capacity_in_bytes' to be a int")
+        if local_used_capacity_in_bytes and not isinstance(local_used_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'local_used_capacity_in_bytes' to be a float")
         pulumi.set(__self__, "local_used_capacity_in_bytes", local_used_capacity_in_bytes)
         if monitoring_status and not isinstance(monitoring_status, str):
             raise TypeError("Expected argument 'monitoring_status' to be a str")
@@ -44,14 +44,14 @@ class GetIscsiDiskResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioned_capacity_in_bytes and not isinstance(provisioned_capacity_in_bytes, int):
-            raise TypeError("Expected argument 'provisioned_capacity_in_bytes' to be a int")
+        if provisioned_capacity_in_bytes and not isinstance(provisioned_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'provisioned_capacity_in_bytes' to be a float")
         pulumi.set(__self__, "provisioned_capacity_in_bytes", provisioned_capacity_in_bytes)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if used_capacity_in_bytes and not isinstance(used_capacity_in_bytes, int):
-            raise TypeError("Expected argument 'used_capacity_in_bytes' to be a int")
+        if used_capacity_in_bytes and not isinstance(used_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'used_capacity_in_bytes' to be a float")
         pulumi.set(__self__, "used_capacity_in_bytes", used_capacity_in_bytes)
 
     @property
@@ -96,7 +96,7 @@ class GetIscsiDiskResult:
 
     @property
     @pulumi.getter(name="localUsedCapacityInBytes")
-    def local_used_capacity_in_bytes(self) -> int:
+    def local_used_capacity_in_bytes(self) -> float:
         """
         The local used capacity in bytes.
         """
@@ -120,7 +120,7 @@ class GetIscsiDiskResult:
 
     @property
     @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> int:
+    def provisioned_capacity_in_bytes(self) -> float:
         """
         The provisioned capacity in bytes.
         """
@@ -136,7 +136,7 @@ class GetIscsiDiskResult:
 
     @property
     @pulumi.getter(name="usedCapacityInBytes")
-    def used_capacity_in_bytes(self) -> int:
+    def used_capacity_in_bytes(self) -> float:
         """
         The used capacity in bytes.
         """

@@ -211,18 +211,18 @@ class MessageCountDetailsResponse(dict):
     Message Count Details.
     """
     def __init__(__self__, *,
-                 active_message_count: int,
-                 dead_letter_message_count: int,
-                 scheduled_message_count: int,
-                 transfer_dead_letter_message_count: int,
-                 transfer_message_count: int):
+                 active_message_count: float,
+                 dead_letter_message_count: float,
+                 scheduled_message_count: float,
+                 transfer_dead_letter_message_count: float,
+                 transfer_message_count: float):
         """
         Message Count Details.
-        :param int active_message_count: Number of active messages in the queue, topic, or subscription.
-        :param int dead_letter_message_count: Number of messages that are dead lettered.
-        :param int scheduled_message_count: Number of scheduled messages.
-        :param int transfer_dead_letter_message_count: Number of messages transferred into dead letters.
-        :param int transfer_message_count: Number of messages transferred to another queue, topic, or subscription.
+        :param float active_message_count: Number of active messages in the queue, topic, or subscription.
+        :param float dead_letter_message_count: Number of messages that are dead lettered.
+        :param float scheduled_message_count: Number of scheduled messages.
+        :param float transfer_dead_letter_message_count: Number of messages transferred into dead letters.
+        :param float transfer_message_count: Number of messages transferred to another queue, topic, or subscription.
         """
         pulumi.set(__self__, "active_message_count", active_message_count)
         pulumi.set(__self__, "dead_letter_message_count", dead_letter_message_count)
@@ -232,7 +232,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="activeMessageCount")
-    def active_message_count(self) -> int:
+    def active_message_count(self) -> float:
         """
         Number of active messages in the queue, topic, or subscription.
         """
@@ -240,7 +240,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="deadLetterMessageCount")
-    def dead_letter_message_count(self) -> int:
+    def dead_letter_message_count(self) -> float:
         """
         Number of messages that are dead lettered.
         """
@@ -248,7 +248,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="scheduledMessageCount")
-    def scheduled_message_count(self) -> int:
+    def scheduled_message_count(self) -> float:
         """
         Number of scheduled messages.
         """
@@ -256,7 +256,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="transferDeadLetterMessageCount")
-    def transfer_dead_letter_message_count(self) -> int:
+    def transfer_dead_letter_message_count(self) -> float:
         """
         Number of messages transferred into dead letters.
         """
@@ -264,7 +264,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="transferMessageCount")
-    def transfer_message_count(self) -> int:
+    def transfer_message_count(self) -> float:
         """
         Number of messages transferred to another queue, topic, or subscription.
         """

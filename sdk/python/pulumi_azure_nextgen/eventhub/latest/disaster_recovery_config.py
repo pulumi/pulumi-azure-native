@@ -120,7 +120,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pendingReplicationOperationsCount")
-    def pending_replication_operations_count(self) -> pulumi.Output[int]:
+    def pending_replication_operations_count(self) -> pulumi.Output[float]:
         """
         Number of entities pending to be replicated.
         """

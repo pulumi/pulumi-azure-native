@@ -1715,20 +1715,20 @@ class BgpPeerStatusResponseResult(dict):
                  asn: int,
                  connected_duration: str,
                  local_address: str,
-                 messages_received: int,
-                 messages_sent: int,
+                 messages_received: float,
+                 messages_sent: float,
                  neighbor: str,
-                 routes_received: int,
+                 routes_received: float,
                  state: str):
         """
         BGP peer status details
         :param int asn: The autonomous system number of the remote BGP peer
         :param str connected_duration: For how long the peering has been up
         :param str local_address: The virtual network gateway's local address
-        :param int messages_received: The number of BGP messages received
-        :param int messages_sent: The number of BGP messages sent
+        :param float messages_received: The number of BGP messages received
+        :param float messages_sent: The number of BGP messages sent
         :param str neighbor: The remote BGP peer
-        :param int routes_received: The number of routes learned from this peer
+        :param float routes_received: The number of routes learned from this peer
         :param str state: The BGP peer state
         """
         pulumi.set(__self__, "asn", asn)
@@ -1766,7 +1766,7 @@ class BgpPeerStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="messagesReceived")
-    def messages_received(self) -> int:
+    def messages_received(self) -> float:
         """
         The number of BGP messages received
         """
@@ -1774,7 +1774,7 @@ class BgpPeerStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="messagesSent")
-    def messages_sent(self) -> int:
+    def messages_sent(self) -> float:
         """
         The number of BGP messages sent
         """
@@ -1790,7 +1790,7 @@ class BgpPeerStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="routesReceived")
-    def routes_received(self) -> int:
+    def routes_received(self) -> float:
         """
         The number of routes learned from this peer
         """
@@ -1811,12 +1811,12 @@ class BgpSettingsResponse(dict):
     BGP settings details
     """
     def __init__(__self__, *,
-                 asn: Optional[int] = None,
+                 asn: Optional[float] = None,
                  bgp_peering_address: Optional[str] = None,
                  peer_weight: Optional[int] = None):
         """
         BGP settings details
-        :param int asn: The BGP speaker's ASN.
+        :param float asn: The BGP speaker's ASN.
         :param str bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
         :param int peer_weight: The weight added to routes learned from this BGP speaker.
         """
@@ -1829,7 +1829,7 @@ class BgpSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[int]:
+    def asn(self) -> Optional[float]:
         """
         The BGP speaker's ASN.
         """
@@ -1889,12 +1889,12 @@ class DnsConfigResponse(dict):
     def __init__(__self__, *,
                  fqdn: Optional[str] = None,
                  relative_name: Optional[str] = None,
-                 ttl: Optional[int] = None):
+                 ttl: Optional[float] = None):
         """
         Class containing DNS settings in a Traffic Manager profile.
         :param str fqdn: Gets or sets the fully-qualified domain name (FQDN) of the Traffic Manager profile.  This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
         :param str relative_name: Gets or sets the relative DNS name provided by this Traffic Manager profile.  This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-        :param int ttl: Gets or sets the DNS Time-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+        :param float ttl: Gets or sets the DNS Time-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
@@ -1921,7 +1921,7 @@ class DnsConfigResponse(dict):
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[int]:
+    def ttl(self) -> Optional[float]:
         """
         Gets or sets the DNS Time-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
@@ -1942,13 +1942,13 @@ class EndpointResponse(dict):
                  endpoint_status: Optional[str] = None,
                  geo_mapping: Optional[Sequence[str]] = None,
                  id: Optional[str] = None,
-                 min_child_endpoints: Optional[int] = None,
+                 min_child_endpoints: Optional[float] = None,
                  name: Optional[str] = None,
-                 priority: Optional[int] = None,
+                 priority: Optional[float] = None,
                  target: Optional[str] = None,
                  target_resource_id: Optional[str] = None,
                  type: Optional[str] = None,
-                 weight: Optional[int] = None):
+                 weight: Optional[float] = None):
         """
         Class representing a Traffic Manager endpoint.
         :param str endpoint_location: Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
@@ -1956,13 +1956,13 @@ class EndpointResponse(dict):
         :param str endpoint_status: Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
         :param Sequence[str] geo_mapping: Gets or sets the list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param str id: Gets or sets the ID of the Traffic Manager endpoint.
-        :param int min_child_endpoints: Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param float min_child_endpoints: Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         :param str name: Gets or sets the name of the Traffic Manager endpoint.
-        :param int priority: Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+        :param float priority: Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param str target: Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         :param str target_resource_id: Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
         :param str type: Gets or sets the endpoint type of the Traffic Manager endpoint.
-        :param int weight: Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+        :param float weight: Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         if endpoint_location is not None:
             pulumi.set(__self__, "endpoint_location", endpoint_location)
@@ -2031,7 +2031,7 @@ class EndpointResponse(dict):
 
     @property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> Optional[int]:
+    def min_child_endpoints(self) -> Optional[float]:
         """
         Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
@@ -2047,7 +2047,7 @@ class EndpointResponse(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[int]:
+    def priority(self) -> Optional[float]:
         """
         Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         """
@@ -2079,7 +2079,7 @@ class EndpointResponse(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[int]:
+    def weight(self) -> Optional[float]:
         """
         Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
@@ -2595,16 +2595,16 @@ class ExpressRouteCircuitStatsResponse(dict):
     Contains stats associated with the peering.
     """
     def __init__(__self__, *,
-                 primarybytes_in: Optional[int] = None,
-                 primarybytes_out: Optional[int] = None,
-                 secondarybytes_in: Optional[int] = None,
-                 secondarybytes_out: Optional[int] = None):
+                 primarybytes_in: Optional[float] = None,
+                 primarybytes_out: Optional[float] = None,
+                 secondarybytes_in: Optional[float] = None,
+                 secondarybytes_out: Optional[float] = None):
         """
         Contains stats associated with the peering.
-        :param int primarybytes_in: Gets BytesIn of the peering.
-        :param int primarybytes_out: Gets BytesOut of the peering.
-        :param int secondarybytes_in: Gets BytesIn of the peering.
-        :param int secondarybytes_out: Gets BytesOut of the peering.
+        :param float primarybytes_in: Gets BytesIn of the peering.
+        :param float primarybytes_out: Gets BytesOut of the peering.
+        :param float secondarybytes_in: Gets BytesIn of the peering.
+        :param float secondarybytes_out: Gets BytesOut of the peering.
         """
         if primarybytes_in is not None:
             pulumi.set(__self__, "primarybytes_in", primarybytes_in)
@@ -2617,7 +2617,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="primarybytesIn")
-    def primarybytes_in(self) -> Optional[int]:
+    def primarybytes_in(self) -> Optional[float]:
         """
         Gets BytesIn of the peering.
         """
@@ -2625,7 +2625,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="primarybytesOut")
-    def primarybytes_out(self) -> Optional[int]:
+    def primarybytes_out(self) -> Optional[float]:
         """
         Gets BytesOut of the peering.
         """
@@ -2633,7 +2633,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="secondarybytesIn")
-    def secondarybytes_in(self) -> Optional[int]:
+    def secondarybytes_in(self) -> Optional[float]:
         """
         Gets BytesIn of the peering.
         """
@@ -2641,7 +2641,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="secondarybytesOut")
-    def secondarybytes_out(self) -> Optional[int]:
+    def secondarybytes_out(self) -> Optional[float]:
         """
         Gets BytesOut of the peering.
         """
@@ -3760,13 +3760,13 @@ class MonitorConfigResponse(dict):
     """
     def __init__(__self__, *,
                  path: Optional[str] = None,
-                 port: Optional[int] = None,
+                 port: Optional[float] = None,
                  profile_monitor_status: Optional[str] = None,
                  protocol: Optional[str] = None):
         """
         Class containing endpoint monitoring settings in a Traffic Manager profile.
         :param str path: Gets or sets the path relative to the endpoint domain name used to probe for endpoint health.
-        :param int port: Gets or sets the TCP port used to probe for endpoint health.
+        :param float port: Gets or sets the TCP port used to probe for endpoint health.
         :param str profile_monitor_status: Gets or sets the profile-level monitoring status of the Traffic Manager profile.
         :param str protocol: Gets or sets the protocol (HTTP or HTTPS) used to probe for endpoint health.
         """
@@ -3789,7 +3789,7 @@ class MonitorConfigResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[int]:
+    def port(self) -> Optional[float]:
         """
         Gets or sets the TCP port used to probe for endpoint health.
         """
@@ -5833,15 +5833,15 @@ class TunnelConnectionHealthResponse(dict):
     """
     def __init__(__self__, *,
                  connection_status: str,
-                 egress_bytes_transferred: int,
-                 ingress_bytes_transferred: int,
+                 egress_bytes_transferred: float,
+                 ingress_bytes_transferred: float,
                  last_connection_established_utc_time: str,
                  tunnel: str):
         """
         VirtualNetworkGatewayConnection properties
         :param str connection_status: Virtual network Gateway connection status
-        :param int egress_bytes_transferred: The Egress Bytes Transferred in this connection
-        :param int ingress_bytes_transferred: The Ingress Bytes Transferred in this connection
+        :param float egress_bytes_transferred: The Egress Bytes Transferred in this connection
+        :param float ingress_bytes_transferred: The Ingress Bytes Transferred in this connection
         :param str last_connection_established_utc_time: The time at which connection was established in Utc format.
         :param str tunnel: Tunnel name.
         """
@@ -5861,7 +5861,7 @@ class TunnelConnectionHealthResponse(dict):
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> int:
+    def egress_bytes_transferred(self) -> float:
         """
         The Egress Bytes Transferred in this connection
         """
@@ -5869,7 +5869,7 @@ class TunnelConnectionHealthResponse(dict):
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> int:
+    def ingress_bytes_transferred(self) -> float:
         """
         The Ingress Bytes Transferred in this connection
         """

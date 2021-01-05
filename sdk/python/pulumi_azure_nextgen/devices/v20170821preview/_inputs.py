@@ -102,11 +102,11 @@ class IotDpsPropertiesDescriptionArgs:
 @pulumi.input_type
 class IotDpsSkuInfoArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[int]] = None,
+                 capacity: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[Union[str, 'IotDpsSku']]] = None):
         """
         List of possible provisioning service SKUs.
-        :param pulumi.Input[int] capacity: The number of services of the selected tier allowed in the subscription.
+        :param pulumi.Input[float] capacity: The number of services of the selected tier allowed in the subscription.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -115,14 +115,14 @@ class IotDpsSkuInfoArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
+    def capacity(self) -> Optional[pulumi.Input[float]]:
         """
         The number of services of the selected tier allowed in the subscription.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
+    def capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "capacity", value)
 
     @property

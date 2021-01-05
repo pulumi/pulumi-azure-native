@@ -32,13 +32,13 @@ class DeliveryPackageInformationResponse(dict):
     def __init__(__self__, *,
                  carrier_name: str,
                  tracking_number: str,
-                 drive_count: Optional[int] = None,
+                 drive_count: Optional[float] = None,
                  ship_date: Optional[str] = None):
         """
         Contains information about the delivery package being shipped by the customer to the Microsoft data center.
         :param str carrier_name: The name of the carrier that is used to ship the import or export drives.
         :param str tracking_number: The tracking number of the package.
-        :param int drive_count: The number of drives included in the package.
+        :param float drive_count: The number of drives included in the package.
         :param str ship_date: The date when the package is shipped.
         """
         pulumi.set(__self__, "carrier_name", carrier_name)
@@ -66,7 +66,7 @@ class DeliveryPackageInformationResponse(dict):
 
     @property
     @pulumi.getter(name="driveCount")
-    def drive_count(self) -> Optional[int]:
+    def drive_count(self) -> Optional[float]:
         """
         The number of drives included in the package.
         """
@@ -126,7 +126,7 @@ class DriveStatusResponse(dict):
     """
     def __init__(__self__, *,
                  bit_locker_key: Optional[str] = None,
-                 bytes_succeeded: Optional[int] = None,
+                 bytes_succeeded: Optional[float] = None,
                  copy_status: Optional[str] = None,
                  drive_header_hash: Optional[str] = None,
                  drive_id: Optional[str] = None,
@@ -140,7 +140,7 @@ class DriveStatusResponse(dict):
         """
         Provides information about the drive's status
         :param str bit_locker_key: The BitLocker key used to encrypt the drive.
-        :param int bytes_succeeded: Bytes successfully transferred for the drive.
+        :param float bytes_succeeded: Bytes successfully transferred for the drive.
         :param str copy_status: Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
         :param str drive_header_hash: The drive header hash value.
         :param str drive_id: The drive's hardware serial number, without spaces.
@@ -187,7 +187,7 @@ class DriveStatusResponse(dict):
 
     @property
     @pulumi.getter(name="bytesSucceeded")
-    def bytes_succeeded(self) -> Optional[int]:
+    def bytes_succeeded(self) -> Optional[float]:
         """
         Bytes successfully transferred for the drive.
         """
@@ -662,13 +662,13 @@ class PackageInformationResponse(dict):
     """
     def __init__(__self__, *,
                  carrier_name: str,
-                 drive_count: int,
+                 drive_count: float,
                  ship_date: str,
                  tracking_number: str):
         """
         Contains information about the package being shipped by the customer to the Microsoft data center.
         :param str carrier_name: The name of the carrier that is used to ship the import or export drives.
-        :param int drive_count: The number of drives included in the package.
+        :param float drive_count: The number of drives included in the package.
         :param str ship_date: The date when the package is shipped.
         :param str tracking_number: The tracking number of the package.
         """
@@ -687,7 +687,7 @@ class PackageInformationResponse(dict):
 
     @property
     @pulumi.getter(name="driveCount")
-    def drive_count(self) -> int:
+    def drive_count(self) -> float:
         """
         The number of drives included in the package.
         """

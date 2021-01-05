@@ -4411,12 +4411,12 @@ class BastionHostIPConfigurationArgs:
 @pulumi.input_type
 class BgpSettingsArgs:
     def __init__(__self__, *,
-                 asn: Optional[pulumi.Input[int]] = None,
+                 asn: Optional[pulumi.Input[float]] = None,
                  bgp_peering_address: Optional[pulumi.Input[str]] = None,
                  peer_weight: Optional[pulumi.Input[int]] = None):
         """
         BGP settings details.
-        :param pulumi.Input[int] asn: The BGP speaker's ASN.
+        :param pulumi.Input[float] asn: The BGP speaker's ASN.
         :param pulumi.Input[str] bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
         :param pulumi.Input[int] peer_weight: The weight added to routes learned from this BGP speaker.
         """
@@ -4429,14 +4429,14 @@ class BgpSettingsArgs:
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[pulumi.Input[int]]:
+    def asn(self) -> Optional[pulumi.Input[float]]:
         """
         The BGP speaker's ASN.
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[pulumi.Input[int]]):
+    def asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "asn", value)
 
     @property
@@ -5210,7 +5210,7 @@ class ExpressRouteCircuitPeeringArgs:
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  microsoft_peering_config: Optional[pulumi.Input['ExpressRouteCircuitPeeringConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peer_asn: Optional[pulumi.Input[float]] = None,
                  peering_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringType']]] = None,
                  primary_azure_port: Optional[pulumi.Input[str]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
@@ -5231,7 +5231,7 @@ class ExpressRouteCircuitPeeringArgs:
         :param pulumi.Input[str] last_modified_by: Who was the last to modify the peering.
         :param pulumi.Input['ExpressRouteCircuitPeeringConfigArgs'] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[int] peer_asn: The peer ASN.
+        :param pulumi.Input[float] peer_asn: The peer ASN.
         :param pulumi.Input[Union[str, 'ExpressRoutePeeringType']] peering_type: The peering type.
         :param pulumi.Input[str] primary_azure_port: The primary port.
         :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
@@ -5380,14 +5380,14 @@ class ExpressRouteCircuitPeeringArgs:
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> Optional[pulumi.Input[int]]:
+    def peer_asn(self) -> Optional[pulumi.Input[float]]:
         """
         The peer ASN.
         """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter
-    def peer_asn(self, value: Optional[pulumi.Input[int]]):
+    def peer_asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "peer_asn", value)
 
     @property
@@ -5754,16 +5754,16 @@ class ExpressRouteCircuitSkuArgs:
 @pulumi.input_type
 class ExpressRouteCircuitStatsArgs:
     def __init__(__self__, *,
-                 primarybytes_in: Optional[pulumi.Input[int]] = None,
-                 primarybytes_out: Optional[pulumi.Input[int]] = None,
-                 secondarybytes_in: Optional[pulumi.Input[int]] = None,
-                 secondarybytes_out: Optional[pulumi.Input[int]] = None):
+                 primarybytes_in: Optional[pulumi.Input[float]] = None,
+                 primarybytes_out: Optional[pulumi.Input[float]] = None,
+                 secondarybytes_in: Optional[pulumi.Input[float]] = None,
+                 secondarybytes_out: Optional[pulumi.Input[float]] = None):
         """
         Contains stats associated with the peering.
-        :param pulumi.Input[int] primarybytes_in: The Primary BytesIn of the peering.
-        :param pulumi.Input[int] primarybytes_out: The primary BytesOut of the peering.
-        :param pulumi.Input[int] secondarybytes_in: The secondary BytesIn of the peering.
-        :param pulumi.Input[int] secondarybytes_out: The secondary BytesOut of the peering.
+        :param pulumi.Input[float] primarybytes_in: The Primary BytesIn of the peering.
+        :param pulumi.Input[float] primarybytes_out: The primary BytesOut of the peering.
+        :param pulumi.Input[float] secondarybytes_in: The secondary BytesIn of the peering.
+        :param pulumi.Input[float] secondarybytes_out: The secondary BytesOut of the peering.
         """
         if primarybytes_in is not None:
             pulumi.set(__self__, "primarybytes_in", primarybytes_in)
@@ -5776,50 +5776,50 @@ class ExpressRouteCircuitStatsArgs:
 
     @property
     @pulumi.getter(name="primarybytesIn")
-    def primarybytes_in(self) -> Optional[pulumi.Input[int]]:
+    def primarybytes_in(self) -> Optional[pulumi.Input[float]]:
         """
         The Primary BytesIn of the peering.
         """
         return pulumi.get(self, "primarybytes_in")
 
     @primarybytes_in.setter
-    def primarybytes_in(self, value: Optional[pulumi.Input[int]]):
+    def primarybytes_in(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "primarybytes_in", value)
 
     @property
     @pulumi.getter(name="primarybytesOut")
-    def primarybytes_out(self) -> Optional[pulumi.Input[int]]:
+    def primarybytes_out(self) -> Optional[pulumi.Input[float]]:
         """
         The primary BytesOut of the peering.
         """
         return pulumi.get(self, "primarybytes_out")
 
     @primarybytes_out.setter
-    def primarybytes_out(self, value: Optional[pulumi.Input[int]]):
+    def primarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "primarybytes_out", value)
 
     @property
     @pulumi.getter(name="secondarybytesIn")
-    def secondarybytes_in(self) -> Optional[pulumi.Input[int]]:
+    def secondarybytes_in(self) -> Optional[pulumi.Input[float]]:
         """
         The secondary BytesIn of the peering.
         """
         return pulumi.get(self, "secondarybytes_in")
 
     @secondarybytes_in.setter
-    def secondarybytes_in(self, value: Optional[pulumi.Input[int]]):
+    def secondarybytes_in(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_in", value)
 
     @property
     @pulumi.getter(name="secondarybytesOut")
-    def secondarybytes_out(self) -> Optional[pulumi.Input[int]]:
+    def secondarybytes_out(self) -> Optional[pulumi.Input[float]]:
         """
         The secondary BytesOut of the peering.
         """
         return pulumi.get(self, "secondarybytes_out")
 
     @secondarybytes_out.setter
-    def secondarybytes_out(self, value: Optional[pulumi.Input[int]]):
+    def secondarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_out", value)
 
 
@@ -12955,11 +12955,11 @@ class VpnConnectionArgs:
 @pulumi.input_type
 class VpnLinkBgpSettingsArgs:
     def __init__(__self__, *,
-                 asn: Optional[pulumi.Input[int]] = None,
+                 asn: Optional[pulumi.Input[float]] = None,
                  bgp_peering_address: Optional[pulumi.Input[str]] = None):
         """
         BGP settings details for a link.
-        :param pulumi.Input[int] asn: The BGP speaker's ASN.
+        :param pulumi.Input[float] asn: The BGP speaker's ASN.
         :param pulumi.Input[str] bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
         """
         if asn is not None:
@@ -12969,14 +12969,14 @@ class VpnLinkBgpSettingsArgs:
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[pulumi.Input[int]]:
+    def asn(self) -> Optional[pulumi.Input[float]]:
         """
         The BGP speaker's ASN.
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[pulumi.Input[int]]):
+    def asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "asn", value)
 
     @property

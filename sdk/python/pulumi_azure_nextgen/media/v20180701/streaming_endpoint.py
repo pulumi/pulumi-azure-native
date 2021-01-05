@@ -28,7 +28,7 @@ class StreamingEndpoint(pulumi.CustomResource):
                  custom_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_cache_age: Optional[pulumi.Input[int]] = None,
+                 max_cache_age: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
                  streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -52,7 +52,7 @@ class StreamingEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_host_names: The custom host names of the StreamingEndpoint
         :param pulumi.Input[str] description: The StreamingEndpoint description.
         :param pulumi.Input[str] location: The Azure Region of the resource.
-        :param pulumi.Input[int] max_cache_age: Max cache age
+        :param pulumi.Input[float] max_cache_age: Max cache age
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[int] scale_units: The number of scale units.  Use the Scale operation to adjust this value.
         :param pulumi.Input[str] streaming_endpoint_name: The name of the StreamingEndpoint.
@@ -239,7 +239,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxCacheAge")
-    def max_cache_age(self) -> pulumi.Output[Optional[int]]:
+    def max_cache_age(self) -> pulumi.Output[Optional[float]]:
         """
         Max cache age
         """

@@ -81,11 +81,11 @@ class GetDatabaseResult:
         if managed_by and not isinstance(managed_by, str):
             raise TypeError("Expected argument 'managed_by' to be a str")
         pulumi.set(__self__, "managed_by", managed_by)
-        if max_log_size_bytes and not isinstance(max_log_size_bytes, int):
-            raise TypeError("Expected argument 'max_log_size_bytes' to be a int")
+        if max_log_size_bytes and not isinstance(max_log_size_bytes, float):
+            raise TypeError("Expected argument 'max_log_size_bytes' to be a float")
         pulumi.set(__self__, "max_log_size_bytes", max_log_size_bytes)
-        if max_size_bytes and not isinstance(max_size_bytes, int):
-            raise TypeError("Expected argument 'max_size_bytes' to be a int")
+        if max_size_bytes and not isinstance(max_size_bytes, float):
+            raise TypeError("Expected argument 'max_size_bytes' to be a float")
         pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if min_capacity and not isinstance(min_capacity, float):
             raise TypeError("Expected argument 'min_capacity' to be a float")
@@ -326,7 +326,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="maxLogSizeBytes")
-    def max_log_size_bytes(self) -> int:
+    def max_log_size_bytes(self) -> float:
         """
         The max log size for this database.
         """
@@ -334,7 +334,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[int]:
+    def max_size_bytes(self) -> Optional[float]:
         """
         The max size of the database expressed in bytes.
         """

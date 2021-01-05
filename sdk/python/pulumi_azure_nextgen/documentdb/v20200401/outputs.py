@@ -590,12 +590,12 @@ class ConsistencyPolicyResponse(dict):
     def __init__(__self__, *,
                  default_consistency_level: str,
                  max_interval_in_seconds: Optional[int] = None,
-                 max_staleness_prefix: Optional[int] = None):
+                 max_staleness_prefix: Optional[float] = None):
         """
         The consistency policy for the Cosmos DB database account.
         :param str default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
         :param int max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        :param int max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        :param float max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
         pulumi.set(__self__, "default_consistency_level", default_consistency_level)
         if max_interval_in_seconds is not None:
@@ -621,7 +621,7 @@ class ConsistencyPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxStalenessPrefix")
-    def max_staleness_prefix(self) -> Optional[int]:
+    def max_staleness_prefix(self) -> Optional[float]:
         """
         When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
@@ -691,14 +691,14 @@ class CorsPolicyResponse(dict):
                  allowed_headers: Optional[str] = None,
                  allowed_methods: Optional[str] = None,
                  exposed_headers: Optional[str] = None,
-                 max_age_in_seconds: Optional[int] = None):
+                 max_age_in_seconds: Optional[float] = None):
         """
         The CORS policy for the Cosmos DB database account.
         :param str allowed_origins: The origin domains that are permitted to make a request against the service via CORS.
         :param str allowed_headers: The request headers that the origin domain may specify on the CORS request.
         :param str allowed_methods: The methods (HTTP request verbs) that the origin domain may use for a CORS request.
         :param str exposed_headers: The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
-        :param int max_age_in_seconds: The maximum amount time that a browser should cache the preflight OPTIONS request.
+        :param float max_age_in_seconds: The maximum amount time that a browser should cache the preflight OPTIONS request.
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
         if allowed_headers is not None:
@@ -744,7 +744,7 @@ class CorsPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxAgeInSeconds")
-    def max_age_in_seconds(self) -> Optional[int]:
+    def max_age_in_seconds(self) -> Optional[float]:
         """
         The maximum amount time that a browser should cache the preflight OPTIONS request.
         """
@@ -1900,7 +1900,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
                  id: str,
                  rid: str,
                  ts: Any,
-                 analytical_storage_ttl: Optional[int] = None,
+                 analytical_storage_ttl: Optional[float] = None,
                  conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
                  default_ttl: Optional[int] = None,
                  indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
@@ -1911,7 +1911,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
         :param str id: Name of the Cosmos DB SQL container
         :param str rid: A system generated property. A unique identifier.
         :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
-        :param int analytical_storage_ttl: Analytical TTL.
+        :param float analytical_storage_ttl: Analytical TTL.
         :param 'ConflictResolutionPolicyResponseArgs' conflict_resolution_policy: The conflict resolution policy for the container.
         :param int default_ttl: Default time to live
         :param 'IndexingPolicyResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
@@ -1969,7 +1969,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
 
     @property
     @pulumi.getter(name="analyticalStorageTtl")
-    def analytical_storage_ttl(self) -> Optional[int]:
+    def analytical_storage_ttl(self) -> Optional[float]:
         """
         Analytical TTL.
         """

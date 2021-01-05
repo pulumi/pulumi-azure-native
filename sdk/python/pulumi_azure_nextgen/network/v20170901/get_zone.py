@@ -29,11 +29,11 @@ class GetZoneResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, int):
-            raise TypeError("Expected argument 'max_number_of_record_sets' to be a int")
+        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, float):
+            raise TypeError("Expected argument 'max_number_of_record_sets' to be a float")
         pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
-        if max_number_of_records_per_record_set and not isinstance(max_number_of_records_per_record_set, int):
-            raise TypeError("Expected argument 'max_number_of_records_per_record_set' to be a int")
+        if max_number_of_records_per_record_set and not isinstance(max_number_of_records_per_record_set, float):
+            raise TypeError("Expected argument 'max_number_of_records_per_record_set' to be a float")
         pulumi.set(__self__, "max_number_of_records_per_record_set", max_number_of_records_per_record_set)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -41,8 +41,8 @@ class GetZoneResult:
         if name_servers and not isinstance(name_servers, list):
             raise TypeError("Expected argument 'name_servers' to be a list")
         pulumi.set(__self__, "name_servers", name_servers)
-        if number_of_record_sets and not isinstance(number_of_record_sets, int):
-            raise TypeError("Expected argument 'number_of_record_sets' to be a int")
+        if number_of_record_sets and not isinstance(number_of_record_sets, float):
+            raise TypeError("Expected argument 'number_of_record_sets' to be a float")
         pulumi.set(__self__, "number_of_record_sets", number_of_record_sets)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -77,7 +77,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> int:
+    def max_number_of_record_sets(self) -> float:
         """
         The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -85,7 +85,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="maxNumberOfRecordsPerRecordSet")
-    def max_number_of_records_per_record_set(self) -> int:
+    def max_number_of_records_per_record_set(self) -> float:
         """
         The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -109,7 +109,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> int:
+    def number_of_record_sets(self) -> float:
         """
         The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """

@@ -366,7 +366,7 @@ class CreationDataArgs:
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
-                 upload_size_bytes: Optional[pulumi.Input[int]] = None):
+                 upload_size_bytes: Optional[pulumi.Input[float]] = None):
         """
         Data used when creating a disk.
         :param pulumi.Input[Union[str, 'DiskCreateOption']] create_option: This enumerates the possible sources of a disk's creation.
@@ -374,7 +374,7 @@ class CreationDataArgs:
         :param pulumi.Input[str] source_resource_id: If createOption is Copy, this is the ARM id of the source snapshot or disk.
         :param pulumi.Input[str] source_uri: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
         :param pulumi.Input[str] storage_account_id: If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
-        :param pulumi.Input[int] upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+        :param pulumi.Input[float] upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
         pulumi.set(__self__, "create_option", create_option)
         if image_reference is not None:
@@ -450,14 +450,14 @@ class CreationDataArgs:
 
     @property
     @pulumi.getter(name="uploadSizeBytes")
-    def upload_size_bytes(self) -> Optional[pulumi.Input[int]]:
+    def upload_size_bytes(self) -> Optional[pulumi.Input[float]]:
         """
         If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
         return pulumi.get(self, "upload_size_bytes")
 
     @upload_size_bytes.setter
-    def upload_size_bytes(self, value: Optional[pulumi.Input[int]]):
+    def upload_size_bytes(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "upload_size_bytes", value)
 
 
@@ -2736,12 +2736,12 @@ class ScheduledEventsProfileArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[int]] = None,
+                 capacity: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
-        :param pulumi.Input[int] capacity: Specifies the number of virtual machines in the scale set.
+        :param pulumi.Input[float] capacity: Specifies the number of virtual machines in the scale set.
         :param pulumi.Input[str] name: The sku name.
         :param pulumi.Input[str] tier: Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
         """
@@ -2754,14 +2754,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
+    def capacity(self) -> Optional[pulumi.Input[float]]:
         """
         Specifies the number of virtual machines in the scale set.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
+    def capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "capacity", value)
 
     @property

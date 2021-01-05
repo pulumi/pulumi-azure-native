@@ -62,8 +62,8 @@ class GetFileShareResult:
         if share_quota and not isinstance(share_quota, int):
             raise TypeError("Expected argument 'share_quota' to be a int")
         pulumi.set(__self__, "share_quota", share_quota)
-        if share_usage_bytes and not isinstance(share_usage_bytes, int):
-            raise TypeError("Expected argument 'share_usage_bytes' to be a int")
+        if share_usage_bytes and not isinstance(share_usage_bytes, float):
+            raise TypeError("Expected argument 'share_usage_bytes' to be a float")
         pulumi.set(__self__, "share_usage_bytes", share_usage_bytes)
         if snapshot_time and not isinstance(snapshot_time, str):
             raise TypeError("Expected argument 'snapshot_time' to be a str")
@@ -189,7 +189,7 @@ class GetFileShareResult:
 
     @property
     @pulumi.getter(name="shareUsageBytes")
-    def share_usage_bytes(self) -> int:
+    def share_usage_bytes(self) -> float:
         """
         The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         """

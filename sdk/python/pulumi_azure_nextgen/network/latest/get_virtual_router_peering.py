@@ -29,8 +29,8 @@ class GetVirtualRouterPeeringResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if peer_asn and not isinstance(peer_asn, int):
-            raise TypeError("Expected argument 'peer_asn' to be a int")
+        if peer_asn and not isinstance(peer_asn, float):
+            raise TypeError("Expected argument 'peer_asn' to be a float")
         pulumi.set(__self__, "peer_asn", peer_asn)
         if peer_ip and not isinstance(peer_ip, str):
             raise TypeError("Expected argument 'peer_ip' to be a str")
@@ -68,7 +68,7 @@ class GetVirtualRouterPeeringResult:
 
     @property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> Optional[int]:
+    def peer_asn(self) -> Optional[float]:
         """
         Peer ASN.
         """

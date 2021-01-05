@@ -449,37 +449,37 @@ class CopyProgressResponse(dict):
     """
     def __init__(__self__, *,
                  account_id: str,
-                 bytes_processed: int,
+                 bytes_processed: float,
                  data_account_type: str,
-                 directories_errored_out: int,
-                 files_errored_out: int,
-                 files_processed: int,
-                 invalid_directories_processed: int,
-                 invalid_file_bytes_uploaded: int,
-                 invalid_files_processed: int,
+                 directories_errored_out: float,
+                 files_errored_out: float,
+                 files_processed: float,
+                 invalid_directories_processed: float,
+                 invalid_file_bytes_uploaded: float,
+                 invalid_files_processed: float,
                  is_enumeration_in_progress: bool,
-                 renamed_container_count: int,
+                 renamed_container_count: float,
                  storage_account_name: str,
-                 total_bytes_to_process: int,
-                 total_files_to_process: int,
+                 total_bytes_to_process: float,
+                 total_files_to_process: float,
                  transfer_type: str):
         """
         Copy progress.
         :param str account_id: Id of the account where the data needs to be uploaded.
-        :param int bytes_processed: To indicate bytes transferred.
+        :param float bytes_processed: To indicate bytes transferred.
         :param str data_account_type: Data Account Type.
-        :param int directories_errored_out: To indicate directories errored out in the job.
-        :param int files_errored_out: Number of files which could not be copied
-        :param int files_processed: Number of files processed
-        :param int invalid_directories_processed: To indicate directories renamed
-        :param int invalid_file_bytes_uploaded: Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
-        :param int invalid_files_processed: Number of files not adhering to azure naming conventions which were processed by automatic renaming
+        :param float directories_errored_out: To indicate directories errored out in the job.
+        :param float files_errored_out: Number of files which could not be copied
+        :param float files_processed: Number of files processed
+        :param float invalid_directories_processed: To indicate directories renamed
+        :param float invalid_file_bytes_uploaded: Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
+        :param float invalid_files_processed: Number of files not adhering to azure naming conventions which were processed by automatic renaming
         :param bool is_enumeration_in_progress: To indicate if enumeration of data is in progress. 
                Until this is true, the TotalBytesToProcess may not be valid.
-        :param int renamed_container_count: Number of folders not adhering to azure naming conventions which were processed by automatic renaming
+        :param float renamed_container_count: Number of folders not adhering to azure naming conventions which were processed by automatic renaming
         :param str storage_account_name: Name of the storage account. This will be empty for data account types other than storage account.
-        :param int total_bytes_to_process: Total amount of data to be processed by the job.
-        :param int total_files_to_process: Total files to process
+        :param float total_bytes_to_process: Total amount of data to be processed by the job.
+        :param float total_files_to_process: Total files to process
         :param str transfer_type: Transfer type of data
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -508,7 +508,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="bytesProcessed")
-    def bytes_processed(self) -> int:
+    def bytes_processed(self) -> float:
         """
         To indicate bytes transferred.
         """
@@ -524,7 +524,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="directoriesErroredOut")
-    def directories_errored_out(self) -> int:
+    def directories_errored_out(self) -> float:
         """
         To indicate directories errored out in the job.
         """
@@ -532,7 +532,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="filesErroredOut")
-    def files_errored_out(self) -> int:
+    def files_errored_out(self) -> float:
         """
         Number of files which could not be copied
         """
@@ -540,7 +540,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="filesProcessed")
-    def files_processed(self) -> int:
+    def files_processed(self) -> float:
         """
         Number of files processed
         """
@@ -548,7 +548,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="invalidDirectoriesProcessed")
-    def invalid_directories_processed(self) -> int:
+    def invalid_directories_processed(self) -> float:
         """
         To indicate directories renamed
         """
@@ -556,7 +556,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="invalidFileBytesUploaded")
-    def invalid_file_bytes_uploaded(self) -> int:
+    def invalid_file_bytes_uploaded(self) -> float:
         """
         Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
         """
@@ -564,7 +564,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="invalidFilesProcessed")
-    def invalid_files_processed(self) -> int:
+    def invalid_files_processed(self) -> float:
         """
         Number of files not adhering to azure naming conventions which were processed by automatic renaming
         """
@@ -581,7 +581,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="renamedContainerCount")
-    def renamed_container_count(self) -> int:
+    def renamed_container_count(self) -> float:
         """
         Number of folders not adhering to azure naming conventions which were processed by automatic renaming
         """
@@ -597,7 +597,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="totalBytesToProcess")
-    def total_bytes_to_process(self) -> int:
+    def total_bytes_to_process(self) -> float:
         """
         Total amount of data to be processed by the job.
         """
@@ -605,7 +605,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="totalFilesToProcess")
-    def total_files_to_process(self) -> int:
+    def total_files_to_process(self) -> float:
         """
         Total files to process
         """
@@ -749,13 +749,13 @@ class DataBoxDiskCopyProgressResponse(dict):
     DataBox Disk Copy Progress
     """
     def __init__(__self__, *,
-                 bytes_copied: int,
+                 bytes_copied: float,
                  percent_complete: int,
                  serial_number: str,
                  status: str):
         """
         DataBox Disk Copy Progress
-        :param int bytes_copied: Bytes copied during the copy of disk.
+        :param float bytes_copied: Bytes copied during the copy of disk.
         :param int percent_complete: Indicates the percentage completed for the copy of the disk.
         :param str serial_number: The serial number of the disk
         :param str status: The Status of the copy
@@ -767,7 +767,7 @@ class DataBoxDiskCopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="bytesCopied")
-    def bytes_copied(self) -> int:
+    def bytes_copied(self) -> float:
         """
         Bytes copied during the copy of disk.
         """

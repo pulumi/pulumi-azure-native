@@ -21,8 +21,8 @@ class GetPacketCaptureResult:
     Information about packet capture session.
     """
     def __init__(__self__, bytes_to_capture_per_packet=None, etag=None, filters=None, id=None, name=None, provisioning_state=None, storage_location=None, target=None, time_limit_in_seconds=None, total_bytes_per_session=None):
-        if bytes_to_capture_per_packet and not isinstance(bytes_to_capture_per_packet, int):
-            raise TypeError("Expected argument 'bytes_to_capture_per_packet' to be a int")
+        if bytes_to_capture_per_packet and not isinstance(bytes_to_capture_per_packet, float):
+            raise TypeError("Expected argument 'bytes_to_capture_per_packet' to be a float")
         pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
@@ -48,13 +48,13 @@ class GetPacketCaptureResult:
         if time_limit_in_seconds and not isinstance(time_limit_in_seconds, int):
             raise TypeError("Expected argument 'time_limit_in_seconds' to be a int")
         pulumi.set(__self__, "time_limit_in_seconds", time_limit_in_seconds)
-        if total_bytes_per_session and not isinstance(total_bytes_per_session, int):
-            raise TypeError("Expected argument 'total_bytes_per_session' to be a int")
+        if total_bytes_per_session and not isinstance(total_bytes_per_session, float):
+            raise TypeError("Expected argument 'total_bytes_per_session' to be a float")
         pulumi.set(__self__, "total_bytes_per_session", total_bytes_per_session)
 
     @property
     @pulumi.getter(name="bytesToCapturePerPacket")
-    def bytes_to_capture_per_packet(self) -> Optional[int]:
+    def bytes_to_capture_per_packet(self) -> Optional[float]:
         """
         Number of bytes captured per packet, the remaining bytes are truncated.
         """
@@ -126,7 +126,7 @@ class GetPacketCaptureResult:
 
     @property
     @pulumi.getter(name="totalBytesPerSession")
-    def total_bytes_per_session(self) -> Optional[int]:
+    def total_bytes_per_session(self) -> Optional[float]:
         """
         Maximum size of the capture output.
         """

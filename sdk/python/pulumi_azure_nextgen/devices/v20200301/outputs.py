@@ -228,14 +228,14 @@ class EventHubPropertiesResponse(dict):
                  partition_ids: Sequence[str],
                  path: str,
                  partition_count: Optional[int] = None,
-                 retention_time_in_days: Optional[int] = None):
+                 retention_time_in_days: Optional[float] = None):
         """
         The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
         :param str endpoint: The Event Hub-compatible endpoint.
         :param Sequence[str] partition_ids: The partition ids in the Event Hub-compatible endpoint.
         :param str path: The Event Hub-compatible name.
         :param int partition_count: The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
-        :param int retention_time_in_days: The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+        :param float retention_time_in_days: The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "partition_ids", partition_ids)
@@ -279,7 +279,7 @@ class EventHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="retentionTimeInDays")
-    def retention_time_in_days(self) -> Optional[int]:
+    def retention_time_in_days(self) -> Optional[float]:
         """
         The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         """
@@ -560,12 +560,12 @@ class IotDpsSkuInfoResponse(dict):
     """
     def __init__(__self__, *,
                  tier: str,
-                 capacity: Optional[int] = None,
+                 capacity: Optional[float] = None,
                  name: Optional[str] = None):
         """
         List of possible provisioning service SKUs.
         :param str tier: Pricing tier name of the provisioning service.
-        :param int capacity: The number of units to provision
+        :param float capacity: The number of units to provision
         :param str name: Sku name.
         """
         pulumi.set(__self__, "tier", tier)
@@ -584,7 +584,7 @@ class IotDpsSkuInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[int]:
+    def capacity(self) -> Optional[float]:
         """
         The number of units to provision
         """
@@ -933,12 +933,12 @@ class IotHubSkuInfoResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  tier: str,
-                 capacity: Optional[int] = None):
+                 capacity: Optional[float] = None):
         """
         Information about the SKU of the IoT hub.
         :param str name: The name of the SKU.
         :param str tier: The billing tier for the IoT hub.
-        :param int capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
+        :param float capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -963,7 +963,7 @@ class IotHubSkuInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[int]:
+    def capacity(self) -> Optional[float]:
         """
         The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         """

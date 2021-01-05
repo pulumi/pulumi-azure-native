@@ -21,9 +21,9 @@ class Application(pulumi.CustomResource):
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maximum_nodes: Optional[pulumi.Input[int]] = None,
+                 maximum_nodes: Optional[pulumi.Input[float]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationMetricDescriptionArgs']]]]] = None,
-                 minimum_nodes: Optional[pulumi.Input[int]] = None,
+                 minimum_nodes: Optional[pulumi.Input[float]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  remove_application_capacity: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -41,9 +41,9 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] application_name: The name of the application resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[str] location: Azure resource location.
-        :param pulumi.Input[int] maximum_nodes: The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+        :param pulumi.Input[float] maximum_nodes: The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationMetricDescriptionArgs']]]] metrics: List of application capacity metric description.
-        :param pulumi.Input[int] minimum_nodes: The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+        :param pulumi.Input[float] minimum_nodes: The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of application parameters with overridden values from their default values specified in the application manifest.
         :param pulumi.Input[bool] remove_application_capacity: Remove the current application capacity settings.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -125,7 +125,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumNodes")
-    def maximum_nodes(self) -> pulumi.Output[Optional[int]]:
+    def maximum_nodes(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
         """
@@ -141,7 +141,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumNodes")
-    def minimum_nodes(self) -> pulumi.Output[Optional[int]]:
+    def minimum_nodes(self) -> pulumi.Output[Optional[float]]:
         """
         The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
         """

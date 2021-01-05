@@ -60,8 +60,8 @@ class GetPython2PackageResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if size_in_bytes and not isinstance(size_in_bytes, int):
-            raise TypeError("Expected argument 'size_in_bytes' to be a int")
+        if size_in_bytes and not isinstance(size_in_bytes, float):
+            raise TypeError("Expected argument 'size_in_bytes' to be a float")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -179,7 +179,7 @@ class GetPython2PackageResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> Optional[int]:
+    def size_in_bytes(self) -> Optional[float]:
         """
         Gets or sets the size in bytes of the module.
         """

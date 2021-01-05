@@ -1425,11 +1425,11 @@ class BackendAddressPoolResponse(dict):
 @pulumi.output_type
 class BgpSettingsResponse(dict):
     def __init__(__self__, *,
-                 asn: Optional[int] = None,
+                 asn: Optional[float] = None,
                  bgp_peering_address: Optional[str] = None,
                  peer_weight: Optional[int] = None):
         """
-        :param int asn: Gets or sets this BGP speaker's ASN
+        :param float asn: Gets or sets this BGP speaker's ASN
         :param str bgp_peering_address: Gets or sets the BGP peering address and BGP identifier of this BGP speaker
         :param int peer_weight: Gets or sets the weight added to routes learned from this BGP speaker
         """
@@ -1442,7 +1442,7 @@ class BgpSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[int]:
+    def asn(self) -> Optional[float]:
         """
         Gets or sets this BGP speaker's ASN
         """

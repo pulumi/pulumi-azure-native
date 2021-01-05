@@ -25,7 +25,7 @@ class IscsiDisk(pulumi.CustomResource):
                  iscsi_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
-                 provisioned_capacity_in_bytes: Optional[pulumi.Input[int]] = None,
+                 provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -45,7 +45,7 @@ class IscsiDisk(pulumi.CustomResource):
         :param pulumi.Input[str] iscsi_server_name: The iSCSI server name.
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring.
-        :param pulumi.Input[int] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
+        :param pulumi.Input[float] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
         if __name__ is not None:
@@ -160,7 +160,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localUsedCapacityInBytes")
-    def local_used_capacity_in_bytes(self) -> pulumi.Output[int]:
+    def local_used_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The local used capacity in bytes.
         """
@@ -184,7 +184,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> pulumi.Output[int]:
+    def provisioned_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The provisioned capacity in bytes.
         """
@@ -200,7 +200,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usedCapacityInBytes")
-    def used_capacity_in_bytes(self) -> pulumi.Output[int]:
+    def used_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The used capacity in bytes.
         """

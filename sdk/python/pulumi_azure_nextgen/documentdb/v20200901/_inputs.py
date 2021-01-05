@@ -477,12 +477,12 @@ class ConsistencyPolicyArgs:
     def __init__(__self__, *,
                  default_consistency_level: pulumi.Input['DefaultConsistencyLevel'],
                  max_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-                 max_staleness_prefix: Optional[pulumi.Input[int]] = None):
+                 max_staleness_prefix: Optional[pulumi.Input[float]] = None):
         """
         The consistency policy for the Cosmos DB database account.
         :param pulumi.Input['DefaultConsistencyLevel'] default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
         :param pulumi.Input[int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        :param pulumi.Input[int] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        :param pulumi.Input[float] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
         pulumi.set(__self__, "default_consistency_level", default_consistency_level)
         if max_interval_in_seconds is not None:
@@ -516,14 +516,14 @@ class ConsistencyPolicyArgs:
 
     @property
     @pulumi.getter(name="maxStalenessPrefix")
-    def max_staleness_prefix(self) -> Optional[pulumi.Input[int]]:
+    def max_staleness_prefix(self) -> Optional[pulumi.Input[float]]:
         """
         When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
         return pulumi.get(self, "max_staleness_prefix")
 
     @max_staleness_prefix.setter
-    def max_staleness_prefix(self, value: Optional[pulumi.Input[int]]):
+    def max_staleness_prefix(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_staleness_prefix", value)
 
 
@@ -615,14 +615,14 @@ class CorsPolicyArgs:
                  allowed_headers: Optional[pulumi.Input[str]] = None,
                  allowed_methods: Optional[pulumi.Input[str]] = None,
                  exposed_headers: Optional[pulumi.Input[str]] = None,
-                 max_age_in_seconds: Optional[pulumi.Input[int]] = None):
+                 max_age_in_seconds: Optional[pulumi.Input[float]] = None):
         """
         The CORS policy for the Cosmos DB database account.
         :param pulumi.Input[str] allowed_origins: The origin domains that are permitted to make a request against the service via CORS.
         :param pulumi.Input[str] allowed_headers: The request headers that the origin domain may specify on the CORS request.
         :param pulumi.Input[str] allowed_methods: The methods (HTTP request verbs) that the origin domain may use for a CORS request.
         :param pulumi.Input[str] exposed_headers: The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
-        :param pulumi.Input[int] max_age_in_seconds: The maximum amount time that a browser should cache the preflight OPTIONS request.
+        :param pulumi.Input[float] max_age_in_seconds: The maximum amount time that a browser should cache the preflight OPTIONS request.
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
         if allowed_headers is not None:
@@ -684,14 +684,14 @@ class CorsPolicyArgs:
 
     @property
     @pulumi.getter(name="maxAgeInSeconds")
-    def max_age_in_seconds(self) -> Optional[pulumi.Input[int]]:
+    def max_age_in_seconds(self) -> Optional[pulumi.Input[float]]:
         """
         The maximum amount time that a browser should cache the preflight OPTIONS request.
         """
         return pulumi.get(self, "max_age_in_seconds")
 
     @max_age_in_seconds.setter
-    def max_age_in_seconds(self, value: Optional[pulumi.Input[int]]):
+    def max_age_in_seconds(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_age_in_seconds", value)
 
 
@@ -1486,7 +1486,7 @@ class SpatialSpecArgs:
 class SqlContainerResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
+                 analytical_storage_ttl: Optional[pulumi.Input[float]] = None,
                  conflict_resolution_policy: Optional[pulumi.Input['ConflictResolutionPolicyArgs']] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['IndexingPolicyArgs']] = None,
@@ -1495,7 +1495,7 @@ class SqlContainerResourceArgs:
         """
         Cosmos DB SQL container resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB SQL container
-        :param pulumi.Input[int] analytical_storage_ttl: Analytical TTL.
+        :param pulumi.Input[float] analytical_storage_ttl: Analytical TTL.
         :param pulumi.Input['ConflictResolutionPolicyArgs'] conflict_resolution_policy: The conflict resolution policy for the container.
         :param pulumi.Input[int] default_ttl: Default time to live
         :param pulumi.Input['IndexingPolicyArgs'] indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
@@ -1530,14 +1530,14 @@ class SqlContainerResourceArgs:
 
     @property
     @pulumi.getter(name="analyticalStorageTtl")
-    def analytical_storage_ttl(self) -> Optional[pulumi.Input[int]]:
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[float]]:
         """
         Analytical TTL.
         """
         return pulumi.get(self, "analytical_storage_ttl")
 
     @analytical_storage_ttl.setter
-    def analytical_storage_ttl(self, value: Optional[pulumi.Input[int]]):
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "analytical_storage_ttl", value)
 
     @property

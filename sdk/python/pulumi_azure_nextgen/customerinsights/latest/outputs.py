@@ -964,13 +964,13 @@ class PredictionDistributionDefinitionResponseResult(dict):
     """
     def __init__(__self__, *,
                  distributions: Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributionsResult']] = None,
-                 total_negatives: Optional[int] = None,
-                 total_positives: Optional[int] = None):
+                 total_negatives: Optional[float] = None,
+                 total_positives: Optional[float] = None):
         """
         The definition of the prediction distribution.
         :param Sequence['PredictionDistributionDefinitionResponseDistributionsArgs'] distributions: Distributions of the prediction.
-        :param int total_negatives: Total negatives in the distribution.
-        :param int total_positives: Total positive in the distribution.
+        :param float total_negatives: Total negatives in the distribution.
+        :param float total_positives: Total positive in the distribution.
         """
         if distributions is not None:
             pulumi.set(__self__, "distributions", distributions)
@@ -989,7 +989,7 @@ class PredictionDistributionDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter(name="totalNegatives")
-    def total_negatives(self) -> Optional[int]:
+    def total_negatives(self) -> Optional[float]:
         """
         Total negatives in the distribution.
         """
@@ -997,7 +997,7 @@ class PredictionDistributionDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter(name="totalPositives")
-    def total_positives(self) -> Optional[int]:
+    def total_positives(self) -> Optional[float]:
         """
         Total positive in the distribution.
         """
@@ -1010,17 +1010,17 @@ class PredictionDistributionDefinitionResponseDistributionsResult(dict):
     The definition of a prediction distribution.
     """
     def __init__(__self__, *,
-                 negatives: Optional[int] = None,
-                 negatives_above_threshold: Optional[int] = None,
-                 positives: Optional[int] = None,
-                 positives_above_threshold: Optional[int] = None,
+                 negatives: Optional[float] = None,
+                 negatives_above_threshold: Optional[float] = None,
+                 positives: Optional[float] = None,
+                 positives_above_threshold: Optional[float] = None,
                  score_threshold: Optional[int] = None):
         """
         The definition of a prediction distribution.
-        :param int negatives: Number of negatives.
-        :param int negatives_above_threshold: Number of negatives above threshold.
-        :param int positives: Number of positives.
-        :param int positives_above_threshold: Number of positives above threshold.
+        :param float negatives: Number of negatives.
+        :param float negatives_above_threshold: Number of negatives above threshold.
+        :param float positives: Number of positives.
+        :param float positives_above_threshold: Number of positives above threshold.
         :param int score_threshold: Score threshold.
         """
         if negatives is not None:
@@ -1036,7 +1036,7 @@ class PredictionDistributionDefinitionResponseDistributionsResult(dict):
 
     @property
     @pulumi.getter
-    def negatives(self) -> Optional[int]:
+    def negatives(self) -> Optional[float]:
         """
         Number of negatives.
         """
@@ -1044,7 +1044,7 @@ class PredictionDistributionDefinitionResponseDistributionsResult(dict):
 
     @property
     @pulumi.getter(name="negativesAboveThreshold")
-    def negatives_above_threshold(self) -> Optional[int]:
+    def negatives_above_threshold(self) -> Optional[float]:
         """
         Number of negatives above threshold.
         """
@@ -1052,7 +1052,7 @@ class PredictionDistributionDefinitionResponseDistributionsResult(dict):
 
     @property
     @pulumi.getter
-    def positives(self) -> Optional[int]:
+    def positives(self) -> Optional[float]:
         """
         Number of positives.
         """
@@ -1060,7 +1060,7 @@ class PredictionDistributionDefinitionResponseDistributionsResult(dict):
 
     @property
     @pulumi.getter(name="positivesAboveThreshold")
-    def positives_above_threshold(self) -> Optional[int]:
+    def positives_above_threshold(self) -> Optional[float]:
         """
         Number of positives above threshold.
         """

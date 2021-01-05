@@ -27,11 +27,11 @@ class ClusterSkuResponse(dict):
     The cluster sku definition.
     """
     def __init__(__self__, *,
-                 capacity: Optional[int] = None,
+                 capacity: Optional[float] = None,
                  name: Optional[str] = None):
         """
         The cluster sku definition.
-        :param int capacity: The capacity value
+        :param float capacity: The capacity value
         :param str name: The name of the SKU.
         """
         if capacity is not None:
@@ -41,7 +41,7 @@ class ClusterSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[int]:
+    def capacity(self) -> Optional[float]:
         """
         The capacity value
         """

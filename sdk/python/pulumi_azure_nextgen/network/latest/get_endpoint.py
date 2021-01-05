@@ -39,14 +39,14 @@ class GetEndpointResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if min_child_endpoints and not isinstance(min_child_endpoints, int):
-            raise TypeError("Expected argument 'min_child_endpoints' to be a int")
+        if min_child_endpoints and not isinstance(min_child_endpoints, float):
+            raise TypeError("Expected argument 'min_child_endpoints' to be a float")
         pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if priority and not isinstance(priority, int):
-            raise TypeError("Expected argument 'priority' to be a int")
+        if priority and not isinstance(priority, float):
+            raise TypeError("Expected argument 'priority' to be a float")
         pulumi.set(__self__, "priority", priority)
         if subnets and not isinstance(subnets, list):
             raise TypeError("Expected argument 'subnets' to be a list")
@@ -60,8 +60,8 @@ class GetEndpointResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if weight and not isinstance(weight, int):
-            raise TypeError("Expected argument 'weight' to be a int")
+        if weight and not isinstance(weight, float):
+            raise TypeError("Expected argument 'weight' to be a float")
         pulumi.set(__self__, "weight", weight)
 
     @property
@@ -114,7 +114,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> Optional[int]:
+    def min_child_endpoints(self) -> Optional[float]:
         """
         The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
@@ -130,7 +130,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[int]:
+    def priority(self) -> Optional[float]:
         """
         The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         """
@@ -170,7 +170,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[int]:
+    def weight(self) -> Optional[float]:
         """
         The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """

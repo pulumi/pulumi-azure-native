@@ -149,13 +149,13 @@ class HybridConnectionConfigResponseResult(dict):
     Contains the REP (rendezvous endpoint) and “Sender” access token.
     """
     def __init__(__self__, *,
-                 expiration_time: int,
+                 expiration_time: float,
                  hybrid_connection_name: str,
                  relay: str,
                  token: str):
         """
         Contains the REP (rendezvous endpoint) and “Sender” access token.
-        :param int expiration_time: Timestamp when this token will be expired.
+        :param float expiration_time: Timestamp when this token will be expired.
         :param str hybrid_connection_name: Name of the connection
         :param str relay: Name of the relay.
         :param str token: Sender access token
@@ -167,7 +167,7 @@ class HybridConnectionConfigResponseResult(dict):
 
     @property
     @pulumi.getter(name="expirationTime")
-    def expiration_time(self) -> int:
+    def expiration_time(self) -> float:
         """
         Timestamp when this token will be expired.
         """

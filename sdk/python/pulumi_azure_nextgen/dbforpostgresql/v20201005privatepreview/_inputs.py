@@ -119,8 +119,8 @@ class ServerRoleGroupArgs:
                  role: Optional[pulumi.Input[Union[str, 'ServerRole']]] = None,
                  server_count: Optional[pulumi.Input[int]] = None,
                  server_edition: Optional[pulumi.Input[Union[str, 'ServerEdition']]] = None,
-                 storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
-                 v_cores: Optional[pulumi.Input[int]] = None):
+                 storage_quota_in_mb: Optional[pulumi.Input[float]] = None,
+                 v_cores: Optional[pulumi.Input[float]] = None):
         """
         Represents a server role group.
         :param pulumi.Input[bool] enable_ha: If high availability is enabled or not for the server.
@@ -128,8 +128,8 @@ class ServerRoleGroupArgs:
         :param pulumi.Input[Union[str, 'ServerRole']] role: The role of servers in the server role group.
         :param pulumi.Input[int] server_count: The number of servers in the server role group.
         :param pulumi.Input[Union[str, 'ServerEdition']] server_edition: The edition of a server (default: GeneralPurpose).
-        :param pulumi.Input[int] storage_quota_in_mb: The storage of a server in MB (max: 2097152 = 2TiB).
-        :param pulumi.Input[int] v_cores: The vCores count of a server (max: 64).
+        :param pulumi.Input[float] storage_quota_in_mb: The storage of a server in MB (max: 2097152 = 2TiB).
+        :param pulumi.Input[float] v_cores: The vCores count of a server (max: 64).
         """
         if enable_ha is not None:
             pulumi.set(__self__, "enable_ha", enable_ha)
@@ -208,26 +208,26 @@ class ServerRoleGroupArgs:
 
     @property
     @pulumi.getter(name="storageQuotaInMb")
-    def storage_quota_in_mb(self) -> Optional[pulumi.Input[int]]:
+    def storage_quota_in_mb(self) -> Optional[pulumi.Input[float]]:
         """
         The storage of a server in MB (max: 2097152 = 2TiB).
         """
         return pulumi.get(self, "storage_quota_in_mb")
 
     @storage_quota_in_mb.setter
-    def storage_quota_in_mb(self, value: Optional[pulumi.Input[int]]):
+    def storage_quota_in_mb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "storage_quota_in_mb", value)
 
     @property
     @pulumi.getter(name="vCores")
-    def v_cores(self) -> Optional[pulumi.Input[int]]:
+    def v_cores(self) -> Optional[pulumi.Input[float]]:
         """
         The vCores count of a server (max: 64).
         """
         return pulumi.get(self, "v_cores")
 
     @v_cores.setter
-    def v_cores(self, value: Optional[pulumi.Input[int]]):
+    def v_cores(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "v_cores", value)
 
 

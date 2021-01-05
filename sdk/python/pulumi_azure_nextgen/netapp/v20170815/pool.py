@@ -21,7 +21,7 @@ class Pool(pulumi.CustomResource):
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
-                 size: Optional[pulumi.Input[int]] = None,
+                 size: Optional[pulumi.Input[float]] = None,
                  tags: Optional[Any] = None,
                  __props__=None,
                  __name__=None,
@@ -36,7 +36,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
-        :param pulumi.Input[int] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        :param pulumi.Input[float] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         :param Any tags: Resource tags
         """
         if __name__ is not None:
@@ -143,7 +143,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Output[Optional[int]]:
+    def size(self) -> pulumi.Output[Optional[float]]:
         """
         Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         """

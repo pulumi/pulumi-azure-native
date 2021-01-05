@@ -41,8 +41,8 @@ class GetBackupResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if size and not isinstance(size, int):
-            raise TypeError("Expected argument 'size' to be a int")
+        if size and not isinstance(size, float):
+            raise TypeError("Expected argument 'size' to be a float")
         pulumi.set(__self__, "size", size)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -106,7 +106,7 @@ class GetBackupResult:
 
     @property
     @pulumi.getter
-    def size(self) -> int:
+    def size(self) -> float:
         """
         Size of backup
         """

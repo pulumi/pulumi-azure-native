@@ -81,8 +81,8 @@ class GetVirtualHubResult:
         if virtual_hub_route_table_v2s and not isinstance(virtual_hub_route_table_v2s, list):
             raise TypeError("Expected argument 'virtual_hub_route_table_v2s' to be a list")
         pulumi.set(__self__, "virtual_hub_route_table_v2s", virtual_hub_route_table_v2s)
-        if virtual_router_asn and not isinstance(virtual_router_asn, int):
-            raise TypeError("Expected argument 'virtual_router_asn' to be a int")
+        if virtual_router_asn and not isinstance(virtual_router_asn, float):
+            raise TypeError("Expected argument 'virtual_router_asn' to be a float")
         pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
         if virtual_router_ips and not isinstance(virtual_router_ips, list):
             raise TypeError("Expected argument 'virtual_router_ips' to be a list")
@@ -256,7 +256,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="virtualRouterAsn")
-    def virtual_router_asn(self) -> Optional[int]:
+    def virtual_router_asn(self) -> Optional[float]:
         """
         VirtualRouter ASN.
         """

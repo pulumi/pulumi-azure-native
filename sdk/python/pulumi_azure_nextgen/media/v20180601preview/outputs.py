@@ -659,7 +659,7 @@ class ContentKeyPolicyFairPlayConfigurationResponse(dict):
                  fair_play_pfx_password: str,
                  odata_type: str,
                  rental_and_lease_key_type: str,
-                 rental_duration: int):
+                 rental_duration: float):
         """
         Specifies a configuration for FairPlay licenses.
         :param str ask: The key that must be used as FairPlay ASk.
@@ -668,7 +668,7 @@ class ContentKeyPolicyFairPlayConfigurationResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
         :param str rental_and_lease_key_type: The rental and lease key type.
-        :param int rental_duration: The rental duration. Must be greater than or equal to 0.
+        :param float rental_duration: The rental duration. Must be greater than or equal to 0.
         """
         pulumi.set(__self__, "ask", ask)
         pulumi.set(__self__, "fair_play_pfx", fair_play_pfx)
@@ -720,7 +720,7 @@ class ContentKeyPolicyFairPlayConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="rentalDuration")
-    def rental_duration(self) -> int:
+    def rental_duration(self) -> float:
         """
         The rental duration. Must be greater than or equal to 0.
         """

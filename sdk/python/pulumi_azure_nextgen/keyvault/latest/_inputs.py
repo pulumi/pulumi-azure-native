@@ -120,13 +120,13 @@ class IPRuleArgs:
 class KeyAttributesArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 expires: Optional[pulumi.Input[int]] = None,
-                 not_before: Optional[pulumi.Input[int]] = None):
+                 expires: Optional[pulumi.Input[float]] = None,
+                 not_before: Optional[pulumi.Input[float]] = None):
         """
         The attributes of the key.
         :param pulumi.Input[bool] enabled: Determines whether or not the object is enabled.
-        :param pulumi.Input[int] expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
-        :param pulumi.Input[int] not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
+        :param pulumi.Input[float] expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
+        :param pulumi.Input[float] not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -149,26 +149,26 @@ class KeyAttributesArgs:
 
     @property
     @pulumi.getter
-    def expires(self) -> Optional[pulumi.Input[int]]:
+    def expires(self) -> Optional[pulumi.Input[float]]:
         """
         Expiry date in seconds since 1970-01-01T00:00:00Z.
         """
         return pulumi.get(self, "expires")
 
     @expires.setter
-    def expires(self, value: Optional[pulumi.Input[int]]):
+    def expires(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "expires", value)
 
     @property
     @pulumi.getter(name="notBefore")
-    def not_before(self) -> Optional[pulumi.Input[int]]:
+    def not_before(self) -> Optional[pulumi.Input[float]]:
         """
         Not before date in seconds since 1970-01-01T00:00:00Z.
         """
         return pulumi.get(self, "not_before")
 
     @not_before.setter
-    def not_before(self, value: Optional[pulumi.Input[int]]):
+    def not_before(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "not_before", value)
 
 

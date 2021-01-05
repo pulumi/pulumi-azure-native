@@ -122,7 +122,7 @@ class PrivateZone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> pulumi.Output[int]:
+    def max_number_of_record_sets(self) -> pulumi.Output[float]:
         """
         The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -130,7 +130,7 @@ class PrivateZone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfVirtualNetworkLinks")
-    def max_number_of_virtual_network_links(self) -> pulumi.Output[int]:
+    def max_number_of_virtual_network_links(self) -> pulumi.Output[float]:
         """
         The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -138,7 +138,7 @@ class PrivateZone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfVirtualNetworkLinksWithRegistration")
-    def max_number_of_virtual_network_links_with_registration(self) -> pulumi.Output[int]:
+    def max_number_of_virtual_network_links_with_registration(self) -> pulumi.Output[float]:
         """
         The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -154,7 +154,7 @@ class PrivateZone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> pulumi.Output[int]:
+    def number_of_record_sets(self) -> pulumi.Output[float]:
         """
         The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -162,7 +162,7 @@ class PrivateZone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfVirtualNetworkLinks")
-    def number_of_virtual_network_links(self) -> pulumi.Output[int]:
+    def number_of_virtual_network_links(self) -> pulumi.Output[float]:
         """
         The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -170,7 +170,7 @@ class PrivateZone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfVirtualNetworkLinksWithRegistration")
-    def number_of_virtual_network_links_with_registration(self) -> pulumi.Output[int]:
+    def number_of_virtual_network_links_with_registration(self) -> pulumi.Output[float]:
         """
         The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
         """

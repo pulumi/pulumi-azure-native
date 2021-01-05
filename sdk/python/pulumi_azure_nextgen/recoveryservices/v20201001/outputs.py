@@ -1441,7 +1441,7 @@ class AzureStorageContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
-                 protected_item_count: Optional[int] = None,
+                 protected_item_count: Optional[float] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
                  source_resource_id: Optional[str] = None,
@@ -1456,7 +1456,7 @@ class AzureStorageContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param int protected_item_count: Number of items backed up in this container.
+        :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
         :param str source_resource_id: Fully qualified ARM url.
@@ -1518,7 +1518,7 @@ class AzureStorageContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[int]:
+    def protected_item_count(self) -> Optional[float]:
         """
         Number of items backed up in this container.
         """
@@ -2931,7 +2931,7 @@ class DpmContainerResponse(dict):
                  extended_info: Optional['outputs.DPMContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
-                 protected_item_count: Optional[int] = None,
+                 protected_item_count: Optional[float] = None,
                  protection_status: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  upgrade_available: Optional[bool] = None):
@@ -2950,7 +2950,7 @@ class DpmContainerResponse(dict):
         :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param int protected_item_count: Number of protected items in the BackupEngine
+        :param float protected_item_count: Number of protected items in the BackupEngine
         :param str protection_status: Protection status of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param bool upgrade_available: To check if upgrade available
@@ -3059,7 +3059,7 @@ class DpmContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[int]:
+    def protected_item_count(self) -> Optional[float]:
         """
         Number of protected items in the BackupEngine
         """
@@ -3342,7 +3342,7 @@ class GenericProtectedItemResponse(dict):
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
                  policy_state: Optional[str] = None,
-                 protected_item_id: Optional[int] = None,
+                 protected_item_id: Optional[float] = None,
                  protection_state: Optional[str] = None,
                  source_associations: Optional[Mapping[str, str]] = None,
                  source_resource_id: Optional[str] = None,
@@ -3365,7 +3365,7 @@ class GenericProtectedItemResponse(dict):
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param int protected_item_id: Data Plane Service ID of the protected item.
+        :param float protected_item_id: Data Plane Service ID of the protected item.
         :param str protection_state: Backup state of this backup item.
         :param Mapping[str, str] source_associations: Loosely coupled (type, value) associations (example - parent of a protected item)
         :param str source_resource_id: ARM ID of the resource to be backed up.
@@ -3534,7 +3534,7 @@ class GenericProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemId")
-    def protected_item_id(self) -> Optional[int]:
+    def protected_item_id(self) -> Optional[float]:
         """
         Data Plane Service ID of the protected item.
         """
@@ -4221,12 +4221,12 @@ class MabContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  can_re_register: Optional[bool] = None,
                  container_health_state: Optional[str] = None,
-                 container_id: Optional[int] = None,
+                 container_id: Optional[float] = None,
                  extended_info: Optional['outputs.MabContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
                  mab_container_health_details: Optional[Sequence['outputs.MABContainerHealthDetailsResponse']] = None,
-                 protected_item_count: Optional[int] = None,
+                 protected_item_count: Optional[float] = None,
                  registration_status: Optional[str] = None):
         """
         Container with items backed up using MAB backup engine.
@@ -4239,12 +4239,12 @@ class MabContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param bool can_re_register: Can the container be registered one more time.
         :param str container_health_state: Health state of mab container.
-        :param int container_id: ContainerID represents the container.
+        :param float container_id: ContainerID represents the container.
         :param 'MabContainerExtendedInfoResponseArgs' extended_info: Additional information for this container
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param Sequence['MABContainerHealthDetailsResponseArgs'] mab_container_health_details: Health details on this mab container.
-        :param int protected_item_count: Number of items backed up in this container.
+        :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
         pulumi.set(__self__, "container_type", 'Windows')
@@ -4317,7 +4317,7 @@ class MabContainerResponse(dict):
 
     @property
     @pulumi.getter(name="containerId")
-    def container_id(self) -> Optional[int]:
+    def container_id(self) -> Optional[float]:
         """
         ContainerID represents the container.
         """
@@ -4357,7 +4357,7 @@ class MabContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[int]:
+    def protected_item_count(self) -> Optional[float]:
         """
         Number of items backed up in this container.
         """
@@ -4437,7 +4437,7 @@ class MabFileFolderProtectedItemResponse(dict):
                  computer_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
-                 deferred_delete_sync_time_in_utc: Optional[int] = None,
+                 deferred_delete_sync_time_in_utc: Optional[float] = None,
                  deferred_delete_time_in_utc: Optional[str] = None,
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.MabFileFolderProtectedItemExtendedInfoResponse'] = None,
@@ -4461,7 +4461,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param str computer_name: Name of the computer associated with this backup item.
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-        :param int deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
+        :param float deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'MabFileFolderProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
@@ -4570,7 +4570,7 @@ class MabFileFolderProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="deferredDeleteSyncTimeInUTC")
-    def deferred_delete_sync_time_in_utc(self) -> Optional[int]:
+    def deferred_delete_sync_time_in_utc(self) -> Optional[float]:
         """
         Sync time for deferred deletion in UTC
         """
@@ -5364,12 +5364,12 @@ class WorkloadInquiryDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  inquiry_validation: Optional['outputs.InquiryValidationResponse'] = None,
-                 item_count: Optional[int] = None,
+                 item_count: Optional[float] = None,
                  type: Optional[str] = None):
         """
         Details of an inquired protectable item.
         :param 'InquiryValidationResponseArgs' inquiry_validation: Inquiry validation such as permissions and other backup validations.
-        :param int item_count: Contains the protectable item Count inside this Container.
+        :param float item_count: Contains the protectable item Count inside this Container.
         :param str type: Type of the Workload such as SQL, Oracle etc.
         """
         if inquiry_validation is not None:
@@ -5389,7 +5389,7 @@ class WorkloadInquiryDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="itemCount")
-    def item_count(self) -> Optional[int]:
+    def item_count(self) -> Optional[float]:
         """
         Contains the protectable item Count inside this Container.
         """

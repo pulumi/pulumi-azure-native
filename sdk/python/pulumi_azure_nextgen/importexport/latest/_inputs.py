@@ -26,13 +26,13 @@ class DeliveryPackageInformationArgs:
     def __init__(__self__, *,
                  carrier_name: pulumi.Input[str],
                  tracking_number: pulumi.Input[str],
-                 drive_count: Optional[pulumi.Input[int]] = None,
+                 drive_count: Optional[pulumi.Input[float]] = None,
                  ship_date: Optional[pulumi.Input[str]] = None):
         """
         Contains information about the delivery package being shipped by the customer to the Microsoft data center.
         :param pulumi.Input[str] carrier_name: The name of the carrier that is used to ship the import or export drives.
         :param pulumi.Input[str] tracking_number: The tracking number of the package.
-        :param pulumi.Input[int] drive_count: The number of drives included in the package.
+        :param pulumi.Input[float] drive_count: The number of drives included in the package.
         :param pulumi.Input[str] ship_date: The date when the package is shipped.
         """
         pulumi.set(__self__, "carrier_name", carrier_name)
@@ -68,14 +68,14 @@ class DeliveryPackageInformationArgs:
 
     @property
     @pulumi.getter(name="driveCount")
-    def drive_count(self) -> Optional[pulumi.Input[int]]:
+    def drive_count(self) -> Optional[pulumi.Input[float]]:
         """
         The number of drives included in the package.
         """
         return pulumi.get(self, "drive_count")
 
     @drive_count.setter
-    def drive_count(self, value: Optional[pulumi.Input[int]]):
+    def drive_count(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "drive_count", value)
 
     @property
@@ -95,7 +95,7 @@ class DeliveryPackageInformationArgs:
 class DriveStatusArgs:
     def __init__(__self__, *,
                  bit_locker_key: Optional[pulumi.Input[str]] = None,
-                 bytes_succeeded: Optional[pulumi.Input[int]] = None,
+                 bytes_succeeded: Optional[pulumi.Input[float]] = None,
                  copy_status: Optional[pulumi.Input[str]] = None,
                  drive_header_hash: Optional[pulumi.Input[str]] = None,
                  drive_id: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class DriveStatusArgs:
         """
         Provides information about the drive's status
         :param pulumi.Input[str] bit_locker_key: The BitLocker key used to encrypt the drive.
-        :param pulumi.Input[int] bytes_succeeded: Bytes successfully transferred for the drive.
+        :param pulumi.Input[float] bytes_succeeded: Bytes successfully transferred for the drive.
         :param pulumi.Input[str] copy_status: Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
         :param pulumi.Input[str] drive_header_hash: The drive header hash value.
         :param pulumi.Input[str] drive_id: The drive's hardware serial number, without spaces.
@@ -160,14 +160,14 @@ class DriveStatusArgs:
 
     @property
     @pulumi.getter(name="bytesSucceeded")
-    def bytes_succeeded(self) -> Optional[pulumi.Input[int]]:
+    def bytes_succeeded(self) -> Optional[pulumi.Input[float]]:
         """
         Bytes successfully transferred for the drive.
         """
         return pulumi.get(self, "bytes_succeeded")
 
     @bytes_succeeded.setter
-    def bytes_succeeded(self, value: Optional[pulumi.Input[int]]):
+    def bytes_succeeded(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "bytes_succeeded", value)
 
     @property
@@ -703,13 +703,13 @@ class JobDetailsArgs:
 class PackageInformationArgs:
     def __init__(__self__, *,
                  carrier_name: pulumi.Input[str],
-                 drive_count: pulumi.Input[int],
+                 drive_count: pulumi.Input[float],
                  ship_date: pulumi.Input[str],
                  tracking_number: pulumi.Input[str]):
         """
         Contains information about the package being shipped by the customer to the Microsoft data center.
         :param pulumi.Input[str] carrier_name: The name of the carrier that is used to ship the import or export drives.
-        :param pulumi.Input[int] drive_count: The number of drives included in the package.
+        :param pulumi.Input[float] drive_count: The number of drives included in the package.
         :param pulumi.Input[str] ship_date: The date when the package is shipped.
         :param pulumi.Input[str] tracking_number: The tracking number of the package.
         """
@@ -732,14 +732,14 @@ class PackageInformationArgs:
 
     @property
     @pulumi.getter(name="driveCount")
-    def drive_count(self) -> pulumi.Input[int]:
+    def drive_count(self) -> pulumi.Input[float]:
         """
         The number of drives included in the package.
         """
         return pulumi.get(self, "drive_count")
 
     @drive_count.setter
-    def drive_count(self, value: pulumi.Input[int]):
+    def drive_count(self, value: pulumi.Input[float]):
         pulumi.set(self, "drive_count", value)
 
     @property

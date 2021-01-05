@@ -225,12 +225,12 @@ class IotDpsSkuInfoResponse(dict):
     """
     def __init__(__self__, *,
                  tier: str,
-                 capacity: Optional[int] = None,
+                 capacity: Optional[float] = None,
                  name: Optional[str] = None):
         """
         List of possible provisioning service SKUs.
         :param str tier: Pricing tier name of the provisioning service.
-        :param int capacity: The number of units to provision
+        :param float capacity: The number of units to provision
         :param str name: Sku name.
         """
         pulumi.set(__self__, "tier", tier)
@@ -249,7 +249,7 @@ class IotDpsSkuInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[int]:
+    def capacity(self) -> Optional[float]:
         """
         The number of units to provision
         """

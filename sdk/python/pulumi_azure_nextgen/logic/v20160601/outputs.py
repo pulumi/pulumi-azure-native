@@ -1290,14 +1290,14 @@ class ContentLinkResponse(dict):
     """
     def __init__(__self__, *,
                  content_hash: Optional['outputs.ContentHashResponse'] = None,
-                 content_size: Optional[int] = None,
+                 content_size: Optional[float] = None,
                  content_version: Optional[str] = None,
                  metadata: Optional[Any] = None,
                  uri: Optional[str] = None):
         """
         The content link.
         :param 'ContentHashResponseArgs' content_hash: The content hash.
-        :param int content_size: The content size.
+        :param float content_size: The content size.
         :param str content_version: The content version.
         :param Any metadata: The metadata.
         :param str uri: The content link URI.
@@ -1323,7 +1323,7 @@ class ContentLinkResponse(dict):
 
     @property
     @pulumi.getter(name="contentSize")
-    def content_size(self) -> Optional[int]:
+    def content_size(self) -> Optional[float]:
         """
         The content size.
         """
@@ -1884,17 +1884,17 @@ class EdifactEnvelopeSettingsResponse(dict):
                  apply_delimiter_string_advice: bool,
                  create_grouping_segments: bool,
                  enable_default_group_headers: bool,
-                 group_control_number_lower_bound: int,
-                 group_control_number_upper_bound: int,
-                 interchange_control_number_lower_bound: int,
-                 interchange_control_number_upper_bound: int,
+                 group_control_number_lower_bound: float,
+                 group_control_number_upper_bound: float,
+                 interchange_control_number_lower_bound: float,
+                 interchange_control_number_upper_bound: float,
                  is_test_interchange: bool,
                  overwrite_existing_transaction_set_control_number: bool,
                  rollover_group_control_number: bool,
                  rollover_interchange_control_number: bool,
                  rollover_transaction_set_control_number: bool,
-                 transaction_set_control_number_lower_bound: int,
-                 transaction_set_control_number_upper_bound: int,
+                 transaction_set_control_number_lower_bound: float,
+                 transaction_set_control_number_upper_bound: float,
                  application_reference_id: Optional[str] = None,
                  communication_agreement_id: Optional[str] = None,
                  functional_group_id: Optional[str] = None,
@@ -1927,17 +1927,17 @@ class EdifactEnvelopeSettingsResponse(dict):
         :param bool apply_delimiter_string_advice: The value indicating whether to apply delimiter string advice.
         :param bool create_grouping_segments: The value indicating whether to create grouping segments.
         :param bool enable_default_group_headers: The value indicating whether to enable default group headers.
-        :param int group_control_number_lower_bound: The group control number lower bound.
-        :param int group_control_number_upper_bound: The group control number upper bound.
-        :param int interchange_control_number_lower_bound: The interchange control number lower bound.
-        :param int interchange_control_number_upper_bound: The interchange control number upper bound.
+        :param float group_control_number_lower_bound: The group control number lower bound.
+        :param float group_control_number_upper_bound: The group control number upper bound.
+        :param float interchange_control_number_lower_bound: The interchange control number lower bound.
+        :param float interchange_control_number_upper_bound: The interchange control number upper bound.
         :param bool is_test_interchange: The value indicating whether the message is a test interchange.
         :param bool overwrite_existing_transaction_set_control_number: The value indicating whether to overwrite existing transaction set control number.
         :param bool rollover_group_control_number: The value indicating whether to rollover group control number.
         :param bool rollover_interchange_control_number: The value indicating whether to rollover interchange control number.
         :param bool rollover_transaction_set_control_number: The value indicating whether to rollover transaction set control number.
-        :param int transaction_set_control_number_lower_bound: The transaction set control number lower bound.
-        :param int transaction_set_control_number_upper_bound: The transaction set control number upper bound.
+        :param float transaction_set_control_number_lower_bound: The transaction set control number lower bound.
+        :param float transaction_set_control_number_upper_bound: The transaction set control number upper bound.
         :param str application_reference_id: The application reference id.
         :param str communication_agreement_id: The communication agreement id.
         :param str functional_group_id: The functional group id.
@@ -2061,7 +2061,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="groupControlNumberLowerBound")
-    def group_control_number_lower_bound(self) -> int:
+    def group_control_number_lower_bound(self) -> float:
         """
         The group control number lower bound.
         """
@@ -2069,7 +2069,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="groupControlNumberUpperBound")
-    def group_control_number_upper_bound(self) -> int:
+    def group_control_number_upper_bound(self) -> float:
         """
         The group control number upper bound.
         """
@@ -2077,7 +2077,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="interchangeControlNumberLowerBound")
-    def interchange_control_number_lower_bound(self) -> int:
+    def interchange_control_number_lower_bound(self) -> float:
         """
         The interchange control number lower bound.
         """
@@ -2085,7 +2085,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="interchangeControlNumberUpperBound")
-    def interchange_control_number_upper_bound(self) -> int:
+    def interchange_control_number_upper_bound(self) -> float:
         """
         The interchange control number upper bound.
         """
@@ -2133,7 +2133,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="transactionSetControlNumberLowerBound")
-    def transaction_set_control_number_lower_bound(self) -> int:
+    def transaction_set_control_number_lower_bound(self) -> float:
         """
         The transaction set control number lower bound.
         """
@@ -2141,7 +2141,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="transactionSetControlNumberUpperBound")
-    def transaction_set_control_number_upper_bound(self) -> int:
+    def transaction_set_control_number_upper_bound(self) -> float:
         """
         The transaction set control number upper bound.
         """
@@ -3404,14 +3404,14 @@ class KeyVaultKeyResponseAttributesResult(dict):
     The key attributes.
     """
     def __init__(__self__, *,
-                 created: Optional[int] = None,
+                 created: Optional[float] = None,
                  enabled: Optional[bool] = None,
-                 updated: Optional[int] = None):
+                 updated: Optional[float] = None):
         """
         The key attributes.
-        :param int created: When the key was created.
+        :param float created: When the key was created.
         :param bool enabled: Whether the key is enabled or not.
-        :param int updated: When the key was updated.
+        :param float updated: When the key was updated.
         """
         if created is not None:
             pulumi.set(__self__, "created", created)
@@ -3422,7 +3422,7 @@ class KeyVaultKeyResponseAttributesResult(dict):
 
     @property
     @pulumi.getter
-    def created(self) -> Optional[int]:
+    def created(self) -> Optional[float]:
         """
         When the key was created.
         """
@@ -3438,7 +3438,7 @@ class KeyVaultKeyResponseAttributesResult(dict):
 
     @property
     @pulumi.getter
-    def updated(self) -> Optional[int]:
+    def updated(self) -> Optional[float]:
         """
         When the key was updated.
         """

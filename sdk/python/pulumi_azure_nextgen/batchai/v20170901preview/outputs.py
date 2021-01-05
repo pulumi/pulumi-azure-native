@@ -634,13 +634,13 @@ class FileResponseResult(dict):
     def __init__(__self__, *,
                  download_url: str,
                  name: str,
-                 content_length: Optional[int] = None,
+                 content_length: Optional[float] = None,
                  last_modified: Optional[str] = None):
         """
         Properties of the file.
         :param str download_url: This will be returned only if the model has been archived. During job run, this won't be returned and customers can use SSH tunneling to download. Users can use Get Remote Login Information API to get the IP address and port information of all the compute nodes running the job.
         :param str name: file name
-        :param int content_length: The file size.
+        :param float content_length: The file size.
         :param str last_modified: The time at which the file was last modified.
         """
         pulumi.set(__self__, "download_url", download_url)
@@ -668,7 +668,7 @@ class FileResponseResult(dict):
 
     @property
     @pulumi.getter(name="contentLength")
-    def content_length(self) -> Optional[int]:
+    def content_length(self) -> Optional[float]:
         """
         The file size.
         """

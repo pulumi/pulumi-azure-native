@@ -32,7 +32,7 @@ class VirtualHub(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
                  virtual_hub_route_table_v2s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]]] = None,
-                 virtual_router_asn: Optional[pulumi.Input[int]] = None,
+                 virtual_router_asn: Optional[pulumi.Input[float]] = None,
                  virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -59,7 +59,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
-        :param pulumi.Input[int] virtual_router_asn: VirtualRouter ASN.
+        :param pulumi.Input[float] virtual_router_asn: VirtualRouter ASN.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: VirtualRouter IPs.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the VirtualHub belongs.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] vpn_gateway: The VpnGateway associated with this VirtualHub.
@@ -293,7 +293,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualRouterAsn")
-    def virtual_router_asn(self) -> pulumi.Output[Optional[int]]:
+    def virtual_router_asn(self) -> pulumi.Output[Optional[float]]:
         """
         VirtualRouter ASN.
         """

@@ -3558,13 +3558,13 @@ class DatasetResponseSqlDataPath(dict):
     Sql Query/Table/Stored Procedure details.
     """
     def __init__(__self__, *,
-                 query_timeout: int,
+                 query_timeout: float,
                  sql_query: str,
                  sql_stored_procedure_name: str,
                  sql_table_name: str):
         """
         Sql Query/Table/Stored Procedure details.
-        :param int query_timeout: SQL query timeout. Unit in seconds.
+        :param float query_timeout: SQL query timeout. Unit in seconds.
         :param str sql_query: SQL query
         :param str sql_stored_procedure_name: SQL storedProcedure name
         :param str sql_table_name: SQL table name
@@ -3576,7 +3576,7 @@ class DatasetResponseSqlDataPath(dict):
 
     @property
     @pulumi.getter(name="queryTimeout")
-    def query_timeout(self) -> int:
+    def query_timeout(self) -> float:
         """
         SQL query timeout. Unit in seconds.
         """
@@ -4945,7 +4945,7 @@ class ModelResponse(dict):
                  sample_input_data: Optional[str] = None,
                  sample_output_data: Optional[str] = None,
                  unpack: Optional[bool] = None,
-                 version: Optional[int] = None):
+                 version: Optional[float] = None):
         """
         An Azure Machine Learning Model.
         :param str mime_type: The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
@@ -4968,7 +4968,7 @@ class ModelResponse(dict):
         :param str sample_input_data: Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
         :param str sample_output_data: Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
         :param bool unpack: Indicates whether we need to unpack the Model during docker Image creation.
-        :param int version: The Model version assigned by Model Management Service.
+        :param float version: The Model version assigned by Model Management Service.
         """
         pulumi.set(__self__, "mime_type", mime_type)
         pulumi.set(__self__, "name", name)
@@ -5172,7 +5172,7 @@ class ModelResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[int]:
+    def version(self) -> Optional[float]:
         """
         The Model version assigned by Model Management Service.
         """

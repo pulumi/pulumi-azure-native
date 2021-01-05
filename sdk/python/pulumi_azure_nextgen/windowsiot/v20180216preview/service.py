@@ -20,7 +20,7 @@ class Service(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 quantity: Optional[pulumi.Input[int]] = None,
+                 quantity: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -36,7 +36,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[str] notes: Windows IoT Device Service notes.
-        :param pulumi.Input[int] quantity: Windows IoT Device Service device allocation,
+        :param pulumi.Input[float] quantity: Windows IoT Device Service device allocation,
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -149,7 +149,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def quantity(self) -> pulumi.Output[Optional[int]]:
+    def quantity(self) -> pulumi.Output[Optional[float]]:
         """
         Windows IoT Device Service device allocation,
         """

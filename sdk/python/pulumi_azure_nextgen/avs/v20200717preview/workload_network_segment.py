@@ -21,7 +21,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 revision: Optional[pulumi.Input[int]] = None,
+                 revision: Optional[pulumi.Input[float]] = None,
                  segment_id: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['WorkloadNetworkSegmentSubnetArgs']]] = None,
                  __props__=None,
@@ -36,7 +36,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: Display name of the segment.
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[int] revision: NSX revision number.
+        :param pulumi.Input[float] revision: NSX revision number.
         :param pulumi.Input[str] segment_id: NSX Segment identifier. Generally the same as the Segment's display name
         :param pulumi.Input[pulumi.InputType['WorkloadNetworkSegmentSubnetArgs']] subnet: Subnet which to connect segment to.
         """
@@ -141,7 +141,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def revision(self) -> pulumi.Output[Optional[int]]:
+    def revision(self) -> pulumi.Output[Optional[float]]:
         """
         NSX revision number.
         """

@@ -22,7 +22,7 @@ class Volume(pulumi.CustomResource):
                  manager_name: Optional[pulumi.Input[str]] = None,
                  monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 size_in_bytes: Optional[pulumi.Input[int]] = None,
+                 size_in_bytes: Optional[pulumi.Input[float]] = None,
                  volume_container_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  volume_status: Optional[pulumi.Input['VolumeStatus']] = None,
@@ -41,7 +41,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring status of the volume.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[int] size_in_bytes: The size of the volume in bytes.
+        :param pulumi.Input[float] size_in_bytes: The size of the volume in bytes.
         :param pulumi.Input[str] volume_container_name: The volume container name.
         :param pulumi.Input[str] volume_name: The volume name.
         :param pulumi.Input['VolumeStatus'] volume_status: The volume status.
@@ -185,7 +185,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> pulumi.Output[int]:
+    def size_in_bytes(self) -> pulumi.Output[float]:
         """
         The size of the volume in bytes.
         """

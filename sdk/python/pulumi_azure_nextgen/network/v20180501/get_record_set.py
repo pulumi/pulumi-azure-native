@@ -69,8 +69,8 @@ class GetRecordSetResult:
         if target_resource and not isinstance(target_resource, dict):
             raise TypeError("Expected argument 'target_resource' to be a dict")
         pulumi.set(__self__, "target_resource", target_resource)
-        if ttl and not isinstance(ttl, int):
-            raise TypeError("Expected argument 'ttl' to be a int")
+        if ttl and not isinstance(ttl, float):
+            raise TypeError("Expected argument 'ttl' to be a float")
         pulumi.set(__self__, "ttl", ttl)
         if txt_records and not isinstance(txt_records, list):
             raise TypeError("Expected argument 'txt_records' to be a list")
@@ -209,7 +209,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[int]:
+    def ttl(self) -> Optional[float]:
         """
         The TTL (time-to-live) of the records in the record set.
         """

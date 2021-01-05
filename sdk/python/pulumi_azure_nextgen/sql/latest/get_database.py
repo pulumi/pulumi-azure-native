@@ -24,8 +24,8 @@ class GetDatabaseResult:
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
-        if containment_state and not isinstance(containment_state, int):
-            raise TypeError("Expected argument 'containment_state' to be a int")
+        if containment_state and not isinstance(containment_state, float):
+            raise TypeError("Expected argument 'containment_state' to be a float")
         pulumi.set(__self__, "containment_state", containment_state)
         if create_mode and not isinstance(create_mode, str):
             raise TypeError("Expected argument 'create_mode' to be a str")
@@ -128,7 +128,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="containmentState")
-    def containment_state(self) -> int:
+    def containment_state(self) -> float:
         """
         The containment state of the database.
         """

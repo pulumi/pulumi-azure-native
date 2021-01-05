@@ -33,8 +33,8 @@ class GetProfileResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_return and not isinstance(max_return, int):
-            raise TypeError("Expected argument 'max_return' to be a int")
+        if max_return and not isinstance(max_return, float):
+            raise TypeError("Expected argument 'max_return' to be a float")
         pulumi.set(__self__, "max_return", max_return)
         if monitor_config and not isinstance(monitor_config, dict):
             raise TypeError("Expected argument 'monitor_config' to be a dict")
@@ -92,7 +92,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter(name="maxReturn")
-    def max_return(self) -> Optional[int]:
+    def max_return(self) -> Optional[float]:
         """
         Maximum number of endpoints to be returned for MultiValue routing type.
         """

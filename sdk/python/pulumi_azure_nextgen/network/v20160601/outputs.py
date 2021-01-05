@@ -1539,11 +1539,11 @@ class BackendAddressPoolResponse(dict):
 @pulumi.output_type
 class BgpSettingsResponse(dict):
     def __init__(__self__, *,
-                 asn: Optional[int] = None,
+                 asn: Optional[float] = None,
                  bgp_peering_address: Optional[str] = None,
                  peer_weight: Optional[int] = None):
         """
-        :param int asn: Gets or sets this BGP speaker's ASN
+        :param float asn: Gets or sets this BGP speaker's ASN
         :param str bgp_peering_address: Gets or sets the BGP peering address and BGP identifier of this BGP speaker
         :param int peer_weight: Gets or sets the weight added to routes learned from this BGP speaker
         """
@@ -1556,7 +1556,7 @@ class BgpSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[int]:
+    def asn(self) -> Optional[float]:
         """
         Gets or sets this BGP speaker's ASN
         """
@@ -2092,16 +2092,16 @@ class ExpressRouteCircuitStatsResponse(dict):
     Contains Stats associated with the peering
     """
     def __init__(__self__, *,
-                 primarybytes_in: Optional[int] = None,
-                 primarybytes_out: Optional[int] = None,
-                 secondarybytes_in: Optional[int] = None,
-                 secondarybytes_out: Optional[int] = None):
+                 primarybytes_in: Optional[float] = None,
+                 primarybytes_out: Optional[float] = None,
+                 secondarybytes_in: Optional[float] = None,
+                 secondarybytes_out: Optional[float] = None):
         """
         Contains Stats associated with the peering
-        :param int primarybytes_in: Gets BytesIn of the peering.
-        :param int primarybytes_out: Gets BytesOut of the peering.
-        :param int secondarybytes_in: Gets BytesIn of the peering.
-        :param int secondarybytes_out: Gets BytesOut of the peering.
+        :param float primarybytes_in: Gets BytesIn of the peering.
+        :param float primarybytes_out: Gets BytesOut of the peering.
+        :param float secondarybytes_in: Gets BytesIn of the peering.
+        :param float secondarybytes_out: Gets BytesOut of the peering.
         """
         if primarybytes_in is not None:
             pulumi.set(__self__, "primarybytes_in", primarybytes_in)
@@ -2114,7 +2114,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="primarybytesIn")
-    def primarybytes_in(self) -> Optional[int]:
+    def primarybytes_in(self) -> Optional[float]:
         """
         Gets BytesIn of the peering.
         """
@@ -2122,7 +2122,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="primarybytesOut")
-    def primarybytes_out(self) -> Optional[int]:
+    def primarybytes_out(self) -> Optional[float]:
         """
         Gets BytesOut of the peering.
         """
@@ -2130,7 +2130,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="secondarybytesIn")
-    def secondarybytes_in(self) -> Optional[int]:
+    def secondarybytes_in(self) -> Optional[float]:
         """
         Gets BytesIn of the peering.
         """
@@ -2138,7 +2138,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="secondarybytesOut")
-    def secondarybytes_out(self) -> Optional[int]:
+    def secondarybytes_out(self) -> Optional[float]:
         """
         Gets BytesOut of the peering.
         """

@@ -155,7 +155,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schedulesCount")
-    def schedules_count(self) -> pulumi.Output[int]:
+    def schedules_count(self) -> pulumi.Output[float]:
         """
         The count of schedules the backup policy contains.
         """

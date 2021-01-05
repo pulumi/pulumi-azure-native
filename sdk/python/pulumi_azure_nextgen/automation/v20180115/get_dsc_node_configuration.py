@@ -39,8 +39,8 @@ class GetDscNodeConfigurationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if node_count and not isinstance(node_count, int):
-            raise TypeError("Expected argument 'node_count' to be a int")
+        if node_count and not isinstance(node_count, float):
+            raise TypeError("Expected argument 'node_count' to be a float")
         pulumi.set(__self__, "node_count", node_count)
         if source and not isinstance(source, str):
             raise TypeError("Expected argument 'source' to be a str")
@@ -99,7 +99,7 @@ class GetDscNodeConfigurationResult:
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[int]:
+    def node_count(self) -> Optional[float]:
         """
         Number of nodes with this node configuration assigned
         """

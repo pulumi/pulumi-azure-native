@@ -41,8 +41,8 @@ class GetServiceResult:
         if notes and not isinstance(notes, str):
             raise TypeError("Expected argument 'notes' to be a str")
         pulumi.set(__self__, "notes", notes)
-        if quantity and not isinstance(quantity, int):
-            raise TypeError("Expected argument 'quantity' to be a int")
+        if quantity and not isinstance(quantity, float):
+            raise TypeError("Expected argument 'quantity' to be a float")
         pulumi.set(__self__, "quantity", quantity)
         if start_date and not isinstance(start_date, str):
             raise TypeError("Expected argument 'start_date' to be a str")
@@ -112,7 +112,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def quantity(self) -> Optional[int]:
+    def quantity(self) -> Optional[float]:
         """
         Windows IoT Device Service device allocation,
         """

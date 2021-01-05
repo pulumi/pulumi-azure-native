@@ -25,7 +25,7 @@ class LiveOutput(pulumi.CustomResource):
                  live_event_name: Optional[pulumi.Input[str]] = None,
                  live_output_name: Optional[pulumi.Input[str]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
-                 output_snap_time: Optional[pulumi.Input[int]] = None,
+                 output_snap_time: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -44,7 +44,7 @@ class LiveOutput(pulumi.CustomResource):
         :param pulumi.Input[str] live_event_name: The name of the live event, maximum length is 32.
         :param pulumi.Input[str] live_output_name: The name of the live output.
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically.
-        :param pulumi.Input[int] output_snap_time: The initial timestamp that the live output will start at, any content before this value will not be archived.
+        :param pulumi.Input[float] output_snap_time: The initial timestamp that the live output will start at, any content before this value will not be archived.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         """
         if __name__ is not None:
@@ -184,7 +184,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputSnapTime")
-    def output_snap_time(self) -> pulumi.Output[Optional[int]]:
+    def output_snap_time(self) -> pulumi.Output[Optional[float]]:
         """
         The initial timestamp that the live output will start at, any content before this value will not be archived.
         """

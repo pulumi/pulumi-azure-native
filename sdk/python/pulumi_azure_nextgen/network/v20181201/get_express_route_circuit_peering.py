@@ -51,8 +51,8 @@ class GetExpressRouteCircuitPeeringResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if peer_asn and not isinstance(peer_asn, int):
-            raise TypeError("Expected argument 'peer_asn' to be a int")
+        if peer_asn and not isinstance(peer_asn, float):
+            raise TypeError("Expected argument 'peer_asn' to be a float")
         pulumi.set(__self__, "peer_asn", peer_asn)
         if peered_connections and not isinstance(peered_connections, list):
             raise TypeError("Expected argument 'peered_connections' to be a list")
@@ -173,7 +173,7 @@ class GetExpressRouteCircuitPeeringResult:
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> Optional[int]:
+    def peer_asn(self) -> Optional[float]:
         """
         The peer ASN.
         """

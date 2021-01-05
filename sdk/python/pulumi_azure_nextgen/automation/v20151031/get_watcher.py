@@ -29,8 +29,8 @@ class GetWatcherResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if execution_frequency_in_seconds and not isinstance(execution_frequency_in_seconds, int):
-            raise TypeError("Expected argument 'execution_frequency_in_seconds' to be a int")
+        if execution_frequency_in_seconds and not isinstance(execution_frequency_in_seconds, float):
+            raise TypeError("Expected argument 'execution_frequency_in_seconds' to be a float")
         pulumi.set(__self__, "execution_frequency_in_seconds", execution_frequency_in_seconds)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -92,7 +92,7 @@ class GetWatcherResult:
 
     @property
     @pulumi.getter(name="executionFrequencyInSeconds")
-    def execution_frequency_in_seconds(self) -> Optional[int]:
+    def execution_frequency_in_seconds(self) -> Optional[float]:
         """
         Gets or sets the frequency at which the watcher is invoked.
         """

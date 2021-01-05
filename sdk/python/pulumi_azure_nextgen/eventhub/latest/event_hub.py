@@ -20,9 +20,9 @@ class EventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capture_description: Optional[pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
-                 message_retention_in_days: Optional[pulumi.Input[int]] = None,
+                 message_retention_in_days: Optional[pulumi.Input[float]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 partition_count: Optional[pulumi.Input[int]] = None,
+                 partition_count: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
                  __props__=None,
@@ -36,9 +36,9 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']] capture_description: Properties of capture description
         :param pulumi.Input[str] event_hub_name: The Event Hub name
-        :param pulumi.Input[int] message_retention_in_days: Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+        :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         :param pulumi.Input[str] namespace_name: The Namespace name
-        :param pulumi.Input[int] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
+        :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
         """
@@ -121,7 +121,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageRetentionInDays")
-    def message_retention_in_days(self) -> pulumi.Output[Optional[int]]:
+    def message_retention_in_days(self) -> pulumi.Output[Optional[float]]:
         """
         Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         """
@@ -137,7 +137,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> pulumi.Output[Optional[int]]:
+    def partition_count(self) -> pulumi.Output[Optional[float]]:
         """
         Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         """

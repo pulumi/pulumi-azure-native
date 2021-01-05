@@ -94,11 +94,11 @@ class CloudToDevicePropertiesArgs:
 class EventHubPropertiesArgs:
     def __init__(__self__, *,
                  partition_count: Optional[pulumi.Input[int]] = None,
-                 retention_time_in_days: Optional[pulumi.Input[int]] = None):
+                 retention_time_in_days: Optional[pulumi.Input[float]] = None):
         """
         The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
         :param pulumi.Input[int] partition_count: The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
-        :param pulumi.Input[int] retention_time_in_days: The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+        :param pulumi.Input[float] retention_time_in_days: The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         """
         if partition_count is not None:
             pulumi.set(__self__, "partition_count", partition_count)
@@ -119,14 +119,14 @@ class EventHubPropertiesArgs:
 
     @property
     @pulumi.getter(name="retentionTimeInDays")
-    def retention_time_in_days(self) -> Optional[pulumi.Input[int]]:
+    def retention_time_in_days(self) -> Optional[pulumi.Input[float]]:
         """
         The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         """
         return pulumi.get(self, "retention_time_in_days")
 
     @retention_time_in_days.setter
-    def retention_time_in_days(self, value: Optional[pulumi.Input[int]]):
+    def retention_time_in_days(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "retention_time_in_days", value)
 
 
@@ -362,11 +362,11 @@ class IotDpsPropertiesDescriptionArgs:
 @pulumi.input_type
 class IotDpsSkuInfoArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[int]] = None,
+                 capacity: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[Union[str, 'IotDpsSku']]] = None):
         """
         List of possible provisioning service SKUs.
-        :param pulumi.Input[int] capacity: The number of units to provision
+        :param pulumi.Input[float] capacity: The number of units to provision
         :param pulumi.Input[Union[str, 'IotDpsSku']] name: Sku name.
         """
         if capacity is not None:
@@ -376,14 +376,14 @@ class IotDpsSkuInfoArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
+    def capacity(self) -> Optional[pulumi.Input[float]]:
         """
         The number of units to provision
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
+    def capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -657,11 +657,11 @@ class IotHubPropertiesArgs:
 class IotHubSkuInfoArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[str, 'IotHubSku']],
-                 capacity: Optional[pulumi.Input[int]] = None):
+                 capacity: Optional[pulumi.Input[float]] = None):
         """
         Information about the SKU of the IoT hub.
         :param pulumi.Input[Union[str, 'IotHubSku']] name: The name of the SKU.
-        :param pulumi.Input[int] capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
+        :param pulumi.Input[float] capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -681,14 +681,14 @@ class IotHubSkuInfoArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
+    def capacity(self) -> Optional[pulumi.Input[float]]:
         """
         The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
+    def capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "capacity", value)
 
 

@@ -221,7 +221,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> pulumi.Output[int]:
+    def size_in_bytes(self) -> pulumi.Output[float]:
         """
         Size of the topic, in bytes.
         """

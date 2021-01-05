@@ -27,8 +27,8 @@ class GetPredictionTrainingResultsResult:
         if prediction_distribution and not isinstance(prediction_distribution, dict):
             raise TypeError("Expected argument 'prediction_distribution' to be a dict")
         pulumi.set(__self__, "prediction_distribution", prediction_distribution)
-        if primary_profile_instance_count and not isinstance(primary_profile_instance_count, int):
-            raise TypeError("Expected argument 'primary_profile_instance_count' to be a int")
+        if primary_profile_instance_count and not isinstance(primary_profile_instance_count, float):
+            raise TypeError("Expected argument 'primary_profile_instance_count' to be a float")
         pulumi.set(__self__, "primary_profile_instance_count", primary_profile_instance_count)
         if score_name and not isinstance(score_name, str):
             raise TypeError("Expected argument 'score_name' to be a str")
@@ -55,7 +55,7 @@ class GetPredictionTrainingResultsResult:
 
     @property
     @pulumi.getter(name="primaryProfileInstanceCount")
-    def primary_profile_instance_count(self) -> int:
+    def primary_profile_instance_count(self) -> float:
         """
         Instance count of the primary profile.
         """

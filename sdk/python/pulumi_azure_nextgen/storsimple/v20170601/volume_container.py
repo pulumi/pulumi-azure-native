@@ -179,7 +179,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalCloudStorageUsageInBytes")
-    def total_cloud_storage_usage_in_bytes(self) -> pulumi.Output[int]:
+    def total_cloud_storage_usage_in_bytes(self) -> pulumi.Output[float]:
         """
         The total cloud storage for the volume container.
         """

@@ -27,7 +27,7 @@ class Volume(pulumi.CustomResource):
                  service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
-                 usage_threshold: Optional[pulumi.Input[int]] = None,
+                 usage_threshold: Optional[pulumi.Input[float]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -46,7 +46,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param Any tags: Resource tags
-        :param pulumi.Input[int] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
+        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
         :param pulumi.Input[str] volume_name: The name of the volume
         """
         if __name__ is not None:
@@ -203,7 +203,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageThreshold")
-    def usage_threshold(self) -> pulumi.Output[Optional[int]]:
+    def usage_threshold(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
         """

@@ -955,8 +955,8 @@ class DataItemMigrationSummaryResultResponse(dict):
     def __init__(__self__, *,
                  ended_on: str,
                  error_prefix: str,
-                 items_completed_count: int,
-                 items_count: int,
+                 items_completed_count: float,
+                 items_count: float,
                  name: str,
                  result_prefix: str,
                  started_on: str,
@@ -966,8 +966,8 @@ class DataItemMigrationSummaryResultResponse(dict):
         Basic summary of a data item migration
         :param str ended_on: Migration end time
         :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
-        :param int items_completed_count: Number of successfully completed items
-        :param int items_count: Number of items
+        :param float items_completed_count: Number of successfully completed items
+        :param float items_count: Number of items
         :param str name: Name of the item
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param str started_on: Migration start time
@@ -1002,7 +1002,7 @@ class DataItemMigrationSummaryResultResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCompletedCount")
-    def items_completed_count(self) -> int:
+    def items_completed_count(self) -> float:
         """
         Number of successfully completed items
         """
@@ -1010,7 +1010,7 @@ class DataItemMigrationSummaryResultResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCount")
-    def items_count(self) -> int:
+    def items_count(self) -> float:
         """
         Number of items
         """
@@ -1191,8 +1191,8 @@ class DatabaseSummaryResultResponse(dict):
     def __init__(__self__, *,
                  ended_on: str,
                  error_prefix: str,
-                 items_completed_count: int,
-                 items_count: int,
+                 items_completed_count: float,
+                 items_count: float,
                  name: str,
                  result_prefix: str,
                  size_mb: float,
@@ -1203,8 +1203,8 @@ class DatabaseSummaryResultResponse(dict):
         Summary of database results in the migration
         :param str ended_on: Migration end time
         :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
-        :param int items_completed_count: Number of successfully completed items
-        :param int items_count: Number of items
+        :param float items_completed_count: Number of successfully completed items
+        :param float items_count: Number of items
         :param str name: Name of the item
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param float size_mb: Size of the database in megabytes
@@ -1241,7 +1241,7 @@ class DatabaseSummaryResultResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCompletedCount")
-    def items_completed_count(self) -> int:
+    def items_completed_count(self) -> float:
         """
         Number of successfully completed items
         """
@@ -1249,7 +1249,7 @@ class DatabaseSummaryResultResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCount")
-    def items_count(self) -> int:
+    def items_count(self) -> float:
         """
         Number of items
         """
@@ -1677,13 +1677,13 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
     def __init__(__self__, *,
                  database_name: str,
                  ended_on: str,
-                 error_count: int,
+                 error_count: float,
                  error_prefix: str,
                  exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
                  id: str,
                  message: str,
-                 number_of_objects: int,
-                 number_of_objects_completed: int,
+                 number_of_objects: float,
+                 number_of_objects_completed: float,
                  object_summary: Mapping[str, 'outputs.DataItemMigrationSummaryResultResponse'],
                  result_prefix: str,
                  result_type: str,
@@ -1694,13 +1694,13 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
         """
         :param str database_name: Name of the item
         :param str ended_on: Migration end time
-        :param int error_count: Number of database/object errors.
+        :param float error_count: Number of database/object errors.
         :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
         :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str id: Result identifier
         :param str message: Migration progress message
-        :param int number_of_objects: Number of objects
-        :param int number_of_objects_completed: Number of successfully completed objects
+        :param float number_of_objects: Number of objects
+        :param float number_of_objects_completed: Number of successfully completed objects
         :param Mapping[str, 'DataItemMigrationSummaryResultResponseArgs'] object_summary: Summary of object results in the migration
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param str result_type: Result type
@@ -1745,7 +1745,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="errorCount")
-    def error_count(self) -> int:
+    def error_count(self) -> float:
         """
         Number of database/object errors.
         """
@@ -1785,7 +1785,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfObjects")
-    def number_of_objects(self) -> int:
+    def number_of_objects(self) -> float:
         """
         Number of objects
         """
@@ -1793,7 +1793,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfObjectsCompleted")
-    def number_of_objects_completed(self) -> int:
+    def number_of_objects_completed(self) -> float:
         """
         Number of successfully completed objects
         """
@@ -1944,7 +1944,7 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
     def __init__(__self__, *,
                  database_summary: Mapping[str, 'outputs.DatabaseSummaryResultResponse'],
                  databases: Mapping[str, str],
-                 duration_in_seconds: int,
+                 duration_in_seconds: float,
                  ended_on: str,
                  exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
                  id: str,
@@ -1961,7 +1961,7 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
         """
         :param Mapping[str, 'DatabaseSummaryResultResponseArgs'] database_summary: Summary of database results in the migration
         :param Mapping[str, str] databases: Selected databases as a map from database name to database id
-        :param int duration_in_seconds: Duration of task execution in seconds.
+        :param float duration_in_seconds: Duration of task execution in seconds.
         :param str ended_on: Migration end time
         :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str id: Result identifier
@@ -2013,7 +2013,7 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
 
     @property
     @pulumi.getter(name="durationInSeconds")
-    def duration_in_seconds(self) -> int:
+    def duration_in_seconds(self) -> float:
         """
         Duration of task execution in seconds.
         """
@@ -2134,8 +2134,8 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
                  ended_on: str,
                  error_prefix: str,
                  id: str,
-                 items_completed_count: int,
-                 items_count: int,
+                 items_completed_count: float,
+                 items_count: float,
                  object_name: str,
                  result_prefix: str,
                  result_type: str,
@@ -2146,8 +2146,8 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
         :param str ended_on: Migration end time
         :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
         :param str id: Result identifier
-        :param int items_completed_count: Number of successfully completed items
-        :param int items_count: Number of items
+        :param float items_completed_count: Number of successfully completed items
+        :param float items_count: Number of items
         :param str object_name: Name of the item
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param str result_type: Result type
@@ -2194,7 +2194,7 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCompletedCount")
-    def items_completed_count(self) -> int:
+    def items_completed_count(self) -> float:
         """
         Number of successfully completed items
         """
@@ -2202,7 +2202,7 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCount")
-    def items_count(self) -> int:
+    def items_count(self) -> float:
         """
         Number of items
         """

@@ -20,10 +20,10 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
-                 disk_iops_read_only: Optional[pulumi.Input[int]] = None,
-                 disk_iops_read_write: Optional[pulumi.Input[int]] = None,
-                 disk_m_bps_read_only: Optional[pulumi.Input[int]] = None,
-                 disk_m_bps_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_iops_read_only: Optional[pulumi.Input[float]] = None,
+                 disk_iops_read_write: Optional[pulumi.Input[float]] = None,
+                 disk_m_bps_read_only: Optional[pulumi.Input[float]] = None,
+                 disk_m_bps_read_write: Optional[pulumi.Input[float]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
@@ -49,10 +49,10 @@ class Disk(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
         :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
-        :param pulumi.Input[int] disk_iops_read_only: The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-        :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-        :param pulumi.Input[int] disk_m_bps_read_only: The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-        :param pulumi.Input[int] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        :param pulumi.Input[float] disk_iops_read_only: The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[float] disk_m_bps_read_only: The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        :param pulumi.Input[float] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         :param pulumi.Input[str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
         :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
@@ -167,7 +167,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskIOPSReadOnly")
-    def disk_iops_read_only(self) -> pulumi.Output[Optional[int]]:
+    def disk_iops_read_only(self) -> pulumi.Output[Optional[float]]:
         """
         The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
         """
@@ -175,7 +175,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskIOPSReadWrite")
-    def disk_iops_read_write(self) -> pulumi.Output[Optional[int]]:
+    def disk_iops_read_write(self) -> pulumi.Output[Optional[float]]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         """
@@ -183,7 +183,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskMBpsReadOnly")
-    def disk_m_bps_read_only(self) -> pulumi.Output[Optional[int]]:
+    def disk_m_bps_read_only(self) -> pulumi.Output[Optional[float]]:
         """
         The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         """
@@ -191,7 +191,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskMBpsReadWrite")
-    def disk_m_bps_read_write(self) -> pulumi.Output[Optional[int]]:
+    def disk_m_bps_read_write(self) -> pulumi.Output[Optional[float]]:
         """
         The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         """
@@ -199,7 +199,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeBytes")
-    def disk_size_bytes(self) -> pulumi.Output[int]:
+    def disk_size_bytes(self) -> pulumi.Output[float]:
         """
         The size of the disk in bytes. This field is read only.
         """

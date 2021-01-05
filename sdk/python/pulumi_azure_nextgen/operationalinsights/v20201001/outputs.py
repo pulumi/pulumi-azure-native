@@ -87,13 +87,13 @@ class CapacityReservationPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  last_sku_update: str,
-                 max_capacity: int,
-                 min_capacity: int):
+                 max_capacity: float,
+                 min_capacity: float):
         """
         The Capacity Reservation properties.
         :param str last_sku_update: The last time Sku was updated.
-        :param int max_capacity: Maximum CapacityReservation value in GB.
-        :param int min_capacity: Minimum CapacityReservation value in GB.
+        :param float max_capacity: Maximum CapacityReservation value in GB.
+        :param float min_capacity: Minimum CapacityReservation value in GB.
         """
         pulumi.set(__self__, "last_sku_update", last_sku_update)
         pulumi.set(__self__, "max_capacity", max_capacity)
@@ -109,7 +109,7 @@ class CapacityReservationPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> int:
+    def max_capacity(self) -> float:
         """
         Maximum CapacityReservation value in GB.
         """
@@ -117,7 +117,7 @@ class CapacityReservationPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="minCapacity")
-    def min_capacity(self) -> int:
+    def min_capacity(self) -> float:
         """
         Minimum CapacityReservation value in GB.
         """
@@ -133,11 +133,11 @@ class ClusterSkuResponse(dict):
     The cluster sku definition.
     """
     def __init__(__self__, *,
-                 capacity: Optional[int] = None,
+                 capacity: Optional[float] = None,
                  name: Optional[str] = None):
         """
         The cluster sku definition.
-        :param int capacity: The capacity value
+        :param float capacity: The capacity value
         :param str name: The name of the SKU.
         """
         if capacity is not None:
@@ -147,7 +147,7 @@ class ClusterSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[int]:
+    def capacity(self) -> Optional[float]:
         """
         The capacity value
         """

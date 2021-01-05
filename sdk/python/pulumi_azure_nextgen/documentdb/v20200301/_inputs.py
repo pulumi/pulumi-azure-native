@@ -408,12 +408,12 @@ class ConsistencyPolicyArgs:
     def __init__(__self__, *,
                  default_consistency_level: pulumi.Input['DefaultConsistencyLevel'],
                  max_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-                 max_staleness_prefix: Optional[pulumi.Input[int]] = None):
+                 max_staleness_prefix: Optional[pulumi.Input[float]] = None):
         """
         The consistency policy for the Cosmos DB database account.
         :param pulumi.Input['DefaultConsistencyLevel'] default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
         :param pulumi.Input[int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        :param pulumi.Input[int] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        :param pulumi.Input[float] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
         pulumi.set(__self__, "default_consistency_level", default_consistency_level)
         if max_interval_in_seconds is not None:
@@ -447,14 +447,14 @@ class ConsistencyPolicyArgs:
 
     @property
     @pulumi.getter(name="maxStalenessPrefix")
-    def max_staleness_prefix(self) -> Optional[pulumi.Input[int]]:
+    def max_staleness_prefix(self) -> Optional[pulumi.Input[float]]:
         """
         When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
         return pulumi.get(self, "max_staleness_prefix")
 
     @max_staleness_prefix.setter
-    def max_staleness_prefix(self, value: Optional[pulumi.Input[int]]):
+    def max_staleness_prefix(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_staleness_prefix", value)
 
 

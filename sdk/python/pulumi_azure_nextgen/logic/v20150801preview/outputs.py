@@ -1446,17 +1446,17 @@ class EdifactEnvelopeSettingsResponse(dict):
                  group_application_sender_id: Optional[str] = None,
                  group_application_sender_qualifier: Optional[str] = None,
                  group_association_assigned_code: Optional[str] = None,
-                 group_control_number_lower_bound: Optional[int] = None,
+                 group_control_number_lower_bound: Optional[float] = None,
                  group_control_number_prefix: Optional[str] = None,
                  group_control_number_suffix: Optional[str] = None,
-                 group_control_number_upper_bound: Optional[int] = None,
+                 group_control_number_upper_bound: Optional[float] = None,
                  group_controlling_agency_code: Optional[str] = None,
                  group_message_release: Optional[str] = None,
                  group_message_version: Optional[str] = None,
-                 interchange_control_number_lower_bound: Optional[int] = None,
+                 interchange_control_number_lower_bound: Optional[float] = None,
                  interchange_control_number_prefix: Optional[str] = None,
                  interchange_control_number_suffix: Optional[str] = None,
-                 interchange_control_number_upper_bound: Optional[int] = None,
+                 interchange_control_number_upper_bound: Optional[float] = None,
                  is_test_interchange: Optional[bool] = None,
                  overwrite_existing_transaction_set_control_number: Optional[bool] = None,
                  processing_priority_code: Optional[str] = None,
@@ -1471,10 +1471,10 @@ class EdifactEnvelopeSettingsResponse(dict):
                  sender_internal_identification: Optional[str] = None,
                  sender_internal_sub_identification: Optional[str] = None,
                  sender_reverse_routing_address: Optional[str] = None,
-                 transaction_set_control_number_lower_bound: Optional[int] = None,
+                 transaction_set_control_number_lower_bound: Optional[float] = None,
                  transaction_set_control_number_prefix: Optional[str] = None,
                  transaction_set_control_number_suffix: Optional[str] = None,
-                 transaction_set_control_number_upper_bound: Optional[int] = None):
+                 transaction_set_control_number_upper_bound: Optional[float] = None):
         """
         :param str application_reference_id: The application reference id.
         :param bool apply_delimiter_string_advice: The value indicating whether to apply delimiter string advice.
@@ -1488,17 +1488,17 @@ class EdifactEnvelopeSettingsResponse(dict):
         :param str group_application_sender_id: The group application sender id.
         :param str group_application_sender_qualifier: The group application sender qualifier.
         :param str group_association_assigned_code: The group association assigned code.
-        :param int group_control_number_lower_bound: The group control number lower bound.
+        :param float group_control_number_lower_bound: The group control number lower bound.
         :param str group_control_number_prefix: The group control number prefix.
         :param str group_control_number_suffix: The group control number suffix.
-        :param int group_control_number_upper_bound: The group control number upper bound.
+        :param float group_control_number_upper_bound: The group control number upper bound.
         :param str group_controlling_agency_code: The group controlling agency code.
         :param str group_message_release: The group message release.
         :param str group_message_version: The group message version.
-        :param int interchange_control_number_lower_bound: The interchange control number lower bound.
+        :param float interchange_control_number_lower_bound: The interchange control number lower bound.
         :param str interchange_control_number_prefix: The interchange control number prefix.
         :param str interchange_control_number_suffix: The interchange control number suffix.
-        :param int interchange_control_number_upper_bound: The interchange control number upper bound.
+        :param float interchange_control_number_upper_bound: The interchange control number upper bound.
         :param bool is_test_interchange: The value indicating whether the message is a test interchange.
         :param bool overwrite_existing_transaction_set_control_number: The value indicating whether to overwrite existing transaction set control number.
         :param str processing_priority_code: The processing priority code.
@@ -1513,10 +1513,10 @@ class EdifactEnvelopeSettingsResponse(dict):
         :param str sender_internal_identification: The sender internal identification.
         :param str sender_internal_sub_identification: The sender internal sub identification.
         :param str sender_reverse_routing_address: The sender reverse routing address.
-        :param int transaction_set_control_number_lower_bound: The transaction set control number lower bound.
+        :param float transaction_set_control_number_lower_bound: The transaction set control number lower bound.
         :param str transaction_set_control_number_prefix: The transaction set control number prefix.
         :param str transaction_set_control_number_suffix: The transaction set control number suffix.
-        :param int transaction_set_control_number_upper_bound: The transaction set control number upper bound.
+        :param float transaction_set_control_number_upper_bound: The transaction set control number upper bound.
         """
         if application_reference_id is not None:
             pulumi.set(__self__, "application_reference_id", application_reference_id)
@@ -1699,7 +1699,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="groupControlNumberLowerBound")
-    def group_control_number_lower_bound(self) -> Optional[int]:
+    def group_control_number_lower_bound(self) -> Optional[float]:
         """
         The group control number lower bound.
         """
@@ -1723,7 +1723,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="groupControlNumberUpperBound")
-    def group_control_number_upper_bound(self) -> Optional[int]:
+    def group_control_number_upper_bound(self) -> Optional[float]:
         """
         The group control number upper bound.
         """
@@ -1755,7 +1755,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="interchangeControlNumberLowerBound")
-    def interchange_control_number_lower_bound(self) -> Optional[int]:
+    def interchange_control_number_lower_bound(self) -> Optional[float]:
         """
         The interchange control number lower bound.
         """
@@ -1779,7 +1779,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="interchangeControlNumberUpperBound")
-    def interchange_control_number_upper_bound(self) -> Optional[int]:
+    def interchange_control_number_upper_bound(self) -> Optional[float]:
         """
         The interchange control number upper bound.
         """
@@ -1899,7 +1899,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="transactionSetControlNumberLowerBound")
-    def transaction_set_control_number_lower_bound(self) -> Optional[int]:
+    def transaction_set_control_number_lower_bound(self) -> Optional[float]:
         """
         The transaction set control number lower bound.
         """
@@ -1923,7 +1923,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="transactionSetControlNumberUpperBound")
-    def transaction_set_control_number_upper_bound(self) -> Optional[int]:
+    def transaction_set_control_number_upper_bound(self) -> Optional[float]:
         """
         The transaction set control number upper bound.
         """
@@ -2733,13 +2733,13 @@ class IntegrationAccountContentHashResponse(dict):
 class IntegrationAccountContentLinkResponse(dict):
     def __init__(__self__, *,
                  content_hash: Optional['outputs.IntegrationAccountContentHashResponse'] = None,
-                 content_size: Optional[int] = None,
+                 content_size: Optional[float] = None,
                  content_version: Optional[str] = None,
                  metadata: Optional[Any] = None,
                  uri: Optional[str] = None):
         """
         :param 'IntegrationAccountContentHashResponseArgs' content_hash: The content hash.
-        :param int content_size: The content size.
+        :param float content_size: The content size.
         :param str content_version: The content version.
         :param Any metadata: The metadata.
         :param str uri: The content link URI.
@@ -2765,7 +2765,7 @@ class IntegrationAccountContentLinkResponse(dict):
 
     @property
     @pulumi.getter(name="contentSize")
-    def content_size(self) -> Optional[int]:
+    def content_size(self) -> Optional[float]:
         """
         The content size.
         """

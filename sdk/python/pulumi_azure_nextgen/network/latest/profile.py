@@ -22,7 +22,7 @@ class Profile(pulumi.CustomResource):
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_return: Optional[pulumi.Input[int]] = None,
+                 max_return: Optional[pulumi.Input[float]] = None,
                  monitor_config: Optional[pulumi.Input[pulumi.InputType['MonitorConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -45,7 +45,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointArgs']]]] endpoints: The list of endpoints in the Traffic Manager profile.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[int] max_return: Maximum number of endpoints to be returned for MultiValue routing type.
+        :param pulumi.Input[float] max_return: Maximum number of endpoints to be returned for MultiValue routing type.
         :param pulumi.Input[pulumi.InputType['MonitorConfigArgs']] monitor_config: The endpoint monitoring settings of the Traffic Manager profile.
         :param pulumi.Input[str] name: The name of the resource
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
@@ -143,7 +143,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxReturn")
-    def max_return(self) -> pulumi.Output[Optional[int]]:
+    def max_return(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum number of endpoints to be returned for MultiValue routing type.
         """

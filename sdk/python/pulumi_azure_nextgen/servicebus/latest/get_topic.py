@@ -60,8 +60,8 @@ class GetTopicResult:
         if requires_duplicate_detection and not isinstance(requires_duplicate_detection, bool):
             raise TypeError("Expected argument 'requires_duplicate_detection' to be a bool")
         pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
-        if size_in_bytes and not isinstance(size_in_bytes, int):
-            raise TypeError("Expected argument 'size_in_bytes' to be a int")
+        if size_in_bytes and not isinstance(size_in_bytes, float):
+            raise TypeError("Expected argument 'size_in_bytes' to be a float")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
@@ -185,7 +185,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> int:
+    def size_in_bytes(self) -> float:
         """
         Size of the topic, in bytes.
         """

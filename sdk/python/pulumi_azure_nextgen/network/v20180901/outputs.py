@@ -169,21 +169,21 @@ class SoaRecordResponse(dict):
     """
     def __init__(__self__, *,
                  email: Optional[str] = None,
-                 expire_time: Optional[int] = None,
+                 expire_time: Optional[float] = None,
                  host: Optional[str] = None,
-                 minimum_ttl: Optional[int] = None,
-                 refresh_time: Optional[int] = None,
-                 retry_time: Optional[int] = None,
-                 serial_number: Optional[int] = None):
+                 minimum_ttl: Optional[float] = None,
+                 refresh_time: Optional[float] = None,
+                 retry_time: Optional[float] = None,
+                 serial_number: Optional[float] = None):
         """
         An SOA record.
         :param str email: The email contact for this SOA record.
-        :param int expire_time: The expire time for this SOA record.
+        :param float expire_time: The expire time for this SOA record.
         :param str host: The domain name of the authoritative name server for this SOA record.
-        :param int minimum_ttl: The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-        :param int refresh_time: The refresh value for this SOA record.
-        :param int retry_time: The retry time for this SOA record.
-        :param int serial_number: The serial number for this SOA record.
+        :param float minimum_ttl: The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+        :param float refresh_time: The refresh value for this SOA record.
+        :param float retry_time: The retry time for this SOA record.
+        :param float serial_number: The serial number for this SOA record.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -210,7 +210,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[int]:
+    def expire_time(self) -> Optional[float]:
         """
         The expire time for this SOA record.
         """
@@ -226,7 +226,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="minimumTtl")
-    def minimum_ttl(self) -> Optional[int]:
+    def minimum_ttl(self) -> Optional[float]:
         """
         The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
         """
@@ -234,7 +234,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[int]:
+    def refresh_time(self) -> Optional[float]:
         """
         The refresh value for this SOA record.
         """
@@ -242,7 +242,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[int]:
+    def retry_time(self) -> Optional[float]:
         """
         The retry time for this SOA record.
         """
@@ -250,7 +250,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[int]:
+    def serial_number(self) -> Optional[float]:
         """
         The serial number for this SOA record.
         """

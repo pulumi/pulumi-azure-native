@@ -208,8 +208,8 @@ class FailoverTargetResponseResult(dict):
     Represents the eligibility of a device as a failover target device.
     """
     def __init__(__self__, *,
-                 available_local_storage_in_bytes: Optional[int] = None,
-                 available_tiered_storage_in_bytes: Optional[int] = None,
+                 available_local_storage_in_bytes: Optional[float] = None,
+                 available_tiered_storage_in_bytes: Optional[float] = None,
                  data_containers_count: Optional[int] = None,
                  device_id: Optional[str] = None,
                  device_location: Optional[str] = None,
@@ -221,8 +221,8 @@ class FailoverTargetResponseResult(dict):
                  volumes_count: Optional[int] = None):
         """
         Represents the eligibility of a device as a failover target device.
-        :param int available_local_storage_in_bytes: The amount of free local storage available on the device in bytes.
-        :param int available_tiered_storage_in_bytes: The amount of free tiered storage available for the device in bytes.
+        :param float available_local_storage_in_bytes: The amount of free local storage available on the device in bytes.
+        :param float available_tiered_storage_in_bytes: The amount of free tiered storage available for the device in bytes.
         :param int data_containers_count: The count of data containers on the device.
         :param str device_id: The path ID of the device.
         :param str device_location: The geo location (applicable only for cloud appliances) of the device.
@@ -258,7 +258,7 @@ class FailoverTargetResponseResult(dict):
 
     @property
     @pulumi.getter(name="availableLocalStorageInBytes")
-    def available_local_storage_in_bytes(self) -> Optional[int]:
+    def available_local_storage_in_bytes(self) -> Optional[float]:
         """
         The amount of free local storage available on the device in bytes.
         """
@@ -266,7 +266,7 @@ class FailoverTargetResponseResult(dict):
 
     @property
     @pulumi.getter(name="availableTieredStorageInBytes")
-    def available_tiered_storage_in_bytes(self) -> Optional[int]:
+    def available_tiered_storage_in_bytes(self) -> Optional[float]:
         """
         The amount of free tiered storage available for the device in bytes.
         """
@@ -617,7 +617,7 @@ class VolumeFailoverMetadataResponseResult(dict):
                  backup_element_id: Optional[str] = None,
                  backup_id: Optional[str] = None,
                  backup_policy_id: Optional[str] = None,
-                 size_in_bytes: Optional[int] = None,
+                 size_in_bytes: Optional[float] = None,
                  volume_id: Optional[str] = None,
                  volume_type: Optional[str] = None):
         """
@@ -626,7 +626,7 @@ class VolumeFailoverMetadataResponseResult(dict):
         :param str backup_element_id: The path ID of the backup-element for this volume, inside the backup set.
         :param str backup_id: The path ID of the backup set.
         :param str backup_policy_id: The path ID of the backup policy using which the snapshot was taken.
-        :param int size_in_bytes: The size of the volume in bytes at the time the snapshot was taken.
+        :param float size_in_bytes: The size of the volume in bytes at the time the snapshot was taken.
         :param str volume_id: The path ID of the volume.
         :param str volume_type: The type of the volume.
         """
@@ -679,7 +679,7 @@ class VolumeFailoverMetadataResponseResult(dict):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> Optional[int]:
+    def size_in_bytes(self) -> Optional[float]:
         """
         The size of the volume in bytes at the time the snapshot was taken.
         """

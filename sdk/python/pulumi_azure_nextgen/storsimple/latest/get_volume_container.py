@@ -48,8 +48,8 @@ class GetVolumeContainerResult:
         if storage_account_credential_id and not isinstance(storage_account_credential_id, str):
             raise TypeError("Expected argument 'storage_account_credential_id' to be a str")
         pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
-        if total_cloud_storage_usage_in_bytes and not isinstance(total_cloud_storage_usage_in_bytes, int):
-            raise TypeError("Expected argument 'total_cloud_storage_usage_in_bytes' to be a int")
+        if total_cloud_storage_usage_in_bytes and not isinstance(total_cloud_storage_usage_in_bytes, float):
+            raise TypeError("Expected argument 'total_cloud_storage_usage_in_bytes' to be a float")
         pulumi.set(__self__, "total_cloud_storage_usage_in_bytes", total_cloud_storage_usage_in_bytes)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -132,7 +132,7 @@ class GetVolumeContainerResult:
 
     @property
     @pulumi.getter(name="totalCloudStorageUsageInBytes")
-    def total_cloud_storage_usage_in_bytes(self) -> int:
+    def total_cloud_storage_usage_in_bytes(self) -> float:
         """
         The total cloud storage for the volume container.
         """

@@ -209,19 +209,19 @@ class CopyProgressResponse(dict):
     """
     def __init__(__self__, *,
                  account_id: str,
-                 bytes_sent_to_cloud: int,
-                 files_processed: int,
+                 bytes_sent_to_cloud: float,
+                 files_processed: float,
                  storage_account_name: str,
-                 total_bytes_to_process: int,
-                 total_files_to_process: int):
+                 total_bytes_to_process: float,
+                 total_files_to_process: float):
         """
         Copy progress.
         :param str account_id: Id of the account where the data needs to be uploaded.
-        :param int bytes_sent_to_cloud: Amount of data uploaded by the job as of now.
-        :param int files_processed: Number of files processed by the job as of now.
+        :param float bytes_sent_to_cloud: Amount of data uploaded by the job as of now.
+        :param float files_processed: Number of files processed by the job as of now.
         :param str storage_account_name: Name of the storage account where the data needs to be uploaded.
-        :param int total_bytes_to_process: Total amount of data to be processed by the job.
-        :param int total_files_to_process: Total number of files to be processed by the job.
+        :param float total_bytes_to_process: Total amount of data to be processed by the job.
+        :param float total_files_to_process: Total number of files to be processed by the job.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "bytes_sent_to_cloud", bytes_sent_to_cloud)
@@ -240,7 +240,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="bytesSentToCloud")
-    def bytes_sent_to_cloud(self) -> int:
+    def bytes_sent_to_cloud(self) -> float:
         """
         Amount of data uploaded by the job as of now.
         """
@@ -248,7 +248,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="filesProcessed")
-    def files_processed(self) -> int:
+    def files_processed(self) -> float:
         """
         Number of files processed by the job as of now.
         """
@@ -264,7 +264,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="totalBytesToProcess")
-    def total_bytes_to_process(self) -> int:
+    def total_bytes_to_process(self) -> float:
         """
         Total amount of data to be processed by the job.
         """
@@ -272,7 +272,7 @@ class CopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="totalFilesToProcess")
-    def total_files_to_process(self) -> int:
+    def total_files_to_process(self) -> float:
         """
         Total number of files to be processed by the job.
         """
@@ -397,13 +397,13 @@ class DataBoxDiskCopyProgressResponse(dict):
     DataBox Disk Copy Progress
     """
     def __init__(__self__, *,
-                 bytes_copied: int,
+                 bytes_copied: float,
                  percent_complete: int,
                  serial_number: str,
                  status: str):
         """
         DataBox Disk Copy Progress
-        :param int bytes_copied: Bytes copied during the copy of disk.
+        :param float bytes_copied: Bytes copied during the copy of disk.
         :param int percent_complete: Indicates the percentage completed for the copy of the disk.
         :param str serial_number: The serial number of the disk
         :param str status: The Status of the copy
@@ -415,7 +415,7 @@ class DataBoxDiskCopyProgressResponse(dict):
 
     @property
     @pulumi.getter(name="bytesCopied")
-    def bytes_copied(self) -> int:
+    def bytes_copied(self) -> float:
         """
         Bytes copied during the copy of disk.
         """

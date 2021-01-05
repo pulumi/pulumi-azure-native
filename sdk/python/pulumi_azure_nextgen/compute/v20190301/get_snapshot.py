@@ -24,8 +24,8 @@ class GetSnapshotResult:
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
-        if disk_size_bytes and not isinstance(disk_size_bytes, int):
-            raise TypeError("Expected argument 'disk_size_bytes' to be a int")
+        if disk_size_bytes and not isinstance(disk_size_bytes, float):
+            raise TypeError("Expected argument 'disk_size_bytes' to be a float")
         pulumi.set(__self__, "disk_size_bytes", disk_size_bytes)
         if disk_size_gb and not isinstance(disk_size_gb, int):
             raise TypeError("Expected argument 'disk_size_gb' to be a int")
@@ -83,7 +83,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="diskSizeBytes")
-    def disk_size_bytes(self) -> int:
+    def disk_size_bytes(self) -> float:
         """
         The size of the disk in bytes. This field is read only.
         """

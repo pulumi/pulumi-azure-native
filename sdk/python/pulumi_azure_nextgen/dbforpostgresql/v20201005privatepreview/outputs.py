@@ -156,8 +156,8 @@ class ServerRoleGroupResponse(dict):
                  role: Optional[str] = None,
                  server_count: Optional[int] = None,
                  server_edition: Optional[str] = None,
-                 storage_quota_in_mb: Optional[int] = None,
-                 v_cores: Optional[int] = None):
+                 storage_quota_in_mb: Optional[float] = None,
+                 v_cores: Optional[float] = None):
         """
         Represents a server role group.
         :param bool enable_public_ip: If public IP is requested or not for a server.
@@ -167,8 +167,8 @@ class ServerRoleGroupResponse(dict):
         :param str role: The role of servers in the server role group.
         :param int server_count: The number of servers in the server role group.
         :param str server_edition: The edition of a server (default: GeneralPurpose).
-        :param int storage_quota_in_mb: The storage of a server in MB (max: 2097152 = 2TiB).
-        :param int v_cores: The vCores count of a server (max: 64).
+        :param float storage_quota_in_mb: The storage of a server in MB (max: 2097152 = 2TiB).
+        :param float v_cores: The vCores count of a server (max: 64).
         """
         pulumi.set(__self__, "enable_public_ip", enable_public_ip)
         pulumi.set(__self__, "server_names", server_names)
@@ -245,7 +245,7 @@ class ServerRoleGroupResponse(dict):
 
     @property
     @pulumi.getter(name="storageQuotaInMb")
-    def storage_quota_in_mb(self) -> Optional[int]:
+    def storage_quota_in_mb(self) -> Optional[float]:
         """
         The storage of a server in MB (max: 2097152 = 2TiB).
         """
@@ -253,7 +253,7 @@ class ServerRoleGroupResponse(dict):
 
     @property
     @pulumi.getter(name="vCores")
-    def v_cores(self) -> Optional[int]:
+    def v_cores(self) -> Optional[float]:
         """
         The vCores count of a server (max: 64).
         """

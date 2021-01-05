@@ -2405,13 +2405,13 @@ class SiteConfigArgs:
 @pulumi.input_type
 class SiteLimitsArgs:
     def __init__(__self__, *,
-                 max_disk_size_in_mb: Optional[pulumi.Input[int]] = None,
-                 max_memory_in_mb: Optional[pulumi.Input[int]] = None,
+                 max_disk_size_in_mb: Optional[pulumi.Input[float]] = None,
+                 max_memory_in_mb: Optional[pulumi.Input[float]] = None,
                  max_percentage_cpu: Optional[pulumi.Input[float]] = None):
         """
         Represents metric limits set on a web app.
-        :param pulumi.Input[int] max_disk_size_in_mb: Maximum allowed disk size usage in MB
-        :param pulumi.Input[int] max_memory_in_mb: Maximum allowed memory usage in MB
+        :param pulumi.Input[float] max_disk_size_in_mb: Maximum allowed disk size usage in MB
+        :param pulumi.Input[float] max_memory_in_mb: Maximum allowed memory usage in MB
         :param pulumi.Input[float] max_percentage_cpu: Maximum allowed CPU usage percentage
         """
         if max_disk_size_in_mb is not None:
@@ -2423,26 +2423,26 @@ class SiteLimitsArgs:
 
     @property
     @pulumi.getter(name="maxDiskSizeInMb")
-    def max_disk_size_in_mb(self) -> Optional[pulumi.Input[int]]:
+    def max_disk_size_in_mb(self) -> Optional[pulumi.Input[float]]:
         """
         Maximum allowed disk size usage in MB
         """
         return pulumi.get(self, "max_disk_size_in_mb")
 
     @max_disk_size_in_mb.setter
-    def max_disk_size_in_mb(self, value: Optional[pulumi.Input[int]]):
+    def max_disk_size_in_mb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_disk_size_in_mb", value)
 
     @property
     @pulumi.getter(name="maxMemoryInMb")
-    def max_memory_in_mb(self) -> Optional[pulumi.Input[int]]:
+    def max_memory_in_mb(self) -> Optional[pulumi.Input[float]]:
         """
         Maximum allowed memory usage in MB
         """
         return pulumi.get(self, "max_memory_in_mb")
 
     @max_memory_in_mb.setter
-    def max_memory_in_mb(self, value: Optional[pulumi.Input[int]]):
+    def max_memory_in_mb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_memory_in_mb", value)
 
     @property
@@ -2605,26 +2605,26 @@ class SlowRequestsBasedTriggerArgs:
 @pulumi.input_type
 class StampCapacityArgs:
     def __init__(__self__, *,
-                 available_capacity: Optional[pulumi.Input[int]] = None,
+                 available_capacity: Optional[pulumi.Input[float]] = None,
                  compute_mode: Optional[pulumi.Input['ComputeModeOptions']] = None,
                  exclude_from_capacity_allocation: Optional[pulumi.Input[bool]] = None,
                  is_applicable_for_all_compute_modes: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  site_mode: Optional[pulumi.Input[str]] = None,
-                 total_capacity: Optional[pulumi.Input[int]] = None,
+                 total_capacity: Optional[pulumi.Input[float]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
                  worker_size: Optional[pulumi.Input['WorkerSizeOptions']] = None,
                  worker_size_id: Optional[pulumi.Input[int]] = None):
         """
         Class containing stamp capacity information
-        :param pulumi.Input[int] available_capacity: Available capacity (# of machines, bytes of storage etc...)
+        :param pulumi.Input[float] available_capacity: Available capacity (# of machines, bytes of storage etc...)
         :param pulumi.Input['ComputeModeOptions'] compute_mode: Shared/Dedicated workers
         :param pulumi.Input[bool] exclude_from_capacity_allocation: If true it includes basic sites
                            Basic sites are not used for capacity allocation.
         :param pulumi.Input[bool] is_applicable_for_all_compute_modes: Is capacity applicable for all sites?
         :param pulumi.Input[str] name: Name of the stamp
         :param pulumi.Input[str] site_mode: Shared or Dedicated
-        :param pulumi.Input[int] total_capacity: Total capacity (# of machines, bytes of storage etc...)
+        :param pulumi.Input[float] total_capacity: Total capacity (# of machines, bytes of storage etc...)
         :param pulumi.Input[str] unit: Name of the unit
         :param pulumi.Input['WorkerSizeOptions'] worker_size: Size of the machines
         :param pulumi.Input[int] worker_size_id: Size Id of machines: 
@@ -2655,14 +2655,14 @@ class StampCapacityArgs:
 
     @property
     @pulumi.getter(name="availableCapacity")
-    def available_capacity(self) -> Optional[pulumi.Input[int]]:
+    def available_capacity(self) -> Optional[pulumi.Input[float]]:
         """
         Available capacity (# of machines, bytes of storage etc...)
         """
         return pulumi.get(self, "available_capacity")
 
     @available_capacity.setter
-    def available_capacity(self, value: Optional[pulumi.Input[int]]):
+    def available_capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "available_capacity", value)
 
     @property
@@ -2728,14 +2728,14 @@ class StampCapacityArgs:
 
     @property
     @pulumi.getter(name="totalCapacity")
-    def total_capacity(self) -> Optional[pulumi.Input[int]]:
+    def total_capacity(self) -> Optional[pulumi.Input[float]]:
         """
         Total capacity (# of machines, bytes of storage etc...)
         """
         return pulumi.get(self, "total_capacity")
 
     @total_capacity.setter
-    def total_capacity(self, value: Optional[pulumi.Input[int]]):
+    def total_capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "total_capacity", value)
 
     @property

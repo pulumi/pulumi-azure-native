@@ -41,8 +41,8 @@ class GetBackupPolicyResult:
         if scheduled_backup_status and not isinstance(scheduled_backup_status, str):
             raise TypeError("Expected argument 'scheduled_backup_status' to be a str")
         pulumi.set(__self__, "scheduled_backup_status", scheduled_backup_status)
-        if schedules_count and not isinstance(schedules_count, int):
-            raise TypeError("Expected argument 'schedules_count' to be a int")
+        if schedules_count and not isinstance(schedules_count, float):
+            raise TypeError("Expected argument 'schedules_count' to be a float")
         pulumi.set(__self__, "schedules_count", schedules_count)
         if ssm_host_name and not isinstance(ssm_host_name, str):
             raise TypeError("Expected argument 'ssm_host_name' to be a str")
@@ -112,7 +112,7 @@ class GetBackupPolicyResult:
 
     @property
     @pulumi.getter(name="schedulesCount")
-    def schedules_count(self) -> int:
+    def schedules_count(self) -> float:
         """
         The count of schedules the backup policy contains.
         """

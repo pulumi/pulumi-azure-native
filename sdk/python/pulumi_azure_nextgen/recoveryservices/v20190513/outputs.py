@@ -1983,7 +1983,7 @@ class GenericProtectedItemResponse(dict):
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
                  policy_state: Optional[str] = None,
-                 protected_item_id: Optional[int] = None,
+                 protected_item_id: Optional[float] = None,
                  protected_item_type: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  source_associations: Optional[Mapping[str, str]] = None,
@@ -2005,7 +2005,7 @@ class GenericProtectedItemResponse(dict):
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param int protected_item_id: Data Plane Service ID of the protected item.
+        :param float protected_item_id: Data Plane Service ID of the protected item.
         :param str protected_item_type: backup item type.
                Expected value is 'GenericProtectedItem'.
         :param str protection_state: Backup state of this backup item.
@@ -2168,7 +2168,7 @@ class GenericProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemId")
-    def protected_item_id(self) -> Optional[int]:
+    def protected_item_id(self) -> Optional[float]:
         """
         Data Plane Service ID of the protected item.
         """
@@ -2280,7 +2280,7 @@ class MabFileFolderProtectedItemResponse(dict):
                  computer_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
-                 deferred_delete_sync_time_in_utc: Optional[int] = None,
+                 deferred_delete_sync_time_in_utc: Optional[float] = None,
                  deferred_delete_time_in_utc: Optional[str] = None,
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.MabFileFolderProtectedItemExtendedInfoResponse'] = None,
@@ -2303,7 +2303,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param str computer_name: Name of the computer associated with this backup item.
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-        :param int deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
+        :param float deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'MabFileFolderProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
@@ -2406,7 +2406,7 @@ class MabFileFolderProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="deferredDeleteSyncTimeInUTC")
-    def deferred_delete_sync_time_in_utc(self) -> Optional[int]:
+    def deferred_delete_sync_time_in_utc(self) -> Optional[float]:
         """
         Sync time for deferred deletion in UTC
         """

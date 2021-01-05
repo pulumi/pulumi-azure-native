@@ -44,8 +44,8 @@ class GetVolumeResult:
         if operation_status and not isinstance(operation_status, str):
             raise TypeError("Expected argument 'operation_status' to be a str")
         pulumi.set(__self__, "operation_status", operation_status)
-        if size_in_bytes and not isinstance(size_in_bytes, int):
-            raise TypeError("Expected argument 'size_in_bytes' to be a int")
+        if size_in_bytes and not isinstance(size_in_bytes, float):
+            raise TypeError("Expected argument 'size_in_bytes' to be a float")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -126,7 +126,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> int:
+    def size_in_bytes(self) -> float:
         """
         The size of the volume in bytes.
         """
