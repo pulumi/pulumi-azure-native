@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.Network.V20200101
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
         [Output("ttl")]
-        public Output<int?> Ttl { get; private set; } = null!;
+        public Output<double?> Ttl { get; private set; } = null!;
 
         /// <summary>
         /// The list of TXT records in the record set.
@@ -274,7 +274,7 @@ namespace Pulumi.AzureNextGen.Network.V20200101
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
         [Input("ttl")]
-        public Input<int>? Ttl { get; set; }
+        public Input<double>? Ttl { get; set; }
 
         [Input("txtRecords")]
         private InputList<Inputs.TxtRecordArgs>? _txtRecords;

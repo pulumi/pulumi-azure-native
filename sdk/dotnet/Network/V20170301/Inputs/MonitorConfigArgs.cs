@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301.Inputs
         /// Gets or sets the TCP port used to probe for endpoint health.
         /// </summary>
         [Input("port")]
-        public Input<int>? Port { get; set; }
+        public Input<double>? Port { get; set; }
 
         /// <summary>
         /// Gets or sets the profile-level monitoring status of the Traffic Manager profile.

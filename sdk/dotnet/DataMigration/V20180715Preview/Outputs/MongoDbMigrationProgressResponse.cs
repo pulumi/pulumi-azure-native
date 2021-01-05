@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// The number of document bytes copied during the Copying stage
         /// </summary>
-        public readonly int BytesCopied;
+        public readonly double BytesCopied;
         /// <summary>
         /// The progress of the databases in the migration. The keys are the names of the databases
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// The number of documents copied during the Copying stage
         /// </summary>
-        public readonly int DocumentsCopied;
+        public readonly double DocumentsCopied;
         /// <summary>
         /// The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// The number of oplog events awaiting replay
         /// </summary>
-        public readonly int EventsPending;
+        public readonly double EventsPending;
         /// <summary>
         /// The number of oplog events replayed so far
         /// </summary>
-        public readonly int EventsReplayed;
+        public readonly double EventsReplayed;
         /// <summary>
         /// The timestamp of the last oplog event received, or null if no oplog event has been received yet
         /// </summary>
@@ -66,27 +66,27 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
         /// </summary>
-        public readonly int TotalBytes;
+        public readonly double TotalBytes;
         /// <summary>
         /// The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
         /// </summary>
-        public readonly int TotalDocuments;
+        public readonly double TotalDocuments;
 
         [OutputConstructor]
         private MongoDbMigrationProgressResponse(
-            int bytesCopied,
+            double bytesCopied,
 
             ImmutableDictionary<string, Outputs.MongoDbDatabaseProgressResponse>? databases,
 
-            int documentsCopied,
+            double documentsCopied,
 
             string elapsedTime,
 
             ImmutableDictionary<string, Outputs.MongoDbErrorResponse> errors,
 
-            int eventsPending,
+            double eventsPending,
 
-            int eventsReplayed,
+            double eventsReplayed,
 
             string? lastEventTime,
 
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
             string state,
 
-            int totalBytes,
+            double totalBytes,
 
-            int totalDocuments)
+            double totalDocuments)
         {
             BytesCopied = bytesCopied;
             Databases = databases;

@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Environment reference id.
         /// </summary>
-        public readonly int? Id;
+        public readonly double? Id;
         /// <summary>
         /// Reference type
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             string? environmentName,
 
-            int? id,
+            double? id,
 
             string? referenceType)
         {

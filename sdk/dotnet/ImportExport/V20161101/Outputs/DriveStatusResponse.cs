@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Outputs
         /// <summary>
         /// Bytes successfully transferred for the drive.
         /// </summary>
-        public readonly int? BytesSucceeded;
+        public readonly double? BytesSucceeded;
         /// <summary>
         /// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Outputs
         private DriveStatusResponse(
             string? bitLockerKey,
 
-            int? bytesSucceeded,
+            double? bytesSucceeded,
 
             string? copyStatus,
 

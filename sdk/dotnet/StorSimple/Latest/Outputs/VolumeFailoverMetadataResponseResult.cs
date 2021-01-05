@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest.Outputs
         /// <summary>
         /// The size of the volume in bytes at the time the snapshot was taken.
         /// </summary>
-        public readonly int? SizeInBytes;
+        public readonly double? SizeInBytes;
         /// <summary>
         /// The path ID of the volume.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest.Outputs
 
             string? backupPolicyId,
 
-            int? sizeInBytes,
+            double? sizeInBytes,
 
             string? volumeId,
 

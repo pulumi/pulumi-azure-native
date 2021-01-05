@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201.Outputs
         /// <summary>
         /// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         /// </summary>
-        public readonly int? Ttl;
+        public readonly double? Ttl;
 
         [OutputConstructor]
         private DnsConfigResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201.Outputs
 
             string? relativeName,
 
-            int? ttl)
+            double? ttl)
         {
             Fqdn = fqdn;
             RelativeName = relativeName;

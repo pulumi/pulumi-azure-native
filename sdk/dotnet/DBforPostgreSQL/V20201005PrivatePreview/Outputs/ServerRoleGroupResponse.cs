@@ -44,11 +44,11 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview.Outputs
         /// <summary>
         /// The storage of a server in MB (max: 2097152 = 2TiB).
         /// </summary>
-        public readonly int? StorageQuotaInMb;
+        public readonly double? StorageQuotaInMb;
         /// <summary>
         /// The vCores count of a server (max: 64).
         /// </summary>
-        public readonly int? VCores;
+        public readonly double? VCores;
 
         [OutputConstructor]
         private ServerRoleGroupResponse(
@@ -66,9 +66,9 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview.Outputs
 
             ImmutableArray<Outputs.ServerNameItemResponse> serverNames,
 
-            int? storageQuotaInMb,
+            double? storageQuotaInMb,
 
-            int? vCores)
+            double? vCores)
         {
             EnableHa = enableHa;
             EnablePublicIp = enablePublicIp;

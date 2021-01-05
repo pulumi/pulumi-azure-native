@@ -16,19 +16,19 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         /// <summary>
         /// Number of applied deletes
         /// </summary>
-        public readonly int CdcDeleteCounter;
+        public readonly double CdcDeleteCounter;
         /// <summary>
         /// Number of applied inserts
         /// </summary>
-        public readonly int CdcInsertCounter;
+        public readonly double CdcInsertCounter;
         /// <summary>
         /// Number of applied updates
         /// </summary>
-        public readonly int CdcUpdateCounter;
+        public readonly double CdcUpdateCounter;
         /// <summary>
         /// Number of data errors occurred
         /// </summary>
-        public readonly int DataErrorsCounter;
+        public readonly double DataErrorsCounter;
         /// <summary>
         /// Name of the database
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         /// <summary>
         /// Number of rows applied in full load
         /// </summary>
-        public readonly int FullLoadTotalRows;
+        public readonly double FullLoadTotalRows;
         /// <summary>
         /// Result identifier
         /// </summary>
@@ -73,17 +73,17 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         /// <summary>
         /// Total number of applied changes
         /// </summary>
-        public readonly int TotalChangesApplied;
+        public readonly double TotalChangesApplied;
 
         [OutputConstructor]
         private MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(
-            int cdcDeleteCounter,
+            double cdcDeleteCounter,
 
-            int cdcInsertCounter,
+            double cdcInsertCounter,
 
-            int cdcUpdateCounter,
+            double cdcUpdateCounter,
 
-            int dataErrorsCounter,
+            double dataErrorsCounter,
 
             string databaseName,
 
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
 
             string fullLoadStartedOn,
 
-            int fullLoadTotalRows,
+            double fullLoadTotalRows,
 
             string id,
 
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
 
             string tableName,
 
-            int totalChangesApplied)
+            double totalChangesApplied)
         {
             CdcDeleteCounter = cdcDeleteCounter;
             CdcInsertCounter = cdcInsertCounter;

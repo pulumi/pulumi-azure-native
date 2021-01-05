@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901.Outputs
         /// <summary>
         /// Cached content size on the server
         /// </summary>
-        public readonly int CachedSizeBytes;
+        public readonly double CachedSizeBytes;
         /// <summary>
         /// Last updated timestamp
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901.Outputs
         /// <summary>
         /// Count of bytes saved on the server
         /// </summary>
-        public readonly int SpaceSavingsBytes;
+        public readonly double SpaceSavingsBytes;
         /// <summary>
         /// Percentage of cached size over total size
         /// </summary>
@@ -32,25 +32,25 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901.Outputs
         /// <summary>
         /// Total size of content in the azure file share
         /// </summary>
-        public readonly int TotalSizeCloudBytes;
+        public readonly double TotalSizeCloudBytes;
         /// <summary>
         /// Volume size
         /// </summary>
-        public readonly int VolumeSizeBytes;
+        public readonly double VolumeSizeBytes;
 
         [OutputConstructor]
         private CloudTieringSpaceSavingsResponse(
-            int cachedSizeBytes,
+            double cachedSizeBytes,
 
             string lastUpdatedTimestamp,
 
-            int spaceSavingsBytes,
+            double spaceSavingsBytes,
 
             int spaceSavingsPercent,
 
-            int totalSizeCloudBytes,
+            double totalSizeCloudBytes,
 
-            int volumeSizeBytes)
+            double volumeSizeBytes)
         {
             CachedSizeBytes = cachedSizeBytes;
             LastUpdatedTimestamp = lastUpdatedTimestamp;

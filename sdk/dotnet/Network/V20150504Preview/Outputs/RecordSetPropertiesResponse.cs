@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview.Outputs
         /// <summary>
         /// Gets or sets the TTL of the records in the RecordSet.
         /// </summary>
-        public readonly int? Ttl;
+        public readonly double? Ttl;
 
         [OutputConstructor]
         private RecordSetPropertiesResponse(
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview.Outputs
 
             ImmutableArray<Outputs.TxtRecordResponse> tXTRecords,
 
-            int? ttl)
+            double? ttl)
         {
             AAAARecords = aAAARecords;
             ARecords = aRecords;

@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// <summary>
         /// Number of entities pending to be replicated.
         /// </summary>
-        public readonly int PendingReplicationOperationsCount;
+        public readonly double PendingReplicationOperationsCount;
         /// <summary>
         /// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
 
             string? partnerNamespace,
 
-            int pendingReplicationOperationsCount,
+            double pendingReplicationOperationsCount,
 
             string provisioningState,
 

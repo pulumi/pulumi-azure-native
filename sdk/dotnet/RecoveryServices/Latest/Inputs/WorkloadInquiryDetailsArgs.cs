@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Contains the protectable item Count inside this Container.
         /// </summary>
         [Input("itemCount")]
-        public Input<int>? ItemCount { get; set; }
+        public Input<double>? ItemCount { get; set; }
 
         /// <summary>
         /// Type of the Workload such as SQL, Oracle etc.

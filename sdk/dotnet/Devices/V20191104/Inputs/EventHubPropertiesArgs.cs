@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Devices.V20191104.Inputs
         /// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         /// </summary>
         [Input("retentionTimeInDays")]
-        public Input<int>? RetentionTimeInDays { get; set; }
+        public Input<double>? RetentionTimeInDays { get; set; }
 
         public EventHubPropertiesArgs()
         {

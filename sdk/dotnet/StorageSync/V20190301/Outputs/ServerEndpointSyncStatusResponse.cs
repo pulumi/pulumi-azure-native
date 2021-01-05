@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20190301.Outputs
         /// <summary>
         /// Total count of persistent files not syncing (combined upload + download). Reserved for future use.
         /// </summary>
-        public readonly int TotalPersistentFilesNotSyncingCount;
+        public readonly double TotalPersistentFilesNotSyncingCount;
         /// <summary>
         /// Upload sync activity
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20190301.Outputs
 
             string syncActivity,
 
-            int totalPersistentFilesNotSyncingCount,
+            double totalPersistentFilesNotSyncingCount,
 
             Outputs.SyncActivityStatusResponse uploadActivity,
 

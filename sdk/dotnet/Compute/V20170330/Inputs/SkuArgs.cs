@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20170330.Inputs
         /// Specifies the number of virtual machines in the scale set. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
         /// </summary>
         [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
+        public Input<double>? Capacity { get; set; }
 
         /// <summary>
         /// The sku name.

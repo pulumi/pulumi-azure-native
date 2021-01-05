@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// The initial timestamp that the live output will start at, any content before this value will not be archived.
         /// </summary>
         [Output("outputSnapTime")]
-        public Output<int?> OutputSnapTime { get; private set; } = null!;
+        public Output<double?> OutputSnapTime { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the live output.
@@ -193,7 +193,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// The initial timestamp that the live output will start at, any content before this value will not be archived.
         /// </summary>
         [Input("outputSnapTime")]
-        public Input<int>? OutputSnapTime { get; set; }
+        public Input<double>? OutputSnapTime { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

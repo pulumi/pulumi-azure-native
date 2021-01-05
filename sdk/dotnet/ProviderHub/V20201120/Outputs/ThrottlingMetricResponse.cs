@@ -14,14 +14,14 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120.Outputs
     public sealed class ThrottlingMetricResponse
     {
         public readonly string? Interval;
-        public readonly int Limit;
+        public readonly double Limit;
         public readonly string Type;
 
         [OutputConstructor]
         private ThrottlingMetricResponse(
             string? interval,
 
-            int limit,
+            double limit,
 
             string type)
         {

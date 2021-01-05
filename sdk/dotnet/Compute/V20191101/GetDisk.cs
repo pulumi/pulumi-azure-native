@@ -46,23 +46,23 @@ namespace Pulumi.AzureNextGen.Compute.V20191101
         /// <summary>
         /// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
         /// </summary>
-        public readonly int? DiskIOPSReadOnly;
+        public readonly double? DiskIOPSReadOnly;
         /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
-        public readonly int? DiskIOPSReadWrite;
+        public readonly double? DiskIOPSReadWrite;
         /// <summary>
         /// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         /// </summary>
-        public readonly int? DiskMBpsReadOnly;
+        public readonly double? DiskMBpsReadOnly;
         /// <summary>
         /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         /// </summary>
-        public readonly int? DiskMBpsReadWrite;
+        public readonly double? DiskMBpsReadWrite;
         /// <summary>
         /// The size of the disk in bytes. This field is read only.
         /// </summary>
-        public readonly int DiskSizeBytes;
+        public readonly double DiskSizeBytes;
         /// <summary>
         /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         /// </summary>
@@ -148,15 +148,15 @@ namespace Pulumi.AzureNextGen.Compute.V20191101
         private GetDiskResult(
             Outputs.CreationDataResponse creationData,
 
-            int? diskIOPSReadOnly,
+            double? diskIOPSReadOnly,
 
-            int? diskIOPSReadWrite,
+            double? diskIOPSReadWrite,
 
-            int? diskMBpsReadOnly,
+            double? diskMBpsReadOnly,
 
-            int? diskMBpsReadWrite,
+            double? diskMBpsReadWrite,
 
-            int diskSizeBytes,
+            double diskSizeBytes,
 
             int? diskSizeGB,
 

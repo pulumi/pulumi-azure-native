@@ -16,35 +16,35 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901.Outputs
         /// <summary>
         /// Number of active messages in the queue, topic, or subscription.
         /// </summary>
-        public readonly int ActiveMessageCount;
+        public readonly double ActiveMessageCount;
         /// <summary>
         /// Number of messages that are dead lettered.
         /// </summary>
-        public readonly int DeadLetterMessageCount;
+        public readonly double DeadLetterMessageCount;
         /// <summary>
         /// Number of scheduled messages.
         /// </summary>
-        public readonly int ScheduledMessageCount;
+        public readonly double ScheduledMessageCount;
         /// <summary>
         /// Number of messages transferred into dead letters.
         /// </summary>
-        public readonly int TransferDeadLetterMessageCount;
+        public readonly double TransferDeadLetterMessageCount;
         /// <summary>
         /// Number of messages transferred to another queue, topic, or subscription.
         /// </summary>
-        public readonly int TransferMessageCount;
+        public readonly double TransferMessageCount;
 
         [OutputConstructor]
         private MessageCountDetailsResponse(
-            int activeMessageCount,
+            double activeMessageCount,
 
-            int deadLetterMessageCount,
+            double deadLetterMessageCount,
 
-            int scheduledMessageCount,
+            double scheduledMessageCount,
 
-            int transferDeadLetterMessageCount,
+            double transferDeadLetterMessageCount,
 
-            int transferMessageCount)
+            double transferMessageCount)
         {
             ActiveMessageCount = activeMessageCount;
             DeadLetterMessageCount = deadLetterMessageCount;

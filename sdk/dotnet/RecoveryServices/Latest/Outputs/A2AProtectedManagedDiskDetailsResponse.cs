@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The disk capacity in bytes.
         /// </summary>
-        public readonly int? DiskCapacityInBytes;
+        public readonly double? DiskCapacityInBytes;
         /// <summary>
         /// The managed disk Arm id.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             string? dekKeyVaultArmId,
 
-            int? diskCapacityInBytes,
+            double? diskCapacityInBytes,
 
             string? diskId,
 

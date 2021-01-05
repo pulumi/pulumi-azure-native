@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
         /// <summary>
         /// The absolute end time boundary.
         /// </summary>
-        public readonly int? EndTimestamp;
+        public readonly double? EndTimestamp;
         /// <summary>
         /// The indicator of forcing existing of end time stamp.
         /// </summary>
@@ -24,33 +24,33 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
         /// <summary>
         /// The relative to end right edge.
         /// </summary>
-        public readonly int? LiveBackoffDuration;
+        public readonly double? LiveBackoffDuration;
         /// <summary>
         /// The relative to end sliding window.
         /// </summary>
-        public readonly int? PresentationWindowDuration;
+        public readonly double? PresentationWindowDuration;
         /// <summary>
         /// The absolute start time boundary.
         /// </summary>
-        public readonly int? StartTimestamp;
+        public readonly double? StartTimestamp;
         /// <summary>
         /// The time scale of time stamps.
         /// </summary>
-        public readonly int? Timescale;
+        public readonly double? Timescale;
 
         [OutputConstructor]
         private PresentationTimeRangeResponse(
-            int? endTimestamp,
+            double? endTimestamp,
 
             bool? forceEndTimestamp,
 
-            int? liveBackoffDuration,
+            double? liveBackoffDuration,
 
-            int? presentationWindowDuration,
+            double? presentationWindowDuration,
 
-            int? startTimestamp,
+            double? startTimestamp,
 
-            int? timescale)
+            double? timescale)
         {
             EndTimestamp = endTimestamp;
             ForceEndTimestamp = forceEndTimestamp;

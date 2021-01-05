@@ -24,11 +24,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Folder id which contains project.
         /// </summary>
-        public readonly int? FolderId;
+        public readonly double? FolderId;
         /// <summary>
         /// Metadata id.
         /// </summary>
-        public readonly int? Id;
+        public readonly double? Id;
         /// <summary>
         /// Metadata name.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Project version.
         /// </summary>
-        public readonly int? Version;
+        public readonly double? Version;
 
         [OutputConstructor]
         private SsisProjectResponseResult(
@@ -53,9 +53,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             ImmutableArray<Outputs.SsisEnvironmentReferenceResponseResult> environmentRefs,
 
-            int? folderId,
+            double? folderId,
 
-            int? id,
+            double? id,
 
             string? name,
 
@@ -63,7 +63,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             string type,
 
-            int? version)
+            double? version)
         {
             Description = description;
             EnvironmentRefs = environmentRefs;

@@ -23,7 +23,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200301.Inputs
         /// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
         /// </summary>
         [Input("maximumCapacity")]
-        public Input<int>? MaximumCapacity { get; set; }
+        public Input<double>? MaximumCapacity { get; set; }
 
         /// <summary>
         /// The name of the metric.
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200301.Inputs
         /// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
         /// </summary>
         [Input("reservationCapacity")]
-        public Input<int>? ReservationCapacity { get; set; }
+        public Input<double>? ReservationCapacity { get; set; }
 
         /// <summary>
         /// The total metric capacity for Service Fabric application.
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200301.Inputs
         /// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
         /// </summary>
         [Input("totalApplicationCapacity")]
-        public Input<int>? TotalApplicationCapacity { get; set; }
+        public Input<double>? TotalApplicationCapacity { get; set; }
 
         public ApplicationMetricDescriptionArgs()
         {

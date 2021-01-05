@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.KeyVault.V20190901.Inputs
         /// Expiry date in seconds since 1970-01-01T00:00:00Z.
         /// </summary>
         [Input("expires")]
-        public Input<int>? Expires { get; set; }
+        public Input<double>? Expires { get; set; }
 
         /// <summary>
         /// Not before date in seconds since 1970-01-01T00:00:00Z.
         /// </summary>
         [Input("notBefore")]
-        public Input<int>? NotBefore { get; set; }
+        public Input<double>? NotBefore { get; set; }
 
         public KeyAttributesArgs()
         {

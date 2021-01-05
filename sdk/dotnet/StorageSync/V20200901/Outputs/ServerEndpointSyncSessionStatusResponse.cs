@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901.Outputs
         /// <summary>
         /// Last sync per item error count.
         /// </summary>
-        public readonly int LastSyncPerItemErrorCount;
+        public readonly double LastSyncPerItemErrorCount;
         /// <summary>
         /// Last sync result (HResult)
         /// </summary>
@@ -40,11 +40,11 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901.Outputs
         /// <summary>
         /// Count of persistent files not syncing.
         /// </summary>
-        public readonly int PersistentFilesNotSyncingCount;
+        public readonly double PersistentFilesNotSyncingCount;
         /// <summary>
         /// Count of transient files not syncing.
         /// </summary>
-        public readonly int TransientFilesNotSyncingCount;
+        public readonly double TransientFilesNotSyncingCount;
 
         [OutputConstructor]
         private ServerEndpointSyncSessionStatusResponse(
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901.Outputs
 
             string lastSyncMode,
 
-            int lastSyncPerItemErrorCount,
+            double lastSyncPerItemErrorCount,
 
             int lastSyncResult,
 
@@ -60,9 +60,9 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901.Outputs
 
             string lastSyncTimestamp,
 
-            int persistentFilesNotSyncingCount,
+            double persistentFilesNotSyncingCount,
 
-            int transientFilesNotSyncingCount)
+            double transientFilesNotSyncingCount)
         {
             FilesNotSyncingErrors = filesNotSyncingErrors;
             LastSyncMode = lastSyncMode;

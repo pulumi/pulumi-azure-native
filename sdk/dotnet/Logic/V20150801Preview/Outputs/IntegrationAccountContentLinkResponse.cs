@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Outputs
         /// <summary>
         /// The content size.
         /// </summary>
-        public readonly int? ContentSize;
+        public readonly double? ContentSize;
         /// <summary>
         /// The content version.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Outputs
         private IntegrationAccountContentLinkResponse(
             Outputs.IntegrationAccountContentHashResponse? contentHash,
 
-            int? contentSize,
+            double? contentSize,
 
             string? contentVersion,
 

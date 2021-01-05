@@ -32,11 +32,11 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101.Outputs
         /// <summary>
         /// The number of files read from the source data set
         /// </summary>
-        public readonly int FilesRead;
+        public readonly double FilesRead;
         /// <summary>
         /// The number of files written into the sink data set
         /// </summary>
-        public readonly int FilesWritten;
+        public readonly double FilesWritten;
         /// <summary>
         /// Error message if any
         /// </summary>
@@ -48,19 +48,19 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101.Outputs
         /// <summary>
         /// The number of files copied into the sink data set
         /// </summary>
-        public readonly int RowsCopied;
+        public readonly double RowsCopied;
         /// <summary>
         /// The number of rows read from the source data set.
         /// </summary>
-        public readonly int RowsRead;
+        public readonly double RowsRead;
         /// <summary>
         /// The size of the data read from the source data set in bytes
         /// </summary>
-        public readonly int SizeRead;
+        public readonly double SizeRead;
         /// <summary>
         /// The size of the data written into the sink data set in bytes
         /// </summary>
-        public readonly int SizeWritten;
+        public readonly double SizeWritten;
         /// <summary>
         /// Start time of data set level copy
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101.Outputs
         /// <summary>
         /// The vCore units consumed for the data set synchronization
         /// </summary>
-        public readonly int VCore;
+        public readonly double VCore;
 
         [OutputConstructor]
         private SynchronizationDetailsResponseResult(
@@ -84,27 +84,27 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101.Outputs
 
             string endTime,
 
-            int filesRead,
+            double filesRead,
 
-            int filesWritten,
+            double filesWritten,
 
             string message,
 
             string name,
 
-            int rowsCopied,
+            double rowsCopied,
 
-            int rowsRead,
+            double rowsRead,
 
-            int sizeRead,
+            double sizeRead,
 
-            int sizeWritten,
+            double sizeWritten,
 
             string startTime,
 
             string status,
 
-            int vCore)
+            double vCore)
         {
             DataSetId = dataSetId;
             DataSetType = dataSetType;

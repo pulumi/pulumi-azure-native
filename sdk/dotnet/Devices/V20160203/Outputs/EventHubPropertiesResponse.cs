@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Devices.V20160203.Outputs
         /// <summary>
         /// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         /// </summary>
-        public readonly int? RetentionTimeInDays;
+        public readonly double? RetentionTimeInDays;
 
         [OutputConstructor]
         private EventHubPropertiesResponse(
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Devices.V20160203.Outputs
 
             string path,
 
-            int? retentionTimeInDays)
+            double? retentionTimeInDays)
         {
             Endpoint = endpoint;
             PartitionCount = partitionCount;

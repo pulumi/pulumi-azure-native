@@ -16,19 +16,19 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426.Outputs
         /// <summary>
         /// Number of negatives.
         /// </summary>
-        public readonly int? Negatives;
+        public readonly double? Negatives;
         /// <summary>
         /// Number of negatives above threshold.
         /// </summary>
-        public readonly int? NegativesAboveThreshold;
+        public readonly double? NegativesAboveThreshold;
         /// <summary>
         /// Number of positives.
         /// </summary>
-        public readonly int? Positives;
+        public readonly double? Positives;
         /// <summary>
         /// Number of positives above threshold.
         /// </summary>
-        public readonly int? PositivesAboveThreshold;
+        public readonly double? PositivesAboveThreshold;
         /// <summary>
         /// Score threshold.
         /// </summary>
@@ -36,13 +36,13 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426.Outputs
 
         [OutputConstructor]
         private PredictionDistributionDefinitionResponseDistributionsResult(
-            int? negatives,
+            double? negatives,
 
-            int? negativesAboveThreshold,
+            double? negativesAboveThreshold,
 
-            int? positives,
+            double? positives,
 
-            int? positivesAboveThreshold,
+            double? positivesAboveThreshold,
 
             int? scoreThreshold)
         {

@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The number of backups to be retained.
         /// </summary>
-        public readonly int RetentionCount;
+        public readonly double RetentionCount;
         /// <summary>
         /// The schedule recurrence.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
             string name,
 
-            int retentionCount,
+            double retentionCount,
 
             Outputs.ScheduleRecurrenceResponse scheduleRecurrence,
 

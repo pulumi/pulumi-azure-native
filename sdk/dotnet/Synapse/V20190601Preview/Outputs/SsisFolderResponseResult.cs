@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// <summary>
         /// Metadata id.
         /// </summary>
-        public readonly int? Id;
+        public readonly double? Id;
         /// <summary>
         /// Metadata name.
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         private SsisFolderResponseResult(
             string? description,
 
-            int? id,
+            double? id,
 
             string? name,
 

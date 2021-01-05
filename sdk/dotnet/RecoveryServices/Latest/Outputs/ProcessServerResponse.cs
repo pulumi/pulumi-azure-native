@@ -28,11 +28,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The available memory.
         /// </summary>
-        public readonly int? AvailableMemoryInBytes;
+        public readonly double? AvailableMemoryInBytes;
         /// <summary>
         /// The available space.
         /// </summary>
-        public readonly int? AvailableSpaceInBytes;
+        public readonly double? AvailableSpaceInBytes;
         /// <summary>
         /// The percentage of the CPU load.
         /// </summary>
@@ -132,11 +132,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The throughput in bytes.
         /// </summary>
-        public readonly int ThroughputInBytes;
+        public readonly double ThroughputInBytes;
         /// <summary>
         /// The throughput in MBps.
         /// </summary>
-        public readonly int ThroughputInMBps;
+        public readonly double ThroughputInMBps;
         /// <summary>
         /// The throughput status.
         /// </summary>
@@ -144,15 +144,15 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The uploading pending data in bytes.
         /// </summary>
-        public readonly int ThroughputUploadPendingDataInBytes;
+        public readonly double ThroughputUploadPendingDataInBytes;
         /// <summary>
         /// The total memory.
         /// </summary>
-        public readonly int? TotalMemoryInBytes;
+        public readonly double? TotalMemoryInBytes;
         /// <summary>
         /// The total space.
         /// </summary>
-        public readonly int? TotalSpaceInBytes;
+        public readonly double? TotalSpaceInBytes;
         /// <summary>
         /// Version status
         /// </summary>
@@ -166,9 +166,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             Outputs.VersionDetailsResponse? agentVersionDetails,
 
-            int? availableMemoryInBytes,
+            double? availableMemoryInBytes,
 
-            int? availableSpaceInBytes,
+            double? availableSpaceInBytes,
 
             string? cpuLoad,
 
@@ -218,17 +218,17 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             string? systemLoadStatus,
 
-            int throughputInBytes,
+            double throughputInBytes,
 
-            int throughputInMBps,
+            double throughputInMBps,
 
             string throughputStatus,
 
-            int throughputUploadPendingDataInBytes,
+            double throughputUploadPendingDataInBytes,
 
-            int? totalMemoryInBytes,
+            double? totalMemoryInBytes,
 
-            int? totalSpaceInBytes,
+            double? totalSpaceInBytes,
 
             string? versionStatus)
         {

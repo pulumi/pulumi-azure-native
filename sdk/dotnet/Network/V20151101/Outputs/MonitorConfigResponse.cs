@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Network.V20151101.Outputs
         /// <summary>
         /// Gets or sets the TCP port used to probe for endpoint health.
         /// </summary>
-        public readonly int? Port;
+        public readonly double? Port;
         /// <summary>
         /// Gets or sets the profile-level monitoring status of the Traffic Manager profile.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.Network.V20151101.Outputs
         private MonitorConfigResponse(
             string? path,
 
-            int? port,
+            double? port,
 
             string? profileMonitorStatus,
 

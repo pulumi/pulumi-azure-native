@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190801
         /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         /// </summary>
         [Output("size")]
-        public Output<int> Size { get; private set; } = null!;
+        public Output<double> Size { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190801
         /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         /// </summary>
         [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
+        public Input<double> Size { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

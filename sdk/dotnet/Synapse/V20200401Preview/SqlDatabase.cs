@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         /// The max size of the database expressed in bytes.
         /// </summary>
         [Output("maxSizeBytes")]
-        public Output<int?> MaxSizeBytes { get; private set; } = null!;
+        public Output<double?> MaxSizeBytes { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         /// The max size of the database expressed in bytes.
         /// </summary>
         [Input("maxSizeBytes")]
-        public Input<int>? MaxSizeBytes { get; set; }
+        public Input<double>? MaxSizeBytes { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview.Outputs
         /// <summary>
         /// Timestamp when this token will be expired.
         /// </summary>
-        public readonly int ExpirationTime;
+        public readonly double ExpirationTime;
         /// <summary>
         /// Name of the connection
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview.Outputs
 
         [OutputConstructor]
         private HybridConnectionConfigResponseResult(
-            int expirationTime,
+            double expirationTime,
 
             string hybridConnectionName,
 

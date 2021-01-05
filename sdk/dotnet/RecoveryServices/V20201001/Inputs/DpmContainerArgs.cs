@@ -83,7 +83,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Number of protected items in the BackupEngine
         /// </summary>
         [Input("protectedItemCount")]
-        public Input<int>? ProtectedItemCount { get; set; }
+        public Input<double>? ProtectedItemCount { get; set; }
 
         /// <summary>
         /// Protection status of the container.

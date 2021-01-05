@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// <summary>
         /// Gets or sets the frequency at which the watcher is invoked.
         /// </summary>
-        public readonly int? ExecutionFrequencyInSeconds;
+        public readonly double? ExecutionFrequencyInSeconds;
         /// <summary>
         /// Fully qualified resource Id for the resource
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
 
             string? etag,
 
-            int? executionFrequencyInSeconds,
+            double? executionFrequencyInSeconds,
 
             string id,
 

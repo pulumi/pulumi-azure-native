@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
         /// <summary>
         /// The version number of the query language. The current version is 2 and is the default.
         /// </summary>
-        public readonly int? Version;
+        public readonly double? Version;
 
         [OutputConstructor]
         private GetSavedSearchResult(
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
 
             string type,
 
-            int? version)
+            double? version)
         {
             Category = category;
             DisplayName = displayName;

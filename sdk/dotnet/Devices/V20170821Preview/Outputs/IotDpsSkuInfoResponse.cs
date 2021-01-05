@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Devices.V20170821Preview.Outputs
         /// <summary>
         /// The number of services of the selected tier allowed in the subscription.
         /// </summary>
-        public readonly int? Capacity;
+        public readonly double? Capacity;
         public readonly string? Name;
         /// <summary>
         /// Pricing tier of the provisioning service.
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Devices.V20170821Preview.Outputs
 
         [OutputConstructor]
         private IotDpsSkuInfoResponse(
-            int? capacity,
+            double? capacity,
 
             string? name,
 

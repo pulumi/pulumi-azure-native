@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// Available capacity (# of machines, bytes of storage etc...)
         /// </summary>
         [Input("availableCapacity")]
-        public Input<int>? AvailableCapacity { get; set; }
+        public Input<double>? AvailableCapacity { get; set; }
 
         /// <summary>
         /// Shared/Dedicated workers
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// Total capacity (# of machines, bytes of storage etc...)
         /// </summary>
         [Input("totalCapacity")]
-        public Input<int>? TotalCapacity { get; set; }
+        public Input<double>? TotalCapacity { get; set; }
 
         /// <summary>
         /// Name of the unit

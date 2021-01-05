@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
         /// <summary>
         /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         /// </summary>
-        public readonly int Size;
+        public readonly double Size;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
 
             string serviceLevel,
 
-            int size,
+            double size,
 
             ImmutableDictionary<string, string>? tags,
 

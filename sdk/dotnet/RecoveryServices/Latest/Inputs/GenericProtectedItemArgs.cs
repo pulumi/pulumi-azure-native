@@ -103,7 +103,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Data Plane Service ID of the protected item.
         /// </summary>
         [Input("protectedItemId")]
-        public Input<int>? ProtectedItemId { get; set; }
+        public Input<double>? ProtectedItemId { get; set; }
 
         /// <summary>
         /// backup item type.

@@ -24,11 +24,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Outputs
         /// <summary>
         /// The available memory.
         /// </summary>
-        public readonly int? AvailableMemoryInBytes;
+        public readonly double? AvailableMemoryInBytes;
         /// <summary>
         /// The available space.
         /// </summary>
-        public readonly int? AvailableSpaceInBytes;
+        public readonly double? AvailableSpaceInBytes;
         /// <summary>
         /// The percentage of the CPU load.
         /// </summary>
@@ -121,11 +121,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Outputs
         /// <summary>
         /// The total memory.
         /// </summary>
-        public readonly int? TotalMemoryInBytes;
+        public readonly double? TotalMemoryInBytes;
         /// <summary>
         /// The total space.
         /// </summary>
-        public readonly int? TotalSpaceInBytes;
+        public readonly double? TotalSpaceInBytes;
         /// <summary>
         /// Version status
         /// </summary>
@@ -145,9 +145,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Outputs
 
             string? agentVersion,
 
-            int? availableMemoryInBytes,
+            double? availableMemoryInBytes,
 
-            int? availableSpaceInBytes,
+            double? availableSpaceInBytes,
 
             string? cpuLoad,
 
@@ -193,9 +193,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Outputs
 
             string? systemLoadStatus,
 
-            int? totalMemoryInBytes,
+            double? totalMemoryInBytes,
 
-            int? totalSpaceInBytes,
+            double? totalSpaceInBytes,
 
             string? versionStatus,
 

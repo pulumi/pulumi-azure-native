@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         /// </summary>
         [Output("shareUsageBytes")]
-        public Output<int> ShareUsageBytes { get; private set; } = null!;
+        public Output<double> ShareUsageBytes { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

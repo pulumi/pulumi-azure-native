@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Outputs
         /// <summary>
         /// The maximum amount time that a browser should cache the preflight OPTIONS request.
         /// </summary>
-        public readonly int? MaxAgeInSeconds;
+        public readonly double? MaxAgeInSeconds;
 
         [OutputConstructor]
         private CorsPolicyResponse(
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Outputs
 
             string? exposedHeaders,
 
-            int? maxAgeInSeconds)
+            double? maxAgeInSeconds)
         {
             AllowedHeaders = allowedHeaders;
             AllowedMethods = allowedMethods;

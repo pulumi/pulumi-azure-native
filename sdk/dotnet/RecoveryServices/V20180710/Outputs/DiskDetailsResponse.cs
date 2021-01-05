@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The hard disk max size in MB.
         /// </summary>
-        public readonly int? MaxSizeMB;
+        public readonly double? MaxSizeMB;
         /// <summary>
         /// The VHD Id.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
 
         [OutputConstructor]
         private DiskDetailsResponse(
-            int? maxSizeMB,
+            double? maxSizeMB,
 
             string? vhdId,
 

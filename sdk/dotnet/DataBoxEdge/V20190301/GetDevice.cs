@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
         /// <summary>
         /// The Data Box Edge/Gateway device local capacity in MB.
         /// </summary>
-        public readonly int DeviceLocalCapacity;
+        public readonly double DeviceLocalCapacity;
         /// <summary>
         /// The Data Box Edge/Gateway device model.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
 
             string deviceHcsVersion,
 
-            int deviceLocalCapacity,
+            double deviceLocalCapacity,
 
             string deviceModel,
 

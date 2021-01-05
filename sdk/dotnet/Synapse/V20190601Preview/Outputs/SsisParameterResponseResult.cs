@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// <summary>
         /// Parameter id.
         /// </summary>
-        public readonly int? Id;
+        public readonly double? Id;
         /// <summary>
         /// Parameter name.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
 
             string? designDefaultValue,
 
-            int? id,
+            double? id,
 
             string? name,
 

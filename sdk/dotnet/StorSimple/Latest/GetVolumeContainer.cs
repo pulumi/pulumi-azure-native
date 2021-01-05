@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The total cloud storage for the volume container.
         /// </summary>
-        public readonly int TotalCloudStorageUsageInBytes;
+        public readonly double TotalCloudStorageUsageInBytes;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
             string storageAccountCredentialId,
 
-            int totalCloudStorageUsageInBytes,
+            double totalCloudStorageUsageInBytes,
 
             string type,
 

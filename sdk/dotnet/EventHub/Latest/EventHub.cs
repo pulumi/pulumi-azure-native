@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         /// </summary>
         [Output("messageRetentionInDays")]
-        public Output<int?> MessageRetentionInDays { get; private set; } = null!;
+        public Output<double?> MessageRetentionInDays { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         /// </summary>
         [Output("partitionCount")]
-        public Output<int?> PartitionCount { get; private set; } = null!;
+        public Output<double?> PartitionCount { get; private set; } = null!;
 
         /// <summary>
         /// Current number of shards on the Event Hub.
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         /// </summary>
         [Input("messageRetentionInDays")]
-        public Input<int>? MessageRetentionInDays { get; set; }
+        public Input<double>? MessageRetentionInDays { get; set; }
 
         /// <summary>
         /// The Namespace name
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         /// </summary>
         [Input("partitionCount")]
-        public Input<int>? PartitionCount { get; set; }
+        public Input<double>? PartitionCount { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.

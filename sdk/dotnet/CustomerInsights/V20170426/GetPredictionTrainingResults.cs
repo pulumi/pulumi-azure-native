@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// <summary>
         /// Instance count of the primary profile.
         /// </summary>
-        public readonly int PrimaryProfileInstanceCount;
+        public readonly double PrimaryProfileInstanceCount;
         /// <summary>
         /// Score name.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
 
             Outputs.PredictionDistributionDefinitionResponseResult predictionDistribution,
 
-            int primaryProfileInstanceCount,
+            double primaryProfileInstanceCount,
 
             string scoreName,
 

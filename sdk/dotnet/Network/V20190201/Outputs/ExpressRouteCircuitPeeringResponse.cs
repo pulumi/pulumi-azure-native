@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201.Outputs
         /// <summary>
         /// The peer ASN.
         /// </summary>
-        public readonly int? PeerASN;
+        public readonly double? PeerASN;
         /// <summary>
         /// The list of peered circuit connections associated with Azure Private Peering for this circuit.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201.Outputs
 
             string? name,
 
-            int? peerASN,
+            double? peerASN,
 
             ImmutableArray<Outputs.PeerExpressRouteCircuitConnectionResponse> peeredConnections,
 

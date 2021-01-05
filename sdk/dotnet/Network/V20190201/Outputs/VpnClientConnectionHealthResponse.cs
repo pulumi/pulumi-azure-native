@@ -20,11 +20,11 @@ namespace Pulumi.AzureNextGen.Network.V20190201.Outputs
         /// <summary>
         /// Total of the Egress Bytes Transferred in this connection
         /// </summary>
-        public readonly int TotalEgressBytesTransferred;
+        public readonly double TotalEgressBytesTransferred;
         /// <summary>
         /// Total of the Ingress Bytes Transferred in this P2S Vpn connection
         /// </summary>
-        public readonly int TotalIngressBytesTransferred;
+        public readonly double TotalIngressBytesTransferred;
         /// <summary>
         /// The total of p2s vpn clients connected at this time to this P2SVpnGateway.
         /// </summary>
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNextGen.Network.V20190201.Outputs
         private VpnClientConnectionHealthResponse(
             ImmutableArray<string> allocatedIpAddresses,
 
-            int totalEgressBytesTransferred,
+            double totalEgressBytesTransferred,
 
-            int totalIngressBytesTransferred,
+            double totalIngressBytesTransferred,
 
             int? vpnClientConnectionsCount)
         {

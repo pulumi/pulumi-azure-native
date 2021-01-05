@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401.Outputs
         /// <summary>
         /// To indicate bytes transferred.
         /// </summary>
-        public readonly int BytesProcessed;
+        public readonly double BytesProcessed;
         /// <summary>
         /// Data Account Type.
         /// </summary>
@@ -28,27 +28,27 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401.Outputs
         /// <summary>
         /// To indicate directories errored out in the job.
         /// </summary>
-        public readonly int DirectoriesErroredOut;
+        public readonly double DirectoriesErroredOut;
         /// <summary>
         /// Number of files which could not be copied
         /// </summary>
-        public readonly int FilesErroredOut;
+        public readonly double FilesErroredOut;
         /// <summary>
         /// Number of files processed
         /// </summary>
-        public readonly int FilesProcessed;
+        public readonly double FilesProcessed;
         /// <summary>
         /// To indicate directories renamed
         /// </summary>
-        public readonly int InvalidDirectoriesProcessed;
+        public readonly double InvalidDirectoriesProcessed;
         /// <summary>
         /// Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
         /// </summary>
-        public readonly int InvalidFileBytesUploaded;
+        public readonly double InvalidFileBytesUploaded;
         /// <summary>
         /// Number of files not adhering to azure naming conventions which were processed by automatic renaming
         /// </summary>
-        public readonly int InvalidFilesProcessed;
+        public readonly double InvalidFilesProcessed;
         /// <summary>
         /// To indicate if enumeration of data is in progress. 
         /// Until this is true, the TotalBytesToProcess may not be valid.
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401.Outputs
         /// <summary>
         /// Number of folders not adhering to azure naming conventions which were processed by automatic renaming
         /// </summary>
-        public readonly int RenamedContainerCount;
+        public readonly double RenamedContainerCount;
         /// <summary>
         /// Name of the storage account. This will be empty for data account types other than storage account.
         /// </summary>
@@ -65,11 +65,11 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401.Outputs
         /// <summary>
         /// Total amount of data to be processed by the job.
         /// </summary>
-        public readonly int TotalBytesToProcess;
+        public readonly double TotalBytesToProcess;
         /// <summary>
         /// Total files to process
         /// </summary>
-        public readonly int TotalFilesToProcess;
+        public readonly double TotalFilesToProcess;
         /// <summary>
         /// Transfer type of data
         /// </summary>
@@ -79,31 +79,31 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401.Outputs
         private CopyProgressResponse(
             string accountId,
 
-            int bytesProcessed,
+            double bytesProcessed,
 
             string dataAccountType,
 
-            int directoriesErroredOut,
+            double directoriesErroredOut,
 
-            int filesErroredOut,
+            double filesErroredOut,
 
-            int filesProcessed,
+            double filesProcessed,
 
-            int invalidDirectoriesProcessed,
+            double invalidDirectoriesProcessed,
 
-            int invalidFileBytesUploaded,
+            double invalidFileBytesUploaded,
 
-            int invalidFilesProcessed,
+            double invalidFilesProcessed,
 
             bool isEnumerationInProgress,
 
-            int renamedContainerCount,
+            double renamedContainerCount,
 
             string storageAccountName,
 
-            int totalBytesToProcess,
+            double totalBytesToProcess,
 
-            int totalFilesToProcess,
+            double totalFilesToProcess,
 
             string transferType)
         {

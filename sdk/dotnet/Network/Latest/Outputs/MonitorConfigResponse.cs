@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// <summary>
         /// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         /// </summary>
-        public readonly int? IntervalInSeconds;
+        public readonly double? IntervalInSeconds;
         /// <summary>
         /// The path relative to the endpoint domain name used to probe for endpoint health.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// <summary>
         /// The TCP port used to probe for endpoint health.
         /// </summary>
-        public readonly int? Port;
+        public readonly double? Port;
         /// <summary>
         /// The profile-level monitoring status of the Traffic Manager profile.
         /// </summary>
@@ -44,11 +44,11 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// <summary>
         /// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
         /// </summary>
-        public readonly int? TimeoutInSeconds;
+        public readonly double? TimeoutInSeconds;
         /// <summary>
         /// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         /// </summary>
-        public readonly int? ToleratedNumberOfFailures;
+        public readonly double? ToleratedNumberOfFailures;
 
         [OutputConstructor]
         private MonitorConfigResponse(
@@ -56,19 +56,19 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             ImmutableArray<Outputs.MonitorConfigResponseExpectedStatusCodeRanges> expectedStatusCodeRanges,
 
-            int? intervalInSeconds,
+            double? intervalInSeconds,
 
             string? path,
 
-            int? port,
+            double? port,
 
             string? profileMonitorStatus,
 
             string? protocol,
 
-            int? timeoutInSeconds,
+            double? timeoutInSeconds,
 
-            int? toleratedNumberOfFailures)
+            double? toleratedNumberOfFailures)
         {
             CustomHeaders = customHeaders;
             ExpectedStatusCodeRanges = expectedStatusCodeRanges;

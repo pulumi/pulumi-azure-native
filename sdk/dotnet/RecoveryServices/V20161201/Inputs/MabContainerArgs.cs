@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20161201.Inputs
         /// ContainerID represents the container.
         /// </summary>
         [Input("containerId")]
-        public Input<int>? ContainerId { get; set; }
+        public Input<double>? ContainerId { get; set; }
 
         /// <summary>
         /// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20161201.Inputs
         /// Number of items backed up in this container.
         /// </summary>
         [Input("protectedItemCount")]
-        public Input<int>? ProtectedItemCount { get; set; }
+        public Input<double>? ProtectedItemCount { get; set; }
 
         /// <summary>
         /// Status of registration of the container with the Recovery Services Vault.

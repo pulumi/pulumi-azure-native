@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// Number of DNS Services using the DNS zone.
         /// </summary>
         [Output("dnsServices")]
-        public Output<int?> DnsServices { get; private set; } = null!;
+        public Output<double?> DnsServices { get; private set; } = null!;
 
         /// <summary>
         /// Domain names of the DNS Zone.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// NSX revision number.
         /// </summary>
         [Output("revision")]
-        public Output<int?> Revision { get; private set; } = null!;
+        public Output<double?> Revision { get; private set; } = null!;
 
         /// <summary>
         /// Source IP of the DNS Zone.
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// Number of DNS Services using the DNS zone.
         /// </summary>
         [Input("dnsServices")]
-        public Input<int>? DnsServices { get; set; }
+        public Input<double>? DnsServices { get; set; }
 
         /// <summary>
         /// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// NSX revision number.
         /// </summary>
         [Input("revision")]
-        public Input<int>? Revision { get; set; }
+        public Input<double>? Revision { get; set; }
 
         /// <summary>
         /// Source IP of the DNS Zone.

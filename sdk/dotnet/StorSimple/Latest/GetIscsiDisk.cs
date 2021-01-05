@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The local used capacity in bytes.
         /// </summary>
-        public readonly int LocalUsedCapacityInBytes;
+        public readonly double LocalUsedCapacityInBytes;
         /// <summary>
         /// The monitoring.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The provisioned capacity in bytes.
         /// </summary>
-        public readonly int ProvisionedCapacityInBytes;
+        public readonly double ProvisionedCapacityInBytes;
         /// <summary>
         /// The type.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The used capacity in bytes.
         /// </summary>
-        public readonly int UsedCapacityInBytes;
+        public readonly double UsedCapacityInBytes;
 
         [OutputConstructor]
         private GetIscsiDiskResult(
@@ -114,17 +114,17 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
             string id,
 
-            int localUsedCapacityInBytes,
+            double localUsedCapacityInBytes,
 
             string monitoringStatus,
 
             string name,
 
-            int provisionedCapacityInBytes,
+            double provisionedCapacityInBytes,
 
             string type,
 
-            int usedCapacityInBytes)
+            double usedCapacityInBytes)
         {
             AccessControlRecords = accessControlRecords;
             DataPolicy = dataPolicy;

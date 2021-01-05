@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Inputs
         /// Analytical TTL.
         /// </summary>
         [Input("analyticalStorageTtl")]
-        public Input<int>? AnalyticalStorageTtl { get; set; }
+        public Input<double>? AnalyticalStorageTtl { get; set; }
 
         /// <summary>
         /// The conflict resolution policy for the container.

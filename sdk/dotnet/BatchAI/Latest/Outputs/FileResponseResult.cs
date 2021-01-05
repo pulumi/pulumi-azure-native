@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest.Outputs
         /// <summary>
         /// The file of the size.
         /// </summary>
-        public readonly int ContentLength;
+        public readonly double ContentLength;
         /// <summary>
         /// URL to download the corresponding file. The downloadUrl is not returned for directories.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest.Outputs
 
         [OutputConstructor]
         private FileResponseResult(
-            int contentLength,
+            double contentLength,
 
             string downloadUrl,
 

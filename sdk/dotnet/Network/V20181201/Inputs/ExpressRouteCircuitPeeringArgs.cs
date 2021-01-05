@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201.Inputs
         /// The peer ASN.
         /// </summary>
         [Input("peerASN")]
-        public Input<int>? PeerASN { get; set; }
+        public Input<double>? PeerASN { get; set; }
 
         /// <summary>
         /// The peering type.

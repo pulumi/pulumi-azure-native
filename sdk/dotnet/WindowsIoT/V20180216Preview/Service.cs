@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.WindowsIoT.V20180216Preview
         /// Windows IoT Device Service device allocation,
         /// </summary>
         [Output("quantity")]
-        public Output<int?> Quantity { get; private set; } = null!;
+        public Output<double?> Quantity { get; private set; } = null!;
 
         /// <summary>
         /// Windows IoT Device Service start date,
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNextGen.WindowsIoT.V20180216Preview
         /// Windows IoT Device Service device allocation,
         /// </summary>
         [Input("quantity")]
-        public Input<int>? Quantity { get; set; }
+        public Input<double>? Quantity { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the Windows IoT Device Service.

@@ -129,7 +129,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The RPO in seconds.
         /// </summary>
-        public readonly int? RpoInSeconds;
+        public readonly double? RpoInSeconds;
         /// <summary>
         /// The CPU count of the VM on the primary side.
         /// </summary>
@@ -225,7 +225,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
 
             string? retentionWindowStart,
 
-            int? rpoInSeconds,
+            double? rpoInSeconds,
 
             int? sourceVmCpuCount,
 

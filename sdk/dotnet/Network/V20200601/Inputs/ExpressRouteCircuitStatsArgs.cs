@@ -19,25 +19,25 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         /// The Primary BytesIn of the peering.
         /// </summary>
         [Input("primarybytesIn")]
-        public Input<int>? PrimarybytesIn { get; set; }
+        public Input<double>? PrimarybytesIn { get; set; }
 
         /// <summary>
         /// The primary BytesOut of the peering.
         /// </summary>
         [Input("primarybytesOut")]
-        public Input<int>? PrimarybytesOut { get; set; }
+        public Input<double>? PrimarybytesOut { get; set; }
 
         /// <summary>
         /// The secondary BytesIn of the peering.
         /// </summary>
         [Input("secondarybytesIn")]
-        public Input<int>? SecondarybytesIn { get; set; }
+        public Input<double>? SecondarybytesIn { get; set; }
 
         /// <summary>
         /// The secondary BytesOut of the peering.
         /// </summary>
         [Input("secondarybytesOut")]
-        public Input<int>? SecondarybytesOut { get; set; }
+        public Input<double>? SecondarybytesOut { get; set; }
 
         public ExpressRouteCircuitStatsArgs()
         {

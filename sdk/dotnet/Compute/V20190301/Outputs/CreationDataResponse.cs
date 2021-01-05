@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301.Outputs
         /// <summary>
         /// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         /// </summary>
-        public readonly int? UploadSizeBytes;
+        public readonly double? UploadSizeBytes;
 
         [OutputConstructor]
         private CreationDataResponse(
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301.Outputs
 
             string? storageAccountId,
 
-            int? uploadSizeBytes)
+            double? uploadSizeBytes)
         {
             CreateOption = createOption;
             ImageReference = imageReference;

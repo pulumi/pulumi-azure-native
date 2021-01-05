@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701.Outputs
         /// <summary>
         /// Specifies the number of virtual machines in the scale set.
         /// </summary>
-        public readonly int? Capacity;
+        public readonly double? Capacity;
         /// <summary>
         /// The sku name.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701.Outputs
 
         [OutputConstructor]
         private SkuResponse(
-            int? capacity,
+            double? capacity,
 
             string? name,
 

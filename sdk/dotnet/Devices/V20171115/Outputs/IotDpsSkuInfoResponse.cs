@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Devices.V20171115.Outputs
         /// <summary>
         /// The number of units to provision
         /// </summary>
-        public readonly int? Capacity;
+        public readonly double? Capacity;
         /// <summary>
         /// Sku name.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Devices.V20171115.Outputs
 
         [OutputConstructor]
         private IotDpsSkuInfoResponse(
-            int? capacity,
+            double? capacity,
 
             string? name,
 

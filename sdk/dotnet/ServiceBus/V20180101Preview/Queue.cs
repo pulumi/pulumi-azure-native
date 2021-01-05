@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// The number of messages in the queue.
         /// </summary>
         [Output("messageCount")]
-        public Output<int> MessageCount { get; private set; } = null!;
+        public Output<double> MessageCount { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// The size of the queue, in bytes.
         /// </summary>
         [Output("sizeInBytes")]
-        public Output<int> SizeInBytes { get; private set; } = null!;
+        public Output<double> SizeInBytes { get; private set; } = null!;
 
         /// <summary>
         /// Enumerates the possible values for the status of a messaging entity.

@@ -20,19 +20,19 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001.Outputs
         /// <summary>
         /// Maximum CapacityReservation value in GB.
         /// </summary>
-        public readonly int MaxCapacity;
+        public readonly double MaxCapacity;
         /// <summary>
         /// Minimum CapacityReservation value in GB.
         /// </summary>
-        public readonly int MinCapacity;
+        public readonly double MinCapacity;
 
         [OutputConstructor]
         private CapacityReservationPropertiesResponse(
             string lastSkuUpdate,
 
-            int maxCapacity,
+            double maxCapacity,
 
-            int minCapacity)
+            double minCapacity)
         {
             LastSkuUpdate = lastSkuUpdate;
             MaxCapacity = maxCapacity;

@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview.Outputs
         /// <summary>
         /// The number of bytes of the content. Same as Size field.
         /// </summary>
-        public readonly int? Length;
+        public readonly double? Length;
         /// <summary>
         /// The MIME type of the referenced object.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview.Outputs
         /// <summary>
         /// The number of bytes of the content. Same as Length field.
         /// </summary>
-        public readonly int? Size;
+        public readonly double? Size;
         /// <summary>
         /// The tag name.
         /// </summary>
@@ -46,13 +46,13 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview.Outputs
         private TargetResponseResult(
             string? digest,
 
-            int? length,
+            double? length,
 
             string? mediaType,
 
             string? repository,
 
-            int? size,
+            double? size,
 
             string? tag,
 

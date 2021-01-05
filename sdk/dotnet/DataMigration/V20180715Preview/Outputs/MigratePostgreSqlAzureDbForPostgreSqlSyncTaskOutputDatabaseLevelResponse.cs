@@ -16,19 +16,19 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// Number of applied changes
         /// </summary>
-        public readonly int AppliedChanges;
+        public readonly double AppliedChanges;
         /// <summary>
         /// Number of cdc deletes
         /// </summary>
-        public readonly int CdcDeleteCounter;
+        public readonly double CdcDeleteCounter;
         /// <summary>
         /// Number of cdc inserts
         /// </summary>
-        public readonly int CdcInsertCounter;
+        public readonly double CdcInsertCounter;
         /// <summary>
         /// Number of cdc updates
         /// </summary>
-        public readonly int CdcUpdateCounter;
+        public readonly double CdcUpdateCounter;
         /// <summary>
         /// Name of the database
         /// </summary>
@@ -40,19 +40,19 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// Number of tables completed in full load
         /// </summary>
-        public readonly int FullLoadCompletedTables;
+        public readonly double FullLoadCompletedTables;
         /// <summary>
         /// Number of tables errored in full load
         /// </summary>
-        public readonly int FullLoadErroredTables;
+        public readonly double FullLoadErroredTables;
         /// <summary>
         /// Number of tables loading in full load
         /// </summary>
-        public readonly int FullLoadLoadingTables;
+        public readonly double FullLoadLoadingTables;
         /// <summary>
         /// Number of tables queued in full load
         /// </summary>
-        public readonly int FullLoadQueuedTables;
+        public readonly double FullLoadQueuedTables;
         /// <summary>
         /// Result identifier
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// Number of incoming changes
         /// </summary>
-        public readonly int IncomingChanges;
+        public readonly double IncomingChanges;
         /// <summary>
         /// Indicates if initial load (full load) has been completed
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// CDC apply latency
         /// </summary>
-        public readonly int Latency;
+        public readonly double Latency;
         /// <summary>
         /// Migration state that this database is in
         /// </summary>
@@ -85,33 +85,33 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
         [OutputConstructor]
         private MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(
-            int appliedChanges,
+            double appliedChanges,
 
-            int cdcDeleteCounter,
+            double cdcDeleteCounter,
 
-            int cdcInsertCounter,
+            double cdcInsertCounter,
 
-            int cdcUpdateCounter,
+            double cdcUpdateCounter,
 
             string databaseName,
 
             string endedOn,
 
-            int fullLoadCompletedTables,
+            double fullLoadCompletedTables,
 
-            int fullLoadErroredTables,
+            double fullLoadErroredTables,
 
-            int fullLoadLoadingTables,
+            double fullLoadLoadingTables,
 
-            int fullLoadQueuedTables,
+            double fullLoadQueuedTables,
 
             string id,
 
-            int incomingChanges,
+            double incomingChanges,
 
             bool initializationCompleted,
 
-            int latency,
+            double latency,
 
             string migrationState,
 

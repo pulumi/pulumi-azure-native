@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106.Inputs
         /// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         /// </summary>
         [Input("maxStalenessPrefix")]
-        public Input<int>? MaxStalenessPrefix { get; set; }
+        public Input<double>? MaxStalenessPrefix { get; set; }
 
         public ConsistencyPolicyArgs()
         {

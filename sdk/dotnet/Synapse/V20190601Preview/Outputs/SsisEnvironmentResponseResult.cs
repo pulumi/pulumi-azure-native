@@ -20,11 +20,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// <summary>
         /// Folder id which contains environment.
         /// </summary>
-        public readonly int? FolderId;
+        public readonly double? FolderId;
         /// <summary>
         /// Metadata id.
         /// </summary>
-        public readonly int? Id;
+        public readonly double? Id;
         /// <summary>
         /// Metadata name.
         /// </summary>
@@ -43,9 +43,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         private SsisEnvironmentResponseResult(
             string? description,
 
-            int? folderId,
+            double? folderId,
 
-            int? id,
+            double? id,
 
             string? name,
 

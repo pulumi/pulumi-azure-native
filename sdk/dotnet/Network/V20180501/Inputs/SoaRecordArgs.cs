@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20180501.Inputs
         /// The expire time for this SOA record.
         /// </summary>
         [Input("expireTime")]
-        public Input<int>? ExpireTime { get; set; }
+        public Input<double>? ExpireTime { get; set; }
 
         /// <summary>
         /// The domain name of the authoritative name server for this SOA record.
@@ -37,25 +37,25 @@ namespace Pulumi.AzureNextGen.Network.V20180501.Inputs
         /// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
         /// </summary>
         [Input("minimumTtl")]
-        public Input<int>? MinimumTtl { get; set; }
+        public Input<double>? MinimumTtl { get; set; }
 
         /// <summary>
         /// The refresh value for this SOA record.
         /// </summary>
         [Input("refreshTime")]
-        public Input<int>? RefreshTime { get; set; }
+        public Input<double>? RefreshTime { get; set; }
 
         /// <summary>
         /// The retry time for this SOA record.
         /// </summary>
         [Input("retryTime")]
-        public Input<int>? RetryTime { get; set; }
+        public Input<double>? RetryTime { get; set; }
 
         /// <summary>
         /// The serial number for this SOA record.
         /// </summary>
         [Input("serialNumber")]
-        public Input<int>? SerialNumber { get; set; }
+        public Input<double>? SerialNumber { get; set; }
 
         public SoaRecordArgs()
         {

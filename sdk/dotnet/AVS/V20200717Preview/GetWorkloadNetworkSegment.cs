@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// NSX revision number.
         /// </summary>
-        public readonly int? Revision;
+        public readonly double? Revision;
         /// <summary>
         /// Segment status.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             string provisioningState,
 
-            int? revision,
+            double? revision,
 
             string status,
 

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest.Outputs
         /// <summary>
         /// Creation time in seconds since 1970-01-01T00:00:00Z.
         /// </summary>
-        public readonly int Created;
+        public readonly double Created;
         /// <summary>
         /// Determines whether or not the object is enabled.
         /// </summary>
@@ -24,11 +24,11 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest.Outputs
         /// <summary>
         /// Expiry date in seconds since 1970-01-01T00:00:00Z.
         /// </summary>
-        public readonly int? Expires;
+        public readonly double? Expires;
         /// <summary>
         /// Not before date in seconds since 1970-01-01T00:00:00Z.
         /// </summary>
-        public readonly int? NotBefore;
+        public readonly double? NotBefore;
         /// <summary>
         /// The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
         /// </summary>
@@ -36,21 +36,21 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest.Outputs
         /// <summary>
         /// Last updated time in seconds since 1970-01-01T00:00:00Z.
         /// </summary>
-        public readonly int Updated;
+        public readonly double Updated;
 
         [OutputConstructor]
         private KeyAttributesResponse(
-            int created,
+            double created,
 
             bool? enabled,
 
-            int? expires,
+            double? expires,
 
-            int? notBefore,
+            double? notBefore,
 
             string recoveryLevel,
 
-            int updated)
+            double updated)
         {
             Created = created;
             Enabled = enabled;

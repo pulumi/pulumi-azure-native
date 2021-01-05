@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Parameter id.
         /// </summary>
-        public readonly int? Id;
+        public readonly double? Id;
         /// <summary>
         /// Parameter name.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             string? designDefaultValue,
 
-            int? id,
+            double? id,
 
             string? name,
 

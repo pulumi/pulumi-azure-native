@@ -20,19 +20,19 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301.Outputs
         /// <summary>
         /// Count of persistent files not syncing with the specified error code
         /// </summary>
-        public readonly int PersistentCount;
+        public readonly double PersistentCount;
         /// <summary>
         /// Count of transient files not syncing with the specified error code
         /// </summary>
-        public readonly int TransientCount;
+        public readonly double TransientCount;
 
         [OutputConstructor]
         private ServerEndpointFilesNotSyncingErrorResponse(
             int errorCode,
 
-            int persistentCount,
+            double persistentCount,
 
-            int transientCount)
+            double transientCount)
         {
             ErrorCode = errorCode;
             PersistentCount = persistentCount;

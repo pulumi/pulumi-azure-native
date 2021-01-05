@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Outputs
         /// <summary>
         /// The expire time for this SOA record.
         /// </summary>
-        public readonly int? ExpireTime;
+        public readonly double? ExpireTime;
         /// <summary>
         /// The domain name of the authoritative name server for this SOA record.
         /// </summary>
@@ -28,35 +28,35 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Outputs
         /// <summary>
         /// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
         /// </summary>
-        public readonly int? MinimumTtl;
+        public readonly double? MinimumTtl;
         /// <summary>
         /// The refresh value for this SOA record.
         /// </summary>
-        public readonly int? RefreshTime;
+        public readonly double? RefreshTime;
         /// <summary>
         /// The retry time for this SOA record.
         /// </summary>
-        public readonly int? RetryTime;
+        public readonly double? RetryTime;
         /// <summary>
         /// The serial number for this SOA record.
         /// </summary>
-        public readonly int? SerialNumber;
+        public readonly double? SerialNumber;
 
         [OutputConstructor]
         private SoaRecordResponse(
             string? email,
 
-            int? expireTime,
+            double? expireTime,
 
             string? host,
 
-            int? minimumTtl,
+            double? minimumTtl,
 
-            int? refreshTime,
+            double? refreshTime,
 
-            int? retryTime,
+            double? retryTime,
 
-            int? serialNumber)
+            double? serialNumber)
         {
             Email = email;
             ExpireTime = expireTime;

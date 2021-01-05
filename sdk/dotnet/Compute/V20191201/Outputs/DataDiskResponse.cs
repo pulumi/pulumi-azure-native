@@ -24,11 +24,11 @@ namespace Pulumi.AzureNextGen.Compute.V20191201.Outputs
         /// <summary>
         /// Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
         /// </summary>
-        public readonly int DiskIOPSReadWrite;
+        public readonly double DiskIOPSReadWrite;
         /// <summary>
         /// Specifies the bandwidth in MB per second for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
         /// </summary>
-        public readonly int DiskMBpsReadWrite;
+        public readonly double DiskMBpsReadWrite;
         /// <summary>
         /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; This value cannot be larger than 1023 GB
         /// </summary>
@@ -68,9 +68,9 @@ namespace Pulumi.AzureNextGen.Compute.V20191201.Outputs
 
             string createOption,
 
-            int diskIOPSReadWrite,
+            double diskIOPSReadWrite,
 
-            int diskMBpsReadWrite,
+            double diskMBpsReadWrite,
 
             int? diskSizeGB,
 

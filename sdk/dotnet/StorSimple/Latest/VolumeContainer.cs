@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The total cloud storage for the volume container.
         /// </summary>
         [Output("totalCloudStorageUsageInBytes")]
-        public Output<int> TotalCloudStorageUsageInBytes { get; private set; } = null!;
+        public Output<double> TotalCloudStorageUsageInBytes { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

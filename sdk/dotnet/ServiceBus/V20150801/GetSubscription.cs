@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// <summary>
         /// Number of messages.
         /// </summary>
-        public readonly int MessageCount;
+        public readonly double MessageCount;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
 
             int? maxDeliveryCount,
 
-            int messageCount,
+            double messageCount,
 
             string name,
 

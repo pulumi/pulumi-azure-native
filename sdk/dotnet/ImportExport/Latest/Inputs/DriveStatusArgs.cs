@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ImportExport.Latest.Inputs
         /// Bytes successfully transferred for the drive.
         /// </summary>
         [Input("bytesSucceeded")]
-        public Input<int>? BytesSucceeded { get; set; }
+        public Input<double>? BytesSucceeded { get; set; }
 
         /// <summary>
         /// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.

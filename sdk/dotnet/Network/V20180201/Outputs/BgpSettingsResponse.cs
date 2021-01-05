@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201.Outputs
         /// <summary>
         /// The BGP speaker's ASN.
         /// </summary>
-        public readonly int? Asn;
+        public readonly double? Asn;
         /// <summary>
         /// The BGP peering address and BGP identifier of this BGP speaker.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201.Outputs
 
         [OutputConstructor]
         private BgpSettingsResponse(
-            int? asn,
+            double? asn,
 
             string? bgpPeeringAddress,
 

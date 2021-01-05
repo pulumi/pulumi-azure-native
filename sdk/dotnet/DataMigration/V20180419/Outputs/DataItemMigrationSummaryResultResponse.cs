@@ -24,11 +24,11 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
         /// <summary>
         /// Number of successfully completed items
         /// </summary>
-        public readonly int ItemsCompletedCount;
+        public readonly double ItemsCompletedCount;
         /// <summary>
         /// Number of items
         /// </summary>
-        public readonly int ItemsCount;
+        public readonly double ItemsCount;
         /// <summary>
         /// Name of the item
         /// </summary>
@@ -56,9 +56,9 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
 
             string errorPrefix,
 
-            int itemsCompletedCount,
+            double itemsCompletedCount,
 
-            int itemsCount,
+            double itemsCount,
 
             string name,
 

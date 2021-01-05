@@ -105,7 +105,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// <summary>
         /// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
         /// </summary>
-        public readonly int? MaxSizeInMegabytes;
+        public readonly double? MaxSizeInMegabytes;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// <summary>
         /// Size of the topic, in bytes.
         /// </summary>
-        public readonly int SizeInBytes;
+        public readonly double SizeInBytes;
         /// <summary>
         /// Enumerates the possible values for the status of a messaging entity.
         /// </summary>
@@ -171,13 +171,13 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
 
             string? location,
 
-            int? maxSizeInMegabytes,
+            double? maxSizeInMegabytes,
 
             string name,
 
             bool? requiresDuplicateDetection,
 
-            int sizeInBytes,
+            double sizeInBytes,
 
             string? status,
 

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901.Outputs
         /// <summary>
         /// Running count of bytes downloaded
         /// </summary>
-        public readonly int DownloadedBytes;
+        public readonly double DownloadedBytes;
         /// <summary>
         /// Progress percentage
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901.Outputs
 
         [OutputConstructor]
         private ServerEndpointBackgroundDataDownloadActivityResponse(
-            int downloadedBytes,
+            double downloadedBytes,
 
             int percentProgress,
 

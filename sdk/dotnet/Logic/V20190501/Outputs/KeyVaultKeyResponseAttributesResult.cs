@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501.Outputs
         /// <summary>
         /// When the key was created.
         /// </summary>
-        public readonly int? Created;
+        public readonly double? Created;
         /// <summary>
         /// Whether the key is enabled or not.
         /// </summary>
@@ -24,15 +24,15 @@ namespace Pulumi.AzureNextGen.Logic.V20190501.Outputs
         /// <summary>
         /// When the key was updated.
         /// </summary>
-        public readonly int? Updated;
+        public readonly double? Updated;
 
         [OutputConstructor]
         private KeyVaultKeyResponseAttributesResult(
-            int? created,
+            double? created,
 
             bool? enabled,
 
-            int? updated)
+            double? updated)
         {
             Created = created;
             Enabled = enabled;

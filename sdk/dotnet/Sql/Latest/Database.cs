@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// The containment state of the database.
         /// </summary>
         [Output("containmentState")]
-        public Output<int> ContainmentState { get; private set; } = null!;
+        public Output<double> ContainmentState { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the mode of database creation.

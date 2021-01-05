@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         /// </summary>
         [Input("intervalInSeconds")]
-        public Input<int>? IntervalInSeconds { get; set; }
+        public Input<double>? IntervalInSeconds { get; set; }
 
         /// <summary>
         /// The path relative to the endpoint domain name used to probe for endpoint health.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The TCP port used to probe for endpoint health.
         /// </summary>
         [Input("port")]
-        public Input<int>? Port { get; set; }
+        public Input<double>? Port { get; set; }
 
         /// <summary>
         /// The profile-level monitoring status of the Traffic Manager profile.
@@ -73,13 +73,13 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
         /// </summary>
         [Input("timeoutInSeconds")]
-        public Input<int>? TimeoutInSeconds { get; set; }
+        public Input<double>? TimeoutInSeconds { get; set; }
 
         /// <summary>
         /// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         /// </summary>
         [Input("toleratedNumberOfFailures")]
-        public Input<int>? ToleratedNumberOfFailures { get; set; }
+        public Input<double>? ToleratedNumberOfFailures { get; set; }
 
         public MonitorConfigArgs()
         {

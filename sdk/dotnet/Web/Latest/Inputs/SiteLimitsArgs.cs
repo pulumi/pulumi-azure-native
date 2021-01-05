@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
         /// Maximum allowed disk size usage in MB.
         /// </summary>
         [Input("maxDiskSizeInMb")]
-        public Input<int>? MaxDiskSizeInMb { get; set; }
+        public Input<double>? MaxDiskSizeInMb { get; set; }
 
         /// <summary>
         /// Maximum allowed memory usage in MB.
         /// </summary>
         [Input("maxMemoryInMb")]
-        public Input<int>? MaxMemoryInMb { get; set; }
+        public Input<double>? MaxMemoryInMb { get; set; }
 
         /// <summary>
         /// Maximum allowed CPU usage percentage.

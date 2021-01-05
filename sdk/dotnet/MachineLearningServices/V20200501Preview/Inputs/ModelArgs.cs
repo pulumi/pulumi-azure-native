@@ -163,7 +163,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Inputs
         /// The Model version assigned by Model Management Service.
         /// </summary>
         [Input("version")]
-        public Input<int>? Version { get; set; }
+        public Input<double>? Version { get; set; }
 
         public ModelArgs()
         {

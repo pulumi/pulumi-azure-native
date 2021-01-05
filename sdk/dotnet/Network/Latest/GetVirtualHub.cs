@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// VirtualRouter ASN.
         /// </summary>
-        public readonly int? VirtualRouterAsn;
+        public readonly double? VirtualRouterAsn;
         /// <summary>
         /// VirtualRouter IPs.
         /// </summary>
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             ImmutableArray<Outputs.VirtualHubRouteTableV2Response> virtualHubRouteTableV2s,
 
-            int? virtualRouterAsn,
+            double? virtualRouterAsn,
 
             ImmutableArray<string> virtualRouterIps,
 

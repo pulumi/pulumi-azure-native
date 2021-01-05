@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network.V20160601.Inputs
         /// Gets or sets this BGP speaker's ASN
         /// </summary>
         [Input("asn")]
-        public Input<int>? Asn { get; set; }
+        public Input<double>? Asn { get; set; }
 
         /// <summary>
         /// Gets or sets the BGP peering address and BGP identifier of this BGP speaker

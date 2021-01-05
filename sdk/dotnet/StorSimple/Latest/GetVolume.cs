@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The size of the volume in bytes.
         /// </summary>
-        public readonly int SizeInBytes;
+        public readonly double SizeInBytes;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
             string operationStatus,
 
-            int sizeInBytes,
+            double sizeInBytes,
 
             string type,
 

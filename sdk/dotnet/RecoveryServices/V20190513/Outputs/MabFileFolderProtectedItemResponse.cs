@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Outputs
         /// <summary>
         /// Sync time for deferred deletion in UTC
         /// </summary>
-        public readonly int? DeferredDeleteSyncTimeInUTC;
+        public readonly double? DeferredDeleteSyncTimeInUTC;
         /// <summary>
         /// Time for deferred deletion in UTC
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Outputs
 
             string? createMode,
 
-            int? deferredDeleteSyncTimeInUTC,
+            double? deferredDeleteSyncTimeInUTC,
 
             string? deferredDeleteTimeInUTC,
 

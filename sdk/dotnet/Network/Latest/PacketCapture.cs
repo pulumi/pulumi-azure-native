@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Number of bytes captured per packet, the remaining bytes are truncated.
         /// </summary>
         [Output("bytesToCapturePerPacket")]
-        public Output<int?> BytesToCapturePerPacket { get; private set; } = null!;
+        public Output<double?> BytesToCapturePerPacket { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Maximum size of the capture output.
         /// </summary>
         [Output("totalBytesPerSession")]
-        public Output<int?> TotalBytesPerSession { get; private set; } = null!;
+        public Output<double?> TotalBytesPerSession { get; private set; } = null!;
 
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Number of bytes captured per packet, the remaining bytes are truncated.
         /// </summary>
         [Input("bytesToCapturePerPacket")]
-        public Input<int>? BytesToCapturePerPacket { get; set; }
+        public Input<double>? BytesToCapturePerPacket { get; set; }
 
         [Input("filters")]
         private InputList<Inputs.PacketCaptureFilterArgs>? _filters;
@@ -206,7 +206,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Maximum size of the capture output.
         /// </summary>
         [Input("totalBytesPerSession")]
-        public Input<int>? TotalBytesPerSession { get; set; }
+        public Input<double>? TotalBytesPerSession { get; set; }
 
         public PacketCaptureArgs()
         {

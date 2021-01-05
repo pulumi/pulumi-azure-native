@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501.Inputs
         /// Resource size in bytes, current storage usage for the volume in bytes
         /// </summary>
         [Input("usedBytes")]
-        public Input<int>? UsedBytes { get; set; }
+        public Input<double>? UsedBytes { get; set; }
 
         public MonthlyScheduleArgs()
         {

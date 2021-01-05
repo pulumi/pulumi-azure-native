@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// VirtualAppliance ASN.
         /// </summary>
         [Output("virtualApplianceAsn")]
-        public Output<int?> VirtualApplianceAsn { get; private set; } = null!;
+        public Output<double?> VirtualApplianceAsn { get; private set; } = null!;
 
         /// <summary>
         /// List of Virtual Appliance Network Interfaces.
@@ -254,7 +254,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// VirtualAppliance ASN.
         /// </summary>
         [Input("virtualApplianceAsn")]
-        public Input<int>? VirtualApplianceAsn { get; set; }
+        public Input<double>? VirtualApplianceAsn { get; set; }
 
         /// <summary>
         /// The Virtual Hub where Network Virtual Appliance is being deployed.

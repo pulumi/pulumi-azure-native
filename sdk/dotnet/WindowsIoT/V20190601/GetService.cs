@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.WindowsIoT.V20190601
         /// <summary>
         /// Windows IoT Device Service device allocation,
         /// </summary>
-        public readonly int? Quantity;
+        public readonly double? Quantity;
         /// <summary>
         /// Windows IoT Device Service start date,
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.WindowsIoT.V20190601
 
             string? notes,
 
-            int? quantity,
+            double? quantity,
 
             string startDate,
 

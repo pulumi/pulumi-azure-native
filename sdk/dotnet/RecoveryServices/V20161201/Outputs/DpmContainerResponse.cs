@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20161201.Outputs
         /// <summary>
         /// Number of protected items in the BackupEngine
         /// </summary>
-        public readonly int? ProtectedItemCount;
+        public readonly double? ProtectedItemCount;
         /// <summary>
         /// Protection status of the container.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20161201.Outputs
 
             string? healthStatus,
 
-            int? protectedItemCount,
+            double? protectedItemCount,
 
             string? protectionStatus,
 

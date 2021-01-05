@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         /// <summary>
         /// Total no. of waits
         /// </summary>
-        public readonly int WaitCount;
+        public readonly double WaitCount;
         /// <summary>
         /// Total wait time in millisecond(s)
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
 
         [OutputConstructor]
         private WaitStatisticsResponse(
-            int waitCount,
+            double waitCount,
 
             double waitTimeMs,
 

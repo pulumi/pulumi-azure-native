@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The content size.
         /// </summary>
         [Input("contentSize")]
-        public Input<int>? ContentSize { get; set; }
+        public Input<double>? ContentSize { get; set; }
 
         /// <summary>
         /// The content version.

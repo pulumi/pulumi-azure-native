@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Outputs
         /// <summary>
         /// Maximum allowed disk size usage in MB.
         /// </summary>
-        public readonly int? MaxDiskSizeInMb;
+        public readonly double? MaxDiskSizeInMb;
         /// <summary>
         /// Maximum allowed memory usage in MB.
         /// </summary>
-        public readonly int? MaxMemoryInMb;
+        public readonly double? MaxMemoryInMb;
         /// <summary>
         /// Maximum allowed CPU usage percentage.
         /// </summary>
@@ -28,9 +28,9 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Outputs
 
         [OutputConstructor]
         private SiteLimitsResponse(
-            int? maxDiskSizeInMb,
+            double? maxDiskSizeInMb,
 
-            int? maxMemoryInMb,
+            double? maxMemoryInMb,
 
             double? maxPercentageCpu)
         {

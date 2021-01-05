@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
         /// <summary>
         /// Total no. of statements in the batch
         /// </summary>
-        public readonly int StatementsInBatch;
+        public readonly double StatementsInBatch;
         /// <summary>
         /// Query analysis result from the target
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
 
             Outputs.ExecutionStatisticsResponse sourceResult,
 
-            int statementsInBatch,
+            double statementsInBatch,
 
             Outputs.ExecutionStatisticsResponse targetResult)
         {

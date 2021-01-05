@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// Number of DNS Services using the DNS zone.
         /// </summary>
-        public readonly int? DnsServices;
+        public readonly double? DnsServices;
         /// <summary>
         /// Domain names of the DNS Zone.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// NSX revision number.
         /// </summary>
-        public readonly int? Revision;
+        public readonly double? Revision;
         /// <summary>
         /// Source IP of the DNS Zone.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             ImmutableArray<string> dnsServerIps,
 
-            int? dnsServices,
+            double? dnsServices,
 
             ImmutableArray<string> domain,
 
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             string provisioningState,
 
-            int? revision,
+            double? revision,
 
             string? sourceIp,
 

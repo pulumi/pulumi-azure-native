@@ -149,13 +149,13 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// The max log size for this database.
         /// </summary>
         [Output("maxLogSizeBytes")]
-        public Output<int> MaxLogSizeBytes { get; private set; } = null!;
+        public Output<double> MaxLogSizeBytes { get; private set; } = null!;
 
         /// <summary>
         /// The max size of the database expressed in bytes.
         /// </summary>
         [Output("maxSizeBytes")]
-        public Output<int?> MaxSizeBytes { get; private set; } = null!;
+        public Output<double?> MaxSizeBytes { get; private set; } = null!;
 
         /// <summary>
         /// Minimal capacity that database will always have allocated, if not paused
@@ -427,7 +427,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// The max size of the database expressed in bytes.
         /// </summary>
         [Input("maxSizeBytes")]
-        public Input<int>? MaxSizeBytes { get; set; }
+        public Input<double>? MaxSizeBytes { get; set; }
 
         /// <summary>
         /// Minimal capacity that database will always have allocated, if not paused

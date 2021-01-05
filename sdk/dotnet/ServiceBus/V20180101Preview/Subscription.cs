@@ -97,7 +97,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// Number of messages.
         /// </summary>
         [Output("messageCount")]
-        public Output<int> MessageCount { get; private set; } = null!;
+        public Output<double> MessageCount { get; private set; } = null!;
 
         /// <summary>
         /// Resource name

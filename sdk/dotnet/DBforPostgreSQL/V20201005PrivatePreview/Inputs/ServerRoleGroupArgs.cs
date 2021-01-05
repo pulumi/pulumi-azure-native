@@ -49,13 +49,13 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview.Inputs
         /// The storage of a server in MB (max: 2097152 = 2TiB).
         /// </summary>
         [Input("storageQuotaInMb")]
-        public Input<int>? StorageQuotaInMb { get; set; }
+        public Input<double>? StorageQuotaInMb { get; set; }
 
         /// <summary>
         /// The vCores count of a server (max: 64).
         /// </summary>
         [Input("vCores")]
-        public Input<int>? VCores { get; set; }
+        public Input<double>? VCores { get; set; }
 
         public ServerRoleGroupArgs()
         {

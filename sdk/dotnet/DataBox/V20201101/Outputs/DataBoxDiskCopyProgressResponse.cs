@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Outputs
         /// <summary>
         /// Bytes copied during the copy of disk.
         /// </summary>
-        public readonly int BytesCopied;
+        public readonly double BytesCopied;
         /// <summary>
         /// Indicates the percentage completed for the copy of the disk.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Outputs
 
         [OutputConstructor]
         private DataBoxDiskCopyProgressResponse(
-            int bytesCopied,
+            double bytesCopied,
 
             int percentComplete,
 

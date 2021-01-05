@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// The size of the volume in bytes.
         /// </summary>
         [Output("sizeInBytes")]
-        public Output<int> SizeInBytes { get; private set; } = null!;
+        public Output<double> SizeInBytes { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
@@ -182,7 +182,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// The size of the volume in bytes.
         /// </summary>
         [Input("sizeInBytes", required: true)]
-        public Input<int> SizeInBytes { get; set; } = null!;
+        public Input<double> SizeInBytes { get; set; } = null!;
 
         /// <summary>
         /// The volume container name.

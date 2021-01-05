@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The peer ASN.
         /// </summary>
         [Output("peerASN")]
-        public Output<int?> PeerASN { get; private set; } = null!;
+        public Output<double?> PeerASN { get; private set; } = null!;
 
         /// <summary>
         /// The peering type.
@@ -227,7 +227,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The peer ASN.
         /// </summary>
         [Input("peerASN")]
-        public Input<int>? PeerASN { get; set; }
+        public Input<double>? PeerASN { get; set; }
 
         /// <summary>
         /// The name of the peering.

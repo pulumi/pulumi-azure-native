@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// <summary>
         /// Number of nodes with this node configuration assigned
         /// </summary>
-        public readonly int? NodeCount;
+        public readonly double? NodeCount;
         /// <summary>
         /// Source of node configuration.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
             string name,
 
-            int? nodeCount,
+            double? nodeCount,
 
             string? source,
 

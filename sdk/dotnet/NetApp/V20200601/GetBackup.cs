@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
         /// <summary>
         /// Size of backup
         /// </summary>
-        public readonly int Size;
+        public readonly double Size;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
 
             string provisioningState,
 
-            int size,
+            double size,
 
             string type)
         {

@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// File size.
         /// </summary>
-        public readonly int Size;
+        public readonly double Size;
 
         [OutputConstructor]
         private ProjectFilePropertiesResponse(
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
             string? mediaType,
 
-            int size)
+            double size)
         {
             Extension = extension;
             FilePath = filePath;

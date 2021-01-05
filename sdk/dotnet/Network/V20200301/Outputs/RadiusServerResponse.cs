@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Outputs
         /// <summary>
         /// The initial score assigned to this radius server.
         /// </summary>
-        public readonly int? RadiusServerScore;
+        public readonly double? RadiusServerScore;
         /// <summary>
         /// The secret used for this radius server.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Outputs
         private RadiusServerResponse(
             string radiusServerAddress,
 
-            int? radiusServerScore,
+            double? radiusServerScore,
 
             string? radiusServerSecret)
         {

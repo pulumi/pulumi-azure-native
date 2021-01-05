@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
         /// <summary>
         /// Count of bytes that were served from the local server
         /// </summary>
-        public readonly int CacheHitBytes;
+        public readonly double CacheHitBytes;
         /// <summary>
         /// Percentage of total bytes (hit + miss) that were served from the local server
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
         /// <summary>
         /// Count of bytes that were served from the cloud
         /// </summary>
-        public readonly int CacheMissBytes;
+        public readonly double CacheMissBytes;
         /// <summary>
         /// Last updated timestamp
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
 
         [OutputConstructor]
         private CloudTieringCachePerformanceResponse(
-            int cacheHitBytes,
+            double cacheHitBytes,
 
             int cacheHitBytesPercent,
 
-            int cacheMissBytes,
+            double cacheMissBytes,
 
             string lastUpdatedTimestamp)
         {

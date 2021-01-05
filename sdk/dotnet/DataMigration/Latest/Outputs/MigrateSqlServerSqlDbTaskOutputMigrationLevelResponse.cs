@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         /// <summary>
         /// Duration of task execution in seconds.
         /// </summary>
-        public readonly int DurationInSeconds;
+        public readonly double DurationInSeconds;
         /// <summary>
         /// Migration end time
         /// </summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
 
             ImmutableDictionary<string, string> databases,
 
-            int durationInSeconds,
+            double durationInSeconds,
 
             string endedOn,
 
