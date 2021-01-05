@@ -46,7 +46,7 @@ type Queue struct {
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes pulumi.IntPtrOutput `pulumi:"maxSizeInMegabytes"`
 	// The number of messages in the queue.
-	MessageCount pulumi.IntOutput `pulumi:"messageCount"`
+	MessageCount pulumi.Float64Output `pulumi:"messageCount"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A value indicating if this queue requires duplicate detection.
@@ -54,7 +54,7 @@ type Queue struct {
 	// A value that indicates whether the queue supports the concept of sessions.
 	RequiresSession pulumi.BoolPtrOutput `pulumi:"requiresSession"`
 	// The size of the queue, in bytes.
-	SizeInBytes pulumi.IntOutput `pulumi:"sizeInBytes"`
+	SizeInBytes pulumi.Float64Output `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Resource type
@@ -147,7 +147,7 @@ type queueState struct {
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// The number of messages in the queue.
-	MessageCount *int `pulumi:"messageCount"`
+	MessageCount *float64 `pulumi:"messageCount"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// A value indicating if this queue requires duplicate detection.
@@ -155,7 +155,7 @@ type queueState struct {
 	// A value that indicates whether the queue supports the concept of sessions.
 	RequiresSession *bool `pulumi:"requiresSession"`
 	// The size of the queue, in bytes.
-	SizeInBytes *int `pulumi:"sizeInBytes"`
+	SizeInBytes *float64 `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status *string `pulumi:"status"`
 	// Resource type
@@ -196,7 +196,7 @@ type QueueState struct {
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes pulumi.IntPtrInput
 	// The number of messages in the queue.
-	MessageCount pulumi.IntPtrInput
+	MessageCount pulumi.Float64PtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
 	// A value indicating if this queue requires duplicate detection.
@@ -204,7 +204,7 @@ type QueueState struct {
 	// A value that indicates whether the queue supports the concept of sessions.
 	RequiresSession pulumi.BoolPtrInput
 	// The size of the queue, in bytes.
-	SizeInBytes pulumi.IntPtrInput
+	SizeInBytes pulumi.Float64PtrInput
 	// Enumerates the possible values for the status of a messaging entity.
 	Status pulumi.StringPtrInput
 	// Resource type

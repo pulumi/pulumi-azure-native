@@ -43,7 +43,7 @@ type NetworkVirtualAppliance struct {
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// VirtualAppliance ASN.
-	VirtualApplianceAsn pulumi.IntPtrOutput `pulumi:"virtualApplianceAsn"`
+	VirtualApplianceAsn pulumi.Float64PtrOutput `pulumi:"virtualApplianceAsn"`
 	// List of Virtual Appliance Network Interfaces.
 	VirtualApplianceNics VirtualApplianceNicPropertiesResponseArrayOutput `pulumi:"virtualApplianceNics"`
 	// List of references to VirtualApplianceSite.
@@ -135,7 +135,7 @@ type networkVirtualApplianceState struct {
 	// Resource type.
 	Type *string `pulumi:"type"`
 	// VirtualAppliance ASN.
-	VirtualApplianceAsn *int `pulumi:"virtualApplianceAsn"`
+	VirtualApplianceAsn *float64 `pulumi:"virtualApplianceAsn"`
 	// List of Virtual Appliance Network Interfaces.
 	VirtualApplianceNics []VirtualApplianceNicPropertiesResponse `pulumi:"virtualApplianceNics"`
 	// List of references to VirtualApplianceSite.
@@ -172,7 +172,7 @@ type NetworkVirtualApplianceState struct {
 	// Resource type.
 	Type pulumi.StringPtrInput
 	// VirtualAppliance ASN.
-	VirtualApplianceAsn pulumi.IntPtrInput
+	VirtualApplianceAsn pulumi.Float64PtrInput
 	// List of Virtual Appliance Network Interfaces.
 	VirtualApplianceNics VirtualApplianceNicPropertiesResponseArrayInput
 	// List of references to VirtualApplianceSite.
@@ -207,7 +207,7 @@ type networkVirtualApplianceArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// VirtualAppliance ASN.
-	VirtualApplianceAsn *int `pulumi:"virtualApplianceAsn"`
+	VirtualApplianceAsn *float64 `pulumi:"virtualApplianceAsn"`
 	// The Virtual Hub where Network Virtual Appliance is being deployed.
 	VirtualHub *SubResource `pulumi:"virtualHub"`
 }
@@ -235,7 +235,7 @@ type NetworkVirtualApplianceArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// VirtualAppliance ASN.
-	VirtualApplianceAsn pulumi.IntPtrInput
+	VirtualApplianceAsn pulumi.Float64PtrInput
 	// The Virtual Hub where Network Virtual Appliance is being deployed.
 	VirtualHub SubResourcePtrInput
 }

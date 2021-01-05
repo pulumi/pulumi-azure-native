@@ -709,8 +709,8 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) State() pulumi.StringPtrOu
 // List of possible provisioning service SKUs.
 type IotDpsSkuInfo struct {
 	// The number of services of the selected tier allowed in the subscription.
-	Capacity *int    `pulumi:"capacity"`
-	Name     *string `pulumi:"name"`
+	Capacity *float64 `pulumi:"capacity"`
+	Name     *string  `pulumi:"name"`
 }
 
 // IotDpsSkuInfoInput is an input type that accepts IotDpsSkuInfoArgs and IotDpsSkuInfoOutput values.
@@ -727,8 +727,8 @@ type IotDpsSkuInfoInput interface {
 // List of possible provisioning service SKUs.
 type IotDpsSkuInfoArgs struct {
 	// The number of services of the selected tier allowed in the subscription.
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
+	Name     pulumi.StringPtrInput  `pulumi:"name"`
 }
 
 func (IotDpsSkuInfoArgs) ElementType() reflect.Type {
@@ -810,8 +810,8 @@ func (o IotDpsSkuInfoOutput) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.Con
 }
 
 // The number of services of the selected tier allowed in the subscription.
-func (o IotDpsSkuInfoOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v IotDpsSkuInfo) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o IotDpsSkuInfoOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v IotDpsSkuInfo) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 func (o IotDpsSkuInfoOutput) Name() pulumi.StringPtrOutput {
@@ -837,13 +837,13 @@ func (o IotDpsSkuInfoPtrOutput) Elem() IotDpsSkuInfoOutput {
 }
 
 // The number of services of the selected tier allowed in the subscription.
-func (o IotDpsSkuInfoPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfo) *int {
+func (o IotDpsSkuInfoPtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *IotDpsSkuInfo) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 func (o IotDpsSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
@@ -858,8 +858,8 @@ func (o IotDpsSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 // List of possible provisioning service SKUs.
 type IotDpsSkuInfoResponse struct {
 	// The number of services of the selected tier allowed in the subscription.
-	Capacity *int    `pulumi:"capacity"`
-	Name     *string `pulumi:"name"`
+	Capacity *float64 `pulumi:"capacity"`
+	Name     *string  `pulumi:"name"`
 	// Pricing tier of the provisioning service.
 	Tier string `pulumi:"tier"`
 }
@@ -878,8 +878,8 @@ type IotDpsSkuInfoResponseInput interface {
 // List of possible provisioning service SKUs.
 type IotDpsSkuInfoResponseArgs struct {
 	// The number of services of the selected tier allowed in the subscription.
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
+	Name     pulumi.StringPtrInput  `pulumi:"name"`
 	// Pricing tier of the provisioning service.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
@@ -963,8 +963,8 @@ func (o IotDpsSkuInfoResponseOutput) ToIotDpsSkuInfoResponsePtrOutputWithContext
 }
 
 // The number of services of the selected tier allowed in the subscription.
-func (o IotDpsSkuInfoResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v IotDpsSkuInfoResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o IotDpsSkuInfoResponseOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v IotDpsSkuInfoResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 func (o IotDpsSkuInfoResponseOutput) Name() pulumi.StringPtrOutput {
@@ -995,13 +995,13 @@ func (o IotDpsSkuInfoResponsePtrOutput) Elem() IotDpsSkuInfoResponseOutput {
 }
 
 // The number of services of the selected tier allowed in the subscription.
-func (o IotDpsSkuInfoResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfoResponse) *int {
+func (o IotDpsSkuInfoResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *IotDpsSkuInfoResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 func (o IotDpsSkuInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {

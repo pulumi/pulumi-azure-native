@@ -3499,7 +3499,7 @@ type ContentKeyPolicyFairPlayConfiguration struct {
 	// The rental and lease key type.
 	RentalAndLeaseKeyType string `pulumi:"rentalAndLeaseKeyType"`
 	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration int `pulumi:"rentalDuration"`
+	RentalDuration float64 `pulumi:"rentalDuration"`
 }
 
 // ContentKeyPolicyFairPlayConfigurationInput is an input type that accepts ContentKeyPolicyFairPlayConfigurationArgs and ContentKeyPolicyFairPlayConfigurationOutput values.
@@ -3529,7 +3529,7 @@ type ContentKeyPolicyFairPlayConfigurationArgs struct {
 	// The rental and lease key type.
 	RentalAndLeaseKeyType pulumi.StringInput `pulumi:"rentalAndLeaseKeyType"`
 	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration pulumi.IntInput `pulumi:"rentalDuration"`
+	RentalDuration pulumi.Float64Input `pulumi:"rentalDuration"`
 }
 
 func (ContentKeyPolicyFairPlayConfigurationArgs) ElementType() reflect.Type {
@@ -3593,8 +3593,8 @@ func (o ContentKeyPolicyFairPlayConfigurationOutput) RentalAndLeaseKeyType() pul
 }
 
 // The rental duration. Must be greater than or equal to 0.
-func (o ContentKeyPolicyFairPlayConfigurationOutput) RentalDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) int { return v.RentalDuration }).(pulumi.IntOutput)
+func (o ContentKeyPolicyFairPlayConfigurationOutput) RentalDuration() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) float64 { return v.RentalDuration }).(pulumi.Float64Output)
 }
 
 // Specifies a configuration for FairPlay licenses.
@@ -3613,7 +3613,7 @@ type ContentKeyPolicyFairPlayConfigurationResponse struct {
 	// The rental and lease key type.
 	RentalAndLeaseKeyType string `pulumi:"rentalAndLeaseKeyType"`
 	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration int `pulumi:"rentalDuration"`
+	RentalDuration float64 `pulumi:"rentalDuration"`
 }
 
 // ContentKeyPolicyFairPlayConfigurationResponseInput is an input type that accepts ContentKeyPolicyFairPlayConfigurationResponseArgs and ContentKeyPolicyFairPlayConfigurationResponseOutput values.
@@ -3643,7 +3643,7 @@ type ContentKeyPolicyFairPlayConfigurationResponseArgs struct {
 	// The rental and lease key type.
 	RentalAndLeaseKeyType pulumi.StringInput `pulumi:"rentalAndLeaseKeyType"`
 	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration pulumi.IntInput `pulumi:"rentalDuration"`
+	RentalDuration pulumi.Float64Input `pulumi:"rentalDuration"`
 }
 
 func (ContentKeyPolicyFairPlayConfigurationResponseArgs) ElementType() reflect.Type {
@@ -3707,15 +3707,15 @@ func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) RentalAndLeaseKeyTy
 }
 
 // The rental duration. Must be greater than or equal to 0.
-func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) RentalDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationResponse) int { return v.RentalDuration }).(pulumi.IntOutput)
+func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) RentalDuration() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationResponse) float64 { return v.RentalDuration }).(pulumi.Float64Output)
 }
 
 type ContentKeyPolicyFairPlayOfflineRentalConfiguration struct {
 	// Playback duration
-	PlaybackDurationSeconds int `pulumi:"playbackDurationSeconds"`
+	PlaybackDurationSeconds float64 `pulumi:"playbackDurationSeconds"`
 	// Storage duration
-	StorageDurationSeconds int `pulumi:"storageDurationSeconds"`
+	StorageDurationSeconds float64 `pulumi:"storageDurationSeconds"`
 }
 
 // ContentKeyPolicyFairPlayOfflineRentalConfigurationInput is an input type that accepts ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs and ContentKeyPolicyFairPlayOfflineRentalConfigurationOutput values.
@@ -3731,9 +3731,9 @@ type ContentKeyPolicyFairPlayOfflineRentalConfigurationInput interface {
 
 type ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs struct {
 	// Playback duration
-	PlaybackDurationSeconds pulumi.IntInput `pulumi:"playbackDurationSeconds"`
+	PlaybackDurationSeconds pulumi.Float64Input `pulumi:"playbackDurationSeconds"`
 	// Storage duration
-	StorageDurationSeconds pulumi.IntInput `pulumi:"storageDurationSeconds"`
+	StorageDurationSeconds pulumi.Float64Input `pulumi:"storageDurationSeconds"`
 }
 
 func (ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs) ElementType() reflect.Type {
@@ -3814,13 +3814,13 @@ func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationOutput) ToContentKeyPo
 }
 
 // Playback duration
-func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationOutput) PlaybackDurationSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfiguration) int { return v.PlaybackDurationSeconds }).(pulumi.IntOutput)
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationOutput) PlaybackDurationSeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfiguration) float64 { return v.PlaybackDurationSeconds }).(pulumi.Float64Output)
 }
 
 // Storage duration
-func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationOutput) StorageDurationSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfiguration) int { return v.StorageDurationSeconds }).(pulumi.IntOutput)
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationOutput) StorageDurationSeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfiguration) float64 { return v.StorageDurationSeconds }).(pulumi.Float64Output)
 }
 
 type ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3844,30 +3844,30 @@ func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput) Elem() Cont
 }
 
 // Playback duration
-func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput) PlaybackDurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfiguration) *int {
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput) PlaybackDurationSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfiguration) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.PlaybackDurationSeconds
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Storage duration
-func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput) StorageDurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfiguration) *int {
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput) StorageDurationSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfiguration) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.StorageDurationSeconds
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 type ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse struct {
 	// Playback duration
-	PlaybackDurationSeconds int `pulumi:"playbackDurationSeconds"`
+	PlaybackDurationSeconds float64 `pulumi:"playbackDurationSeconds"`
 	// Storage duration
-	StorageDurationSeconds int `pulumi:"storageDurationSeconds"`
+	StorageDurationSeconds float64 `pulumi:"storageDurationSeconds"`
 }
 
 // ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseInput is an input type that accepts ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseArgs and ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseOutput values.
@@ -3883,9 +3883,9 @@ type ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseInput interface {
 
 type ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseArgs struct {
 	// Playback duration
-	PlaybackDurationSeconds pulumi.IntInput `pulumi:"playbackDurationSeconds"`
+	PlaybackDurationSeconds pulumi.Float64Input `pulumi:"playbackDurationSeconds"`
 	// Storage duration
-	StorageDurationSeconds pulumi.IntInput `pulumi:"storageDurationSeconds"`
+	StorageDurationSeconds pulumi.Float64Input `pulumi:"storageDurationSeconds"`
 }
 
 func (ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseArgs) ElementType() reflect.Type {
@@ -3966,17 +3966,17 @@ func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseOutput) ToCont
 }
 
 // Playback duration
-func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseOutput) PlaybackDurationSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse) int {
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseOutput) PlaybackDurationSeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse) float64 {
 		return v.PlaybackDurationSeconds
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Storage duration
-func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseOutput) StorageDurationSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse) int {
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseOutput) StorageDurationSeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse) float64 {
 		return v.StorageDurationSeconds
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 type ContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -4000,23 +4000,23 @@ func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutput) Ele
 }
 
 // Playback duration
-func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutput) PlaybackDurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse) *int {
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutput) PlaybackDurationSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.PlaybackDurationSeconds
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Storage duration
-func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutput) StorageDurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse) *int {
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutput) StorageDurationSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.StorageDurationSeconds
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Represents an open restriction. License or key will be delivered on every request.
@@ -16527,17 +16527,17 @@ func (o OutputFileResponseArrayOutput) Index(i pulumi.IntInput) OutputFileRespon
 // The presentation time range, this is asset related and not recommended for Account Filter.
 type PresentationTimeRange struct {
 	// The absolute end time boundary.
-	EndTimestamp *int `pulumi:"endTimestamp"`
+	EndTimestamp *float64 `pulumi:"endTimestamp"`
 	// The indicator of forcing existing of end time stamp.
 	ForceEndTimestamp *bool `pulumi:"forceEndTimestamp"`
 	// The relative to end right edge.
-	LiveBackoffDuration *int `pulumi:"liveBackoffDuration"`
+	LiveBackoffDuration *float64 `pulumi:"liveBackoffDuration"`
 	// The relative to end sliding window.
-	PresentationWindowDuration *int `pulumi:"presentationWindowDuration"`
+	PresentationWindowDuration *float64 `pulumi:"presentationWindowDuration"`
 	// The absolute start time boundary.
-	StartTimestamp *int `pulumi:"startTimestamp"`
+	StartTimestamp *float64 `pulumi:"startTimestamp"`
 	// The time scale of time stamps.
-	Timescale *int `pulumi:"timescale"`
+	Timescale *float64 `pulumi:"timescale"`
 }
 
 // PresentationTimeRangeInput is an input type that accepts PresentationTimeRangeArgs and PresentationTimeRangeOutput values.
@@ -16554,17 +16554,17 @@ type PresentationTimeRangeInput interface {
 // The presentation time range, this is asset related and not recommended for Account Filter.
 type PresentationTimeRangeArgs struct {
 	// The absolute end time boundary.
-	EndTimestamp pulumi.IntPtrInput `pulumi:"endTimestamp"`
+	EndTimestamp pulumi.Float64PtrInput `pulumi:"endTimestamp"`
 	// The indicator of forcing existing of end time stamp.
 	ForceEndTimestamp pulumi.BoolPtrInput `pulumi:"forceEndTimestamp"`
 	// The relative to end right edge.
-	LiveBackoffDuration pulumi.IntPtrInput `pulumi:"liveBackoffDuration"`
+	LiveBackoffDuration pulumi.Float64PtrInput `pulumi:"liveBackoffDuration"`
 	// The relative to end sliding window.
-	PresentationWindowDuration pulumi.IntPtrInput `pulumi:"presentationWindowDuration"`
+	PresentationWindowDuration pulumi.Float64PtrInput `pulumi:"presentationWindowDuration"`
 	// The absolute start time boundary.
-	StartTimestamp pulumi.IntPtrInput `pulumi:"startTimestamp"`
+	StartTimestamp pulumi.Float64PtrInput `pulumi:"startTimestamp"`
 	// The time scale of time stamps.
-	Timescale pulumi.IntPtrInput `pulumi:"timescale"`
+	Timescale pulumi.Float64PtrInput `pulumi:"timescale"`
 }
 
 func (PresentationTimeRangeArgs) ElementType() reflect.Type {
@@ -16646,8 +16646,8 @@ func (o PresentationTimeRangeOutput) ToPresentationTimeRangePtrOutputWithContext
 }
 
 // The absolute end time boundary.
-func (o PresentationTimeRangeOutput) EndTimestamp() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PresentationTimeRange) *int { return v.EndTimestamp }).(pulumi.IntPtrOutput)
+func (o PresentationTimeRangeOutput) EndTimestamp() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRange) *float64 { return v.EndTimestamp }).(pulumi.Float64PtrOutput)
 }
 
 // The indicator of forcing existing of end time stamp.
@@ -16656,23 +16656,23 @@ func (o PresentationTimeRangeOutput) ForceEndTimestamp() pulumi.BoolPtrOutput {
 }
 
 // The relative to end right edge.
-func (o PresentationTimeRangeOutput) LiveBackoffDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PresentationTimeRange) *int { return v.LiveBackoffDuration }).(pulumi.IntPtrOutput)
+func (o PresentationTimeRangeOutput) LiveBackoffDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRange) *float64 { return v.LiveBackoffDuration }).(pulumi.Float64PtrOutput)
 }
 
 // The relative to end sliding window.
-func (o PresentationTimeRangeOutput) PresentationWindowDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PresentationTimeRange) *int { return v.PresentationWindowDuration }).(pulumi.IntPtrOutput)
+func (o PresentationTimeRangeOutput) PresentationWindowDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRange) *float64 { return v.PresentationWindowDuration }).(pulumi.Float64PtrOutput)
 }
 
 // The absolute start time boundary.
-func (o PresentationTimeRangeOutput) StartTimestamp() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PresentationTimeRange) *int { return v.StartTimestamp }).(pulumi.IntPtrOutput)
+func (o PresentationTimeRangeOutput) StartTimestamp() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRange) *float64 { return v.StartTimestamp }).(pulumi.Float64PtrOutput)
 }
 
 // The time scale of time stamps.
-func (o PresentationTimeRangeOutput) Timescale() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PresentationTimeRange) *int { return v.Timescale }).(pulumi.IntPtrOutput)
+func (o PresentationTimeRangeOutput) Timescale() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRange) *float64 { return v.Timescale }).(pulumi.Float64PtrOutput)
 }
 
 type PresentationTimeRangePtrOutput struct{ *pulumi.OutputState }
@@ -16694,13 +16694,13 @@ func (o PresentationTimeRangePtrOutput) Elem() PresentationTimeRangeOutput {
 }
 
 // The absolute end time boundary.
-func (o PresentationTimeRangePtrOutput) EndTimestamp() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PresentationTimeRange) *int {
+func (o PresentationTimeRangePtrOutput) EndTimestamp() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PresentationTimeRange) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.EndTimestamp
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The indicator of forcing existing of end time stamp.
@@ -16714,59 +16714,59 @@ func (o PresentationTimeRangePtrOutput) ForceEndTimestamp() pulumi.BoolPtrOutput
 }
 
 // The relative to end right edge.
-func (o PresentationTimeRangePtrOutput) LiveBackoffDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PresentationTimeRange) *int {
+func (o PresentationTimeRangePtrOutput) LiveBackoffDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PresentationTimeRange) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.LiveBackoffDuration
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The relative to end sliding window.
-func (o PresentationTimeRangePtrOutput) PresentationWindowDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PresentationTimeRange) *int {
+func (o PresentationTimeRangePtrOutput) PresentationWindowDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PresentationTimeRange) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PresentationWindowDuration
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The absolute start time boundary.
-func (o PresentationTimeRangePtrOutput) StartTimestamp() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PresentationTimeRange) *int {
+func (o PresentationTimeRangePtrOutput) StartTimestamp() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PresentationTimeRange) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.StartTimestamp
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The time scale of time stamps.
-func (o PresentationTimeRangePtrOutput) Timescale() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PresentationTimeRange) *int {
+func (o PresentationTimeRangePtrOutput) Timescale() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PresentationTimeRange) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Timescale
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The presentation time range, this is asset related and not recommended for Account Filter.
 type PresentationTimeRangeResponse struct {
 	// The absolute end time boundary.
-	EndTimestamp *int `pulumi:"endTimestamp"`
+	EndTimestamp *float64 `pulumi:"endTimestamp"`
 	// The indicator of forcing existing of end time stamp.
 	ForceEndTimestamp *bool `pulumi:"forceEndTimestamp"`
 	// The relative to end right edge.
-	LiveBackoffDuration *int `pulumi:"liveBackoffDuration"`
+	LiveBackoffDuration *float64 `pulumi:"liveBackoffDuration"`
 	// The relative to end sliding window.
-	PresentationWindowDuration *int `pulumi:"presentationWindowDuration"`
+	PresentationWindowDuration *float64 `pulumi:"presentationWindowDuration"`
 	// The absolute start time boundary.
-	StartTimestamp *int `pulumi:"startTimestamp"`
+	StartTimestamp *float64 `pulumi:"startTimestamp"`
 	// The time scale of time stamps.
-	Timescale *int `pulumi:"timescale"`
+	Timescale *float64 `pulumi:"timescale"`
 }
 
 // PresentationTimeRangeResponseInput is an input type that accepts PresentationTimeRangeResponseArgs and PresentationTimeRangeResponseOutput values.
@@ -16783,17 +16783,17 @@ type PresentationTimeRangeResponseInput interface {
 // The presentation time range, this is asset related and not recommended for Account Filter.
 type PresentationTimeRangeResponseArgs struct {
 	// The absolute end time boundary.
-	EndTimestamp pulumi.IntPtrInput `pulumi:"endTimestamp"`
+	EndTimestamp pulumi.Float64PtrInput `pulumi:"endTimestamp"`
 	// The indicator of forcing existing of end time stamp.
 	ForceEndTimestamp pulumi.BoolPtrInput `pulumi:"forceEndTimestamp"`
 	// The relative to end right edge.
-	LiveBackoffDuration pulumi.IntPtrInput `pulumi:"liveBackoffDuration"`
+	LiveBackoffDuration pulumi.Float64PtrInput `pulumi:"liveBackoffDuration"`
 	// The relative to end sliding window.
-	PresentationWindowDuration pulumi.IntPtrInput `pulumi:"presentationWindowDuration"`
+	PresentationWindowDuration pulumi.Float64PtrInput `pulumi:"presentationWindowDuration"`
 	// The absolute start time boundary.
-	StartTimestamp pulumi.IntPtrInput `pulumi:"startTimestamp"`
+	StartTimestamp pulumi.Float64PtrInput `pulumi:"startTimestamp"`
 	// The time scale of time stamps.
-	Timescale pulumi.IntPtrInput `pulumi:"timescale"`
+	Timescale pulumi.Float64PtrInput `pulumi:"timescale"`
 }
 
 func (PresentationTimeRangeResponseArgs) ElementType() reflect.Type {
@@ -16875,8 +16875,8 @@ func (o PresentationTimeRangeResponseOutput) ToPresentationTimeRangeResponsePtrO
 }
 
 // The absolute end time boundary.
-func (o PresentationTimeRangeResponseOutput) EndTimestamp() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PresentationTimeRangeResponse) *int { return v.EndTimestamp }).(pulumi.IntPtrOutput)
+func (o PresentationTimeRangeResponseOutput) EndTimestamp() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRangeResponse) *float64 { return v.EndTimestamp }).(pulumi.Float64PtrOutput)
 }
 
 // The indicator of forcing existing of end time stamp.
@@ -16885,23 +16885,23 @@ func (o PresentationTimeRangeResponseOutput) ForceEndTimestamp() pulumi.BoolPtrO
 }
 
 // The relative to end right edge.
-func (o PresentationTimeRangeResponseOutput) LiveBackoffDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PresentationTimeRangeResponse) *int { return v.LiveBackoffDuration }).(pulumi.IntPtrOutput)
+func (o PresentationTimeRangeResponseOutput) LiveBackoffDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRangeResponse) *float64 { return v.LiveBackoffDuration }).(pulumi.Float64PtrOutput)
 }
 
 // The relative to end sliding window.
-func (o PresentationTimeRangeResponseOutput) PresentationWindowDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PresentationTimeRangeResponse) *int { return v.PresentationWindowDuration }).(pulumi.IntPtrOutput)
+func (o PresentationTimeRangeResponseOutput) PresentationWindowDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRangeResponse) *float64 { return v.PresentationWindowDuration }).(pulumi.Float64PtrOutput)
 }
 
 // The absolute start time boundary.
-func (o PresentationTimeRangeResponseOutput) StartTimestamp() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PresentationTimeRangeResponse) *int { return v.StartTimestamp }).(pulumi.IntPtrOutput)
+func (o PresentationTimeRangeResponseOutput) StartTimestamp() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRangeResponse) *float64 { return v.StartTimestamp }).(pulumi.Float64PtrOutput)
 }
 
 // The time scale of time stamps.
-func (o PresentationTimeRangeResponseOutput) Timescale() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PresentationTimeRangeResponse) *int { return v.Timescale }).(pulumi.IntPtrOutput)
+func (o PresentationTimeRangeResponseOutput) Timescale() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRangeResponse) *float64 { return v.Timescale }).(pulumi.Float64PtrOutput)
 }
 
 type PresentationTimeRangeResponsePtrOutput struct{ *pulumi.OutputState }
@@ -16923,13 +16923,13 @@ func (o PresentationTimeRangeResponsePtrOutput) Elem() PresentationTimeRangeResp
 }
 
 // The absolute end time boundary.
-func (o PresentationTimeRangeResponsePtrOutput) EndTimestamp() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PresentationTimeRangeResponse) *int {
+func (o PresentationTimeRangeResponsePtrOutput) EndTimestamp() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PresentationTimeRangeResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.EndTimestamp
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The indicator of forcing existing of end time stamp.
@@ -16943,43 +16943,43 @@ func (o PresentationTimeRangeResponsePtrOutput) ForceEndTimestamp() pulumi.BoolP
 }
 
 // The relative to end right edge.
-func (o PresentationTimeRangeResponsePtrOutput) LiveBackoffDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PresentationTimeRangeResponse) *int {
+func (o PresentationTimeRangeResponsePtrOutput) LiveBackoffDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PresentationTimeRangeResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.LiveBackoffDuration
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The relative to end sliding window.
-func (o PresentationTimeRangeResponsePtrOutput) PresentationWindowDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PresentationTimeRangeResponse) *int {
+func (o PresentationTimeRangeResponsePtrOutput) PresentationWindowDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PresentationTimeRangeResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PresentationWindowDuration
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The absolute start time boundary.
-func (o PresentationTimeRangeResponsePtrOutput) StartTimestamp() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PresentationTimeRangeResponse) *int {
+func (o PresentationTimeRangeResponsePtrOutput) StartTimestamp() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PresentationTimeRangeResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.StartTimestamp
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The time scale of time stamps.
-func (o PresentationTimeRangeResponsePtrOutput) Timescale() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PresentationTimeRangeResponse) *int {
+func (o PresentationTimeRangeResponsePtrOutput) Timescale() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PresentationTimeRangeResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Timescale
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The Private Endpoint resource.

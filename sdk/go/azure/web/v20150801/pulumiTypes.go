@@ -10553,9 +10553,9 @@ func (o SiteConfigResponsePtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 // Represents metric limits set on a web app.
 type SiteLimits struct {
 	// Maximum allowed disk size usage in MB
-	MaxDiskSizeInMb *int `pulumi:"maxDiskSizeInMb"`
+	MaxDiskSizeInMb *float64 `pulumi:"maxDiskSizeInMb"`
 	// Maximum allowed memory usage in MB
-	MaxMemoryInMb *int `pulumi:"maxMemoryInMb"`
+	MaxMemoryInMb *float64 `pulumi:"maxMemoryInMb"`
 	// Maximum allowed CPU usage percentage
 	MaxPercentageCpu *float64 `pulumi:"maxPercentageCpu"`
 }
@@ -10574,9 +10574,9 @@ type SiteLimitsInput interface {
 // Represents metric limits set on a web app.
 type SiteLimitsArgs struct {
 	// Maximum allowed disk size usage in MB
-	MaxDiskSizeInMb pulumi.IntPtrInput `pulumi:"maxDiskSizeInMb"`
+	MaxDiskSizeInMb pulumi.Float64PtrInput `pulumi:"maxDiskSizeInMb"`
 	// Maximum allowed memory usage in MB
-	MaxMemoryInMb pulumi.IntPtrInput `pulumi:"maxMemoryInMb"`
+	MaxMemoryInMb pulumi.Float64PtrInput `pulumi:"maxMemoryInMb"`
 	// Maximum allowed CPU usage percentage
 	MaxPercentageCpu pulumi.Float64PtrInput `pulumi:"maxPercentageCpu"`
 }
@@ -10660,13 +10660,13 @@ func (o SiteLimitsOutput) ToSiteLimitsPtrOutputWithContext(ctx context.Context) 
 }
 
 // Maximum allowed disk size usage in MB
-func (o SiteLimitsOutput) MaxDiskSizeInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteLimits) *int { return v.MaxDiskSizeInMb }).(pulumi.IntPtrOutput)
+func (o SiteLimitsOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SiteLimits) *float64 { return v.MaxDiskSizeInMb }).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed memory usage in MB
-func (o SiteLimitsOutput) MaxMemoryInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteLimits) *int { return v.MaxMemoryInMb }).(pulumi.IntPtrOutput)
+func (o SiteLimitsOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SiteLimits) *float64 { return v.MaxMemoryInMb }).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed CPU usage percentage
@@ -10693,23 +10693,23 @@ func (o SiteLimitsPtrOutput) Elem() SiteLimitsOutput {
 }
 
 // Maximum allowed disk size usage in MB
-func (o SiteLimitsPtrOutput) MaxDiskSizeInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteLimits) *int {
+func (o SiteLimitsPtrOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SiteLimits) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxDiskSizeInMb
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed memory usage in MB
-func (o SiteLimitsPtrOutput) MaxMemoryInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteLimits) *int {
+func (o SiteLimitsPtrOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SiteLimits) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxMemoryInMb
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed CPU usage percentage
@@ -10725,9 +10725,9 @@ func (o SiteLimitsPtrOutput) MaxPercentageCpu() pulumi.Float64PtrOutput {
 // Represents metric limits set on a web app.
 type SiteLimitsResponse struct {
 	// Maximum allowed disk size usage in MB
-	MaxDiskSizeInMb *int `pulumi:"maxDiskSizeInMb"`
+	MaxDiskSizeInMb *float64 `pulumi:"maxDiskSizeInMb"`
 	// Maximum allowed memory usage in MB
-	MaxMemoryInMb *int `pulumi:"maxMemoryInMb"`
+	MaxMemoryInMb *float64 `pulumi:"maxMemoryInMb"`
 	// Maximum allowed CPU usage percentage
 	MaxPercentageCpu *float64 `pulumi:"maxPercentageCpu"`
 }
@@ -10746,9 +10746,9 @@ type SiteLimitsResponseInput interface {
 // Represents metric limits set on a web app.
 type SiteLimitsResponseArgs struct {
 	// Maximum allowed disk size usage in MB
-	MaxDiskSizeInMb pulumi.IntPtrInput `pulumi:"maxDiskSizeInMb"`
+	MaxDiskSizeInMb pulumi.Float64PtrInput `pulumi:"maxDiskSizeInMb"`
 	// Maximum allowed memory usage in MB
-	MaxMemoryInMb pulumi.IntPtrInput `pulumi:"maxMemoryInMb"`
+	MaxMemoryInMb pulumi.Float64PtrInput `pulumi:"maxMemoryInMb"`
 	// Maximum allowed CPU usage percentage
 	MaxPercentageCpu pulumi.Float64PtrInput `pulumi:"maxPercentageCpu"`
 }
@@ -10832,13 +10832,13 @@ func (o SiteLimitsResponseOutput) ToSiteLimitsResponsePtrOutputWithContext(ctx c
 }
 
 // Maximum allowed disk size usage in MB
-func (o SiteLimitsResponseOutput) MaxDiskSizeInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteLimitsResponse) *int { return v.MaxDiskSizeInMb }).(pulumi.IntPtrOutput)
+func (o SiteLimitsResponseOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SiteLimitsResponse) *float64 { return v.MaxDiskSizeInMb }).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed memory usage in MB
-func (o SiteLimitsResponseOutput) MaxMemoryInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteLimitsResponse) *int { return v.MaxMemoryInMb }).(pulumi.IntPtrOutput)
+func (o SiteLimitsResponseOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SiteLimitsResponse) *float64 { return v.MaxMemoryInMb }).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed CPU usage percentage
@@ -10865,23 +10865,23 @@ func (o SiteLimitsResponsePtrOutput) Elem() SiteLimitsResponseOutput {
 }
 
 // Maximum allowed disk size usage in MB
-func (o SiteLimitsResponsePtrOutput) MaxDiskSizeInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteLimitsResponse) *int {
+func (o SiteLimitsResponsePtrOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SiteLimitsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxDiskSizeInMb
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed memory usage in MB
-func (o SiteLimitsResponsePtrOutput) MaxMemoryInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteLimitsResponse) *int {
+func (o SiteLimitsResponsePtrOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SiteLimitsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxMemoryInMb
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed CPU usage percentage
@@ -11661,7 +11661,7 @@ func (o SlowRequestsBasedTriggerResponsePtrOutput) TimeTaken() pulumi.StringPtrO
 // Class containing stamp capacity information
 type StampCapacity struct {
 	// Available capacity (# of machines, bytes of storage etc...)
-	AvailableCapacity *int `pulumi:"availableCapacity"`
+	AvailableCapacity *float64 `pulumi:"availableCapacity"`
 	// Shared/Dedicated workers
 	ComputeMode *string `pulumi:"computeMode"`
 	// If true it includes basic sites
@@ -11674,7 +11674,7 @@ type StampCapacity struct {
 	// Shared or Dedicated
 	SiteMode *string `pulumi:"siteMode"`
 	// Total capacity (# of machines, bytes of storage etc...)
-	TotalCapacity *int `pulumi:"totalCapacity"`
+	TotalCapacity *float64 `pulumi:"totalCapacity"`
 	// Name of the unit
 	Unit *string `pulumi:"unit"`
 	// Size of the machines
@@ -11700,7 +11700,7 @@ type StampCapacityInput interface {
 // Class containing stamp capacity information
 type StampCapacityArgs struct {
 	// Available capacity (# of machines, bytes of storage etc...)
-	AvailableCapacity pulumi.IntPtrInput `pulumi:"availableCapacity"`
+	AvailableCapacity pulumi.Float64PtrInput `pulumi:"availableCapacity"`
 	// Shared/Dedicated workers
 	ComputeMode ComputeModeOptions `pulumi:"computeMode"`
 	// If true it includes basic sites
@@ -11713,7 +11713,7 @@ type StampCapacityArgs struct {
 	// Shared or Dedicated
 	SiteMode pulumi.StringPtrInput `pulumi:"siteMode"`
 	// Total capacity (# of machines, bytes of storage etc...)
-	TotalCapacity pulumi.IntPtrInput `pulumi:"totalCapacity"`
+	TotalCapacity pulumi.Float64PtrInput `pulumi:"totalCapacity"`
 	// Name of the unit
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 	// Size of the machines
@@ -11778,8 +11778,8 @@ func (o StampCapacityOutput) ToStampCapacityOutputWithContext(ctx context.Contex
 }
 
 // Available capacity (# of machines, bytes of storage etc...)
-func (o StampCapacityOutput) AvailableCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StampCapacity) *int { return v.AvailableCapacity }).(pulumi.IntPtrOutput)
+func (o StampCapacityOutput) AvailableCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StampCapacity) *float64 { return v.AvailableCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // Shared/Dedicated workers
@@ -11809,8 +11809,8 @@ func (o StampCapacityOutput) SiteMode() pulumi.StringPtrOutput {
 }
 
 // Total capacity (# of machines, bytes of storage etc...)
-func (o StampCapacityOutput) TotalCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StampCapacity) *int { return v.TotalCapacity }).(pulumi.IntPtrOutput)
+func (o StampCapacityOutput) TotalCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StampCapacity) *float64 { return v.TotalCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // Name of the unit
@@ -11854,7 +11854,7 @@ func (o StampCapacityArrayOutput) Index(i pulumi.IntInput) StampCapacityOutput {
 // Class containing stamp capacity information
 type StampCapacityResponse struct {
 	// Available capacity (# of machines, bytes of storage etc...)
-	AvailableCapacity *int `pulumi:"availableCapacity"`
+	AvailableCapacity *float64 `pulumi:"availableCapacity"`
 	// Shared/Dedicated workers
 	ComputeMode *string `pulumi:"computeMode"`
 	// If true it includes basic sites
@@ -11867,7 +11867,7 @@ type StampCapacityResponse struct {
 	// Shared or Dedicated
 	SiteMode *string `pulumi:"siteMode"`
 	// Total capacity (# of machines, bytes of storage etc...)
-	TotalCapacity *int `pulumi:"totalCapacity"`
+	TotalCapacity *float64 `pulumi:"totalCapacity"`
 	// Name of the unit
 	Unit *string `pulumi:"unit"`
 	// Size of the machines
@@ -11893,7 +11893,7 @@ type StampCapacityResponseInput interface {
 // Class containing stamp capacity information
 type StampCapacityResponseArgs struct {
 	// Available capacity (# of machines, bytes of storage etc...)
-	AvailableCapacity pulumi.IntPtrInput `pulumi:"availableCapacity"`
+	AvailableCapacity pulumi.Float64PtrInput `pulumi:"availableCapacity"`
 	// Shared/Dedicated workers
 	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
 	// If true it includes basic sites
@@ -11906,7 +11906,7 @@ type StampCapacityResponseArgs struct {
 	// Shared or Dedicated
 	SiteMode pulumi.StringPtrInput `pulumi:"siteMode"`
 	// Total capacity (# of machines, bytes of storage etc...)
-	TotalCapacity pulumi.IntPtrInput `pulumi:"totalCapacity"`
+	TotalCapacity pulumi.Float64PtrInput `pulumi:"totalCapacity"`
 	// Name of the unit
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 	// Size of the machines
@@ -11971,8 +11971,8 @@ func (o StampCapacityResponseOutput) ToStampCapacityResponseOutputWithContext(ct
 }
 
 // Available capacity (# of machines, bytes of storage etc...)
-func (o StampCapacityResponseOutput) AvailableCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *int { return v.AvailableCapacity }).(pulumi.IntPtrOutput)
+func (o StampCapacityResponseOutput) AvailableCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StampCapacityResponse) *float64 { return v.AvailableCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // Shared/Dedicated workers
@@ -12002,8 +12002,8 @@ func (o StampCapacityResponseOutput) SiteMode() pulumi.StringPtrOutput {
 }
 
 // Total capacity (# of machines, bytes of storage etc...)
-func (o StampCapacityResponseOutput) TotalCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *int { return v.TotalCapacity }).(pulumi.IntPtrOutput)
+func (o StampCapacityResponseOutput) TotalCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StampCapacityResponse) *float64 { return v.TotalCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // Name of the unit

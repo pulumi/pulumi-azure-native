@@ -34,7 +34,7 @@ type LookupVpnConnectionResult struct {
 	// The dead peer detection timeout for a vpn connection in seconds.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// Egress bytes transferred.
-	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Enable internet security.
@@ -46,7 +46,7 @@ type LookupVpnConnectionResult struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Ingress bytes transferred.
-	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.

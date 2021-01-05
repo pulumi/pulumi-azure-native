@@ -30,7 +30,7 @@ type Volume struct {
 	// The operation status on the volume.
 	OperationStatus pulumi.StringOutput `pulumi:"operationStatus"`
 	// The size of the volume in bytes.
-	SizeInBytes pulumi.IntOutput `pulumi:"sizeInBytes"`
+	SizeInBytes pulumi.Float64Output `pulumi:"sizeInBytes"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The ID of the volume container, in which this volume is created.
@@ -112,7 +112,7 @@ type volumeState struct {
 	// The operation status on the volume.
 	OperationStatus *string `pulumi:"operationStatus"`
 	// The size of the volume in bytes.
-	SizeInBytes *int `pulumi:"sizeInBytes"`
+	SizeInBytes *float64 `pulumi:"sizeInBytes"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 	// The ID of the volume container, in which this volume is created.
@@ -139,7 +139,7 @@ type VolumeState struct {
 	// The operation status on the volume.
 	OperationStatus pulumi.StringPtrInput
 	// The size of the volume in bytes.
-	SizeInBytes pulumi.IntPtrInput
+	SizeInBytes pulumi.Float64PtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 	// The ID of the volume container, in which this volume is created.
@@ -168,7 +168,7 @@ type volumeArgs struct {
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The size of the volume in bytes.
-	SizeInBytes int `pulumi:"sizeInBytes"`
+	SizeInBytes float64 `pulumi:"sizeInBytes"`
 	// The volume container name.
 	VolumeContainerName string `pulumi:"volumeContainerName"`
 	// The volume name.
@@ -194,7 +194,7 @@ type VolumeArgs struct {
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The size of the volume in bytes.
-	SizeInBytes pulumi.IntInput
+	SizeInBytes pulumi.Float64Input
 	// The volume container name.
 	VolumeContainerName pulumi.StringInput
 	// The volume name.

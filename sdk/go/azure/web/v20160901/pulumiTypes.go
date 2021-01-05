@@ -1943,7 +1943,7 @@ func (o SkuDescriptionResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 // Stamp capacity information.
 type StampCapacityResponse struct {
 	// Available capacity (# of machines, bytes of storage etc...).
-	AvailableCapacity *int `pulumi:"availableCapacity"`
+	AvailableCapacity *float64 `pulumi:"availableCapacity"`
 	// Shared/dedicated workers.
 	ComputeMode *string `pulumi:"computeMode"`
 	// If <code>true</code>, it includes basic apps.
@@ -1956,7 +1956,7 @@ type StampCapacityResponse struct {
 	// Shared or Dedicated.
 	SiteMode *string `pulumi:"siteMode"`
 	// Total capacity (# of machines, bytes of storage etc...).
-	TotalCapacity *int `pulumi:"totalCapacity"`
+	TotalCapacity *float64 `pulumi:"totalCapacity"`
 	// Name of the unit.
 	Unit *string `pulumi:"unit"`
 	// Size of the machines.
@@ -1982,7 +1982,7 @@ type StampCapacityResponseInput interface {
 // Stamp capacity information.
 type StampCapacityResponseArgs struct {
 	// Available capacity (# of machines, bytes of storage etc...).
-	AvailableCapacity pulumi.IntPtrInput `pulumi:"availableCapacity"`
+	AvailableCapacity pulumi.Float64PtrInput `pulumi:"availableCapacity"`
 	// Shared/dedicated workers.
 	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
 	// If <code>true</code>, it includes basic apps.
@@ -1995,7 +1995,7 @@ type StampCapacityResponseArgs struct {
 	// Shared or Dedicated.
 	SiteMode pulumi.StringPtrInput `pulumi:"siteMode"`
 	// Total capacity (# of machines, bytes of storage etc...).
-	TotalCapacity pulumi.IntPtrInput `pulumi:"totalCapacity"`
+	TotalCapacity pulumi.Float64PtrInput `pulumi:"totalCapacity"`
 	// Name of the unit.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 	// Size of the machines.
@@ -2060,8 +2060,8 @@ func (o StampCapacityResponseOutput) ToStampCapacityResponseOutputWithContext(ct
 }
 
 // Available capacity (# of machines, bytes of storage etc...).
-func (o StampCapacityResponseOutput) AvailableCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *int { return v.AvailableCapacity }).(pulumi.IntPtrOutput)
+func (o StampCapacityResponseOutput) AvailableCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StampCapacityResponse) *float64 { return v.AvailableCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // Shared/dedicated workers.
@@ -2091,8 +2091,8 @@ func (o StampCapacityResponseOutput) SiteMode() pulumi.StringPtrOutput {
 }
 
 // Total capacity (# of machines, bytes of storage etc...).
-func (o StampCapacityResponseOutput) TotalCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *int { return v.TotalCapacity }).(pulumi.IntPtrOutput)
+func (o StampCapacityResponseOutput) TotalCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StampCapacityResponse) *float64 { return v.TotalCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // Name of the unit.

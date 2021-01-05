@@ -48,7 +48,7 @@ type LookupExpressRouteCircuitPeeringResult struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The peering type.
 	PeeringType *string `pulumi:"peeringType"`
 	// The primary port.

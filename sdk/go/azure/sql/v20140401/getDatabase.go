@@ -32,7 +32,7 @@ type LookupDatabaseResult struct {
 	// The collation of the database. If createMode is not Default, this value is ignored.
 	Collation *string `pulumi:"collation"`
 	// The containment state of the database.
-	ContainmentState int `pulumi:"containmentState"`
+	ContainmentState float64 `pulumi:"containmentState"`
 	// Specifies the mode of database creation.
 	//
 	// Default: regular database creation.

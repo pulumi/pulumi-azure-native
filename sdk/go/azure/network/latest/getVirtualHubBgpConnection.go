@@ -36,7 +36,7 @@ type LookupVirtualHubBgpConnectionResult struct {
 	// Name of the connection.
 	Name *string `pulumi:"name"`
 	// Peer ASN.
-	PeerAsn *int `pulumi:"peerAsn"`
+	PeerAsn *float64 `pulumi:"peerAsn"`
 	// Peer IP.
 	PeerIp *string `pulumi:"peerIp"`
 	// The provisioning state of the resource.

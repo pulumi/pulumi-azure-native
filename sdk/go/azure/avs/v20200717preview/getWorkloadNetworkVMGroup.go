@@ -38,7 +38,7 @@ type LookupWorkloadNetworkVMGroupResult struct {
 	// The provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// VM Group status.
 	Status string `pulumi:"status"`
 	// Resource type.

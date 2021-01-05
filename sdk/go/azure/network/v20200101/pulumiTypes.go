@@ -5730,17 +5730,17 @@ type SoaRecord struct {
 	// The email contact for this SOA record.
 	Email *string `pulumi:"email"`
 	// The expire time for this SOA record.
-	ExpireTime *int `pulumi:"expireTime"`
+	ExpireTime *float64 `pulumi:"expireTime"`
 	// The domain name of the authoritative name server for this SOA record.
 	Host *string `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl *int `pulumi:"minimumTtl"`
+	MinimumTtl *float64 `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
-	RefreshTime *int `pulumi:"refreshTime"`
+	RefreshTime *float64 `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
-	RetryTime *int `pulumi:"retryTime"`
+	RetryTime *float64 `pulumi:"retryTime"`
 	// The serial number for this SOA record.
-	SerialNumber *int `pulumi:"serialNumber"`
+	SerialNumber *float64 `pulumi:"serialNumber"`
 }
 
 // SoaRecordInput is an input type that accepts SoaRecordArgs and SoaRecordOutput values.
@@ -5759,17 +5759,17 @@ type SoaRecordArgs struct {
 	// The email contact for this SOA record.
 	Email pulumi.StringPtrInput `pulumi:"email"`
 	// The expire time for this SOA record.
-	ExpireTime pulumi.IntPtrInput `pulumi:"expireTime"`
+	ExpireTime pulumi.Float64PtrInput `pulumi:"expireTime"`
 	// The domain name of the authoritative name server for this SOA record.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
+	MinimumTtl pulumi.Float64PtrInput `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
-	RefreshTime pulumi.IntPtrInput `pulumi:"refreshTime"`
+	RefreshTime pulumi.Float64PtrInput `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
-	RetryTime pulumi.IntPtrInput `pulumi:"retryTime"`
+	RetryTime pulumi.Float64PtrInput `pulumi:"retryTime"`
 	// The serial number for this SOA record.
-	SerialNumber pulumi.IntPtrInput `pulumi:"serialNumber"`
+	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
 }
 
 func (SoaRecordArgs) ElementType() reflect.Type {
@@ -5856,8 +5856,8 @@ func (o SoaRecordOutput) Email() pulumi.StringPtrOutput {
 }
 
 // The expire time for this SOA record.
-func (o SoaRecordOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.ExpireTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.ExpireTime }).(pulumi.Float64PtrOutput)
 }
 
 // The domain name of the authoritative name server for this SOA record.
@@ -5866,23 +5866,23 @@ func (o SoaRecordOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordOutput) MinimumTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.MinimumTtl }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) MinimumTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.MinimumTtl }).(pulumi.Float64PtrOutput)
 }
 
 // The refresh value for this SOA record.
-func (o SoaRecordOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.RefreshTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.RefreshTime }).(pulumi.Float64PtrOutput)
 }
 
 // The retry time for this SOA record.
-func (o SoaRecordOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.RetryTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.RetryTime }).(pulumi.Float64PtrOutput)
 }
 
 // The serial number for this SOA record.
-func (o SoaRecordOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.SerialNumber }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.SerialNumber }).(pulumi.Float64PtrOutput)
 }
 
 type SoaRecordPtrOutput struct{ *pulumi.OutputState }
@@ -5914,13 +5914,13 @@ func (o SoaRecordPtrOutput) Email() pulumi.StringPtrOutput {
 }
 
 // The expire time for this SOA record.
-func (o SoaRecordPtrOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ExpireTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The domain name of the authoritative name server for this SOA record.
@@ -5934,43 +5934,43 @@ func (o SoaRecordPtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordPtrOutput) MinimumTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MinimumTtl
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The refresh value for this SOA record.
-func (o SoaRecordPtrOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RefreshTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The retry time for this SOA record.
-func (o SoaRecordPtrOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RetryTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The serial number for this SOA record.
-func (o SoaRecordPtrOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SerialNumber
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // An SOA record.
@@ -5978,17 +5978,17 @@ type SoaRecordResponse struct {
 	// The email contact for this SOA record.
 	Email *string `pulumi:"email"`
 	// The expire time for this SOA record.
-	ExpireTime *int `pulumi:"expireTime"`
+	ExpireTime *float64 `pulumi:"expireTime"`
 	// The domain name of the authoritative name server for this SOA record.
 	Host *string `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl *int `pulumi:"minimumTtl"`
+	MinimumTtl *float64 `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
-	RefreshTime *int `pulumi:"refreshTime"`
+	RefreshTime *float64 `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
-	RetryTime *int `pulumi:"retryTime"`
+	RetryTime *float64 `pulumi:"retryTime"`
 	// The serial number for this SOA record.
-	SerialNumber *int `pulumi:"serialNumber"`
+	SerialNumber *float64 `pulumi:"serialNumber"`
 }
 
 // SoaRecordResponseInput is an input type that accepts SoaRecordResponseArgs and SoaRecordResponseOutput values.
@@ -6007,17 +6007,17 @@ type SoaRecordResponseArgs struct {
 	// The email contact for this SOA record.
 	Email pulumi.StringPtrInput `pulumi:"email"`
 	// The expire time for this SOA record.
-	ExpireTime pulumi.IntPtrInput `pulumi:"expireTime"`
+	ExpireTime pulumi.Float64PtrInput `pulumi:"expireTime"`
 	// The domain name of the authoritative name server for this SOA record.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
+	MinimumTtl pulumi.Float64PtrInput `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
-	RefreshTime pulumi.IntPtrInput `pulumi:"refreshTime"`
+	RefreshTime pulumi.Float64PtrInput `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
-	RetryTime pulumi.IntPtrInput `pulumi:"retryTime"`
+	RetryTime pulumi.Float64PtrInput `pulumi:"retryTime"`
 	// The serial number for this SOA record.
-	SerialNumber pulumi.IntPtrInput `pulumi:"serialNumber"`
+	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
 }
 
 func (SoaRecordResponseArgs) ElementType() reflect.Type {
@@ -6104,8 +6104,8 @@ func (o SoaRecordResponseOutput) Email() pulumi.StringPtrOutput {
 }
 
 // The expire time for this SOA record.
-func (o SoaRecordResponseOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.ExpireTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.ExpireTime }).(pulumi.Float64PtrOutput)
 }
 
 // The domain name of the authoritative name server for this SOA record.
@@ -6114,23 +6114,23 @@ func (o SoaRecordResponseOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordResponseOutput) MinimumTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.MinimumTtl }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) MinimumTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.MinimumTtl }).(pulumi.Float64PtrOutput)
 }
 
 // The refresh value for this SOA record.
-func (o SoaRecordResponseOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.RefreshTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.RefreshTime }).(pulumi.Float64PtrOutput)
 }
 
 // The retry time for this SOA record.
-func (o SoaRecordResponseOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.RetryTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.RetryTime }).(pulumi.Float64PtrOutput)
 }
 
 // The serial number for this SOA record.
-func (o SoaRecordResponseOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.SerialNumber }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.SerialNumber }).(pulumi.Float64PtrOutput)
 }
 
 type SoaRecordResponsePtrOutput struct{ *pulumi.OutputState }
@@ -6162,13 +6162,13 @@ func (o SoaRecordResponsePtrOutput) Email() pulumi.StringPtrOutput {
 }
 
 // The expire time for this SOA record.
-func (o SoaRecordResponsePtrOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ExpireTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The domain name of the authoritative name server for this SOA record.
@@ -6182,43 +6182,43 @@ func (o SoaRecordResponsePtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordResponsePtrOutput) MinimumTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MinimumTtl
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The refresh value for this SOA record.
-func (o SoaRecordResponsePtrOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RefreshTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The retry time for this SOA record.
-func (o SoaRecordResponsePtrOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RetryTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The serial number for this SOA record.
-func (o SoaRecordResponsePtrOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SerialNumber
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // An SRV record.

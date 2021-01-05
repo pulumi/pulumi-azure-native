@@ -43,7 +43,7 @@ type FileShare struct {
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota pulumi.IntPtrOutput `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-	ShareUsageBytes pulumi.IntOutput `pulumi:"shareUsageBytes"`
+	ShareUsageBytes pulumi.Float64Output `pulumi:"shareUsageBytes"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The version of the share.
@@ -127,7 +127,7 @@ type fileShareState struct {
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota *int `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-	ShareUsageBytes *int `pulumi:"shareUsageBytes"`
+	ShareUsageBytes *float64 `pulumi:"shareUsageBytes"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The version of the share.
@@ -162,7 +162,7 @@ type FileShareState struct {
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota pulumi.IntPtrInput
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-	ShareUsageBytes pulumi.IntPtrInput
+	ShareUsageBytes pulumi.Float64PtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The version of the share.

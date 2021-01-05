@@ -10903,9 +10903,9 @@ func (o SiteConfigResponsePtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 // Metric limits set on an app.
 type SiteLimits struct {
 	// Maximum allowed disk size usage in MB.
-	MaxDiskSizeInMb *int `pulumi:"maxDiskSizeInMb"`
+	MaxDiskSizeInMb *float64 `pulumi:"maxDiskSizeInMb"`
 	// Maximum allowed memory usage in MB.
-	MaxMemoryInMb *int `pulumi:"maxMemoryInMb"`
+	MaxMemoryInMb *float64 `pulumi:"maxMemoryInMb"`
 	// Maximum allowed CPU usage percentage.
 	MaxPercentageCpu *float64 `pulumi:"maxPercentageCpu"`
 }
@@ -10924,9 +10924,9 @@ type SiteLimitsInput interface {
 // Metric limits set on an app.
 type SiteLimitsArgs struct {
 	// Maximum allowed disk size usage in MB.
-	MaxDiskSizeInMb pulumi.IntPtrInput `pulumi:"maxDiskSizeInMb"`
+	MaxDiskSizeInMb pulumi.Float64PtrInput `pulumi:"maxDiskSizeInMb"`
 	// Maximum allowed memory usage in MB.
-	MaxMemoryInMb pulumi.IntPtrInput `pulumi:"maxMemoryInMb"`
+	MaxMemoryInMb pulumi.Float64PtrInput `pulumi:"maxMemoryInMb"`
 	// Maximum allowed CPU usage percentage.
 	MaxPercentageCpu pulumi.Float64PtrInput `pulumi:"maxPercentageCpu"`
 }
@@ -11010,13 +11010,13 @@ func (o SiteLimitsOutput) ToSiteLimitsPtrOutputWithContext(ctx context.Context) 
 }
 
 // Maximum allowed disk size usage in MB.
-func (o SiteLimitsOutput) MaxDiskSizeInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteLimits) *int { return v.MaxDiskSizeInMb }).(pulumi.IntPtrOutput)
+func (o SiteLimitsOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SiteLimits) *float64 { return v.MaxDiskSizeInMb }).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed memory usage in MB.
-func (o SiteLimitsOutput) MaxMemoryInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteLimits) *int { return v.MaxMemoryInMb }).(pulumi.IntPtrOutput)
+func (o SiteLimitsOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SiteLimits) *float64 { return v.MaxMemoryInMb }).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed CPU usage percentage.
@@ -11043,23 +11043,23 @@ func (o SiteLimitsPtrOutput) Elem() SiteLimitsOutput {
 }
 
 // Maximum allowed disk size usage in MB.
-func (o SiteLimitsPtrOutput) MaxDiskSizeInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteLimits) *int {
+func (o SiteLimitsPtrOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SiteLimits) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxDiskSizeInMb
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed memory usage in MB.
-func (o SiteLimitsPtrOutput) MaxMemoryInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteLimits) *int {
+func (o SiteLimitsPtrOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SiteLimits) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxMemoryInMb
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed CPU usage percentage.
@@ -11075,9 +11075,9 @@ func (o SiteLimitsPtrOutput) MaxPercentageCpu() pulumi.Float64PtrOutput {
 // Metric limits set on an app.
 type SiteLimitsResponse struct {
 	// Maximum allowed disk size usage in MB.
-	MaxDiskSizeInMb *int `pulumi:"maxDiskSizeInMb"`
+	MaxDiskSizeInMb *float64 `pulumi:"maxDiskSizeInMb"`
 	// Maximum allowed memory usage in MB.
-	MaxMemoryInMb *int `pulumi:"maxMemoryInMb"`
+	MaxMemoryInMb *float64 `pulumi:"maxMemoryInMb"`
 	// Maximum allowed CPU usage percentage.
 	MaxPercentageCpu *float64 `pulumi:"maxPercentageCpu"`
 }
@@ -11096,9 +11096,9 @@ type SiteLimitsResponseInput interface {
 // Metric limits set on an app.
 type SiteLimitsResponseArgs struct {
 	// Maximum allowed disk size usage in MB.
-	MaxDiskSizeInMb pulumi.IntPtrInput `pulumi:"maxDiskSizeInMb"`
+	MaxDiskSizeInMb pulumi.Float64PtrInput `pulumi:"maxDiskSizeInMb"`
 	// Maximum allowed memory usage in MB.
-	MaxMemoryInMb pulumi.IntPtrInput `pulumi:"maxMemoryInMb"`
+	MaxMemoryInMb pulumi.Float64PtrInput `pulumi:"maxMemoryInMb"`
 	// Maximum allowed CPU usage percentage.
 	MaxPercentageCpu pulumi.Float64PtrInput `pulumi:"maxPercentageCpu"`
 }
@@ -11182,13 +11182,13 @@ func (o SiteLimitsResponseOutput) ToSiteLimitsResponsePtrOutputWithContext(ctx c
 }
 
 // Maximum allowed disk size usage in MB.
-func (o SiteLimitsResponseOutput) MaxDiskSizeInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteLimitsResponse) *int { return v.MaxDiskSizeInMb }).(pulumi.IntPtrOutput)
+func (o SiteLimitsResponseOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SiteLimitsResponse) *float64 { return v.MaxDiskSizeInMb }).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed memory usage in MB.
-func (o SiteLimitsResponseOutput) MaxMemoryInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteLimitsResponse) *int { return v.MaxMemoryInMb }).(pulumi.IntPtrOutput)
+func (o SiteLimitsResponseOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SiteLimitsResponse) *float64 { return v.MaxMemoryInMb }).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed CPU usage percentage.
@@ -11215,23 +11215,23 @@ func (o SiteLimitsResponsePtrOutput) Elem() SiteLimitsResponseOutput {
 }
 
 // Maximum allowed disk size usage in MB.
-func (o SiteLimitsResponsePtrOutput) MaxDiskSizeInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteLimitsResponse) *int {
+func (o SiteLimitsResponsePtrOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SiteLimitsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxDiskSizeInMb
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed memory usage in MB.
-func (o SiteLimitsResponsePtrOutput) MaxMemoryInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteLimitsResponse) *int {
+func (o SiteLimitsResponsePtrOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SiteLimitsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxMemoryInMb
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Maximum allowed CPU usage percentage.

@@ -30,7 +30,7 @@ type Backup struct {
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Size of backup
-	Size pulumi.IntOutput `pulumi:"size"`
+	Size pulumi.Float64Output `pulumi:"size"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -115,7 +115,7 @@ type backupState struct {
 	// Azure lifecycle management
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Size of backup
-	Size *int `pulumi:"size"`
+	Size *float64 `pulumi:"size"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -136,7 +136,7 @@ type BackupState struct {
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringPtrInput
 	// Size of backup
-	Size pulumi.IntPtrInput
+	Size pulumi.Float64PtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

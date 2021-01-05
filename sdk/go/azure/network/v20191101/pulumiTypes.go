@@ -16385,13 +16385,13 @@ type BgpPeerStatusResponse struct {
 	// The virtual network gateway's local address.
 	LocalAddress string `pulumi:"localAddress"`
 	// The number of BGP messages received.
-	MessagesReceived int `pulumi:"messagesReceived"`
+	MessagesReceived float64 `pulumi:"messagesReceived"`
 	// The number of BGP messages sent.
-	MessagesSent int `pulumi:"messagesSent"`
+	MessagesSent float64 `pulumi:"messagesSent"`
 	// The remote BGP peer.
 	Neighbor string `pulumi:"neighbor"`
 	// The number of routes learned from this peer.
-	RoutesReceived int `pulumi:"routesReceived"`
+	RoutesReceived float64 `pulumi:"routesReceived"`
 	// The BGP peer state.
 	State string `pulumi:"state"`
 }
@@ -16416,13 +16416,13 @@ type BgpPeerStatusResponseArgs struct {
 	// The virtual network gateway's local address.
 	LocalAddress pulumi.StringInput `pulumi:"localAddress"`
 	// The number of BGP messages received.
-	MessagesReceived pulumi.IntInput `pulumi:"messagesReceived"`
+	MessagesReceived pulumi.Float64Input `pulumi:"messagesReceived"`
 	// The number of BGP messages sent.
-	MessagesSent pulumi.IntInput `pulumi:"messagesSent"`
+	MessagesSent pulumi.Float64Input `pulumi:"messagesSent"`
 	// The remote BGP peer.
 	Neighbor pulumi.StringInput `pulumi:"neighbor"`
 	// The number of routes learned from this peer.
-	RoutesReceived pulumi.IntInput `pulumi:"routesReceived"`
+	RoutesReceived pulumi.Float64Input `pulumi:"routesReceived"`
 	// The BGP peer state.
 	State pulumi.StringInput `pulumi:"state"`
 }
@@ -16495,13 +16495,13 @@ func (o BgpPeerStatusResponseOutput) LocalAddress() pulumi.StringOutput {
 }
 
 // The number of BGP messages received.
-func (o BgpPeerStatusResponseOutput) MessagesReceived() pulumi.IntOutput {
-	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.MessagesReceived }).(pulumi.IntOutput)
+func (o BgpPeerStatusResponseOutput) MessagesReceived() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.MessagesReceived }).(pulumi.Float64Output)
 }
 
 // The number of BGP messages sent.
-func (o BgpPeerStatusResponseOutput) MessagesSent() pulumi.IntOutput {
-	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.MessagesSent }).(pulumi.IntOutput)
+func (o BgpPeerStatusResponseOutput) MessagesSent() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.MessagesSent }).(pulumi.Float64Output)
 }
 
 // The remote BGP peer.
@@ -16510,8 +16510,8 @@ func (o BgpPeerStatusResponseOutput) Neighbor() pulumi.StringOutput {
 }
 
 // The number of routes learned from this peer.
-func (o BgpPeerStatusResponseOutput) RoutesReceived() pulumi.IntOutput {
-	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.RoutesReceived }).(pulumi.IntOutput)
+func (o BgpPeerStatusResponseOutput) RoutesReceived() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.RoutesReceived }).(pulumi.Float64Output)
 }
 
 // The BGP peer state.
@@ -16542,7 +16542,7 @@ func (o BgpPeerStatusResponseArrayOutput) Index(i pulumi.IntInput) BgpPeerStatus
 // BGP settings details.
 type BgpSettings struct {
 	// The BGP speaker's ASN.
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -16563,7 +16563,7 @@ type BgpSettingsInput interface {
 // BGP settings details.
 type BgpSettingsArgs struct {
 	// The BGP speaker's ASN.
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -16649,8 +16649,8 @@ func (o BgpSettingsOutput) ToBgpSettingsPtrOutputWithContext(ctx context.Context
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BgpSettings) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o BgpSettingsOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BgpSettings) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -16682,13 +16682,13 @@ func (o BgpSettingsPtrOutput) Elem() BgpSettingsOutput {
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsPtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BgpSettings) *int {
+func (o BgpSettingsPtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BgpSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -16714,7 +16714,7 @@ func (o BgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutput {
 // BGP settings details.
 type BgpSettingsResponse struct {
 	// The BGP speaker's ASN.
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -16735,7 +16735,7 @@ type BgpSettingsResponseInput interface {
 // BGP settings details.
 type BgpSettingsResponseArgs struct {
 	// The BGP speaker's ASN.
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -16821,8 +16821,8 @@ func (o BgpSettingsResponseOutput) ToBgpSettingsResponsePtrOutputWithContext(ctx
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsResponseOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BgpSettingsResponse) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o BgpSettingsResponseOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BgpSettingsResponse) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -16854,13 +16854,13 @@ func (o BgpSettingsResponsePtrOutput) Elem() BgpSettingsResponseOutput {
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsResponsePtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BgpSettingsResponse) *int {
+func (o BgpSettingsResponsePtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BgpSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -23629,7 +23629,7 @@ type ExpressRouteCircuitPeeringType struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The peering type.
 	PeeringType *string `pulumi:"peeringType"`
 	// The primary port.
@@ -23680,7 +23680,7 @@ type ExpressRouteCircuitPeeringTypeArgs struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The peer ASN.
-	PeerASN pulumi.IntPtrInput `pulumi:"peerASN"`
+	PeerASN pulumi.Float64PtrInput `pulumi:"peerASN"`
 	// The peering type.
 	PeeringType pulumi.StringPtrInput `pulumi:"peeringType"`
 	// The primary port.
@@ -23795,8 +23795,8 @@ func (o ExpressRouteCircuitPeeringTypeOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The peer ASN.
-func (o ExpressRouteCircuitPeeringTypeOutput) PeerASN() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *int { return v.PeerASN }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitPeeringTypeOutput) PeerASN() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *float64 { return v.PeerASN }).(pulumi.Float64PtrOutput)
 }
 
 // The peering type.
@@ -24599,7 +24599,7 @@ type ExpressRouteCircuitPeeringResponse struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The list of peered circuit connections associated with Azure Private Peering for this circuit.
 	PeeredConnections []PeerExpressRouteCircuitConnectionResponse `pulumi:"peeredConnections"`
 	// The peering type.
@@ -24662,7 +24662,7 @@ type ExpressRouteCircuitPeeringResponseArgs struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The peer ASN.
-	PeerASN pulumi.IntPtrInput `pulumi:"peerASN"`
+	PeerASN pulumi.Float64PtrInput `pulumi:"peerASN"`
 	// The list of peered circuit connections associated with Azure Private Peering for this circuit.
 	PeeredConnections PeerExpressRouteCircuitConnectionResponseArrayInput `pulumi:"peeredConnections"`
 	// The peering type.
@@ -24802,8 +24802,8 @@ func (o ExpressRouteCircuitPeeringResponseOutput) Name() pulumi.StringPtrOutput 
 }
 
 // The peer ASN.
-func (o ExpressRouteCircuitPeeringResponseOutput) PeerASN() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *int { return v.PeerASN }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitPeeringResponseOutput) PeerASN() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *float64 { return v.PeerASN }).(pulumi.Float64PtrOutput)
 }
 
 // The list of peered circuit connections associated with Azure Private Peering for this circuit.
@@ -25588,13 +25588,13 @@ func (o ExpressRouteCircuitSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStats struct {
 	// The Primary BytesIn of the peering.
-	PrimarybytesIn *int `pulumi:"primarybytesIn"`
+	PrimarybytesIn *float64 `pulumi:"primarybytesIn"`
 	// The primary BytesOut of the peering.
-	PrimarybytesOut *int `pulumi:"primarybytesOut"`
+	PrimarybytesOut *float64 `pulumi:"primarybytesOut"`
 	// The secondary BytesIn of the peering.
-	SecondarybytesIn *int `pulumi:"secondarybytesIn"`
+	SecondarybytesIn *float64 `pulumi:"secondarybytesIn"`
 	// The secondary BytesOut of the peering.
-	SecondarybytesOut *int `pulumi:"secondarybytesOut"`
+	SecondarybytesOut *float64 `pulumi:"secondarybytesOut"`
 }
 
 // ExpressRouteCircuitStatsInput is an input type that accepts ExpressRouteCircuitStatsArgs and ExpressRouteCircuitStatsOutput values.
@@ -25611,13 +25611,13 @@ type ExpressRouteCircuitStatsInput interface {
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStatsArgs struct {
 	// The Primary BytesIn of the peering.
-	PrimarybytesIn pulumi.IntPtrInput `pulumi:"primarybytesIn"`
+	PrimarybytesIn pulumi.Float64PtrInput `pulumi:"primarybytesIn"`
 	// The primary BytesOut of the peering.
-	PrimarybytesOut pulumi.IntPtrInput `pulumi:"primarybytesOut"`
+	PrimarybytesOut pulumi.Float64PtrInput `pulumi:"primarybytesOut"`
 	// The secondary BytesIn of the peering.
-	SecondarybytesIn pulumi.IntPtrInput `pulumi:"secondarybytesIn"`
+	SecondarybytesIn pulumi.Float64PtrInput `pulumi:"secondarybytesIn"`
 	// The secondary BytesOut of the peering.
-	SecondarybytesOut pulumi.IntPtrInput `pulumi:"secondarybytesOut"`
+	SecondarybytesOut pulumi.Float64PtrInput `pulumi:"secondarybytesOut"`
 }
 
 func (ExpressRouteCircuitStatsArgs) ElementType() reflect.Type {
@@ -25699,23 +25699,23 @@ func (o ExpressRouteCircuitStatsOutput) ToExpressRouteCircuitStatsPtrOutputWithC
 }
 
 // The Primary BytesIn of the peering.
-func (o ExpressRouteCircuitStatsOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.PrimarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.PrimarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // The primary BytesOut of the peering.
-func (o ExpressRouteCircuitStatsOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.PrimarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.PrimarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 // The secondary BytesIn of the peering.
-func (o ExpressRouteCircuitStatsOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.SecondarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.SecondarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // The secondary BytesOut of the peering.
-func (o ExpressRouteCircuitStatsOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.SecondarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.SecondarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 type ExpressRouteCircuitStatsPtrOutput struct{ *pulumi.OutputState }
@@ -25737,55 +25737,55 @@ func (o ExpressRouteCircuitStatsPtrOutput) Elem() ExpressRouteCircuitStatsOutput
 }
 
 // The Primary BytesIn of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The primary BytesOut of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The secondary BytesIn of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The secondary BytesOut of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStatsResponse struct {
 	// The Primary BytesIn of the peering.
-	PrimarybytesIn *int `pulumi:"primarybytesIn"`
+	PrimarybytesIn *float64 `pulumi:"primarybytesIn"`
 	// The primary BytesOut of the peering.
-	PrimarybytesOut *int `pulumi:"primarybytesOut"`
+	PrimarybytesOut *float64 `pulumi:"primarybytesOut"`
 	// The secondary BytesIn of the peering.
-	SecondarybytesIn *int `pulumi:"secondarybytesIn"`
+	SecondarybytesIn *float64 `pulumi:"secondarybytesIn"`
 	// The secondary BytesOut of the peering.
-	SecondarybytesOut *int `pulumi:"secondarybytesOut"`
+	SecondarybytesOut *float64 `pulumi:"secondarybytesOut"`
 }
 
 // ExpressRouteCircuitStatsResponseInput is an input type that accepts ExpressRouteCircuitStatsResponseArgs and ExpressRouteCircuitStatsResponseOutput values.
@@ -25802,13 +25802,13 @@ type ExpressRouteCircuitStatsResponseInput interface {
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStatsResponseArgs struct {
 	// The Primary BytesIn of the peering.
-	PrimarybytesIn pulumi.IntPtrInput `pulumi:"primarybytesIn"`
+	PrimarybytesIn pulumi.Float64PtrInput `pulumi:"primarybytesIn"`
 	// The primary BytesOut of the peering.
-	PrimarybytesOut pulumi.IntPtrInput `pulumi:"primarybytesOut"`
+	PrimarybytesOut pulumi.Float64PtrInput `pulumi:"primarybytesOut"`
 	// The secondary BytesIn of the peering.
-	SecondarybytesIn pulumi.IntPtrInput `pulumi:"secondarybytesIn"`
+	SecondarybytesIn pulumi.Float64PtrInput `pulumi:"secondarybytesIn"`
 	// The secondary BytesOut of the peering.
-	SecondarybytesOut pulumi.IntPtrInput `pulumi:"secondarybytesOut"`
+	SecondarybytesOut pulumi.Float64PtrInput `pulumi:"secondarybytesOut"`
 }
 
 func (ExpressRouteCircuitStatsResponseArgs) ElementType() reflect.Type {
@@ -25890,23 +25890,23 @@ func (o ExpressRouteCircuitStatsResponseOutput) ToExpressRouteCircuitStatsRespon
 }
 
 // The Primary BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.PrimarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.PrimarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // The primary BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.PrimarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.PrimarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 // The secondary BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.SecondarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.SecondarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // The secondary BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.SecondarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.SecondarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 type ExpressRouteCircuitStatsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -25928,43 +25928,43 @@ func (o ExpressRouteCircuitStatsResponsePtrOutput) Elem() ExpressRouteCircuitSta
 }
 
 // The Primary BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The primary BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The secondary BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The secondary BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The ID of the ExpressRouteConnection.
@@ -51026,9 +51026,9 @@ type TunnelConnectionHealthResponse struct {
 	// Virtual Network Gateway connection status.
 	ConnectionStatus string `pulumi:"connectionStatus"`
 	// The Egress Bytes Transferred in this connection.
-	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred float64 `pulumi:"egressBytesTransferred"`
 	// The Ingress Bytes Transferred in this connection.
-	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
 	// The time at which connection was established in Utc format.
 	LastConnectionEstablishedUtcTime string `pulumi:"lastConnectionEstablishedUtcTime"`
 	// Tunnel name.
@@ -51051,9 +51051,9 @@ type TunnelConnectionHealthResponseArgs struct {
 	// Virtual Network Gateway connection status.
 	ConnectionStatus pulumi.StringInput `pulumi:"connectionStatus"`
 	// The Egress Bytes Transferred in this connection.
-	EgressBytesTransferred pulumi.IntInput `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred pulumi.Float64Input `pulumi:"egressBytesTransferred"`
 	// The Ingress Bytes Transferred in this connection.
-	IngressBytesTransferred pulumi.IntInput `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred pulumi.Float64Input `pulumi:"ingressBytesTransferred"`
 	// The time at which connection was established in Utc format.
 	LastConnectionEstablishedUtcTime pulumi.StringInput `pulumi:"lastConnectionEstablishedUtcTime"`
 	// Tunnel name.
@@ -51118,13 +51118,13 @@ func (o TunnelConnectionHealthResponseOutput) ConnectionStatus() pulumi.StringOu
 }
 
 // The Egress Bytes Transferred in this connection.
-func (o TunnelConnectionHealthResponseOutput) EgressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v TunnelConnectionHealthResponse) int { return v.EgressBytesTransferred }).(pulumi.IntOutput)
+func (o TunnelConnectionHealthResponseOutput) EgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v TunnelConnectionHealthResponse) float64 { return v.EgressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The Ingress Bytes Transferred in this connection.
-func (o TunnelConnectionHealthResponseOutput) IngressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v TunnelConnectionHealthResponse) int { return v.IngressBytesTransferred }).(pulumi.IntOutput)
+func (o TunnelConnectionHealthResponseOutput) IngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v TunnelConnectionHealthResponse) float64 { return v.IngressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The time at which connection was established in Utc format.
@@ -56070,23 +56070,23 @@ func (o VpnClientConfigurationResponsePtrOutput) VpnClientRootCertificates() Vpn
 // VPN client connection health detail.
 type VpnClientConnectionHealthDetailResponse struct {
 	// The egress bytes per second.
-	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred float64 `pulumi:"egressBytesTransferred"`
 	// The egress packets per second.
-	EgressPacketsTransferred int `pulumi:"egressPacketsTransferred"`
+	EgressPacketsTransferred float64 `pulumi:"egressPacketsTransferred"`
 	// The ingress bytes per second.
-	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
 	// The ingress packets per second.
-	IngressPacketsTransferred int `pulumi:"ingressPacketsTransferred"`
+	IngressPacketsTransferred float64 `pulumi:"ingressPacketsTransferred"`
 	// The max band width.
-	MaxBandwidth int `pulumi:"maxBandwidth"`
+	MaxBandwidth float64 `pulumi:"maxBandwidth"`
 	// The max packets transferred per second.
-	MaxPacketsPerSecond int `pulumi:"maxPacketsPerSecond"`
+	MaxPacketsPerSecond float64 `pulumi:"maxPacketsPerSecond"`
 	// The assigned private Ip of a connected vpn client.
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// The public Ip of a connected vpn client.
 	PublicIpAddress string `pulumi:"publicIpAddress"`
 	// The duration time of a connected vpn client.
-	VpnConnectionDuration int `pulumi:"vpnConnectionDuration"`
+	VpnConnectionDuration float64 `pulumi:"vpnConnectionDuration"`
 	// The vpn client Id.
 	VpnConnectionId string `pulumi:"vpnConnectionId"`
 	// The start time of a connected vpn client.
@@ -56109,23 +56109,23 @@ type VpnClientConnectionHealthDetailResponseInput interface {
 // VPN client connection health detail.
 type VpnClientConnectionHealthDetailResponseArgs struct {
 	// The egress bytes per second.
-	EgressBytesTransferred pulumi.IntInput `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred pulumi.Float64Input `pulumi:"egressBytesTransferred"`
 	// The egress packets per second.
-	EgressPacketsTransferred pulumi.IntInput `pulumi:"egressPacketsTransferred"`
+	EgressPacketsTransferred pulumi.Float64Input `pulumi:"egressPacketsTransferred"`
 	// The ingress bytes per second.
-	IngressBytesTransferred pulumi.IntInput `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred pulumi.Float64Input `pulumi:"ingressBytesTransferred"`
 	// The ingress packets per second.
-	IngressPacketsTransferred pulumi.IntInput `pulumi:"ingressPacketsTransferred"`
+	IngressPacketsTransferred pulumi.Float64Input `pulumi:"ingressPacketsTransferred"`
 	// The max band width.
-	MaxBandwidth pulumi.IntInput `pulumi:"maxBandwidth"`
+	MaxBandwidth pulumi.Float64Input `pulumi:"maxBandwidth"`
 	// The max packets transferred per second.
-	MaxPacketsPerSecond pulumi.IntInput `pulumi:"maxPacketsPerSecond"`
+	MaxPacketsPerSecond pulumi.Float64Input `pulumi:"maxPacketsPerSecond"`
 	// The assigned private Ip of a connected vpn client.
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 	// The public Ip of a connected vpn client.
 	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
 	// The duration time of a connected vpn client.
-	VpnConnectionDuration pulumi.IntInput `pulumi:"vpnConnectionDuration"`
+	VpnConnectionDuration pulumi.Float64Input `pulumi:"vpnConnectionDuration"`
 	// The vpn client Id.
 	VpnConnectionId pulumi.StringInput `pulumi:"vpnConnectionId"`
 	// The start time of a connected vpn client.
@@ -56187,33 +56187,33 @@ func (o VpnClientConnectionHealthDetailResponseOutput) ToVpnClientConnectionHeal
 }
 
 // The egress bytes per second.
-func (o VpnClientConnectionHealthDetailResponseOutput) EgressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) int { return v.EgressBytesTransferred }).(pulumi.IntOutput)
+func (o VpnClientConnectionHealthDetailResponseOutput) EgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.EgressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The egress packets per second.
-func (o VpnClientConnectionHealthDetailResponseOutput) EgressPacketsTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) int { return v.EgressPacketsTransferred }).(pulumi.IntOutput)
+func (o VpnClientConnectionHealthDetailResponseOutput) EgressPacketsTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.EgressPacketsTransferred }).(pulumi.Float64Output)
 }
 
 // The ingress bytes per second.
-func (o VpnClientConnectionHealthDetailResponseOutput) IngressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) int { return v.IngressBytesTransferred }).(pulumi.IntOutput)
+func (o VpnClientConnectionHealthDetailResponseOutput) IngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.IngressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The ingress packets per second.
-func (o VpnClientConnectionHealthDetailResponseOutput) IngressPacketsTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) int { return v.IngressPacketsTransferred }).(pulumi.IntOutput)
+func (o VpnClientConnectionHealthDetailResponseOutput) IngressPacketsTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.IngressPacketsTransferred }).(pulumi.Float64Output)
 }
 
 // The max band width.
-func (o VpnClientConnectionHealthDetailResponseOutput) MaxBandwidth() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) int { return v.MaxBandwidth }).(pulumi.IntOutput)
+func (o VpnClientConnectionHealthDetailResponseOutput) MaxBandwidth() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.MaxBandwidth }).(pulumi.Float64Output)
 }
 
 // The max packets transferred per second.
-func (o VpnClientConnectionHealthDetailResponseOutput) MaxPacketsPerSecond() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) int { return v.MaxPacketsPerSecond }).(pulumi.IntOutput)
+func (o VpnClientConnectionHealthDetailResponseOutput) MaxPacketsPerSecond() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.MaxPacketsPerSecond }).(pulumi.Float64Output)
 }
 
 // The assigned private Ip of a connected vpn client.
@@ -56227,8 +56227,8 @@ func (o VpnClientConnectionHealthDetailResponseOutput) PublicIpAddress() pulumi.
 }
 
 // The duration time of a connected vpn client.
-func (o VpnClientConnectionHealthDetailResponseOutput) VpnConnectionDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) int { return v.VpnConnectionDuration }).(pulumi.IntOutput)
+func (o VpnClientConnectionHealthDetailResponseOutput) VpnConnectionDuration() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.VpnConnectionDuration }).(pulumi.Float64Output)
 }
 
 // The vpn client Id.
@@ -56271,9 +56271,9 @@ type VpnClientConnectionHealthResponse struct {
 	// List of allocated ip addresses to the connected p2s vpn clients.
 	AllocatedIpAddresses []string `pulumi:"allocatedIpAddresses"`
 	// Total of the Egress Bytes Transferred in this connection.
-	TotalEgressBytesTransferred int `pulumi:"totalEgressBytesTransferred"`
+	TotalEgressBytesTransferred float64 `pulumi:"totalEgressBytesTransferred"`
 	// Total of the Ingress Bytes Transferred in this P2S Vpn connection.
-	TotalIngressBytesTransferred int `pulumi:"totalIngressBytesTransferred"`
+	TotalIngressBytesTransferred float64 `pulumi:"totalIngressBytesTransferred"`
 	// The total of p2s vpn clients connected at this time to this P2SVpnGateway.
 	VpnClientConnectionsCount *int `pulumi:"vpnClientConnectionsCount"`
 }
@@ -56294,9 +56294,9 @@ type VpnClientConnectionHealthResponseArgs struct {
 	// List of allocated ip addresses to the connected p2s vpn clients.
 	AllocatedIpAddresses pulumi.StringArrayInput `pulumi:"allocatedIpAddresses"`
 	// Total of the Egress Bytes Transferred in this connection.
-	TotalEgressBytesTransferred pulumi.IntInput `pulumi:"totalEgressBytesTransferred"`
+	TotalEgressBytesTransferred pulumi.Float64Input `pulumi:"totalEgressBytesTransferred"`
 	// Total of the Ingress Bytes Transferred in this P2S Vpn connection.
-	TotalIngressBytesTransferred pulumi.IntInput `pulumi:"totalIngressBytesTransferred"`
+	TotalIngressBytesTransferred pulumi.Float64Input `pulumi:"totalIngressBytesTransferred"`
 	// The total of p2s vpn clients connected at this time to this P2SVpnGateway.
 	VpnClientConnectionsCount pulumi.IntPtrInput `pulumi:"vpnClientConnectionsCount"`
 }
@@ -56385,13 +56385,13 @@ func (o VpnClientConnectionHealthResponseOutput) AllocatedIpAddresses() pulumi.S
 }
 
 // Total of the Egress Bytes Transferred in this connection.
-func (o VpnClientConnectionHealthResponseOutput) TotalEgressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnClientConnectionHealthResponse) int { return v.TotalEgressBytesTransferred }).(pulumi.IntOutput)
+func (o VpnClientConnectionHealthResponseOutput) TotalEgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthResponse) float64 { return v.TotalEgressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // Total of the Ingress Bytes Transferred in this P2S Vpn connection.
-func (o VpnClientConnectionHealthResponseOutput) TotalIngressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnClientConnectionHealthResponse) int { return v.TotalIngressBytesTransferred }).(pulumi.IntOutput)
+func (o VpnClientConnectionHealthResponseOutput) TotalIngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthResponse) float64 { return v.TotalIngressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The total of p2s vpn clients connected at this time to this P2SVpnGateway.
@@ -56428,23 +56428,23 @@ func (o VpnClientConnectionHealthResponsePtrOutput) AllocatedIpAddresses() pulum
 }
 
 // Total of the Egress Bytes Transferred in this connection.
-func (o VpnClientConnectionHealthResponsePtrOutput) TotalEgressBytesTransferred() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VpnClientConnectionHealthResponse) *int {
+func (o VpnClientConnectionHealthResponsePtrOutput) TotalEgressBytesTransferred() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VpnClientConnectionHealthResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TotalEgressBytesTransferred
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Total of the Ingress Bytes Transferred in this P2S Vpn connection.
-func (o VpnClientConnectionHealthResponsePtrOutput) TotalIngressBytesTransferred() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VpnClientConnectionHealthResponse) *int {
+func (o VpnClientConnectionHealthResponsePtrOutput) TotalIngressBytesTransferred() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VpnClientConnectionHealthResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TotalIngressBytesTransferred
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The total of p2s vpn clients connected at this time to this P2SVpnGateway.
@@ -57189,7 +57189,7 @@ type VpnConnectionResponse struct {
 	// The connection status.
 	ConnectionStatus string `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
-	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Enable internet security.
@@ -57201,7 +57201,7 @@ type VpnConnectionResponse struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Ingress bytes transferred.
-	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -57242,7 +57242,7 @@ type VpnConnectionResponseArgs struct {
 	// The connection status.
 	ConnectionStatus pulumi.StringInput `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
-	EgressBytesTransferred pulumi.IntInput `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred pulumi.Float64Input `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
 	EnableBgp pulumi.BoolPtrInput `pulumi:"enableBgp"`
 	// Enable internet security.
@@ -57254,7 +57254,7 @@ type VpnConnectionResponseArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Ingress bytes transferred.
-	IngressBytesTransferred pulumi.IntInput `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred pulumi.Float64Input `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyResponseArrayInput `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -57340,8 +57340,8 @@ func (o VpnConnectionResponseOutput) ConnectionStatus() pulumi.StringOutput {
 }
 
 // Egress bytes transferred.
-func (o VpnConnectionResponseOutput) EgressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnConnectionResponse) int { return v.EgressBytesTransferred }).(pulumi.IntOutput)
+func (o VpnConnectionResponseOutput) EgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnConnectionResponse) float64 { return v.EgressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // EnableBgp flag.
@@ -57370,8 +57370,8 @@ func (o VpnConnectionResponseOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Ingress bytes transferred.
-func (o VpnConnectionResponseOutput) IngressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnConnectionResponse) int { return v.IngressBytesTransferred }).(pulumi.IntOutput)
+func (o VpnConnectionResponseOutput) IngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnConnectionResponse) float64 { return v.IngressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The IPSec Policies to be considered by this connection.
@@ -57447,7 +57447,7 @@ func (o VpnConnectionResponseArrayOutput) Index(i pulumi.IntInput) VpnConnection
 // BGP settings details for a link.
 type VpnLinkBgpSettings struct {
 	// The BGP speaker's ASN.
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 }
@@ -57466,7 +57466,7 @@ type VpnLinkBgpSettingsInput interface {
 // BGP settings details for a link.
 type VpnLinkBgpSettingsArgs struct {
 	// The BGP speaker's ASN.
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 }
@@ -57550,8 +57550,8 @@ func (o VpnLinkBgpSettingsOutput) ToVpnLinkBgpSettingsPtrOutputWithContext(ctx c
 }
 
 // The BGP speaker's ASN.
-func (o VpnLinkBgpSettingsOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VpnLinkBgpSettings) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o VpnLinkBgpSettingsOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VpnLinkBgpSettings) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -57578,13 +57578,13 @@ func (o VpnLinkBgpSettingsPtrOutput) Elem() VpnLinkBgpSettingsOutput {
 }
 
 // The BGP speaker's ASN.
-func (o VpnLinkBgpSettingsPtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VpnLinkBgpSettings) *int {
+func (o VpnLinkBgpSettingsPtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VpnLinkBgpSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -57600,7 +57600,7 @@ func (o VpnLinkBgpSettingsPtrOutput) BgpPeeringAddress() pulumi.StringPtrOutput 
 // BGP settings details for a link.
 type VpnLinkBgpSettingsResponse struct {
 	// The BGP speaker's ASN.
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 }
@@ -57619,7 +57619,7 @@ type VpnLinkBgpSettingsResponseInput interface {
 // BGP settings details for a link.
 type VpnLinkBgpSettingsResponseArgs struct {
 	// The BGP speaker's ASN.
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 }
@@ -57703,8 +57703,8 @@ func (o VpnLinkBgpSettingsResponseOutput) ToVpnLinkBgpSettingsResponsePtrOutputW
 }
 
 // The BGP speaker's ASN.
-func (o VpnLinkBgpSettingsResponseOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VpnLinkBgpSettingsResponse) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o VpnLinkBgpSettingsResponseOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VpnLinkBgpSettingsResponse) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -57731,13 +57731,13 @@ func (o VpnLinkBgpSettingsResponsePtrOutput) Elem() VpnLinkBgpSettingsResponseOu
 }
 
 // The BGP speaker's ASN.
-func (o VpnLinkBgpSettingsResponsePtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VpnLinkBgpSettingsResponse) *int {
+func (o VpnLinkBgpSettingsResponsePtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VpnLinkBgpSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -59270,7 +59270,7 @@ type VpnSiteLinkConnectionResponse struct {
 	// The connection status.
 	ConnectionStatus string `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
-	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// EnableBgp flag.
@@ -59280,7 +59280,7 @@ type VpnSiteLinkConnectionResponse struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Ingress bytes transferred.
-	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -59321,7 +59321,7 @@ type VpnSiteLinkConnectionResponseArgs struct {
 	// The connection status.
 	ConnectionStatus pulumi.StringInput `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
-	EgressBytesTransferred pulumi.IntInput `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred pulumi.Float64Input `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
 	EnableBgp pulumi.BoolPtrInput `pulumi:"enableBgp"`
 	// EnableBgp flag.
@@ -59331,7 +59331,7 @@ type VpnSiteLinkConnectionResponseArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Ingress bytes transferred.
-	IngressBytesTransferred pulumi.IntInput `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred pulumi.Float64Input `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyResponseArrayInput `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -59417,8 +59417,8 @@ func (o VpnSiteLinkConnectionResponseOutput) ConnectionStatus() pulumi.StringOut
 }
 
 // Egress bytes transferred.
-func (o VpnSiteLinkConnectionResponseOutput) EgressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnSiteLinkConnectionResponse) int { return v.EgressBytesTransferred }).(pulumi.IntOutput)
+func (o VpnSiteLinkConnectionResponseOutput) EgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnSiteLinkConnectionResponse) float64 { return v.EgressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // EnableBgp flag.
@@ -59442,8 +59442,8 @@ func (o VpnSiteLinkConnectionResponseOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Ingress bytes transferred.
-func (o VpnSiteLinkConnectionResponseOutput) IngressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnSiteLinkConnectionResponse) int { return v.IngressBytesTransferred }).(pulumi.IntOutput)
+func (o VpnSiteLinkConnectionResponseOutput) IngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnSiteLinkConnectionResponse) float64 { return v.IngressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The IPSec Policies to be considered by this connection.

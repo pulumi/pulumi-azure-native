@@ -42,7 +42,7 @@ type FileShare struct {
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota pulumi.IntPtrOutput `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-	ShareUsageBytes pulumi.IntOutput `pulumi:"shareUsageBytes"`
+	ShareUsageBytes pulumi.Float64Output `pulumi:"shareUsageBytes"`
 	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
 	SnapshotTime pulumi.StringOutput `pulumi:"snapshotTime"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -128,7 +128,7 @@ type fileShareState struct {
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota *int `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-	ShareUsageBytes *int `pulumi:"shareUsageBytes"`
+	ShareUsageBytes *float64 `pulumi:"shareUsageBytes"`
 	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
 	SnapshotTime *string `pulumi:"snapshotTime"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -165,7 +165,7 @@ type FileShareState struct {
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota pulumi.IntPtrInput
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-	ShareUsageBytes pulumi.IntPtrInput
+	ShareUsageBytes pulumi.Float64PtrInput
 	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
 	SnapshotTime pulumi.StringPtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -2746,7 +2746,7 @@ type ContentKeyPolicyFairPlayConfiguration struct {
 	// The rental and lease key type.
 	RentalAndLeaseKeyType string `pulumi:"rentalAndLeaseKeyType"`
 	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration int `pulumi:"rentalDuration"`
+	RentalDuration float64 `pulumi:"rentalDuration"`
 }
 
 // ContentKeyPolicyFairPlayConfigurationInput is an input type that accepts ContentKeyPolicyFairPlayConfigurationArgs and ContentKeyPolicyFairPlayConfigurationOutput values.
@@ -2774,7 +2774,7 @@ type ContentKeyPolicyFairPlayConfigurationArgs struct {
 	// The rental and lease key type.
 	RentalAndLeaseKeyType pulumi.StringInput `pulumi:"rentalAndLeaseKeyType"`
 	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration pulumi.IntInput `pulumi:"rentalDuration"`
+	RentalDuration pulumi.Float64Input `pulumi:"rentalDuration"`
 }
 
 func (ContentKeyPolicyFairPlayConfigurationArgs) ElementType() reflect.Type {
@@ -2831,8 +2831,8 @@ func (o ContentKeyPolicyFairPlayConfigurationOutput) RentalAndLeaseKeyType() pul
 }
 
 // The rental duration. Must be greater than or equal to 0.
-func (o ContentKeyPolicyFairPlayConfigurationOutput) RentalDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) int { return v.RentalDuration }).(pulumi.IntOutput)
+func (o ContentKeyPolicyFairPlayConfigurationOutput) RentalDuration() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) float64 { return v.RentalDuration }).(pulumi.Float64Output)
 }
 
 // Specifies a configuration for FairPlay licenses.
@@ -2849,7 +2849,7 @@ type ContentKeyPolicyFairPlayConfigurationResponse struct {
 	// The rental and lease key type.
 	RentalAndLeaseKeyType string `pulumi:"rentalAndLeaseKeyType"`
 	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration int `pulumi:"rentalDuration"`
+	RentalDuration float64 `pulumi:"rentalDuration"`
 }
 
 // ContentKeyPolicyFairPlayConfigurationResponseInput is an input type that accepts ContentKeyPolicyFairPlayConfigurationResponseArgs and ContentKeyPolicyFairPlayConfigurationResponseOutput values.
@@ -2877,7 +2877,7 @@ type ContentKeyPolicyFairPlayConfigurationResponseArgs struct {
 	// The rental and lease key type.
 	RentalAndLeaseKeyType pulumi.StringInput `pulumi:"rentalAndLeaseKeyType"`
 	// The rental duration. Must be greater than or equal to 0.
-	RentalDuration pulumi.IntInput `pulumi:"rentalDuration"`
+	RentalDuration pulumi.Float64Input `pulumi:"rentalDuration"`
 }
 
 func (ContentKeyPolicyFairPlayConfigurationResponseArgs) ElementType() reflect.Type {
@@ -2934,8 +2934,8 @@ func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) RentalAndLeaseKeyTy
 }
 
 // The rental duration. Must be greater than or equal to 0.
-func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) RentalDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationResponse) int { return v.RentalDuration }).(pulumi.IntOutput)
+func (o ContentKeyPolicyFairPlayConfigurationResponseOutput) RentalDuration() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationResponse) float64 { return v.RentalDuration }).(pulumi.Float64Output)
 }
 
 // Represents an open restriction. License or key will be delivered on every request.

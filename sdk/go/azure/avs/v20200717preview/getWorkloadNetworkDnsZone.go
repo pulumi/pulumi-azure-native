@@ -32,7 +32,7 @@ type LookupWorkloadNetworkDnsZoneResult struct {
 	// DNS Server IP array of the DNS Zone.
 	DnsServerIps []string `pulumi:"dnsServerIps"`
 	// Number of DNS Services using the DNS zone.
-	DnsServices *int `pulumi:"dnsServices"`
+	DnsServices *float64 `pulumi:"dnsServices"`
 	// Domain names of the DNS Zone.
 	Domain []string `pulumi:"domain"`
 	// Resource ID.
@@ -42,7 +42,7 @@ type LookupWorkloadNetworkDnsZoneResult struct {
 	// The provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// Source IP of the DNS Zone.
 	SourceIp *string `pulumi:"sourceIp"`
 	// Resource type.

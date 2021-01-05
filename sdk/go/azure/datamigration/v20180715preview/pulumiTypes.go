@@ -8151,9 +8151,9 @@ type DataItemMigrationSummaryResultResponse struct {
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix string `pulumi:"errorPrefix"`
 	// Number of successfully completed items
-	ItemsCompletedCount int `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount float64 `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount int `pulumi:"itemsCount"`
+	ItemsCount float64 `pulumi:"itemsCount"`
 	// Name of the item
 	Name string `pulumi:"name"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -8184,9 +8184,9 @@ type DataItemMigrationSummaryResultResponseArgs struct {
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix pulumi.StringInput `pulumi:"errorPrefix"`
 	// Number of successfully completed items
-	ItemsCompletedCount pulumi.IntInput `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount pulumi.Float64Input `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount pulumi.IntInput `pulumi:"itemsCount"`
+	ItemsCount pulumi.Float64Input `pulumi:"itemsCount"`
 	// Name of the item
 	Name pulumi.StringInput `pulumi:"name"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -8262,13 +8262,13 @@ func (o DataItemMigrationSummaryResultResponseOutput) ErrorPrefix() pulumi.Strin
 }
 
 // Number of successfully completed items
-func (o DataItemMigrationSummaryResultResponseOutput) ItemsCompletedCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) int { return v.ItemsCompletedCount }).(pulumi.IntOutput)
+func (o DataItemMigrationSummaryResultResponseOutput) ItemsCompletedCount() pulumi.Float64Output {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) float64 { return v.ItemsCompletedCount }).(pulumi.Float64Output)
 }
 
 // Number of items
-func (o DataItemMigrationSummaryResultResponseOutput) ItemsCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) int { return v.ItemsCount }).(pulumi.IntOutput)
+func (o DataItemMigrationSummaryResultResponseOutput) ItemsCount() pulumi.Float64Output {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) float64 { return v.ItemsCount }).(pulumi.Float64Output)
 }
 
 // Name of the item
@@ -8944,9 +8944,9 @@ type DatabaseSummaryResultResponse struct {
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix string `pulumi:"errorPrefix"`
 	// Number of successfully completed items
-	ItemsCompletedCount int `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount float64 `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount int `pulumi:"itemsCount"`
+	ItemsCount float64 `pulumi:"itemsCount"`
 	// Name of the item
 	Name string `pulumi:"name"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -8979,9 +8979,9 @@ type DatabaseSummaryResultResponseArgs struct {
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix pulumi.StringInput `pulumi:"errorPrefix"`
 	// Number of successfully completed items
-	ItemsCompletedCount pulumi.IntInput `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount pulumi.Float64Input `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount pulumi.IntInput `pulumi:"itemsCount"`
+	ItemsCount pulumi.Float64Input `pulumi:"itemsCount"`
 	// Name of the item
 	Name pulumi.StringInput `pulumi:"name"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -9059,13 +9059,13 @@ func (o DatabaseSummaryResultResponseOutput) ErrorPrefix() pulumi.StringOutput {
 }
 
 // Number of successfully completed items
-func (o DatabaseSummaryResultResponseOutput) ItemsCompletedCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DatabaseSummaryResultResponse) int { return v.ItemsCompletedCount }).(pulumi.IntOutput)
+func (o DatabaseSummaryResultResponseOutput) ItemsCompletedCount() pulumi.Float64Output {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) float64 { return v.ItemsCompletedCount }).(pulumi.Float64Output)
 }
 
 // Number of items
-func (o DatabaseSummaryResultResponseOutput) ItemsCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DatabaseSummaryResultResponse) int { return v.ItemsCount }).(pulumi.IntOutput)
+func (o DatabaseSummaryResultResponseOutput) ItemsCount() pulumi.Float64Output {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) float64 { return v.ItemsCount }).(pulumi.Float64Output)
 }
 
 // Name of the item
@@ -14375,33 +14375,33 @@ func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutput) Re
 
 type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse struct {
 	// Number of applied changes
-	AppliedChanges int `pulumi:"appliedChanges"`
+	AppliedChanges float64 `pulumi:"appliedChanges"`
 	// Number of cdc deletes
-	CdcDeleteCounter int `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter float64 `pulumi:"cdcDeleteCounter"`
 	// Number of cdc inserts
-	CdcInsertCounter int `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter float64 `pulumi:"cdcInsertCounter"`
 	// Number of cdc updates
-	CdcUpdateCounter int `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter float64 `pulumi:"cdcUpdateCounter"`
 	// Name of the database
 	DatabaseName string `pulumi:"databaseName"`
 	// Migration end time
 	EndedOn string `pulumi:"endedOn"`
 	// Number of tables completed in full load
-	FullLoadCompletedTables int `pulumi:"fullLoadCompletedTables"`
+	FullLoadCompletedTables float64 `pulumi:"fullLoadCompletedTables"`
 	// Number of tables errored in full load
-	FullLoadErroredTables int `pulumi:"fullLoadErroredTables"`
+	FullLoadErroredTables float64 `pulumi:"fullLoadErroredTables"`
 	// Number of tables loading in full load
-	FullLoadLoadingTables int `pulumi:"fullLoadLoadingTables"`
+	FullLoadLoadingTables float64 `pulumi:"fullLoadLoadingTables"`
 	// Number of tables queued in full load
-	FullLoadQueuedTables int `pulumi:"fullLoadQueuedTables"`
+	FullLoadQueuedTables float64 `pulumi:"fullLoadQueuedTables"`
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Number of incoming changes
-	IncomingChanges int `pulumi:"incomingChanges"`
+	IncomingChanges float64 `pulumi:"incomingChanges"`
 	// Indicates if initial load (full load) has been completed
 	InitializationCompleted bool `pulumi:"initializationCompleted"`
 	// CDC apply latency
-	Latency int `pulumi:"latency"`
+	Latency float64 `pulumi:"latency"`
 	// Migration state that this database is in
 	MigrationState string `pulumi:"migrationState"`
 	// Result type
@@ -14424,33 +14424,33 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseInput interfa
 
 type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseArgs struct {
 	// Number of applied changes
-	AppliedChanges pulumi.IntInput `pulumi:"appliedChanges"`
+	AppliedChanges pulumi.Float64Input `pulumi:"appliedChanges"`
 	// Number of cdc deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter pulumi.Float64Input `pulumi:"cdcDeleteCounter"`
 	// Number of cdc inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter pulumi.Float64Input `pulumi:"cdcInsertCounter"`
 	// Number of cdc updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter pulumi.Float64Input `pulumi:"cdcUpdateCounter"`
 	// Name of the database
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Migration end time
 	EndedOn pulumi.StringInput `pulumi:"endedOn"`
 	// Number of tables completed in full load
-	FullLoadCompletedTables pulumi.IntInput `pulumi:"fullLoadCompletedTables"`
+	FullLoadCompletedTables pulumi.Float64Input `pulumi:"fullLoadCompletedTables"`
 	// Number of tables errored in full load
-	FullLoadErroredTables pulumi.IntInput `pulumi:"fullLoadErroredTables"`
+	FullLoadErroredTables pulumi.Float64Input `pulumi:"fullLoadErroredTables"`
 	// Number of tables loading in full load
-	FullLoadLoadingTables pulumi.IntInput `pulumi:"fullLoadLoadingTables"`
+	FullLoadLoadingTables pulumi.Float64Input `pulumi:"fullLoadLoadingTables"`
 	// Number of tables queued in full load
-	FullLoadQueuedTables pulumi.IntInput `pulumi:"fullLoadQueuedTables"`
+	FullLoadQueuedTables pulumi.Float64Input `pulumi:"fullLoadQueuedTables"`
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Number of incoming changes
-	IncomingChanges pulumi.IntInput `pulumi:"incomingChanges"`
+	IncomingChanges pulumi.Float64Input `pulumi:"incomingChanges"`
 	// Indicates if initial load (full load) has been completed
 	InitializationCompleted pulumi.BoolInput `pulumi:"initializationCompleted"`
 	// CDC apply latency
-	Latency pulumi.IntInput `pulumi:"latency"`
+	Latency pulumi.Float64Input `pulumi:"latency"`
 	// Migration state that this database is in
 	MigrationState pulumi.StringInput `pulumi:"migrationState"`
 	// Result type
@@ -14487,23 +14487,31 @@ func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) To
 }
 
 // Number of applied changes
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) AppliedChanges() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) int { return v.AppliedChanges }).(pulumi.IntOutput)
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) AppliedChanges() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) float64 {
+		return v.AppliedChanges
+	}).(pulumi.Float64Output)
 }
 
 // Number of cdc deletes
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) CdcDeleteCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) int { return v.CdcDeleteCounter }).(pulumi.IntOutput)
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) CdcDeleteCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) float64 {
+		return v.CdcDeleteCounter
+	}).(pulumi.Float64Output)
 }
 
 // Number of cdc inserts
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) CdcInsertCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) int { return v.CdcInsertCounter }).(pulumi.IntOutput)
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) CdcInsertCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) float64 {
+		return v.CdcInsertCounter
+	}).(pulumi.Float64Output)
 }
 
 // Number of cdc updates
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) CdcUpdateCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) int { return v.CdcUpdateCounter }).(pulumi.IntOutput)
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) CdcUpdateCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) float64 {
+		return v.CdcUpdateCounter
+	}).(pulumi.Float64Output)
 }
 
 // Name of the database
@@ -14517,31 +14525,31 @@ func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) En
 }
 
 // Number of tables completed in full load
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadCompletedTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadCompletedTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadCompletedTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables errored in full load
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadErroredTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadErroredTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadErroredTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables loading in full load
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadLoadingTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadLoadingTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadLoadingTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables queued in full load
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadQueuedTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadQueuedTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadQueuedTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Result identifier
@@ -14550,8 +14558,10 @@ func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) Id
 }
 
 // Number of incoming changes
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) IncomingChanges() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) int { return v.IncomingChanges }).(pulumi.IntOutput)
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) IncomingChanges() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) float64 {
+		return v.IncomingChanges
+	}).(pulumi.Float64Output)
 }
 
 // Indicates if initial load (full load) has been completed
@@ -14562,8 +14572,8 @@ func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) In
 }
 
 // CDC apply latency
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) Latency() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) int { return v.Latency }).(pulumi.IntOutput)
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput) Latency() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse) float64 { return v.Latency }).(pulumi.Float64Output)
 }
 
 // Migration state that this database is in
@@ -14787,7 +14797,7 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse struct {
 	// Number of applied updates
 	CdcUpdateCounter string `pulumi:"cdcUpdateCounter"`
 	// Number of data errors occurred
-	DataErrorsCounter int `pulumi:"dataErrorsCounter"`
+	DataErrorsCounter float64 `pulumi:"dataErrorsCounter"`
 	// Name of the database
 	DatabaseName string `pulumi:"databaseName"`
 	// Full load end time
@@ -14797,7 +14807,7 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse struct {
 	// Full load start time
 	FullLoadStartedOn string `pulumi:"fullLoadStartedOn"`
 	// Number of rows applied in full load
-	FullLoadTotalRows int `pulumi:"fullLoadTotalRows"`
+	FullLoadTotalRows float64 `pulumi:"fullLoadTotalRows"`
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Last modified time on target
@@ -14810,7 +14820,7 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse struct {
 	// Name of the table
 	TableName string `pulumi:"tableName"`
 	// Total number of applied changes
-	TotalChangesApplied int `pulumi:"totalChangesApplied"`
+	TotalChangesApplied float64 `pulumi:"totalChangesApplied"`
 }
 
 // MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseInput is an input type that accepts MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs and MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput values.
@@ -14832,7 +14842,7 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs struct {
 	// Number of applied updates
 	CdcUpdateCounter pulumi.StringInput `pulumi:"cdcUpdateCounter"`
 	// Number of data errors occurred
-	DataErrorsCounter pulumi.IntInput `pulumi:"dataErrorsCounter"`
+	DataErrorsCounter pulumi.Float64Input `pulumi:"dataErrorsCounter"`
 	// Name of the database
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Full load end time
@@ -14842,7 +14852,7 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs struct {
 	// Full load start time
 	FullLoadStartedOn pulumi.StringInput `pulumi:"fullLoadStartedOn"`
 	// Number of rows applied in full load
-	FullLoadTotalRows pulumi.IntInput `pulumi:"fullLoadTotalRows"`
+	FullLoadTotalRows pulumi.Float64Input `pulumi:"fullLoadTotalRows"`
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Last modified time on target
@@ -14855,7 +14865,7 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs struct {
 	// Name of the table
 	TableName pulumi.StringInput `pulumi:"tableName"`
 	// Total number of applied changes
-	TotalChangesApplied pulumi.IntInput `pulumi:"totalChangesApplied"`
+	TotalChangesApplied pulumi.Float64Input `pulumi:"totalChangesApplied"`
 }
 
 func (MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs) ElementType() reflect.Type {
@@ -14900,8 +14910,10 @@ func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput) CdcUp
 }
 
 // Number of data errors occurred
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput) DataErrorsCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse) int { return v.DataErrorsCounter }).(pulumi.IntOutput)
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput) DataErrorsCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse) float64 {
+		return v.DataErrorsCounter
+	}).(pulumi.Float64Output)
 }
 
 // Name of the database
@@ -14927,8 +14939,10 @@ func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput) FullL
 }
 
 // Number of rows applied in full load
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput) FullLoadTotalRows() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse) int { return v.FullLoadTotalRows }).(pulumi.IntOutput)
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput) FullLoadTotalRows() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse) float64 {
+		return v.FullLoadTotalRows
+	}).(pulumi.Float64Output)
 }
 
 // Result identifier
@@ -14958,8 +14972,10 @@ func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput) Table
 }
 
 // Total number of applied changes
-func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput) TotalChangesApplied() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse) int { return v.TotalChangesApplied }).(pulumi.IntOutput)
+func (o MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput) TotalChangesApplied() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse) float64 {
+		return v.TotalChangesApplied
+	}).(pulumi.Float64Output)
 }
 
 // Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
@@ -16130,33 +16146,33 @@ func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponseOutput)
 
 type MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse struct {
 	// Number of applied changes
-	AppliedChanges int `pulumi:"appliedChanges"`
+	AppliedChanges float64 `pulumi:"appliedChanges"`
 	// Number of cdc deletes
-	CdcDeleteCounter int `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter float64 `pulumi:"cdcDeleteCounter"`
 	// Number of cdc inserts
-	CdcInsertCounter int `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter float64 `pulumi:"cdcInsertCounter"`
 	// Number of cdc updates
-	CdcUpdateCounter int `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter float64 `pulumi:"cdcUpdateCounter"`
 	// Name of the database
 	DatabaseName string `pulumi:"databaseName"`
 	// Migration end time
 	EndedOn string `pulumi:"endedOn"`
 	// Number of tables completed in full load
-	FullLoadCompletedTables int `pulumi:"fullLoadCompletedTables"`
+	FullLoadCompletedTables float64 `pulumi:"fullLoadCompletedTables"`
 	// Number of tables errored in full load
-	FullLoadErroredTables int `pulumi:"fullLoadErroredTables"`
+	FullLoadErroredTables float64 `pulumi:"fullLoadErroredTables"`
 	// Number of tables loading in full load
-	FullLoadLoadingTables int `pulumi:"fullLoadLoadingTables"`
+	FullLoadLoadingTables float64 `pulumi:"fullLoadLoadingTables"`
 	// Number of tables queued in full load
-	FullLoadQueuedTables int `pulumi:"fullLoadQueuedTables"`
+	FullLoadQueuedTables float64 `pulumi:"fullLoadQueuedTables"`
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Number of incoming changes
-	IncomingChanges int `pulumi:"incomingChanges"`
+	IncomingChanges float64 `pulumi:"incomingChanges"`
 	// Indicates if initial load (full load) has been completed
 	InitializationCompleted bool `pulumi:"initializationCompleted"`
 	// CDC apply latency
-	Latency int `pulumi:"latency"`
+	Latency float64 `pulumi:"latency"`
 	// Migration state that this database is in
 	MigrationState string `pulumi:"migrationState"`
 	// Result type
@@ -16179,33 +16195,33 @@ type MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseInput inte
 
 type MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs struct {
 	// Number of applied changes
-	AppliedChanges pulumi.IntInput `pulumi:"appliedChanges"`
+	AppliedChanges pulumi.Float64Input `pulumi:"appliedChanges"`
 	// Number of cdc deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter pulumi.Float64Input `pulumi:"cdcDeleteCounter"`
 	// Number of cdc inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter pulumi.Float64Input `pulumi:"cdcInsertCounter"`
 	// Number of cdc updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter pulumi.Float64Input `pulumi:"cdcUpdateCounter"`
 	// Name of the database
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Migration end time
 	EndedOn pulumi.StringInput `pulumi:"endedOn"`
 	// Number of tables completed in full load
-	FullLoadCompletedTables pulumi.IntInput `pulumi:"fullLoadCompletedTables"`
+	FullLoadCompletedTables pulumi.Float64Input `pulumi:"fullLoadCompletedTables"`
 	// Number of tables errored in full load
-	FullLoadErroredTables pulumi.IntInput `pulumi:"fullLoadErroredTables"`
+	FullLoadErroredTables pulumi.Float64Input `pulumi:"fullLoadErroredTables"`
 	// Number of tables loading in full load
-	FullLoadLoadingTables pulumi.IntInput `pulumi:"fullLoadLoadingTables"`
+	FullLoadLoadingTables pulumi.Float64Input `pulumi:"fullLoadLoadingTables"`
 	// Number of tables queued in full load
-	FullLoadQueuedTables pulumi.IntInput `pulumi:"fullLoadQueuedTables"`
+	FullLoadQueuedTables pulumi.Float64Input `pulumi:"fullLoadQueuedTables"`
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Number of incoming changes
-	IncomingChanges pulumi.IntInput `pulumi:"incomingChanges"`
+	IncomingChanges pulumi.Float64Input `pulumi:"incomingChanges"`
 	// Indicates if initial load (full load) has been completed
 	InitializationCompleted pulumi.BoolInput `pulumi:"initializationCompleted"`
 	// CDC apply latency
-	Latency pulumi.IntInput `pulumi:"latency"`
+	Latency pulumi.Float64Input `pulumi:"latency"`
 	// Migration state that this database is in
 	MigrationState pulumi.StringInput `pulumi:"migrationState"`
 	// Result type
@@ -16242,29 +16258,31 @@ func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput)
 }
 
 // Number of applied changes
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) AppliedChanges() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) int { return v.AppliedChanges }).(pulumi.IntOutput)
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) AppliedChanges() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
+		return v.AppliedChanges
+	}).(pulumi.Float64Output)
 }
 
 // Number of cdc deletes
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcDeleteCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcDeleteCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.CdcDeleteCounter
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of cdc inserts
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcInsertCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcInsertCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.CdcInsertCounter
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of cdc updates
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcUpdateCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcUpdateCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.CdcUpdateCounter
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Name of the database
@@ -16280,31 +16298,31 @@ func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput)
 }
 
 // Number of tables completed in full load
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadCompletedTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadCompletedTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadCompletedTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables errored in full load
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadErroredTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadErroredTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadErroredTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables loading in full load
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadLoadingTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadLoadingTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadLoadingTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables queued in full load
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadQueuedTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadQueuedTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadQueuedTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Result identifier
@@ -16313,10 +16331,10 @@ func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput)
 }
 
 // Number of incoming changes
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) IncomingChanges() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) IncomingChanges() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.IncomingChanges
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Indicates if initial load (full load) has been completed
@@ -16327,8 +16345,8 @@ func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput)
 }
 
 // CDC apply latency
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) Latency() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) int { return v.Latency }).(pulumi.IntOutput)
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) Latency() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 { return v.Latency }).(pulumi.Float64Output)
 }
 
 // Migration state that this database is in
@@ -16552,13 +16570,13 @@ func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponseOutput
 
 type MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse struct {
 	// Number of applied deletes
-	CdcDeleteCounter int `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter float64 `pulumi:"cdcDeleteCounter"`
 	// Number of applied inserts
-	CdcInsertCounter int `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter float64 `pulumi:"cdcInsertCounter"`
 	// Number of applied updates
-	CdcUpdateCounter int `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter float64 `pulumi:"cdcUpdateCounter"`
 	// Number of data errors occurred
-	DataErrorsCounter int `pulumi:"dataErrorsCounter"`
+	DataErrorsCounter float64 `pulumi:"dataErrorsCounter"`
 	// Name of the database
 	DatabaseName string `pulumi:"databaseName"`
 	// Full load end time
@@ -16568,7 +16586,7 @@ type MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse struct {
 	// Full load start time
 	FullLoadStartedOn string `pulumi:"fullLoadStartedOn"`
 	// Number of rows applied in full load
-	FullLoadTotalRows int `pulumi:"fullLoadTotalRows"`
+	FullLoadTotalRows float64 `pulumi:"fullLoadTotalRows"`
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Last modified time on target
@@ -16581,7 +16599,7 @@ type MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse struct {
 	// Name of the table
 	TableName string `pulumi:"tableName"`
 	// Total number of applied changes
-	TotalChangesApplied int `pulumi:"totalChangesApplied"`
+	TotalChangesApplied float64 `pulumi:"totalChangesApplied"`
 }
 
 // MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseInput is an input type that accepts MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseArgs and MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput values.
@@ -16597,13 +16615,13 @@ type MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseInput interfa
 
 type MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseArgs struct {
 	// Number of applied deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter pulumi.Float64Input `pulumi:"cdcDeleteCounter"`
 	// Number of applied inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter pulumi.Float64Input `pulumi:"cdcInsertCounter"`
 	// Number of applied updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter pulumi.Float64Input `pulumi:"cdcUpdateCounter"`
 	// Number of data errors occurred
-	DataErrorsCounter pulumi.IntInput `pulumi:"dataErrorsCounter"`
+	DataErrorsCounter pulumi.Float64Input `pulumi:"dataErrorsCounter"`
 	// Name of the database
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Full load end time
@@ -16613,7 +16631,7 @@ type MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseArgs struct {
 	// Full load start time
 	FullLoadStartedOn pulumi.StringInput `pulumi:"fullLoadStartedOn"`
 	// Number of rows applied in full load
-	FullLoadTotalRows pulumi.IntInput `pulumi:"fullLoadTotalRows"`
+	FullLoadTotalRows pulumi.Float64Input `pulumi:"fullLoadTotalRows"`
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Last modified time on target
@@ -16626,7 +16644,7 @@ type MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseArgs struct {
 	// Name of the table
 	TableName pulumi.StringInput `pulumi:"tableName"`
 	// Total number of applied changes
-	TotalChangesApplied pulumi.IntInput `pulumi:"totalChangesApplied"`
+	TotalChangesApplied pulumi.Float64Input `pulumi:"totalChangesApplied"`
 }
 
 func (MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseArgs) ElementType() reflect.Type {
@@ -16656,23 +16674,31 @@ func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) To
 }
 
 // Number of applied deletes
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcDeleteCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) int { return v.CdcDeleteCounter }).(pulumi.IntOutput)
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcDeleteCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
+		return v.CdcDeleteCounter
+	}).(pulumi.Float64Output)
 }
 
 // Number of applied inserts
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcInsertCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) int { return v.CdcInsertCounter }).(pulumi.IntOutput)
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcInsertCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
+		return v.CdcInsertCounter
+	}).(pulumi.Float64Output)
 }
 
 // Number of applied updates
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcUpdateCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) int { return v.CdcUpdateCounter }).(pulumi.IntOutput)
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcUpdateCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
+		return v.CdcUpdateCounter
+	}).(pulumi.Float64Output)
 }
 
 // Number of data errors occurred
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) DataErrorsCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) int { return v.DataErrorsCounter }).(pulumi.IntOutput)
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) DataErrorsCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
+		return v.DataErrorsCounter
+	}).(pulumi.Float64Output)
 }
 
 // Name of the database
@@ -16702,8 +16728,10 @@ func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) Fu
 }
 
 // Number of rows applied in full load
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) FullLoadTotalRows() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) int { return v.FullLoadTotalRows }).(pulumi.IntOutput)
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) FullLoadTotalRows() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
+		return v.FullLoadTotalRows
+	}).(pulumi.Float64Output)
 }
 
 // Result identifier
@@ -16735,10 +16763,10 @@ func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) Ta
 }
 
 // Total number of applied changes
-func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) TotalChangesApplied() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) int {
+func (o MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponseOutput) TotalChangesApplied() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
 		return v.TotalChangesApplied
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
@@ -17699,33 +17727,33 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse
 
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse struct {
 	// Number of applied changes
-	AppliedChanges int `pulumi:"appliedChanges"`
+	AppliedChanges float64 `pulumi:"appliedChanges"`
 	// Number of cdc deletes
-	CdcDeleteCounter int `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter float64 `pulumi:"cdcDeleteCounter"`
 	// Number of cdc inserts
-	CdcInsertCounter int `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter float64 `pulumi:"cdcInsertCounter"`
 	// Number of cdc updates
-	CdcUpdateCounter int `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter float64 `pulumi:"cdcUpdateCounter"`
 	// Name of the database
 	DatabaseName string `pulumi:"databaseName"`
 	// Migration end time
 	EndedOn string `pulumi:"endedOn"`
 	// Number of tables completed in full load
-	FullLoadCompletedTables int `pulumi:"fullLoadCompletedTables"`
+	FullLoadCompletedTables float64 `pulumi:"fullLoadCompletedTables"`
 	// Number of tables errored in full load
-	FullLoadErroredTables int `pulumi:"fullLoadErroredTables"`
+	FullLoadErroredTables float64 `pulumi:"fullLoadErroredTables"`
 	// Number of tables loading in full load
-	FullLoadLoadingTables int `pulumi:"fullLoadLoadingTables"`
+	FullLoadLoadingTables float64 `pulumi:"fullLoadLoadingTables"`
 	// Number of tables queued in full load
-	FullLoadQueuedTables int `pulumi:"fullLoadQueuedTables"`
+	FullLoadQueuedTables float64 `pulumi:"fullLoadQueuedTables"`
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Number of incoming changes
-	IncomingChanges int `pulumi:"incomingChanges"`
+	IncomingChanges float64 `pulumi:"incomingChanges"`
 	// Indicates if initial load (full load) has been completed
 	InitializationCompleted bool `pulumi:"initializationCompleted"`
 	// CDC apply latency
-	Latency int `pulumi:"latency"`
+	Latency float64 `pulumi:"latency"`
 	// Migration state that this database is in
 	MigrationState string `pulumi:"migrationState"`
 	// Result type
@@ -17748,33 +17776,33 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseInp
 
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs struct {
 	// Number of applied changes
-	AppliedChanges pulumi.IntInput `pulumi:"appliedChanges"`
+	AppliedChanges pulumi.Float64Input `pulumi:"appliedChanges"`
 	// Number of cdc deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter pulumi.Float64Input `pulumi:"cdcDeleteCounter"`
 	// Number of cdc inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter pulumi.Float64Input `pulumi:"cdcInsertCounter"`
 	// Number of cdc updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter pulumi.Float64Input `pulumi:"cdcUpdateCounter"`
 	// Name of the database
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Migration end time
 	EndedOn pulumi.StringInput `pulumi:"endedOn"`
 	// Number of tables completed in full load
-	FullLoadCompletedTables pulumi.IntInput `pulumi:"fullLoadCompletedTables"`
+	FullLoadCompletedTables pulumi.Float64Input `pulumi:"fullLoadCompletedTables"`
 	// Number of tables errored in full load
-	FullLoadErroredTables pulumi.IntInput `pulumi:"fullLoadErroredTables"`
+	FullLoadErroredTables pulumi.Float64Input `pulumi:"fullLoadErroredTables"`
 	// Number of tables loading in full load
-	FullLoadLoadingTables pulumi.IntInput `pulumi:"fullLoadLoadingTables"`
+	FullLoadLoadingTables pulumi.Float64Input `pulumi:"fullLoadLoadingTables"`
 	// Number of tables queued in full load
-	FullLoadQueuedTables pulumi.IntInput `pulumi:"fullLoadQueuedTables"`
+	FullLoadQueuedTables pulumi.Float64Input `pulumi:"fullLoadQueuedTables"`
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Number of incoming changes
-	IncomingChanges pulumi.IntInput `pulumi:"incomingChanges"`
+	IncomingChanges pulumi.Float64Input `pulumi:"incomingChanges"`
 	// Indicates if initial load (full load) has been completed
 	InitializationCompleted pulumi.BoolInput `pulumi:"initializationCompleted"`
 	// CDC apply latency
-	Latency pulumi.IntInput `pulumi:"latency"`
+	Latency pulumi.Float64Input `pulumi:"latency"`
 	// Migration state that this database is in
 	MigrationState pulumi.StringInput `pulumi:"migrationState"`
 	// Result type
@@ -17811,31 +17839,31 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse
 }
 
 // Number of applied changes
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) AppliedChanges() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) AppliedChanges() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.AppliedChanges
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of cdc deletes
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcDeleteCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcDeleteCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.CdcDeleteCounter
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of cdc inserts
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcInsertCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcInsertCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.CdcInsertCounter
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of cdc updates
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcUpdateCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) CdcUpdateCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.CdcUpdateCounter
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Name of the database
@@ -17853,31 +17881,31 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse
 }
 
 // Number of tables completed in full load
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadCompletedTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadCompletedTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadCompletedTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables errored in full load
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadErroredTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadErroredTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadErroredTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables loading in full load
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadLoadingTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadLoadingTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadLoadingTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables queued in full load
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadQueuedTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) FullLoadQueuedTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.FullLoadQueuedTables
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Result identifier
@@ -17886,10 +17914,10 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse
 }
 
 // Number of incoming changes
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) IncomingChanges() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) IncomingChanges() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
 		return v.IncomingChanges
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Indicates if initial load (full load) has been completed
@@ -17900,8 +17928,10 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse
 }
 
 // CDC apply latency
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) Latency() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) int { return v.Latency }).(pulumi.IntOutput)
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput) Latency() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse) float64 {
+		return v.Latency
+	}).(pulumi.Float64Output)
 }
 
 // Migration state that this database is in
@@ -18168,13 +18198,13 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelRespons
 
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse struct {
 	// Number of applied deletes
-	CdcDeleteCounter int `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter float64 `pulumi:"cdcDeleteCounter"`
 	// Number of applied inserts
-	CdcInsertCounter int `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter float64 `pulumi:"cdcInsertCounter"`
 	// Number of applied updates
-	CdcUpdateCounter int `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter float64 `pulumi:"cdcUpdateCounter"`
 	// Number of data errors occurred
-	DataErrorsCounter int `pulumi:"dataErrorsCounter"`
+	DataErrorsCounter float64 `pulumi:"dataErrorsCounter"`
 	// Name of the database
 	DatabaseName string `pulumi:"databaseName"`
 	// Full load end time
@@ -18184,7 +18214,7 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse struc
 	// Full load start time
 	FullLoadStartedOn string `pulumi:"fullLoadStartedOn"`
 	// Number of rows applied in full load
-	FullLoadTotalRows int `pulumi:"fullLoadTotalRows"`
+	FullLoadTotalRows float64 `pulumi:"fullLoadTotalRows"`
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Last modified time on target
@@ -18197,7 +18227,7 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse struc
 	// Name of the table
 	TableName string `pulumi:"tableName"`
 	// Total number of applied changes
-	TotalChangesApplied int `pulumi:"totalChangesApplied"`
+	TotalChangesApplied float64 `pulumi:"totalChangesApplied"`
 }
 
 // MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs and MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput values.
@@ -18213,13 +18243,13 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseInput 
 
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs struct {
 	// Number of applied deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter pulumi.Float64Input `pulumi:"cdcDeleteCounter"`
 	// Number of applied inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter pulumi.Float64Input `pulumi:"cdcInsertCounter"`
 	// Number of applied updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter pulumi.Float64Input `pulumi:"cdcUpdateCounter"`
 	// Number of data errors occurred
-	DataErrorsCounter pulumi.IntInput `pulumi:"dataErrorsCounter"`
+	DataErrorsCounter pulumi.Float64Input `pulumi:"dataErrorsCounter"`
 	// Name of the database
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Full load end time
@@ -18229,7 +18259,7 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs s
 	// Full load start time
 	FullLoadStartedOn pulumi.StringInput `pulumi:"fullLoadStartedOn"`
 	// Number of rows applied in full load
-	FullLoadTotalRows pulumi.IntInput `pulumi:"fullLoadTotalRows"`
+	FullLoadTotalRows pulumi.Float64Input `pulumi:"fullLoadTotalRows"`
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Last modified time on target
@@ -18242,7 +18272,7 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs s
 	// Name of the table
 	TableName pulumi.StringInput `pulumi:"tableName"`
 	// Total number of applied changes
-	TotalChangesApplied pulumi.IntInput `pulumi:"totalChangesApplied"`
+	TotalChangesApplied pulumi.Float64Input `pulumi:"totalChangesApplied"`
 }
 
 func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs) ElementType() reflect.Type {
@@ -18272,31 +18302,31 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOut
 }
 
 // Number of applied deletes
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcDeleteCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcDeleteCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
 		return v.CdcDeleteCounter
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of applied inserts
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcInsertCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcInsertCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
 		return v.CdcInsertCounter
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of applied updates
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcUpdateCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) CdcUpdateCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
 		return v.CdcUpdateCounter
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Number of data errors occurred
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) DataErrorsCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) DataErrorsCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
 		return v.DataErrorsCounter
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Name of the database
@@ -18328,10 +18358,10 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOut
 }
 
 // Number of rows applied in full load
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) FullLoadTotalRows() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) FullLoadTotalRows() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
 		return v.FullLoadTotalRows
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Result identifier
@@ -18367,10 +18397,10 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOut
 }
 
 // Total number of applied changes
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) TotalChangesApplied() pulumi.IntOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) int {
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput) TotalChangesApplied() pulumi.Float64Output {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse) float64 {
 		return v.TotalChangesApplied
-	}).(pulumi.IntOutput)
+	}).(pulumi.Float64Output)
 }
 
 // Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
@@ -19631,33 +19661,33 @@ func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutput) ResultTy
 
 type MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse struct {
 	// Number of applied changes
-	AppliedChanges int `pulumi:"appliedChanges"`
+	AppliedChanges float64 `pulumi:"appliedChanges"`
 	// Number of cdc deletes
-	CdcDeleteCounter int `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter float64 `pulumi:"cdcDeleteCounter"`
 	// Number of cdc inserts
-	CdcInsertCounter int `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter float64 `pulumi:"cdcInsertCounter"`
 	// Number of cdc updates
-	CdcUpdateCounter int `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter float64 `pulumi:"cdcUpdateCounter"`
 	// Name of the database
 	DatabaseName string `pulumi:"databaseName"`
 	// Migration end time
 	EndedOn string `pulumi:"endedOn"`
 	// Number of tables completed in full load
-	FullLoadCompletedTables int `pulumi:"fullLoadCompletedTables"`
+	FullLoadCompletedTables float64 `pulumi:"fullLoadCompletedTables"`
 	// Number of tables errored in full load
-	FullLoadErroredTables int `pulumi:"fullLoadErroredTables"`
+	FullLoadErroredTables float64 `pulumi:"fullLoadErroredTables"`
 	// Number of tables loading in full load
-	FullLoadLoadingTables int `pulumi:"fullLoadLoadingTables"`
+	FullLoadLoadingTables float64 `pulumi:"fullLoadLoadingTables"`
 	// Number of tables queued in full load
-	FullLoadQueuedTables int `pulumi:"fullLoadQueuedTables"`
+	FullLoadQueuedTables float64 `pulumi:"fullLoadQueuedTables"`
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Number of incoming changes
-	IncomingChanges int `pulumi:"incomingChanges"`
+	IncomingChanges float64 `pulumi:"incomingChanges"`
 	// Indicates if initial load (full load) has been completed
 	InitializationCompleted bool `pulumi:"initializationCompleted"`
 	// CDC apply latency
-	Latency int `pulumi:"latency"`
+	Latency float64 `pulumi:"latency"`
 	// Migration state that this database is in
 	MigrationState string `pulumi:"migrationState"`
 	// Result type
@@ -19680,33 +19710,33 @@ type MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseInput interface {
 
 type MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseArgs struct {
 	// Number of applied changes
-	AppliedChanges pulumi.IntInput `pulumi:"appliedChanges"`
+	AppliedChanges pulumi.Float64Input `pulumi:"appliedChanges"`
 	// Number of cdc deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter pulumi.Float64Input `pulumi:"cdcDeleteCounter"`
 	// Number of cdc inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter pulumi.Float64Input `pulumi:"cdcInsertCounter"`
 	// Number of cdc updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter pulumi.Float64Input `pulumi:"cdcUpdateCounter"`
 	// Name of the database
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Migration end time
 	EndedOn pulumi.StringInput `pulumi:"endedOn"`
 	// Number of tables completed in full load
-	FullLoadCompletedTables pulumi.IntInput `pulumi:"fullLoadCompletedTables"`
+	FullLoadCompletedTables pulumi.Float64Input `pulumi:"fullLoadCompletedTables"`
 	// Number of tables errored in full load
-	FullLoadErroredTables pulumi.IntInput `pulumi:"fullLoadErroredTables"`
+	FullLoadErroredTables pulumi.Float64Input `pulumi:"fullLoadErroredTables"`
 	// Number of tables loading in full load
-	FullLoadLoadingTables pulumi.IntInput `pulumi:"fullLoadLoadingTables"`
+	FullLoadLoadingTables pulumi.Float64Input `pulumi:"fullLoadLoadingTables"`
 	// Number of tables queued in full load
-	FullLoadQueuedTables pulumi.IntInput `pulumi:"fullLoadQueuedTables"`
+	FullLoadQueuedTables pulumi.Float64Input `pulumi:"fullLoadQueuedTables"`
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Number of incoming changes
-	IncomingChanges pulumi.IntInput `pulumi:"incomingChanges"`
+	IncomingChanges pulumi.Float64Input `pulumi:"incomingChanges"`
 	// Indicates if initial load (full load) has been completed
 	InitializationCompleted pulumi.BoolInput `pulumi:"initializationCompleted"`
 	// CDC apply latency
-	Latency pulumi.IntInput `pulumi:"latency"`
+	Latency pulumi.Float64Input `pulumi:"latency"`
 	// Migration state that this database is in
 	MigrationState pulumi.StringInput `pulumi:"migrationState"`
 	// Result type
@@ -19743,23 +19773,23 @@ func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) ToMigrat
 }
 
 // Number of applied changes
-func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) AppliedChanges() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) int { return v.AppliedChanges }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) AppliedChanges() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) float64 { return v.AppliedChanges }).(pulumi.Float64Output)
 }
 
 // Number of cdc deletes
-func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) CdcDeleteCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) int { return v.CdcDeleteCounter }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) CdcDeleteCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) float64 { return v.CdcDeleteCounter }).(pulumi.Float64Output)
 }
 
 // Number of cdc inserts
-func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) CdcInsertCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) int { return v.CdcInsertCounter }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) CdcInsertCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) float64 { return v.CdcInsertCounter }).(pulumi.Float64Output)
 }
 
 // Number of cdc updates
-func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) CdcUpdateCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) int { return v.CdcUpdateCounter }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) CdcUpdateCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) float64 { return v.CdcUpdateCounter }).(pulumi.Float64Output)
 }
 
 // Name of the database
@@ -19773,23 +19803,31 @@ func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) EndedOn(
 }
 
 // Number of tables completed in full load
-func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) FullLoadCompletedTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) int { return v.FullLoadCompletedTables }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) FullLoadCompletedTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) float64 {
+		return v.FullLoadCompletedTables
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables errored in full load
-func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) FullLoadErroredTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) int { return v.FullLoadErroredTables }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) FullLoadErroredTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) float64 {
+		return v.FullLoadErroredTables
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables loading in full load
-func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) FullLoadLoadingTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) int { return v.FullLoadLoadingTables }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) FullLoadLoadingTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) float64 {
+		return v.FullLoadLoadingTables
+	}).(pulumi.Float64Output)
 }
 
 // Number of tables queued in full load
-func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) FullLoadQueuedTables() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) int { return v.FullLoadQueuedTables }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) FullLoadQueuedTables() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) float64 {
+		return v.FullLoadQueuedTables
+	}).(pulumi.Float64Output)
 }
 
 // Result identifier
@@ -19798,8 +19836,8 @@ func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) Id() pul
 }
 
 // Number of incoming changes
-func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) IncomingChanges() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) int { return v.IncomingChanges }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) IncomingChanges() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) float64 { return v.IncomingChanges }).(pulumi.Float64Output)
 }
 
 // Indicates if initial load (full load) has been completed
@@ -19810,8 +19848,8 @@ func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) Initiali
 }
 
 // CDC apply latency
-func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) Latency() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) int { return v.Latency }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput) Latency() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse) float64 { return v.Latency }).(pulumi.Float64Output)
 }
 
 // Migration state that this database is in
@@ -20032,13 +20070,13 @@ func (o MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutput) TargetS
 
 type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse struct {
 	// Number of applied deletes
-	CdcDeleteCounter int `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter float64 `pulumi:"cdcDeleteCounter"`
 	// Number of applied inserts
-	CdcInsertCounter int `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter float64 `pulumi:"cdcInsertCounter"`
 	// Number of applied updates
-	CdcUpdateCounter int `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter float64 `pulumi:"cdcUpdateCounter"`
 	// Number of data errors occurred
-	DataErrorsCounter int `pulumi:"dataErrorsCounter"`
+	DataErrorsCounter float64 `pulumi:"dataErrorsCounter"`
 	// Name of the database
 	DatabaseName string `pulumi:"databaseName"`
 	// Full load end time
@@ -20048,7 +20086,7 @@ type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse struct {
 	// Full load start time
 	FullLoadStartedOn string `pulumi:"fullLoadStartedOn"`
 	// Number of rows applied in full load
-	FullLoadTotalRows int `pulumi:"fullLoadTotalRows"`
+	FullLoadTotalRows float64 `pulumi:"fullLoadTotalRows"`
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Last modified time on target
@@ -20061,7 +20099,7 @@ type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse struct {
 	// Name of the table
 	TableName string `pulumi:"tableName"`
 	// Total number of applied changes
-	TotalChangesApplied int `pulumi:"totalChangesApplied"`
+	TotalChangesApplied float64 `pulumi:"totalChangesApplied"`
 }
 
 // MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseInput is an input type that accepts MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs and MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput values.
@@ -20077,13 +20115,13 @@ type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseInput interface {
 
 type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs struct {
 	// Number of applied deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
+	CdcDeleteCounter pulumi.Float64Input `pulumi:"cdcDeleteCounter"`
 	// Number of applied inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
+	CdcInsertCounter pulumi.Float64Input `pulumi:"cdcInsertCounter"`
 	// Number of applied updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
+	CdcUpdateCounter pulumi.Float64Input `pulumi:"cdcUpdateCounter"`
 	// Number of data errors occurred
-	DataErrorsCounter pulumi.IntInput `pulumi:"dataErrorsCounter"`
+	DataErrorsCounter pulumi.Float64Input `pulumi:"dataErrorsCounter"`
 	// Name of the database
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Full load end time
@@ -20093,7 +20131,7 @@ type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs struct {
 	// Full load start time
 	FullLoadStartedOn pulumi.StringInput `pulumi:"fullLoadStartedOn"`
 	// Number of rows applied in full load
-	FullLoadTotalRows pulumi.IntInput `pulumi:"fullLoadTotalRows"`
+	FullLoadTotalRows pulumi.Float64Input `pulumi:"fullLoadTotalRows"`
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Last modified time on target
@@ -20106,7 +20144,7 @@ type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs struct {
 	// Name of the table
 	TableName pulumi.StringInput `pulumi:"tableName"`
 	// Total number of applied changes
-	TotalChangesApplied pulumi.IntInput `pulumi:"totalChangesApplied"`
+	TotalChangesApplied pulumi.Float64Input `pulumi:"totalChangesApplied"`
 }
 
 func (MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs) ElementType() reflect.Type {
@@ -20136,23 +20174,23 @@ func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) ToMigrateSq
 }
 
 // Number of applied deletes
-func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) CdcDeleteCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) int { return v.CdcDeleteCounter }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) CdcDeleteCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) float64 { return v.CdcDeleteCounter }).(pulumi.Float64Output)
 }
 
 // Number of applied inserts
-func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) CdcInsertCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) int { return v.CdcInsertCounter }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) CdcInsertCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) float64 { return v.CdcInsertCounter }).(pulumi.Float64Output)
 }
 
 // Number of applied updates
-func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) CdcUpdateCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) int { return v.CdcUpdateCounter }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) CdcUpdateCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) float64 { return v.CdcUpdateCounter }).(pulumi.Float64Output)
 }
 
 // Number of data errors occurred
-func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) DataErrorsCounter() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) int { return v.DataErrorsCounter }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) DataErrorsCounter() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) float64 { return v.DataErrorsCounter }).(pulumi.Float64Output)
 }
 
 // Name of the database
@@ -20176,8 +20214,8 @@ func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) FullLoadSta
 }
 
 // Number of rows applied in full load
-func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) FullLoadTotalRows() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) int { return v.FullLoadTotalRows }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) FullLoadTotalRows() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) float64 { return v.FullLoadTotalRows }).(pulumi.Float64Output)
 }
 
 // Result identifier
@@ -20207,8 +20245,8 @@ func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) TableName()
 }
 
 // Total number of applied changes
-func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) TotalChangesApplied() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) int { return v.TotalChangesApplied }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput) TotalChangesApplied() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse) float64 { return v.TotalChangesApplied }).(pulumi.Float64Output)
 }
 
 // Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
@@ -20815,7 +20853,7 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse struct {
 	// Migration end time
 	EndedOn string `pulumi:"endedOn"`
 	// Number of database/object errors.
-	ErrorCount int `pulumi:"errorCount"`
+	ErrorCount float64 `pulumi:"errorCount"`
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix string `pulumi:"errorPrefix"`
 	// Migration exceptions and warnings.
@@ -20825,9 +20863,9 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse struct {
 	// Migration progress message
 	Message string `pulumi:"message"`
 	// Number of objects
-	NumberOfObjects int `pulumi:"numberOfObjects"`
+	NumberOfObjects float64 `pulumi:"numberOfObjects"`
 	// Number of successfully completed objects
-	NumberOfObjectsCompleted int `pulumi:"numberOfObjectsCompleted"`
+	NumberOfObjectsCompleted float64 `pulumi:"numberOfObjectsCompleted"`
 	// Summary of object results in the migration
 	ObjectSummary map[string]DataItemMigrationSummaryResultResponse `pulumi:"objectSummary"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -20862,7 +20900,7 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs struct {
 	// Migration end time
 	EndedOn pulumi.StringInput `pulumi:"endedOn"`
 	// Number of database/object errors.
-	ErrorCount pulumi.IntInput `pulumi:"errorCount"`
+	ErrorCount pulumi.Float64Input `pulumi:"errorCount"`
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix pulumi.StringInput `pulumi:"errorPrefix"`
 	// Migration exceptions and warnings.
@@ -20872,9 +20910,9 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs struct {
 	// Migration progress message
 	Message pulumi.StringInput `pulumi:"message"`
 	// Number of objects
-	NumberOfObjects pulumi.IntInput `pulumi:"numberOfObjects"`
+	NumberOfObjects pulumi.Float64Input `pulumi:"numberOfObjects"`
 	// Number of successfully completed objects
-	NumberOfObjectsCompleted pulumi.IntInput `pulumi:"numberOfObjectsCompleted"`
+	NumberOfObjectsCompleted pulumi.Float64Input `pulumi:"numberOfObjectsCompleted"`
 	// Summary of object results in the migration
 	ObjectSummary DataItemMigrationSummaryResultResponseMapInput `pulumi:"objectSummary"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -20929,8 +20967,8 @@ func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) EndedOn() pu
 }
 
 // Number of database/object errors.
-func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) ErrorCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) int { return v.ErrorCount }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) ErrorCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) float64 { return v.ErrorCount }).(pulumi.Float64Output)
 }
 
 // Wildcard string prefix to use for querying all errors of the item
@@ -20956,13 +20994,15 @@ func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) Message() pu
 }
 
 // Number of objects
-func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) NumberOfObjects() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) int { return v.NumberOfObjects }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) NumberOfObjects() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) float64 { return v.NumberOfObjects }).(pulumi.Float64Output)
 }
 
 // Number of successfully completed objects
-func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) NumberOfObjectsCompleted() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) int { return v.NumberOfObjectsCompleted }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) NumberOfObjectsCompleted() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) float64 {
+		return v.NumberOfObjectsCompleted
+	}).(pulumi.Float64Output)
 }
 
 // Summary of object results in the migration
@@ -21148,7 +21188,7 @@ type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse struct {
 	// Selected databases as a map from database name to database id
 	Databases map[string]string `pulumi:"databases"`
 	// Duration of task execution in seconds.
-	DurationInSeconds int `pulumi:"durationInSeconds"`
+	DurationInSeconds float64 `pulumi:"durationInSeconds"`
 	// Migration end time
 	EndedOn string `pulumi:"endedOn"`
 	// Migration exceptions and warnings.
@@ -21197,7 +21237,7 @@ type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs struct {
 	// Selected databases as a map from database name to database id
 	Databases pulumi.StringMapInput `pulumi:"databases"`
 	// Duration of task execution in seconds.
-	DurationInSeconds pulumi.IntInput `pulumi:"durationInSeconds"`
+	DurationInSeconds pulumi.Float64Input `pulumi:"durationInSeconds"`
 	// Migration end time
 	EndedOn pulumi.StringInput `pulumi:"endedOn"`
 	// Migration exceptions and warnings.
@@ -21268,8 +21308,8 @@ func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) Databases()
 }
 
 // Duration of task execution in seconds.
-func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) DurationInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse) int { return v.DurationInSeconds }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) DurationInSeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse) float64 { return v.DurationInSeconds }).(pulumi.Float64Output)
 }
 
 // Migration end time
@@ -21361,9 +21401,9 @@ type MigrateSqlServerSqlDbTaskOutputTableLevelResponse struct {
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Number of successfully completed items
-	ItemsCompletedCount int `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount float64 `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount int `pulumi:"itemsCount"`
+	ItemsCount float64 `pulumi:"itemsCount"`
 	// Name of the item
 	ObjectName string `pulumi:"objectName"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -21398,9 +21438,9 @@ type MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs struct {
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Number of successfully completed items
-	ItemsCompletedCount pulumi.IntInput `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount pulumi.Float64Input `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount pulumi.IntInput `pulumi:"itemsCount"`
+	ItemsCount pulumi.Float64Input `pulumi:"itemsCount"`
 	// Name of the item
 	ObjectName pulumi.StringInput `pulumi:"objectName"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -21458,13 +21498,13 @@ func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) Id() pulumi.Str
 }
 
 // Number of successfully completed items
-func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) ItemsCompletedCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputTableLevelResponse) int { return v.ItemsCompletedCount }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) ItemsCompletedCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputTableLevelResponse) float64 { return v.ItemsCompletedCount }).(pulumi.Float64Output)
 }
 
 // Number of items
-func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) ItemsCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputTableLevelResponse) int { return v.ItemsCount }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) ItemsCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputTableLevelResponse) float64 { return v.ItemsCount }).(pulumi.Float64Output)
 }
 
 // Name of the item
@@ -26702,13 +26742,13 @@ func (o MongoDbClusterInfoResponseArrayOutput) Index(i pulumi.IntInput) MongoDbC
 // Describes a supported collection within a MongoDB database
 type MongoDbCollectionInfoResponse struct {
 	// The average document size, or -1 if the average size is unknown
-	AverageDocumentSize int `pulumi:"averageDocumentSize"`
+	AverageDocumentSize float64 `pulumi:"averageDocumentSize"`
 	// The estimated total data size, in bytes, or -1 if the size is unknown.
-	DataSize int `pulumi:"dataSize"`
+	DataSize float64 `pulumi:"dataSize"`
 	// The name of the database containing the collection
 	DatabaseName string `pulumi:"databaseName"`
 	// The estimated total number of documents, or -1 if the document count is unknown
-	DocumentCount int `pulumi:"documentCount"`
+	DocumentCount float64 `pulumi:"documentCount"`
 	// Whether the collection is a capped collection (i.e. whether it has a fixed size and acts like a circular buffer)
 	IsCapped bool `pulumi:"isCapped"`
 	// Whether the collection is system collection
@@ -26741,13 +26781,13 @@ type MongoDbCollectionInfoResponseInput interface {
 // Describes a supported collection within a MongoDB database
 type MongoDbCollectionInfoResponseArgs struct {
 	// The average document size, or -1 if the average size is unknown
-	AverageDocumentSize pulumi.IntInput `pulumi:"averageDocumentSize"`
+	AverageDocumentSize pulumi.Float64Input `pulumi:"averageDocumentSize"`
 	// The estimated total data size, in bytes, or -1 if the size is unknown.
-	DataSize pulumi.IntInput `pulumi:"dataSize"`
+	DataSize pulumi.Float64Input `pulumi:"dataSize"`
 	// The name of the database containing the collection
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// The estimated total number of documents, or -1 if the document count is unknown
-	DocumentCount pulumi.IntInput `pulumi:"documentCount"`
+	DocumentCount pulumi.Float64Input `pulumi:"documentCount"`
 	// Whether the collection is a capped collection (i.e. whether it has a fixed size and acts like a circular buffer)
 	IsCapped pulumi.BoolInput `pulumi:"isCapped"`
 	// Whether the collection is system collection
@@ -26819,13 +26859,13 @@ func (o MongoDbCollectionInfoResponseOutput) ToMongoDbCollectionInfoResponseOutp
 }
 
 // The average document size, or -1 if the average size is unknown
-func (o MongoDbCollectionInfoResponseOutput) AverageDocumentSize() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbCollectionInfoResponse) int { return v.AverageDocumentSize }).(pulumi.IntOutput)
+func (o MongoDbCollectionInfoResponseOutput) AverageDocumentSize() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbCollectionInfoResponse) float64 { return v.AverageDocumentSize }).(pulumi.Float64Output)
 }
 
 // The estimated total data size, in bytes, or -1 if the size is unknown.
-func (o MongoDbCollectionInfoResponseOutput) DataSize() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbCollectionInfoResponse) int { return v.DataSize }).(pulumi.IntOutput)
+func (o MongoDbCollectionInfoResponseOutput) DataSize() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbCollectionInfoResponse) float64 { return v.DataSize }).(pulumi.Float64Output)
 }
 
 // The name of the database containing the collection
@@ -26834,8 +26874,8 @@ func (o MongoDbCollectionInfoResponseOutput) DatabaseName() pulumi.StringOutput 
 }
 
 // The estimated total number of documents, or -1 if the document count is unknown
-func (o MongoDbCollectionInfoResponseOutput) DocumentCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbCollectionInfoResponse) int { return v.DocumentCount }).(pulumi.IntOutput)
+func (o MongoDbCollectionInfoResponseOutput) DocumentCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbCollectionInfoResponse) float64 { return v.DocumentCount }).(pulumi.Float64Output)
 }
 
 // Whether the collection is a capped collection (i.e. whether it has a fixed size and acts like a circular buffer)
@@ -26901,17 +26941,17 @@ func (o MongoDbCollectionInfoResponseArrayOutput) Index(i pulumi.IntInput) Mongo
 // Describes the progress of a collection
 type MongoDbCollectionProgressResponse struct {
 	// The number of document bytes copied during the Copying stage
-	BytesCopied int `pulumi:"bytesCopied"`
+	BytesCopied float64 `pulumi:"bytesCopied"`
 	// The number of documents copied during the Copying stage
-	DocumentsCopied int `pulumi:"documentsCopied"`
+	DocumentsCopied float64 `pulumi:"documentsCopied"`
 	// The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
 	ElapsedTime string `pulumi:"elapsedTime"`
 	// The errors and warnings that have occurred for the current object. The keys are the error codes.
 	Errors map[string]MongoDbErrorResponse `pulumi:"errors"`
 	// The number of oplog events awaiting replay
-	EventsPending int `pulumi:"eventsPending"`
+	EventsPending float64 `pulumi:"eventsPending"`
 	// The number of oplog events replayed so far
-	EventsReplayed int `pulumi:"eventsReplayed"`
+	EventsReplayed float64 `pulumi:"eventsReplayed"`
 	// The timestamp of the last oplog event received, or null if no oplog event has been received yet
 	LastEventTime *string `pulumi:"lastEventTime"`
 	// The timestamp of the last oplog event replayed, or null if no oplog event has been replayed yet
@@ -26925,9 +26965,9 @@ type MongoDbCollectionProgressResponse struct {
 	ResultType string `pulumi:"resultType"`
 	State      string `pulumi:"state"`
 	// The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
-	TotalBytes int `pulumi:"totalBytes"`
+	TotalBytes float64 `pulumi:"totalBytes"`
 	// The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
-	TotalDocuments int `pulumi:"totalDocuments"`
+	TotalDocuments float64 `pulumi:"totalDocuments"`
 }
 
 // MongoDbCollectionProgressResponseInput is an input type that accepts MongoDbCollectionProgressResponseArgs and MongoDbCollectionProgressResponseOutput values.
@@ -26944,17 +26984,17 @@ type MongoDbCollectionProgressResponseInput interface {
 // Describes the progress of a collection
 type MongoDbCollectionProgressResponseArgs struct {
 	// The number of document bytes copied during the Copying stage
-	BytesCopied pulumi.IntInput `pulumi:"bytesCopied"`
+	BytesCopied pulumi.Float64Input `pulumi:"bytesCopied"`
 	// The number of documents copied during the Copying stage
-	DocumentsCopied pulumi.IntInput `pulumi:"documentsCopied"`
+	DocumentsCopied pulumi.Float64Input `pulumi:"documentsCopied"`
 	// The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
 	ElapsedTime pulumi.StringInput `pulumi:"elapsedTime"`
 	// The errors and warnings that have occurred for the current object. The keys are the error codes.
 	Errors MongoDbErrorResponseMapInput `pulumi:"errors"`
 	// The number of oplog events awaiting replay
-	EventsPending pulumi.IntInput `pulumi:"eventsPending"`
+	EventsPending pulumi.Float64Input `pulumi:"eventsPending"`
 	// The number of oplog events replayed so far
-	EventsReplayed pulumi.IntInput `pulumi:"eventsReplayed"`
+	EventsReplayed pulumi.Float64Input `pulumi:"eventsReplayed"`
 	// The timestamp of the last oplog event received, or null if no oplog event has been received yet
 	LastEventTime pulumi.StringPtrInput `pulumi:"lastEventTime"`
 	// The timestamp of the last oplog event replayed, or null if no oplog event has been replayed yet
@@ -26968,9 +27008,9 @@ type MongoDbCollectionProgressResponseArgs struct {
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 	State      pulumi.StringInput `pulumi:"state"`
 	// The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
-	TotalBytes pulumi.IntInput `pulumi:"totalBytes"`
+	TotalBytes pulumi.Float64Input `pulumi:"totalBytes"`
 	// The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
-	TotalDocuments pulumi.IntInput `pulumi:"totalDocuments"`
+	TotalDocuments pulumi.Float64Input `pulumi:"totalDocuments"`
 }
 
 func (MongoDbCollectionProgressResponseArgs) ElementType() reflect.Type {
@@ -27026,13 +27066,13 @@ func (o MongoDbCollectionProgressResponseOutput) ToMongoDbCollectionProgressResp
 }
 
 // The number of document bytes copied during the Copying stage
-func (o MongoDbCollectionProgressResponseOutput) BytesCopied() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbCollectionProgressResponse) int { return v.BytesCopied }).(pulumi.IntOutput)
+func (o MongoDbCollectionProgressResponseOutput) BytesCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbCollectionProgressResponse) float64 { return v.BytesCopied }).(pulumi.Float64Output)
 }
 
 // The number of documents copied during the Copying stage
-func (o MongoDbCollectionProgressResponseOutput) DocumentsCopied() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbCollectionProgressResponse) int { return v.DocumentsCopied }).(pulumi.IntOutput)
+func (o MongoDbCollectionProgressResponseOutput) DocumentsCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbCollectionProgressResponse) float64 { return v.DocumentsCopied }).(pulumi.Float64Output)
 }
 
 // The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
@@ -27046,13 +27086,13 @@ func (o MongoDbCollectionProgressResponseOutput) Errors() MongoDbErrorResponseMa
 }
 
 // The number of oplog events awaiting replay
-func (o MongoDbCollectionProgressResponseOutput) EventsPending() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbCollectionProgressResponse) int { return v.EventsPending }).(pulumi.IntOutput)
+func (o MongoDbCollectionProgressResponseOutput) EventsPending() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbCollectionProgressResponse) float64 { return v.EventsPending }).(pulumi.Float64Output)
 }
 
 // The number of oplog events replayed so far
-func (o MongoDbCollectionProgressResponseOutput) EventsReplayed() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbCollectionProgressResponse) int { return v.EventsReplayed }).(pulumi.IntOutput)
+func (o MongoDbCollectionProgressResponseOutput) EventsReplayed() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbCollectionProgressResponse) float64 { return v.EventsReplayed }).(pulumi.Float64Output)
 }
 
 // The timestamp of the last oplog event received, or null if no oplog event has been received yet
@@ -27086,13 +27126,13 @@ func (o MongoDbCollectionProgressResponseOutput) State() pulumi.StringOutput {
 }
 
 // The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
-func (o MongoDbCollectionProgressResponseOutput) TotalBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbCollectionProgressResponse) int { return v.TotalBytes }).(pulumi.IntOutput)
+func (o MongoDbCollectionProgressResponseOutput) TotalBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbCollectionProgressResponse) float64 { return v.TotalBytes }).(pulumi.Float64Output)
 }
 
 // The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
-func (o MongoDbCollectionProgressResponseOutput) TotalDocuments() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbCollectionProgressResponse) int { return v.TotalDocuments }).(pulumi.IntOutput)
+func (o MongoDbCollectionProgressResponseOutput) TotalDocuments() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbCollectionProgressResponse) float64 { return v.TotalDocuments }).(pulumi.Float64Output)
 }
 
 type MongoDbCollectionProgressResponseMapOutput struct{ *pulumi.OutputState }
@@ -27744,13 +27784,13 @@ func (o MongoDbConnectionInfoResponsePtrOutput) UserName() pulumi.StringPtrOutpu
 // Describes a database within a MongoDB data source
 type MongoDbDatabaseInfoResponse struct {
 	// The average document size, or -1 if the average size is unknown
-	AverageDocumentSize int `pulumi:"averageDocumentSize"`
+	AverageDocumentSize float64 `pulumi:"averageDocumentSize"`
 	// A list of supported collections in a MongoDB database
 	Collections []MongoDbCollectionInfoResponse `pulumi:"collections"`
 	// The estimated total data size, in bytes, or -1 if the size is unknown.
-	DataSize int `pulumi:"dataSize"`
+	DataSize float64 `pulumi:"dataSize"`
 	// The estimated total number of documents, or -1 if the document count is unknown
-	DocumentCount int `pulumi:"documentCount"`
+	DocumentCount float64 `pulumi:"documentCount"`
 	// The unqualified name of the database or collection
 	Name string `pulumi:"name"`
 	// The qualified name of the database or collection. For a collection, this is the database-qualified name.
@@ -27773,13 +27813,13 @@ type MongoDbDatabaseInfoResponseInput interface {
 // Describes a database within a MongoDB data source
 type MongoDbDatabaseInfoResponseArgs struct {
 	// The average document size, or -1 if the average size is unknown
-	AverageDocumentSize pulumi.IntInput `pulumi:"averageDocumentSize"`
+	AverageDocumentSize pulumi.Float64Input `pulumi:"averageDocumentSize"`
 	// A list of supported collections in a MongoDB database
 	Collections MongoDbCollectionInfoResponseArrayInput `pulumi:"collections"`
 	// The estimated total data size, in bytes, or -1 if the size is unknown.
-	DataSize pulumi.IntInput `pulumi:"dataSize"`
+	DataSize pulumi.Float64Input `pulumi:"dataSize"`
 	// The estimated total number of documents, or -1 if the document count is unknown
-	DocumentCount pulumi.IntInput `pulumi:"documentCount"`
+	DocumentCount pulumi.Float64Input `pulumi:"documentCount"`
 	// The unqualified name of the database or collection
 	Name pulumi.StringInput `pulumi:"name"`
 	// The qualified name of the database or collection. For a collection, this is the database-qualified name.
@@ -27841,8 +27881,8 @@ func (o MongoDbDatabaseInfoResponseOutput) ToMongoDbDatabaseInfoResponseOutputWi
 }
 
 // The average document size, or -1 if the average size is unknown
-func (o MongoDbDatabaseInfoResponseOutput) AverageDocumentSize() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbDatabaseInfoResponse) int { return v.AverageDocumentSize }).(pulumi.IntOutput)
+func (o MongoDbDatabaseInfoResponseOutput) AverageDocumentSize() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbDatabaseInfoResponse) float64 { return v.AverageDocumentSize }).(pulumi.Float64Output)
 }
 
 // A list of supported collections in a MongoDB database
@@ -27851,13 +27891,13 @@ func (o MongoDbDatabaseInfoResponseOutput) Collections() MongoDbCollectionInfoRe
 }
 
 // The estimated total data size, in bytes, or -1 if the size is unknown.
-func (o MongoDbDatabaseInfoResponseOutput) DataSize() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbDatabaseInfoResponse) int { return v.DataSize }).(pulumi.IntOutput)
+func (o MongoDbDatabaseInfoResponseOutput) DataSize() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbDatabaseInfoResponse) float64 { return v.DataSize }).(pulumi.Float64Output)
 }
 
 // The estimated total number of documents, or -1 if the document count is unknown
-func (o MongoDbDatabaseInfoResponseOutput) DocumentCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbDatabaseInfoResponse) int { return v.DocumentCount }).(pulumi.IntOutput)
+func (o MongoDbDatabaseInfoResponseOutput) DocumentCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbDatabaseInfoResponse) float64 { return v.DocumentCount }).(pulumi.Float64Output)
 }
 
 // The unqualified name of the database or collection
@@ -27898,19 +27938,19 @@ func (o MongoDbDatabaseInfoResponseArrayOutput) Index(i pulumi.IntInput) MongoDb
 // Describes the progress of a database
 type MongoDbDatabaseProgressResponse struct {
 	// The number of document bytes copied during the Copying stage
-	BytesCopied int `pulumi:"bytesCopied"`
+	BytesCopied float64 `pulumi:"bytesCopied"`
 	// The progress of the collections in the database. The keys are the unqualified names of the collections
 	Collections map[string]MongoDbCollectionProgressResponse `pulumi:"collections"`
 	// The number of documents copied during the Copying stage
-	DocumentsCopied int `pulumi:"documentsCopied"`
+	DocumentsCopied float64 `pulumi:"documentsCopied"`
 	// The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
 	ElapsedTime string `pulumi:"elapsedTime"`
 	// The errors and warnings that have occurred for the current object. The keys are the error codes.
 	Errors map[string]MongoDbErrorResponse `pulumi:"errors"`
 	// The number of oplog events awaiting replay
-	EventsPending int `pulumi:"eventsPending"`
+	EventsPending float64 `pulumi:"eventsPending"`
 	// The number of oplog events replayed so far
-	EventsReplayed int `pulumi:"eventsReplayed"`
+	EventsReplayed float64 `pulumi:"eventsReplayed"`
 	// The timestamp of the last oplog event received, or null if no oplog event has been received yet
 	LastEventTime *string `pulumi:"lastEventTime"`
 	// The timestamp of the last oplog event replayed, or null if no oplog event has been replayed yet
@@ -27924,9 +27964,9 @@ type MongoDbDatabaseProgressResponse struct {
 	ResultType string `pulumi:"resultType"`
 	State      string `pulumi:"state"`
 	// The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
-	TotalBytes int `pulumi:"totalBytes"`
+	TotalBytes float64 `pulumi:"totalBytes"`
 	// The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
-	TotalDocuments int `pulumi:"totalDocuments"`
+	TotalDocuments float64 `pulumi:"totalDocuments"`
 }
 
 // MongoDbDatabaseProgressResponseInput is an input type that accepts MongoDbDatabaseProgressResponseArgs and MongoDbDatabaseProgressResponseOutput values.
@@ -27943,19 +27983,19 @@ type MongoDbDatabaseProgressResponseInput interface {
 // Describes the progress of a database
 type MongoDbDatabaseProgressResponseArgs struct {
 	// The number of document bytes copied during the Copying stage
-	BytesCopied pulumi.IntInput `pulumi:"bytesCopied"`
+	BytesCopied pulumi.Float64Input `pulumi:"bytesCopied"`
 	// The progress of the collections in the database. The keys are the unqualified names of the collections
 	Collections MongoDbCollectionProgressResponseMapInput `pulumi:"collections"`
 	// The number of documents copied during the Copying stage
-	DocumentsCopied pulumi.IntInput `pulumi:"documentsCopied"`
+	DocumentsCopied pulumi.Float64Input `pulumi:"documentsCopied"`
 	// The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
 	ElapsedTime pulumi.StringInput `pulumi:"elapsedTime"`
 	// The errors and warnings that have occurred for the current object. The keys are the error codes.
 	Errors MongoDbErrorResponseMapInput `pulumi:"errors"`
 	// The number of oplog events awaiting replay
-	EventsPending pulumi.IntInput `pulumi:"eventsPending"`
+	EventsPending pulumi.Float64Input `pulumi:"eventsPending"`
 	// The number of oplog events replayed so far
-	EventsReplayed pulumi.IntInput `pulumi:"eventsReplayed"`
+	EventsReplayed pulumi.Float64Input `pulumi:"eventsReplayed"`
 	// The timestamp of the last oplog event received, or null if no oplog event has been received yet
 	LastEventTime pulumi.StringPtrInput `pulumi:"lastEventTime"`
 	// The timestamp of the last oplog event replayed, or null if no oplog event has been replayed yet
@@ -27969,9 +28009,9 @@ type MongoDbDatabaseProgressResponseArgs struct {
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 	State      pulumi.StringInput `pulumi:"state"`
 	// The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
-	TotalBytes pulumi.IntInput `pulumi:"totalBytes"`
+	TotalBytes pulumi.Float64Input `pulumi:"totalBytes"`
 	// The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
-	TotalDocuments pulumi.IntInput `pulumi:"totalDocuments"`
+	TotalDocuments pulumi.Float64Input `pulumi:"totalDocuments"`
 }
 
 func (MongoDbDatabaseProgressResponseArgs) ElementType() reflect.Type {
@@ -28027,8 +28067,8 @@ func (o MongoDbDatabaseProgressResponseOutput) ToMongoDbDatabaseProgressResponse
 }
 
 // The number of document bytes copied during the Copying stage
-func (o MongoDbDatabaseProgressResponseOutput) BytesCopied() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) int { return v.BytesCopied }).(pulumi.IntOutput)
+func (o MongoDbDatabaseProgressResponseOutput) BytesCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) float64 { return v.BytesCopied }).(pulumi.Float64Output)
 }
 
 // The progress of the collections in the database. The keys are the unqualified names of the collections
@@ -28039,8 +28079,8 @@ func (o MongoDbDatabaseProgressResponseOutput) Collections() MongoDbCollectionPr
 }
 
 // The number of documents copied during the Copying stage
-func (o MongoDbDatabaseProgressResponseOutput) DocumentsCopied() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) int { return v.DocumentsCopied }).(pulumi.IntOutput)
+func (o MongoDbDatabaseProgressResponseOutput) DocumentsCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) float64 { return v.DocumentsCopied }).(pulumi.Float64Output)
 }
 
 // The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
@@ -28054,13 +28094,13 @@ func (o MongoDbDatabaseProgressResponseOutput) Errors() MongoDbErrorResponseMapO
 }
 
 // The number of oplog events awaiting replay
-func (o MongoDbDatabaseProgressResponseOutput) EventsPending() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) int { return v.EventsPending }).(pulumi.IntOutput)
+func (o MongoDbDatabaseProgressResponseOutput) EventsPending() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) float64 { return v.EventsPending }).(pulumi.Float64Output)
 }
 
 // The number of oplog events replayed so far
-func (o MongoDbDatabaseProgressResponseOutput) EventsReplayed() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) int { return v.EventsReplayed }).(pulumi.IntOutput)
+func (o MongoDbDatabaseProgressResponseOutput) EventsReplayed() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) float64 { return v.EventsReplayed }).(pulumi.Float64Output)
 }
 
 // The timestamp of the last oplog event received, or null if no oplog event has been received yet
@@ -28094,13 +28134,13 @@ func (o MongoDbDatabaseProgressResponseOutput) State() pulumi.StringOutput {
 }
 
 // The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
-func (o MongoDbDatabaseProgressResponseOutput) TotalBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) int { return v.TotalBytes }).(pulumi.IntOutput)
+func (o MongoDbDatabaseProgressResponseOutput) TotalBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) float64 { return v.TotalBytes }).(pulumi.Float64Output)
 }
 
 // The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
-func (o MongoDbDatabaseProgressResponseOutput) TotalDocuments() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) int { return v.TotalDocuments }).(pulumi.IntOutput)
+func (o MongoDbDatabaseProgressResponseOutput) TotalDocuments() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbDatabaseProgressResponse) float64 { return v.TotalDocuments }).(pulumi.Float64Output)
 }
 
 type MongoDbDatabaseProgressResponseMapOutput struct{ *pulumi.OutputState }
@@ -28473,19 +28513,19 @@ func (o MongoDbErrorResponseMapOutput) MapIndex(k pulumi.StringInput) MongoDbErr
 // Describes the progress of the overall migration
 type MongoDbMigrationProgressResponse struct {
 	// The number of document bytes copied during the Copying stage
-	BytesCopied int `pulumi:"bytesCopied"`
+	BytesCopied float64 `pulumi:"bytesCopied"`
 	// The progress of the databases in the migration. The keys are the names of the databases
 	Databases map[string]MongoDbDatabaseProgressResponse `pulumi:"databases"`
 	// The number of documents copied during the Copying stage
-	DocumentsCopied int `pulumi:"documentsCopied"`
+	DocumentsCopied float64 `pulumi:"documentsCopied"`
 	// The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
 	ElapsedTime string `pulumi:"elapsedTime"`
 	// The errors and warnings that have occurred for the current object. The keys are the error codes.
 	Errors map[string]MongoDbErrorResponse `pulumi:"errors"`
 	// The number of oplog events awaiting replay
-	EventsPending int `pulumi:"eventsPending"`
+	EventsPending float64 `pulumi:"eventsPending"`
 	// The number of oplog events replayed so far
-	EventsReplayed int `pulumi:"eventsReplayed"`
+	EventsReplayed float64 `pulumi:"eventsReplayed"`
 	// The timestamp of the last oplog event received, or null if no oplog event has been received yet
 	LastEventTime *string `pulumi:"lastEventTime"`
 	// The timestamp of the last oplog event replayed, or null if no oplog event has been replayed yet
@@ -28499,9 +28539,9 @@ type MongoDbMigrationProgressResponse struct {
 	ResultType string `pulumi:"resultType"`
 	State      string `pulumi:"state"`
 	// The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
-	TotalBytes int `pulumi:"totalBytes"`
+	TotalBytes float64 `pulumi:"totalBytes"`
 	// The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
-	TotalDocuments int `pulumi:"totalDocuments"`
+	TotalDocuments float64 `pulumi:"totalDocuments"`
 }
 
 // MongoDbMigrationProgressResponseInput is an input type that accepts MongoDbMigrationProgressResponseArgs and MongoDbMigrationProgressResponseOutput values.
@@ -28518,19 +28558,19 @@ type MongoDbMigrationProgressResponseInput interface {
 // Describes the progress of the overall migration
 type MongoDbMigrationProgressResponseArgs struct {
 	// The number of document bytes copied during the Copying stage
-	BytesCopied pulumi.IntInput `pulumi:"bytesCopied"`
+	BytesCopied pulumi.Float64Input `pulumi:"bytesCopied"`
 	// The progress of the databases in the migration. The keys are the names of the databases
 	Databases MongoDbDatabaseProgressResponseMapInput `pulumi:"databases"`
 	// The number of documents copied during the Copying stage
-	DocumentsCopied pulumi.IntInput `pulumi:"documentsCopied"`
+	DocumentsCopied pulumi.Float64Input `pulumi:"documentsCopied"`
 	// The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
 	ElapsedTime pulumi.StringInput `pulumi:"elapsedTime"`
 	// The errors and warnings that have occurred for the current object. The keys are the error codes.
 	Errors MongoDbErrorResponseMapInput `pulumi:"errors"`
 	// The number of oplog events awaiting replay
-	EventsPending pulumi.IntInput `pulumi:"eventsPending"`
+	EventsPending pulumi.Float64Input `pulumi:"eventsPending"`
 	// The number of oplog events replayed so far
-	EventsReplayed pulumi.IntInput `pulumi:"eventsReplayed"`
+	EventsReplayed pulumi.Float64Input `pulumi:"eventsReplayed"`
 	// The timestamp of the last oplog event received, or null if no oplog event has been received yet
 	LastEventTime pulumi.StringPtrInput `pulumi:"lastEventTime"`
 	// The timestamp of the last oplog event replayed, or null if no oplog event has been replayed yet
@@ -28544,9 +28584,9 @@ type MongoDbMigrationProgressResponseArgs struct {
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 	State      pulumi.StringInput `pulumi:"state"`
 	// The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
-	TotalBytes pulumi.IntInput `pulumi:"totalBytes"`
+	TotalBytes pulumi.Float64Input `pulumi:"totalBytes"`
 	// The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
-	TotalDocuments pulumi.IntInput `pulumi:"totalDocuments"`
+	TotalDocuments pulumi.Float64Input `pulumi:"totalDocuments"`
 }
 
 func (MongoDbMigrationProgressResponseArgs) ElementType() reflect.Type {
@@ -28602,8 +28642,8 @@ func (o MongoDbMigrationProgressResponseOutput) ToMongoDbMigrationProgressRespon
 }
 
 // The number of document bytes copied during the Copying stage
-func (o MongoDbMigrationProgressResponseOutput) BytesCopied() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbMigrationProgressResponse) int { return v.BytesCopied }).(pulumi.IntOutput)
+func (o MongoDbMigrationProgressResponseOutput) BytesCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbMigrationProgressResponse) float64 { return v.BytesCopied }).(pulumi.Float64Output)
 }
 
 // The progress of the databases in the migration. The keys are the names of the databases
@@ -28614,8 +28654,8 @@ func (o MongoDbMigrationProgressResponseOutput) Databases() MongoDbDatabaseProgr
 }
 
 // The number of documents copied during the Copying stage
-func (o MongoDbMigrationProgressResponseOutput) DocumentsCopied() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbMigrationProgressResponse) int { return v.DocumentsCopied }).(pulumi.IntOutput)
+func (o MongoDbMigrationProgressResponseOutput) DocumentsCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbMigrationProgressResponse) float64 { return v.DocumentsCopied }).(pulumi.Float64Output)
 }
 
 // The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
@@ -28629,13 +28669,13 @@ func (o MongoDbMigrationProgressResponseOutput) Errors() MongoDbErrorResponseMap
 }
 
 // The number of oplog events awaiting replay
-func (o MongoDbMigrationProgressResponseOutput) EventsPending() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbMigrationProgressResponse) int { return v.EventsPending }).(pulumi.IntOutput)
+func (o MongoDbMigrationProgressResponseOutput) EventsPending() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbMigrationProgressResponse) float64 { return v.EventsPending }).(pulumi.Float64Output)
 }
 
 // The number of oplog events replayed so far
-func (o MongoDbMigrationProgressResponseOutput) EventsReplayed() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbMigrationProgressResponse) int { return v.EventsReplayed }).(pulumi.IntOutput)
+func (o MongoDbMigrationProgressResponseOutput) EventsReplayed() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbMigrationProgressResponse) float64 { return v.EventsReplayed }).(pulumi.Float64Output)
 }
 
 // The timestamp of the last oplog event received, or null if no oplog event has been received yet
@@ -28669,13 +28709,13 @@ func (o MongoDbMigrationProgressResponseOutput) State() pulumi.StringOutput {
 }
 
 // The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
-func (o MongoDbMigrationProgressResponseOutput) TotalBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbMigrationProgressResponse) int { return v.TotalBytes }).(pulumi.IntOutput)
+func (o MongoDbMigrationProgressResponseOutput) TotalBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbMigrationProgressResponse) float64 { return v.TotalBytes }).(pulumi.Float64Output)
 }
 
 // The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
-func (o MongoDbMigrationProgressResponseOutput) TotalDocuments() pulumi.IntOutput {
-	return o.ApplyT(func(v MongoDbMigrationProgressResponse) int { return v.TotalDocuments }).(pulumi.IntOutput)
+func (o MongoDbMigrationProgressResponseOutput) TotalDocuments() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDbMigrationProgressResponse) float64 { return v.TotalDocuments }).(pulumi.Float64Output)
 }
 
 type MongoDbMigrationProgressResponseArrayOutput struct{ *pulumi.OutputState }
@@ -31949,7 +31989,7 @@ type ProjectFilePropertiesResponse struct {
 	// File content type. This property can be modified to reflect the file content type.
 	MediaType *string `pulumi:"mediaType"`
 	// File size.
-	Size int `pulumi:"size"`
+	Size float64 `pulumi:"size"`
 }
 
 // ProjectFilePropertiesResponseInput is an input type that accepts ProjectFilePropertiesResponseArgs and ProjectFilePropertiesResponseOutput values.
@@ -31974,7 +32014,7 @@ type ProjectFilePropertiesResponseArgs struct {
 	// File content type. This property can be modified to reflect the file content type.
 	MediaType pulumi.StringPtrInput `pulumi:"mediaType"`
 	// File size.
-	Size pulumi.IntInput `pulumi:"size"`
+	Size pulumi.Float64Input `pulumi:"size"`
 }
 
 func (ProjectFilePropertiesResponseArgs) ElementType() reflect.Type {
@@ -32076,8 +32116,8 @@ func (o ProjectFilePropertiesResponseOutput) MediaType() pulumi.StringPtrOutput 
 }
 
 // File size.
-func (o ProjectFilePropertiesResponseOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func(v ProjectFilePropertiesResponse) int { return v.Size }).(pulumi.IntOutput)
+func (o ProjectFilePropertiesResponseOutput) Size() pulumi.Float64Output {
+	return o.ApplyT(func(v ProjectFilePropertiesResponse) float64 { return v.Size }).(pulumi.Float64Output)
 }
 
 type ProjectFilePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -32139,13 +32179,13 @@ func (o ProjectFilePropertiesResponsePtrOutput) MediaType() pulumi.StringPtrOutp
 }
 
 // File size.
-func (o ProjectFilePropertiesResponsePtrOutput) Size() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ProjectFilePropertiesResponse) *int {
+func (o ProjectFilePropertiesResponsePtrOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ProjectFilePropertiesResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.Size
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Exception object for all custom exceptions

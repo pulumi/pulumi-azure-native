@@ -30,7 +30,7 @@ type ExpressRouteCircuitPeering struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The peer ASN.
-	PeerASN pulumi.IntPtrOutput `pulumi:"peerASN"`
+	PeerASN pulumi.Float64PtrOutput `pulumi:"peerASN"`
 	// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
 	PeeringType pulumi.StringPtrOutput `pulumi:"peeringType"`
 	// The primary port.
@@ -213,7 +213,7 @@ type expressRouteCircuitPeeringState struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
 	PeeringType *string `pulumi:"peeringType"`
 	// The primary port.
@@ -254,7 +254,7 @@ type ExpressRouteCircuitPeeringState struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
 	// The peer ASN.
-	PeerASN pulumi.IntPtrInput
+	PeerASN pulumi.Float64PtrInput
 	// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
 	PeeringType pulumi.StringPtrInput
 	// The primary port.
@@ -301,7 +301,7 @@ type expressRouteCircuitPeeringArgs struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
 	// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
@@ -349,7 +349,7 @@ type ExpressRouteCircuitPeeringArgs struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
 	// The peer ASN.
-	PeerASN pulumi.IntPtrInput
+	PeerASN pulumi.Float64PtrInput
 	// The name of the peering.
 	PeeringName pulumi.StringInput
 	// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.

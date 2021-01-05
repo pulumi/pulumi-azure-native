@@ -22,7 +22,7 @@ type DisasterRecoveryConfig struct {
 	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
 	PartnerNamespace pulumi.StringPtrOutput `pulumi:"partnerNamespace"`
 	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount pulumi.IntOutput `pulumi:"pendingReplicationOperationsCount"`
+	PendingReplicationOperationsCount pulumi.Float64Output `pulumi:"pendingReplicationOperationsCount"`
 	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
@@ -85,7 +85,7 @@ type disasterRecoveryConfigState struct {
 	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
 	PartnerNamespace *string `pulumi:"partnerNamespace"`
 	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount *int `pulumi:"pendingReplicationOperationsCount"`
+	PendingReplicationOperationsCount *float64 `pulumi:"pendingReplicationOperationsCount"`
 	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
@@ -102,7 +102,7 @@ type DisasterRecoveryConfigState struct {
 	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
 	PartnerNamespace pulumi.StringPtrInput
 	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount pulumi.IntPtrInput
+	PendingReplicationOperationsCount pulumi.Float64PtrInput
 	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
 	ProvisioningState pulumi.StringPtrInput
 	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'

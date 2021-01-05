@@ -3459,7 +3459,7 @@ type AzureStorageContainer struct {
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
 	// Number of items backed up in this container.
-	ProtectedItemCount *int `pulumi:"protectedItemCount"`
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// Resource group name of Recovery Services Vault.
@@ -3496,7 +3496,7 @@ type AzureStorageContainerArgs struct {
 	// Status of health of the container.
 	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
 	// Number of items backed up in this container.
-	ProtectedItemCount pulumi.IntPtrInput `pulumi:"protectedItemCount"`
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
 	// Resource group name of Recovery Services Vault.
@@ -3559,8 +3559,8 @@ func (o AzureStorageContainerOutput) HealthStatus() pulumi.StringPtrOutput {
 }
 
 // Number of items backed up in this container.
-func (o AzureStorageContainerOutput) ProtectedItemCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AzureStorageContainer) *int { return v.ProtectedItemCount }).(pulumi.IntPtrOutput)
+func (o AzureStorageContainerOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureStorageContainer) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
 }
 
 // Status of registration of the container with the Recovery Services Vault.
@@ -3598,7 +3598,7 @@ type AzureStorageContainerResponse struct {
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
 	// Number of items backed up in this container.
-	ProtectedItemCount *int `pulumi:"protectedItemCount"`
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// Resource group name of Recovery Services Vault.
@@ -3635,7 +3635,7 @@ type AzureStorageContainerResponseArgs struct {
 	// Status of health of the container.
 	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
 	// Number of items backed up in this container.
-	ProtectedItemCount pulumi.IntPtrInput `pulumi:"protectedItemCount"`
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
 	// Resource group name of Recovery Services Vault.
@@ -3698,8 +3698,8 @@ func (o AzureStorageContainerResponseOutput) HealthStatus() pulumi.StringPtrOutp
 }
 
 // Number of items backed up in this container.
-func (o AzureStorageContainerResponseOutput) ProtectedItemCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AzureStorageContainerResponse) *int { return v.ProtectedItemCount }).(pulumi.IntPtrOutput)
+func (o AzureStorageContainerResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureStorageContainerResponse) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
 }
 
 // Status of registration of the container with the Recovery Services Vault.
@@ -8683,7 +8683,7 @@ type DpmContainer struct {
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
 	// Number of protected items in the BackupEngine
-	ProtectedItemCount *int `pulumi:"protectedItemCount"`
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Protection status of the container.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
 	// Status of registration of the container with the Recovery Services Vault.
@@ -8728,7 +8728,7 @@ type DpmContainerArgs struct {
 	// Status of health of the container.
 	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
 	// Number of protected items in the BackupEngine
-	ProtectedItemCount pulumi.IntPtrInput `pulumi:"protectedItemCount"`
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
 	// Protection status of the container.
 	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
 	// Status of registration of the container with the Recovery Services Vault.
@@ -8814,8 +8814,8 @@ func (o DpmContainerOutput) HealthStatus() pulumi.StringPtrOutput {
 }
 
 // Number of protected items in the BackupEngine
-func (o DpmContainerOutput) ProtectedItemCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DpmContainer) *int { return v.ProtectedItemCount }).(pulumi.IntPtrOutput)
+func (o DpmContainerOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DpmContainer) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
 }
 
 // Protection status of the container.
@@ -8858,7 +8858,7 @@ type DpmContainerResponse struct {
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
 	// Number of protected items in the BackupEngine
-	ProtectedItemCount *int `pulumi:"protectedItemCount"`
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Protection status of the container.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
 	// Status of registration of the container with the Recovery Services Vault.
@@ -8903,7 +8903,7 @@ type DpmContainerResponseArgs struct {
 	// Status of health of the container.
 	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
 	// Number of protected items in the BackupEngine
-	ProtectedItemCount pulumi.IntPtrInput `pulumi:"protectedItemCount"`
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
 	// Protection status of the container.
 	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
 	// Status of registration of the container with the Recovery Services Vault.
@@ -8989,8 +8989,8 @@ func (o DpmContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
 }
 
 // Number of protected items in the BackupEngine
-func (o DpmContainerResponseOutput) ProtectedItemCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DpmContainerResponse) *int { return v.ProtectedItemCount }).(pulumi.IntPtrOutput)
+func (o DpmContainerResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DpmContainerResponse) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
 }
 
 // Protection status of the container.
@@ -10067,7 +10067,7 @@ type GenericProtectedItem struct {
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState *string `pulumi:"policyState"`
 	// Data Plane Service ID of the protected item.
-	ProtectedItemId *int `pulumi:"protectedItemId"`
+	ProtectedItemId *float64 `pulumi:"protectedItemId"`
 	// backup item type.
 	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
@@ -10123,7 +10123,7 @@ type GenericProtectedItemArgs struct {
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
 	// Data Plane Service ID of the protected item.
-	ProtectedItemId pulumi.IntPtrInput `pulumi:"protectedItemId"`
+	ProtectedItemId pulumi.Float64PtrInput `pulumi:"protectedItemId"`
 	// backup item type.
 	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
@@ -10235,8 +10235,8 @@ func (o GenericProtectedItemOutput) PolicyState() pulumi.StringPtrOutput {
 }
 
 // Data Plane Service ID of the protected item.
-func (o GenericProtectedItemOutput) ProtectedItemId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GenericProtectedItem) *int { return v.ProtectedItemId }).(pulumi.IntPtrOutput)
+func (o GenericProtectedItemOutput) ProtectedItemId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GenericProtectedItem) *float64 { return v.ProtectedItemId }).(pulumi.Float64PtrOutput)
 }
 
 // backup item type.
@@ -10296,7 +10296,7 @@ type GenericProtectedItemResponse struct {
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState *string `pulumi:"policyState"`
 	// Data Plane Service ID of the protected item.
-	ProtectedItemId *int `pulumi:"protectedItemId"`
+	ProtectedItemId *float64 `pulumi:"protectedItemId"`
 	// backup item type.
 	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
@@ -10352,7 +10352,7 @@ type GenericProtectedItemResponseArgs struct {
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
 	// Data Plane Service ID of the protected item.
-	ProtectedItemId pulumi.IntPtrInput `pulumi:"protectedItemId"`
+	ProtectedItemId pulumi.Float64PtrInput `pulumi:"protectedItemId"`
 	// backup item type.
 	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
@@ -10464,8 +10464,8 @@ func (o GenericProtectedItemResponseOutput) PolicyState() pulumi.StringPtrOutput
 }
 
 // Data Plane Service ID of the protected item.
-func (o GenericProtectedItemResponseOutput) ProtectedItemId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GenericProtectedItemResponse) *int { return v.ProtectedItemId }).(pulumi.IntPtrOutput)
+func (o GenericProtectedItemResponseOutput) ProtectedItemId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemResponse) *float64 { return v.ProtectedItemId }).(pulumi.Float64PtrOutput)
 }
 
 // backup item type.
@@ -12785,7 +12785,7 @@ type MabContainer struct {
 	// Health state of mab container.
 	ContainerHealthState *string `pulumi:"containerHealthState"`
 	// ContainerID represents the container.
-	ContainerId *int `pulumi:"containerId"`
+	ContainerId *float64 `pulumi:"containerId"`
 	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -12801,7 +12801,7 @@ type MabContainer struct {
 	// Health details on this mab container.
 	MabContainerHealthDetails []MABContainerHealthDetails `pulumi:"mabContainerHealthDetails"`
 	// Number of items backed up in this container.
-	ProtectedItemCount *int `pulumi:"protectedItemCount"`
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 }
@@ -12828,7 +12828,7 @@ type MabContainerArgs struct {
 	// Health state of mab container.
 	ContainerHealthState pulumi.StringPtrInput `pulumi:"containerHealthState"`
 	// ContainerID represents the container.
-	ContainerId pulumi.IntPtrInput `pulumi:"containerId"`
+	ContainerId pulumi.Float64PtrInput `pulumi:"containerId"`
 	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -12844,7 +12844,7 @@ type MabContainerArgs struct {
 	// Health details on this mab container.
 	MabContainerHealthDetails MABContainerHealthDetailsArrayInput `pulumi:"mabContainerHealthDetails"`
 	// Number of items backed up in this container.
-	ProtectedItemCount pulumi.IntPtrInput `pulumi:"protectedItemCount"`
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
 }
@@ -12897,8 +12897,8 @@ func (o MabContainerOutput) ContainerHealthState() pulumi.StringPtrOutput {
 }
 
 // ContainerID represents the container.
-func (o MabContainerOutput) ContainerId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MabContainer) *int { return v.ContainerId }).(pulumi.IntPtrOutput)
+func (o MabContainerOutput) ContainerId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MabContainer) *float64 { return v.ContainerId }).(pulumi.Float64PtrOutput)
 }
 
 // Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
@@ -12931,8 +12931,8 @@ func (o MabContainerOutput) MabContainerHealthDetails() MABContainerHealthDetail
 }
 
 // Number of items backed up in this container.
-func (o MabContainerOutput) ProtectedItemCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MabContainer) *int { return v.ProtectedItemCount }).(pulumi.IntPtrOutput)
+func (o MabContainerOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MabContainer) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
 }
 
 // Status of registration of the container with the Recovery Services Vault.
@@ -13371,7 +13371,7 @@ type MabContainerResponse struct {
 	// Health state of mab container.
 	ContainerHealthState *string `pulumi:"containerHealthState"`
 	// ContainerID represents the container.
-	ContainerId *int `pulumi:"containerId"`
+	ContainerId *float64 `pulumi:"containerId"`
 	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -13387,7 +13387,7 @@ type MabContainerResponse struct {
 	// Health details on this mab container.
 	MabContainerHealthDetails []MABContainerHealthDetailsResponse `pulumi:"mabContainerHealthDetails"`
 	// Number of items backed up in this container.
-	ProtectedItemCount *int `pulumi:"protectedItemCount"`
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 }
@@ -13414,7 +13414,7 @@ type MabContainerResponseArgs struct {
 	// Health state of mab container.
 	ContainerHealthState pulumi.StringPtrInput `pulumi:"containerHealthState"`
 	// ContainerID represents the container.
-	ContainerId pulumi.IntPtrInput `pulumi:"containerId"`
+	ContainerId pulumi.Float64PtrInput `pulumi:"containerId"`
 	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -13430,7 +13430,7 @@ type MabContainerResponseArgs struct {
 	// Health details on this mab container.
 	MabContainerHealthDetails MABContainerHealthDetailsResponseArrayInput `pulumi:"mabContainerHealthDetails"`
 	// Number of items backed up in this container.
-	ProtectedItemCount pulumi.IntPtrInput `pulumi:"protectedItemCount"`
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
 }
@@ -13483,8 +13483,8 @@ func (o MabContainerResponseOutput) ContainerHealthState() pulumi.StringPtrOutpu
 }
 
 // ContainerID represents the container.
-func (o MabContainerResponseOutput) ContainerId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MabContainerResponse) *int { return v.ContainerId }).(pulumi.IntPtrOutput)
+func (o MabContainerResponseOutput) ContainerId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MabContainerResponse) *float64 { return v.ContainerId }).(pulumi.Float64PtrOutput)
 }
 
 // Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
@@ -13517,8 +13517,8 @@ func (o MabContainerResponseOutput) MabContainerHealthDetails() MABContainerHeal
 }
 
 // Number of items backed up in this container.
-func (o MabContainerResponseOutput) ProtectedItemCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MabContainerResponse) *int { return v.ProtectedItemCount }).(pulumi.IntPtrOutput)
+func (o MabContainerResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MabContainerResponse) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
 }
 
 // Status of registration of the container with the Recovery Services Vault.
@@ -13539,7 +13539,7 @@ type MabFileFolderProtectedItem struct {
 	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 	CreateMode *string `pulumi:"createMode"`
 	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC *int `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteSyncTimeInUTC *float64 `pulumi:"deferredDeleteSyncTimeInUTC"`
 	// Time for deferred deletion in UTC
 	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
 	// Time remaining before the DS marked for deferred delete is permanently deleted
@@ -13597,7 +13597,7 @@ type MabFileFolderProtectedItemArgs struct {
 	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
 	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC pulumi.IntPtrInput `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteSyncTimeInUTC pulumi.Float64PtrInput `pulumi:"deferredDeleteSyncTimeInUTC"`
 	// Time for deferred deletion in UTC
 	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
 	// Time remaining before the DS marked for deferred delete is permanently deleted
@@ -13684,8 +13684,8 @@ func (o MabFileFolderProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 }
 
 // Sync time for deferred deletion in UTC
-func (o MabFileFolderProtectedItemOutput) DeferredDeleteSyncTimeInUTC() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MabFileFolderProtectedItem) *int { return v.DeferredDeleteSyncTimeInUTC }).(pulumi.IntPtrOutput)
+func (o MabFileFolderProtectedItemOutput) DeferredDeleteSyncTimeInUTC() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItem) *float64 { return v.DeferredDeleteSyncTimeInUTC }).(pulumi.Float64PtrOutput)
 }
 
 // Time for deferred deletion in UTC
@@ -14123,7 +14123,7 @@ type MabFileFolderProtectedItemResponse struct {
 	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 	CreateMode *string `pulumi:"createMode"`
 	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC *int `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteSyncTimeInUTC *float64 `pulumi:"deferredDeleteSyncTimeInUTC"`
 	// Time for deferred deletion in UTC
 	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
 	// Time remaining before the DS marked for deferred delete is permanently deleted
@@ -14181,7 +14181,7 @@ type MabFileFolderProtectedItemResponseArgs struct {
 	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
 	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC pulumi.IntPtrInput `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteSyncTimeInUTC pulumi.Float64PtrInput `pulumi:"deferredDeleteSyncTimeInUTC"`
 	// Time for deferred deletion in UTC
 	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
 	// Time remaining before the DS marked for deferred delete is permanently deleted
@@ -14268,8 +14268,8 @@ func (o MabFileFolderProtectedItemResponseOutput) CreateMode() pulumi.StringPtrO
 }
 
 // Sync time for deferred deletion in UTC
-func (o MabFileFolderProtectedItemResponseOutput) DeferredDeleteSyncTimeInUTC() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *int { return v.DeferredDeleteSyncTimeInUTC }).(pulumi.IntPtrOutput)
+func (o MabFileFolderProtectedItemResponseOutput) DeferredDeleteSyncTimeInUTC() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *float64 { return v.DeferredDeleteSyncTimeInUTC }).(pulumi.Float64PtrOutput)
 }
 
 // Time for deferred deletion in UTC
@@ -17912,7 +17912,7 @@ type WorkloadInquiryDetails struct {
 	// Inquiry validation such as permissions and other backup validations.
 	InquiryValidation *InquiryValidation `pulumi:"inquiryValidation"`
 	// Contains the protectable item Count inside this Container.
-	ItemCount *int `pulumi:"itemCount"`
+	ItemCount *float64 `pulumi:"itemCount"`
 	// Type of the Workload such as SQL, Oracle etc.
 	Type *string `pulumi:"type"`
 }
@@ -17933,7 +17933,7 @@ type WorkloadInquiryDetailsArgs struct {
 	// Inquiry validation such as permissions and other backup validations.
 	InquiryValidation InquiryValidationPtrInput `pulumi:"inquiryValidation"`
 	// Contains the protectable item Count inside this Container.
-	ItemCount pulumi.IntPtrInput `pulumi:"itemCount"`
+	ItemCount pulumi.Float64PtrInput `pulumi:"itemCount"`
 	// Type of the Workload such as SQL, Oracle etc.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -17996,8 +17996,8 @@ func (o WorkloadInquiryDetailsOutput) InquiryValidation() InquiryValidationPtrOu
 }
 
 // Contains the protectable item Count inside this Container.
-func (o WorkloadInquiryDetailsOutput) ItemCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkloadInquiryDetails) *int { return v.ItemCount }).(pulumi.IntPtrOutput)
+func (o WorkloadInquiryDetailsOutput) ItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v WorkloadInquiryDetails) *float64 { return v.ItemCount }).(pulumi.Float64PtrOutput)
 }
 
 // Type of the Workload such as SQL, Oracle etc.
@@ -18030,7 +18030,7 @@ type WorkloadInquiryDetailsResponse struct {
 	// Inquiry validation such as permissions and other backup validations.
 	InquiryValidation *InquiryValidationResponse `pulumi:"inquiryValidation"`
 	// Contains the protectable item Count inside this Container.
-	ItemCount *int `pulumi:"itemCount"`
+	ItemCount *float64 `pulumi:"itemCount"`
 	// Type of the Workload such as SQL, Oracle etc.
 	Type *string `pulumi:"type"`
 }
@@ -18051,7 +18051,7 @@ type WorkloadInquiryDetailsResponseArgs struct {
 	// Inquiry validation such as permissions and other backup validations.
 	InquiryValidation InquiryValidationResponsePtrInput `pulumi:"inquiryValidation"`
 	// Contains the protectable item Count inside this Container.
-	ItemCount pulumi.IntPtrInput `pulumi:"itemCount"`
+	ItemCount pulumi.Float64PtrInput `pulumi:"itemCount"`
 	// Type of the Workload such as SQL, Oracle etc.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -18114,8 +18114,8 @@ func (o WorkloadInquiryDetailsResponseOutput) InquiryValidation() InquiryValidat
 }
 
 // Contains the protectable item Count inside this Container.
-func (o WorkloadInquiryDetailsResponseOutput) ItemCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkloadInquiryDetailsResponse) *int { return v.ItemCount }).(pulumi.IntPtrOutput)
+func (o WorkloadInquiryDetailsResponseOutput) ItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v WorkloadInquiryDetailsResponse) *float64 { return v.ItemCount }).(pulumi.Float64PtrOutput)
 }
 
 // Type of the Workload such as SQL, Oracle etc.

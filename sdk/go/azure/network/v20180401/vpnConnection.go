@@ -20,13 +20,13 @@ type VpnConnection struct {
 	// The connection status.
 	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
-	EgressBytesTransferred pulumi.IntOutput `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred pulumi.Float64Output `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag
 	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Ingress bytes transferred.
-	IngressBytesTransferred pulumi.IntOutput `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred pulumi.Float64Output `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyResponseArrayOutput `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -147,13 +147,13 @@ type vpnConnectionState struct {
 	// The connection status.
 	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
-	EgressBytesTransferred *int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred *float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Ingress bytes transferred.
-	IngressBytesTransferred *int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred *float64 `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -174,13 +174,13 @@ type VpnConnectionState struct {
 	// The connection status.
 	ConnectionStatus pulumi.StringPtrInput
 	// Egress bytes transferred.
-	EgressBytesTransferred pulumi.IntPtrInput
+	EgressBytesTransferred pulumi.Float64PtrInput
 	// EnableBgp flag
 	EnableBgp pulumi.BoolPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Ingress bytes transferred.
-	IngressBytesTransferred pulumi.IntPtrInput
+	IngressBytesTransferred pulumi.Float64PtrInput
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyResponseArrayInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.

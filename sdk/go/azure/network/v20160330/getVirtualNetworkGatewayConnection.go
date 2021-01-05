@@ -32,7 +32,7 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
 	ConnectionType *string `pulumi:"connectionType"`
 	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred *int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred *float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp Flag
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated
@@ -40,7 +40,7 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred *int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred *float64 `pulumi:"ingressBytesTransferred"`
 	// A common class for general resource information
 	LocalNetworkGateway2 *LocalNetworkGatewayResponse `pulumi:"localNetworkGateway2"`
 	// Resource location

@@ -32,7 +32,7 @@ type VolumeContainer struct {
 	// The path ID of storage account associated with the volume container.
 	StorageAccountCredentialId pulumi.StringOutput `pulumi:"storageAccountCredentialId"`
 	// The total cloud storage for the volume container.
-	TotalCloudStorageUsageInBytes pulumi.IntOutput `pulumi:"totalCloudStorageUsageInBytes"`
+	TotalCloudStorageUsageInBytes pulumi.Float64Output `pulumi:"totalCloudStorageUsageInBytes"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The number of volumes in the volume Container.
@@ -106,7 +106,7 @@ type volumeContainerState struct {
 	// The path ID of storage account associated with the volume container.
 	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
 	// The total cloud storage for the volume container.
-	TotalCloudStorageUsageInBytes *int `pulumi:"totalCloudStorageUsageInBytes"`
+	TotalCloudStorageUsageInBytes *float64 `pulumi:"totalCloudStorageUsageInBytes"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 	// The number of volumes in the volume Container.
@@ -131,7 +131,7 @@ type VolumeContainerState struct {
 	// The path ID of storage account associated with the volume container.
 	StorageAccountCredentialId pulumi.StringPtrInput
 	// The total cloud storage for the volume container.
-	TotalCloudStorageUsageInBytes pulumi.IntPtrInput
+	TotalCloudStorageUsageInBytes pulumi.Float64PtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 	// The number of volumes in the volume Container.

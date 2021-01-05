@@ -56,7 +56,7 @@ type LookupStreamingEndpointResult struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Max cache age
-	MaxCacheAge *int `pulumi:"maxCacheAge"`
+	MaxCacheAge *float64 `pulumi:"maxCacheAge"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The provisioning state of the streaming endpoint.

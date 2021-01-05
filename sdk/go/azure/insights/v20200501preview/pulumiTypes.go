@@ -394,9 +394,9 @@ func (o ConditionArrayOutput) Index(i pulumi.IntInput) ConditionOutput {
 // The minimum number of violations required within the selected lookback time window required to raise an alert.
 type ConditionFailingPeriods struct {
 	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-	MinFailingPeriodsToAlert *int `pulumi:"minFailingPeriodsToAlert"`
+	MinFailingPeriodsToAlert *float64 `pulumi:"minFailingPeriodsToAlert"`
 	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-	NumberOfEvaluationPeriods *int `pulumi:"numberOfEvaluationPeriods"`
+	NumberOfEvaluationPeriods *float64 `pulumi:"numberOfEvaluationPeriods"`
 }
 
 // ConditionFailingPeriodsInput is an input type that accepts ConditionFailingPeriodsArgs and ConditionFailingPeriodsOutput values.
@@ -413,9 +413,9 @@ type ConditionFailingPeriodsInput interface {
 // The minimum number of violations required within the selected lookback time window required to raise an alert.
 type ConditionFailingPeriodsArgs struct {
 	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-	MinFailingPeriodsToAlert pulumi.IntPtrInput `pulumi:"minFailingPeriodsToAlert"`
+	MinFailingPeriodsToAlert pulumi.Float64PtrInput `pulumi:"minFailingPeriodsToAlert"`
 	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-	NumberOfEvaluationPeriods pulumi.IntPtrInput `pulumi:"numberOfEvaluationPeriods"`
+	NumberOfEvaluationPeriods pulumi.Float64PtrInput `pulumi:"numberOfEvaluationPeriods"`
 }
 
 func (ConditionFailingPeriodsArgs) ElementType() reflect.Type {
@@ -497,13 +497,13 @@ func (o ConditionFailingPeriodsOutput) ToConditionFailingPeriodsPtrOutputWithCon
 }
 
 // The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-func (o ConditionFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConditionFailingPeriods) *int { return v.MinFailingPeriodsToAlert }).(pulumi.IntPtrOutput)
+func (o ConditionFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConditionFailingPeriods) *float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64PtrOutput)
 }
 
 // The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-func (o ConditionFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConditionFailingPeriods) *int { return v.NumberOfEvaluationPeriods }).(pulumi.IntPtrOutput)
+func (o ConditionFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConditionFailingPeriods) *float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64PtrOutput)
 }
 
 type ConditionFailingPeriodsPtrOutput struct{ *pulumi.OutputState }
@@ -525,23 +525,23 @@ func (o ConditionFailingPeriodsPtrOutput) Elem() ConditionFailingPeriodsOutput {
 }
 
 // The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-func (o ConditionFailingPeriodsPtrOutput) MinFailingPeriodsToAlert() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConditionFailingPeriods) *int {
+func (o ConditionFailingPeriodsPtrOutput) MinFailingPeriodsToAlert() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConditionFailingPeriods) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MinFailingPeriodsToAlert
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-func (o ConditionFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConditionFailingPeriods) *int {
+func (o ConditionFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConditionFailingPeriods) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.NumberOfEvaluationPeriods
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // A condition of the scheduled query rule.
@@ -710,9 +710,9 @@ func (o ConditionResponseArrayOutput) Index(i pulumi.IntInput) ConditionResponse
 // The minimum number of violations required within the selected lookback time window required to raise an alert.
 type ConditionResponseFailingPeriods struct {
 	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-	MinFailingPeriodsToAlert *int `pulumi:"minFailingPeriodsToAlert"`
+	MinFailingPeriodsToAlert *float64 `pulumi:"minFailingPeriodsToAlert"`
 	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-	NumberOfEvaluationPeriods *int `pulumi:"numberOfEvaluationPeriods"`
+	NumberOfEvaluationPeriods *float64 `pulumi:"numberOfEvaluationPeriods"`
 }
 
 // ConditionResponseFailingPeriodsInput is an input type that accepts ConditionResponseFailingPeriodsArgs and ConditionResponseFailingPeriodsOutput values.
@@ -729,9 +729,9 @@ type ConditionResponseFailingPeriodsInput interface {
 // The minimum number of violations required within the selected lookback time window required to raise an alert.
 type ConditionResponseFailingPeriodsArgs struct {
 	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-	MinFailingPeriodsToAlert pulumi.IntPtrInput `pulumi:"minFailingPeriodsToAlert"`
+	MinFailingPeriodsToAlert pulumi.Float64PtrInput `pulumi:"minFailingPeriodsToAlert"`
 	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-	NumberOfEvaluationPeriods pulumi.IntPtrInput `pulumi:"numberOfEvaluationPeriods"`
+	NumberOfEvaluationPeriods pulumi.Float64PtrInput `pulumi:"numberOfEvaluationPeriods"`
 }
 
 func (ConditionResponseFailingPeriodsArgs) ElementType() reflect.Type {
@@ -813,13 +813,13 @@ func (o ConditionResponseFailingPeriodsOutput) ToConditionResponseFailingPeriods
 }
 
 // The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-func (o ConditionResponseFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConditionResponseFailingPeriods) *int { return v.MinFailingPeriodsToAlert }).(pulumi.IntPtrOutput)
+func (o ConditionResponseFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConditionResponseFailingPeriods) *float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64PtrOutput)
 }
 
 // The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-func (o ConditionResponseFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConditionResponseFailingPeriods) *int { return v.NumberOfEvaluationPeriods }).(pulumi.IntPtrOutput)
+func (o ConditionResponseFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConditionResponseFailingPeriods) *float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64PtrOutput)
 }
 
 type ConditionResponseFailingPeriodsPtrOutput struct{ *pulumi.OutputState }
@@ -841,23 +841,23 @@ func (o ConditionResponseFailingPeriodsPtrOutput) Elem() ConditionResponseFailin
 }
 
 // The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-func (o ConditionResponseFailingPeriodsPtrOutput) MinFailingPeriodsToAlert() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConditionResponseFailingPeriods) *int {
+func (o ConditionResponseFailingPeriodsPtrOutput) MinFailingPeriodsToAlert() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConditionResponseFailingPeriods) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MinFailingPeriodsToAlert
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-func (o ConditionResponseFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConditionResponseFailingPeriods) *int {
+func (o ConditionResponseFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConditionResponseFailingPeriods) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.NumberOfEvaluationPeriods
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Dimension splitting and filtering definition

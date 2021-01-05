@@ -30,15 +30,15 @@ type LookupDiskResult struct {
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadOnly *int `pulumi:"diskIOPSReadOnly"`
+	DiskIOPSReadOnly *float64 `pulumi:"diskIOPSReadOnly"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadWrite *int `pulumi:"diskIOPSReadWrite"`
+	DiskIOPSReadWrite *float64 `pulumi:"diskIOPSReadWrite"`
 	// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadOnly *int `pulumi:"diskMBpsReadOnly"`
+	DiskMBpsReadOnly *float64 `pulumi:"diskMBpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadWrite *int `pulumi:"diskMBpsReadWrite"`
+	DiskMBpsReadWrite *float64 `pulumi:"diskMBpsReadWrite"`
 	// The size of the disk in bytes. This field is read only.
-	DiskSizeBytes int `pulumi:"diskSizeBytes"`
+	DiskSizeBytes float64 `pulumi:"diskSizeBytes"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// The state of the disk.

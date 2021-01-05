@@ -84,9 +84,9 @@ type LookupDatabaseResult struct {
 	// Resource that manages the database.
 	ManagedBy string `pulumi:"managedBy"`
 	// The max log size for this database.
-	MaxLogSizeBytes int `pulumi:"maxLogSizeBytes"`
+	MaxLogSizeBytes float64 `pulumi:"maxLogSizeBytes"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity *float64 `pulumi:"minCapacity"`
 	// Resource name.

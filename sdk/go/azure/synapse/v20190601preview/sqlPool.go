@@ -24,7 +24,7 @@ type SqlPool struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Maximum size in bytes
-	MaxSizeBytes pulumi.IntPtrOutput `pulumi:"maxSizeBytes"`
+	MaxSizeBytes pulumi.Float64PtrOutput `pulumi:"maxSizeBytes"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource state
@@ -101,7 +101,7 @@ type sqlPoolState struct {
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Maximum size in bytes
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Resource state
@@ -132,7 +132,7 @@ type SqlPoolState struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Maximum size in bytes
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Resource state
@@ -167,7 +167,7 @@ type sqlPoolArgs struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Maximum size in bytes
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Resource state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Backup database to restore from
@@ -201,7 +201,7 @@ type SqlPoolArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// Maximum size in bytes
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// Resource state
 	ProvisioningState pulumi.StringPtrInput
 	// Backup database to restore from

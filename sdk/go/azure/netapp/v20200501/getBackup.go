@@ -46,7 +46,7 @@ type LookupBackupResult struct {
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Size of backup
-	Size int `pulumi:"size"`
+	Size float64 `pulumi:"size"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

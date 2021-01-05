@@ -36,7 +36,7 @@ type LookupSqlDatabaseResult struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Status of the database.

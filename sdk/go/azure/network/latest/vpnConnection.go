@@ -23,7 +23,7 @@ type VpnConnection struct {
 	// DPD timeout in seconds for vpn connection.
 	DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"dpdTimeoutSeconds"`
 	// Egress bytes transferred.
-	EgressBytesTransferred pulumi.IntOutput `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred pulumi.Float64Output `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
 	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
 	// Enable internet security.
@@ -33,7 +33,7 @@ type VpnConnection struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Ingress bytes transferred.
-	IngressBytesTransferred pulumi.IntOutput `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred pulumi.Float64Output `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyResponseArrayOutput `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -166,7 +166,7 @@ type vpnConnectionState struct {
 	// DPD timeout in seconds for vpn connection.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// Egress bytes transferred.
-	EgressBytesTransferred *int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred *float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Enable internet security.
@@ -176,7 +176,7 @@ type vpnConnectionState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Ingress bytes transferred.
-	IngressBytesTransferred *int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred *float64 `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -209,7 +209,7 @@ type VpnConnectionState struct {
 	// DPD timeout in seconds for vpn connection.
 	DpdTimeoutSeconds pulumi.IntPtrInput
 	// Egress bytes transferred.
-	EgressBytesTransferred pulumi.IntPtrInput
+	EgressBytesTransferred pulumi.Float64PtrInput
 	// EnableBgp flag.
 	EnableBgp pulumi.BoolPtrInput
 	// Enable internet security.
@@ -219,7 +219,7 @@ type VpnConnectionState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Ingress bytes transferred.
-	IngressBytesTransferred pulumi.IntPtrInput
+	IngressBytesTransferred pulumi.Float64PtrInput
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyResponseArrayInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.

@@ -3347,7 +3347,7 @@ type ConsistencyPolicy struct {
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix *int `pulumi:"maxStalenessPrefix"`
+	MaxStalenessPrefix *float64 `pulumi:"maxStalenessPrefix"`
 }
 
 // ConsistencyPolicyInput is an input type that accepts ConsistencyPolicyArgs and ConsistencyPolicyOutput values.
@@ -3368,7 +3368,7 @@ type ConsistencyPolicyArgs struct {
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix pulumi.IntPtrInput `pulumi:"maxStalenessPrefix"`
+	MaxStalenessPrefix pulumi.Float64PtrInput `pulumi:"maxStalenessPrefix"`
 }
 
 func (ConsistencyPolicyArgs) ElementType() reflect.Type {
@@ -3460,8 +3460,8 @@ func (o ConsistencyPolicyOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-func (o ConsistencyPolicyOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConsistencyPolicy) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
+func (o ConsistencyPolicyOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConsistencyPolicy) *float64 { return v.MaxStalenessPrefix }).(pulumi.Float64PtrOutput)
 }
 
 type ConsistencyPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -3503,13 +3503,13 @@ func (o ConsistencyPolicyPtrOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-func (o ConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConsistencyPolicy) *int {
+func (o ConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConsistencyPolicy) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxStalenessPrefix
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The consistency policy for the Cosmos DB database account.
@@ -3519,7 +3519,7 @@ type ConsistencyPolicyResponse struct {
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix *int `pulumi:"maxStalenessPrefix"`
+	MaxStalenessPrefix *float64 `pulumi:"maxStalenessPrefix"`
 }
 
 // ConsistencyPolicyResponseInput is an input type that accepts ConsistencyPolicyResponseArgs and ConsistencyPolicyResponseOutput values.
@@ -3540,7 +3540,7 @@ type ConsistencyPolicyResponseArgs struct {
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix pulumi.IntPtrInput `pulumi:"maxStalenessPrefix"`
+	MaxStalenessPrefix pulumi.Float64PtrInput `pulumi:"maxStalenessPrefix"`
 }
 
 func (ConsistencyPolicyResponseArgs) ElementType() reflect.Type {
@@ -3632,8 +3632,8 @@ func (o ConsistencyPolicyResponseOutput) MaxIntervalInSeconds() pulumi.IntPtrOut
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-func (o ConsistencyPolicyResponseOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConsistencyPolicyResponse) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
+func (o ConsistencyPolicyResponseOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConsistencyPolicyResponse) *float64 { return v.MaxStalenessPrefix }).(pulumi.Float64PtrOutput)
 }
 
 type ConsistencyPolicyResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3675,13 +3675,13 @@ func (o ConsistencyPolicyResponsePtrOutput) MaxIntervalInSeconds() pulumi.IntPtr
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-func (o ConsistencyPolicyResponsePtrOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConsistencyPolicyResponse) *int {
+func (o ConsistencyPolicyResponsePtrOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConsistencyPolicyResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxStalenessPrefix
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The configuration of the partition key to be used for partitioning data into multiple partitions
@@ -4155,7 +4155,7 @@ type CorsPolicy struct {
 	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
 	ExposedHeaders *string `pulumi:"exposedHeaders"`
 	// The maximum amount time that a browser should cache the preflight OPTIONS request.
-	MaxAgeInSeconds *int `pulumi:"maxAgeInSeconds"`
+	MaxAgeInSeconds *float64 `pulumi:"maxAgeInSeconds"`
 }
 
 // CorsPolicyInput is an input type that accepts CorsPolicyArgs and CorsPolicyOutput values.
@@ -4180,7 +4180,7 @@ type CorsPolicyArgs struct {
 	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
 	ExposedHeaders pulumi.StringPtrInput `pulumi:"exposedHeaders"`
 	// The maximum amount time that a browser should cache the preflight OPTIONS request.
-	MaxAgeInSeconds pulumi.IntPtrInput `pulumi:"maxAgeInSeconds"`
+	MaxAgeInSeconds pulumi.Float64PtrInput `pulumi:"maxAgeInSeconds"`
 }
 
 func (CorsPolicyArgs) ElementType() reflect.Type {
@@ -4256,8 +4256,8 @@ func (o CorsPolicyOutput) ExposedHeaders() pulumi.StringPtrOutput {
 }
 
 // The maximum amount time that a browser should cache the preflight OPTIONS request.
-func (o CorsPolicyOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CorsPolicy) *int { return v.MaxAgeInSeconds }).(pulumi.IntPtrOutput)
+func (o CorsPolicyOutput) MaxAgeInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CorsPolicy) *float64 { return v.MaxAgeInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 type CorsPolicyArrayOutput struct{ *pulumi.OutputState }
@@ -4291,7 +4291,7 @@ type CorsPolicyResponse struct {
 	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
 	ExposedHeaders *string `pulumi:"exposedHeaders"`
 	// The maximum amount time that a browser should cache the preflight OPTIONS request.
-	MaxAgeInSeconds *int `pulumi:"maxAgeInSeconds"`
+	MaxAgeInSeconds *float64 `pulumi:"maxAgeInSeconds"`
 }
 
 // CorsPolicyResponseInput is an input type that accepts CorsPolicyResponseArgs and CorsPolicyResponseOutput values.
@@ -4316,7 +4316,7 @@ type CorsPolicyResponseArgs struct {
 	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
 	ExposedHeaders pulumi.StringPtrInput `pulumi:"exposedHeaders"`
 	// The maximum amount time that a browser should cache the preflight OPTIONS request.
-	MaxAgeInSeconds pulumi.IntPtrInput `pulumi:"maxAgeInSeconds"`
+	MaxAgeInSeconds pulumi.Float64PtrInput `pulumi:"maxAgeInSeconds"`
 }
 
 func (CorsPolicyResponseArgs) ElementType() reflect.Type {
@@ -4392,8 +4392,8 @@ func (o CorsPolicyResponseOutput) ExposedHeaders() pulumi.StringPtrOutput {
 }
 
 // The maximum amount time that a browser should cache the preflight OPTIONS request.
-func (o CorsPolicyResponseOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CorsPolicyResponse) *int { return v.MaxAgeInSeconds }).(pulumi.IntPtrOutput)
+func (o CorsPolicyResponseOutput) MaxAgeInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CorsPolicyResponse) *float64 { return v.MaxAgeInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 type CorsPolicyResponseArrayOutput struct{ *pulumi.OutputState }
@@ -10610,7 +10610,7 @@ func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.I
 
 type SqlContainerGetPropertiesResponseResource struct {
 	// Analytical TTL.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
+	AnalyticalStorageTtl *float64 `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy *ConflictResolutionPolicyResponse `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -10644,7 +10644,7 @@ type SqlContainerGetPropertiesResponseResourceInput interface {
 
 type SqlContainerGetPropertiesResponseResourceArgs struct {
 	// Analytical TTL.
-	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
+	AnalyticalStorageTtl pulumi.Float64PtrInput `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrInput `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -10743,8 +10743,8 @@ func (o SqlContainerGetPropertiesResponseResourceOutput) ToSqlContainerGetProper
 }
 
 // Analytical TTL.
-func (o SqlContainerGetPropertiesResponseResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
+func (o SqlContainerGetPropertiesResponseResourceOutput) AnalyticalStorageTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *float64 { return v.AnalyticalStorageTtl }).(pulumi.Float64PtrOutput)
 }
 
 // The conflict resolution policy for the container.
@@ -10817,13 +10817,13 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Elem() SqlContainerG
 }
 
 // Analytical TTL.
-func (o SqlContainerGetPropertiesResponseResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *int {
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) AnalyticalStorageTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.AnalyticalStorageTtl
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The conflict resolution policy for the container.
@@ -10919,7 +10919,7 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) UniqueKeyPolicy() Un
 // Cosmos DB SQL container resource object
 type SqlContainerResource struct {
 	// Analytical TTL.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
+	AnalyticalStorageTtl *float64 `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy *ConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -10948,7 +10948,7 @@ type SqlContainerResourceInput interface {
 // Cosmos DB SQL container resource object
 type SqlContainerResourceArgs struct {
 	// Analytical TTL.
-	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
+	AnalyticalStorageTtl pulumi.Float64PtrInput `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy ConflictResolutionPolicyPtrInput `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -11042,8 +11042,8 @@ func (o SqlContainerResourceOutput) ToSqlContainerResourcePtrOutputWithContext(c
 }
 
 // Analytical TTL.
-func (o SqlContainerResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SqlContainerResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
+func (o SqlContainerResourceOutput) AnalyticalStorageTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SqlContainerResource) *float64 { return v.AnalyticalStorageTtl }).(pulumi.Float64PtrOutput)
 }
 
 // The conflict resolution policy for the container.
@@ -11095,13 +11095,13 @@ func (o SqlContainerResourcePtrOutput) Elem() SqlContainerResourceOutput {
 }
 
 // Analytical TTL.
-func (o SqlContainerResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SqlContainerResource) *int {
+func (o SqlContainerResourcePtrOutput) AnalyticalStorageTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SqlContainerResource) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.AnalyticalStorageTtl
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The conflict resolution policy for the container.

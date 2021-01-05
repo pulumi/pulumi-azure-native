@@ -783,27 +783,27 @@ type SynchronizationDetailsResponse struct {
 	// End time of data set level copy
 	EndTime string `pulumi:"endTime"`
 	// The number of files read from the source data set
-	FilesRead int `pulumi:"filesRead"`
+	FilesRead float64 `pulumi:"filesRead"`
 	// The number of files written into the sink data set
-	FilesWritten int `pulumi:"filesWritten"`
+	FilesWritten float64 `pulumi:"filesWritten"`
 	// Error message if any
 	Message string `pulumi:"message"`
 	// Name of the data set
 	Name string `pulumi:"name"`
 	// The number of files copied into the sink data set
-	RowsCopied int `pulumi:"rowsCopied"`
+	RowsCopied float64 `pulumi:"rowsCopied"`
 	// The number of rows read from the source data set.
-	RowsRead int `pulumi:"rowsRead"`
+	RowsRead float64 `pulumi:"rowsRead"`
 	// The size of the data read from the source data set in bytes
-	SizeRead int `pulumi:"sizeRead"`
+	SizeRead float64 `pulumi:"sizeRead"`
 	// The size of the data written into the sink data set in bytes
-	SizeWritten int `pulumi:"sizeWritten"`
+	SizeWritten float64 `pulumi:"sizeWritten"`
 	// Start time of data set level copy
 	StartTime string `pulumi:"startTime"`
 	// Raw Status
 	Status string `pulumi:"status"`
 	// The vCore units consumed for the data set synchronization
-	VCore int `pulumi:"vCore"`
+	VCore float64 `pulumi:"vCore"`
 }
 
 // SynchronizationDetailsResponseInput is an input type that accepts SynchronizationDetailsResponseArgs and SynchronizationDetailsResponseOutput values.
@@ -828,27 +828,27 @@ type SynchronizationDetailsResponseArgs struct {
 	// End time of data set level copy
 	EndTime pulumi.StringInput `pulumi:"endTime"`
 	// The number of files read from the source data set
-	FilesRead pulumi.IntInput `pulumi:"filesRead"`
+	FilesRead pulumi.Float64Input `pulumi:"filesRead"`
 	// The number of files written into the sink data set
-	FilesWritten pulumi.IntInput `pulumi:"filesWritten"`
+	FilesWritten pulumi.Float64Input `pulumi:"filesWritten"`
 	// Error message if any
 	Message pulumi.StringInput `pulumi:"message"`
 	// Name of the data set
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of files copied into the sink data set
-	RowsCopied pulumi.IntInput `pulumi:"rowsCopied"`
+	RowsCopied pulumi.Float64Input `pulumi:"rowsCopied"`
 	// The number of rows read from the source data set.
-	RowsRead pulumi.IntInput `pulumi:"rowsRead"`
+	RowsRead pulumi.Float64Input `pulumi:"rowsRead"`
 	// The size of the data read from the source data set in bytes
-	SizeRead pulumi.IntInput `pulumi:"sizeRead"`
+	SizeRead pulumi.Float64Input `pulumi:"sizeRead"`
 	// The size of the data written into the sink data set in bytes
-	SizeWritten pulumi.IntInput `pulumi:"sizeWritten"`
+	SizeWritten pulumi.Float64Input `pulumi:"sizeWritten"`
 	// Start time of data set level copy
 	StartTime pulumi.StringInput `pulumi:"startTime"`
 	// Raw Status
 	Status pulumi.StringInput `pulumi:"status"`
 	// The vCore units consumed for the data set synchronization
-	VCore pulumi.IntInput `pulumi:"vCore"`
+	VCore pulumi.Float64Input `pulumi:"vCore"`
 }
 
 func (SynchronizationDetailsResponseArgs) ElementType() reflect.Type {
@@ -924,13 +924,13 @@ func (o SynchronizationDetailsResponseOutput) EndTime() pulumi.StringOutput {
 }
 
 // The number of files read from the source data set
-func (o SynchronizationDetailsResponseOutput) FilesRead() pulumi.IntOutput {
-	return o.ApplyT(func(v SynchronizationDetailsResponse) int { return v.FilesRead }).(pulumi.IntOutput)
+func (o SynchronizationDetailsResponseOutput) FilesRead() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.FilesRead }).(pulumi.Float64Output)
 }
 
 // The number of files written into the sink data set
-func (o SynchronizationDetailsResponseOutput) FilesWritten() pulumi.IntOutput {
-	return o.ApplyT(func(v SynchronizationDetailsResponse) int { return v.FilesWritten }).(pulumi.IntOutput)
+func (o SynchronizationDetailsResponseOutput) FilesWritten() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.FilesWritten }).(pulumi.Float64Output)
 }
 
 // Error message if any
@@ -944,23 +944,23 @@ func (o SynchronizationDetailsResponseOutput) Name() pulumi.StringOutput {
 }
 
 // The number of files copied into the sink data set
-func (o SynchronizationDetailsResponseOutput) RowsCopied() pulumi.IntOutput {
-	return o.ApplyT(func(v SynchronizationDetailsResponse) int { return v.RowsCopied }).(pulumi.IntOutput)
+func (o SynchronizationDetailsResponseOutput) RowsCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.RowsCopied }).(pulumi.Float64Output)
 }
 
 // The number of rows read from the source data set.
-func (o SynchronizationDetailsResponseOutput) RowsRead() pulumi.IntOutput {
-	return o.ApplyT(func(v SynchronizationDetailsResponse) int { return v.RowsRead }).(pulumi.IntOutput)
+func (o SynchronizationDetailsResponseOutput) RowsRead() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.RowsRead }).(pulumi.Float64Output)
 }
 
 // The size of the data read from the source data set in bytes
-func (o SynchronizationDetailsResponseOutput) SizeRead() pulumi.IntOutput {
-	return o.ApplyT(func(v SynchronizationDetailsResponse) int { return v.SizeRead }).(pulumi.IntOutput)
+func (o SynchronizationDetailsResponseOutput) SizeRead() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.SizeRead }).(pulumi.Float64Output)
 }
 
 // The size of the data written into the sink data set in bytes
-func (o SynchronizationDetailsResponseOutput) SizeWritten() pulumi.IntOutput {
-	return o.ApplyT(func(v SynchronizationDetailsResponse) int { return v.SizeWritten }).(pulumi.IntOutput)
+func (o SynchronizationDetailsResponseOutput) SizeWritten() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.SizeWritten }).(pulumi.Float64Output)
 }
 
 // Start time of data set level copy
@@ -974,8 +974,8 @@ func (o SynchronizationDetailsResponseOutput) Status() pulumi.StringOutput {
 }
 
 // The vCore units consumed for the data set synchronization
-func (o SynchronizationDetailsResponseOutput) VCore() pulumi.IntOutput {
-	return o.ApplyT(func(v SynchronizationDetailsResponse) int { return v.VCore }).(pulumi.IntOutput)
+func (o SynchronizationDetailsResponseOutput) VCore() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.VCore }).(pulumi.Float64Output)
 }
 
 type SynchronizationDetailsResponseArrayOutput struct{ *pulumi.OutputState }

@@ -2171,7 +2171,7 @@ type CreationData struct {
 	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
+	UploadSizeBytes *float64 `pulumi:"uploadSizeBytes"`
 }
 
 // CreationDataInput is an input type that accepts CreationDataArgs and CreationDataOutput values.
@@ -2198,7 +2198,7 @@ type CreationDataArgs struct {
 	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes pulumi.IntPtrInput `pulumi:"uploadSizeBytes"`
+	UploadSizeBytes pulumi.Float64PtrInput `pulumi:"uploadSizeBytes"`
 }
 
 func (CreationDataArgs) ElementType() reflect.Type {
@@ -2305,8 +2305,8 @@ func (o CreationDataOutput) StorageAccountId() pulumi.StringPtrOutput {
 }
 
 // If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-func (o CreationDataOutput) UploadSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreationData) *int { return v.UploadSizeBytes }).(pulumi.IntPtrOutput)
+func (o CreationDataOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CreationData) *float64 { return v.UploadSizeBytes }).(pulumi.Float64PtrOutput)
 }
 
 type CreationDataPtrOutput struct{ *pulumi.OutputState }
@@ -2378,13 +2378,13 @@ func (o CreationDataPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 }
 
 // If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-func (o CreationDataPtrOutput) UploadSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreationData) *int {
+func (o CreationDataPtrOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CreationData) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UploadSizeBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Data used when creating a disk.
@@ -2402,7 +2402,7 @@ type CreationDataResponse struct {
 	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
+	UploadSizeBytes *float64 `pulumi:"uploadSizeBytes"`
 }
 
 // CreationDataResponseInput is an input type that accepts CreationDataResponseArgs and CreationDataResponseOutput values.
@@ -2431,7 +2431,7 @@ type CreationDataResponseArgs struct {
 	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes pulumi.IntPtrInput `pulumi:"uploadSizeBytes"`
+	UploadSizeBytes pulumi.Float64PtrInput `pulumi:"uploadSizeBytes"`
 }
 
 func (CreationDataResponseArgs) ElementType() reflect.Type {
@@ -2543,8 +2543,8 @@ func (o CreationDataResponseOutput) StorageAccountId() pulumi.StringPtrOutput {
 }
 
 // If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-func (o CreationDataResponseOutput) UploadSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreationDataResponse) *int { return v.UploadSizeBytes }).(pulumi.IntPtrOutput)
+func (o CreationDataResponseOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CreationDataResponse) *float64 { return v.UploadSizeBytes }).(pulumi.Float64PtrOutput)
 }
 
 type CreationDataResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2626,13 +2626,13 @@ func (o CreationDataResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput
 }
 
 // If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-func (o CreationDataResponsePtrOutput) UploadSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreationDataResponse) *int {
+func (o CreationDataResponsePtrOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CreationDataResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UploadSizeBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Describes a data disk.
@@ -2823,9 +2823,9 @@ type DataDiskResponse struct {
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
 	CreateOption string `pulumi:"createOption"`
 	// Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
-	DiskIOPSReadWrite int `pulumi:"diskIOPSReadWrite"`
+	DiskIOPSReadWrite float64 `pulumi:"diskIOPSReadWrite"`
 	// Specifies the bandwidth in MB per second for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
-	DiskMBpsReadWrite int `pulumi:"diskMBpsReadWrite"`
+	DiskMBpsReadWrite float64 `pulumi:"diskMBpsReadWrite"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -2862,9 +2862,9 @@ type DataDiskResponseArgs struct {
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
-	DiskIOPSReadWrite pulumi.IntInput `pulumi:"diskIOPSReadWrite"`
+	DiskIOPSReadWrite pulumi.Float64Input `pulumi:"diskIOPSReadWrite"`
 	// Specifies the bandwidth in MB per second for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
-	DiskMBpsReadWrite pulumi.IntInput `pulumi:"diskMBpsReadWrite"`
+	DiskMBpsReadWrite pulumi.Float64Input `pulumi:"diskMBpsReadWrite"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
 	// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -2946,13 +2946,13 @@ func (o DataDiskResponseOutput) CreateOption() pulumi.StringOutput {
 }
 
 // Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
-func (o DataDiskResponseOutput) DiskIOPSReadWrite() pulumi.IntOutput {
-	return o.ApplyT(func(v DataDiskResponse) int { return v.DiskIOPSReadWrite }).(pulumi.IntOutput)
+func (o DataDiskResponseOutput) DiskIOPSReadWrite() pulumi.Float64Output {
+	return o.ApplyT(func(v DataDiskResponse) float64 { return v.DiskIOPSReadWrite }).(pulumi.Float64Output)
 }
 
 // Specifies the bandwidth in MB per second for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
-func (o DataDiskResponseOutput) DiskMBpsReadWrite() pulumi.IntOutput {
-	return o.ApplyT(func(v DataDiskResponse) int { return v.DiskMBpsReadWrite }).(pulumi.IntOutput)
+func (o DataDiskResponseOutput) DiskMBpsReadWrite() pulumi.Float64Output {
+	return o.ApplyT(func(v DataDiskResponse) float64 { return v.DiskMBpsReadWrite }).(pulumi.Float64Output)
 }
 
 // Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -18410,7 +18410,7 @@ func (o ScheduledEventsProfileResponsePtrOutput) TerminateNotificationProfile() 
 // Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type Sku struct {
 	// Specifies the number of virtual machines in the scale set.
-	Capacity *int `pulumi:"capacity"`
+	Capacity *float64 `pulumi:"capacity"`
 	// The sku name.
 	Name *string `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
@@ -18431,7 +18431,7 @@ type SkuInput interface {
 // Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type SkuArgs struct {
 	// Specifies the number of virtual machines in the scale set.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
@@ -18517,8 +18517,8 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 }
 
 // Specifies the number of virtual machines in the scale set.
-func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o SkuOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Sku) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 // The sku name.
@@ -18550,13 +18550,13 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 }
 
 // Specifies the number of virtual machines in the scale set.
-func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Sku) *int {
+func (o SkuPtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Sku) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The sku name.
@@ -18582,7 +18582,7 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 // Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type SkuResponse struct {
 	// Specifies the number of virtual machines in the scale set.
-	Capacity *int `pulumi:"capacity"`
+	Capacity *float64 `pulumi:"capacity"`
 	// The sku name.
 	Name *string `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
@@ -18603,7 +18603,7 @@ type SkuResponseInput interface {
 // Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type SkuResponseArgs struct {
 	// Specifies the number of virtual machines in the scale set.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
@@ -18689,8 +18689,8 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 }
 
 // Specifies the number of virtual machines in the scale set.
-func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o SkuResponseOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SkuResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 // The sku name.
@@ -18722,13 +18722,13 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 }
 
 // Specifies the number of virtual machines in the scale set.
-func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *int {
+func (o SkuResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The sku name.
@@ -24513,9 +24513,9 @@ type VirtualMachineScaleSetDataDisk struct {
 	// The create option.
 	CreateOption string `pulumi:"createOption"`
 	// Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-	DiskIOPSReadWrite *int `pulumi:"diskIOPSReadWrite"`
+	DiskIOPSReadWrite *float64 `pulumi:"diskIOPSReadWrite"`
 	// Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-	DiskMBpsReadWrite *int `pulumi:"diskMBpsReadWrite"`
+	DiskMBpsReadWrite *float64 `pulumi:"diskMBpsReadWrite"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
@@ -24546,9 +24546,9 @@ type VirtualMachineScaleSetDataDiskArgs struct {
 	// The create option.
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-	DiskIOPSReadWrite pulumi.IntPtrInput `pulumi:"diskIOPSReadWrite"`
+	DiskIOPSReadWrite pulumi.Float64PtrInput `pulumi:"diskIOPSReadWrite"`
 	// Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-	DiskMBpsReadWrite pulumi.IntPtrInput `pulumi:"diskMBpsReadWrite"`
+	DiskMBpsReadWrite pulumi.Float64PtrInput `pulumi:"diskMBpsReadWrite"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
 	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
@@ -24624,13 +24624,13 @@ func (o VirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.StringOutput
 }
 
 // Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-func (o VirtualMachineScaleSetDataDiskOutput) DiskIOPSReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetDataDisk) *int { return v.DiskIOPSReadWrite }).(pulumi.IntPtrOutput)
+func (o VirtualMachineScaleSetDataDiskOutput) DiskIOPSReadWrite() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetDataDisk) *float64 { return v.DiskIOPSReadWrite }).(pulumi.Float64PtrOutput)
 }
 
 // Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-func (o VirtualMachineScaleSetDataDiskOutput) DiskMBpsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetDataDisk) *int { return v.DiskMBpsReadWrite }).(pulumi.IntPtrOutput)
+func (o VirtualMachineScaleSetDataDiskOutput) DiskMBpsReadWrite() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetDataDisk) *float64 { return v.DiskMBpsReadWrite }).(pulumi.Float64PtrOutput)
 }
 
 // Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -24687,9 +24687,9 @@ type VirtualMachineScaleSetDataDiskResponse struct {
 	// The create option.
 	CreateOption string `pulumi:"createOption"`
 	// Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-	DiskIOPSReadWrite *int `pulumi:"diskIOPSReadWrite"`
+	DiskIOPSReadWrite *float64 `pulumi:"diskIOPSReadWrite"`
 	// Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-	DiskMBpsReadWrite *int `pulumi:"diskMBpsReadWrite"`
+	DiskMBpsReadWrite *float64 `pulumi:"diskMBpsReadWrite"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
@@ -24720,9 +24720,9 @@ type VirtualMachineScaleSetDataDiskResponseArgs struct {
 	// The create option.
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-	DiskIOPSReadWrite pulumi.IntPtrInput `pulumi:"diskIOPSReadWrite"`
+	DiskIOPSReadWrite pulumi.Float64PtrInput `pulumi:"diskIOPSReadWrite"`
 	// Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-	DiskMBpsReadWrite pulumi.IntPtrInput `pulumi:"diskMBpsReadWrite"`
+	DiskMBpsReadWrite pulumi.Float64PtrInput `pulumi:"diskMBpsReadWrite"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
 	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
@@ -24798,13 +24798,13 @@ func (o VirtualMachineScaleSetDataDiskResponseOutput) CreateOption() pulumi.Stri
 }
 
 // Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-func (o VirtualMachineScaleSetDataDiskResponseOutput) DiskIOPSReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetDataDiskResponse) *int { return v.DiskIOPSReadWrite }).(pulumi.IntPtrOutput)
+func (o VirtualMachineScaleSetDataDiskResponseOutput) DiskIOPSReadWrite() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetDataDiskResponse) *float64 { return v.DiskIOPSReadWrite }).(pulumi.Float64PtrOutput)
 }
 
 // Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-func (o VirtualMachineScaleSetDataDiskResponseOutput) DiskMBpsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetDataDiskResponse) *int { return v.DiskMBpsReadWrite }).(pulumi.IntPtrOutput)
+func (o VirtualMachineScaleSetDataDiskResponseOutput) DiskMBpsReadWrite() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetDataDiskResponse) *float64 { return v.DiskMBpsReadWrite }).(pulumi.Float64PtrOutput)
 }
 
 // Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB

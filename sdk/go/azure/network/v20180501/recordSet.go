@@ -46,7 +46,7 @@ type RecordSet struct {
 	// A reference to an azure resource from where the dns resource value is taken.
 	TargetResource SubResourceResponsePtrOutput `pulumi:"targetResource"`
 	// The TTL (time-to-live) of the records in the record set.
-	Ttl pulumi.IntPtrOutput `pulumi:"ttl"`
+	Ttl pulumi.Float64PtrOutput `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordResponseArrayOutput `pulumi:"txtRecords"`
 	// The type of the record set.
@@ -143,7 +143,7 @@ type recordSetState struct {
 	// A reference to an azure resource from where the dns resource value is taken.
 	TargetResource *SubResourceResponse `pulumi:"targetResource"`
 	// The TTL (time-to-live) of the records in the record set.
-	Ttl *int `pulumi:"ttl"`
+	Ttl *float64 `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords []TxtRecordResponse `pulumi:"txtRecords"`
 	// The type of the record set.
@@ -182,7 +182,7 @@ type RecordSetState struct {
 	// A reference to an azure resource from where the dns resource value is taken.
 	TargetResource SubResourceResponsePtrInput
 	// The TTL (time-to-live) of the records in the record set.
-	Ttl pulumi.IntPtrInput
+	Ttl pulumi.Float64PtrInput
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordResponseArrayInput
 	// The type of the record set.
@@ -225,7 +225,7 @@ type recordSetArgs struct {
 	// A reference to an azure resource from where the dns resource value is taken.
 	TargetResource *SubResource `pulumi:"targetResource"`
 	// The TTL (time-to-live) of the records in the record set.
-	Ttl *int `pulumi:"ttl"`
+	Ttl *float64 `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords []TxtRecord `pulumi:"txtRecords"`
 	// The name of the DNS zone (without a terminating dot).
@@ -265,7 +265,7 @@ type RecordSetArgs struct {
 	// A reference to an azure resource from where the dns resource value is taken.
 	TargetResource SubResourcePtrInput
 	// The TTL (time-to-live) of the records in the record set.
-	Ttl pulumi.IntPtrInput
+	Ttl pulumi.Float64PtrInput
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordArrayInput
 	// The name of the DNS zone (without a terminating dot).

@@ -19,7 +19,7 @@ type Database struct {
 	// The collation of the database. If createMode is not Default, this value is ignored.
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
 	// The containment state of the database.
-	ContainmentState pulumi.IntOutput `pulumi:"containmentState"`
+	ContainmentState pulumi.Float64Output `pulumi:"containmentState"`
 	// Specifies the mode of database creation.
 	//
 	// Default: regular database creation.
@@ -167,7 +167,7 @@ type databaseState struct {
 	// The collation of the database. If createMode is not Default, this value is ignored.
 	Collation *string `pulumi:"collation"`
 	// The containment state of the database.
-	ContainmentState *int `pulumi:"containmentState"`
+	ContainmentState *float64 `pulumi:"containmentState"`
 	// Specifies the mode of database creation.
 	//
 	// Default: regular database creation.
@@ -254,7 +254,7 @@ type DatabaseState struct {
 	// The collation of the database. If createMode is not Default, this value is ignored.
 	Collation pulumi.StringPtrInput
 	// The containment state of the database.
-	ContainmentState pulumi.IntPtrInput
+	ContainmentState pulumi.Float64PtrInput
 	// Specifies the mode of database creation.
 	//
 	// Default: regular database creation.

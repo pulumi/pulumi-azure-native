@@ -40,7 +40,7 @@ type LookupElasticPoolResult struct {
 	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The per database settings for the elastic pool.

@@ -5722,7 +5722,7 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 // Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type Sku struct {
 	// Specifies the number of virtual machines in the scale set.
-	Capacity *int `pulumi:"capacity"`
+	Capacity *float64 `pulumi:"capacity"`
 	// The sku name.
 	Name *string `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
@@ -5743,7 +5743,7 @@ type SkuInput interface {
 // Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type SkuArgs struct {
 	// Specifies the number of virtual machines in the scale set.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
@@ -5829,8 +5829,8 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 }
 
 // Specifies the number of virtual machines in the scale set.
-func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o SkuOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Sku) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 // The sku name.
@@ -5862,13 +5862,13 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 }
 
 // Specifies the number of virtual machines in the scale set.
-func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Sku) *int {
+func (o SkuPtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Sku) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The sku name.
@@ -5894,7 +5894,7 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 // Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type SkuResponse struct {
 	// Specifies the number of virtual machines in the scale set.
-	Capacity *int `pulumi:"capacity"`
+	Capacity *float64 `pulumi:"capacity"`
 	// The sku name.
 	Name *string `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
@@ -5915,7 +5915,7 @@ type SkuResponseInput interface {
 // Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
 type SkuResponseArgs struct {
 	// Specifies the number of virtual machines in the scale set.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
@@ -6001,8 +6001,8 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 }
 
 // Specifies the number of virtual machines in the scale set.
-func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o SkuResponseOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SkuResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 // The sku name.
@@ -6034,13 +6034,13 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 }
 
 // Specifies the number of virtual machines in the scale set.
-func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *int {
+func (o SkuResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The sku name.

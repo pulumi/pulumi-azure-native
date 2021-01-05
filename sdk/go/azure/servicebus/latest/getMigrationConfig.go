@@ -34,7 +34,7 @@ type LookupMigrationConfigResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount int `pulumi:"pendingReplicationOperationsCount"`
+	PendingReplicationOperationsCount float64 `pulumi:"pendingReplicationOperationsCount"`
 	// Name to access Standard Namespace after migration
 	PostMigrationName string `pulumi:"postMigrationName"`
 	// Provisioning state of Migration Configuration

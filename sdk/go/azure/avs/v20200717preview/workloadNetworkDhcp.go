@@ -24,7 +24,7 @@ type WorkloadNetworkDhcp struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision pulumi.IntPtrOutput `pulumi:"revision"`
+	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
 	// NSX Segments consuming DHCP.
 	Segments pulumi.StringArrayOutput `pulumi:"segments"`
 	// Resource type.
@@ -81,7 +81,7 @@ type workloadNetworkDhcpState struct {
 	// The provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// NSX Segments consuming DHCP.
 	Segments []string `pulumi:"segments"`
 	// Resource type.
@@ -98,7 +98,7 @@ type WorkloadNetworkDhcpState struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringPtrInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 	// NSX Segments consuming DHCP.
 	Segments pulumi.StringArrayInput
 	// Resource type.
@@ -121,7 +121,7 @@ type workloadNetworkDhcpArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 }
 
 // The set of arguments for constructing a WorkloadNetworkDhcp resource.
@@ -137,7 +137,7 @@ type WorkloadNetworkDhcpArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 }
 
 func (WorkloadNetworkDhcpArgs) ElementType() reflect.Type {

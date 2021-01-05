@@ -40,7 +40,7 @@ type LookupDscNodeConfigurationResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Number of nodes with this node configuration assigned
-	NodeCount *int `pulumi:"nodeCount"`
+	NodeCount *float64 `pulumi:"nodeCount"`
 	// Source of node configuration.
 	Source *string `pulumi:"source"`
 	// The type of the resource.

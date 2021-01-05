@@ -48,7 +48,7 @@ type LookupExpressRouteCircuitPeeringResult struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The list of peered circuit connections associated with Azure Private Peering for this circuit.
 	PeeredConnections []PeerExpressRouteCircuitConnectionResponse `pulumi:"peeredConnections"`
 	// The peering type.

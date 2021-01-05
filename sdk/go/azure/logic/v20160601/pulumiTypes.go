@@ -7332,7 +7332,7 @@ type ContentLink struct {
 	// The content hash.
 	ContentHash *ContentHash `pulumi:"contentHash"`
 	// The content size.
-	ContentSize *int `pulumi:"contentSize"`
+	ContentSize *float64 `pulumi:"contentSize"`
 	// The content version.
 	ContentVersion *string `pulumi:"contentVersion"`
 	// The metadata.
@@ -7357,7 +7357,7 @@ type ContentLinkArgs struct {
 	// The content hash.
 	ContentHash ContentHashPtrInput `pulumi:"contentHash"`
 	// The content size.
-	ContentSize pulumi.IntPtrInput `pulumi:"contentSize"`
+	ContentSize pulumi.Float64PtrInput `pulumi:"contentSize"`
 	// The content version.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// The metadata.
@@ -7450,8 +7450,8 @@ func (o ContentLinkOutput) ContentHash() ContentHashPtrOutput {
 }
 
 // The content size.
-func (o ContentLinkOutput) ContentSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContentLink) *int { return v.ContentSize }).(pulumi.IntPtrOutput)
+func (o ContentLinkOutput) ContentSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ContentLink) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
 }
 
 // The content version.
@@ -7498,13 +7498,13 @@ func (o ContentLinkPtrOutput) ContentHash() ContentHashPtrOutput {
 }
 
 // The content size.
-func (o ContentLinkPtrOutput) ContentSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContentLink) *int {
+func (o ContentLinkPtrOutput) ContentSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContentLink) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ContentSize
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The content version.
@@ -7542,7 +7542,7 @@ type ContentLinkResponse struct {
 	// The content hash.
 	ContentHash *ContentHashResponse `pulumi:"contentHash"`
 	// The content size.
-	ContentSize *int `pulumi:"contentSize"`
+	ContentSize *float64 `pulumi:"contentSize"`
 	// The content version.
 	ContentVersion *string `pulumi:"contentVersion"`
 	// The metadata.
@@ -7567,7 +7567,7 @@ type ContentLinkResponseArgs struct {
 	// The content hash.
 	ContentHash ContentHashResponsePtrInput `pulumi:"contentHash"`
 	// The content size.
-	ContentSize pulumi.IntPtrInput `pulumi:"contentSize"`
+	ContentSize pulumi.Float64PtrInput `pulumi:"contentSize"`
 	// The content version.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// The metadata.
@@ -7660,8 +7660,8 @@ func (o ContentLinkResponseOutput) ContentHash() ContentHashResponsePtrOutput {
 }
 
 // The content size.
-func (o ContentLinkResponseOutput) ContentSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *int { return v.ContentSize }).(pulumi.IntPtrOutput)
+func (o ContentLinkResponseOutput) ContentSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ContentLinkResponse) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
 }
 
 // The content version.
@@ -7708,13 +7708,13 @@ func (o ContentLinkResponsePtrOutput) ContentHash() ContentHashResponsePtrOutput
 }
 
 // The content size.
-func (o ContentLinkResponsePtrOutput) ContentSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContentLinkResponse) *int {
+func (o ContentLinkResponsePtrOutput) ContentSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContentLinkResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ContentSize
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The content version.
@@ -9578,13 +9578,13 @@ type EdifactEnvelopeSettings struct {
 	// The group association assigned code.
 	GroupAssociationAssignedCode *string `pulumi:"groupAssociationAssignedCode"`
 	// The group control number lower bound.
-	GroupControlNumberLowerBound int `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberLowerBound float64 `pulumi:"groupControlNumberLowerBound"`
 	// The group control number prefix.
 	GroupControlNumberPrefix *string `pulumi:"groupControlNumberPrefix"`
 	// The group control number suffix.
 	GroupControlNumberSuffix *string `pulumi:"groupControlNumberSuffix"`
 	// The group control number upper bound.
-	GroupControlNumberUpperBound int `pulumi:"groupControlNumberUpperBound"`
+	GroupControlNumberUpperBound float64 `pulumi:"groupControlNumberUpperBound"`
 	// The group controlling agency code.
 	GroupControllingAgencyCode *string `pulumi:"groupControllingAgencyCode"`
 	// The group message release.
@@ -9592,13 +9592,13 @@ type EdifactEnvelopeSettings struct {
 	// The group message version.
 	GroupMessageVersion *string `pulumi:"groupMessageVersion"`
 	// The interchange control number lower bound.
-	InterchangeControlNumberLowerBound int `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberLowerBound float64 `pulumi:"interchangeControlNumberLowerBound"`
 	// The interchange control number prefix.
 	InterchangeControlNumberPrefix *string `pulumi:"interchangeControlNumberPrefix"`
 	// The interchange control number suffix.
 	InterchangeControlNumberSuffix *string `pulumi:"interchangeControlNumberSuffix"`
 	// The interchange control number upper bound.
-	InterchangeControlNumberUpperBound int `pulumi:"interchangeControlNumberUpperBound"`
+	InterchangeControlNumberUpperBound float64 `pulumi:"interchangeControlNumberUpperBound"`
 	// The value indicating whether the message is a test interchange.
 	IsTestInterchange bool `pulumi:"isTestInterchange"`
 	// The value indicating whether to overwrite existing transaction set control number.
@@ -9628,13 +9628,13 @@ type EdifactEnvelopeSettings struct {
 	// The sender reverse routing address.
 	SenderReverseRoutingAddress *string `pulumi:"senderReverseRoutingAddress"`
 	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound int `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberLowerBound float64 `pulumi:"transactionSetControlNumberLowerBound"`
 	// The transaction set control number prefix.
 	TransactionSetControlNumberPrefix *string `pulumi:"transactionSetControlNumberPrefix"`
 	// The transaction set control number suffix.
 	TransactionSetControlNumberSuffix *string `pulumi:"transactionSetControlNumberSuffix"`
 	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound int `pulumi:"transactionSetControlNumberUpperBound"`
+	TransactionSetControlNumberUpperBound float64 `pulumi:"transactionSetControlNumberUpperBound"`
 }
 
 // EdifactEnvelopeSettingsInput is an input type that accepts EdifactEnvelopeSettingsArgs and EdifactEnvelopeSettingsOutput values.
@@ -9675,13 +9675,13 @@ type EdifactEnvelopeSettingsArgs struct {
 	// The group association assigned code.
 	GroupAssociationAssignedCode pulumi.StringPtrInput `pulumi:"groupAssociationAssignedCode"`
 	// The group control number lower bound.
-	GroupControlNumberLowerBound pulumi.IntInput `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberLowerBound pulumi.Float64Input `pulumi:"groupControlNumberLowerBound"`
 	// The group control number prefix.
 	GroupControlNumberPrefix pulumi.StringPtrInput `pulumi:"groupControlNumberPrefix"`
 	// The group control number suffix.
 	GroupControlNumberSuffix pulumi.StringPtrInput `pulumi:"groupControlNumberSuffix"`
 	// The group control number upper bound.
-	GroupControlNumberUpperBound pulumi.IntInput `pulumi:"groupControlNumberUpperBound"`
+	GroupControlNumberUpperBound pulumi.Float64Input `pulumi:"groupControlNumberUpperBound"`
 	// The group controlling agency code.
 	GroupControllingAgencyCode pulumi.StringPtrInput `pulumi:"groupControllingAgencyCode"`
 	// The group message release.
@@ -9689,13 +9689,13 @@ type EdifactEnvelopeSettingsArgs struct {
 	// The group message version.
 	GroupMessageVersion pulumi.StringPtrInput `pulumi:"groupMessageVersion"`
 	// The interchange control number lower bound.
-	InterchangeControlNumberLowerBound pulumi.IntInput `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberLowerBound pulumi.Float64Input `pulumi:"interchangeControlNumberLowerBound"`
 	// The interchange control number prefix.
 	InterchangeControlNumberPrefix pulumi.StringPtrInput `pulumi:"interchangeControlNumberPrefix"`
 	// The interchange control number suffix.
 	InterchangeControlNumberSuffix pulumi.StringPtrInput `pulumi:"interchangeControlNumberSuffix"`
 	// The interchange control number upper bound.
-	InterchangeControlNumberUpperBound pulumi.IntInput `pulumi:"interchangeControlNumberUpperBound"`
+	InterchangeControlNumberUpperBound pulumi.Float64Input `pulumi:"interchangeControlNumberUpperBound"`
 	// The value indicating whether the message is a test interchange.
 	IsTestInterchange pulumi.BoolInput `pulumi:"isTestInterchange"`
 	// The value indicating whether to overwrite existing transaction set control number.
@@ -9725,13 +9725,13 @@ type EdifactEnvelopeSettingsArgs struct {
 	// The sender reverse routing address.
 	SenderReverseRoutingAddress pulumi.StringPtrInput `pulumi:"senderReverseRoutingAddress"`
 	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound pulumi.IntInput `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberLowerBound pulumi.Float64Input `pulumi:"transactionSetControlNumberLowerBound"`
 	// The transaction set control number prefix.
 	TransactionSetControlNumberPrefix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
 	// The transaction set control number suffix.
 	TransactionSetControlNumberSuffix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
 	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound pulumi.IntInput `pulumi:"transactionSetControlNumberUpperBound"`
+	TransactionSetControlNumberUpperBound pulumi.Float64Input `pulumi:"transactionSetControlNumberUpperBound"`
 }
 
 func (EdifactEnvelopeSettingsArgs) ElementType() reflect.Type {
@@ -9873,8 +9873,8 @@ func (o EdifactEnvelopeSettingsOutput) GroupAssociationAssignedCode() pulumi.Str
 }
 
 // The group control number lower bound.
-func (o EdifactEnvelopeSettingsOutput) GroupControlNumberLowerBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettings) int { return v.GroupControlNumberLowerBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsOutput) GroupControlNumberLowerBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.GroupControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
 // The group control number prefix.
@@ -9888,8 +9888,8 @@ func (o EdifactEnvelopeSettingsOutput) GroupControlNumberSuffix() pulumi.StringP
 }
 
 // The group control number upper bound.
-func (o EdifactEnvelopeSettingsOutput) GroupControlNumberUpperBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettings) int { return v.GroupControlNumberUpperBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsOutput) GroupControlNumberUpperBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.GroupControlNumberUpperBound }).(pulumi.Float64Output)
 }
 
 // The group controlling agency code.
@@ -9908,8 +9908,8 @@ func (o EdifactEnvelopeSettingsOutput) GroupMessageVersion() pulumi.StringPtrOut
 }
 
 // The interchange control number lower bound.
-func (o EdifactEnvelopeSettingsOutput) InterchangeControlNumberLowerBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettings) int { return v.InterchangeControlNumberLowerBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsOutput) InterchangeControlNumberLowerBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.InterchangeControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
 // The interchange control number prefix.
@@ -9923,8 +9923,8 @@ func (o EdifactEnvelopeSettingsOutput) InterchangeControlNumberSuffix() pulumi.S
 }
 
 // The interchange control number upper bound.
-func (o EdifactEnvelopeSettingsOutput) InterchangeControlNumberUpperBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettings) int { return v.InterchangeControlNumberUpperBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsOutput) InterchangeControlNumberUpperBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.InterchangeControlNumberUpperBound }).(pulumi.Float64Output)
 }
 
 // The value indicating whether the message is a test interchange.
@@ -9998,8 +9998,8 @@ func (o EdifactEnvelopeSettingsOutput) SenderReverseRoutingAddress() pulumi.Stri
 }
 
 // The transaction set control number lower bound.
-func (o EdifactEnvelopeSettingsOutput) TransactionSetControlNumberLowerBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettings) int { return v.TransactionSetControlNumberLowerBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsOutput) TransactionSetControlNumberLowerBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.TransactionSetControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
 // The transaction set control number prefix.
@@ -10013,8 +10013,8 @@ func (o EdifactEnvelopeSettingsOutput) TransactionSetControlNumberSuffix() pulum
 }
 
 // The transaction set control number upper bound.
-func (o EdifactEnvelopeSettingsOutput) TransactionSetControlNumberUpperBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettings) int { return v.TransactionSetControlNumberUpperBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsOutput) TransactionSetControlNumberUpperBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.TransactionSetControlNumberUpperBound }).(pulumi.Float64Output)
 }
 
 type EdifactEnvelopeSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -10156,13 +10156,13 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupAssociationAssignedCode() pulumi.
 }
 
 // The group control number lower bound.
-func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberLowerBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettings) *int {
+func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberLowerBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.GroupControlNumberLowerBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The group control number prefix.
@@ -10186,13 +10186,13 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberSuffix() pulumi.Stri
 }
 
 // The group control number upper bound.
-func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberUpperBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettings) *int {
+func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberUpperBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.GroupControlNumberUpperBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The group controlling agency code.
@@ -10226,13 +10226,13 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupMessageVersion() pulumi.StringPtr
 }
 
 // The interchange control number lower bound.
-func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberLowerBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettings) *int {
+func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberLowerBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.InterchangeControlNumberLowerBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The interchange control number prefix.
@@ -10256,13 +10256,13 @@ func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberSuffix() pulum
 }
 
 // The interchange control number upper bound.
-func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberUpperBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettings) *int {
+func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberUpperBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.InterchangeControlNumberUpperBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The value indicating whether the message is a test interchange.
@@ -10406,13 +10406,13 @@ func (o EdifactEnvelopeSettingsPtrOutput) SenderReverseRoutingAddress() pulumi.S
 }
 
 // The transaction set control number lower bound.
-func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberLowerBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettings) *int {
+func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberLowerBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TransactionSetControlNumberLowerBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The transaction set control number prefix.
@@ -10436,13 +10436,13 @@ func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberSuffix() pu
 }
 
 // The transaction set control number upper bound.
-func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberUpperBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettings) *int {
+func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberUpperBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TransactionSetControlNumberUpperBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The Edifact agreement envelope settings.
@@ -10472,13 +10472,13 @@ type EdifactEnvelopeSettingsResponse struct {
 	// The group association assigned code.
 	GroupAssociationAssignedCode *string `pulumi:"groupAssociationAssignedCode"`
 	// The group control number lower bound.
-	GroupControlNumberLowerBound int `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberLowerBound float64 `pulumi:"groupControlNumberLowerBound"`
 	// The group control number prefix.
 	GroupControlNumberPrefix *string `pulumi:"groupControlNumberPrefix"`
 	// The group control number suffix.
 	GroupControlNumberSuffix *string `pulumi:"groupControlNumberSuffix"`
 	// The group control number upper bound.
-	GroupControlNumberUpperBound int `pulumi:"groupControlNumberUpperBound"`
+	GroupControlNumberUpperBound float64 `pulumi:"groupControlNumberUpperBound"`
 	// The group controlling agency code.
 	GroupControllingAgencyCode *string `pulumi:"groupControllingAgencyCode"`
 	// The group message release.
@@ -10486,13 +10486,13 @@ type EdifactEnvelopeSettingsResponse struct {
 	// The group message version.
 	GroupMessageVersion *string `pulumi:"groupMessageVersion"`
 	// The interchange control number lower bound.
-	InterchangeControlNumberLowerBound int `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberLowerBound float64 `pulumi:"interchangeControlNumberLowerBound"`
 	// The interchange control number prefix.
 	InterchangeControlNumberPrefix *string `pulumi:"interchangeControlNumberPrefix"`
 	// The interchange control number suffix.
 	InterchangeControlNumberSuffix *string `pulumi:"interchangeControlNumberSuffix"`
 	// The interchange control number upper bound.
-	InterchangeControlNumberUpperBound int `pulumi:"interchangeControlNumberUpperBound"`
+	InterchangeControlNumberUpperBound float64 `pulumi:"interchangeControlNumberUpperBound"`
 	// The value indicating whether the message is a test interchange.
 	IsTestInterchange bool `pulumi:"isTestInterchange"`
 	// The value indicating whether to overwrite existing transaction set control number.
@@ -10522,13 +10522,13 @@ type EdifactEnvelopeSettingsResponse struct {
 	// The sender reverse routing address.
 	SenderReverseRoutingAddress *string `pulumi:"senderReverseRoutingAddress"`
 	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound int `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberLowerBound float64 `pulumi:"transactionSetControlNumberLowerBound"`
 	// The transaction set control number prefix.
 	TransactionSetControlNumberPrefix *string `pulumi:"transactionSetControlNumberPrefix"`
 	// The transaction set control number suffix.
 	TransactionSetControlNumberSuffix *string `pulumi:"transactionSetControlNumberSuffix"`
 	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound int `pulumi:"transactionSetControlNumberUpperBound"`
+	TransactionSetControlNumberUpperBound float64 `pulumi:"transactionSetControlNumberUpperBound"`
 }
 
 // EdifactEnvelopeSettingsResponseInput is an input type that accepts EdifactEnvelopeSettingsResponseArgs and EdifactEnvelopeSettingsResponseOutput values.
@@ -10569,13 +10569,13 @@ type EdifactEnvelopeSettingsResponseArgs struct {
 	// The group association assigned code.
 	GroupAssociationAssignedCode pulumi.StringPtrInput `pulumi:"groupAssociationAssignedCode"`
 	// The group control number lower bound.
-	GroupControlNumberLowerBound pulumi.IntInput `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberLowerBound pulumi.Float64Input `pulumi:"groupControlNumberLowerBound"`
 	// The group control number prefix.
 	GroupControlNumberPrefix pulumi.StringPtrInput `pulumi:"groupControlNumberPrefix"`
 	// The group control number suffix.
 	GroupControlNumberSuffix pulumi.StringPtrInput `pulumi:"groupControlNumberSuffix"`
 	// The group control number upper bound.
-	GroupControlNumberUpperBound pulumi.IntInput `pulumi:"groupControlNumberUpperBound"`
+	GroupControlNumberUpperBound pulumi.Float64Input `pulumi:"groupControlNumberUpperBound"`
 	// The group controlling agency code.
 	GroupControllingAgencyCode pulumi.StringPtrInput `pulumi:"groupControllingAgencyCode"`
 	// The group message release.
@@ -10583,13 +10583,13 @@ type EdifactEnvelopeSettingsResponseArgs struct {
 	// The group message version.
 	GroupMessageVersion pulumi.StringPtrInput `pulumi:"groupMessageVersion"`
 	// The interchange control number lower bound.
-	InterchangeControlNumberLowerBound pulumi.IntInput `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberLowerBound pulumi.Float64Input `pulumi:"interchangeControlNumberLowerBound"`
 	// The interchange control number prefix.
 	InterchangeControlNumberPrefix pulumi.StringPtrInput `pulumi:"interchangeControlNumberPrefix"`
 	// The interchange control number suffix.
 	InterchangeControlNumberSuffix pulumi.StringPtrInput `pulumi:"interchangeControlNumberSuffix"`
 	// The interchange control number upper bound.
-	InterchangeControlNumberUpperBound pulumi.IntInput `pulumi:"interchangeControlNumberUpperBound"`
+	InterchangeControlNumberUpperBound pulumi.Float64Input `pulumi:"interchangeControlNumberUpperBound"`
 	// The value indicating whether the message is a test interchange.
 	IsTestInterchange pulumi.BoolInput `pulumi:"isTestInterchange"`
 	// The value indicating whether to overwrite existing transaction set control number.
@@ -10619,13 +10619,13 @@ type EdifactEnvelopeSettingsResponseArgs struct {
 	// The sender reverse routing address.
 	SenderReverseRoutingAddress pulumi.StringPtrInput `pulumi:"senderReverseRoutingAddress"`
 	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound pulumi.IntInput `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberLowerBound pulumi.Float64Input `pulumi:"transactionSetControlNumberLowerBound"`
 	// The transaction set control number prefix.
 	TransactionSetControlNumberPrefix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
 	// The transaction set control number suffix.
 	TransactionSetControlNumberSuffix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
 	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound pulumi.IntInput `pulumi:"transactionSetControlNumberUpperBound"`
+	TransactionSetControlNumberUpperBound pulumi.Float64Input `pulumi:"transactionSetControlNumberUpperBound"`
 }
 
 func (EdifactEnvelopeSettingsResponseArgs) ElementType() reflect.Type {
@@ -10767,8 +10767,8 @@ func (o EdifactEnvelopeSettingsResponseOutput) GroupAssociationAssignedCode() pu
 }
 
 // The group control number lower bound.
-func (o EdifactEnvelopeSettingsResponseOutput) GroupControlNumberLowerBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) int { return v.GroupControlNumberLowerBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsResponseOutput) GroupControlNumberLowerBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.GroupControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
 // The group control number prefix.
@@ -10782,8 +10782,8 @@ func (o EdifactEnvelopeSettingsResponseOutput) GroupControlNumberSuffix() pulumi
 }
 
 // The group control number upper bound.
-func (o EdifactEnvelopeSettingsResponseOutput) GroupControlNumberUpperBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) int { return v.GroupControlNumberUpperBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsResponseOutput) GroupControlNumberUpperBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.GroupControlNumberUpperBound }).(pulumi.Float64Output)
 }
 
 // The group controlling agency code.
@@ -10802,8 +10802,8 @@ func (o EdifactEnvelopeSettingsResponseOutput) GroupMessageVersion() pulumi.Stri
 }
 
 // The interchange control number lower bound.
-func (o EdifactEnvelopeSettingsResponseOutput) InterchangeControlNumberLowerBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) int { return v.InterchangeControlNumberLowerBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsResponseOutput) InterchangeControlNumberLowerBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.InterchangeControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
 // The interchange control number prefix.
@@ -10817,8 +10817,8 @@ func (o EdifactEnvelopeSettingsResponseOutput) InterchangeControlNumberSuffix() 
 }
 
 // The interchange control number upper bound.
-func (o EdifactEnvelopeSettingsResponseOutput) InterchangeControlNumberUpperBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) int { return v.InterchangeControlNumberUpperBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsResponseOutput) InterchangeControlNumberUpperBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.InterchangeControlNumberUpperBound }).(pulumi.Float64Output)
 }
 
 // The value indicating whether the message is a test interchange.
@@ -10892,8 +10892,8 @@ func (o EdifactEnvelopeSettingsResponseOutput) SenderReverseRoutingAddress() pul
 }
 
 // The transaction set control number lower bound.
-func (o EdifactEnvelopeSettingsResponseOutput) TransactionSetControlNumberLowerBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) int { return v.TransactionSetControlNumberLowerBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsResponseOutput) TransactionSetControlNumberLowerBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.TransactionSetControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
 // The transaction set control number prefix.
@@ -10907,8 +10907,8 @@ func (o EdifactEnvelopeSettingsResponseOutput) TransactionSetControlNumberSuffix
 }
 
 // The transaction set control number upper bound.
-func (o EdifactEnvelopeSettingsResponseOutput) TransactionSetControlNumberUpperBound() pulumi.IntOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) int { return v.TransactionSetControlNumberUpperBound }).(pulumi.IntOutput)
+func (o EdifactEnvelopeSettingsResponseOutput) TransactionSetControlNumberUpperBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.TransactionSetControlNumberUpperBound }).(pulumi.Float64Output)
 }
 
 type EdifactEnvelopeSettingsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -11050,13 +11050,13 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupAssociationAssignedCode()
 }
 
 // The group control number lower bound.
-func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberLowerBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *int {
+func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberLowerBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.GroupControlNumberLowerBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The group control number prefix.
@@ -11080,13 +11080,13 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberSuffix() pul
 }
 
 // The group control number upper bound.
-func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberUpperBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *int {
+func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberUpperBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.GroupControlNumberUpperBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The group controlling agency code.
@@ -11120,13 +11120,13 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupMessageVersion() pulumi.S
 }
 
 // The interchange control number lower bound.
-func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberLowerBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *int {
+func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberLowerBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.InterchangeControlNumberLowerBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The interchange control number prefix.
@@ -11150,13 +11150,13 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberSuffix
 }
 
 // The interchange control number upper bound.
-func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberUpperBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *int {
+func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberUpperBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.InterchangeControlNumberUpperBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The value indicating whether the message is a test interchange.
@@ -11300,13 +11300,13 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) SenderReverseRoutingAddress() 
 }
 
 // The transaction set control number lower bound.
-func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberLowerBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *int {
+func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberLowerBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TransactionSetControlNumberLowerBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The transaction set control number prefix.
@@ -11330,13 +11330,13 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberSuf
 }
 
 // The transaction set control number upper bound.
-func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberUpperBound() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *int {
+func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberUpperBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TransactionSetControlNumberUpperBound
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The Edifact agreement framing settings.
@@ -16640,11 +16640,11 @@ func (o KeyVaultKeyResponseArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyResp
 // The key attributes.
 type KeyVaultKeyResponseAttributes struct {
 	// When the key was created.
-	Created *int `pulumi:"created"`
+	Created *float64 `pulumi:"created"`
 	// Whether the key is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
 	// When the key was updated.
-	Updated *int `pulumi:"updated"`
+	Updated *float64 `pulumi:"updated"`
 }
 
 // KeyVaultKeyResponseAttributesInput is an input type that accepts KeyVaultKeyResponseAttributesArgs and KeyVaultKeyResponseAttributesOutput values.
@@ -16661,11 +16661,11 @@ type KeyVaultKeyResponseAttributesInput interface {
 // The key attributes.
 type KeyVaultKeyResponseAttributesArgs struct {
 	// When the key was created.
-	Created pulumi.IntPtrInput `pulumi:"created"`
+	Created pulumi.Float64PtrInput `pulumi:"created"`
 	// Whether the key is enabled or not.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// When the key was updated.
-	Updated pulumi.IntPtrInput `pulumi:"updated"`
+	Updated pulumi.Float64PtrInput `pulumi:"updated"`
 }
 
 func (KeyVaultKeyResponseAttributesArgs) ElementType() reflect.Type {
@@ -16747,8 +16747,8 @@ func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesPtrO
 }
 
 // When the key was created.
-func (o KeyVaultKeyResponseAttributesOutput) Created() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *int { return v.Created }).(pulumi.IntPtrOutput)
+func (o KeyVaultKeyResponseAttributesOutput) Created() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *float64 { return v.Created }).(pulumi.Float64PtrOutput)
 }
 
 // Whether the key is enabled or not.
@@ -16757,8 +16757,8 @@ func (o KeyVaultKeyResponseAttributesOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // When the key was updated.
-func (o KeyVaultKeyResponseAttributesOutput) Updated() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *int { return v.Updated }).(pulumi.IntPtrOutput)
+func (o KeyVaultKeyResponseAttributesOutput) Updated() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *float64 { return v.Updated }).(pulumi.Float64PtrOutput)
 }
 
 type KeyVaultKeyResponseAttributesPtrOutput struct{ *pulumi.OutputState }
@@ -16780,13 +16780,13 @@ func (o KeyVaultKeyResponseAttributesPtrOutput) Elem() KeyVaultKeyResponseAttrib
 }
 
 // When the key was created.
-func (o KeyVaultKeyResponseAttributesPtrOutput) Created() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *int {
+func (o KeyVaultKeyResponseAttributesPtrOutput) Created() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Created
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Whether the key is enabled or not.
@@ -16800,13 +16800,13 @@ func (o KeyVaultKeyResponseAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // When the key was updated.
-func (o KeyVaultKeyResponseAttributesPtrOutput) Updated() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *int {
+func (o KeyVaultKeyResponseAttributesPtrOutput) Updated() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Updated
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The key vault reference.

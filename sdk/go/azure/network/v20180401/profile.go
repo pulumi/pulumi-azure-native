@@ -22,7 +22,7 @@ type Profile struct {
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Maximum number of endpoints to be returned for MultiValue routing type.
-	MaxReturn pulumi.IntPtrOutput `pulumi:"maxReturn"`
+	MaxReturn pulumi.Float64PtrOutput `pulumi:"maxReturn"`
 	// The endpoint monitoring settings of the Traffic Manager profile.
 	MonitorConfig MonitorConfigResponsePtrOutput `pulumi:"monitorConfig"`
 	// The name of the resource
@@ -102,7 +102,7 @@ type profileState struct {
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// Maximum number of endpoints to be returned for MultiValue routing type.
-	MaxReturn *int `pulumi:"maxReturn"`
+	MaxReturn *float64 `pulumi:"maxReturn"`
 	// The endpoint monitoring settings of the Traffic Manager profile.
 	MonitorConfig *MonitorConfigResponse `pulumi:"monitorConfig"`
 	// The name of the resource
@@ -127,7 +127,7 @@ type ProfileState struct {
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// Maximum number of endpoints to be returned for MultiValue routing type.
-	MaxReturn pulumi.IntPtrInput
+	MaxReturn pulumi.Float64PtrInput
 	// The endpoint monitoring settings of the Traffic Manager profile.
 	MonitorConfig MonitorConfigResponsePtrInput
 	// The name of the resource
@@ -158,7 +158,7 @@ type profileArgs struct {
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// Maximum number of endpoints to be returned for MultiValue routing type.
-	MaxReturn *int `pulumi:"maxReturn"`
+	MaxReturn *float64 `pulumi:"maxReturn"`
 	// The endpoint monitoring settings of the Traffic Manager profile.
 	MonitorConfig *MonitorConfig `pulumi:"monitorConfig"`
 	// The name of the resource
@@ -190,7 +190,7 @@ type ProfileArgs struct {
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// Maximum number of endpoints to be returned for MultiValue routing type.
-	MaxReturn pulumi.IntPtrInput
+	MaxReturn pulumi.Float64PtrInput
 	// The endpoint monitoring settings of the Traffic Manager profile.
 	MonitorConfig MonitorConfigPtrInput
 	// The name of the resource

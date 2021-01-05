@@ -10346,13 +10346,13 @@ type BgpPeerStatusResponse struct {
 	// The virtual network gateway's local address
 	LocalAddress string `pulumi:"localAddress"`
 	// The number of BGP messages received
-	MessagesReceived int `pulumi:"messagesReceived"`
+	MessagesReceived float64 `pulumi:"messagesReceived"`
 	// The number of BGP messages sent
-	MessagesSent int `pulumi:"messagesSent"`
+	MessagesSent float64 `pulumi:"messagesSent"`
 	// The remote BGP peer
 	Neighbor string `pulumi:"neighbor"`
 	// The number of routes learned from this peer
-	RoutesReceived int `pulumi:"routesReceived"`
+	RoutesReceived float64 `pulumi:"routesReceived"`
 	// The BGP peer state
 	State string `pulumi:"state"`
 }
@@ -10377,13 +10377,13 @@ type BgpPeerStatusResponseArgs struct {
 	// The virtual network gateway's local address
 	LocalAddress pulumi.StringInput `pulumi:"localAddress"`
 	// The number of BGP messages received
-	MessagesReceived pulumi.IntInput `pulumi:"messagesReceived"`
+	MessagesReceived pulumi.Float64Input `pulumi:"messagesReceived"`
 	// The number of BGP messages sent
-	MessagesSent pulumi.IntInput `pulumi:"messagesSent"`
+	MessagesSent pulumi.Float64Input `pulumi:"messagesSent"`
 	// The remote BGP peer
 	Neighbor pulumi.StringInput `pulumi:"neighbor"`
 	// The number of routes learned from this peer
-	RoutesReceived pulumi.IntInput `pulumi:"routesReceived"`
+	RoutesReceived pulumi.Float64Input `pulumi:"routesReceived"`
 	// The BGP peer state
 	State pulumi.StringInput `pulumi:"state"`
 }
@@ -10456,13 +10456,13 @@ func (o BgpPeerStatusResponseOutput) LocalAddress() pulumi.StringOutput {
 }
 
 // The number of BGP messages received
-func (o BgpPeerStatusResponseOutput) MessagesReceived() pulumi.IntOutput {
-	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.MessagesReceived }).(pulumi.IntOutput)
+func (o BgpPeerStatusResponseOutput) MessagesReceived() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.MessagesReceived }).(pulumi.Float64Output)
 }
 
 // The number of BGP messages sent
-func (o BgpPeerStatusResponseOutput) MessagesSent() pulumi.IntOutput {
-	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.MessagesSent }).(pulumi.IntOutput)
+func (o BgpPeerStatusResponseOutput) MessagesSent() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.MessagesSent }).(pulumi.Float64Output)
 }
 
 // The remote BGP peer
@@ -10471,8 +10471,8 @@ func (o BgpPeerStatusResponseOutput) Neighbor() pulumi.StringOutput {
 }
 
 // The number of routes learned from this peer
-func (o BgpPeerStatusResponseOutput) RoutesReceived() pulumi.IntOutput {
-	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.RoutesReceived }).(pulumi.IntOutput)
+func (o BgpPeerStatusResponseOutput) RoutesReceived() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.RoutesReceived }).(pulumi.Float64Output)
 }
 
 // The BGP peer state
@@ -10503,7 +10503,7 @@ func (o BgpPeerStatusResponseArrayOutput) Index(i pulumi.IntInput) BgpPeerStatus
 // BGP settings details
 type BgpSettings struct {
 	// The BGP speaker's ASN.
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -10524,7 +10524,7 @@ type BgpSettingsInput interface {
 // BGP settings details
 type BgpSettingsArgs struct {
 	// The BGP speaker's ASN.
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -10610,8 +10610,8 @@ func (o BgpSettingsOutput) ToBgpSettingsPtrOutputWithContext(ctx context.Context
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BgpSettings) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o BgpSettingsOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BgpSettings) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -10643,13 +10643,13 @@ func (o BgpSettingsPtrOutput) Elem() BgpSettingsOutput {
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsPtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BgpSettings) *int {
+func (o BgpSettingsPtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BgpSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -10675,7 +10675,7 @@ func (o BgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutput {
 // BGP settings details
 type BgpSettingsResponse struct {
 	// The BGP speaker's ASN.
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -10696,7 +10696,7 @@ type BgpSettingsResponseInput interface {
 // BGP settings details
 type BgpSettingsResponseArgs struct {
 	// The BGP speaker's ASN.
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -10782,8 +10782,8 @@ func (o BgpSettingsResponseOutput) ToBgpSettingsResponsePtrOutputWithContext(ctx
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsResponseOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BgpSettingsResponse) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o BgpSettingsResponseOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BgpSettingsResponse) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -10815,13 +10815,13 @@ func (o BgpSettingsResponsePtrOutput) Elem() BgpSettingsResponseOutput {
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsResponsePtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BgpSettingsResponse) *int {
+func (o BgpSettingsResponsePtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BgpSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -12111,7 +12111,7 @@ type DnsConfig struct {
 	// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
 	RelativeName *string `pulumi:"relativeName"`
 	// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-	Ttl *int `pulumi:"ttl"`
+	Ttl *float64 `pulumi:"ttl"`
 }
 
 // DnsConfigInput is an input type that accepts DnsConfigArgs and DnsConfigOutput values.
@@ -12130,7 +12130,7 @@ type DnsConfigArgs struct {
 	// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
 	RelativeName pulumi.StringPtrInput `pulumi:"relativeName"`
 	// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
+	Ttl pulumi.Float64PtrInput `pulumi:"ttl"`
 }
 
 func (DnsConfigArgs) ElementType() reflect.Type {
@@ -12217,8 +12217,8 @@ func (o DnsConfigOutput) RelativeName() pulumi.StringPtrOutput {
 }
 
 // The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-func (o DnsConfigOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DnsConfig) *int { return v.Ttl }).(pulumi.IntPtrOutput)
+func (o DnsConfigOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DnsConfig) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
 }
 
 type DnsConfigPtrOutput struct{ *pulumi.OutputState }
@@ -12250,13 +12250,13 @@ func (o DnsConfigPtrOutput) RelativeName() pulumi.StringPtrOutput {
 }
 
 // The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-func (o DnsConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DnsConfig) *int {
+func (o DnsConfigPtrOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DnsConfig) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Ttl
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Class containing DNS settings in a Traffic Manager profile.
@@ -12266,7 +12266,7 @@ type DnsConfigResponse struct {
 	// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
 	RelativeName *string `pulumi:"relativeName"`
 	// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-	Ttl *int `pulumi:"ttl"`
+	Ttl *float64 `pulumi:"ttl"`
 }
 
 // DnsConfigResponseInput is an input type that accepts DnsConfigResponseArgs and DnsConfigResponseOutput values.
@@ -12287,7 +12287,7 @@ type DnsConfigResponseArgs struct {
 	// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
 	RelativeName pulumi.StringPtrInput `pulumi:"relativeName"`
 	// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
+	Ttl pulumi.Float64PtrInput `pulumi:"ttl"`
 }
 
 func (DnsConfigResponseArgs) ElementType() reflect.Type {
@@ -12379,8 +12379,8 @@ func (o DnsConfigResponseOutput) RelativeName() pulumi.StringPtrOutput {
 }
 
 // The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-func (o DnsConfigResponseOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DnsConfigResponse) *int { return v.Ttl }).(pulumi.IntPtrOutput)
+func (o DnsConfigResponseOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DnsConfigResponse) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
 }
 
 type DnsConfigResponsePtrOutput struct{ *pulumi.OutputState }
@@ -12422,13 +12422,13 @@ func (o DnsConfigResponsePtrOutput) RelativeName() pulumi.StringPtrOutput {
 }
 
 // The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-func (o DnsConfigResponsePtrOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DnsConfigResponse) *int {
+func (o DnsConfigResponsePtrOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DnsConfigResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Ttl
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Class representing a Traffic Manager endpoint.
@@ -12446,11 +12446,11 @@ type EndpointType struct {
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
 	Id *string `pulumi:"id"`
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints *int `pulumi:"minChildEndpoints"`
+	MinChildEndpoints *float64 `pulumi:"minChildEndpoints"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority *int `pulumi:"priority"`
+	Priority *float64 `pulumi:"priority"`
 	// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
 	Subnets []EndpointPropertiesSubnets `pulumi:"subnets"`
 	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
@@ -12460,7 +12460,7 @@ type EndpointType struct {
 	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type *string `pulumi:"type"`
 	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight *int `pulumi:"weight"`
+	Weight *float64 `pulumi:"weight"`
 }
 
 // EndpointTypeInput is an input type that accepts EndpointTypeArgs and EndpointTypeOutput values.
@@ -12489,11 +12489,11 @@ type EndpointTypeArgs struct {
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints pulumi.IntPtrInput `pulumi:"minChildEndpoints"`
+	MinChildEndpoints pulumi.Float64PtrInput `pulumi:"minChildEndpoints"`
 	// The name of the resource
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	Priority pulumi.Float64PtrInput `pulumi:"priority"`
 	// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
 	Subnets EndpointPropertiesSubnetsArrayInput `pulumi:"subnets"`
 	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
@@ -12503,7 +12503,7 @@ type EndpointTypeArgs struct {
 	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Weight pulumi.Float64PtrInput `pulumi:"weight"`
 }
 
 func (EndpointTypeArgs) ElementType() reflect.Type {
@@ -12589,8 +12589,8 @@ func (o EndpointTypeOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-func (o EndpointTypeOutput) MinChildEndpoints() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EndpointType) *int { return v.MinChildEndpoints }).(pulumi.IntPtrOutput)
+func (o EndpointTypeOutput) MinChildEndpoints() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointType) *float64 { return v.MinChildEndpoints }).(pulumi.Float64PtrOutput)
 }
 
 // The name of the resource
@@ -12599,8 +12599,8 @@ func (o EndpointTypeOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-func (o EndpointTypeOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EndpointType) *int { return v.Priority }).(pulumi.IntPtrOutput)
+func (o EndpointTypeOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointType) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
 }
 
 // The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
@@ -12624,8 +12624,8 @@ func (o EndpointTypeOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-func (o EndpointTypeOutput) Weight() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EndpointType) *int { return v.Weight }).(pulumi.IntPtrOutput)
+func (o EndpointTypeOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointType) *float64 { return v.Weight }).(pulumi.Float64PtrOutput)
 }
 
 type EndpointTypeArrayOutput struct{ *pulumi.OutputState }
@@ -13117,11 +13117,11 @@ type EndpointResponse struct {
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
 	Id *string `pulumi:"id"`
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints *int `pulumi:"minChildEndpoints"`
+	MinChildEndpoints *float64 `pulumi:"minChildEndpoints"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority *int `pulumi:"priority"`
+	Priority *float64 `pulumi:"priority"`
 	// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
 	Subnets []EndpointPropertiesResponseSubnets `pulumi:"subnets"`
 	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
@@ -13131,7 +13131,7 @@ type EndpointResponse struct {
 	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type *string `pulumi:"type"`
 	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight *int `pulumi:"weight"`
+	Weight *float64 `pulumi:"weight"`
 }
 
 // EndpointResponseInput is an input type that accepts EndpointResponseArgs and EndpointResponseOutput values.
@@ -13160,11 +13160,11 @@ type EndpointResponseArgs struct {
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints pulumi.IntPtrInput `pulumi:"minChildEndpoints"`
+	MinChildEndpoints pulumi.Float64PtrInput `pulumi:"minChildEndpoints"`
 	// The name of the resource
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	Priority pulumi.Float64PtrInput `pulumi:"priority"`
 	// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
 	Subnets EndpointPropertiesResponseSubnetsArrayInput `pulumi:"subnets"`
 	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
@@ -13174,7 +13174,7 @@ type EndpointResponseArgs struct {
 	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Weight pulumi.Float64PtrInput `pulumi:"weight"`
 }
 
 func (EndpointResponseArgs) ElementType() reflect.Type {
@@ -13260,8 +13260,8 @@ func (o EndpointResponseOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-func (o EndpointResponseOutput) MinChildEndpoints() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EndpointResponse) *int { return v.MinChildEndpoints }).(pulumi.IntPtrOutput)
+func (o EndpointResponseOutput) MinChildEndpoints() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointResponse) *float64 { return v.MinChildEndpoints }).(pulumi.Float64PtrOutput)
 }
 
 // The name of the resource
@@ -13270,8 +13270,8 @@ func (o EndpointResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-func (o EndpointResponseOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EndpointResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
+func (o EndpointResponseOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointResponse) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
 }
 
 // The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
@@ -13295,8 +13295,8 @@ func (o EndpointResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-func (o EndpointResponseOutput) Weight() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EndpointResponse) *int { return v.Weight }).(pulumi.IntPtrOutput)
+func (o EndpointResponseOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointResponse) *float64 { return v.Weight }).(pulumi.Float64PtrOutput)
 }
 
 type EndpointResponseArrayOutput struct{ *pulumi.OutputState }
@@ -13940,7 +13940,7 @@ type ExpressRouteCircuitPeeringType struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The peering type.
 	PeeringType *string `pulumi:"peeringType"`
 	// The primary port.
@@ -13995,7 +13995,7 @@ type ExpressRouteCircuitPeeringTypeArgs struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The peer ASN.
-	PeerASN pulumi.IntPtrInput `pulumi:"peerASN"`
+	PeerASN pulumi.Float64PtrInput `pulumi:"peerASN"`
 	// The peering type.
 	PeeringType pulumi.StringPtrInput `pulumi:"peeringType"`
 	// The primary port.
@@ -14117,8 +14117,8 @@ func (o ExpressRouteCircuitPeeringTypeOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The peer ASN.
-func (o ExpressRouteCircuitPeeringTypeOutput) PeerASN() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *int { return v.PeerASN }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitPeeringTypeOutput) PeerASN() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringType) *float64 { return v.PeerASN }).(pulumi.Float64PtrOutput)
 }
 
 // The peering type.
@@ -14675,7 +14675,7 @@ type ExpressRouteCircuitPeeringResponse struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The peering type.
 	PeeringType *string `pulumi:"peeringType"`
 	// The primary port.
@@ -14732,7 +14732,7 @@ type ExpressRouteCircuitPeeringResponseArgs struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The peer ASN.
-	PeerASN pulumi.IntPtrInput `pulumi:"peerASN"`
+	PeerASN pulumi.Float64PtrInput `pulumi:"peerASN"`
 	// The peering type.
 	PeeringType pulumi.StringPtrInput `pulumi:"peeringType"`
 	// The primary port.
@@ -14861,8 +14861,8 @@ func (o ExpressRouteCircuitPeeringResponseOutput) Name() pulumi.StringPtrOutput 
 }
 
 // The peer ASN.
-func (o ExpressRouteCircuitPeeringResponseOutput) PeerASN() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *int { return v.PeerASN }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitPeeringResponseOutput) PeerASN() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringResponse) *float64 { return v.PeerASN }).(pulumi.Float64PtrOutput)
 }
 
 // The peering type.
@@ -15635,13 +15635,13 @@ func (o ExpressRouteCircuitSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStats struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn *int `pulumi:"primarybytesIn"`
+	PrimarybytesIn *float64 `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut *int `pulumi:"primarybytesOut"`
+	PrimarybytesOut *float64 `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn *int `pulumi:"secondarybytesIn"`
+	SecondarybytesIn *float64 `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut *int `pulumi:"secondarybytesOut"`
+	SecondarybytesOut *float64 `pulumi:"secondarybytesOut"`
 }
 
 // ExpressRouteCircuitStatsInput is an input type that accepts ExpressRouteCircuitStatsArgs and ExpressRouteCircuitStatsOutput values.
@@ -15658,13 +15658,13 @@ type ExpressRouteCircuitStatsInput interface {
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStatsArgs struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn pulumi.IntPtrInput `pulumi:"primarybytesIn"`
+	PrimarybytesIn pulumi.Float64PtrInput `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut pulumi.IntPtrInput `pulumi:"primarybytesOut"`
+	PrimarybytesOut pulumi.Float64PtrInput `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn pulumi.IntPtrInput `pulumi:"secondarybytesIn"`
+	SecondarybytesIn pulumi.Float64PtrInput `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut pulumi.IntPtrInput `pulumi:"secondarybytesOut"`
+	SecondarybytesOut pulumi.Float64PtrInput `pulumi:"secondarybytesOut"`
 }
 
 func (ExpressRouteCircuitStatsArgs) ElementType() reflect.Type {
@@ -15746,23 +15746,23 @@ func (o ExpressRouteCircuitStatsOutput) ToExpressRouteCircuitStatsPtrOutputWithC
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.PrimarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.PrimarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.PrimarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.PrimarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.SecondarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.SecondarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.SecondarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.SecondarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 type ExpressRouteCircuitStatsPtrOutput struct{ *pulumi.OutputState }
@@ -15784,55 +15784,55 @@ func (o ExpressRouteCircuitStatsPtrOutput) Elem() ExpressRouteCircuitStatsOutput
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStatsResponse struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn *int `pulumi:"primarybytesIn"`
+	PrimarybytesIn *float64 `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut *int `pulumi:"primarybytesOut"`
+	PrimarybytesOut *float64 `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn *int `pulumi:"secondarybytesIn"`
+	SecondarybytesIn *float64 `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut *int `pulumi:"secondarybytesOut"`
+	SecondarybytesOut *float64 `pulumi:"secondarybytesOut"`
 }
 
 // ExpressRouteCircuitStatsResponseInput is an input type that accepts ExpressRouteCircuitStatsResponseArgs and ExpressRouteCircuitStatsResponseOutput values.
@@ -15849,13 +15849,13 @@ type ExpressRouteCircuitStatsResponseInput interface {
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStatsResponseArgs struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn pulumi.IntPtrInput `pulumi:"primarybytesIn"`
+	PrimarybytesIn pulumi.Float64PtrInput `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut pulumi.IntPtrInput `pulumi:"primarybytesOut"`
+	PrimarybytesOut pulumi.Float64PtrInput `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn pulumi.IntPtrInput `pulumi:"secondarybytesIn"`
+	SecondarybytesIn pulumi.Float64PtrInput `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut pulumi.IntPtrInput `pulumi:"secondarybytesOut"`
+	SecondarybytesOut pulumi.Float64PtrInput `pulumi:"secondarybytesOut"`
 }
 
 func (ExpressRouteCircuitStatsResponseArgs) ElementType() reflect.Type {
@@ -15937,23 +15937,23 @@ func (o ExpressRouteCircuitStatsResponseOutput) ToExpressRouteCircuitStatsRespon
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.PrimarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.PrimarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.PrimarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.PrimarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.SecondarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.SecondarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.SecondarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.SecondarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 type ExpressRouteCircuitStatsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -15975,43 +15975,43 @@ func (o ExpressRouteCircuitStatsResponsePtrOutput) Elem() ExpressRouteCircuitSta
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Frontend IP address of the load balancer.
@@ -20209,19 +20209,19 @@ type MonitorConfig struct {
 	// List of expected status code ranges.
 	ExpectedStatusCodeRanges []MonitorConfigExpectedStatusCodeRanges `pulumi:"expectedStatusCodeRanges"`
 	// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	IntervalInSeconds *float64 `pulumi:"intervalInSeconds"`
 	// The path relative to the endpoint domain name used to probe for endpoint health.
 	Path *string `pulumi:"path"`
 	// The TCP port used to probe for endpoint health.
-	Port *int `pulumi:"port"`
+	Port *float64 `pulumi:"port"`
 	// The profile-level monitoring status of the Traffic Manager profile.
 	ProfileMonitorStatus *string `pulumi:"profileMonitorStatus"`
 	// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
 	Protocol *string `pulumi:"protocol"`
 	// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	TimeoutInSeconds *float64 `pulumi:"timeoutInSeconds"`
 	// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-	ToleratedNumberOfFailures *int `pulumi:"toleratedNumberOfFailures"`
+	ToleratedNumberOfFailures *float64 `pulumi:"toleratedNumberOfFailures"`
 }
 
 // MonitorConfigInput is an input type that accepts MonitorConfigArgs and MonitorConfigOutput values.
@@ -20242,19 +20242,19 @@ type MonitorConfigArgs struct {
 	// List of expected status code ranges.
 	ExpectedStatusCodeRanges MonitorConfigExpectedStatusCodeRangesArrayInput `pulumi:"expectedStatusCodeRanges"`
 	// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	IntervalInSeconds pulumi.Float64PtrInput `pulumi:"intervalInSeconds"`
 	// The path relative to the endpoint domain name used to probe for endpoint health.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The TCP port used to probe for endpoint health.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port pulumi.Float64PtrInput `pulumi:"port"`
 	// The profile-level monitoring status of the Traffic Manager profile.
 	ProfileMonitorStatus pulumi.StringPtrInput `pulumi:"profileMonitorStatus"`
 	// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+	TimeoutInSeconds pulumi.Float64PtrInput `pulumi:"timeoutInSeconds"`
 	// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-	ToleratedNumberOfFailures pulumi.IntPtrInput `pulumi:"toleratedNumberOfFailures"`
+	ToleratedNumberOfFailures pulumi.Float64PtrInput `pulumi:"toleratedNumberOfFailures"`
 }
 
 func (MonitorConfigArgs) ElementType() reflect.Type {
@@ -20346,8 +20346,8 @@ func (o MonitorConfigOutput) ExpectedStatusCodeRanges() MonitorConfigExpectedSta
 }
 
 // The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-func (o MonitorConfigOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MonitorConfig) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+func (o MonitorConfigOutput) IntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfig) *float64 { return v.IntervalInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The path relative to the endpoint domain name used to probe for endpoint health.
@@ -20356,8 +20356,8 @@ func (o MonitorConfigOutput) Path() pulumi.StringPtrOutput {
 }
 
 // The TCP port used to probe for endpoint health.
-func (o MonitorConfigOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MonitorConfig) *int { return v.Port }).(pulumi.IntPtrOutput)
+func (o MonitorConfigOutput) Port() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfig) *float64 { return v.Port }).(pulumi.Float64PtrOutput)
 }
 
 // The profile-level monitoring status of the Traffic Manager profile.
@@ -20371,13 +20371,13 @@ func (o MonitorConfigOutput) Protocol() pulumi.StringPtrOutput {
 }
 
 // The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-func (o MonitorConfigOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MonitorConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+func (o MonitorConfigOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfig) *float64 { return v.TimeoutInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-func (o MonitorConfigOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
+func (o MonitorConfigOutput) ToleratedNumberOfFailures() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfig) *float64 { return v.ToleratedNumberOfFailures }).(pulumi.Float64PtrOutput)
 }
 
 type MonitorConfigPtrOutput struct{ *pulumi.OutputState }
@@ -20419,13 +20419,13 @@ func (o MonitorConfigPtrOutput) ExpectedStatusCodeRanges() MonitorConfigExpected
 }
 
 // The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-func (o MonitorConfigPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MonitorConfig) *int {
+func (o MonitorConfigPtrOutput) IntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitorConfig) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.IntervalInSeconds
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The path relative to the endpoint domain name used to probe for endpoint health.
@@ -20439,13 +20439,13 @@ func (o MonitorConfigPtrOutput) Path() pulumi.StringPtrOutput {
 }
 
 // The TCP port used to probe for endpoint health.
-func (o MonitorConfigPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MonitorConfig) *int {
+func (o MonitorConfigPtrOutput) Port() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitorConfig) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Port
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The profile-level monitoring status of the Traffic Manager profile.
@@ -20469,23 +20469,23 @@ func (o MonitorConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 }
 
 // The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-func (o MonitorConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MonitorConfig) *int {
+func (o MonitorConfigPtrOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitorConfig) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.TimeoutInSeconds
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-func (o MonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MonitorConfig) *int {
+func (o MonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitorConfig) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ToleratedNumberOfFailures
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Custom header name and value.
@@ -20713,19 +20713,19 @@ type MonitorConfigResponse struct {
 	// List of expected status code ranges.
 	ExpectedStatusCodeRanges []MonitorConfigResponseExpectedStatusCodeRanges `pulumi:"expectedStatusCodeRanges"`
 	// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	IntervalInSeconds *float64 `pulumi:"intervalInSeconds"`
 	// The path relative to the endpoint domain name used to probe for endpoint health.
 	Path *string `pulumi:"path"`
 	// The TCP port used to probe for endpoint health.
-	Port *int `pulumi:"port"`
+	Port *float64 `pulumi:"port"`
 	// The profile-level monitoring status of the Traffic Manager profile.
 	ProfileMonitorStatus *string `pulumi:"profileMonitorStatus"`
 	// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
 	Protocol *string `pulumi:"protocol"`
 	// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	TimeoutInSeconds *float64 `pulumi:"timeoutInSeconds"`
 	// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-	ToleratedNumberOfFailures *int `pulumi:"toleratedNumberOfFailures"`
+	ToleratedNumberOfFailures *float64 `pulumi:"toleratedNumberOfFailures"`
 }
 
 // MonitorConfigResponseInput is an input type that accepts MonitorConfigResponseArgs and MonitorConfigResponseOutput values.
@@ -20746,19 +20746,19 @@ type MonitorConfigResponseArgs struct {
 	// List of expected status code ranges.
 	ExpectedStatusCodeRanges MonitorConfigResponseExpectedStatusCodeRangesArrayInput `pulumi:"expectedStatusCodeRanges"`
 	// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	IntervalInSeconds pulumi.Float64PtrInput `pulumi:"intervalInSeconds"`
 	// The path relative to the endpoint domain name used to probe for endpoint health.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The TCP port used to probe for endpoint health.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port pulumi.Float64PtrInput `pulumi:"port"`
 	// The profile-level monitoring status of the Traffic Manager profile.
 	ProfileMonitorStatus pulumi.StringPtrInput `pulumi:"profileMonitorStatus"`
 	// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+	TimeoutInSeconds pulumi.Float64PtrInput `pulumi:"timeoutInSeconds"`
 	// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-	ToleratedNumberOfFailures pulumi.IntPtrInput `pulumi:"toleratedNumberOfFailures"`
+	ToleratedNumberOfFailures pulumi.Float64PtrInput `pulumi:"toleratedNumberOfFailures"`
 }
 
 func (MonitorConfigResponseArgs) ElementType() reflect.Type {
@@ -20852,8 +20852,8 @@ func (o MonitorConfigResponseOutput) ExpectedStatusCodeRanges() MonitorConfigRes
 }
 
 // The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-func (o MonitorConfigResponseOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MonitorConfigResponse) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+func (o MonitorConfigResponseOutput) IntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfigResponse) *float64 { return v.IntervalInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The path relative to the endpoint domain name used to probe for endpoint health.
@@ -20862,8 +20862,8 @@ func (o MonitorConfigResponseOutput) Path() pulumi.StringPtrOutput {
 }
 
 // The TCP port used to probe for endpoint health.
-func (o MonitorConfigResponseOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MonitorConfigResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
+func (o MonitorConfigResponseOutput) Port() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfigResponse) *float64 { return v.Port }).(pulumi.Float64PtrOutput)
 }
 
 // The profile-level monitoring status of the Traffic Manager profile.
@@ -20877,13 +20877,13 @@ func (o MonitorConfigResponseOutput) Protocol() pulumi.StringPtrOutput {
 }
 
 // The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-func (o MonitorConfigResponseOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MonitorConfigResponse) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+func (o MonitorConfigResponseOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfigResponse) *float64 { return v.TimeoutInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-func (o MonitorConfigResponseOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MonitorConfigResponse) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
+func (o MonitorConfigResponseOutput) ToleratedNumberOfFailures() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfigResponse) *float64 { return v.ToleratedNumberOfFailures }).(pulumi.Float64PtrOutput)
 }
 
 type MonitorConfigResponsePtrOutput struct{ *pulumi.OutputState }
@@ -20925,13 +20925,13 @@ func (o MonitorConfigResponsePtrOutput) ExpectedStatusCodeRanges() MonitorConfig
 }
 
 // The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-func (o MonitorConfigResponsePtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MonitorConfigResponse) *int {
+func (o MonitorConfigResponsePtrOutput) IntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitorConfigResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.IntervalInSeconds
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The path relative to the endpoint domain name used to probe for endpoint health.
@@ -20945,13 +20945,13 @@ func (o MonitorConfigResponsePtrOutput) Path() pulumi.StringPtrOutput {
 }
 
 // The TCP port used to probe for endpoint health.
-func (o MonitorConfigResponsePtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MonitorConfigResponse) *int {
+func (o MonitorConfigResponsePtrOutput) Port() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitorConfigResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Port
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The profile-level monitoring status of the Traffic Manager profile.
@@ -20975,23 +20975,23 @@ func (o MonitorConfigResponsePtrOutput) Protocol() pulumi.StringPtrOutput {
 }
 
 // The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-func (o MonitorConfigResponsePtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MonitorConfigResponse) *int {
+func (o MonitorConfigResponsePtrOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitorConfigResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.TimeoutInSeconds
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-func (o MonitorConfigResponsePtrOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MonitorConfigResponse) *int {
+func (o MonitorConfigResponsePtrOutput) ToleratedNumberOfFailures() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitorConfigResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ToleratedNumberOfFailures
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Custom header name and value.
@@ -29891,9 +29891,9 @@ type TunnelConnectionHealthResponse struct {
 	// Virtual network Gateway connection status
 	ConnectionStatus string `pulumi:"connectionStatus"`
 	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred float64 `pulumi:"egressBytesTransferred"`
 	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
 	// The time at which connection was established in Utc format.
 	LastConnectionEstablishedUtcTime string `pulumi:"lastConnectionEstablishedUtcTime"`
 	// Tunnel name.
@@ -29916,9 +29916,9 @@ type TunnelConnectionHealthResponseArgs struct {
 	// Virtual network Gateway connection status
 	ConnectionStatus pulumi.StringInput `pulumi:"connectionStatus"`
 	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred pulumi.IntInput `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred pulumi.Float64Input `pulumi:"egressBytesTransferred"`
 	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred pulumi.IntInput `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred pulumi.Float64Input `pulumi:"ingressBytesTransferred"`
 	// The time at which connection was established in Utc format.
 	LastConnectionEstablishedUtcTime pulumi.StringInput `pulumi:"lastConnectionEstablishedUtcTime"`
 	// Tunnel name.
@@ -29983,13 +29983,13 @@ func (o TunnelConnectionHealthResponseOutput) ConnectionStatus() pulumi.StringOu
 }
 
 // The Egress Bytes Transferred in this connection
-func (o TunnelConnectionHealthResponseOutput) EgressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v TunnelConnectionHealthResponse) int { return v.EgressBytesTransferred }).(pulumi.IntOutput)
+func (o TunnelConnectionHealthResponseOutput) EgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v TunnelConnectionHealthResponse) float64 { return v.EgressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The Ingress Bytes Transferred in this connection
-func (o TunnelConnectionHealthResponseOutput) IngressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v TunnelConnectionHealthResponse) int { return v.IngressBytesTransferred }).(pulumi.IntOutput)
+func (o TunnelConnectionHealthResponseOutput) IngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v TunnelConnectionHealthResponse) float64 { return v.IngressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The time at which connection was established in Utc format.
@@ -33053,7 +33053,7 @@ type VpnConnectionResponse struct {
 	// The connection status.
 	ConnectionStatus string `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
-	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
@@ -33061,7 +33061,7 @@ type VpnConnectionResponse struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Ingress bytes transferred.
-	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -33094,7 +33094,7 @@ type VpnConnectionResponseArgs struct {
 	// The connection status.
 	ConnectionStatus pulumi.StringInput `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
-	EgressBytesTransferred pulumi.IntInput `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred pulumi.Float64Input `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag
 	EnableBgp pulumi.BoolPtrInput `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
@@ -33102,7 +33102,7 @@ type VpnConnectionResponseArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Ingress bytes transferred.
-	IngressBytesTransferred pulumi.IntInput `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred pulumi.Float64Input `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyResponseArrayInput `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -33180,8 +33180,8 @@ func (o VpnConnectionResponseOutput) ConnectionStatus() pulumi.StringOutput {
 }
 
 // Egress bytes transferred.
-func (o VpnConnectionResponseOutput) EgressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnConnectionResponse) int { return v.EgressBytesTransferred }).(pulumi.IntOutput)
+func (o VpnConnectionResponseOutput) EgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnConnectionResponse) float64 { return v.EgressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // EnableBgp flag
@@ -33200,8 +33200,8 @@ func (o VpnConnectionResponseOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Ingress bytes transferred.
-func (o VpnConnectionResponseOutput) IngressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnConnectionResponse) int { return v.IngressBytesTransferred }).(pulumi.IntOutput)
+func (o VpnConnectionResponseOutput) IngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnConnectionResponse) float64 { return v.IngressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The IPSec Policies to be considered by this connection.

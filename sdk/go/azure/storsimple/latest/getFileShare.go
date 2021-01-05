@@ -40,17 +40,17 @@ type LookupFileShareResult struct {
 	// The identifier.
 	Id string `pulumi:"id"`
 	// The local used capacity in Bytes.
-	LocalUsedCapacityInBytes int `pulumi:"localUsedCapacityInBytes"`
+	LocalUsedCapacityInBytes float64 `pulumi:"localUsedCapacityInBytes"`
 	// The monitoring status
 	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The name.
 	Name string `pulumi:"name"`
 	// The total provisioned capacity in Bytes
-	ProvisionedCapacityInBytes int `pulumi:"provisionedCapacityInBytes"`
+	ProvisionedCapacityInBytes float64 `pulumi:"provisionedCapacityInBytes"`
 	// The Share Status
 	ShareStatus string `pulumi:"shareStatus"`
 	// The type.
 	Type string `pulumi:"type"`
 	// The used capacity in Bytes.
-	UsedCapacityInBytes int `pulumi:"usedCapacityInBytes"`
+	UsedCapacityInBytes float64 `pulumi:"usedCapacityInBytes"`
 }

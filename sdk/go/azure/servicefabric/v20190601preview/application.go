@@ -24,11 +24,11 @@ type Application struct {
 	// List of user assigned identities for the application, each mapped to a friendly name.
 	ManagedIdentities ApplicationUserAssignedIdentityResponseArrayOutput `pulumi:"managedIdentities"`
 	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-	MaximumNodes pulumi.IntPtrOutput `pulumi:"maximumNodes"`
+	MaximumNodes pulumi.Float64PtrOutput `pulumi:"maximumNodes"`
 	// List of application capacity metric description.
 	Metrics ApplicationMetricDescriptionResponseArrayOutput `pulumi:"metrics"`
 	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-	MinimumNodes pulumi.IntPtrOutput `pulumi:"minimumNodes"`
+	MinimumNodes pulumi.Float64PtrOutput `pulumi:"minimumNodes"`
 	// Azure resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of application parameters with overridden values from their default values specified in the application manifest.
@@ -117,11 +117,11 @@ type applicationState struct {
 	// List of user assigned identities for the application, each mapped to a friendly name.
 	ManagedIdentities []ApplicationUserAssignedIdentityResponse `pulumi:"managedIdentities"`
 	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-	MaximumNodes *int `pulumi:"maximumNodes"`
+	MaximumNodes *float64 `pulumi:"maximumNodes"`
 	// List of application capacity metric description.
 	Metrics []ApplicationMetricDescriptionResponse `pulumi:"metrics"`
 	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-	MinimumNodes *int `pulumi:"minimumNodes"`
+	MinimumNodes *float64 `pulumi:"minimumNodes"`
 	// Azure resource name.
 	Name *string `pulumi:"name"`
 	// List of application parameters with overridden values from their default values specified in the application manifest.
@@ -152,11 +152,11 @@ type ApplicationState struct {
 	// List of user assigned identities for the application, each mapped to a friendly name.
 	ManagedIdentities ApplicationUserAssignedIdentityResponseArrayInput
 	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-	MaximumNodes pulumi.IntPtrInput
+	MaximumNodes pulumi.Float64PtrInput
 	// List of application capacity metric description.
 	Metrics ApplicationMetricDescriptionResponseArrayInput
 	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-	MinimumNodes pulumi.IntPtrInput
+	MinimumNodes pulumi.Float64PtrInput
 	// Azure resource name.
 	Name pulumi.StringPtrInput
 	// List of application parameters with overridden values from their default values specified in the application manifest.
@@ -193,11 +193,11 @@ type applicationArgs struct {
 	// List of user assigned identities for the application, each mapped to a friendly name.
 	ManagedIdentities []ApplicationUserAssignedIdentity `pulumi:"managedIdentities"`
 	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-	MaximumNodes *int `pulumi:"maximumNodes"`
+	MaximumNodes *float64 `pulumi:"maximumNodes"`
 	// List of application capacity metric description.
 	Metrics []ApplicationMetricDescription `pulumi:"metrics"`
 	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-	MinimumNodes *int `pulumi:"minimumNodes"`
+	MinimumNodes *float64 `pulumi:"minimumNodes"`
 	// List of application parameters with overridden values from their default values specified in the application manifest.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Remove the current application capacity settings.
@@ -227,11 +227,11 @@ type ApplicationArgs struct {
 	// List of user assigned identities for the application, each mapped to a friendly name.
 	ManagedIdentities ApplicationUserAssignedIdentityArrayInput
 	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-	MaximumNodes pulumi.IntPtrInput
+	MaximumNodes pulumi.Float64PtrInput
 	// List of application capacity metric description.
 	Metrics ApplicationMetricDescriptionArrayInput
 	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-	MinimumNodes pulumi.IntPtrInput
+	MinimumNodes pulumi.Float64PtrInput
 	// List of application parameters with overridden values from their default values specified in the application manifest.
 	Parameters pulumi.StringMapInput
 	// Remove the current application capacity settings.

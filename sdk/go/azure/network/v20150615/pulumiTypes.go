@@ -4651,7 +4651,7 @@ func (o BackendAddressPoolResponseArrayOutput) Index(i pulumi.IntInput) BackendA
 
 type BgpSettings struct {
 	// Gets or sets this BGP speaker's ASN
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// Gets or sets the BGP peering address and BGP identifier of this BGP speaker
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 	// Gets or sets the weight added to routes learned from this BGP speaker
@@ -4671,7 +4671,7 @@ type BgpSettingsInput interface {
 
 type BgpSettingsArgs struct {
 	// Gets or sets this BGP speaker's ASN
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// Gets or sets the BGP peering address and BGP identifier of this BGP speaker
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 	// Gets or sets the weight added to routes learned from this BGP speaker
@@ -4756,8 +4756,8 @@ func (o BgpSettingsOutput) ToBgpSettingsPtrOutputWithContext(ctx context.Context
 }
 
 // Gets or sets this BGP speaker's ASN
-func (o BgpSettingsOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BgpSettings) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o BgpSettingsOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BgpSettings) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the BGP peering address and BGP identifier of this BGP speaker
@@ -4789,13 +4789,13 @@ func (o BgpSettingsPtrOutput) Elem() BgpSettingsOutput {
 }
 
 // Gets or sets this BGP speaker's ASN
-func (o BgpSettingsPtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BgpSettings) *int {
+func (o BgpSettingsPtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BgpSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the BGP peering address and BGP identifier of this BGP speaker
@@ -4820,7 +4820,7 @@ func (o BgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutput {
 
 type BgpSettingsResponse struct {
 	// Gets or sets this BGP speaker's ASN
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// Gets or sets the BGP peering address and BGP identifier of this BGP speaker
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 	// Gets or sets the weight added to routes learned from this BGP speaker
@@ -4840,7 +4840,7 @@ type BgpSettingsResponseInput interface {
 
 type BgpSettingsResponseArgs struct {
 	// Gets or sets this BGP speaker's ASN
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// Gets or sets the BGP peering address and BGP identifier of this BGP speaker
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 	// Gets or sets the weight added to routes learned from this BGP speaker
@@ -4925,8 +4925,8 @@ func (o BgpSettingsResponseOutput) ToBgpSettingsResponsePtrOutputWithContext(ctx
 }
 
 // Gets or sets this BGP speaker's ASN
-func (o BgpSettingsResponseOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BgpSettingsResponse) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o BgpSettingsResponseOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BgpSettingsResponse) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the BGP peering address and BGP identifier of this BGP speaker
@@ -4958,13 +4958,13 @@ func (o BgpSettingsResponsePtrOutput) Elem() BgpSettingsResponseOutput {
 }
 
 // Gets or sets this BGP speaker's ASN
-func (o BgpSettingsResponsePtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BgpSettingsResponse) *int {
+func (o BgpSettingsResponsePtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BgpSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the BGP peering address and BGP identifier of this BGP speaker

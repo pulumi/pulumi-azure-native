@@ -8317,7 +8317,7 @@ func (o SwaggerSpecificationResponseArrayOutput) Index(i pulumi.IntInput) Swagge
 
 type ThrottlingMetricResponse struct {
 	Interval *string `pulumi:"interval"`
-	Limit    int     `pulumi:"limit"`
+	Limit    float64 `pulumi:"limit"`
 	Type     string  `pulumi:"type"`
 }
 
@@ -8334,7 +8334,7 @@ type ThrottlingMetricResponseInput interface {
 
 type ThrottlingMetricResponseArgs struct {
 	Interval pulumi.StringPtrInput `pulumi:"interval"`
-	Limit    pulumi.IntInput       `pulumi:"limit"`
+	Limit    pulumi.Float64Input   `pulumi:"limit"`
 	Type     pulumi.StringInput    `pulumi:"type"`
 }
 
@@ -8393,8 +8393,8 @@ func (o ThrottlingMetricResponseOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThrottlingMetricResponse) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
-func (o ThrottlingMetricResponseOutput) Limit() pulumi.IntOutput {
-	return o.ApplyT(func(v ThrottlingMetricResponse) int { return v.Limit }).(pulumi.IntOutput)
+func (o ThrottlingMetricResponseOutput) Limit() pulumi.Float64Output {
+	return o.ApplyT(func(v ThrottlingMetricResponse) float64 { return v.Limit }).(pulumi.Float64Output)
 }
 
 func (o ThrottlingMetricResponseOutput) Type() pulumi.StringOutput {

@@ -28,7 +28,7 @@ type BackupPolicy struct {
 	// Indicates whether at least one of the schedules in the backup policy is active or not.
 	ScheduledBackupStatus pulumi.StringOutput `pulumi:"scheduledBackupStatus"`
 	// The count of schedules the backup policy contains.
-	SchedulesCount pulumi.IntOutput `pulumi:"schedulesCount"`
+	SchedulesCount pulumi.Float64Output `pulumi:"schedulesCount"`
 	// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
 	SsmHostName pulumi.StringOutput `pulumi:"ssmHostName"`
 	// The hierarchical type of the object.
@@ -100,7 +100,7 @@ type backupPolicyState struct {
 	// Indicates whether at least one of the schedules in the backup policy is active or not.
 	ScheduledBackupStatus *string `pulumi:"scheduledBackupStatus"`
 	// The count of schedules the backup policy contains.
-	SchedulesCount *int `pulumi:"schedulesCount"`
+	SchedulesCount *float64 `pulumi:"schedulesCount"`
 	// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
 	SsmHostName *string `pulumi:"ssmHostName"`
 	// The hierarchical type of the object.
@@ -123,7 +123,7 @@ type BackupPolicyState struct {
 	// Indicates whether at least one of the schedules in the backup policy is active or not.
 	ScheduledBackupStatus pulumi.StringPtrInput
 	// The count of schedules the backup policy contains.
-	SchedulesCount pulumi.IntPtrInput
+	SchedulesCount pulumi.Float64PtrInput
 	// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
 	SsmHostName pulumi.StringPtrInput
 	// The hierarchical type of the object.

@@ -23,19 +23,19 @@ type PrivateZone struct {
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets pulumi.IntOutput `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordSets pulumi.Float64Output `pulumi:"maxNumberOfRecordSets"`
 	// The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinks pulumi.IntOutput `pulumi:"maxNumberOfVirtualNetworkLinks"`
+	MaxNumberOfVirtualNetworkLinks pulumi.Float64Output `pulumi:"maxNumberOfVirtualNetworkLinks"`
 	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.IntOutput `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
+	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.Float64Output `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets pulumi.IntOutput `pulumi:"numberOfRecordSets"`
+	NumberOfRecordSets pulumi.Float64Output `pulumi:"numberOfRecordSets"`
 	// The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinks pulumi.IntOutput `pulumi:"numberOfVirtualNetworkLinks"`
+	NumberOfVirtualNetworkLinks pulumi.Float64Output `pulumi:"numberOfVirtualNetworkLinks"`
 	// The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinksWithRegistration pulumi.IntOutput `pulumi:"numberOfVirtualNetworkLinksWithRegistration"`
+	NumberOfVirtualNetworkLinksWithRegistration pulumi.Float64Output `pulumi:"numberOfVirtualNetworkLinksWithRegistration"`
 	// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
@@ -98,19 +98,19 @@ type privateZoneState struct {
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordSets *float64 `pulumi:"maxNumberOfRecordSets"`
 	// The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinks *int `pulumi:"maxNumberOfVirtualNetworkLinks"`
+	MaxNumberOfVirtualNetworkLinks *float64 `pulumi:"maxNumberOfVirtualNetworkLinks"`
 	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinksWithRegistration *int `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
+	MaxNumberOfVirtualNetworkLinksWithRegistration *float64 `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
+	NumberOfRecordSets *float64 `pulumi:"numberOfRecordSets"`
 	// The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinks *int `pulumi:"numberOfVirtualNetworkLinks"`
+	NumberOfVirtualNetworkLinks *float64 `pulumi:"numberOfVirtualNetworkLinks"`
 	// The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinksWithRegistration *int `pulumi:"numberOfVirtualNetworkLinksWithRegistration"`
+	NumberOfVirtualNetworkLinksWithRegistration *float64 `pulumi:"numberOfVirtualNetworkLinksWithRegistration"`
 	// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
@@ -127,19 +127,19 @@ type PrivateZoneState struct {
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets pulumi.IntPtrInput
+	MaxNumberOfRecordSets pulumi.Float64PtrInput
 	// The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinks pulumi.IntPtrInput
+	MaxNumberOfVirtualNetworkLinks pulumi.Float64PtrInput
 	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.IntPtrInput
+	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.Float64PtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets pulumi.IntPtrInput
+	NumberOfRecordSets pulumi.Float64PtrInput
 	// The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinks pulumi.IntPtrInput
+	NumberOfVirtualNetworkLinks pulumi.Float64PtrInput
 	// The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinksWithRegistration pulumi.IntPtrInput
+	NumberOfVirtualNetworkLinksWithRegistration pulumi.Float64PtrInput
 	// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
 	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.

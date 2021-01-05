@@ -42,7 +42,7 @@ type LookupPoolResult struct {
 	// The service level of the file system
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size int `pulumi:"size"`
+	Size float64 `pulumi:"size"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Total throughput of pool in Mibps

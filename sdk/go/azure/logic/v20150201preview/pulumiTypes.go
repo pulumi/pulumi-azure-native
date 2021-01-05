@@ -314,7 +314,7 @@ type ContentLink struct {
 	// Gets or sets the content hash.
 	ContentHash *ContentHash `pulumi:"contentHash"`
 	// Gets or sets the content size.
-	ContentSize *int `pulumi:"contentSize"`
+	ContentSize *float64 `pulumi:"contentSize"`
 	// Gets or sets the content version.
 	ContentVersion *string `pulumi:"contentVersion"`
 	// Gets or sets the metadata.
@@ -338,7 +338,7 @@ type ContentLinkArgs struct {
 	// Gets or sets the content hash.
 	ContentHash ContentHashPtrInput `pulumi:"contentHash"`
 	// Gets or sets the content size.
-	ContentSize pulumi.IntPtrInput `pulumi:"contentSize"`
+	ContentSize pulumi.Float64PtrInput `pulumi:"contentSize"`
 	// Gets or sets the content version.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// Gets or sets the metadata.
@@ -430,8 +430,8 @@ func (o ContentLinkOutput) ContentHash() ContentHashPtrOutput {
 }
 
 // Gets or sets the content size.
-func (o ContentLinkOutput) ContentSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContentLink) *int { return v.ContentSize }).(pulumi.IntPtrOutput)
+func (o ContentLinkOutput) ContentSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ContentLink) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the content version.
@@ -478,13 +478,13 @@ func (o ContentLinkPtrOutput) ContentHash() ContentHashPtrOutput {
 }
 
 // Gets or sets the content size.
-func (o ContentLinkPtrOutput) ContentSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContentLink) *int {
+func (o ContentLinkPtrOutput) ContentSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContentLink) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ContentSize
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the content version.
@@ -521,7 +521,7 @@ type ContentLinkResponse struct {
 	// Gets or sets the content hash.
 	ContentHash *ContentHashResponse `pulumi:"contentHash"`
 	// Gets or sets the content size.
-	ContentSize *int `pulumi:"contentSize"`
+	ContentSize *float64 `pulumi:"contentSize"`
 	// Gets or sets the content version.
 	ContentVersion *string `pulumi:"contentVersion"`
 	// Gets or sets the metadata.
@@ -545,7 +545,7 @@ type ContentLinkResponseArgs struct {
 	// Gets or sets the content hash.
 	ContentHash ContentHashResponsePtrInput `pulumi:"contentHash"`
 	// Gets or sets the content size.
-	ContentSize pulumi.IntPtrInput `pulumi:"contentSize"`
+	ContentSize pulumi.Float64PtrInput `pulumi:"contentSize"`
 	// Gets or sets the content version.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// Gets or sets the metadata.
@@ -637,8 +637,8 @@ func (o ContentLinkResponseOutput) ContentHash() ContentHashResponsePtrOutput {
 }
 
 // Gets or sets the content size.
-func (o ContentLinkResponseOutput) ContentSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *int { return v.ContentSize }).(pulumi.IntPtrOutput)
+func (o ContentLinkResponseOutput) ContentSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ContentLinkResponse) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the content version.
@@ -685,13 +685,13 @@ func (o ContentLinkResponsePtrOutput) ContentHash() ContentHashResponsePtrOutput
 }
 
 // Gets or sets the content size.
-func (o ContentLinkResponsePtrOutput) ContentSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContentLinkResponse) *int {
+func (o ContentLinkResponsePtrOutput) ContentSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContentLinkResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ContentSize
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the content version.

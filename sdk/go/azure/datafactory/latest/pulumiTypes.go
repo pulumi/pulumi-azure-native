@@ -71040,7 +71040,7 @@ type SsisEnvironmentReferenceResponse struct {
 	// Environment name.
 	EnvironmentName *string `pulumi:"environmentName"`
 	// Environment reference id.
-	Id *int `pulumi:"id"`
+	Id *float64 `pulumi:"id"`
 	// Reference type
 	ReferenceType *string `pulumi:"referenceType"`
 }
@@ -71063,7 +71063,7 @@ type SsisEnvironmentReferenceResponseArgs struct {
 	// Environment name.
 	EnvironmentName pulumi.StringPtrInput `pulumi:"environmentName"`
 	// Environment reference id.
-	Id pulumi.IntPtrInput `pulumi:"id"`
+	Id pulumi.Float64PtrInput `pulumi:"id"`
 	// Reference type
 	ReferenceType pulumi.StringPtrInput `pulumi:"referenceType"`
 }
@@ -71131,8 +71131,8 @@ func (o SsisEnvironmentReferenceResponseOutput) EnvironmentName() pulumi.StringP
 }
 
 // Environment reference id.
-func (o SsisEnvironmentReferenceResponseOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisEnvironmentReferenceResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+func (o SsisEnvironmentReferenceResponseOutput) Id() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisEnvironmentReferenceResponse) *float64 { return v.Id }).(pulumi.Float64PtrOutput)
 }
 
 // Reference type
@@ -71165,9 +71165,9 @@ type SsisEnvironmentResponse struct {
 	// Metadata description.
 	Description *string `pulumi:"description"`
 	// Folder id which contains environment.
-	FolderId *int `pulumi:"folderId"`
+	FolderId *float64 `pulumi:"folderId"`
 	// Metadata id.
-	Id *int `pulumi:"id"`
+	Id *float64 `pulumi:"id"`
 	// Metadata name.
 	Name *string `pulumi:"name"`
 	// Type of metadata.
@@ -71193,9 +71193,9 @@ type SsisEnvironmentResponseArgs struct {
 	// Metadata description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Folder id which contains environment.
-	FolderId pulumi.IntPtrInput `pulumi:"folderId"`
+	FolderId pulumi.Float64PtrInput `pulumi:"folderId"`
 	// Metadata id.
-	Id pulumi.IntPtrInput `pulumi:"id"`
+	Id pulumi.Float64PtrInput `pulumi:"id"`
 	// Metadata name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of metadata.
@@ -71238,13 +71238,13 @@ func (o SsisEnvironmentResponseOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Folder id which contains environment.
-func (o SsisEnvironmentResponseOutput) FolderId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisEnvironmentResponse) *int { return v.FolderId }).(pulumi.IntPtrOutput)
+func (o SsisEnvironmentResponseOutput) FolderId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisEnvironmentResponse) *float64 { return v.FolderId }).(pulumi.Float64PtrOutput)
 }
 
 // Metadata id.
-func (o SsisEnvironmentResponseOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisEnvironmentResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+func (o SsisEnvironmentResponseOutput) Id() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisEnvironmentResponse) *float64 { return v.Id }).(pulumi.Float64PtrOutput)
 }
 
 // Metadata name.
@@ -71268,7 +71268,7 @@ type SsisFolderResponse struct {
 	// Metadata description.
 	Description *string `pulumi:"description"`
 	// Metadata id.
-	Id *int `pulumi:"id"`
+	Id *float64 `pulumi:"id"`
 	// Metadata name.
 	Name *string `pulumi:"name"`
 	// Type of metadata.
@@ -71292,7 +71292,7 @@ type SsisFolderResponseArgs struct {
 	// Metadata description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Metadata id.
-	Id pulumi.IntPtrInput `pulumi:"id"`
+	Id pulumi.Float64PtrInput `pulumi:"id"`
 	// Metadata name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of metadata.
@@ -71333,8 +71333,8 @@ func (o SsisFolderResponseOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Metadata id.
-func (o SsisFolderResponseOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisFolderResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+func (o SsisFolderResponseOutput) Id() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisFolderResponse) *float64 { return v.Id }).(pulumi.Float64PtrOutput)
 }
 
 // Metadata name.
@@ -71353,17 +71353,17 @@ type SsisPackageResponse struct {
 	// Metadata description.
 	Description *string `pulumi:"description"`
 	// Folder id which contains package.
-	FolderId *int `pulumi:"folderId"`
+	FolderId *float64 `pulumi:"folderId"`
 	// Metadata id.
-	Id *int `pulumi:"id"`
+	Id *float64 `pulumi:"id"`
 	// Metadata name.
 	Name *string `pulumi:"name"`
 	// Parameters in package
 	Parameters []SsisParameterResponse `pulumi:"parameters"`
 	// Project id which contains package.
-	ProjectId *int `pulumi:"projectId"`
+	ProjectId *float64 `pulumi:"projectId"`
 	// Project version which contains package.
-	ProjectVersion *int `pulumi:"projectVersion"`
+	ProjectVersion *float64 `pulumi:"projectVersion"`
 	// Type of metadata.
 	// Expected value is 'Package'.
 	Type string `pulumi:"type"`
@@ -71385,17 +71385,17 @@ type SsisPackageResponseArgs struct {
 	// Metadata description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Folder id which contains package.
-	FolderId pulumi.IntPtrInput `pulumi:"folderId"`
+	FolderId pulumi.Float64PtrInput `pulumi:"folderId"`
 	// Metadata id.
-	Id pulumi.IntPtrInput `pulumi:"id"`
+	Id pulumi.Float64PtrInput `pulumi:"id"`
 	// Metadata name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Parameters in package
 	Parameters SsisParameterResponseArrayInput `pulumi:"parameters"`
 	// Project id which contains package.
-	ProjectId pulumi.IntPtrInput `pulumi:"projectId"`
+	ProjectId pulumi.Float64PtrInput `pulumi:"projectId"`
 	// Project version which contains package.
-	ProjectVersion pulumi.IntPtrInput `pulumi:"projectVersion"`
+	ProjectVersion pulumi.Float64PtrInput `pulumi:"projectVersion"`
 	// Type of metadata.
 	// Expected value is 'Package'.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -71434,13 +71434,13 @@ func (o SsisPackageResponseOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Folder id which contains package.
-func (o SsisPackageResponseOutput) FolderId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisPackageResponse) *int { return v.FolderId }).(pulumi.IntPtrOutput)
+func (o SsisPackageResponseOutput) FolderId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisPackageResponse) *float64 { return v.FolderId }).(pulumi.Float64PtrOutput)
 }
 
 // Metadata id.
-func (o SsisPackageResponseOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisPackageResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+func (o SsisPackageResponseOutput) Id() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisPackageResponse) *float64 { return v.Id }).(pulumi.Float64PtrOutput)
 }
 
 // Metadata name.
@@ -71454,13 +71454,13 @@ func (o SsisPackageResponseOutput) Parameters() SsisParameterResponseArrayOutput
 }
 
 // Project id which contains package.
-func (o SsisPackageResponseOutput) ProjectId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisPackageResponse) *int { return v.ProjectId }).(pulumi.IntPtrOutput)
+func (o SsisPackageResponseOutput) ProjectId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisPackageResponse) *float64 { return v.ProjectId }).(pulumi.Float64PtrOutput)
 }
 
 // Project version which contains package.
-func (o SsisPackageResponseOutput) ProjectVersion() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisPackageResponse) *int { return v.ProjectVersion }).(pulumi.IntPtrOutput)
+func (o SsisPackageResponseOutput) ProjectVersion() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisPackageResponse) *float64 { return v.ProjectVersion }).(pulumi.Float64PtrOutput)
 }
 
 // Type of metadata.
@@ -71480,7 +71480,7 @@ type SsisParameterResponse struct {
 	// Design default value of parameter.
 	DesignDefaultValue *string `pulumi:"designDefaultValue"`
 	// Parameter id.
-	Id *int `pulumi:"id"`
+	Id *float64 `pulumi:"id"`
 	// Parameter name.
 	Name *string `pulumi:"name"`
 	// Whether parameter is required.
@@ -71519,7 +71519,7 @@ type SsisParameterResponseArgs struct {
 	// Design default value of parameter.
 	DesignDefaultValue pulumi.StringPtrInput `pulumi:"designDefaultValue"`
 	// Parameter id.
-	Id pulumi.IntPtrInput `pulumi:"id"`
+	Id pulumi.Float64PtrInput `pulumi:"id"`
 	// Parameter name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Whether parameter is required.
@@ -71609,8 +71609,8 @@ func (o SsisParameterResponseOutput) DesignDefaultValue() pulumi.StringPtrOutput
 }
 
 // Parameter id.
-func (o SsisParameterResponseOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisParameterResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+func (o SsisParameterResponseOutput) Id() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *float64 { return v.Id }).(pulumi.Float64PtrOutput)
 }
 
 // Parameter name.
@@ -71675,9 +71675,9 @@ type SsisProjectResponse struct {
 	// Environment reference in project
 	EnvironmentRefs []SsisEnvironmentReferenceResponse `pulumi:"environmentRefs"`
 	// Folder id which contains project.
-	FolderId *int `pulumi:"folderId"`
+	FolderId *float64 `pulumi:"folderId"`
 	// Metadata id.
-	Id *int `pulumi:"id"`
+	Id *float64 `pulumi:"id"`
 	// Metadata name.
 	Name *string `pulumi:"name"`
 	// Parameters in project
@@ -71686,7 +71686,7 @@ type SsisProjectResponse struct {
 	// Expected value is 'Project'.
 	Type string `pulumi:"type"`
 	// Project version.
-	Version *int `pulumi:"version"`
+	Version *float64 `pulumi:"version"`
 }
 
 // SsisProjectResponseInput is an input type that accepts SsisProjectResponseArgs and SsisProjectResponseOutput values.
@@ -71707,9 +71707,9 @@ type SsisProjectResponseArgs struct {
 	// Environment reference in project
 	EnvironmentRefs SsisEnvironmentReferenceResponseArrayInput `pulumi:"environmentRefs"`
 	// Folder id which contains project.
-	FolderId pulumi.IntPtrInput `pulumi:"folderId"`
+	FolderId pulumi.Float64PtrInput `pulumi:"folderId"`
 	// Metadata id.
-	Id pulumi.IntPtrInput `pulumi:"id"`
+	Id pulumi.Float64PtrInput `pulumi:"id"`
 	// Metadata name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Parameters in project
@@ -71718,7 +71718,7 @@ type SsisProjectResponseArgs struct {
 	// Expected value is 'Project'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Project version.
-	Version pulumi.IntPtrInput `pulumi:"version"`
+	Version pulumi.Float64PtrInput `pulumi:"version"`
 }
 
 func (SsisProjectResponseArgs) ElementType() reflect.Type {
@@ -71759,13 +71759,13 @@ func (o SsisProjectResponseOutput) EnvironmentRefs() SsisEnvironmentReferenceRes
 }
 
 // Folder id which contains project.
-func (o SsisProjectResponseOutput) FolderId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisProjectResponse) *int { return v.FolderId }).(pulumi.IntPtrOutput)
+func (o SsisProjectResponseOutput) FolderId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisProjectResponse) *float64 { return v.FolderId }).(pulumi.Float64PtrOutput)
 }
 
 // Metadata id.
-func (o SsisProjectResponseOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisProjectResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+func (o SsisProjectResponseOutput) Id() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisProjectResponse) *float64 { return v.Id }).(pulumi.Float64PtrOutput)
 }
 
 // Metadata name.
@@ -71785,8 +71785,8 @@ func (o SsisProjectResponseOutput) Type() pulumi.StringOutput {
 }
 
 // Project version.
-func (o SsisProjectResponseOutput) Version() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisProjectResponse) *int { return v.Version }).(pulumi.IntPtrOutput)
+func (o SsisProjectResponseOutput) Version() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisProjectResponse) *float64 { return v.Version }).(pulumi.Float64PtrOutput)
 }
 
 // Ssis variable.
@@ -71796,7 +71796,7 @@ type SsisVariableResponse struct {
 	// Variable description.
 	Description *string `pulumi:"description"`
 	// Variable id.
-	Id *int `pulumi:"id"`
+	Id *float64 `pulumi:"id"`
 	// Variable name.
 	Name *string `pulumi:"name"`
 	// Whether variable is sensitive.
@@ -71825,7 +71825,7 @@ type SsisVariableResponseArgs struct {
 	// Variable description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Variable id.
-	Id pulumi.IntPtrInput `pulumi:"id"`
+	Id pulumi.Float64PtrInput `pulumi:"id"`
 	// Variable name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Whether variable is sensitive.
@@ -71899,8 +71899,8 @@ func (o SsisVariableResponseOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Variable id.
-func (o SsisVariableResponseOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SsisVariableResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+func (o SsisVariableResponseOutput) Id() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SsisVariableResponse) *float64 { return v.Id }).(pulumi.Float64PtrOutput)
 }
 
 // Variable name.

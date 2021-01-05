@@ -57,13 +57,13 @@ type LookupTopicResult struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
-	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
+	MaxSizeInMegabytes *float64 `pulumi:"maxSizeInMegabytes"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Value indicating if this topic requires duplicate detection.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// Size of the topic, in bytes.
-	SizeInBytes int `pulumi:"sizeInBytes"`
+	SizeInBytes float64 `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status *string `pulumi:"status"`
 	// Number of subscriptions.

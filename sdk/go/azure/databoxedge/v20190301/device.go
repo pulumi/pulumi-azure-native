@@ -26,7 +26,7 @@ type Device struct {
 	// The device software version number of the device (eg: 1.2.18105.6).
 	DeviceHcsVersion pulumi.StringOutput `pulumi:"deviceHcsVersion"`
 	// The Data Box Edge/Gateway device local capacity in MB.
-	DeviceLocalCapacity pulumi.IntOutput `pulumi:"deviceLocalCapacity"`
+	DeviceLocalCapacity pulumi.Float64Output `pulumi:"deviceLocalCapacity"`
 	// The Data Box Edge/Gateway device model.
 	DeviceModel pulumi.StringOutput `pulumi:"deviceModel"`
 	// The Data Box Edge/Gateway device software version.
@@ -119,7 +119,7 @@ type deviceState struct {
 	// The device software version number of the device (eg: 1.2.18105.6).
 	DeviceHcsVersion *string `pulumi:"deviceHcsVersion"`
 	// The Data Box Edge/Gateway device local capacity in MB.
-	DeviceLocalCapacity *int `pulumi:"deviceLocalCapacity"`
+	DeviceLocalCapacity *float64 `pulumi:"deviceLocalCapacity"`
 	// The Data Box Edge/Gateway device model.
 	DeviceModel *string `pulumi:"deviceModel"`
 	// The Data Box Edge/Gateway device software version.
@@ -160,7 +160,7 @@ type DeviceState struct {
 	// The device software version number of the device (eg: 1.2.18105.6).
 	DeviceHcsVersion pulumi.StringPtrInput
 	// The Data Box Edge/Gateway device local capacity in MB.
-	DeviceLocalCapacity pulumi.IntPtrInput
+	DeviceLocalCapacity pulumi.Float64PtrInput
 	// The Data Box Edge/Gateway device model.
 	DeviceModel pulumi.StringPtrInput
 	// The Data Box Edge/Gateway device software version.

@@ -38,7 +38,7 @@ type LookupWorkloadNetworkDhcpResult struct {
 	// The provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// NSX Segments consuming DHCP.
 	Segments []string `pulumi:"segments"`
 	// Resource type.

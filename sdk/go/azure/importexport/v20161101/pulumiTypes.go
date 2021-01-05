@@ -124,7 +124,7 @@ type DriveStatus struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey *string `pulumi:"bitLockerKey"`
 	// Bytes successfully transferred for the drive.
-	BytesSucceeded *int `pulumi:"bytesSucceeded"`
+	BytesSucceeded *float64 `pulumi:"bytesSucceeded"`
 	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
 	CopyStatus *string `pulumi:"copyStatus"`
 	// The drive header hash value.
@@ -163,7 +163,7 @@ type DriveStatusArgs struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey pulumi.StringPtrInput `pulumi:"bitLockerKey"`
 	// Bytes successfully transferred for the drive.
-	BytesSucceeded pulumi.IntPtrInput `pulumi:"bytesSucceeded"`
+	BytesSucceeded pulumi.Float64PtrInput `pulumi:"bytesSucceeded"`
 	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
 	CopyStatus pulumi.StringPtrInput `pulumi:"copyStatus"`
 	// The drive header hash value.
@@ -244,8 +244,8 @@ func (o DriveStatusOutput) BitLockerKey() pulumi.StringPtrOutput {
 }
 
 // Bytes successfully transferred for the drive.
-func (o DriveStatusOutput) BytesSucceeded() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DriveStatus) *int { return v.BytesSucceeded }).(pulumi.IntPtrOutput)
+func (o DriveStatusOutput) BytesSucceeded() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DriveStatus) *float64 { return v.BytesSucceeded }).(pulumi.Float64PtrOutput)
 }
 
 // Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
@@ -323,7 +323,7 @@ type DriveStatusResponse struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey *string `pulumi:"bitLockerKey"`
 	// Bytes successfully transferred for the drive.
-	BytesSucceeded *int `pulumi:"bytesSucceeded"`
+	BytesSucceeded *float64 `pulumi:"bytesSucceeded"`
 	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
 	CopyStatus *string `pulumi:"copyStatus"`
 	// The drive header hash value.
@@ -362,7 +362,7 @@ type DriveStatusResponseArgs struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey pulumi.StringPtrInput `pulumi:"bitLockerKey"`
 	// Bytes successfully transferred for the drive.
-	BytesSucceeded pulumi.IntPtrInput `pulumi:"bytesSucceeded"`
+	BytesSucceeded pulumi.Float64PtrInput `pulumi:"bytesSucceeded"`
 	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
 	CopyStatus pulumi.StringPtrInput `pulumi:"copyStatus"`
 	// The drive header hash value.
@@ -443,8 +443,8 @@ func (o DriveStatusResponseOutput) BitLockerKey() pulumi.StringPtrOutput {
 }
 
 // Bytes successfully transferred for the drive.
-func (o DriveStatusResponseOutput) BytesSucceeded() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DriveStatusResponse) *int { return v.BytesSucceeded }).(pulumi.IntPtrOutput)
+func (o DriveStatusResponseOutput) BytesSucceeded() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DriveStatusResponse) *float64 { return v.BytesSucceeded }).(pulumi.Float64PtrOutput)
 }
 
 // Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.

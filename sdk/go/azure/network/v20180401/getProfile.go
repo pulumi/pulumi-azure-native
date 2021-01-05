@@ -34,7 +34,7 @@ type LookupProfileResult struct {
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// Maximum number of endpoints to be returned for MultiValue routing type.
-	MaxReturn *int `pulumi:"maxReturn"`
+	MaxReturn *float64 `pulumi:"maxReturn"`
 	// The endpoint monitoring settings of the Traffic Manager profile.
 	MonitorConfig *MonitorConfigResponse `pulumi:"monitorConfig"`
 	// The name of the resource

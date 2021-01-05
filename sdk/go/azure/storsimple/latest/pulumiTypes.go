@@ -873,9 +873,9 @@ func (o FailoverSetResponseArrayOutput) Index(i pulumi.IntInput) FailoverSetResp
 // Represents the eligibility of a device as a failover target device.
 type FailoverTargetResponse struct {
 	// The amount of free local storage available on the device in bytes.
-	AvailableLocalStorageInBytes *int `pulumi:"availableLocalStorageInBytes"`
+	AvailableLocalStorageInBytes *float64 `pulumi:"availableLocalStorageInBytes"`
 	// The amount of free tiered storage available for the device in bytes.
-	AvailableTieredStorageInBytes *int `pulumi:"availableTieredStorageInBytes"`
+	AvailableTieredStorageInBytes *float64 `pulumi:"availableTieredStorageInBytes"`
 	// The count of data containers on the device.
 	DataContainersCount *int `pulumi:"dataContainersCount"`
 	// The path ID of the device.
@@ -910,9 +910,9 @@ type FailoverTargetResponseInput interface {
 // Represents the eligibility of a device as a failover target device.
 type FailoverTargetResponseArgs struct {
 	// The amount of free local storage available on the device in bytes.
-	AvailableLocalStorageInBytes pulumi.IntPtrInput `pulumi:"availableLocalStorageInBytes"`
+	AvailableLocalStorageInBytes pulumi.Float64PtrInput `pulumi:"availableLocalStorageInBytes"`
 	// The amount of free tiered storage available for the device in bytes.
-	AvailableTieredStorageInBytes pulumi.IntPtrInput `pulumi:"availableTieredStorageInBytes"`
+	AvailableTieredStorageInBytes pulumi.Float64PtrInput `pulumi:"availableTieredStorageInBytes"`
 	// The count of data containers on the device.
 	DataContainersCount pulumi.IntPtrInput `pulumi:"dataContainersCount"`
 	// The path ID of the device.
@@ -986,13 +986,13 @@ func (o FailoverTargetResponseOutput) ToFailoverTargetResponseOutputWithContext(
 }
 
 // The amount of free local storage available on the device in bytes.
-func (o FailoverTargetResponseOutput) AvailableLocalStorageInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *int { return v.AvailableLocalStorageInBytes }).(pulumi.IntPtrOutput)
+func (o FailoverTargetResponseOutput) AvailableLocalStorageInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *float64 { return v.AvailableLocalStorageInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The amount of free tiered storage available for the device in bytes.
-func (o FailoverTargetResponseOutput) AvailableTieredStorageInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *int { return v.AvailableTieredStorageInBytes }).(pulumi.IntPtrOutput)
+func (o FailoverTargetResponseOutput) AvailableTieredStorageInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *float64 { return v.AvailableTieredStorageInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The count of data containers on the device.
@@ -2675,7 +2675,7 @@ type VolumeFailoverMetadataResponse struct {
 	// The path ID of the backup policy using which the snapshot was taken.
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
 	// The size of the volume in bytes at the time the snapshot was taken.
-	SizeInBytes *int `pulumi:"sizeInBytes"`
+	SizeInBytes *float64 `pulumi:"sizeInBytes"`
 	// The path ID of the volume.
 	VolumeId *string `pulumi:"volumeId"`
 	// The type of the volume.
@@ -2704,7 +2704,7 @@ type VolumeFailoverMetadataResponseArgs struct {
 	// The path ID of the backup policy using which the snapshot was taken.
 	BackupPolicyId pulumi.StringPtrInput `pulumi:"backupPolicyId"`
 	// The size of the volume in bytes at the time the snapshot was taken.
-	SizeInBytes pulumi.IntPtrInput `pulumi:"sizeInBytes"`
+	SizeInBytes pulumi.Float64PtrInput `pulumi:"sizeInBytes"`
 	// The path ID of the volume.
 	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The type of the volume.
@@ -2784,8 +2784,8 @@ func (o VolumeFailoverMetadataResponseOutput) BackupPolicyId() pulumi.StringPtrO
 }
 
 // The size of the volume in bytes at the time the snapshot was taken.
-func (o VolumeFailoverMetadataResponseOutput) SizeInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *int { return v.SizeInBytes }).(pulumi.IntPtrOutput)
+func (o VolumeFailoverMetadataResponseOutput) SizeInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *float64 { return v.SizeInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The path ID of the volume.

@@ -46,7 +46,7 @@ type Volume struct {
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold pulumi.IntOutput `pulumi:"usageThreshold"`
+	UsageThreshold pulumi.Float64Output `pulumi:"usageThreshold"`
 	// What type of volume is this
 	VolumeType pulumi.StringPtrOutput `pulumi:"volumeType"`
 }
@@ -180,7 +180,7 @@ type volumeState struct {
 	// Resource type
 	Type *string `pulumi:"type"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold *int `pulumi:"usageThreshold"`
+	UsageThreshold *float64 `pulumi:"usageThreshold"`
 	// What type of volume is this
 	VolumeType *string `pulumi:"volumeType"`
 }
@@ -217,7 +217,7 @@ type VolumeState struct {
 	// Resource type
 	Type pulumi.StringPtrInput
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold pulumi.IntPtrInput
+	UsageThreshold pulumi.Float64PtrInput
 	// What type of volume is this
 	VolumeType pulumi.StringPtrInput
 }
@@ -254,7 +254,7 @@ type volumeArgs struct {
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold int `pulumi:"usageThreshold"`
+	UsageThreshold float64 `pulumi:"usageThreshold"`
 	// The name of the volume
 	VolumeName string `pulumi:"volumeName"`
 	// What type of volume is this
@@ -290,7 +290,7 @@ type VolumeArgs struct {
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold pulumi.IntInput
+	UsageThreshold pulumi.Float64Input
 	// The name of the volume
 	VolumeName pulumi.StringInput
 	// What type of volume is this

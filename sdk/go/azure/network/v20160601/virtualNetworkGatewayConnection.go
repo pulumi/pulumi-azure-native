@@ -22,13 +22,13 @@ type VirtualNetworkGatewayConnection struct {
 	// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
 	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
 	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred pulumi.IntPtrOutput `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred pulumi.Float64PtrOutput `pulumi:"egressBytesTransferred"`
 	// EnableBgp Flag
 	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred pulumi.IntPtrOutput `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred pulumi.Float64PtrOutput `pulumi:"ingressBytesTransferred"`
 	// A common class for general resource information
 	LocalNetworkGateway2 LocalNetworkGatewayResponsePtrOutput `pulumi:"localNetworkGateway2"`
 	// Resource location
@@ -199,13 +199,13 @@ type virtualNetworkGatewayConnectionState struct {
 	// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
 	ConnectionType *string `pulumi:"connectionType"`
 	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred *int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred *float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp Flag
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred *int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred *float64 `pulumi:"ingressBytesTransferred"`
 	// A common class for general resource information
 	LocalNetworkGateway2 *LocalNetworkGatewayResponse `pulumi:"localNetworkGateway2"`
 	// Resource location
@@ -240,13 +240,13 @@ type VirtualNetworkGatewayConnectionState struct {
 	// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
 	ConnectionType pulumi.StringPtrInput
 	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred pulumi.IntPtrInput
+	EgressBytesTransferred pulumi.Float64PtrInput
 	// EnableBgp Flag
 	EnableBgp pulumi.BoolPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred pulumi.IntPtrInput
+	IngressBytesTransferred pulumi.Float64PtrInput
 	// A common class for general resource information
 	LocalNetworkGateway2 LocalNetworkGatewayResponsePtrInput
 	// Resource location
@@ -285,7 +285,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
 	ConnectionType *string `pulumi:"connectionType"`
 	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred *int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred *float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp Flag
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated
@@ -293,7 +293,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred *int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred *float64 `pulumi:"ingressBytesTransferred"`
 	// A common class for general resource information
 	LocalNetworkGateway2 *LocalNetworkGatewayType `pulumi:"localNetworkGateway2"`
 	// Resource location
@@ -329,7 +329,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
 	ConnectionType pulumi.StringPtrInput
 	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred pulumi.IntPtrInput
+	EgressBytesTransferred pulumi.Float64PtrInput
 	// EnableBgp Flag
 	EnableBgp pulumi.BoolPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated
@@ -337,7 +337,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred pulumi.IntPtrInput
+	IngressBytesTransferred pulumi.Float64PtrInput
 	// A common class for general resource information
 	LocalNetworkGateway2 LocalNetworkGatewayTypePtrInput
 	// Resource location

@@ -54,7 +54,7 @@ type LookupModuleResult struct {
 	// Gets or sets the provisioning state of the module.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets the size in bytes of the module.
-	SizeInBytes *int `pulumi:"sizeInBytes"`
+	SizeInBytes *float64 `pulumi:"sizeInBytes"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

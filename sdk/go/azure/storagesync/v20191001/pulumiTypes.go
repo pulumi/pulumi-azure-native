@@ -13,11 +13,11 @@ import (
 // Server endpoint cloud tiering status object.
 type CloudTieringCachePerformanceResponse struct {
 	// Count of bytes that were served from the local server
-	CacheHitBytes int `pulumi:"cacheHitBytes"`
+	CacheHitBytes float64 `pulumi:"cacheHitBytes"`
 	// Percentage of total bytes (hit + miss) that were served from the local server
 	CacheHitBytesPercent int `pulumi:"cacheHitBytesPercent"`
 	// Count of bytes that were served from the cloud
-	CacheMissBytes int `pulumi:"cacheMissBytes"`
+	CacheMissBytes float64 `pulumi:"cacheMissBytes"`
 	// Last updated timestamp
 	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
 }
@@ -36,11 +36,11 @@ type CloudTieringCachePerformanceResponseInput interface {
 // Server endpoint cloud tiering status object.
 type CloudTieringCachePerformanceResponseArgs struct {
 	// Count of bytes that were served from the local server
-	CacheHitBytes pulumi.IntInput `pulumi:"cacheHitBytes"`
+	CacheHitBytes pulumi.Float64Input `pulumi:"cacheHitBytes"`
 	// Percentage of total bytes (hit + miss) that were served from the local server
 	CacheHitBytesPercent pulumi.IntInput `pulumi:"cacheHitBytesPercent"`
 	// Count of bytes that were served from the cloud
-	CacheMissBytes pulumi.IntInput `pulumi:"cacheMissBytes"`
+	CacheMissBytes pulumi.Float64Input `pulumi:"cacheMissBytes"`
 	// Last updated timestamp
 	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
 }
@@ -124,8 +124,8 @@ func (o CloudTieringCachePerformanceResponseOutput) ToCloudTieringCachePerforman
 }
 
 // Count of bytes that were served from the local server
-func (o CloudTieringCachePerformanceResponseOutput) CacheHitBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v CloudTieringCachePerformanceResponse) int { return v.CacheHitBytes }).(pulumi.IntOutput)
+func (o CloudTieringCachePerformanceResponseOutput) CacheHitBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringCachePerformanceResponse) float64 { return v.CacheHitBytes }).(pulumi.Float64Output)
 }
 
 // Percentage of total bytes (hit + miss) that were served from the local server
@@ -134,8 +134,8 @@ func (o CloudTieringCachePerformanceResponseOutput) CacheHitBytesPercent() pulum
 }
 
 // Count of bytes that were served from the cloud
-func (o CloudTieringCachePerformanceResponseOutput) CacheMissBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v CloudTieringCachePerformanceResponse) int { return v.CacheMissBytes }).(pulumi.IntOutput)
+func (o CloudTieringCachePerformanceResponseOutput) CacheMissBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringCachePerformanceResponse) float64 { return v.CacheMissBytes }).(pulumi.Float64Output)
 }
 
 // Last updated timestamp
@@ -162,13 +162,13 @@ func (o CloudTieringCachePerformanceResponsePtrOutput) Elem() CloudTieringCacheP
 }
 
 // Count of bytes that were served from the local server
-func (o CloudTieringCachePerformanceResponsePtrOutput) CacheHitBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CloudTieringCachePerformanceResponse) *int {
+func (o CloudTieringCachePerformanceResponsePtrOutput) CacheHitBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudTieringCachePerformanceResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.CacheHitBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Percentage of total bytes (hit + miss) that were served from the local server
@@ -182,13 +182,13 @@ func (o CloudTieringCachePerformanceResponsePtrOutput) CacheHitBytesPercent() pu
 }
 
 // Count of bytes that were served from the cloud
-func (o CloudTieringCachePerformanceResponsePtrOutput) CacheMissBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CloudTieringCachePerformanceResponse) *int {
+func (o CloudTieringCachePerformanceResponsePtrOutput) CacheMissBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudTieringCachePerformanceResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.CacheMissBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Last updated timestamp
@@ -361,7 +361,7 @@ type CloudTieringFilesNotTieringResponse struct {
 	// Last updated timestamp
 	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
 	// Last cloud tiering result (HResult)
-	TotalFileCount int `pulumi:"totalFileCount"`
+	TotalFileCount float64 `pulumi:"totalFileCount"`
 }
 
 // CloudTieringFilesNotTieringResponseInput is an input type that accepts CloudTieringFilesNotTieringResponseArgs and CloudTieringFilesNotTieringResponseOutput values.
@@ -382,7 +382,7 @@ type CloudTieringFilesNotTieringResponseArgs struct {
 	// Last updated timestamp
 	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
 	// Last cloud tiering result (HResult)
-	TotalFileCount pulumi.IntInput `pulumi:"totalFileCount"`
+	TotalFileCount pulumi.Float64Input `pulumi:"totalFileCount"`
 }
 
 func (CloudTieringFilesNotTieringResponseArgs) ElementType() reflect.Type {
@@ -474,8 +474,8 @@ func (o CloudTieringFilesNotTieringResponseOutput) LastUpdatedTimestamp() pulumi
 }
 
 // Last cloud tiering result (HResult)
-func (o CloudTieringFilesNotTieringResponseOutput) TotalFileCount() pulumi.IntOutput {
-	return o.ApplyT(func(v CloudTieringFilesNotTieringResponse) int { return v.TotalFileCount }).(pulumi.IntOutput)
+func (o CloudTieringFilesNotTieringResponseOutput) TotalFileCount() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringFilesNotTieringResponse) float64 { return v.TotalFileCount }).(pulumi.Float64Output)
 }
 
 type CloudTieringFilesNotTieringResponsePtrOutput struct{ *pulumi.OutputState }
@@ -517,29 +517,29 @@ func (o CloudTieringFilesNotTieringResponsePtrOutput) LastUpdatedTimestamp() pul
 }
 
 // Last cloud tiering result (HResult)
-func (o CloudTieringFilesNotTieringResponsePtrOutput) TotalFileCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CloudTieringFilesNotTieringResponse) *int {
+func (o CloudTieringFilesNotTieringResponsePtrOutput) TotalFileCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudTieringFilesNotTieringResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TotalFileCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Server endpoint cloud tiering status object.
 type CloudTieringSpaceSavingsResponse struct {
 	// Cached content size on the server
-	CachedSizeBytes int `pulumi:"cachedSizeBytes"`
+	CachedSizeBytes float64 `pulumi:"cachedSizeBytes"`
 	// Last updated timestamp
 	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
 	// Count of bytes saved on the server
-	SpaceSavingsBytes int `pulumi:"spaceSavingsBytes"`
+	SpaceSavingsBytes float64 `pulumi:"spaceSavingsBytes"`
 	// Percentage of cached size over total size
 	SpaceSavingsPercent int `pulumi:"spaceSavingsPercent"`
 	// Total size of content in the azure file share
-	TotalSizeCloudBytes int `pulumi:"totalSizeCloudBytes"`
+	TotalSizeCloudBytes float64 `pulumi:"totalSizeCloudBytes"`
 	// Volume size
-	VolumeSizeBytes int `pulumi:"volumeSizeBytes"`
+	VolumeSizeBytes float64 `pulumi:"volumeSizeBytes"`
 }
 
 // CloudTieringSpaceSavingsResponseInput is an input type that accepts CloudTieringSpaceSavingsResponseArgs and CloudTieringSpaceSavingsResponseOutput values.
@@ -556,17 +556,17 @@ type CloudTieringSpaceSavingsResponseInput interface {
 // Server endpoint cloud tiering status object.
 type CloudTieringSpaceSavingsResponseArgs struct {
 	// Cached content size on the server
-	CachedSizeBytes pulumi.IntInput `pulumi:"cachedSizeBytes"`
+	CachedSizeBytes pulumi.Float64Input `pulumi:"cachedSizeBytes"`
 	// Last updated timestamp
 	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
 	// Count of bytes saved on the server
-	SpaceSavingsBytes pulumi.IntInput `pulumi:"spaceSavingsBytes"`
+	SpaceSavingsBytes pulumi.Float64Input `pulumi:"spaceSavingsBytes"`
 	// Percentage of cached size over total size
 	SpaceSavingsPercent pulumi.IntInput `pulumi:"spaceSavingsPercent"`
 	// Total size of content in the azure file share
-	TotalSizeCloudBytes pulumi.IntInput `pulumi:"totalSizeCloudBytes"`
+	TotalSizeCloudBytes pulumi.Float64Input `pulumi:"totalSizeCloudBytes"`
 	// Volume size
-	VolumeSizeBytes pulumi.IntInput `pulumi:"volumeSizeBytes"`
+	VolumeSizeBytes pulumi.Float64Input `pulumi:"volumeSizeBytes"`
 }
 
 func (CloudTieringSpaceSavingsResponseArgs) ElementType() reflect.Type {
@@ -648,8 +648,8 @@ func (o CloudTieringSpaceSavingsResponseOutput) ToCloudTieringSpaceSavingsRespon
 }
 
 // Cached content size on the server
-func (o CloudTieringSpaceSavingsResponseOutput) CachedSizeBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v CloudTieringSpaceSavingsResponse) int { return v.CachedSizeBytes }).(pulumi.IntOutput)
+func (o CloudTieringSpaceSavingsResponseOutput) CachedSizeBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringSpaceSavingsResponse) float64 { return v.CachedSizeBytes }).(pulumi.Float64Output)
 }
 
 // Last updated timestamp
@@ -658,8 +658,8 @@ func (o CloudTieringSpaceSavingsResponseOutput) LastUpdatedTimestamp() pulumi.St
 }
 
 // Count of bytes saved on the server
-func (o CloudTieringSpaceSavingsResponseOutput) SpaceSavingsBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v CloudTieringSpaceSavingsResponse) int { return v.SpaceSavingsBytes }).(pulumi.IntOutput)
+func (o CloudTieringSpaceSavingsResponseOutput) SpaceSavingsBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringSpaceSavingsResponse) float64 { return v.SpaceSavingsBytes }).(pulumi.Float64Output)
 }
 
 // Percentage of cached size over total size
@@ -668,13 +668,13 @@ func (o CloudTieringSpaceSavingsResponseOutput) SpaceSavingsPercent() pulumi.Int
 }
 
 // Total size of content in the azure file share
-func (o CloudTieringSpaceSavingsResponseOutput) TotalSizeCloudBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v CloudTieringSpaceSavingsResponse) int { return v.TotalSizeCloudBytes }).(pulumi.IntOutput)
+func (o CloudTieringSpaceSavingsResponseOutput) TotalSizeCloudBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringSpaceSavingsResponse) float64 { return v.TotalSizeCloudBytes }).(pulumi.Float64Output)
 }
 
 // Volume size
-func (o CloudTieringSpaceSavingsResponseOutput) VolumeSizeBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v CloudTieringSpaceSavingsResponse) int { return v.VolumeSizeBytes }).(pulumi.IntOutput)
+func (o CloudTieringSpaceSavingsResponseOutput) VolumeSizeBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringSpaceSavingsResponse) float64 { return v.VolumeSizeBytes }).(pulumi.Float64Output)
 }
 
 type CloudTieringSpaceSavingsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -696,13 +696,13 @@ func (o CloudTieringSpaceSavingsResponsePtrOutput) Elem() CloudTieringSpaceSavin
 }
 
 // Cached content size on the server
-func (o CloudTieringSpaceSavingsResponsePtrOutput) CachedSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CloudTieringSpaceSavingsResponse) *int {
+func (o CloudTieringSpaceSavingsResponsePtrOutput) CachedSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudTieringSpaceSavingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.CachedSizeBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Last updated timestamp
@@ -716,13 +716,13 @@ func (o CloudTieringSpaceSavingsResponsePtrOutput) LastUpdatedTimestamp() pulumi
 }
 
 // Count of bytes saved on the server
-func (o CloudTieringSpaceSavingsResponsePtrOutput) SpaceSavingsBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CloudTieringSpaceSavingsResponse) *int {
+func (o CloudTieringSpaceSavingsResponsePtrOutput) SpaceSavingsBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudTieringSpaceSavingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.SpaceSavingsBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Percentage of cached size over total size
@@ -736,23 +736,23 @@ func (o CloudTieringSpaceSavingsResponsePtrOutput) SpaceSavingsPercent() pulumi.
 }
 
 // Total size of content in the azure file share
-func (o CloudTieringSpaceSavingsResponsePtrOutput) TotalSizeCloudBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CloudTieringSpaceSavingsResponse) *int {
+func (o CloudTieringSpaceSavingsResponsePtrOutput) TotalSizeCloudBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudTieringSpaceSavingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TotalSizeCloudBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Volume size
-func (o CloudTieringSpaceSavingsResponsePtrOutput) VolumeSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CloudTieringSpaceSavingsResponse) *int {
+func (o CloudTieringSpaceSavingsResponsePtrOutput) VolumeSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudTieringSpaceSavingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.VolumeSizeBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Status of the volume free space policy
@@ -934,7 +934,7 @@ type FilesNotTieringErrorResponse struct {
 	// Error code (HResult)
 	ErrorCode int `pulumi:"errorCode"`
 	// Count of files with this error
-	FileCount int `pulumi:"fileCount"`
+	FileCount float64 `pulumi:"fileCount"`
 }
 
 // FilesNotTieringErrorResponseInput is an input type that accepts FilesNotTieringErrorResponseArgs and FilesNotTieringErrorResponseOutput values.
@@ -953,7 +953,7 @@ type FilesNotTieringErrorResponseArgs struct {
 	// Error code (HResult)
 	ErrorCode pulumi.IntInput `pulumi:"errorCode"`
 	// Count of files with this error
-	FileCount pulumi.IntInput `pulumi:"fileCount"`
+	FileCount pulumi.Float64Input `pulumi:"fileCount"`
 }
 
 func (FilesNotTieringErrorResponseArgs) ElementType() reflect.Type {
@@ -1014,8 +1014,8 @@ func (o FilesNotTieringErrorResponseOutput) ErrorCode() pulumi.IntOutput {
 }
 
 // Count of files with this error
-func (o FilesNotTieringErrorResponseOutput) FileCount() pulumi.IntOutput {
-	return o.ApplyT(func(v FilesNotTieringErrorResponse) int { return v.FileCount }).(pulumi.IntOutput)
+func (o FilesNotTieringErrorResponseOutput) FileCount() pulumi.Float64Output {
+	return o.ApplyT(func(v FilesNotTieringErrorResponse) float64 { return v.FileCount }).(pulumi.Float64Output)
 }
 
 type FilesNotTieringErrorResponseArrayOutput struct{ *pulumi.OutputState }
@@ -1358,9 +1358,9 @@ type ServerEndpointFilesNotSyncingErrorResponse struct {
 	// Error code (HResult)
 	ErrorCode int `pulumi:"errorCode"`
 	// Count of persistent files not syncing with the specified error code
-	PersistentCount int `pulumi:"persistentCount"`
+	PersistentCount float64 `pulumi:"persistentCount"`
 	// Count of transient files not syncing with the specified error code
-	TransientCount int `pulumi:"transientCount"`
+	TransientCount float64 `pulumi:"transientCount"`
 }
 
 // ServerEndpointFilesNotSyncingErrorResponseInput is an input type that accepts ServerEndpointFilesNotSyncingErrorResponseArgs and ServerEndpointFilesNotSyncingErrorResponseOutput values.
@@ -1379,9 +1379,9 @@ type ServerEndpointFilesNotSyncingErrorResponseArgs struct {
 	// Error code (HResult)
 	ErrorCode pulumi.IntInput `pulumi:"errorCode"`
 	// Count of persistent files not syncing with the specified error code
-	PersistentCount pulumi.IntInput `pulumi:"persistentCount"`
+	PersistentCount pulumi.Float64Input `pulumi:"persistentCount"`
 	// Count of transient files not syncing with the specified error code
-	TransientCount pulumi.IntInput `pulumi:"transientCount"`
+	TransientCount pulumi.Float64Input `pulumi:"transientCount"`
 }
 
 func (ServerEndpointFilesNotSyncingErrorResponseArgs) ElementType() reflect.Type {
@@ -1442,13 +1442,13 @@ func (o ServerEndpointFilesNotSyncingErrorResponseOutput) ErrorCode() pulumi.Int
 }
 
 // Count of persistent files not syncing with the specified error code
-func (o ServerEndpointFilesNotSyncingErrorResponseOutput) PersistentCount() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerEndpointFilesNotSyncingErrorResponse) int { return v.PersistentCount }).(pulumi.IntOutput)
+func (o ServerEndpointFilesNotSyncingErrorResponseOutput) PersistentCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointFilesNotSyncingErrorResponse) float64 { return v.PersistentCount }).(pulumi.Float64Output)
 }
 
 // Count of transient files not syncing with the specified error code
-func (o ServerEndpointFilesNotSyncingErrorResponseOutput) TransientCount() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerEndpointFilesNotSyncingErrorResponse) int { return v.TransientCount }).(pulumi.IntOutput)
+func (o ServerEndpointFilesNotSyncingErrorResponseOutput) TransientCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointFilesNotSyncingErrorResponse) float64 { return v.TransientCount }).(pulumi.Float64Output)
 }
 
 type ServerEndpointFilesNotSyncingErrorResponseArrayOutput struct{ *pulumi.OutputState }
@@ -1474,7 +1474,7 @@ func (o ServerEndpointFilesNotSyncingErrorResponseArrayOutput) Index(i pulumi.In
 // Server endpoint recall error object
 type ServerEndpointRecallErrorResponse struct {
 	// Count of occurences of the error
-	Count int `pulumi:"count"`
+	Count float64 `pulumi:"count"`
 	// Error code (HResult)
 	ErrorCode int `pulumi:"errorCode"`
 }
@@ -1493,7 +1493,7 @@ type ServerEndpointRecallErrorResponseInput interface {
 // Server endpoint recall error object
 type ServerEndpointRecallErrorResponseArgs struct {
 	// Count of occurences of the error
-	Count pulumi.IntInput `pulumi:"count"`
+	Count pulumi.Float64Input `pulumi:"count"`
 	// Error code (HResult)
 	ErrorCode pulumi.IntInput `pulumi:"errorCode"`
 }
@@ -1551,8 +1551,8 @@ func (o ServerEndpointRecallErrorResponseOutput) ToServerEndpointRecallErrorResp
 }
 
 // Count of occurences of the error
-func (o ServerEndpointRecallErrorResponseOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerEndpointRecallErrorResponse) int { return v.Count }).(pulumi.IntOutput)
+func (o ServerEndpointRecallErrorResponseOutput) Count() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointRecallErrorResponse) float64 { return v.Count }).(pulumi.Float64Output)
 }
 
 // Error code (HResult)
@@ -1587,7 +1587,7 @@ type ServerEndpointRecallStatusResponse struct {
 	// Array of recall errors
 	RecallErrors []ServerEndpointRecallErrorResponse `pulumi:"recallErrors"`
 	// Total count of recall errors.
-	TotalRecallErrorsCount int `pulumi:"totalRecallErrorsCount"`
+	TotalRecallErrorsCount float64 `pulumi:"totalRecallErrorsCount"`
 }
 
 // ServerEndpointRecallStatusResponseInput is an input type that accepts ServerEndpointRecallStatusResponseArgs and ServerEndpointRecallStatusResponseOutput values.
@@ -1608,7 +1608,7 @@ type ServerEndpointRecallStatusResponseArgs struct {
 	// Array of recall errors
 	RecallErrors ServerEndpointRecallErrorResponseArrayInput `pulumi:"recallErrors"`
 	// Total count of recall errors.
-	TotalRecallErrorsCount pulumi.IntInput `pulumi:"totalRecallErrorsCount"`
+	TotalRecallErrorsCount pulumi.Float64Input `pulumi:"totalRecallErrorsCount"`
 }
 
 func (ServerEndpointRecallStatusResponseArgs) ElementType() reflect.Type {
@@ -1700,8 +1700,8 @@ func (o ServerEndpointRecallStatusResponseOutput) RecallErrors() ServerEndpointR
 }
 
 // Total count of recall errors.
-func (o ServerEndpointRecallStatusResponseOutput) TotalRecallErrorsCount() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerEndpointRecallStatusResponse) int { return v.TotalRecallErrorsCount }).(pulumi.IntOutput)
+func (o ServerEndpointRecallStatusResponseOutput) TotalRecallErrorsCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointRecallStatusResponse) float64 { return v.TotalRecallErrorsCount }).(pulumi.Float64Output)
 }
 
 type ServerEndpointRecallStatusResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1743,13 +1743,13 @@ func (o ServerEndpointRecallStatusResponsePtrOutput) RecallErrors() ServerEndpoi
 }
 
 // Total count of recall errors.
-func (o ServerEndpointRecallStatusResponsePtrOutput) TotalRecallErrorsCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServerEndpointRecallStatusResponse) *int {
+func (o ServerEndpointRecallStatusResponsePtrOutput) TotalRecallErrorsCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServerEndpointRecallStatusResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TotalRecallErrorsCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Server Endpoint sync status
@@ -1769,7 +1769,7 @@ type ServerEndpointSyncStatusResponse struct {
 	// Sync activity
 	SyncActivity string `pulumi:"syncActivity"`
 	// Total count of persistent files not syncing (combined upload + download).
-	TotalPersistentFilesNotSyncingCount int `pulumi:"totalPersistentFilesNotSyncingCount"`
+	TotalPersistentFilesNotSyncingCount float64 `pulumi:"totalPersistentFilesNotSyncingCount"`
 	// Upload sync activity
 	UploadActivity SyncActivityStatusResponse `pulumi:"uploadActivity"`
 	// Upload Health Status.
@@ -1806,7 +1806,7 @@ type ServerEndpointSyncStatusResponseArgs struct {
 	// Sync activity
 	SyncActivity pulumi.StringInput `pulumi:"syncActivity"`
 	// Total count of persistent files not syncing (combined upload + download).
-	TotalPersistentFilesNotSyncingCount pulumi.IntInput `pulumi:"totalPersistentFilesNotSyncingCount"`
+	TotalPersistentFilesNotSyncingCount pulumi.Float64Input `pulumi:"totalPersistentFilesNotSyncingCount"`
 	// Upload sync activity
 	UploadActivity SyncActivityStatusResponseInput `pulumi:"uploadActivity"`
 	// Upload Health Status.
@@ -1929,8 +1929,8 @@ func (o ServerEndpointSyncStatusResponseOutput) SyncActivity() pulumi.StringOutp
 }
 
 // Total count of persistent files not syncing (combined upload + download).
-func (o ServerEndpointSyncStatusResponseOutput) TotalPersistentFilesNotSyncingCount() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerEndpointSyncStatusResponse) int { return v.TotalPersistentFilesNotSyncingCount }).(pulumi.IntOutput)
+func (o ServerEndpointSyncStatusResponseOutput) TotalPersistentFilesNotSyncingCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointSyncStatusResponse) float64 { return v.TotalPersistentFilesNotSyncingCount }).(pulumi.Float64Output)
 }
 
 // Upload sync activity
@@ -2037,13 +2037,13 @@ func (o ServerEndpointSyncStatusResponsePtrOutput) SyncActivity() pulumi.StringP
 }
 
 // Total count of persistent files not syncing (combined upload + download).
-func (o ServerEndpointSyncStatusResponsePtrOutput) TotalPersistentFilesNotSyncingCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServerEndpointSyncStatusResponse) *int {
+func (o ServerEndpointSyncStatusResponsePtrOutput) TotalPersistentFilesNotSyncingCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServerEndpointSyncStatusResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TotalPersistentFilesNotSyncingCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Upload sync activity
@@ -2079,17 +2079,17 @@ func (o ServerEndpointSyncStatusResponsePtrOutput) UploadStatus() SyncSessionSta
 // Sync Session status object.
 type SyncActivityStatusResponse struct {
 	// Applied bytes
-	AppliedBytes int `pulumi:"appliedBytes"`
+	AppliedBytes float64 `pulumi:"appliedBytes"`
 	// Applied item count.
-	AppliedItemCount int `pulumi:"appliedItemCount"`
+	AppliedItemCount float64 `pulumi:"appliedItemCount"`
 	// Per item error count
-	PerItemErrorCount int `pulumi:"perItemErrorCount"`
+	PerItemErrorCount float64 `pulumi:"perItemErrorCount"`
 	// Timestamp when properties were updated
 	Timestamp string `pulumi:"timestamp"`
 	// Total bytes (if available)
-	TotalBytes int `pulumi:"totalBytes"`
+	TotalBytes float64 `pulumi:"totalBytes"`
 	// Total item count (if available)
-	TotalItemCount int `pulumi:"totalItemCount"`
+	TotalItemCount float64 `pulumi:"totalItemCount"`
 }
 
 // SyncActivityStatusResponseInput is an input type that accepts SyncActivityStatusResponseArgs and SyncActivityStatusResponseOutput values.
@@ -2106,17 +2106,17 @@ type SyncActivityStatusResponseInput interface {
 // Sync Session status object.
 type SyncActivityStatusResponseArgs struct {
 	// Applied bytes
-	AppliedBytes pulumi.IntInput `pulumi:"appliedBytes"`
+	AppliedBytes pulumi.Float64Input `pulumi:"appliedBytes"`
 	// Applied item count.
-	AppliedItemCount pulumi.IntInput `pulumi:"appliedItemCount"`
+	AppliedItemCount pulumi.Float64Input `pulumi:"appliedItemCount"`
 	// Per item error count
-	PerItemErrorCount pulumi.IntInput `pulumi:"perItemErrorCount"`
+	PerItemErrorCount pulumi.Float64Input `pulumi:"perItemErrorCount"`
 	// Timestamp when properties were updated
 	Timestamp pulumi.StringInput `pulumi:"timestamp"`
 	// Total bytes (if available)
-	TotalBytes pulumi.IntInput `pulumi:"totalBytes"`
+	TotalBytes pulumi.Float64Input `pulumi:"totalBytes"`
 	// Total item count (if available)
-	TotalItemCount pulumi.IntInput `pulumi:"totalItemCount"`
+	TotalItemCount pulumi.Float64Input `pulumi:"totalItemCount"`
 }
 
 func (SyncActivityStatusResponseArgs) ElementType() reflect.Type {
@@ -2198,18 +2198,18 @@ func (o SyncActivityStatusResponseOutput) ToSyncActivityStatusResponsePtrOutputW
 }
 
 // Applied bytes
-func (o SyncActivityStatusResponseOutput) AppliedBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v SyncActivityStatusResponse) int { return v.AppliedBytes }).(pulumi.IntOutput)
+func (o SyncActivityStatusResponseOutput) AppliedBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v SyncActivityStatusResponse) float64 { return v.AppliedBytes }).(pulumi.Float64Output)
 }
 
 // Applied item count.
-func (o SyncActivityStatusResponseOutput) AppliedItemCount() pulumi.IntOutput {
-	return o.ApplyT(func(v SyncActivityStatusResponse) int { return v.AppliedItemCount }).(pulumi.IntOutput)
+func (o SyncActivityStatusResponseOutput) AppliedItemCount() pulumi.Float64Output {
+	return o.ApplyT(func(v SyncActivityStatusResponse) float64 { return v.AppliedItemCount }).(pulumi.Float64Output)
 }
 
 // Per item error count
-func (o SyncActivityStatusResponseOutput) PerItemErrorCount() pulumi.IntOutput {
-	return o.ApplyT(func(v SyncActivityStatusResponse) int { return v.PerItemErrorCount }).(pulumi.IntOutput)
+func (o SyncActivityStatusResponseOutput) PerItemErrorCount() pulumi.Float64Output {
+	return o.ApplyT(func(v SyncActivityStatusResponse) float64 { return v.PerItemErrorCount }).(pulumi.Float64Output)
 }
 
 // Timestamp when properties were updated
@@ -2218,13 +2218,13 @@ func (o SyncActivityStatusResponseOutput) Timestamp() pulumi.StringOutput {
 }
 
 // Total bytes (if available)
-func (o SyncActivityStatusResponseOutput) TotalBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v SyncActivityStatusResponse) int { return v.TotalBytes }).(pulumi.IntOutput)
+func (o SyncActivityStatusResponseOutput) TotalBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v SyncActivityStatusResponse) float64 { return v.TotalBytes }).(pulumi.Float64Output)
 }
 
 // Total item count (if available)
-func (o SyncActivityStatusResponseOutput) TotalItemCount() pulumi.IntOutput {
-	return o.ApplyT(func(v SyncActivityStatusResponse) int { return v.TotalItemCount }).(pulumi.IntOutput)
+func (o SyncActivityStatusResponseOutput) TotalItemCount() pulumi.Float64Output {
+	return o.ApplyT(func(v SyncActivityStatusResponse) float64 { return v.TotalItemCount }).(pulumi.Float64Output)
 }
 
 type SyncActivityStatusResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2246,33 +2246,33 @@ func (o SyncActivityStatusResponsePtrOutput) Elem() SyncActivityStatusResponseOu
 }
 
 // Applied bytes
-func (o SyncActivityStatusResponsePtrOutput) AppliedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyncActivityStatusResponse) *int {
+func (o SyncActivityStatusResponsePtrOutput) AppliedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyncActivityStatusResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.AppliedBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Applied item count.
-func (o SyncActivityStatusResponsePtrOutput) AppliedItemCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyncActivityStatusResponse) *int {
+func (o SyncActivityStatusResponsePtrOutput) AppliedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyncActivityStatusResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.AppliedItemCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Per item error count
-func (o SyncActivityStatusResponsePtrOutput) PerItemErrorCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyncActivityStatusResponse) *int {
+func (o SyncActivityStatusResponsePtrOutput) PerItemErrorCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyncActivityStatusResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.PerItemErrorCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Timestamp when properties were updated
@@ -2286,23 +2286,23 @@ func (o SyncActivityStatusResponsePtrOutput) Timestamp() pulumi.StringPtrOutput 
 }
 
 // Total bytes (if available)
-func (o SyncActivityStatusResponsePtrOutput) TotalBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyncActivityStatusResponse) *int {
+func (o SyncActivityStatusResponsePtrOutput) TotalBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyncActivityStatusResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TotalBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Total item count (if available)
-func (o SyncActivityStatusResponsePtrOutput) TotalItemCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyncActivityStatusResponse) *int {
+func (o SyncActivityStatusResponsePtrOutput) TotalItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyncActivityStatusResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TotalItemCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Sync Session status object.
@@ -2310,7 +2310,7 @@ type SyncSessionStatusResponse struct {
 	// Array of per-item errors coming from the last sync session.
 	FilesNotSyncingErrors []ServerEndpointFilesNotSyncingErrorResponse `pulumi:"filesNotSyncingErrors"`
 	// Last sync per item error count.
-	LastSyncPerItemErrorCount int `pulumi:"lastSyncPerItemErrorCount"`
+	LastSyncPerItemErrorCount float64 `pulumi:"lastSyncPerItemErrorCount"`
 	// Last sync result (HResult)
 	LastSyncResult int `pulumi:"lastSyncResult"`
 	// Last sync success timestamp
@@ -2318,9 +2318,9 @@ type SyncSessionStatusResponse struct {
 	// Last sync timestamp
 	LastSyncTimestamp string `pulumi:"lastSyncTimestamp"`
 	// Count of persistent files not syncing.
-	PersistentFilesNotSyncingCount int `pulumi:"persistentFilesNotSyncingCount"`
+	PersistentFilesNotSyncingCount float64 `pulumi:"persistentFilesNotSyncingCount"`
 	// Count of transient files not syncing.
-	TransientFilesNotSyncingCount int `pulumi:"transientFilesNotSyncingCount"`
+	TransientFilesNotSyncingCount float64 `pulumi:"transientFilesNotSyncingCount"`
 }
 
 // SyncSessionStatusResponseInput is an input type that accepts SyncSessionStatusResponseArgs and SyncSessionStatusResponseOutput values.
@@ -2339,7 +2339,7 @@ type SyncSessionStatusResponseArgs struct {
 	// Array of per-item errors coming from the last sync session.
 	FilesNotSyncingErrors ServerEndpointFilesNotSyncingErrorResponseArrayInput `pulumi:"filesNotSyncingErrors"`
 	// Last sync per item error count.
-	LastSyncPerItemErrorCount pulumi.IntInput `pulumi:"lastSyncPerItemErrorCount"`
+	LastSyncPerItemErrorCount pulumi.Float64Input `pulumi:"lastSyncPerItemErrorCount"`
 	// Last sync result (HResult)
 	LastSyncResult pulumi.IntInput `pulumi:"lastSyncResult"`
 	// Last sync success timestamp
@@ -2347,9 +2347,9 @@ type SyncSessionStatusResponseArgs struct {
 	// Last sync timestamp
 	LastSyncTimestamp pulumi.StringInput `pulumi:"lastSyncTimestamp"`
 	// Count of persistent files not syncing.
-	PersistentFilesNotSyncingCount pulumi.IntInput `pulumi:"persistentFilesNotSyncingCount"`
+	PersistentFilesNotSyncingCount pulumi.Float64Input `pulumi:"persistentFilesNotSyncingCount"`
 	// Count of transient files not syncing.
-	TransientFilesNotSyncingCount pulumi.IntInput `pulumi:"transientFilesNotSyncingCount"`
+	TransientFilesNotSyncingCount pulumi.Float64Input `pulumi:"transientFilesNotSyncingCount"`
 }
 
 func (SyncSessionStatusResponseArgs) ElementType() reflect.Type {
@@ -2438,8 +2438,8 @@ func (o SyncSessionStatusResponseOutput) FilesNotSyncingErrors() ServerEndpointF
 }
 
 // Last sync per item error count.
-func (o SyncSessionStatusResponseOutput) LastSyncPerItemErrorCount() pulumi.IntOutput {
-	return o.ApplyT(func(v SyncSessionStatusResponse) int { return v.LastSyncPerItemErrorCount }).(pulumi.IntOutput)
+func (o SyncSessionStatusResponseOutput) LastSyncPerItemErrorCount() pulumi.Float64Output {
+	return o.ApplyT(func(v SyncSessionStatusResponse) float64 { return v.LastSyncPerItemErrorCount }).(pulumi.Float64Output)
 }
 
 // Last sync result (HResult)
@@ -2458,13 +2458,13 @@ func (o SyncSessionStatusResponseOutput) LastSyncTimestamp() pulumi.StringOutput
 }
 
 // Count of persistent files not syncing.
-func (o SyncSessionStatusResponseOutput) PersistentFilesNotSyncingCount() pulumi.IntOutput {
-	return o.ApplyT(func(v SyncSessionStatusResponse) int { return v.PersistentFilesNotSyncingCount }).(pulumi.IntOutput)
+func (o SyncSessionStatusResponseOutput) PersistentFilesNotSyncingCount() pulumi.Float64Output {
+	return o.ApplyT(func(v SyncSessionStatusResponse) float64 { return v.PersistentFilesNotSyncingCount }).(pulumi.Float64Output)
 }
 
 // Count of transient files not syncing.
-func (o SyncSessionStatusResponseOutput) TransientFilesNotSyncingCount() pulumi.IntOutput {
-	return o.ApplyT(func(v SyncSessionStatusResponse) int { return v.TransientFilesNotSyncingCount }).(pulumi.IntOutput)
+func (o SyncSessionStatusResponseOutput) TransientFilesNotSyncingCount() pulumi.Float64Output {
+	return o.ApplyT(func(v SyncSessionStatusResponse) float64 { return v.TransientFilesNotSyncingCount }).(pulumi.Float64Output)
 }
 
 type SyncSessionStatusResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2496,13 +2496,13 @@ func (o SyncSessionStatusResponsePtrOutput) FilesNotSyncingErrors() ServerEndpoi
 }
 
 // Last sync per item error count.
-func (o SyncSessionStatusResponsePtrOutput) LastSyncPerItemErrorCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyncSessionStatusResponse) *int {
+func (o SyncSessionStatusResponsePtrOutput) LastSyncPerItemErrorCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyncSessionStatusResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.LastSyncPerItemErrorCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Last sync result (HResult)
@@ -2536,23 +2536,23 @@ func (o SyncSessionStatusResponsePtrOutput) LastSyncTimestamp() pulumi.StringPtr
 }
 
 // Count of persistent files not syncing.
-func (o SyncSessionStatusResponsePtrOutput) PersistentFilesNotSyncingCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyncSessionStatusResponse) *int {
+func (o SyncSessionStatusResponsePtrOutput) PersistentFilesNotSyncingCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyncSessionStatusResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.PersistentFilesNotSyncingCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Count of transient files not syncing.
-func (o SyncSessionStatusResponsePtrOutput) TransientFilesNotSyncingCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyncSessionStatusResponse) *int {
+func (o SyncSessionStatusResponsePtrOutput) TransientFilesNotSyncingCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyncSessionStatusResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TransientFilesNotSyncingCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 func init() {

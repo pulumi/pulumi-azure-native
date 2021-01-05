@@ -8139,13 +8139,13 @@ type BgpPeerStatusResponse struct {
 	// The virtual network gateway's local address
 	LocalAddress string `pulumi:"localAddress"`
 	// The number of BGP messages received
-	MessagesReceived int `pulumi:"messagesReceived"`
+	MessagesReceived float64 `pulumi:"messagesReceived"`
 	// The number of BGP messages sent
-	MessagesSent int `pulumi:"messagesSent"`
+	MessagesSent float64 `pulumi:"messagesSent"`
 	// The remote BGP peer
 	Neighbor string `pulumi:"neighbor"`
 	// The number of routes learned from this peer
-	RoutesReceived int `pulumi:"routesReceived"`
+	RoutesReceived float64 `pulumi:"routesReceived"`
 	// The BGP peer state
 	State string `pulumi:"state"`
 }
@@ -8170,13 +8170,13 @@ type BgpPeerStatusResponseArgs struct {
 	// The virtual network gateway's local address
 	LocalAddress pulumi.StringInput `pulumi:"localAddress"`
 	// The number of BGP messages received
-	MessagesReceived pulumi.IntInput `pulumi:"messagesReceived"`
+	MessagesReceived pulumi.Float64Input `pulumi:"messagesReceived"`
 	// The number of BGP messages sent
-	MessagesSent pulumi.IntInput `pulumi:"messagesSent"`
+	MessagesSent pulumi.Float64Input `pulumi:"messagesSent"`
 	// The remote BGP peer
 	Neighbor pulumi.StringInput `pulumi:"neighbor"`
 	// The number of routes learned from this peer
-	RoutesReceived pulumi.IntInput `pulumi:"routesReceived"`
+	RoutesReceived pulumi.Float64Input `pulumi:"routesReceived"`
 	// The BGP peer state
 	State pulumi.StringInput `pulumi:"state"`
 }
@@ -8249,13 +8249,13 @@ func (o BgpPeerStatusResponseOutput) LocalAddress() pulumi.StringOutput {
 }
 
 // The number of BGP messages received
-func (o BgpPeerStatusResponseOutput) MessagesReceived() pulumi.IntOutput {
-	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.MessagesReceived }).(pulumi.IntOutput)
+func (o BgpPeerStatusResponseOutput) MessagesReceived() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.MessagesReceived }).(pulumi.Float64Output)
 }
 
 // The number of BGP messages sent
-func (o BgpPeerStatusResponseOutput) MessagesSent() pulumi.IntOutput {
-	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.MessagesSent }).(pulumi.IntOutput)
+func (o BgpPeerStatusResponseOutput) MessagesSent() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.MessagesSent }).(pulumi.Float64Output)
 }
 
 // The remote BGP peer
@@ -8264,8 +8264,8 @@ func (o BgpPeerStatusResponseOutput) Neighbor() pulumi.StringOutput {
 }
 
 // The number of routes learned from this peer
-func (o BgpPeerStatusResponseOutput) RoutesReceived() pulumi.IntOutput {
-	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.RoutesReceived }).(pulumi.IntOutput)
+func (o BgpPeerStatusResponseOutput) RoutesReceived() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.RoutesReceived }).(pulumi.Float64Output)
 }
 
 // The BGP peer state
@@ -8296,7 +8296,7 @@ func (o BgpPeerStatusResponseArrayOutput) Index(i pulumi.IntInput) BgpPeerStatus
 // BGP settings details
 type BgpSettings struct {
 	// The BGP speaker's ASN.
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -8317,7 +8317,7 @@ type BgpSettingsInput interface {
 // BGP settings details
 type BgpSettingsArgs struct {
 	// The BGP speaker's ASN.
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -8403,8 +8403,8 @@ func (o BgpSettingsOutput) ToBgpSettingsPtrOutputWithContext(ctx context.Context
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BgpSettings) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o BgpSettingsOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BgpSettings) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -8436,13 +8436,13 @@ func (o BgpSettingsPtrOutput) Elem() BgpSettingsOutput {
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsPtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BgpSettings) *int {
+func (o BgpSettingsPtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BgpSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -8468,7 +8468,7 @@ func (o BgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutput {
 // BGP settings details
 type BgpSettingsResponse struct {
 	// The BGP speaker's ASN.
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -8489,7 +8489,7 @@ type BgpSettingsResponseInput interface {
 // BGP settings details
 type BgpSettingsResponseArgs struct {
 	// The BGP speaker's ASN.
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// The BGP peering address and BGP identifier of this BGP speaker.
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 	// The weight added to routes learned from this BGP speaker.
@@ -8575,8 +8575,8 @@ func (o BgpSettingsResponseOutput) ToBgpSettingsResponsePtrOutputWithContext(ctx
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsResponseOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BgpSettingsResponse) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o BgpSettingsResponseOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BgpSettingsResponse) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -8608,13 +8608,13 @@ func (o BgpSettingsResponsePtrOutput) Elem() BgpSettingsResponseOutput {
 }
 
 // The BGP speaker's ASN.
-func (o BgpSettingsResponsePtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BgpSettingsResponse) *int {
+func (o BgpSettingsResponsePtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BgpSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The BGP peering address and BGP identifier of this BGP speaker.
@@ -11384,13 +11384,13 @@ func (o ExpressRouteCircuitSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStats struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn *int `pulumi:"primarybytesIn"`
+	PrimarybytesIn *float64 `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut *int `pulumi:"primarybytesOut"`
+	PrimarybytesOut *float64 `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn *int `pulumi:"secondarybytesIn"`
+	SecondarybytesIn *float64 `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut *int `pulumi:"secondarybytesOut"`
+	SecondarybytesOut *float64 `pulumi:"secondarybytesOut"`
 }
 
 // ExpressRouteCircuitStatsInput is an input type that accepts ExpressRouteCircuitStatsArgs and ExpressRouteCircuitStatsOutput values.
@@ -11407,13 +11407,13 @@ type ExpressRouteCircuitStatsInput interface {
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStatsArgs struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn pulumi.IntPtrInput `pulumi:"primarybytesIn"`
+	PrimarybytesIn pulumi.Float64PtrInput `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut pulumi.IntPtrInput `pulumi:"primarybytesOut"`
+	PrimarybytesOut pulumi.Float64PtrInput `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn pulumi.IntPtrInput `pulumi:"secondarybytesIn"`
+	SecondarybytesIn pulumi.Float64PtrInput `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut pulumi.IntPtrInput `pulumi:"secondarybytesOut"`
+	SecondarybytesOut pulumi.Float64PtrInput `pulumi:"secondarybytesOut"`
 }
 
 func (ExpressRouteCircuitStatsArgs) ElementType() reflect.Type {
@@ -11495,23 +11495,23 @@ func (o ExpressRouteCircuitStatsOutput) ToExpressRouteCircuitStatsPtrOutputWithC
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.PrimarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.PrimarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.PrimarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.PrimarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.SecondarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.SecondarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.SecondarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.SecondarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 type ExpressRouteCircuitStatsPtrOutput struct{ *pulumi.OutputState }
@@ -11533,55 +11533,55 @@ func (o ExpressRouteCircuitStatsPtrOutput) Elem() ExpressRouteCircuitStatsOutput
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStatsResponse struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn *int `pulumi:"primarybytesIn"`
+	PrimarybytesIn *float64 `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut *int `pulumi:"primarybytesOut"`
+	PrimarybytesOut *float64 `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn *int `pulumi:"secondarybytesIn"`
+	SecondarybytesIn *float64 `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut *int `pulumi:"secondarybytesOut"`
+	SecondarybytesOut *float64 `pulumi:"secondarybytesOut"`
 }
 
 // ExpressRouteCircuitStatsResponseInput is an input type that accepts ExpressRouteCircuitStatsResponseArgs and ExpressRouteCircuitStatsResponseOutput values.
@@ -11598,13 +11598,13 @@ type ExpressRouteCircuitStatsResponseInput interface {
 // Contains stats associated with the peering.
 type ExpressRouteCircuitStatsResponseArgs struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn pulumi.IntPtrInput `pulumi:"primarybytesIn"`
+	PrimarybytesIn pulumi.Float64PtrInput `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut pulumi.IntPtrInput `pulumi:"primarybytesOut"`
+	PrimarybytesOut pulumi.Float64PtrInput `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn pulumi.IntPtrInput `pulumi:"secondarybytesIn"`
+	SecondarybytesIn pulumi.Float64PtrInput `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut pulumi.IntPtrInput `pulumi:"secondarybytesOut"`
+	SecondarybytesOut pulumi.Float64PtrInput `pulumi:"secondarybytesOut"`
 }
 
 func (ExpressRouteCircuitStatsResponseArgs) ElementType() reflect.Type {
@@ -11686,23 +11686,23 @@ func (o ExpressRouteCircuitStatsResponseOutput) ToExpressRouteCircuitStatsRespon
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.PrimarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.PrimarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.PrimarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.PrimarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.SecondarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.SecondarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.SecondarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.SecondarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 type ExpressRouteCircuitStatsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -11724,43 +11724,43 @@ func (o ExpressRouteCircuitStatsResponsePtrOutput) Elem() ExpressRouteCircuitSta
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Frontend IP address of the load balancer.
@@ -23265,17 +23265,17 @@ type SoaRecord struct {
 	// The email contact for this SOA record.
 	Email *string `pulumi:"email"`
 	// The expire time for this SOA record.
-	ExpireTime *int `pulumi:"expireTime"`
+	ExpireTime *float64 `pulumi:"expireTime"`
 	// The domain name of the authoritative name server for this SOA record.
 	Host *string `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl *int `pulumi:"minimumTtl"`
+	MinimumTtl *float64 `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
-	RefreshTime *int `pulumi:"refreshTime"`
+	RefreshTime *float64 `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
-	RetryTime *int `pulumi:"retryTime"`
+	RetryTime *float64 `pulumi:"retryTime"`
 	// The serial number for this SOA record.
-	SerialNumber *int `pulumi:"serialNumber"`
+	SerialNumber *float64 `pulumi:"serialNumber"`
 }
 
 // SoaRecordInput is an input type that accepts SoaRecordArgs and SoaRecordOutput values.
@@ -23294,17 +23294,17 @@ type SoaRecordArgs struct {
 	// The email contact for this SOA record.
 	Email pulumi.StringPtrInput `pulumi:"email"`
 	// The expire time for this SOA record.
-	ExpireTime pulumi.IntPtrInput `pulumi:"expireTime"`
+	ExpireTime pulumi.Float64PtrInput `pulumi:"expireTime"`
 	// The domain name of the authoritative name server for this SOA record.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
+	MinimumTtl pulumi.Float64PtrInput `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
-	RefreshTime pulumi.IntPtrInput `pulumi:"refreshTime"`
+	RefreshTime pulumi.Float64PtrInput `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
-	RetryTime pulumi.IntPtrInput `pulumi:"retryTime"`
+	RetryTime pulumi.Float64PtrInput `pulumi:"retryTime"`
 	// The serial number for this SOA record.
-	SerialNumber pulumi.IntPtrInput `pulumi:"serialNumber"`
+	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
 }
 
 func (SoaRecordArgs) ElementType() reflect.Type {
@@ -23391,8 +23391,8 @@ func (o SoaRecordOutput) Email() pulumi.StringPtrOutput {
 }
 
 // The expire time for this SOA record.
-func (o SoaRecordOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.ExpireTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.ExpireTime }).(pulumi.Float64PtrOutput)
 }
 
 // The domain name of the authoritative name server for this SOA record.
@@ -23401,23 +23401,23 @@ func (o SoaRecordOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordOutput) MinimumTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.MinimumTtl }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) MinimumTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.MinimumTtl }).(pulumi.Float64PtrOutput)
 }
 
 // The refresh value for this SOA record.
-func (o SoaRecordOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.RefreshTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.RefreshTime }).(pulumi.Float64PtrOutput)
 }
 
 // The retry time for this SOA record.
-func (o SoaRecordOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.RetryTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.RetryTime }).(pulumi.Float64PtrOutput)
 }
 
 // The serial number for this SOA record.
-func (o SoaRecordOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.SerialNumber }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.SerialNumber }).(pulumi.Float64PtrOutput)
 }
 
 type SoaRecordPtrOutput struct{ *pulumi.OutputState }
@@ -23449,13 +23449,13 @@ func (o SoaRecordPtrOutput) Email() pulumi.StringPtrOutput {
 }
 
 // The expire time for this SOA record.
-func (o SoaRecordPtrOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ExpireTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The domain name of the authoritative name server for this SOA record.
@@ -23469,43 +23469,43 @@ func (o SoaRecordPtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordPtrOutput) MinimumTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MinimumTtl
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The refresh value for this SOA record.
-func (o SoaRecordPtrOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RefreshTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The retry time for this SOA record.
-func (o SoaRecordPtrOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RetryTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The serial number for this SOA record.
-func (o SoaRecordPtrOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SerialNumber
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // An SOA record.
@@ -23513,17 +23513,17 @@ type SoaRecordResponse struct {
 	// The email contact for this SOA record.
 	Email *string `pulumi:"email"`
 	// The expire time for this SOA record.
-	ExpireTime *int `pulumi:"expireTime"`
+	ExpireTime *float64 `pulumi:"expireTime"`
 	// The domain name of the authoritative name server for this SOA record.
 	Host *string `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl *int `pulumi:"minimumTtl"`
+	MinimumTtl *float64 `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
-	RefreshTime *int `pulumi:"refreshTime"`
+	RefreshTime *float64 `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
-	RetryTime *int `pulumi:"retryTime"`
+	RetryTime *float64 `pulumi:"retryTime"`
 	// The serial number for this SOA record.
-	SerialNumber *int `pulumi:"serialNumber"`
+	SerialNumber *float64 `pulumi:"serialNumber"`
 }
 
 // SoaRecordResponseInput is an input type that accepts SoaRecordResponseArgs and SoaRecordResponseOutput values.
@@ -23542,17 +23542,17 @@ type SoaRecordResponseArgs struct {
 	// The email contact for this SOA record.
 	Email pulumi.StringPtrInput `pulumi:"email"`
 	// The expire time for this SOA record.
-	ExpireTime pulumi.IntPtrInput `pulumi:"expireTime"`
+	ExpireTime pulumi.Float64PtrInput `pulumi:"expireTime"`
 	// The domain name of the authoritative name server for this SOA record.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
+	MinimumTtl pulumi.Float64PtrInput `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
-	RefreshTime pulumi.IntPtrInput `pulumi:"refreshTime"`
+	RefreshTime pulumi.Float64PtrInput `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
-	RetryTime pulumi.IntPtrInput `pulumi:"retryTime"`
+	RetryTime pulumi.Float64PtrInput `pulumi:"retryTime"`
 	// The serial number for this SOA record.
-	SerialNumber pulumi.IntPtrInput `pulumi:"serialNumber"`
+	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
 }
 
 func (SoaRecordResponseArgs) ElementType() reflect.Type {
@@ -23639,8 +23639,8 @@ func (o SoaRecordResponseOutput) Email() pulumi.StringPtrOutput {
 }
 
 // The expire time for this SOA record.
-func (o SoaRecordResponseOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.ExpireTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.ExpireTime }).(pulumi.Float64PtrOutput)
 }
 
 // The domain name of the authoritative name server for this SOA record.
@@ -23649,23 +23649,23 @@ func (o SoaRecordResponseOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordResponseOutput) MinimumTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.MinimumTtl }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) MinimumTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.MinimumTtl }).(pulumi.Float64PtrOutput)
 }
 
 // The refresh value for this SOA record.
-func (o SoaRecordResponseOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.RefreshTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.RefreshTime }).(pulumi.Float64PtrOutput)
 }
 
 // The retry time for this SOA record.
-func (o SoaRecordResponseOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.RetryTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.RetryTime }).(pulumi.Float64PtrOutput)
 }
 
 // The serial number for this SOA record.
-func (o SoaRecordResponseOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.SerialNumber }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.SerialNumber }).(pulumi.Float64PtrOutput)
 }
 
 type SoaRecordResponsePtrOutput struct{ *pulumi.OutputState }
@@ -23697,13 +23697,13 @@ func (o SoaRecordResponsePtrOutput) Email() pulumi.StringPtrOutput {
 }
 
 // The expire time for this SOA record.
-func (o SoaRecordResponsePtrOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ExpireTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The domain name of the authoritative name server for this SOA record.
@@ -23717,43 +23717,43 @@ func (o SoaRecordResponsePtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordResponsePtrOutput) MinimumTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MinimumTtl
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The refresh value for this SOA record.
-func (o SoaRecordResponsePtrOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RefreshTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The retry time for this SOA record.
-func (o SoaRecordResponsePtrOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RetryTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The serial number for this SOA record.
-func (o SoaRecordResponsePtrOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SerialNumber
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // An SRV record.
@@ -25054,9 +25054,9 @@ type TunnelConnectionHealthResponse struct {
 	// Virtual network Gateway connection status
 	ConnectionStatus string `pulumi:"connectionStatus"`
 	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred float64 `pulumi:"egressBytesTransferred"`
 	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
 	// The time at which connection was established in Utc format.
 	LastConnectionEstablishedUtcTime string `pulumi:"lastConnectionEstablishedUtcTime"`
 	// Tunnel name.
@@ -25079,9 +25079,9 @@ type TunnelConnectionHealthResponseArgs struct {
 	// Virtual network Gateway connection status
 	ConnectionStatus pulumi.StringInput `pulumi:"connectionStatus"`
 	// The Egress Bytes Transferred in this connection
-	EgressBytesTransferred pulumi.IntInput `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred pulumi.Float64Input `pulumi:"egressBytesTransferred"`
 	// The Ingress Bytes Transferred in this connection
-	IngressBytesTransferred pulumi.IntInput `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred pulumi.Float64Input `pulumi:"ingressBytesTransferred"`
 	// The time at which connection was established in Utc format.
 	LastConnectionEstablishedUtcTime pulumi.StringInput `pulumi:"lastConnectionEstablishedUtcTime"`
 	// Tunnel name.
@@ -25146,13 +25146,13 @@ func (o TunnelConnectionHealthResponseOutput) ConnectionStatus() pulumi.StringOu
 }
 
 // The Egress Bytes Transferred in this connection
-func (o TunnelConnectionHealthResponseOutput) EgressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v TunnelConnectionHealthResponse) int { return v.EgressBytesTransferred }).(pulumi.IntOutput)
+func (o TunnelConnectionHealthResponseOutput) EgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v TunnelConnectionHealthResponse) float64 { return v.EgressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The Ingress Bytes Transferred in this connection
-func (o TunnelConnectionHealthResponseOutput) IngressBytesTransferred() pulumi.IntOutput {
-	return o.ApplyT(func(v TunnelConnectionHealthResponse) int { return v.IngressBytesTransferred }).(pulumi.IntOutput)
+func (o TunnelConnectionHealthResponseOutput) IngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v TunnelConnectionHealthResponse) float64 { return v.IngressBytesTransferred }).(pulumi.Float64Output)
 }
 
 // The time at which connection was established in Utc format.

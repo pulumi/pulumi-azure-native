@@ -501,7 +501,7 @@ type HealthState struct {
 	// Health state name
 	HealthStateName string `pulumi:"healthStateName"`
 	// Severity of alert fired
-	Severity int `pulumi:"severity"`
+	Severity float64 `pulumi:"severity"`
 }
 
 // HealthStateInput is an input type that accepts HealthStateArgs and HealthStateOutput values.
@@ -520,7 +520,7 @@ type HealthStateArgs struct {
 	// Health state name
 	HealthStateName pulumi.StringInput `pulumi:"healthStateName"`
 	// Severity of alert fired
-	Severity pulumi.IntInput `pulumi:"severity"`
+	Severity pulumi.Float64Input `pulumi:"severity"`
 }
 
 func (HealthStateArgs) ElementType() reflect.Type {
@@ -581,8 +581,8 @@ func (o HealthStateOutput) HealthStateName() pulumi.StringOutput {
 }
 
 // Severity of alert fired
-func (o HealthStateOutput) Severity() pulumi.IntOutput {
-	return o.ApplyT(func(v HealthState) int { return v.Severity }).(pulumi.IntOutput)
+func (o HealthStateOutput) Severity() pulumi.Float64Output {
+	return o.ApplyT(func(v HealthState) float64 { return v.Severity }).(pulumi.Float64Output)
 }
 
 type HealthStateArrayOutput struct{ *pulumi.OutputState }
@@ -610,7 +610,7 @@ type HealthStateResponse struct {
 	// Health state name
 	HealthStateName string `pulumi:"healthStateName"`
 	// Severity of alert fired
-	Severity int `pulumi:"severity"`
+	Severity float64 `pulumi:"severity"`
 }
 
 // HealthStateResponseInput is an input type that accepts HealthStateResponseArgs and HealthStateResponseOutput values.
@@ -629,7 +629,7 @@ type HealthStateResponseArgs struct {
 	// Health state name
 	HealthStateName pulumi.StringInput `pulumi:"healthStateName"`
 	// Severity of alert fired
-	Severity pulumi.IntInput `pulumi:"severity"`
+	Severity pulumi.Float64Input `pulumi:"severity"`
 }
 
 func (HealthStateResponseArgs) ElementType() reflect.Type {
@@ -690,8 +690,8 @@ func (o HealthStateResponseOutput) HealthStateName() pulumi.StringOutput {
 }
 
 // Severity of alert fired
-func (o HealthStateResponseOutput) Severity() pulumi.IntOutput {
-	return o.ApplyT(func(v HealthStateResponse) int { return v.Severity }).(pulumi.IntOutput)
+func (o HealthStateResponseOutput) Severity() pulumi.Float64Output {
+	return o.ApplyT(func(v HealthStateResponse) float64 { return v.Severity }).(pulumi.Float64Output)
 }
 
 type HealthStateResponseArrayOutput struct{ *pulumi.OutputState }

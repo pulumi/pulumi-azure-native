@@ -40,7 +40,7 @@ type Topic struct {
 	// Value indicating if this topic requires duplicate detection.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
 	// Size of the topic, in bytes.
-	SizeInBytes pulumi.IntOutput `pulumi:"sizeInBytes"`
+	SizeInBytes pulumi.Float64Output `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Number of subscriptions.
@@ -131,7 +131,7 @@ type topicState struct {
 	// Value indicating if this topic requires duplicate detection.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// Size of the topic, in bytes.
-	SizeInBytes *int `pulumi:"sizeInBytes"`
+	SizeInBytes *float64 `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status *string `pulumi:"status"`
 	// Number of subscriptions.
@@ -170,7 +170,7 @@ type TopicState struct {
 	// Value indicating if this topic requires duplicate detection.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// Size of the topic, in bytes.
-	SizeInBytes pulumi.IntPtrInput
+	SizeInBytes pulumi.Float64PtrInput
 	// Enumerates the possible values for the status of a messaging entity.
 	Status pulumi.StringPtrInput
 	// Number of subscriptions.

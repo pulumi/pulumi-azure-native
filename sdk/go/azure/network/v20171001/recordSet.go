@@ -42,7 +42,7 @@ type RecordSet struct {
 	// The list of SRV records in the record set.
 	SrvRecords SrvRecordResponseArrayOutput `pulumi:"srvRecords"`
 	// The TTL (time-to-live) of the records in the record set.
-	Ttl pulumi.IntPtrOutput `pulumi:"ttl"`
+	Ttl pulumi.Float64PtrOutput `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordResponseArrayOutput `pulumi:"txtRecords"`
 	// The type of the record set.
@@ -135,7 +135,7 @@ type recordSetState struct {
 	// The list of SRV records in the record set.
 	SrvRecords []SrvRecordResponse `pulumi:"srvRecords"`
 	// The TTL (time-to-live) of the records in the record set.
-	Ttl *int `pulumi:"ttl"`
+	Ttl *float64 `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords []TxtRecordResponse `pulumi:"txtRecords"`
 	// The type of the record set.
@@ -170,7 +170,7 @@ type RecordSetState struct {
 	// The list of SRV records in the record set.
 	SrvRecords SrvRecordResponseArrayInput
 	// The TTL (time-to-live) of the records in the record set.
-	Ttl pulumi.IntPtrInput
+	Ttl pulumi.Float64PtrInput
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordResponseArrayInput
 	// The type of the record set.
@@ -211,7 +211,7 @@ type recordSetArgs struct {
 	// The list of SRV records in the record set.
 	SrvRecords []SrvRecord `pulumi:"srvRecords"`
 	// The TTL (time-to-live) of the records in the record set.
-	Ttl *int `pulumi:"ttl"`
+	Ttl *float64 `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords []TxtRecord `pulumi:"txtRecords"`
 	// The name of the DNS zone (without a terminating dot).
@@ -249,7 +249,7 @@ type RecordSetArgs struct {
 	// The list of SRV records in the record set.
 	SrvRecords SrvRecordArrayInput
 	// The TTL (time-to-live) of the records in the record set.
-	Ttl pulumi.IntPtrInput
+	Ttl pulumi.Float64PtrInput
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordArrayInput
 	// The name of the DNS zone (without a terminating dot).

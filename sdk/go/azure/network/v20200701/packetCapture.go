@@ -16,7 +16,7 @@ type PacketCapture struct {
 	pulumi.CustomResourceState
 
 	// Number of bytes captured per packet, the remaining bytes are truncated.
-	BytesToCapturePerPacket pulumi.IntPtrOutput `pulumi:"bytesToCapturePerPacket"`
+	BytesToCapturePerPacket pulumi.Float64PtrOutput `pulumi:"bytesToCapturePerPacket"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// A list of packet capture filters.
@@ -32,7 +32,7 @@ type PacketCapture struct {
 	// Maximum duration of the capture session in seconds.
 	TimeLimitInSeconds pulumi.IntPtrOutput `pulumi:"timeLimitInSeconds"`
 	// Maximum size of the capture output.
-	TotalBytesPerSession pulumi.IntPtrOutput `pulumi:"totalBytesPerSession"`
+	TotalBytesPerSession pulumi.Float64PtrOutput `pulumi:"totalBytesPerSession"`
 }
 
 // NewPacketCapture registers a new resource with the given unique name, arguments, and options.
@@ -173,7 +173,7 @@ func GetPacketCapture(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PacketCapture resources.
 type packetCaptureState struct {
 	// Number of bytes captured per packet, the remaining bytes are truncated.
-	BytesToCapturePerPacket *int `pulumi:"bytesToCapturePerPacket"`
+	BytesToCapturePerPacket *float64 `pulumi:"bytesToCapturePerPacket"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// A list of packet capture filters.
@@ -189,12 +189,12 @@ type packetCaptureState struct {
 	// Maximum duration of the capture session in seconds.
 	TimeLimitInSeconds *int `pulumi:"timeLimitInSeconds"`
 	// Maximum size of the capture output.
-	TotalBytesPerSession *int `pulumi:"totalBytesPerSession"`
+	TotalBytesPerSession *float64 `pulumi:"totalBytesPerSession"`
 }
 
 type PacketCaptureState struct {
 	// Number of bytes captured per packet, the remaining bytes are truncated.
-	BytesToCapturePerPacket pulumi.IntPtrInput
+	BytesToCapturePerPacket pulumi.Float64PtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// A list of packet capture filters.
@@ -210,7 +210,7 @@ type PacketCaptureState struct {
 	// Maximum duration of the capture session in seconds.
 	TimeLimitInSeconds pulumi.IntPtrInput
 	// Maximum size of the capture output.
-	TotalBytesPerSession pulumi.IntPtrInput
+	TotalBytesPerSession pulumi.Float64PtrInput
 }
 
 func (PacketCaptureState) ElementType() reflect.Type {
@@ -219,7 +219,7 @@ func (PacketCaptureState) ElementType() reflect.Type {
 
 type packetCaptureArgs struct {
 	// Number of bytes captured per packet, the remaining bytes are truncated.
-	BytesToCapturePerPacket *int `pulumi:"bytesToCapturePerPacket"`
+	BytesToCapturePerPacket *float64 `pulumi:"bytesToCapturePerPacket"`
 	// A list of packet capture filters.
 	Filters []PacketCaptureFilter `pulumi:"filters"`
 	// The name of the network watcher.
@@ -235,13 +235,13 @@ type packetCaptureArgs struct {
 	// Maximum duration of the capture session in seconds.
 	TimeLimitInSeconds *int `pulumi:"timeLimitInSeconds"`
 	// Maximum size of the capture output.
-	TotalBytesPerSession *int `pulumi:"totalBytesPerSession"`
+	TotalBytesPerSession *float64 `pulumi:"totalBytesPerSession"`
 }
 
 // The set of arguments for constructing a PacketCapture resource.
 type PacketCaptureArgs struct {
 	// Number of bytes captured per packet, the remaining bytes are truncated.
-	BytesToCapturePerPacket pulumi.IntPtrInput
+	BytesToCapturePerPacket pulumi.Float64PtrInput
 	// A list of packet capture filters.
 	Filters PacketCaptureFilterArrayInput
 	// The name of the network watcher.
@@ -257,7 +257,7 @@ type PacketCaptureArgs struct {
 	// Maximum duration of the capture session in seconds.
 	TimeLimitInSeconds pulumi.IntPtrInput
 	// Maximum size of the capture output.
-	TotalBytesPerSession pulumi.IntPtrInput
+	TotalBytesPerSession pulumi.Float64PtrInput
 }
 
 func (PacketCaptureArgs) ElementType() reflect.Type {

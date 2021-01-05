@@ -42,15 +42,15 @@ type LookupIscsiDiskResult struct {
 	// The identifier.
 	Id string `pulumi:"id"`
 	// The local used capacity in bytes.
-	LocalUsedCapacityInBytes int `pulumi:"localUsedCapacityInBytes"`
+	LocalUsedCapacityInBytes float64 `pulumi:"localUsedCapacityInBytes"`
 	// The monitoring.
 	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The name.
 	Name string `pulumi:"name"`
 	// The provisioned capacity in bytes.
-	ProvisionedCapacityInBytes int `pulumi:"provisionedCapacityInBytes"`
+	ProvisionedCapacityInBytes float64 `pulumi:"provisionedCapacityInBytes"`
 	// The type.
 	Type string `pulumi:"type"`
 	// The used capacity in bytes.
-	UsedCapacityInBytes int `pulumi:"usedCapacityInBytes"`
+	UsedCapacityInBytes float64 `pulumi:"usedCapacityInBytes"`
 }

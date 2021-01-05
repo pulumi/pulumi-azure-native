@@ -55,7 +55,7 @@ type VirtualHub struct {
 	// List of all virtual hub route table v2s associated with this VirtualHub.
 	VirtualHubRouteTableV2s VirtualHubRouteTableV2ResponseArrayOutput `pulumi:"virtualHubRouteTableV2s"`
 	// VirtualRouter ASN.
-	VirtualRouterAsn pulumi.IntPtrOutput `pulumi:"virtualRouterAsn"`
+	VirtualRouterAsn pulumi.Float64PtrOutput `pulumi:"virtualRouterAsn"`
 	// VirtualRouter IPs.
 	VirtualRouterIps pulumi.StringArrayOutput `pulumi:"virtualRouterIps"`
 	// The VirtualWAN to which the VirtualHub belongs.
@@ -204,7 +204,7 @@ type virtualHubState struct {
 	// List of all virtual hub route table v2s associated with this VirtualHub.
 	VirtualHubRouteTableV2s []VirtualHubRouteTableV2Response `pulumi:"virtualHubRouteTableV2s"`
 	// VirtualRouter ASN.
-	VirtualRouterAsn *int `pulumi:"virtualRouterAsn"`
+	VirtualRouterAsn *float64 `pulumi:"virtualRouterAsn"`
 	// VirtualRouter IPs.
 	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 	// The VirtualWAN to which the VirtualHub belongs.
@@ -253,7 +253,7 @@ type VirtualHubState struct {
 	// List of all virtual hub route table v2s associated with this VirtualHub.
 	VirtualHubRouteTableV2s VirtualHubRouteTableV2ResponseArrayInput
 	// VirtualRouter ASN.
-	VirtualRouterAsn pulumi.IntPtrInput
+	VirtualRouterAsn pulumi.Float64PtrInput
 	// VirtualRouter IPs.
 	VirtualRouterIps pulumi.StringArrayInput
 	// The VirtualWAN to which the VirtualHub belongs.
@@ -298,7 +298,7 @@ type virtualHubArgs struct {
 	// List of all virtual hub route table v2s associated with this VirtualHub.
 	VirtualHubRouteTableV2s []VirtualHubRouteTableV2Type `pulumi:"virtualHubRouteTableV2s"`
 	// VirtualRouter ASN.
-	VirtualRouterAsn *int `pulumi:"virtualRouterAsn"`
+	VirtualRouterAsn *float64 `pulumi:"virtualRouterAsn"`
 	// VirtualRouter IPs.
 	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 	// The VirtualWAN to which the VirtualHub belongs.
@@ -340,7 +340,7 @@ type VirtualHubArgs struct {
 	// List of all virtual hub route table v2s associated with this VirtualHub.
 	VirtualHubRouteTableV2s VirtualHubRouteTableV2TypeArrayInput
 	// VirtualRouter ASN.
-	VirtualRouterAsn pulumi.IntPtrInput
+	VirtualRouterAsn pulumi.Float64PtrInput
 	// VirtualRouter IPs.
 	VirtualRouterIps pulumi.StringArrayInput
 	// The VirtualWAN to which the VirtualHub belongs.

@@ -786,9 +786,9 @@ type ServerRoleGroup struct {
 	// The edition of a server (default: GeneralPurpose).
 	ServerEdition *string `pulumi:"serverEdition"`
 	// The storage of a server in MB (max: 2097152 = 2TiB).
-	StorageQuotaInMb *int `pulumi:"storageQuotaInMb"`
+	StorageQuotaInMb *float64 `pulumi:"storageQuotaInMb"`
 	// The vCores count of a server (max: 64).
-	VCores *int `pulumi:"vCores"`
+	VCores *float64 `pulumi:"vCores"`
 }
 
 // ServerRoleGroupInput is an input type that accepts ServerRoleGroupArgs and ServerRoleGroupOutput values.
@@ -815,9 +815,9 @@ type ServerRoleGroupArgs struct {
 	// The edition of a server (default: GeneralPurpose).
 	ServerEdition pulumi.StringPtrInput `pulumi:"serverEdition"`
 	// The storage of a server in MB (max: 2097152 = 2TiB).
-	StorageQuotaInMb pulumi.IntPtrInput `pulumi:"storageQuotaInMb"`
+	StorageQuotaInMb pulumi.Float64PtrInput `pulumi:"storageQuotaInMb"`
 	// The vCores count of a server (max: 64).
-	VCores pulumi.IntPtrInput `pulumi:"vCores"`
+	VCores pulumi.Float64PtrInput `pulumi:"vCores"`
 }
 
 func (ServerRoleGroupArgs) ElementType() reflect.Type {
@@ -898,13 +898,13 @@ func (o ServerRoleGroupOutput) ServerEdition() pulumi.StringPtrOutput {
 }
 
 // The storage of a server in MB (max: 2097152 = 2TiB).
-func (o ServerRoleGroupOutput) StorageQuotaInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerRoleGroup) *int { return v.StorageQuotaInMb }).(pulumi.IntPtrOutput)
+func (o ServerRoleGroupOutput) StorageQuotaInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServerRoleGroup) *float64 { return v.StorageQuotaInMb }).(pulumi.Float64PtrOutput)
 }
 
 // The vCores count of a server (max: 64).
-func (o ServerRoleGroupOutput) VCores() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerRoleGroup) *int { return v.VCores }).(pulumi.IntPtrOutput)
+func (o ServerRoleGroupOutput) VCores() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServerRoleGroup) *float64 { return v.VCores }).(pulumi.Float64PtrOutput)
 }
 
 type ServerRoleGroupArrayOutput struct{ *pulumi.OutputState }
@@ -944,9 +944,9 @@ type ServerRoleGroupResponse struct {
 	// The list of server names in the server role group.
 	ServerNames []ServerNameItemResponse `pulumi:"serverNames"`
 	// The storage of a server in MB (max: 2097152 = 2TiB).
-	StorageQuotaInMb *int `pulumi:"storageQuotaInMb"`
+	StorageQuotaInMb *float64 `pulumi:"storageQuotaInMb"`
 	// The vCores count of a server (max: 64).
-	VCores *int `pulumi:"vCores"`
+	VCores *float64 `pulumi:"vCores"`
 }
 
 // ServerRoleGroupResponseInput is an input type that accepts ServerRoleGroupResponseArgs and ServerRoleGroupResponseOutput values.
@@ -977,9 +977,9 @@ type ServerRoleGroupResponseArgs struct {
 	// The list of server names in the server role group.
 	ServerNames ServerNameItemResponseArrayInput `pulumi:"serverNames"`
 	// The storage of a server in MB (max: 2097152 = 2TiB).
-	StorageQuotaInMb pulumi.IntPtrInput `pulumi:"storageQuotaInMb"`
+	StorageQuotaInMb pulumi.Float64PtrInput `pulumi:"storageQuotaInMb"`
 	// The vCores count of a server (max: 64).
-	VCores pulumi.IntPtrInput `pulumi:"vCores"`
+	VCores pulumi.Float64PtrInput `pulumi:"vCores"`
 }
 
 func (ServerRoleGroupResponseArgs) ElementType() reflect.Type {
@@ -1070,13 +1070,13 @@ func (o ServerRoleGroupResponseOutput) ServerNames() ServerNameItemResponseArray
 }
 
 // The storage of a server in MB (max: 2097152 = 2TiB).
-func (o ServerRoleGroupResponseOutput) StorageQuotaInMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerRoleGroupResponse) *int { return v.StorageQuotaInMb }).(pulumi.IntPtrOutput)
+func (o ServerRoleGroupResponseOutput) StorageQuotaInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServerRoleGroupResponse) *float64 { return v.StorageQuotaInMb }).(pulumi.Float64PtrOutput)
 }
 
 // The vCores count of a server (max: 64).
-func (o ServerRoleGroupResponseOutput) VCores() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerRoleGroupResponse) *int { return v.VCores }).(pulumi.IntPtrOutput)
+func (o ServerRoleGroupResponseOutput) VCores() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServerRoleGroupResponse) *float64 { return v.VCores }).(pulumi.Float64PtrOutput)
 }
 
 type ServerRoleGroupResponseArrayOutput struct{ *pulumi.OutputState }

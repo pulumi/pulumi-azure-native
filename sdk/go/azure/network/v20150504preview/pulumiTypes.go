@@ -1317,7 +1317,7 @@ type RecordSetProperties struct {
 	// Gets or sets the list of TXT records in the RecordSet.
 	TXTRecords []TxtRecord `pulumi:"tXTRecords"`
 	// Gets or sets the TTL of the records in the RecordSet.
-	Ttl *int `pulumi:"ttl"`
+	Ttl *float64 `pulumi:"ttl"`
 }
 
 // RecordSetPropertiesInput is an input type that accepts RecordSetPropertiesArgs and RecordSetPropertiesOutput values.
@@ -1352,7 +1352,7 @@ type RecordSetPropertiesArgs struct {
 	// Gets or sets the list of TXT records in the RecordSet.
 	TXTRecords TxtRecordArrayInput `pulumi:"tXTRecords"`
 	// Gets or sets the TTL of the records in the RecordSet.
-	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
+	Ttl pulumi.Float64PtrInput `pulumi:"ttl"`
 }
 
 func (RecordSetPropertiesArgs) ElementType() reflect.Type {
@@ -1479,8 +1479,8 @@ func (o RecordSetPropertiesOutput) TXTRecords() TxtRecordArrayOutput {
 }
 
 // Gets or sets the TTL of the records in the RecordSet.
-func (o RecordSetPropertiesOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RecordSetProperties) *int { return v.Ttl }).(pulumi.IntPtrOutput)
+func (o RecordSetPropertiesOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RecordSetProperties) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
 }
 
 type RecordSetPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1592,13 +1592,13 @@ func (o RecordSetPropertiesPtrOutput) TXTRecords() TxtRecordArrayOutput {
 }
 
 // Gets or sets the TTL of the records in the RecordSet.
-func (o RecordSetPropertiesPtrOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RecordSetProperties) *int {
+func (o RecordSetPropertiesPtrOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RecordSetProperties) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Ttl
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Represents the properties of the records in the RecordSet.
@@ -1622,7 +1622,7 @@ type RecordSetPropertiesResponse struct {
 	// Gets or sets the list of TXT records in the RecordSet.
 	TXTRecords []TxtRecordResponse `pulumi:"tXTRecords"`
 	// Gets or sets the TTL of the records in the RecordSet.
-	Ttl *int `pulumi:"ttl"`
+	Ttl *float64 `pulumi:"ttl"`
 }
 
 // RecordSetPropertiesResponseInput is an input type that accepts RecordSetPropertiesResponseArgs and RecordSetPropertiesResponseOutput values.
@@ -1657,7 +1657,7 @@ type RecordSetPropertiesResponseArgs struct {
 	// Gets or sets the list of TXT records in the RecordSet.
 	TXTRecords TxtRecordResponseArrayInput `pulumi:"tXTRecords"`
 	// Gets or sets the TTL of the records in the RecordSet.
-	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
+	Ttl pulumi.Float64PtrInput `pulumi:"ttl"`
 }
 
 func (RecordSetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1784,8 +1784,8 @@ func (o RecordSetPropertiesResponseOutput) TXTRecords() TxtRecordResponseArrayOu
 }
 
 // Gets or sets the TTL of the records in the RecordSet.
-func (o RecordSetPropertiesResponseOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) *int { return v.Ttl }).(pulumi.IntPtrOutput)
+func (o RecordSetPropertiesResponseOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RecordSetPropertiesResponse) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
 }
 
 type RecordSetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1897,13 +1897,13 @@ func (o RecordSetPropertiesResponsePtrOutput) TXTRecords() TxtRecordResponseArra
 }
 
 // Gets or sets the TTL of the records in the RecordSet.
-func (o RecordSetPropertiesResponsePtrOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) *int {
+func (o RecordSetPropertiesResponsePtrOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RecordSetPropertiesResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Ttl
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // An SOA record.
@@ -1911,17 +1911,17 @@ type SoaRecord struct {
 	// Gets or sets the email for this record.
 	Email *string `pulumi:"email"`
 	// Gets or sets the expire time for this record.
-	ExpireTime *int `pulumi:"expireTime"`
+	ExpireTime *float64 `pulumi:"expireTime"`
 	// Gets or sets the domain name of the authoritative name server, without a terminating dot.
 	Host *string `pulumi:"host"`
 	// Gets or sets the minimum TTL value for this record.
-	MinimumTTL *int `pulumi:"minimumTTL"`
+	MinimumTTL *float64 `pulumi:"minimumTTL"`
 	// Gets or sets the refresh value for this record.
-	RefreshTime *int `pulumi:"refreshTime"`
+	RefreshTime *float64 `pulumi:"refreshTime"`
 	// Gets or sets the retry time for this record.
-	RetryTime *int `pulumi:"retryTime"`
+	RetryTime *float64 `pulumi:"retryTime"`
 	// Gets or sets the serial number for this record.
-	SerialNumber *int `pulumi:"serialNumber"`
+	SerialNumber *float64 `pulumi:"serialNumber"`
 }
 
 // SoaRecordInput is an input type that accepts SoaRecordArgs and SoaRecordOutput values.
@@ -1940,17 +1940,17 @@ type SoaRecordArgs struct {
 	// Gets or sets the email for this record.
 	Email pulumi.StringPtrInput `pulumi:"email"`
 	// Gets or sets the expire time for this record.
-	ExpireTime pulumi.IntPtrInput `pulumi:"expireTime"`
+	ExpireTime pulumi.Float64PtrInput `pulumi:"expireTime"`
 	// Gets or sets the domain name of the authoritative name server, without a terminating dot.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// Gets or sets the minimum TTL value for this record.
-	MinimumTTL pulumi.IntPtrInput `pulumi:"minimumTTL"`
+	MinimumTTL pulumi.Float64PtrInput `pulumi:"minimumTTL"`
 	// Gets or sets the refresh value for this record.
-	RefreshTime pulumi.IntPtrInput `pulumi:"refreshTime"`
+	RefreshTime pulumi.Float64PtrInput `pulumi:"refreshTime"`
 	// Gets or sets the retry time for this record.
-	RetryTime pulumi.IntPtrInput `pulumi:"retryTime"`
+	RetryTime pulumi.Float64PtrInput `pulumi:"retryTime"`
 	// Gets or sets the serial number for this record.
-	SerialNumber pulumi.IntPtrInput `pulumi:"serialNumber"`
+	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
 }
 
 func (SoaRecordArgs) ElementType() reflect.Type {
@@ -2037,8 +2037,8 @@ func (o SoaRecordOutput) Email() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the expire time for this record.
-func (o SoaRecordOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.ExpireTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.ExpireTime }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the domain name of the authoritative name server, without a terminating dot.
@@ -2047,23 +2047,23 @@ func (o SoaRecordOutput) Host() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the minimum TTL value for this record.
-func (o SoaRecordOutput) MinimumTTL() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.MinimumTTL }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) MinimumTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.MinimumTTL }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the refresh value for this record.
-func (o SoaRecordOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.RefreshTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.RefreshTime }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the retry time for this record.
-func (o SoaRecordOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.RetryTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.RetryTime }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the serial number for this record.
-func (o SoaRecordOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.SerialNumber }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecord) *float64 { return v.SerialNumber }).(pulumi.Float64PtrOutput)
 }
 
 type SoaRecordPtrOutput struct{ *pulumi.OutputState }
@@ -2095,13 +2095,13 @@ func (o SoaRecordPtrOutput) Email() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the expire time for this record.
-func (o SoaRecordPtrOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ExpireTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the domain name of the authoritative name server, without a terminating dot.
@@ -2115,43 +2115,43 @@ func (o SoaRecordPtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the minimum TTL value for this record.
-func (o SoaRecordPtrOutput) MinimumTTL() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) MinimumTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MinimumTTL
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the refresh value for this record.
-func (o SoaRecordPtrOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RefreshTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the retry time for this record.
-func (o SoaRecordPtrOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RetryTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the serial number for this record.
-func (o SoaRecordPtrOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecord) *int {
+func (o SoaRecordPtrOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SerialNumber
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // An SOA record.
@@ -2159,17 +2159,17 @@ type SoaRecordResponse struct {
 	// Gets or sets the email for this record.
 	Email *string `pulumi:"email"`
 	// Gets or sets the expire time for this record.
-	ExpireTime *int `pulumi:"expireTime"`
+	ExpireTime *float64 `pulumi:"expireTime"`
 	// Gets or sets the domain name of the authoritative name server, without a terminating dot.
 	Host *string `pulumi:"host"`
 	// Gets or sets the minimum TTL value for this record.
-	MinimumTTL *int `pulumi:"minimumTTL"`
+	MinimumTTL *float64 `pulumi:"minimumTTL"`
 	// Gets or sets the refresh value for this record.
-	RefreshTime *int `pulumi:"refreshTime"`
+	RefreshTime *float64 `pulumi:"refreshTime"`
 	// Gets or sets the retry time for this record.
-	RetryTime *int `pulumi:"retryTime"`
+	RetryTime *float64 `pulumi:"retryTime"`
 	// Gets or sets the serial number for this record.
-	SerialNumber *int `pulumi:"serialNumber"`
+	SerialNumber *float64 `pulumi:"serialNumber"`
 }
 
 // SoaRecordResponseInput is an input type that accepts SoaRecordResponseArgs and SoaRecordResponseOutput values.
@@ -2188,17 +2188,17 @@ type SoaRecordResponseArgs struct {
 	// Gets or sets the email for this record.
 	Email pulumi.StringPtrInput `pulumi:"email"`
 	// Gets or sets the expire time for this record.
-	ExpireTime pulumi.IntPtrInput `pulumi:"expireTime"`
+	ExpireTime pulumi.Float64PtrInput `pulumi:"expireTime"`
 	// Gets or sets the domain name of the authoritative name server, without a terminating dot.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// Gets or sets the minimum TTL value for this record.
-	MinimumTTL pulumi.IntPtrInput `pulumi:"minimumTTL"`
+	MinimumTTL pulumi.Float64PtrInput `pulumi:"minimumTTL"`
 	// Gets or sets the refresh value for this record.
-	RefreshTime pulumi.IntPtrInput `pulumi:"refreshTime"`
+	RefreshTime pulumi.Float64PtrInput `pulumi:"refreshTime"`
 	// Gets or sets the retry time for this record.
-	RetryTime pulumi.IntPtrInput `pulumi:"retryTime"`
+	RetryTime pulumi.Float64PtrInput `pulumi:"retryTime"`
 	// Gets or sets the serial number for this record.
-	SerialNumber pulumi.IntPtrInput `pulumi:"serialNumber"`
+	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
 }
 
 func (SoaRecordResponseArgs) ElementType() reflect.Type {
@@ -2285,8 +2285,8 @@ func (o SoaRecordResponseOutput) Email() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the expire time for this record.
-func (o SoaRecordResponseOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.ExpireTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.ExpireTime }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the domain name of the authoritative name server, without a terminating dot.
@@ -2295,23 +2295,23 @@ func (o SoaRecordResponseOutput) Host() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the minimum TTL value for this record.
-func (o SoaRecordResponseOutput) MinimumTTL() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.MinimumTTL }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) MinimumTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.MinimumTTL }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the refresh value for this record.
-func (o SoaRecordResponseOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.RefreshTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.RefreshTime }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the retry time for this record.
-func (o SoaRecordResponseOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.RetryTime }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.RetryTime }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the serial number for this record.
-func (o SoaRecordResponseOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.SerialNumber }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.SerialNumber }).(pulumi.Float64PtrOutput)
 }
 
 type SoaRecordResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2343,13 +2343,13 @@ func (o SoaRecordResponsePtrOutput) Email() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the expire time for this record.
-func (o SoaRecordResponsePtrOutput) ExpireTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ExpireTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the domain name of the authoritative name server, without a terminating dot.
@@ -2363,43 +2363,43 @@ func (o SoaRecordResponsePtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the minimum TTL value for this record.
-func (o SoaRecordResponsePtrOutput) MinimumTTL() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) MinimumTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MinimumTTL
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the refresh value for this record.
-func (o SoaRecordResponsePtrOutput) RefreshTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RefreshTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the retry time for this record.
-func (o SoaRecordResponsePtrOutput) RetryTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.RetryTime
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the serial number for this record.
-func (o SoaRecordResponsePtrOutput) SerialNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) *int {
+func (o SoaRecordResponsePtrOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SerialNumber
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // An SRV record.
@@ -2859,9 +2859,9 @@ func (o TxtRecordResponseArrayOutput) Index(i pulumi.IntInput) TxtRecordResponse
 // Represents the properties of the zone.
 type ZoneProperties struct {
 	// Gets or sets the maximum number of record sets that can be created in this zone.
-	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordSets *float64 `pulumi:"maxNumberOfRecordSets"`
 	// Gets or sets the current number of record sets in this zone.
-	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
+	NumberOfRecordSets *float64 `pulumi:"numberOfRecordSets"`
 }
 
 // ZonePropertiesInput is an input type that accepts ZonePropertiesArgs and ZonePropertiesOutput values.
@@ -2878,9 +2878,9 @@ type ZonePropertiesInput interface {
 // Represents the properties of the zone.
 type ZonePropertiesArgs struct {
 	// Gets or sets the maximum number of record sets that can be created in this zone.
-	MaxNumberOfRecordSets pulumi.IntPtrInput `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordSets pulumi.Float64PtrInput `pulumi:"maxNumberOfRecordSets"`
 	// Gets or sets the current number of record sets in this zone.
-	NumberOfRecordSets pulumi.IntPtrInput `pulumi:"numberOfRecordSets"`
+	NumberOfRecordSets pulumi.Float64PtrInput `pulumi:"numberOfRecordSets"`
 }
 
 func (ZonePropertiesArgs) ElementType() reflect.Type {
@@ -2962,13 +2962,13 @@ func (o ZonePropertiesOutput) ToZonePropertiesPtrOutputWithContext(ctx context.C
 }
 
 // Gets or sets the maximum number of record sets that can be created in this zone.
-func (o ZonePropertiesOutput) MaxNumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ZoneProperties) *int { return v.MaxNumberOfRecordSets }).(pulumi.IntPtrOutput)
+func (o ZonePropertiesOutput) MaxNumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ZoneProperties) *float64 { return v.MaxNumberOfRecordSets }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the current number of record sets in this zone.
-func (o ZonePropertiesOutput) NumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ZoneProperties) *int { return v.NumberOfRecordSets }).(pulumi.IntPtrOutput)
+func (o ZonePropertiesOutput) NumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ZoneProperties) *float64 { return v.NumberOfRecordSets }).(pulumi.Float64PtrOutput)
 }
 
 type ZonePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2990,31 +2990,31 @@ func (o ZonePropertiesPtrOutput) Elem() ZonePropertiesOutput {
 }
 
 // Gets or sets the maximum number of record sets that can be created in this zone.
-func (o ZonePropertiesPtrOutput) MaxNumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ZoneProperties) *int {
+func (o ZonePropertiesPtrOutput) MaxNumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ZoneProperties) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxNumberOfRecordSets
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the current number of record sets in this zone.
-func (o ZonePropertiesPtrOutput) NumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ZoneProperties) *int {
+func (o ZonePropertiesPtrOutput) NumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ZoneProperties) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.NumberOfRecordSets
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Represents the properties of the zone.
 type ZonePropertiesResponse struct {
 	// Gets or sets the maximum number of record sets that can be created in this zone.
-	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordSets *float64 `pulumi:"maxNumberOfRecordSets"`
 	// Gets or sets the current number of record sets in this zone.
-	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
+	NumberOfRecordSets *float64 `pulumi:"numberOfRecordSets"`
 }
 
 // ZonePropertiesResponseInput is an input type that accepts ZonePropertiesResponseArgs and ZonePropertiesResponseOutput values.
@@ -3031,9 +3031,9 @@ type ZonePropertiesResponseInput interface {
 // Represents the properties of the zone.
 type ZonePropertiesResponseArgs struct {
 	// Gets or sets the maximum number of record sets that can be created in this zone.
-	MaxNumberOfRecordSets pulumi.IntPtrInput `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordSets pulumi.Float64PtrInput `pulumi:"maxNumberOfRecordSets"`
 	// Gets or sets the current number of record sets in this zone.
-	NumberOfRecordSets pulumi.IntPtrInput `pulumi:"numberOfRecordSets"`
+	NumberOfRecordSets pulumi.Float64PtrInput `pulumi:"numberOfRecordSets"`
 }
 
 func (ZonePropertiesResponseArgs) ElementType() reflect.Type {
@@ -3115,13 +3115,13 @@ func (o ZonePropertiesResponseOutput) ToZonePropertiesResponsePtrOutputWithConte
 }
 
 // Gets or sets the maximum number of record sets that can be created in this zone.
-func (o ZonePropertiesResponseOutput) MaxNumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ZonePropertiesResponse) *int { return v.MaxNumberOfRecordSets }).(pulumi.IntPtrOutput)
+func (o ZonePropertiesResponseOutput) MaxNumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ZonePropertiesResponse) *float64 { return v.MaxNumberOfRecordSets }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the current number of record sets in this zone.
-func (o ZonePropertiesResponseOutput) NumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ZonePropertiesResponse) *int { return v.NumberOfRecordSets }).(pulumi.IntPtrOutput)
+func (o ZonePropertiesResponseOutput) NumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ZonePropertiesResponse) *float64 { return v.NumberOfRecordSets }).(pulumi.Float64PtrOutput)
 }
 
 type ZonePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3143,23 +3143,23 @@ func (o ZonePropertiesResponsePtrOutput) Elem() ZonePropertiesResponseOutput {
 }
 
 // Gets or sets the maximum number of record sets that can be created in this zone.
-func (o ZonePropertiesResponsePtrOutput) MaxNumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ZonePropertiesResponse) *int {
+func (o ZonePropertiesResponsePtrOutput) MaxNumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ZonePropertiesResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxNumberOfRecordSets
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the current number of record sets in this zone.
-func (o ZonePropertiesResponsePtrOutput) NumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ZonePropertiesResponse) *int {
+func (o ZonePropertiesResponsePtrOutput) NumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ZonePropertiesResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.NumberOfRecordSets
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 func init() {

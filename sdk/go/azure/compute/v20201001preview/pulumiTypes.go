@@ -2606,7 +2606,7 @@ func (o CloudServiceRoleProfileResponsePtrOutput) Roles() CloudServiceRoleProfil
 // Describes the cloud service role sku.
 type CloudServiceRoleSku struct {
 	// Specifies the number of role instances in the cloud service.
-	Capacity *int `pulumi:"capacity"`
+	Capacity *float64 `pulumi:"capacity"`
 	// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
 	Name *string `pulumi:"name"`
 	// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
@@ -2627,7 +2627,7 @@ type CloudServiceRoleSkuInput interface {
 // Describes the cloud service role sku.
 type CloudServiceRoleSkuArgs struct {
 	// Specifies the number of role instances in the cloud service.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
 	// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
@@ -2713,8 +2713,8 @@ func (o CloudServiceRoleSkuOutput) ToCloudServiceRoleSkuPtrOutputWithContext(ctx
 }
 
 // Specifies the number of role instances in the cloud service.
-func (o CloudServiceRoleSkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CloudServiceRoleSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o CloudServiceRoleSkuOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CloudServiceRoleSku) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 // The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
@@ -2746,13 +2746,13 @@ func (o CloudServiceRoleSkuPtrOutput) Elem() CloudServiceRoleSkuOutput {
 }
 
 // Specifies the number of role instances in the cloud service.
-func (o CloudServiceRoleSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CloudServiceRoleSku) *int {
+func (o CloudServiceRoleSkuPtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudServiceRoleSku) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
@@ -2778,7 +2778,7 @@ func (o CloudServiceRoleSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 // Describes the cloud service role sku.
 type CloudServiceRoleSkuResponse struct {
 	// Specifies the number of role instances in the cloud service.
-	Capacity *int `pulumi:"capacity"`
+	Capacity *float64 `pulumi:"capacity"`
 	// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
 	Name *string `pulumi:"name"`
 	// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
@@ -2799,7 +2799,7 @@ type CloudServiceRoleSkuResponseInput interface {
 // Describes the cloud service role sku.
 type CloudServiceRoleSkuResponseArgs struct {
 	// Specifies the number of role instances in the cloud service.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
 	// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
@@ -2885,8 +2885,8 @@ func (o CloudServiceRoleSkuResponseOutput) ToCloudServiceRoleSkuResponsePtrOutpu
 }
 
 // Specifies the number of role instances in the cloud service.
-func (o CloudServiceRoleSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CloudServiceRoleSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o CloudServiceRoleSkuResponseOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CloudServiceRoleSkuResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 // The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
@@ -2918,13 +2918,13 @@ func (o CloudServiceRoleSkuResponsePtrOutput) Elem() CloudServiceRoleSkuResponse
 }
 
 // Specifies the number of role instances in the cloud service.
-func (o CloudServiceRoleSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CloudServiceRoleSkuResponse) *int {
+func (o CloudServiceRoleSkuResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudServiceRoleSkuResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.

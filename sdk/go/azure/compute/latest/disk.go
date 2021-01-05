@@ -21,15 +21,15 @@ type Disk struct {
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId pulumi.StringPtrOutput `pulumi:"diskAccessId"`
 	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadOnly pulumi.IntPtrOutput `pulumi:"diskIOPSReadOnly"`
+	DiskIOPSReadOnly pulumi.Float64PtrOutput `pulumi:"diskIOPSReadOnly"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadWrite pulumi.IntPtrOutput `pulumi:"diskIOPSReadWrite"`
+	DiskIOPSReadWrite pulumi.Float64PtrOutput `pulumi:"diskIOPSReadWrite"`
 	// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadOnly pulumi.IntPtrOutput `pulumi:"diskMBpsReadOnly"`
+	DiskMBpsReadOnly pulumi.Float64PtrOutput `pulumi:"diskMBpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadWrite pulumi.IntPtrOutput `pulumi:"diskMBpsReadWrite"`
+	DiskMBpsReadWrite pulumi.Float64PtrOutput `pulumi:"diskMBpsReadWrite"`
 	// The size of the disk in bytes. This field is read only.
-	DiskSizeBytes pulumi.IntOutput `pulumi:"diskSizeBytes"`
+	DiskSizeBytes pulumi.Float64Output `pulumi:"diskSizeBytes"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB pulumi.IntPtrOutput `pulumi:"diskSizeGB"`
 	// The state of the disk.
@@ -153,15 +153,15 @@ type diskState struct {
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadOnly *int `pulumi:"diskIOPSReadOnly"`
+	DiskIOPSReadOnly *float64 `pulumi:"diskIOPSReadOnly"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadWrite *int `pulumi:"diskIOPSReadWrite"`
+	DiskIOPSReadWrite *float64 `pulumi:"diskIOPSReadWrite"`
 	// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadOnly *int `pulumi:"diskMBpsReadOnly"`
+	DiskMBpsReadOnly *float64 `pulumi:"diskMBpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadWrite *int `pulumi:"diskMBpsReadWrite"`
+	DiskMBpsReadWrite *float64 `pulumi:"diskMBpsReadWrite"`
 	// The size of the disk in bytes. This field is read only.
-	DiskSizeBytes *int `pulumi:"diskSizeBytes"`
+	DiskSizeBytes *float64 `pulumi:"diskSizeBytes"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// The state of the disk.
@@ -212,15 +212,15 @@ type DiskState struct {
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId pulumi.StringPtrInput
 	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadOnly pulumi.IntPtrInput
+	DiskIOPSReadOnly pulumi.Float64PtrInput
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadWrite pulumi.IntPtrInput
+	DiskIOPSReadWrite pulumi.Float64PtrInput
 	// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadOnly pulumi.IntPtrInput
+	DiskMBpsReadOnly pulumi.Float64PtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadWrite pulumi.IntPtrInput
+	DiskMBpsReadWrite pulumi.Float64PtrInput
 	// The size of the disk in bytes. This field is read only.
-	DiskSizeBytes pulumi.IntPtrInput
+	DiskSizeBytes pulumi.Float64PtrInput
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB pulumi.IntPtrInput
 	// The state of the disk.
@@ -275,13 +275,13 @@ type diskArgs struct {
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadOnly *int `pulumi:"diskIOPSReadOnly"`
+	DiskIOPSReadOnly *float64 `pulumi:"diskIOPSReadOnly"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadWrite *int `pulumi:"diskIOPSReadWrite"`
+	DiskIOPSReadWrite *float64 `pulumi:"diskIOPSReadWrite"`
 	// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadOnly *int `pulumi:"diskMBpsReadOnly"`
+	DiskMBpsReadOnly *float64 `pulumi:"diskMBpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadWrite *int `pulumi:"diskMBpsReadWrite"`
+	DiskMBpsReadWrite *float64 `pulumi:"diskMBpsReadWrite"`
 	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
 	DiskName string `pulumi:"diskName"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
@@ -319,13 +319,13 @@ type DiskArgs struct {
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId pulumi.StringPtrInput
 	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadOnly pulumi.IntPtrInput
+	DiskIOPSReadOnly pulumi.Float64PtrInput
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadWrite pulumi.IntPtrInput
+	DiskIOPSReadWrite pulumi.Float64PtrInput
 	// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadOnly pulumi.IntPtrInput
+	DiskMBpsReadOnly pulumi.Float64PtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadWrite pulumi.IntPtrInput
+	DiskMBpsReadWrite pulumi.Float64PtrInput
 	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
 	DiskName pulumi.StringInput
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.

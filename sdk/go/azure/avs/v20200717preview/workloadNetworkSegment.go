@@ -26,7 +26,7 @@ type WorkloadNetworkSegment struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision pulumi.IntPtrOutput `pulumi:"revision"`
+	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
 	// Segment status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Subnet which to connect segment to.
@@ -84,7 +84,7 @@ type workloadNetworkSegmentState struct {
 	// The provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// Segment status.
 	Status *string `pulumi:"status"`
 	// Subnet which to connect segment to.
@@ -105,7 +105,7 @@ type WorkloadNetworkSegmentState struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringPtrInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 	// Segment status.
 	Status pulumi.StringPtrInput
 	// Subnet which to connect segment to.
@@ -128,7 +128,7 @@ type workloadNetworkSegmentArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// NSX Segment identifier. Generally the same as the Segment's display name
 	SegmentId string `pulumi:"segmentId"`
 	// Subnet which to connect segment to.
@@ -146,7 +146,7 @@ type WorkloadNetworkSegmentArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 	// NSX Segment identifier. Generally the same as the Segment's display name
 	SegmentId pulumi.StringInput
 	// Subnet which to connect segment to.

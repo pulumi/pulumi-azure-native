@@ -22,7 +22,7 @@ type SqlDatabase struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrOutput `pulumi:"maxSizeBytes"`
+	MaxSizeBytes pulumi.Float64PtrOutput `pulumi:"maxSizeBytes"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of the database.
@@ -83,7 +83,7 @@ type sqlDatabaseState struct {
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Status of the database.
@@ -104,7 +104,7 @@ type SqlDatabaseState struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Status of the database.
@@ -127,7 +127,7 @@ type sqlDatabaseArgs struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the sql database.
@@ -145,7 +145,7 @@ type SqlDatabaseArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the sql database.

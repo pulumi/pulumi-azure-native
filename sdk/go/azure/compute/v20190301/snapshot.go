@@ -18,7 +18,7 @@ type Snapshot struct {
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationDataResponseOutput `pulumi:"creationData"`
 	// The size of the disk in bytes. This field is read only.
-	DiskSizeBytes pulumi.IntOutput `pulumi:"diskSizeBytes"`
+	DiskSizeBytes pulumi.Float64Output `pulumi:"diskSizeBytes"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB pulumi.IntPtrOutput `pulumi:"diskSizeGB"`
 	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
@@ -126,7 +126,7 @@ type snapshotState struct {
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData *CreationDataResponse `pulumi:"creationData"`
 	// The size of the disk in bytes. This field is read only.
-	DiskSizeBytes *int `pulumi:"diskSizeBytes"`
+	DiskSizeBytes *float64 `pulumi:"diskSizeBytes"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
@@ -161,7 +161,7 @@ type SnapshotState struct {
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationDataResponsePtrInput
 	// The size of the disk in bytes. This field is read only.
-	DiskSizeBytes pulumi.IntPtrInput
+	DiskSizeBytes pulumi.Float64PtrInput
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB pulumi.IntPtrInput
 	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.

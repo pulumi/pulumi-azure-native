@@ -34,7 +34,7 @@ type LookupVirtualRouterPeeringResult struct {
 	// Name of the virtual router peering that is unique within a virtual router.
 	Name *string `pulumi:"name"`
 	// Peer ASN.
-	PeerAsn *int `pulumi:"peerAsn"`
+	PeerAsn *float64 `pulumi:"peerAsn"`
 	// Peer IP.
 	PeerIp *string `pulumi:"peerIp"`
 	// The provisioning state of the resource.

@@ -607,7 +607,7 @@ type EventHubProperties struct {
 	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
-	RetentionTimeInDays *int `pulumi:"retentionTimeInDays"`
+	RetentionTimeInDays *float64 `pulumi:"retentionTimeInDays"`
 }
 
 // EventHubPropertiesInput is an input type that accepts EventHubPropertiesArgs and EventHubPropertiesOutput values.
@@ -626,7 +626,7 @@ type EventHubPropertiesArgs struct {
 	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
 	PartitionCount pulumi.IntPtrInput `pulumi:"partitionCount"`
 	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
-	RetentionTimeInDays pulumi.IntPtrInput `pulumi:"retentionTimeInDays"`
+	RetentionTimeInDays pulumi.Float64PtrInput `pulumi:"retentionTimeInDays"`
 }
 
 func (EventHubPropertiesArgs) ElementType() reflect.Type {
@@ -687,8 +687,8 @@ func (o EventHubPropertiesOutput) PartitionCount() pulumi.IntPtrOutput {
 }
 
 // The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
-func (o EventHubPropertiesOutput) RetentionTimeInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EventHubProperties) *int { return v.RetentionTimeInDays }).(pulumi.IntPtrOutput)
+func (o EventHubPropertiesOutput) RetentionTimeInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EventHubProperties) *float64 { return v.RetentionTimeInDays }).(pulumi.Float64PtrOutput)
 }
 
 type EventHubPropertiesMapOutput struct{ *pulumi.OutputState }
@@ -722,7 +722,7 @@ type EventHubPropertiesResponse struct {
 	// The Event Hub-compatible name.
 	Path string `pulumi:"path"`
 	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
-	RetentionTimeInDays *int `pulumi:"retentionTimeInDays"`
+	RetentionTimeInDays *float64 `pulumi:"retentionTimeInDays"`
 }
 
 // EventHubPropertiesResponseInput is an input type that accepts EventHubPropertiesResponseArgs and EventHubPropertiesResponseOutput values.
@@ -747,7 +747,7 @@ type EventHubPropertiesResponseArgs struct {
 	// The Event Hub-compatible name.
 	Path pulumi.StringInput `pulumi:"path"`
 	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
-	RetentionTimeInDays pulumi.IntPtrInput `pulumi:"retentionTimeInDays"`
+	RetentionTimeInDays pulumi.Float64PtrInput `pulumi:"retentionTimeInDays"`
 }
 
 func (EventHubPropertiesResponseArgs) ElementType() reflect.Type {
@@ -823,8 +823,8 @@ func (o EventHubPropertiesResponseOutput) Path() pulumi.StringOutput {
 }
 
 // The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
-func (o EventHubPropertiesResponseOutput) RetentionTimeInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EventHubPropertiesResponse) *int { return v.RetentionTimeInDays }).(pulumi.IntPtrOutput)
+func (o EventHubPropertiesResponseOutput) RetentionTimeInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EventHubPropertiesResponse) *float64 { return v.RetentionTimeInDays }).(pulumi.Float64PtrOutput)
 }
 
 type EventHubPropertiesResponseMapOutput struct{ *pulumi.OutputState }
@@ -2849,7 +2849,7 @@ func (o IotHubPropertiesResponseDeviceStreamsPtrOutput) StreamingEndpoints() pul
 // Information about the SKU of the IoT hub.
 type IotHubSkuInfo struct {
 	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
-	Capacity *int `pulumi:"capacity"`
+	Capacity *float64 `pulumi:"capacity"`
 	// The name of the SKU.
 	Name string `pulumi:"name"`
 }
@@ -2868,7 +2868,7 @@ type IotHubSkuInfoInput interface {
 // Information about the SKU of the IoT hub.
 type IotHubSkuInfoArgs struct {
 	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
 	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -2952,8 +2952,8 @@ func (o IotHubSkuInfoOutput) ToIotHubSkuInfoPtrOutputWithContext(ctx context.Con
 }
 
 // The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
-func (o IotHubSkuInfoOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v IotHubSkuInfo) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o IotHubSkuInfoOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v IotHubSkuInfo) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 // The name of the SKU.
@@ -2980,13 +2980,13 @@ func (o IotHubSkuInfoPtrOutput) Elem() IotHubSkuInfoOutput {
 }
 
 // The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
-func (o IotHubSkuInfoPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IotHubSkuInfo) *int {
+func (o IotHubSkuInfoPtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *IotHubSkuInfo) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The name of the SKU.
@@ -3002,7 +3002,7 @@ func (o IotHubSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 // Information about the SKU of the IoT hub.
 type IotHubSkuInfoResponse struct {
 	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
-	Capacity *int `pulumi:"capacity"`
+	Capacity *float64 `pulumi:"capacity"`
 	// The name of the SKU.
 	Name string `pulumi:"name"`
 	// The billing tier for the IoT hub.
@@ -3023,7 +3023,7 @@ type IotHubSkuInfoResponseInput interface {
 // Information about the SKU of the IoT hub.
 type IotHubSkuInfoResponseArgs struct {
 	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
 	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The billing tier for the IoT hub.
@@ -3109,8 +3109,8 @@ func (o IotHubSkuInfoResponseOutput) ToIotHubSkuInfoResponsePtrOutputWithContext
 }
 
 // The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
-func (o IotHubSkuInfoResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v IotHubSkuInfoResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o IotHubSkuInfoResponseOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v IotHubSkuInfoResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 // The name of the SKU.
@@ -3142,13 +3142,13 @@ func (o IotHubSkuInfoResponsePtrOutput) Elem() IotHubSkuInfoResponseOutput {
 }
 
 // The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
-func (o IotHubSkuInfoResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IotHubSkuInfoResponse) *int {
+func (o IotHubSkuInfoResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *IotHubSkuInfoResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The name of the SKU.

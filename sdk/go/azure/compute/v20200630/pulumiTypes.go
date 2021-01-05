@@ -27,7 +27,7 @@ type CreationData struct {
 	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
+	UploadSizeBytes *float64 `pulumi:"uploadSizeBytes"`
 }
 
 // CreationDataInput is an input type that accepts CreationDataArgs and CreationDataOutput values.
@@ -58,7 +58,7 @@ type CreationDataArgs struct {
 	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes pulumi.IntPtrInput `pulumi:"uploadSizeBytes"`
+	UploadSizeBytes pulumi.Float64PtrInput `pulumi:"uploadSizeBytes"`
 }
 
 func (CreationDataArgs) ElementType() reflect.Type {
@@ -175,8 +175,8 @@ func (o CreationDataOutput) StorageAccountId() pulumi.StringPtrOutput {
 }
 
 // If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-func (o CreationDataOutput) UploadSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreationData) *int { return v.UploadSizeBytes }).(pulumi.IntPtrOutput)
+func (o CreationDataOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CreationData) *float64 { return v.UploadSizeBytes }).(pulumi.Float64PtrOutput)
 }
 
 type CreationDataPtrOutput struct{ *pulumi.OutputState }
@@ -268,13 +268,13 @@ func (o CreationDataPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 }
 
 // If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-func (o CreationDataPtrOutput) UploadSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreationData) *int {
+func (o CreationDataPtrOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CreationData) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UploadSizeBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Data used when creating a disk.
@@ -296,7 +296,7 @@ type CreationDataResponse struct {
 	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
+	UploadSizeBytes *float64 `pulumi:"uploadSizeBytes"`
 }
 
 // CreationDataResponseInput is an input type that accepts CreationDataResponseArgs and CreationDataResponseOutput values.
@@ -329,7 +329,7 @@ type CreationDataResponseArgs struct {
 	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes pulumi.IntPtrInput `pulumi:"uploadSizeBytes"`
+	UploadSizeBytes pulumi.Float64PtrInput `pulumi:"uploadSizeBytes"`
 }
 
 func (CreationDataResponseArgs) ElementType() reflect.Type {
@@ -451,8 +451,8 @@ func (o CreationDataResponseOutput) StorageAccountId() pulumi.StringPtrOutput {
 }
 
 // If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-func (o CreationDataResponseOutput) UploadSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreationDataResponse) *int { return v.UploadSizeBytes }).(pulumi.IntPtrOutput)
+func (o CreationDataResponseOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CreationDataResponse) *float64 { return v.UploadSizeBytes }).(pulumi.Float64PtrOutput)
 }
 
 type CreationDataResponsePtrOutput struct{ *pulumi.OutputState }
@@ -554,13 +554,13 @@ func (o CreationDataResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput
 }
 
 // If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-func (o CreationDataResponsePtrOutput) UploadSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreationDataResponse) *int {
+func (o CreationDataResponsePtrOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CreationDataResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UploadSizeBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
