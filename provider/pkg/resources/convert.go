@@ -38,13 +38,29 @@ func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value inter
 			}
 		}
 
-		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
-		typ, ok := k.Types[typeName]
+		valueMap, ok := value.(map[string]interface{})
 		if !ok {
 			return value
 		}
 
-		return convertMap(typ.Properties, value.(map[string]interface{}))
+		if strings.HasPrefix(prop.Ref, "#/types/") {
+			typeName := strings.TrimPrefix(prop.Ref, "#/types/")
+			typ, ok := k.Types[typeName]
+			if !ok {
+				return value
+			}
+			return convertMap(typ.Properties, valueMap)
+		}
+
+		if prop.AdditionalProperties != nil {
+			result := map[string]interface{}{}
+			for key, item := range valueMap {
+				result[key] = k.convertPropValue(prop.AdditionalProperties, item, convertMap)
+			}
+			return result
+		}
+
+		return value
 	case reflect.Slice, reflect.Array:
 		if prop.Items == nil {
 			return value

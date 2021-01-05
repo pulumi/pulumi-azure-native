@@ -23,17 +23,18 @@ type AzureAPIParameter struct {
 
 // AzureAPIProperty represents validation constraints for a single parameter or body property.
 type AzureAPIProperty struct {
-	Type      string            `json:"type,omitempty"`
-	Items     *AzureAPIProperty `json:"items,omitempty"`
-	Enum      []string          `json:"enum,omitempty"`
-	OneOf     []string          `json:"oneOf,omitempty"`
-	Ref       string            `json:"$ref,omitempty"`
-	Const     interface{}       `json:"const,omitempty"`
-	Minimum   *float64          `json:"minimum,omitempty"`
-	Maximum   *float64          `json:"maximum,omitempty"`
-	MinLength *int64            `json:"minLength,omitempty"`
-	MaxLength *int64            `json:"maxLength,omitempty"`
-	Pattern   string            `json:"pattern,omitempty"`
+	Type                 string            `json:"type,omitempty"`
+	Items                *AzureAPIProperty `json:"items,omitempty"`
+	AdditionalProperties *AzureAPIProperty `json:"additionalProperties,omitempty"`
+	Enum                 []string          `json:"enum,omitempty"`
+	OneOf                []string          `json:"oneOf,omitempty"`
+	Ref                  string            `json:"$ref,omitempty"`
+	Const                interface{}       `json:"const,omitempty"`
+	Minimum              *float64          `json:"minimum,omitempty"`
+	Maximum              *float64          `json:"maximum,omitempty"`
+	MinLength            *int64            `json:"minLength,omitempty"`
+	MaxLength            *int64            `json:"maxLength,omitempty"`
+	Pattern              string            `json:"pattern,omitempty"`
 	// The name in the SDK if different from the wire-serialized name, empty otherwise.
 	SdkName string `json:"sdkName,omitempty"`
 	// The names of container properties that were "flattened" during SDK generation, i.e. extra layers that exist
