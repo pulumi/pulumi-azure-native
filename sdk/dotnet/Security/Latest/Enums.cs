@@ -8,6 +8,67 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.Security.Latest
 {
     /// <summary>
+    /// Data types sent to workspace.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdditionalWorkspaceDataType : IEquatable<AdditionalWorkspaceDataType>
+    {
+        private readonly string _value;
+
+        private AdditionalWorkspaceDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdditionalWorkspaceDataType Alerts { get; } = new AdditionalWorkspaceDataType("Alerts");
+        public static AdditionalWorkspaceDataType RawEvents { get; } = new AdditionalWorkspaceDataType("RawEvents");
+
+        public static bool operator ==(AdditionalWorkspaceDataType left, AdditionalWorkspaceDataType right) => left.Equals(right);
+        public static bool operator !=(AdditionalWorkspaceDataType left, AdditionalWorkspaceDataType right) => !left.Equals(right);
+
+        public static explicit operator string(AdditionalWorkspaceDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdditionalWorkspaceDataType other && Equals(other);
+        public bool Equals(AdditionalWorkspaceDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Workspace type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdditionalWorkspaceType : IEquatable<AdditionalWorkspaceType>
+    {
+        private readonly string _value;
+
+        private AdditionalWorkspaceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdditionalWorkspaceType Sentinel { get; } = new AdditionalWorkspaceType("Sentinel");
+
+        public static bool operator ==(AdditionalWorkspaceType left, AdditionalWorkspaceType right) => left.Equals(right);
+        public static bool operator !=(AdditionalWorkspaceType left, AdditionalWorkspaceType right) => !left.Equals(right);
+
+        public static explicit operator string(AdditionalWorkspaceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdditionalWorkspaceType other && Equals(other);
+        public bool Equals(AdditionalWorkspaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Programmatic code for the status of the assessment
     /// </summary>
     [EnumType]

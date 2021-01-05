@@ -33,12 +33,16 @@ type LookupServerDetailsResult struct {
 	Id string `pulumi:"id"`
 	// Location of the Analysis Services resource.
 	Location string `pulumi:"location"`
+	// The managed mode of the server (0 = not managed, 1 = managed).
+	ManagedMode *int `pulumi:"managedMode"`
 	// The name of the Analysis Services resource.
 	Name string `pulumi:"name"`
 	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The full name of the Analysis Services resource.
 	ServerFullName string `pulumi:"serverFullName"`
+	// The server monitor mode for AS server
+	ServerMonitorMode *int `pulumi:"serverMonitorMode"`
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuResponse `pulumi:"sku"`
 	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.

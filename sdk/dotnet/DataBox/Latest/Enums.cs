@@ -238,6 +238,43 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
     }
 
     /// <summary>
+    /// Type of encryption key used for key encryption.
+    /// </summary>
+    [EnumType]
+    public readonly struct KekType : IEquatable<KekType>
+    {
+        private readonly string _value;
+
+        private KekType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Key encryption key is managed by Microsoft.
+        /// </summary>
+        public static KekType MicrosoftManaged { get; } = new KekType("MicrosoftManaged");
+        /// <summary>
+        /// Key encryption key is managed by the Customer.
+        /// </summary>
+        public static KekType CustomerManaged { get; } = new KekType("CustomerManaged");
+
+        public static bool operator ==(KekType left, KekType right) => left.Equals(right);
+        public static bool operator !=(KekType left, KekType right) => !left.Equals(right);
+
+        public static explicit operator string(KekType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KekType other && Equals(other);
+        public bool Equals(KekType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Level of the logs to be collected.
     /// </summary>
     [EnumType]

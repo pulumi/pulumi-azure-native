@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516.Outputs
     public sealed class ResourceSkuResponse
     {
         /// <summary>
+        /// The number of instances in the read only query pool.
+        /// </summary>
+        public readonly int? Capacity;
+        /// <summary>
         /// Name of the SKU level.
         /// </summary>
         public readonly string Name;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516.Outputs
 
         [OutputConstructor]
         private ResourceSkuResponse(
+            int? capacity,
+
             string name,
 
             string? tier)
         {
+            Capacity = capacity;
             Name = name;
             Tier = tier;
         }

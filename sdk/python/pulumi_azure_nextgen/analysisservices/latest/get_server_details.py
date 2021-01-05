@@ -20,7 +20,7 @@ class GetServerDetailsResult:
     """
     Represents an instance of an Analysis Services resource.
     """
-    def __init__(__self__, as_administrators=None, backup_blob_container_uri=None, gateway_details=None, id=None, ip_v4_firewall_settings=None, location=None, name=None, provisioning_state=None, querypool_connection_mode=None, server_full_name=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, as_administrators=None, backup_blob_container_uri=None, gateway_details=None, id=None, ip_v4_firewall_settings=None, location=None, managed_mode=None, name=None, provisioning_state=None, querypool_connection_mode=None, server_full_name=None, sku=None, state=None, tags=None, type=None):
         if as_administrators and not isinstance(as_administrators, dict):
             raise TypeError("Expected argument 'as_administrators' to be a dict")
         pulumi.set(__self__, "as_administrators", as_administrators)
@@ -39,6 +39,9 @@ class GetServerDetailsResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_mode and not isinstance(managed_mode, int):
+            raise TypeError("Expected argument 'managed_mode' to be a int")
+        pulumi.set(__self__, "managed_mode", managed_mode)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -111,6 +114,14 @@ class GetServerDetailsResult:
         Location of the Analysis Services resource.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedMode")
+    def managed_mode(self) -> Optional[int]:
+        """
+        The managed mode of the server (0 = not managed, 1 = managed).
+        """
+        return pulumi.get(self, "managed_mode")
 
     @property
     @pulumi.getter
@@ -189,6 +200,7 @@ class AwaitableGetServerDetailsResult(GetServerDetailsResult):
             id=self.id,
             ip_v4_firewall_settings=self.ip_v4_firewall_settings,
             location=self.location,
+            managed_mode=self.managed_mode,
             name=self.name,
             provisioning_state=self.provisioning_state,
             querypool_connection_mode=self.querypool_connection_mode,
@@ -224,6 +236,7 @@ def get_server_details(resource_group_name: Optional[str] = None,
         id=__ret__.id,
         ip_v4_firewall_settings=__ret__.ip_v4_firewall_settings,
         location=__ret__.location,
+        managed_mode=__ret__.managed_mode,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         querypool_connection_mode=__ret__.querypool_connection_mode,

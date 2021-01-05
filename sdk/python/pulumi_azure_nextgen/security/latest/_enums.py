@@ -5,6 +5,8 @@
 from enum import Enum
 
 __all__ = [
+    'AdditionalWorkspaceDataType',
+    'AdditionalWorkspaceType',
     'AssessmentStatusCode',
     'AssessmentType',
     'Category',
@@ -23,6 +25,21 @@ __all__ = [
     'UnmaskedIpLoggingStatus',
     'UserImpact',
 ]
+
+
+class AdditionalWorkspaceDataType(str, Enum):
+    """
+    Data types sent to workspace.
+    """
+    ALERTS = "Alerts"
+    RAW_EVENTS = "RawEvents"
+
+
+class AdditionalWorkspaceType(str, Enum):
+    """
+    Workspace type.
+    """
+    SENTINEL = "Sentinel"
 
 
 class AssessmentStatusCode(str, Enum):

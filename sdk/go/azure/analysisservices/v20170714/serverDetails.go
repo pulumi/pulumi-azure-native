@@ -23,12 +23,16 @@ type ServerDetails struct {
 	GatewayDetails GatewayDetailsResponsePtrOutput `pulumi:"gatewayDetails"`
 	// Location of the Analysis Services resource.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The managed mode of the server (0 = not managed, 1 = managed).
+	ManagedMode pulumi.IntPtrOutput `pulumi:"managedMode"`
 	// The name of the Analysis Services resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The full name of the Analysis Services resource.
 	ServerFullName pulumi.StringOutput `pulumi:"serverFullName"`
+	// The server monitor mode for AS server
+	ServerMonitorMode pulumi.IntPtrOutput `pulumi:"serverMonitorMode"`
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuResponseOutput `pulumi:"sku"`
 	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
@@ -103,12 +107,16 @@ type serverDetailsState struct {
 	GatewayDetails *GatewayDetailsResponse `pulumi:"gatewayDetails"`
 	// Location of the Analysis Services resource.
 	Location *string `pulumi:"location"`
+	// The managed mode of the server (0 = not managed, 1 = managed).
+	ManagedMode *int `pulumi:"managedMode"`
 	// The name of the Analysis Services resource.
 	Name *string `pulumi:"name"`
 	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The full name of the Analysis Services resource.
 	ServerFullName *string `pulumi:"serverFullName"`
+	// The server monitor mode for AS server
+	ServerMonitorMode *int `pulumi:"serverMonitorMode"`
 	// The SKU of the Analysis Services resource.
 	Sku *ResourceSkuResponse `pulumi:"sku"`
 	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
@@ -128,12 +136,16 @@ type ServerDetailsState struct {
 	GatewayDetails GatewayDetailsResponsePtrInput
 	// Location of the Analysis Services resource.
 	Location pulumi.StringPtrInput
+	// The managed mode of the server (0 = not managed, 1 = managed).
+	ManagedMode pulumi.IntPtrInput
 	// The name of the Analysis Services resource.
 	Name pulumi.StringPtrInput
 	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState pulumi.StringPtrInput
 	// The full name of the Analysis Services resource.
 	ServerFullName pulumi.StringPtrInput
+	// The server monitor mode for AS server
+	ServerMonitorMode pulumi.IntPtrInput
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuResponsePtrInput
 	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
@@ -157,8 +169,12 @@ type serverDetailsArgs struct {
 	GatewayDetails *GatewayDetails `pulumi:"gatewayDetails"`
 	// Location of the Analysis Services resource.
 	Location string `pulumi:"location"`
+	// The managed mode of the server (0 = not managed, 1 = managed).
+	ManagedMode *string `pulumi:"managedMode"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The server monitor mode for AS server
+	ServerMonitorMode *string `pulumi:"serverMonitorMode"`
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
 	ServerName string `pulumi:"serverName"`
 	// The SKU of the Analysis Services resource.
@@ -177,8 +193,12 @@ type ServerDetailsArgs struct {
 	GatewayDetails GatewayDetailsPtrInput
 	// Location of the Analysis Services resource.
 	Location pulumi.StringInput
+	// The managed mode of the server (0 = not managed, 1 = managed).
+	ManagedMode ManagedMode
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
+	// The server monitor mode for AS server
+	ServerMonitorMode ServerMonitorMode
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
 	ServerName pulumi.StringInput
 	// The SKU of the Analysis Services resource.

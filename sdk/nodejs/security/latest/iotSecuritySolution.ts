@@ -37,6 +37,10 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     }
 
     /**
+     * List of additional workspaces
+     */
+    public readonly additionalWorkspaces!: pulumi.Output<outputs.security.latest.AdditionalWorkspacesPropertiesResponse[] | undefined>;
+    /**
      * List of resources that were automatically discovered as relevant to the security solution.
      */
     public /*out*/ readonly autoDiscoveredResources!: pulumi.Output<string[]>;
@@ -72,6 +76,10 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      * Status of the IoT Security solution.
      */
     public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.security.latest.SystemDataResponse>;
     /**
      * Resource tags
      */
@@ -115,6 +123,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
             if ((!args || args.solutionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'solutionName'");
             }
+            inputs["additionalWorkspaces"] = args ? args.additionalWorkspaces : undefined;
             inputs["disabledDataSources"] = args ? args.disabledDataSources : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["export"] = args ? args.export : undefined;
@@ -130,8 +139,10 @@ export class IotSecuritySolution extends pulumi.CustomResource {
             inputs["workspace"] = args ? args.workspace : undefined;
             inputs["autoDiscoveredResources"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["additionalWorkspaces"] = undefined /*out*/;
             inputs["autoDiscoveredResources"] = undefined /*out*/;
             inputs["disabledDataSources"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
@@ -141,6 +152,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["recommendationsConfiguration"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["unmaskedIpLoggingStatus"] = undefined /*out*/;
@@ -164,6 +176,10 @@ export class IotSecuritySolution extends pulumi.CustomResource {
  * The set of arguments for constructing a IotSecuritySolution resource.
  */
 export interface IotSecuritySolutionArgs {
+    /**
+     * List of additional workspaces
+     */
+    readonly additionalWorkspaces?: pulumi.Input<pulumi.Input<inputs.security.latest.AdditionalWorkspacesProperties>[]>;
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */

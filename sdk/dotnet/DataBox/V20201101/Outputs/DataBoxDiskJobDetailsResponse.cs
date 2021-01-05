@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Outputs
         /// <summary>
         /// Details about which key encryption type is being used.
         /// </summary>
-        public readonly Outputs.KeyEncryptionKeyResponse KeyEncryptionKey;
+        public readonly Outputs.KeyEncryptionKeyResponse? KeyEncryptionKey;
         /// <summary>
         /// User entered passkey for DataBox Disk job.
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Outputs
 
             ImmutableArray<Outputs.JobStagesResponse> jobStages,
 
-            Outputs.KeyEncryptionKeyResponse keyEncryptionKey,
+            Outputs.KeyEncryptionKeyResponse? keyEncryptionKey,
 
             string? passkey,
 

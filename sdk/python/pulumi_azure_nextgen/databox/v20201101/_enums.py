@@ -11,6 +11,7 @@ __all__ = [
     'DoubleEncryption',
     'FilterFileType',
     'JobDeliveryType',
+    'KekType',
     'LogCollectionLevel',
     'NotificationStageName',
     'SkuName',
@@ -68,6 +69,14 @@ class JobDeliveryType(str, Enum):
     """
     NON_SCHEDULED = "NonScheduled"
     SCHEDULED = "Scheduled"
+
+
+class KekType(str, Enum):
+    """
+    Type of encryption key used for key encryption.
+    """
+    MICROSOFT_MANAGED = "MicrosoftManaged"
+    CUSTOMER_MANAGED = "CustomerManaged"
 
 
 class LogCollectionLevel(str, Enum):

@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
         /// <summary>
         /// Details about which key encryption type is being used.
         /// </summary>
-        public readonly Outputs.KeyEncryptionKeyResponse KeyEncryptionKey;
+        public readonly Outputs.KeyEncryptionKeyResponse? KeyEncryptionKey;
         /// <summary>
         /// Preferences for the order.
         /// </summary>
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
 
             ImmutableArray<Outputs.JobStagesResponse> jobStages,
 
-            Outputs.KeyEncryptionKeyResponse keyEncryptionKey,
+            Outputs.KeyEncryptionKeyResponse? keyEncryptionKey,
 
             Outputs.PreferencesResponse? preferences,
 

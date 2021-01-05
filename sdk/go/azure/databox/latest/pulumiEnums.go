@@ -194,6 +194,36 @@ func (e JobDeliveryType) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Type of encryption key used for key encryption.
+type KekType pulumi.String
+
+const (
+	// Key encryption key is managed by Microsoft.
+	KekTypeMicrosoftManaged = KekType("MicrosoftManaged")
+	// Key encryption key is managed by the Customer.
+	KekTypeCustomerManaged = KekType("CustomerManaged")
+)
+
+func (KekType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e KekType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KekType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KekType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KekType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Level of the logs to be collected.
 type LogCollectionLevel pulumi.String
 

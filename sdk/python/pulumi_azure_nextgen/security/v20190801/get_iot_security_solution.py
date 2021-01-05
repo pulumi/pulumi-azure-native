@@ -20,7 +20,10 @@ class GetIotSecuritySolutionResult:
     """
     IoT Security solution configuration and resource information.
     """
-    def __init__(__self__, auto_discovered_resources=None, disabled_data_sources=None, display_name=None, export=None, id=None, iot_hubs=None, location=None, name=None, recommendations_configuration=None, status=None, tags=None, type=None, unmasked_ip_logging_status=None, user_defined_resources=None, workspace=None):
+    def __init__(__self__, additional_workspaces=None, auto_discovered_resources=None, disabled_data_sources=None, display_name=None, export=None, id=None, iot_hubs=None, location=None, name=None, recommendations_configuration=None, status=None, system_data=None, tags=None, type=None, unmasked_ip_logging_status=None, user_defined_resources=None, workspace=None):
+        if additional_workspaces and not isinstance(additional_workspaces, list):
+            raise TypeError("Expected argument 'additional_workspaces' to be a list")
+        pulumi.set(__self__, "additional_workspaces", additional_workspaces)
         if auto_discovered_resources and not isinstance(auto_discovered_resources, list):
             raise TypeError("Expected argument 'auto_discovered_resources' to be a list")
         pulumi.set(__self__, "auto_discovered_resources", auto_discovered_resources)
@@ -51,6 +54,9 @@ class GetIotSecuritySolutionResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -66,6 +72,14 @@ class GetIotSecuritySolutionResult:
         if workspace and not isinstance(workspace, str):
             raise TypeError("Expected argument 'workspace' to be a str")
         pulumi.set(__self__, "workspace", workspace)
+
+    @property
+    @pulumi.getter(name="additionalWorkspaces")
+    def additional_workspaces(self) -> Optional[Sequence['outputs.AdditionalWorkspacesPropertiesResponse']]:
+        """
+        List of additional workspaces
+        """
+        return pulumi.get(self, "additional_workspaces")
 
     @property
     @pulumi.getter(name="autoDiscoveredResources")
@@ -148,6 +162,14 @@ class GetIotSecuritySolutionResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -194,6 +216,7 @@ class AwaitableGetIotSecuritySolutionResult(GetIotSecuritySolutionResult):
         if False:
             yield self
         return GetIotSecuritySolutionResult(
+            additional_workspaces=self.additional_workspaces,
             auto_discovered_resources=self.auto_discovered_resources,
             disabled_data_sources=self.disabled_data_sources,
             display_name=self.display_name,
@@ -204,6 +227,7 @@ class AwaitableGetIotSecuritySolutionResult(GetIotSecuritySolutionResult):
             name=self.name,
             recommendations_configuration=self.recommendations_configuration,
             status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             unmasked_ip_logging_status=self.unmasked_ip_logging_status,
@@ -230,6 +254,7 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:security/v20190801:getIotSecuritySolution', __args__, opts=opts, typ=GetIotSecuritySolutionResult).value
 
     return AwaitableGetIotSecuritySolutionResult(
+        additional_workspaces=__ret__.additional_workspaces,
         auto_discovered_resources=__ret__.auto_discovered_resources,
         disabled_data_sources=__ret__.disabled_data_sources,
         display_name=__ret__.display_name,
@@ -240,6 +265,7 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         recommendations_configuration=__ret__.recommendations_configuration,
         status=__ret__.status,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         unmasked_ip_logging_status=__ret__.unmasked_ip_logging_status,

@@ -56,6 +56,10 @@ export class ServerDetails extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The managed mode of the server (0 = not managed, 1 = managed).
+     */
+    public readonly managedMode!: pulumi.Output<number | undefined>;
+    /**
      * The name of the Analysis Services resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["gatewayDetails"] = args ? args.gatewayDetails : undefined;
             inputs["ipV4FirewallSettings"] = args ? args.ipV4FirewallSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedMode"] = args ? args.managedMode : undefined;
             inputs["querypoolConnectionMode"] = args ? args.querypoolConnectionMode : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
@@ -131,6 +136,7 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["gatewayDetails"] = undefined /*out*/;
             inputs["ipV4FirewallSettings"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["managedMode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["querypoolConnectionMode"] = undefined /*out*/;
@@ -177,6 +183,10 @@ export interface ServerDetailsArgs {
      * Location of the Analysis Services resource.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The managed mode of the server (0 = not managed, 1 = managed).
+     */
+    readonly managedMode?: pulumi.Input<enums.analysisservices.v20170801.ManagedMode>;
     /**
      * How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
      */
