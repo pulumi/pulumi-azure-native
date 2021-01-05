@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
         /// <summary>
         /// The key delivery configuration.
         /// </summary>
-        public readonly Union<Outputs.ContentKeyPolicyClearKeyConfigurationResponse, Union<Outputs.ContentKeyPolicyFairPlayConfigurationResponse, Union<Outputs.ContentKeyPolicyPlayReadyConfigurationResponse, Union<Outputs.ContentKeyPolicyUnknownConfigurationResponse, Outputs.ContentKeyPolicyWidevineConfigurationResponse>>>> Configuration;
+        public readonly object Configuration;
         /// <summary>
         /// The Policy Option description.
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
         /// <summary>
         /// The requirements that must be met to deliver keys with this configuration
         /// </summary>
-        public readonly Union<Outputs.ContentKeyPolicyOpenRestrictionResponse, Union<Outputs.ContentKeyPolicyTokenRestrictionResponse, Outputs.ContentKeyPolicyUnknownRestrictionResponse>> Restriction;
+        public readonly object Restriction;
 
         [OutputConstructor]
         private ContentKeyPolicyOptionResponse(
-            Union<Outputs.ContentKeyPolicyClearKeyConfigurationResponse, Union<Outputs.ContentKeyPolicyFairPlayConfigurationResponse, Union<Outputs.ContentKeyPolicyPlayReadyConfigurationResponse, Union<Outputs.ContentKeyPolicyUnknownConfigurationResponse, Outputs.ContentKeyPolicyWidevineConfigurationResponse>>>> configuration,
+            object configuration,
 
             string? name,
 
             string policyOptionId,
 
-            Union<Outputs.ContentKeyPolicyOpenRestrictionResponse, Union<Outputs.ContentKeyPolicyTokenRestrictionResponse, Outputs.ContentKeyPolicyUnknownRestrictionResponse>> restriction)
+            object restriction)
         {
             Configuration = configuration;
             Name = name;

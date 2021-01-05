@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419
         /// Custom task properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.ConnectToSourcePostgreSqlSyncTaskPropertiesResponse, Union<Outputs.ConnectToSourceSqlServerSyncTaskPropertiesResponse, Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponse, Union<Outputs.ConnectToTargetAzureDbForMySqlTaskPropertiesResponse, Union<Outputs.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlMISyncTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlMITaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse, Union<Outputs.GetTdeCertificatesSqlTaskPropertiesResponse, Union<Outputs.GetUserTablesSqlSyncTaskPropertiesResponse, Union<Outputs.GetUserTablesSqlTaskPropertiesResponse, Union<Outputs.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse, Union<Outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlDbSyncTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlDbTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlMISyncTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlMITaskPropertiesResponse, Union<Outputs.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse, Union<Outputs.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse, Outputs.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse>>>>>>>>>>>>>>>>>>>>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419
         /// Custom task properties
         /// </summary>
         [Input("properties")]
-        public InputUnion<Inputs.ConnectToSourcePostgreSqlSyncTaskPropertiesArgs, InputUnion<Inputs.ConnectToSourceSqlServerSyncTaskPropertiesArgs, InputUnion<Inputs.ConnectToSourceSqlServerTaskPropertiesArgs, InputUnion<Inputs.ConnectToTargetAzureDbForMySqlTaskPropertiesArgs, InputUnion<Inputs.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs, InputUnion<Inputs.ConnectToTargetSqlDbTaskPropertiesArgs, InputUnion<Inputs.ConnectToTargetSqlMISyncTaskPropertiesArgs, InputUnion<Inputs.ConnectToTargetSqlMITaskPropertiesArgs, InputUnion<Inputs.ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs, InputUnion<Inputs.GetTdeCertificatesSqlTaskPropertiesArgs, InputUnion<Inputs.GetUserTablesSqlSyncTaskPropertiesArgs, InputUnion<Inputs.GetUserTablesSqlTaskPropertiesArgs, InputUnion<Inputs.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs, InputUnion<Inputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs, InputUnion<Inputs.MigrateSqlServerSqlDbSyncTaskPropertiesArgs, InputUnion<Inputs.MigrateSqlServerSqlDbTaskPropertiesArgs, InputUnion<Inputs.MigrateSqlServerSqlMISyncTaskPropertiesArgs, InputUnion<Inputs.MigrateSqlServerSqlMITaskPropertiesArgs, InputUnion<Inputs.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs, InputUnion<Inputs.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs, Inputs.ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs>>>>>>>>>>>>>>>>>>>>? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// Name of the service

@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The location of the ORC data storage.
         /// </summary>
         [Input("location", required: true)]
-        public InputUnion<Inputs.AmazonS3LocationArgs, InputUnion<Inputs.AzureBlobFSLocationArgs, InputUnion<Inputs.AzureBlobStorageLocationArgs, InputUnion<Inputs.AzureDataLakeStoreLocationArgs, InputUnion<Inputs.AzureFileStorageLocationArgs, InputUnion<Inputs.FileServerLocationArgs, InputUnion<Inputs.FtpServerLocationArgs, InputUnion<Inputs.GoogleCloudStorageLocationArgs, InputUnion<Inputs.HdfsLocationArgs, InputUnion<Inputs.HttpServerLocationArgs, Inputs.SftpLocationArgs>>>>>>>>>> Location { get; set; } = null!;
+        public Input<object> Location { get; set; } = null!;
 
         [Input("orcCompressionCodec")]
         public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.OrcCompressionCodec>? OrcCompressionCodec { get; set; }

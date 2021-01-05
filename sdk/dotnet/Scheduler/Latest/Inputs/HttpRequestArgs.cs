@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
         /// Gets or sets the authentication method of the request.
         /// </summary>
         [Input("authentication")]
-        public InputUnion<Inputs.BasicAuthenticationArgs, InputUnion<Inputs.ClientCertAuthenticationArgs, Inputs.OAuthAuthenticationArgs>>? Authentication { get; set; }
+        public Input<object>? Authentication { get; set; }
 
         /// <summary>
         /// Gets or sets the request body.

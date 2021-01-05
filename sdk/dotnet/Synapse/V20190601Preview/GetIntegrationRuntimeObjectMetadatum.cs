@@ -58,13 +58,13 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// List of SSIS object metadata.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.SsisEnvironmentResponseResult, Union<Outputs.SsisFolderResponseResult, Union<Outputs.SsisPackageResponseResult, Outputs.SsisProjectResponseResult>>>> Value;
+        public readonly ImmutableArray<object> Value;
 
         [OutputConstructor]
         private GetIntegrationRuntimeObjectMetadatumResult(
             string? nextLink,
 
-            ImmutableArray<Union<Outputs.SsisEnvironmentResponseResult, Union<Outputs.SsisFolderResponseResult, Union<Outputs.SsisPackageResponseResult, Outputs.SsisProjectResponseResult>>>> value)
+            ImmutableArray<object> value)
         {
             NextLink = nextLink;
             Value = value;

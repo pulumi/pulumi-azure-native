@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <summary>
         /// The properties of a task step.
         /// </summary>
-        public readonly Union<Outputs.DockerBuildStepResponse, Union<Outputs.EncodedTaskStepResponse, Outputs.FileTaskStepResponse>>? Step;
+        public readonly object? Step;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 
             string? status,
 
-            Union<Outputs.DockerBuildStepResponse, Union<Outputs.EncodedTaskStepResponse, Outputs.FileTaskStepResponse>>? step,
+            object? step,
 
             Outputs.SystemDataResponse systemData,
 

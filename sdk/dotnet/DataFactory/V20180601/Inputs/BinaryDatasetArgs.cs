@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The data compression method used for the binary dataset.
         /// </summary>
         [Input("compression")]
-        public InputUnion<Inputs.DatasetBZip2CompressionArgs, InputUnion<Inputs.DatasetDeflateCompressionArgs, InputUnion<Inputs.DatasetGZipCompressionArgs, InputUnion<Inputs.DatasetTarCompressionArgs, InputUnion<Inputs.DatasetTarGZipCompressionArgs, Inputs.DatasetZipDeflateCompressionArgs>>>>>? Compression { get; set; }
+        public Input<object>? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The location of the Binary storage.
         /// </summary>
         [Input("location", required: true)]
-        public InputUnion<Inputs.AmazonS3LocationArgs, InputUnion<Inputs.AzureBlobFSLocationArgs, InputUnion<Inputs.AzureBlobStorageLocationArgs, InputUnion<Inputs.AzureDataLakeStoreLocationArgs, InputUnion<Inputs.AzureFileStorageLocationArgs, InputUnion<Inputs.FileServerLocationArgs, InputUnion<Inputs.FtpServerLocationArgs, InputUnion<Inputs.GoogleCloudStorageLocationArgs, InputUnion<Inputs.HdfsLocationArgs, InputUnion<Inputs.HttpServerLocationArgs, Inputs.SftpLocationArgs>>>>>>>>>> Location { get; set; } = null!;
+        public Input<object> Location { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

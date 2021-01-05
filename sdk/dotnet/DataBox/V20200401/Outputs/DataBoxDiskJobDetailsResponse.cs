@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401.Outputs
         /// <summary>
         /// List of copy log details.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.DataBoxAccountCopyLogDetailsResponse, Union<Outputs.DataBoxDiskCopyLogDetailsResponse, Outputs.DataBoxHeavyAccountCopyLogDetailsResponse>>> CopyLogDetails;
+        public readonly ImmutableArray<object> CopyLogDetails;
         /// <summary>
         /// Copy progress per disk.
         /// </summary>
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401.Outputs
 
             Outputs.ContactDetailsResponse contactDetails,
 
-            ImmutableArray<Union<Outputs.DataBoxAccountCopyLogDetailsResponse, Union<Outputs.DataBoxDiskCopyLogDetailsResponse, Outputs.DataBoxHeavyAccountCopyLogDetailsResponse>>> copyLogDetails,
+            ImmutableArray<object> copyLogDetails,
 
             ImmutableArray<Outputs.DataBoxDiskCopyProgressResponse> copyProgress,
 

@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// A list of actions that are executed when all the conditions of a rule are satisfied.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Union<Outputs.DeliveryRuleCacheExpirationActionResponse, Union<Outputs.DeliveryRuleCacheKeyQueryStringActionResponse, Union<Outputs.DeliveryRuleRequestHeaderActionResponse, Union<Outputs.DeliveryRuleResponseHeaderActionResponse, Union<Outputs.OriginGroupOverrideActionResponse, Union<Outputs.UrlRedirectActionResponse, Union<Outputs.UrlRewriteActionResponse, Outputs.UrlSigningActionResponse>>>>>>>>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// A list of conditions that must be matched for the actions to be executed
         /// </summary>
         [Output("conditions")]
-        public Output<ImmutableArray<Union<Outputs.DeliveryRuleCookiesConditionResponse, Union<Outputs.DeliveryRuleHttpVersionConditionResponse, Union<Outputs.DeliveryRuleIsDeviceConditionResponse, Union<Outputs.DeliveryRulePostArgsConditionResponse, Union<Outputs.DeliveryRuleQueryStringConditionResponse, Union<Outputs.DeliveryRuleRemoteAddressConditionResponse, Union<Outputs.DeliveryRuleRequestBodyConditionResponse, Union<Outputs.DeliveryRuleRequestHeaderConditionResponse, Union<Outputs.DeliveryRuleRequestMethodConditionResponse, Union<Outputs.DeliveryRuleRequestSchemeConditionResponse, Union<Outputs.DeliveryRuleRequestUriConditionResponse, Union<Outputs.DeliveryRuleUrlFileExtensionConditionResponse, Union<Outputs.DeliveryRuleUrlFileNameConditionResponse, Outputs.DeliveryRuleUrlPathConditionResponse>>>>>>>>>>>>>>> Conditions { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Conditions { get; private set; } = null!;
 
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
@@ -116,26 +116,26 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
     public sealed class RuleArgs : Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
-        private InputList<Union<Inputs.DeliveryRuleCacheExpirationActionArgs, Union<Inputs.DeliveryRuleCacheKeyQueryStringActionArgs, Union<Inputs.DeliveryRuleRequestHeaderActionArgs, Union<Inputs.DeliveryRuleResponseHeaderActionArgs, Union<Inputs.OriginGroupOverrideActionArgs, Union<Inputs.UrlRedirectActionArgs, Union<Inputs.UrlRewriteActionArgs, Inputs.UrlSigningActionArgs>>>>>>>>? _actions;
+        private InputList<object>? _actions;
 
         /// <summary>
         /// A list of actions that are executed when all the conditions of a rule are satisfied.
         /// </summary>
-        public InputList<Union<Inputs.DeliveryRuleCacheExpirationActionArgs, Union<Inputs.DeliveryRuleCacheKeyQueryStringActionArgs, Union<Inputs.DeliveryRuleRequestHeaderActionArgs, Union<Inputs.DeliveryRuleResponseHeaderActionArgs, Union<Inputs.OriginGroupOverrideActionArgs, Union<Inputs.UrlRedirectActionArgs, Union<Inputs.UrlRewriteActionArgs, Inputs.UrlSigningActionArgs>>>>>>>> Actions
+        public InputList<object> Actions
         {
-            get => _actions ?? (_actions = new InputList<Union<Inputs.DeliveryRuleCacheExpirationActionArgs, Union<Inputs.DeliveryRuleCacheKeyQueryStringActionArgs, Union<Inputs.DeliveryRuleRequestHeaderActionArgs, Union<Inputs.DeliveryRuleResponseHeaderActionArgs, Union<Inputs.OriginGroupOverrideActionArgs, Union<Inputs.UrlRedirectActionArgs, Union<Inputs.UrlRewriteActionArgs, Inputs.UrlSigningActionArgs>>>>>>>>());
+            get => _actions ?? (_actions = new InputList<object>());
             set => _actions = value;
         }
 
         [Input("conditions")]
-        private InputList<Union<Inputs.DeliveryRuleCookiesConditionArgs, Union<Inputs.DeliveryRuleHttpVersionConditionArgs, Union<Inputs.DeliveryRuleIsDeviceConditionArgs, Union<Inputs.DeliveryRulePostArgsConditionArgs, Union<Inputs.DeliveryRuleQueryStringConditionArgs, Union<Inputs.DeliveryRuleRemoteAddressConditionArgs, Union<Inputs.DeliveryRuleRequestBodyConditionArgs, Union<Inputs.DeliveryRuleRequestHeaderConditionArgs, Union<Inputs.DeliveryRuleRequestMethodConditionArgs, Union<Inputs.DeliveryRuleRequestSchemeConditionArgs, Union<Inputs.DeliveryRuleRequestUriConditionArgs, Union<Inputs.DeliveryRuleUrlFileExtensionConditionArgs, Union<Inputs.DeliveryRuleUrlFileNameConditionArgs, Inputs.DeliveryRuleUrlPathConditionArgs>>>>>>>>>>>>>>? _conditions;
+        private InputList<object>? _conditions;
 
         /// <summary>
         /// A list of conditions that must be matched for the actions to be executed
         /// </summary>
-        public InputList<Union<Inputs.DeliveryRuleCookiesConditionArgs, Union<Inputs.DeliveryRuleHttpVersionConditionArgs, Union<Inputs.DeliveryRuleIsDeviceConditionArgs, Union<Inputs.DeliveryRulePostArgsConditionArgs, Union<Inputs.DeliveryRuleQueryStringConditionArgs, Union<Inputs.DeliveryRuleRemoteAddressConditionArgs, Union<Inputs.DeliveryRuleRequestBodyConditionArgs, Union<Inputs.DeliveryRuleRequestHeaderConditionArgs, Union<Inputs.DeliveryRuleRequestMethodConditionArgs, Union<Inputs.DeliveryRuleRequestSchemeConditionArgs, Union<Inputs.DeliveryRuleRequestUriConditionArgs, Union<Inputs.DeliveryRuleUrlFileExtensionConditionArgs, Union<Inputs.DeliveryRuleUrlFileNameConditionArgs, Inputs.DeliveryRuleUrlPathConditionArgs>>>>>>>>>>>>>> Conditions
+        public InputList<object> Conditions
         {
-            get => _conditions ?? (_conditions = new InputList<Union<Inputs.DeliveryRuleCookiesConditionArgs, Union<Inputs.DeliveryRuleHttpVersionConditionArgs, Union<Inputs.DeliveryRuleIsDeviceConditionArgs, Union<Inputs.DeliveryRulePostArgsConditionArgs, Union<Inputs.DeliveryRuleQueryStringConditionArgs, Union<Inputs.DeliveryRuleRemoteAddressConditionArgs, Union<Inputs.DeliveryRuleRequestBodyConditionArgs, Union<Inputs.DeliveryRuleRequestHeaderConditionArgs, Union<Inputs.DeliveryRuleRequestMethodConditionArgs, Union<Inputs.DeliveryRuleRequestSchemeConditionArgs, Union<Inputs.DeliveryRuleRequestUriConditionArgs, Union<Inputs.DeliveryRuleUrlFileExtensionConditionArgs, Union<Inputs.DeliveryRuleUrlFileNameConditionArgs, Inputs.DeliveryRuleUrlPathConditionArgs>>>>>>>>>>>>>>());
+            get => _conditions ?? (_conditions = new InputList<object>());
             set => _conditions = value;
         }
 

@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301Preview
         /// Describes how the service is partitioned.
         /// </summary>
         [Output("partitionDescription")]
-        public Output<Union<Outputs.NamedPartitionSchemeDescriptionResponse, Union<Outputs.SingletonPartitionSchemeDescriptionResponse, Outputs.UniformInt64RangePartitionSchemeDescriptionResponse>>?> PartitionDescription { get; private set; } = null!;
+        public Output<object?> PartitionDescription { get; private set; } = null!;
 
         /// <summary>
         /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
@@ -199,7 +199,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301Preview
         /// Describes how the service is partitioned.
         /// </summary>
         [Input("partitionDescription")]
-        public InputUnion<Inputs.NamedPartitionSchemeDescriptionArgs, InputUnion<Inputs.SingletonPartitionSchemeDescriptionArgs, Inputs.UniformInt64RangePartitionSchemeDescriptionArgs>>? PartitionDescription { get; set; }
+        public Input<object>? PartitionDescription { get; set; }
 
         /// <summary>
         /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".

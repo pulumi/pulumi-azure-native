@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         /// <summary>
         /// Settings for authentication management, these settings are relevant only for the cloud connector.
         /// </summary>
-        public readonly Union<Outputs.AwAssumeRoleAuthenticationDetailsPropertiesResponse, Union<Outputs.AwsCredsAuthenticationDetailsPropertiesResponse, Outputs.GcpCredentialsDetailsPropertiesResponse>>? AuthenticationDetails;
+        public readonly object? AuthenticationDetails;
         /// <summary>
         /// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
 
         [OutputConstructor]
         private GetConnectorResult(
-            Union<Outputs.AwAssumeRoleAuthenticationDetailsPropertiesResponse, Union<Outputs.AwsCredsAuthenticationDetailsPropertiesResponse, Outputs.GcpCredentialsDetailsPropertiesResponse>>? authenticationDetails,
+            object? authenticationDetails,
 
             Outputs.HybridComputeSettingsPropertiesResponse? hybridComputeSettings,
 

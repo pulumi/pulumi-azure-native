@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <summary>
         /// The request (parameters) for the run
         /// </summary>
-        public readonly Union<Outputs.DockerBuildRequestResponse, Union<Outputs.EncodedTaskRunRequestResponse, Union<Outputs.FileTaskRunRequestResponse, Outputs.TaskRunRequestResponse>>>? RunRequest;
+        public readonly object? RunRequest;
         /// <summary>
         /// The result of this task run
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 
             string provisioningState,
 
-            Union<Outputs.DockerBuildRequestResponse, Union<Outputs.EncodedTaskRunRequestResponse, Union<Outputs.FileTaskRunRequestResponse, Outputs.TaskRunRequestResponse>>>? runRequest,
+            object? runRequest,
 
             Outputs.RunResponse runResult,
 

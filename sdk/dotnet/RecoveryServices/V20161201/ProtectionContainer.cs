@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20161201
         /// ProtectionContainerResource properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.AzureSqlContainerResponse, Union<Outputs.AzureStorageContainerResponse, Union<Outputs.AzureWorkloadContainerResponse, Union<Outputs.DpmContainerResponse, Union<Outputs.GenericContainerResponse, Union<Outputs.IaaSVMContainerResponse, Outputs.MabContainerResponse>>>>>>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20161201
         /// ProtectionContainerResource properties
         /// </summary>
         [Input("properties")]
-        public InputUnion<Inputs.AzureSqlContainerArgs, InputUnion<Inputs.AzureStorageContainerArgs, InputUnion<Inputs.AzureWorkloadContainerArgs, InputUnion<Inputs.DpmContainerArgs, InputUnion<Inputs.GenericContainerArgs, InputUnion<Inputs.IaaSVMContainerArgs, Inputs.MabContainerArgs>>>>>>? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

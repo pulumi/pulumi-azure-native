@@ -20,13 +20,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110.Outputs
         /// <summary>
         /// The ReplicationChannelSetting.
         /// </summary>
-        public readonly Union<Outputs.A2APolicyDetailsResponse, Union<Outputs.HyperVReplicaAzurePolicyDetailsResponse, Union<Outputs.HyperVReplicaBasePolicyDetailsResponse, Union<Outputs.HyperVReplicaBluePolicyDetailsResponse, Union<Outputs.HyperVReplicaPolicyDetailsResponse, Union<Outputs.InMageAzureV2PolicyDetailsResponse, Union<Outputs.InMageBasePolicyDetailsResponse, Union<Outputs.InMagePolicyDetailsResponse, Union<Outputs.RcmAzureMigrationPolicyDetailsResponse, Outputs.VmwareCbtPolicyDetailsResponse>>>>>>>>>? ProviderSpecificDetails;
+        public readonly object? ProviderSpecificDetails;
 
         [OutputConstructor]
         private PolicyPropertiesResponse(
             string? friendlyName,
 
-            Union<Outputs.A2APolicyDetailsResponse, Union<Outputs.HyperVReplicaAzurePolicyDetailsResponse, Union<Outputs.HyperVReplicaBasePolicyDetailsResponse, Union<Outputs.HyperVReplicaBluePolicyDetailsResponse, Union<Outputs.HyperVReplicaPolicyDetailsResponse, Union<Outputs.InMageAzureV2PolicyDetailsResponse, Union<Outputs.InMageBasePolicyDetailsResponse, Union<Outputs.InMagePolicyDetailsResponse, Union<Outputs.RcmAzureMigrationPolicyDetailsResponse, Outputs.VmwareCbtPolicyDetailsResponse>>>>>>>>>? providerSpecificDetails)
+            object? providerSpecificDetails)
         {
             FriendlyName = friendlyName;
             ProviderSpecificDetails = providerSpecificDetails;

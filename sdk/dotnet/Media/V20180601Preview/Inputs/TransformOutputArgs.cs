@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
         /// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
         /// </summary>
         [Input("preset", required: true)]
-        public InputUnion<Inputs.AudioAnalyzerPresetArgs, InputUnion<Inputs.BuiltInStandardEncoderPresetArgs, Inputs.StandardEncoderPresetArgs>> Preset { get; set; } = null!;
+        public Input<object> Preset { get; set; } = null!;
 
         /// <summary>
         /// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.

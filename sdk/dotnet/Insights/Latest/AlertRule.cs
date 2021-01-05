@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// the condition that results in the alert rule being activated.
         /// </summary>
         [Output("condition")]
-        public Output<Union<Outputs.LocationThresholdRuleConditionResponse, Union<Outputs.ManagementEventRuleConditionResponse, Outputs.ThresholdRuleConditionResponse>>> Condition { get; private set; } = null!;
+        public Output<object> Condition { get; private set; } = null!;
 
         /// <summary>
         /// the description of the alert rule that will be included in the alert email.
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// the condition that results in the alert rule being activated.
         /// </summary>
         [Input("condition", required: true)]
-        public InputUnion<Inputs.LocationThresholdRuleConditionArgs, InputUnion<Inputs.ManagementEventRuleConditionArgs, Inputs.ThresholdRuleConditionArgs>> Condition { get; set; } = null!;
+        public Input<object> Condition { get; set; } = null!;
 
         /// <summary>
         /// the description of the alert rule that will be included in the alert email.

@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119
         /// <summary>
         /// Compute properties
         /// </summary>
-        public readonly Union<Outputs.AKSResponse, Union<Outputs.AmlComputeResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.DataLakeAnalyticsResponse, Union<Outputs.DatabricksResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>>>> Properties;
+        public readonly object Properties;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119
 
             string name,
 
-            Union<Outputs.AKSResponse, Union<Outputs.AmlComputeResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.DataLakeAnalyticsResponse, Union<Outputs.DatabricksResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>>>> properties,
+            object properties,
 
             ImmutableDictionary<string, string>? tags,
 

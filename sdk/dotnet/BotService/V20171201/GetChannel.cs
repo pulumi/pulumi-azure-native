@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
         /// <summary>
         /// The set of properties specific to bot channel resource
         /// </summary>
-        public readonly Union<Outputs.DirectLineChannelResponse, Union<Outputs.EmailChannelResponse, Union<Outputs.FacebookChannelResponse, Union<Outputs.KikChannelResponse, Union<Outputs.MsTeamsChannelResponse, Union<Outputs.SkypeChannelResponse, Union<Outputs.SlackChannelResponse, Union<Outputs.SmsChannelResponse, Union<Outputs.TelegramChannelResponse, Outputs.WebChatChannelResponse>>>>>>>>> Properties;
+        public readonly object Properties;
         /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
 
             string name,
 
-            Union<Outputs.DirectLineChannelResponse, Union<Outputs.EmailChannelResponse, Union<Outputs.FacebookChannelResponse, Union<Outputs.KikChannelResponse, Union<Outputs.MsTeamsChannelResponse, Union<Outputs.SkypeChannelResponse, Union<Outputs.SlackChannelResponse, Union<Outputs.SmsChannelResponse, Union<Outputs.TelegramChannelResponse, Outputs.WebChatChannelResponse>>>>>>>>> properties,
+            object properties,
 
             Outputs.SkuResponse? sku,
 

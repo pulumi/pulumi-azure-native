@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
         /// <summary>
         /// Information for connecting to source
         /// </summary>
-        public readonly Union<Outputs.MiSqlConnectionInfoResponse, Union<Outputs.MySqlConnectionInfoResponse, Union<Outputs.PostgreSqlConnectionInfoResponse, Outputs.SqlConnectionInfoResponse>>>? SourceConnectionInfo;
+        public readonly object? SourceConnectionInfo;
         /// <summary>
         /// Source platform for the project
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
         /// <summary>
         /// Information for connecting to target
         /// </summary>
-        public readonly Union<Outputs.MiSqlConnectionInfoResponse, Union<Outputs.MySqlConnectionInfoResponse, Union<Outputs.PostgreSqlConnectionInfoResponse, Outputs.SqlConnectionInfoResponse>>>? TargetConnectionInfo;
+        public readonly object? TargetConnectionInfo;
         /// <summary>
         /// Target platform for the project
         /// </summary>
@@ -108,13 +108,13 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
 
             string provisioningState,
 
-            Union<Outputs.MiSqlConnectionInfoResponse, Union<Outputs.MySqlConnectionInfoResponse, Union<Outputs.PostgreSqlConnectionInfoResponse, Outputs.SqlConnectionInfoResponse>>>? sourceConnectionInfo,
+            object? sourceConnectionInfo,
 
             string sourcePlatform,
 
             ImmutableDictionary<string, string>? tags,
 
-            Union<Outputs.MiSqlConnectionInfoResponse, Union<Outputs.MySqlConnectionInfoResponse, Union<Outputs.PostgreSqlConnectionInfoResponse, Outputs.SqlConnectionInfoResponse>>>? targetConnectionInfo,
+            object? targetConnectionInfo,
 
             string targetPlatform,
 

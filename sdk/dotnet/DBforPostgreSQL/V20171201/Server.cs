@@ -207,7 +207,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201
         /// Properties of the server.
         /// </summary>
         [Input("properties", required: true)]
-        public InputUnion<Inputs.ServerPropertiesForDefaultCreateArgs, InputUnion<Inputs.ServerPropertiesForGeoRestoreArgs, InputUnion<Inputs.ServerPropertiesForReplicaArgs, Inputs.ServerPropertiesForRestoreArgs>>> Properties { get; set; } = null!;
+        public Input<object> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

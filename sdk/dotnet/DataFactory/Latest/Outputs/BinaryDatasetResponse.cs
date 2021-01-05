@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The data compression method used for the binary dataset.
         /// </summary>
-        public readonly Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Union<Outputs.DatasetTarCompressionResponse, Union<Outputs.DatasetTarGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>>>? Compression;
+        public readonly object? Compression;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The location of the Binary storage.
         /// </summary>
-        public readonly Union<Outputs.AmazonS3LocationResponse, Union<Outputs.AzureBlobFSLocationResponse, Union<Outputs.AzureBlobStorageLocationResponse, Union<Outputs.AzureDataLakeStoreLocationResponse, Union<Outputs.AzureFileStorageLocationResponse, Union<Outputs.FileServerLocationResponse, Union<Outputs.FtpServerLocationResponse, Union<Outputs.GoogleCloudStorageLocationResponse, Union<Outputs.HdfsLocationResponse, Union<Outputs.HttpServerLocationResponse, Outputs.SftpLocationResponse>>>>>>>>>> Location;
+        public readonly object Location;
         /// <summary>
         /// Parameters for dataset.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         private BinaryDatasetResponse(
             ImmutableArray<object> annotations,
 
-            Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Union<Outputs.DatasetTarCompressionResponse, Union<Outputs.DatasetTarGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>>>? compression,
+            object? compression,
 
             string? description,
 
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
-            Union<Outputs.AmazonS3LocationResponse, Union<Outputs.AzureBlobFSLocationResponse, Union<Outputs.AzureBlobStorageLocationResponse, Union<Outputs.AzureDataLakeStoreLocationResponse, Union<Outputs.AzureFileStorageLocationResponse, Union<Outputs.FileServerLocationResponse, Union<Outputs.FtpServerLocationResponse, Union<Outputs.GoogleCloudStorageLocationResponse, Union<Outputs.HdfsLocationResponse, Union<Outputs.HttpServerLocationResponse, Outputs.SftpLocationResponse>>>>>>>>>> location,
+            object location,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 

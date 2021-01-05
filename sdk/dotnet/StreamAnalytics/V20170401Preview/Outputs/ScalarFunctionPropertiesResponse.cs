@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
         /// <summary>
         /// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
         /// </summary>
-        public readonly Union<Outputs.AzureMachineLearningServiceFunctionBindingResponse, Union<Outputs.AzureMachineLearningStudioFunctionBindingResponse, Union<Outputs.CSharpFunctionBindingResponse, Outputs.JavaScriptFunctionBindingResponse>>>? Binding;
+        public readonly object? Binding;
         /// <summary>
         /// The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
 
         [OutputConstructor]
         private ScalarFunctionPropertiesResponse(
-            Union<Outputs.AzureMachineLearningServiceFunctionBindingResponse, Union<Outputs.AzureMachineLearningStudioFunctionBindingResponse, Union<Outputs.CSharpFunctionBindingResponse, Outputs.JavaScriptFunctionBindingResponse>>>? binding,
+            object? binding,
 
             string etag,
 

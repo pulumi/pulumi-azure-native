@@ -29,7 +29,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// Describes how a MongoDB data migration should be performed
         /// </summary>
         public readonly Outputs.MongoDbMigrationSettingsResponse? Input;
-        public readonly ImmutableArray<Union<Outputs.MongoDbCollectionProgressResponse, Union<Outputs.MongoDbDatabaseProgressResponse, Outputs.MongoDbMigrationProgressResponse>>> Output;
+        public readonly ImmutableArray<object> Output;
         /// <summary>
         /// The state of the task. This is ignored if submitted.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
             Outputs.MongoDbMigrationSettingsResponse? input,
 
-            ImmutableArray<Union<Outputs.MongoDbCollectionProgressResponse, Union<Outputs.MongoDbDatabaseProgressResponse, Outputs.MongoDbMigrationProgressResponse>>> output,
+            ImmutableArray<object> output,
 
             string state,
 

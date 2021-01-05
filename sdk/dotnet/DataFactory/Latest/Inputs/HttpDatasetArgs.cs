@@ -39,7 +39,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The data compression method used on files.
         /// </summary>
         [Input("compression")]
-        public InputUnion<Inputs.DatasetBZip2CompressionArgs, InputUnion<Inputs.DatasetDeflateCompressionArgs, InputUnion<Inputs.DatasetGZipCompressionArgs, InputUnion<Inputs.DatasetTarCompressionArgs, InputUnion<Inputs.DatasetTarGZipCompressionArgs, Inputs.DatasetZipDeflateCompressionArgs>>>>>? Compression { get; set; }
+        public Input<object>? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The format of files.
         /// </summary>
         [Input("format")]
-        public InputUnion<Inputs.AvroFormatArgs, InputUnion<Inputs.JsonFormatArgs, InputUnion<Inputs.OrcFormatArgs, InputUnion<Inputs.ParquetFormatArgs, Inputs.TextFormatArgs>>>>? Format { get; set; }
+        public Input<object>? Format { get; set; }
 
         /// <summary>
         /// Linked service reference.

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Outputs
         /// <summary>
         /// The match conditions for incoming traffic.
         /// </summary>
-        public readonly Union<Outputs.ApplicationRuleConditionResponse, Union<Outputs.NatRuleConditionResponse, Outputs.NetworkRuleConditionResponse>>? RuleCondition;
+        public readonly object? RuleCondition;
         /// <summary>
         /// The type of the rule.
         /// Expected value is 'FirewallPolicyNatRule'.
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Outputs
 
             int? priority,
 
-            Union<Outputs.ApplicationRuleConditionResponse, Union<Outputs.NatRuleConditionResponse, Outputs.NetworkRuleConditionResponse>>? ruleCondition,
+            object? ruleCondition,
 
             string ruleType,
 

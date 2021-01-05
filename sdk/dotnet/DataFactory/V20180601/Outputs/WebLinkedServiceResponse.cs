@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Web linked service properties.
         /// </summary>
-        public readonly Union<Outputs.WebAnonymousAuthenticationResponse, Union<Outputs.WebBasicAuthenticationResponse, Outputs.WebClientCertificateAuthenticationResponse>> TypeProperties;
+        public readonly object TypeProperties;
 
         [OutputConstructor]
         private WebLinkedServiceResponse(
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             string type,
 
-            Union<Outputs.WebAnonymousAuthenticationResponse, Union<Outputs.WebBasicAuthenticationResponse, Outputs.WebClientCertificateAuthenticationResponse>> typeProperties)
+            object typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;

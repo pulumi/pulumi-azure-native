@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Outputs
         /// <summary>
         /// Backup schedule specified as part of backup policy.
         /// </summary>
-        public readonly Union<Outputs.LogSchedulePolicyResponse, Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>>? SchedulePolicy;
+        public readonly object? SchedulePolicy;
 
         [OutputConstructor]
         private SubProtectionPolicyResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Outputs
 
             Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? retentionPolicy,
 
-            Union<Outputs.LogSchedulePolicyResponse, Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>>? schedulePolicy)
+            object? schedulePolicy)
         {
             PolicyType = policyType;
             RetentionPolicy = retentionPolicy;

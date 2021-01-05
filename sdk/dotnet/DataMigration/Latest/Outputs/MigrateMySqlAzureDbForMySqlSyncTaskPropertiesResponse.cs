@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         /// <summary>
         /// Task output. This is ignored if submitted.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse, Union<Outputs.MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse, Union<Outputs.MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse, Union<Outputs.MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse, Outputs.MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse>>>>> Output;
+        public readonly ImmutableArray<object> Output;
         /// <summary>
         /// The state of the task. This is ignored if submitted.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
 
             Outputs.MigrateMySqlAzureDbForMySqlSyncTaskInputResponse? input,
 
-            ImmutableArray<Union<Outputs.MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse, Union<Outputs.MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse, Union<Outputs.MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse, Union<Outputs.MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse, Outputs.MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse>>>>> output,
+            ImmutableArray<object> output,
 
             string state,
 

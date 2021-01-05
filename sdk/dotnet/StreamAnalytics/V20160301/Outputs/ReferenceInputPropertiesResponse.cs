@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301.Outputs
         /// <summary>
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Outputs.JsonSerializationResponse>>? Serialization;
+        public readonly object? Serialization;
         /// <summary>
         /// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Reference'.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301.Outputs
 
             string etag,
 
-            Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Outputs.JsonSerializationResponse>>? serialization,
+            object? serialization,
 
             string? type)
         {

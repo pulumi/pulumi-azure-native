@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190615
         /// <summary>
         /// ProtectedItemResource properties
         /// </summary>
-        public readonly Union<Outputs.AzureFileshareProtectedItemResponse, Union<Outputs.AzureIaaSVMProtectedItemResponse, Union<Outputs.AzureSqlProtectedItemResponse, Union<Outputs.AzureVmWorkloadProtectedItemResponse, Union<Outputs.DPMProtectedItemResponse, Union<Outputs.GenericProtectedItemResponse, Outputs.MabFileFolderProtectedItemResponse>>>>>> Properties;
+        public readonly object Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190615
 
             string name,
 
-            Union<Outputs.AzureFileshareProtectedItemResponse, Union<Outputs.AzureIaaSVMProtectedItemResponse, Union<Outputs.AzureSqlProtectedItemResponse, Union<Outputs.AzureVmWorkloadProtectedItemResponse, Union<Outputs.DPMProtectedItemResponse, Union<Outputs.GenericProtectedItemResponse, Outputs.MabFileFolderProtectedItemResponse>>>>>> properties,
+            object properties,
 
             ImmutableDictionary<string, string>? tags,
 

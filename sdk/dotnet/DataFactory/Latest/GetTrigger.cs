@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <summary>
         /// Properties of the trigger.
         /// </summary>
-        public readonly Union<Outputs.ChainingTriggerResponse, Union<Outputs.MultiplePipelineTriggerResponse, Union<Outputs.RerunTumblingWindowTriggerResponse, Outputs.TumblingWindowTriggerResponse>>> Properties;
+        public readonly object Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
 
             string name,
 
-            Union<Outputs.ChainingTriggerResponse, Union<Outputs.MultiplePipelineTriggerResponse, Union<Outputs.RerunTumblingWindowTriggerResponse, Outputs.TumblingWindowTriggerResponse>>> properties,
+            object properties,
 
             string type)
         {

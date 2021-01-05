@@ -29,7 +29,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// Backup schedule of backup policy.
         /// </summary>
-        public readonly Union<Outputs.LogSchedulePolicyResponse, Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>>? SchedulePolicy;
+        public readonly object? SchedulePolicy;
 
         [OutputConstructor]
         private MabProtectionPolicyResponse(
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? retentionPolicy,
 
-            Union<Outputs.LogSchedulePolicyResponse, Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>>? schedulePolicy)
+            object? schedulePolicy)
         {
             BackupManagementType = backupManagementType;
             ProtectedItemsCount = protectedItemsCount;

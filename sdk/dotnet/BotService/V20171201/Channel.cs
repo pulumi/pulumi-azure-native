@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
         /// The set of properties specific to bot channel resource
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.DirectLineChannelResponse, Union<Outputs.EmailChannelResponse, Union<Outputs.FacebookChannelResponse, Union<Outputs.KikChannelResponse, Union<Outputs.MsTeamsChannelResponse, Union<Outputs.SkypeChannelResponse, Union<Outputs.SlackChannelResponse, Union<Outputs.SmsChannelResponse, Union<Outputs.TelegramChannelResponse, Outputs.WebChatChannelResponse>>>>>>>>>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the SKU of the resource.
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
         /// The set of properties specific to bot channel resource
         /// </summary>
         [Input("properties")]
-        public InputUnion<Inputs.DirectLineChannelArgs, InputUnion<Inputs.EmailChannelArgs, InputUnion<Inputs.FacebookChannelArgs, InputUnion<Inputs.KikChannelArgs, InputUnion<Inputs.MsTeamsChannelArgs, InputUnion<Inputs.SkypeChannelArgs, InputUnion<Inputs.SlackChannelArgs, InputUnion<Inputs.SmsChannelArgs, InputUnion<Inputs.TelegramChannelArgs, Inputs.WebChatChannelArgs>>>>>>>>>? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the Bot resource group in the user subscription.

@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415.Outputs
         /// <summary>
         /// A list of actions that are executed when all the conditions of a rule are satisfied.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.DeliveryRuleCacheExpirationActionResponse, Union<Outputs.DeliveryRuleCacheKeyQueryStringActionResponse, Union<Outputs.DeliveryRuleRequestHeaderActionResponse, Union<Outputs.DeliveryRuleResponseHeaderActionResponse, Union<Outputs.UrlRedirectActionResponse, Outputs.UrlRewriteActionResponse>>>>>> Actions;
+        public readonly ImmutableArray<object> Actions;
         /// <summary>
         /// A list of conditions that must be matched for the actions to be executed
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.DeliveryRuleCookiesConditionResponse, Union<Outputs.DeliveryRuleHttpVersionConditionResponse, Union<Outputs.DeliveryRuleIsDeviceConditionResponse, Union<Outputs.DeliveryRulePostArgsConditionResponse, Union<Outputs.DeliveryRuleQueryStringConditionResponse, Union<Outputs.DeliveryRuleRemoteAddressConditionResponse, Union<Outputs.DeliveryRuleRequestBodyConditionResponse, Union<Outputs.DeliveryRuleRequestHeaderConditionResponse, Union<Outputs.DeliveryRuleRequestMethodConditionResponse, Union<Outputs.DeliveryRuleRequestSchemeConditionResponse, Union<Outputs.DeliveryRuleRequestUriConditionResponse, Union<Outputs.DeliveryRuleUrlFileExtensionConditionResponse, Union<Outputs.DeliveryRuleUrlFileNameConditionResponse, Outputs.DeliveryRuleUrlPathConditionResponse>>>>>>>>>>>>>> Conditions;
+        public readonly ImmutableArray<object> Conditions;
         /// <summary>
         /// Name of the rule
         /// </summary>
@@ -32,9 +32,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415.Outputs
 
         [OutputConstructor]
         private DeliveryRuleResponse(
-            ImmutableArray<Union<Outputs.DeliveryRuleCacheExpirationActionResponse, Union<Outputs.DeliveryRuleCacheKeyQueryStringActionResponse, Union<Outputs.DeliveryRuleRequestHeaderActionResponse, Union<Outputs.DeliveryRuleResponseHeaderActionResponse, Union<Outputs.UrlRedirectActionResponse, Outputs.UrlRewriteActionResponse>>>>>> actions,
+            ImmutableArray<object> actions,
 
-            ImmutableArray<Union<Outputs.DeliveryRuleCookiesConditionResponse, Union<Outputs.DeliveryRuleHttpVersionConditionResponse, Union<Outputs.DeliveryRuleIsDeviceConditionResponse, Union<Outputs.DeliveryRulePostArgsConditionResponse, Union<Outputs.DeliveryRuleQueryStringConditionResponse, Union<Outputs.DeliveryRuleRemoteAddressConditionResponse, Union<Outputs.DeliveryRuleRequestBodyConditionResponse, Union<Outputs.DeliveryRuleRequestHeaderConditionResponse, Union<Outputs.DeliveryRuleRequestMethodConditionResponse, Union<Outputs.DeliveryRuleRequestSchemeConditionResponse, Union<Outputs.DeliveryRuleRequestUriConditionResponse, Union<Outputs.DeliveryRuleUrlFileExtensionConditionResponse, Union<Outputs.DeliveryRuleUrlFileNameConditionResponse, Outputs.DeliveryRuleUrlPathConditionResponse>>>>>>>>>>>>>> conditions,
+            ImmutableArray<object> conditions,
 
             string? name,
 

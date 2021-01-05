@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190601
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Output("destination")]
-        public Output<Union<Outputs.EventHubEventSubscriptionDestinationResponse, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponse, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponse, Union<Outputs.StorageQueueEventSubscriptionDestinationResponse, Outputs.WebHookEventSubscriptionDestinationResponse>>>>?> Destination { get; private set; } = null!;
+        public Output<object?> Destination { get; private set; } = null!;
 
         /// <summary>
         /// Expiration time of the event subscription.
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190601
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Input("destination")]
-        public InputUnion<Inputs.EventHubEventSubscriptionDestinationArgs, InputUnion<Inputs.HybridConnectionEventSubscriptionDestinationArgs, InputUnion<Inputs.ServiceBusQueueEventSubscriptionDestinationArgs, InputUnion<Inputs.StorageQueueEventSubscriptionDestinationArgs, Inputs.WebHookEventSubscriptionDestinationArgs>>>>? Destination { get; set; }
+        public Input<object>? Destination { get; set; }
 
         /// <summary>
         /// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.

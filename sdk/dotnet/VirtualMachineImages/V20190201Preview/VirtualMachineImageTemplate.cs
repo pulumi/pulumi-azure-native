@@ -16,13 +16,13 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
         /// </summary>
         [Output("customize")]
-        public Output<ImmutableArray<Union<Outputs.ImageTemplatePowerShellCustomizerResponse, Union<Outputs.ImageTemplateRestartCustomizerResponse, Outputs.ImageTemplateShellCustomizerResponse>>>> Customize { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Customize { get; private set; } = null!;
 
         /// <summary>
         /// The distribution targets where the image output needs to go to.
         /// </summary>
         [Output("distribute")]
-        public Output<ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Union<Outputs.ImageTemplateSharedImageDistributorResponse, Outputs.ImageTemplateVhdDistributorResponse>>>> Distribute { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Distribute { get; private set; } = null!;
 
         /// <summary>
         /// State of 'run' that is currently executing or was last executed.
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview
         /// Specifies the properties used to describe the source image.
         /// </summary>
         [Output("source")]
-        public Output<Union<Outputs.ImageTemplateIsoSourceResponse, Union<Outputs.ImageTemplateManagedImageSourceResponse, Outputs.ImageTemplatePlatformImageSourceResponse>>> Source { get; private set; } = null!;
+        public Output<object> Source { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -125,26 +125,26 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview
     public sealed class VirtualMachineImageTemplateArgs : Pulumi.ResourceArgs
     {
         [Input("customize")]
-        private InputList<Union<Inputs.ImageTemplatePowerShellCustomizerArgs, Union<Inputs.ImageTemplateRestartCustomizerArgs, Inputs.ImageTemplateShellCustomizerArgs>>>? _customize;
+        private InputList<object>? _customize;
 
         /// <summary>
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
         /// </summary>
-        public InputList<Union<Inputs.ImageTemplatePowerShellCustomizerArgs, Union<Inputs.ImageTemplateRestartCustomizerArgs, Inputs.ImageTemplateShellCustomizerArgs>>> Customize
+        public InputList<object> Customize
         {
-            get => _customize ?? (_customize = new InputList<Union<Inputs.ImageTemplatePowerShellCustomizerArgs, Union<Inputs.ImageTemplateRestartCustomizerArgs, Inputs.ImageTemplateShellCustomizerArgs>>>());
+            get => _customize ?? (_customize = new InputList<object>());
             set => _customize = value;
         }
 
         [Input("distribute", required: true)]
-        private InputList<Union<Inputs.ImageTemplateManagedImageDistributorArgs, Union<Inputs.ImageTemplateSharedImageDistributorArgs, Inputs.ImageTemplateVhdDistributorArgs>>>? _distribute;
+        private InputList<object>? _distribute;
 
         /// <summary>
         /// The distribution targets where the image output needs to go to.
         /// </summary>
-        public InputList<Union<Inputs.ImageTemplateManagedImageDistributorArgs, Union<Inputs.ImageTemplateSharedImageDistributorArgs, Inputs.ImageTemplateVhdDistributorArgs>>> Distribute
+        public InputList<object> Distribute
         {
-            get => _distribute ?? (_distribute = new InputList<Union<Inputs.ImageTemplateManagedImageDistributorArgs, Union<Inputs.ImageTemplateSharedImageDistributorArgs, Inputs.ImageTemplateVhdDistributorArgs>>>());
+            get => _distribute ?? (_distribute = new InputList<object>());
             set => _distribute = value;
         }
 
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview
         /// Specifies the properties used to describe the source image.
         /// </summary>
         [Input("source", required: true)]
-        public InputUnion<Inputs.ImageTemplateIsoSourceArgs, InputUnion<Inputs.ImageTemplateManagedImageSourceArgs, Inputs.ImageTemplatePlatformImageSourceArgs>> Source { get; set; } = null!;
+        public Input<object> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

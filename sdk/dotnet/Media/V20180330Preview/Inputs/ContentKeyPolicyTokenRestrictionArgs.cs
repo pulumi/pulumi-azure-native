@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
     public sealed class ContentKeyPolicyTokenRestrictionArgs : Pulumi.ResourceArgs
     {
         [Input("alternateVerificationKeys")]
-        private InputList<Union<Inputs.ContentKeyPolicyRsaTokenKeyArgs, Union<Inputs.ContentKeyPolicySymmetricTokenKeyArgs, Inputs.ContentKeyPolicyX509CertificateTokenKeyArgs>>>? _alternateVerificationKeys;
+        private InputList<object>? _alternateVerificationKeys;
 
         /// <summary>
         /// A list of alternative verification keys.
         /// </summary>
-        public InputList<Union<Inputs.ContentKeyPolicyRsaTokenKeyArgs, Union<Inputs.ContentKeyPolicySymmetricTokenKeyArgs, Inputs.ContentKeyPolicyX509CertificateTokenKeyArgs>>> AlternateVerificationKeys
+        public InputList<object> AlternateVerificationKeys
         {
-            get => _alternateVerificationKeys ?? (_alternateVerificationKeys = new InputList<Union<Inputs.ContentKeyPolicyRsaTokenKeyArgs, Union<Inputs.ContentKeyPolicySymmetricTokenKeyArgs, Inputs.ContentKeyPolicyX509CertificateTokenKeyArgs>>>());
+            get => _alternateVerificationKeys ?? (_alternateVerificationKeys = new InputList<object>());
             set => _alternateVerificationKeys = value;
         }
 
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
         /// The primary verification key.
         /// </summary>
         [Input("primaryVerificationKey", required: true)]
-        public InputUnion<Inputs.ContentKeyPolicyRsaTokenKeyArgs, InputUnion<Inputs.ContentKeyPolicySymmetricTokenKeyArgs, Inputs.ContentKeyPolicyX509CertificateTokenKeyArgs>> PrimaryVerificationKey { get; set; } = null!;
+        public Input<object> PrimaryVerificationKey { get; set; } = null!;
 
         [Input("requiredClaims")]
         private InputList<Inputs.ContentKeyPolicyTokenClaimArgs>? _requiredClaims;

@@ -88,13 +88,13 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <summary>
         /// The timeline result values.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ActivityTimelineItemResponseResult, Union<Outputs.BookmarkTimelineItemResponseResult, Outputs.SecurityAlertTimelineItemResponseResult>>> Value;
+        public readonly ImmutableArray<object> Value;
 
         [OutputConstructor]
         private GetEntitiesGetTimelineResult(
             Outputs.TimelineResultsMetadataResponseResult? metaData,
 
-            ImmutableArray<Union<Outputs.ActivityTimelineItemResponseResult, Union<Outputs.BookmarkTimelineItemResponseResult, Outputs.SecurityAlertTimelineItemResponseResult>>> value)
+            ImmutableArray<object> value)
         {
             MetaData = metaData;
             Value = value;

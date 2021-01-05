@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// object which contains secret parameters
         /// </summary>
         [Output("parameters")]
-        public Output<Union<Outputs.CustomerCertificateParametersResponse, Union<Outputs.ManagedCertificateParametersResponse, Outputs.UrlSigningKeyParametersResponse>>?> Parameters { get; private set; } = null!;
+        public Output<object?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning status
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// object which contains secret parameters
         /// </summary>
         [Input("parameters")]
-        public InputUnion<Inputs.CustomerCertificateParametersArgs, InputUnion<Inputs.ManagedCertificateParametersArgs, Inputs.UrlSigningKeyParametersArgs>>? Parameters { get; set; }
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.

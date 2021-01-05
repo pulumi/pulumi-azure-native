@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Outputs
         /// <summary>
         /// Collection of rule conditions used by a rule.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ApplicationRuleConditionResponse, Union<Outputs.NatRuleConditionResponse, Outputs.NetworkRuleConditionResponse>>> RuleConditions;
+        public readonly ImmutableArray<object> RuleConditions;
         /// <summary>
         /// The type of the rule.
         /// Expected value is 'FirewallPolicyFilterRule'.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Outputs
 
             int? priority,
 
-            ImmutableArray<Union<Outputs.ApplicationRuleConditionResponse, Union<Outputs.NatRuleConditionResponse, Outputs.NetworkRuleConditionResponse>>> ruleConditions,
+            ImmutableArray<object> ruleConditions,
 
             string ruleType)
         {

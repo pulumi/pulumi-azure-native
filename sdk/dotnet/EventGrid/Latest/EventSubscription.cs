@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Output("destination")]
-        public Output<Union<Outputs.AzureFunctionEventSubscriptionDestinationResponse, Union<Outputs.EventHubEventSubscriptionDestinationResponse, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponse, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponse, Union<Outputs.ServiceBusTopicEventSubscriptionDestinationResponse, Union<Outputs.StorageQueueEventSubscriptionDestinationResponse, Outputs.WebHookEventSubscriptionDestinationResponse>>>>>>?> Destination { get; private set; } = null!;
+        public Output<object?> Destination { get; private set; } = null!;
 
         /// <summary>
         /// The event delivery schema for the event subscription.
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Input("destination")]
-        public InputUnion<Inputs.AzureFunctionEventSubscriptionDestinationArgs, InputUnion<Inputs.EventHubEventSubscriptionDestinationArgs, InputUnion<Inputs.HybridConnectionEventSubscriptionDestinationArgs, InputUnion<Inputs.ServiceBusQueueEventSubscriptionDestinationArgs, InputUnion<Inputs.ServiceBusTopicEventSubscriptionDestinationArgs, InputUnion<Inputs.StorageQueueEventSubscriptionDestinationArgs, Inputs.WebHookEventSubscriptionDestinationArgs>>>>>>? Destination { get; set; }
+        public Input<object>? Destination { get; set; }
 
         /// <summary>
         /// The event delivery schema for the event subscription.

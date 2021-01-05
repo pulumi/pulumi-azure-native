@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
         /// <summary>
         /// The list of codecs to be used when encoding the input video.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.AudioResponse, Union<Outputs.CopyAudioResponse, Union<Outputs.CopyVideoResponse, Outputs.VideoResponse>>>> Codecs;
+        public readonly ImmutableArray<object> Codecs;
         /// <summary>
         /// One or more filtering operations that are applied to the input media before encoding.
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
 
         [OutputConstructor]
         private StandardEncoderPresetResponse(
-            ImmutableArray<Union<Outputs.AudioResponse, Union<Outputs.CopyAudioResponse, Union<Outputs.CopyVideoResponse, Outputs.VideoResponse>>>> codecs,
+            ImmutableArray<object> codecs,
 
             Outputs.FiltersResponse? filters,
 

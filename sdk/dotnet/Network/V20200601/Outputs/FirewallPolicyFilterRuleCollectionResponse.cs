@@ -33,7 +33,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Outputs
         /// <summary>
         /// List of rules included in a rule collection.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ApplicationRuleResponse, Union<Outputs.NatRuleResponse, Outputs.NetworkRuleResponse>>> Rules;
+        public readonly ImmutableArray<object> Rules;
 
         [OutputConstructor]
         private FirewallPolicyFilterRuleCollectionResponse(
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Outputs
 
             string ruleCollectionType,
 
-            ImmutableArray<Union<Outputs.ApplicationRuleResponse, Union<Outputs.NatRuleResponse, Outputs.NetworkRuleResponse>>> rules)
+            ImmutableArray<object> rules)
         {
             Action = action;
             Name = name;

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest.Outputs
         /// <summary>
         /// Gets or sets the authentication method of the request.
         /// </summary>
-        public readonly Union<Outputs.BasicAuthenticationResponse, Union<Outputs.ClientCertAuthenticationResponse, Outputs.OAuthAuthenticationResponse>>? Authentication;
+        public readonly object? Authentication;
         /// <summary>
         /// Gets or sets the request body.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest.Outputs
 
         [OutputConstructor]
         private HttpRequestResponse(
-            Union<Outputs.BasicAuthenticationResponse, Union<Outputs.ClientCertAuthenticationResponse, Outputs.OAuthAuthenticationResponse>>? authentication,
+            object? authentication,
 
             string? body,
 

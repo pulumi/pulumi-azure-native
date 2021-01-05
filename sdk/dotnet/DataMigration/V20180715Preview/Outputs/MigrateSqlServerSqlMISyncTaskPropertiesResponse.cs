@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// Task output. This is ignored if submitted.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse, Union<Outputs.MigrateSqlServerSqlMISyncTaskOutputErrorResponse, Outputs.MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse>>> Output;
+        public readonly ImmutableArray<object> Output;
         /// <summary>
         /// The state of the task. This is ignored if submitted.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
             Outputs.MigrateSqlServerSqlMISyncTaskInputResponse? input,
 
-            ImmutableArray<Union<Outputs.MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse, Union<Outputs.MigrateSqlServerSqlMISyncTaskOutputErrorResponse, Outputs.MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse>>> output,
+            ImmutableArray<object> output,
 
             string state,
 

@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119
         /// Compute properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.AKSResponse, Union<Outputs.AmlComputeResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.DataLakeAnalyticsResponse, Union<Outputs.DatabricksResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>>>>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119
         /// Compute properties
         /// </summary>
         [Input("properties")]
-        public InputUnion<Inputs.AKSArgs, InputUnion<Inputs.AmlComputeArgs, InputUnion<Inputs.DataFactoryArgs, InputUnion<Inputs.DataLakeAnalyticsArgs, InputUnion<Inputs.DatabricksArgs, InputUnion<Inputs.HDInsightArgs, Inputs.VirtualMachineArgs>>>>>>? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// Name of the resource group in which workspace is located.

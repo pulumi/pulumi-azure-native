@@ -34,14 +34,14 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Inputs
         public Input<int>? Priority { get; set; }
 
         [Input("ruleConditions")]
-        private InputList<Union<Inputs.ApplicationRuleConditionArgs, Union<Inputs.NatRuleConditionArgs, Inputs.NetworkRuleConditionArgs>>>? _ruleConditions;
+        private InputList<object>? _ruleConditions;
 
         /// <summary>
         /// Collection of rule conditions used by a rule.
         /// </summary>
-        public InputList<Union<Inputs.ApplicationRuleConditionArgs, Union<Inputs.NatRuleConditionArgs, Inputs.NetworkRuleConditionArgs>>> RuleConditions
+        public InputList<object> RuleConditions
         {
-            get => _ruleConditions ?? (_ruleConditions = new InputList<Union<Inputs.ApplicationRuleConditionArgs, Union<Inputs.NatRuleConditionArgs, Inputs.NetworkRuleConditionArgs>>>());
+            get => _ruleConditions ?? (_ruleConditions = new InputList<object>());
             set => _ruleConditions = value;
         }
 

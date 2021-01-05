@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("datasource")]
-        public InputUnion<Inputs.AzureDataLakeStoreOutputDataSourceArgs, InputUnion<Inputs.AzureFunctionOutputDataSourceArgs, InputUnion<Inputs.AzureSqlDatabaseOutputDataSourceArgs, InputUnion<Inputs.AzureSynapseOutputDataSourceArgs, InputUnion<Inputs.AzureTableOutputDataSourceArgs, InputUnion<Inputs.BlobOutputDataSourceArgs, InputUnion<Inputs.DocumentDbOutputDataSourceArgs, InputUnion<Inputs.EventHubOutputDataSourceArgs, InputUnion<Inputs.EventHubV2OutputDataSourceArgs, InputUnion<Inputs.PowerBIOutputDataSourceArgs, InputUnion<Inputs.ServiceBusQueueOutputDataSourceArgs, Inputs.ServiceBusTopicOutputDataSourceArgs>>>>>>>>>>>? Datasource { get; set; }
+        public Input<object>? Datasource { get; set; }
 
         /// <summary>
         /// Resource name
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("serialization")]
-        public InputUnion<Inputs.AvroSerializationArgs, InputUnion<Inputs.CsvSerializationArgs, InputUnion<Inputs.CustomClrSerializationArgs, InputUnion<Inputs.JsonSerializationArgs, Inputs.ParquetSerializationArgs>>>>? Serialization { get; set; }
+        public Input<object>? Serialization { get; set; }
 
         [Input("sizeWindow")]
         public Input<double>? SizeWindow { get; set; }

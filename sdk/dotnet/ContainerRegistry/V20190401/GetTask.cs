@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401
         /// <summary>
         /// The properties of a task step.
         /// </summary>
-        public readonly Union<Outputs.DockerBuildStepResponse, Union<Outputs.EncodedTaskStepResponse, Outputs.FileTaskStepResponse>> Step;
+        public readonly object Step;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401
 
             string? status,
 
-            Union<Outputs.DockerBuildStepResponse, Union<Outputs.EncodedTaskStepResponse, Outputs.FileTaskStepResponse>> step,
+            object step,
 
             ImmutableDictionary<string, string>? tags,
 

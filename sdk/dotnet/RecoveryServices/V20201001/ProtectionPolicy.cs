@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
         /// ProtectionPolicyResource properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.AzureFileShareProtectionPolicyResponse, Union<Outputs.AzureIaaSVMProtectionPolicyResponse, Union<Outputs.AzureSqlProtectionPolicyResponse, Union<Outputs.AzureVmWorkloadProtectionPolicyResponse, Union<Outputs.GenericProtectionPolicyResponse, Outputs.MabProtectionPolicyResponse>>>>>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
         /// ProtectionPolicyResource properties
         /// </summary>
         [Input("properties")]
-        public InputUnion<Inputs.AzureFileShareProtectionPolicyArgs, InputUnion<Inputs.AzureIaaSVMProtectionPolicyArgs, InputUnion<Inputs.AzureSqlProtectionPolicyArgs, InputUnion<Inputs.AzureVmWorkloadProtectionPolicyArgs, InputUnion<Inputs.GenericProtectionPolicyArgs, Inputs.MabProtectionPolicyArgs>>>>>? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.
