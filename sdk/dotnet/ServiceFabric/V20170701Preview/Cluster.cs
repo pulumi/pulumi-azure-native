@@ -390,6 +390,12 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
         [Input("reverseProxyCertificate")]
         public Input<Inputs.CertificateDescriptionArgs>? ReverseProxyCertificate { get; set; }
 
+        /// <summary>
+        /// The customer subscription identifier
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 

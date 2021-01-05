@@ -24,6 +24,12 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         [Input("assignmentName", required: true)]
         public string AssignmentName { get; set; } = null!;
 
+        /// <summary>
+        /// azure subscriptionId, which we assign the blueprint to.
+        /// </summary>
+        [Input("subscriptionId")]
+        public string? SubscriptionId { get; set; }
+
         public GetAssignmentArgs()
         {
         }

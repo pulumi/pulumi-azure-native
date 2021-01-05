@@ -118,6 +118,7 @@ export class Assignment extends pulumi.CustomResource {
             inputs["locks"] = args ? args.locks : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroups"] = args ? args.resourceGroups : undefined;
+            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -187,4 +188,8 @@ export interface AssignmentArgs {
      * Names and locations of resource group placeholders.
      */
     readonly resourceGroups: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ResourceGroupValue>}>;
+    /**
+     * azure subscriptionId, which we assign the blueprint to.
+     */
+    readonly subscriptionId?: pulumi.Input<string>;
 }

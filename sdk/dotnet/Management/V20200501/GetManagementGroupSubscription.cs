@@ -24,6 +24,12 @@ namespace Pulumi.AzureNextGen.Management.V20200501
         [Input("groupId", required: true)]
         public string GroupId { get; set; } = null!;
 
+        /// <summary>
+        /// Subscription ID.
+        /// </summary>
+        [Input("subscriptionId")]
+        public string? SubscriptionId { get; set; }
+
         public GetManagementGroupSubscriptionArgs()
         {
         }

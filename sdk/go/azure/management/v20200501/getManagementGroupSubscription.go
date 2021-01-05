@@ -19,6 +19,8 @@ func LookupManagementGroupSubscription(ctx *pulumi.Context, args *LookupManageme
 type LookupManagementGroupSubscriptionArgs struct {
 	// Management Group ID.
 	GroupId string `pulumi:"groupId"`
+	// Subscription ID.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The details of subscription under management group.

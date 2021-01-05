@@ -104,12 +104,16 @@ func (ManagementGroupSubscriptionState) ElementType() reflect.Type {
 type managementGroupSubscriptionArgs struct {
 	// Management Group ID.
 	GroupId string `pulumi:"groupId"`
+	// Subscription ID.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a ManagementGroupSubscription resource.
 type ManagementGroupSubscriptionArgs struct {
 	// Management Group ID.
 	GroupId pulumi.StringInput
+	// Subscription ID.
+	SubscriptionId pulumi.StringPtrInput
 }
 
 func (ManagementGroupSubscriptionArgs) ElementType() reflect.Type {

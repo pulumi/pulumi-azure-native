@@ -21,6 +21,8 @@ type LookupConnectionArgs struct {
 	ConnectionName string `pulumi:"connectionName"`
 	// The resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Subscription Id
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // API connection

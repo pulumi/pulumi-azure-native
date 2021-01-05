@@ -188,14 +188,17 @@ class AwaitableGetAssignmentResult(GetAssignmentResult):
 
 
 def get_assignment(assignment_name: Optional[str] = None,
+                   subscription_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssignmentResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str assignment_name: name of the assignment.
+    :param str subscription_id: azure subscriptionId, which we assign the blueprint to.
     """
     __args__ = dict()
     __args__['assignmentName'] = assignment_name
+    __args__['subscriptionId'] = subscription_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

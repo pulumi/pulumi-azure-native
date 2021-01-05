@@ -21,6 +21,8 @@ type LookupClusterArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The customer subscription identifier
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The cluster resource

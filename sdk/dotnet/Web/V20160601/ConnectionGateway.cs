@@ -124,6 +124,12 @@ namespace Pulumi.AzureNextGen.Web.V20160601
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Subscription Id
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 

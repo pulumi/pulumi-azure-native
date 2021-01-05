@@ -16,6 +16,7 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
     return pulumi.runtime.invoke("azure-nextgen:web/latest:getConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -28,6 +29,10 @@ export interface GetConnectionArgs {
      * The resource group
      */
     readonly resourceGroupName: string;
+    /**
+     * Subscription Id
+     */
+    readonly subscriptionId?: string;
 }
 
 /**

@@ -152,14 +152,17 @@ class AwaitableGetSubscriptionDiagnosticSettingResult(GetSubscriptionDiagnosticS
 
 
 def get_subscription_diagnostic_setting(name: Optional[str] = None,
+                                        subscription_id: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionDiagnosticSettingResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str name: The name of the diagnostic setting.
+    :param str subscription_id: The subscription id.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['subscriptionId'] = subscription_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

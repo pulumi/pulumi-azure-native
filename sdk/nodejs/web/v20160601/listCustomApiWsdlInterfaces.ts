@@ -18,6 +18,7 @@ export function listCustomApiWsdlInterfaces(args: ListCustomApiWsdlInterfacesArg
         "importMethod": args.importMethod,
         "location": args.location,
         "service": args.service,
+        "subscriptionId": args.subscriptionId,
         "url": args.url,
     }, opts);
 }
@@ -39,6 +40,10 @@ export interface ListCustomApiWsdlInterfacesArgs {
      * The service with name and endpoint names
      */
     readonly service?: inputs.web.v20160601.WsdlService;
+    /**
+     * Subscription Id
+     */
+    readonly subscriptionId?: string;
     /**
      * The WSDL URL
      */

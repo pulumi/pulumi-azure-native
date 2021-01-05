@@ -15,6 +15,7 @@ export function getManagementGroupSubscription(args: GetManagementGroupSubscript
     }
     return pulumi.runtime.invoke("azure-nextgen:management/v20200501:getManagementGroupSubscription", {
         "groupId": args.groupId,
+        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -23,6 +24,10 @@ export interface GetManagementGroupSubscriptionArgs {
      * Management Group ID.
      */
     readonly groupId: string;
+    /**
+     * Subscription ID.
+     */
+    readonly subscriptionId?: string;
 }
 
 /**

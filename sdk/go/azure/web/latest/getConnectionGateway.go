@@ -21,6 +21,8 @@ type LookupConnectionGatewayArgs struct {
 	ConnectionGatewayName string `pulumi:"connectionGatewayName"`
 	// The resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Subscription Id
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The gateway definition

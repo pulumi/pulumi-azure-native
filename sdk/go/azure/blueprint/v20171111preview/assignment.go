@@ -161,6 +161,8 @@ type assignmentArgs struct {
 	Parameters map[string]ParameterValueBase `pulumi:"parameters"`
 	// Names and locations of resource group placeholders.
 	ResourceGroups map[string]ResourceGroupValue `pulumi:"resourceGroups"`
+	// azure subscriptionId, which we assign the blueprint to.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a Assignment resource.
@@ -183,6 +185,8 @@ type AssignmentArgs struct {
 	Parameters ParameterValueBaseMapInput
 	// Names and locations of resource group placeholders.
 	ResourceGroups ResourceGroupValueMapInput
+	// azure subscriptionId, which we assign the blueprint to.
+	SubscriptionId pulumi.StringPtrInput
 }
 
 func (AssignmentArgs) ElementType() reflect.Type {

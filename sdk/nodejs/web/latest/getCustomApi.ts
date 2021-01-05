@@ -16,6 +16,7 @@ export function getCustomApi(args: GetCustomApiArgs, opts?: pulumi.InvokeOptions
     return pulumi.runtime.invoke("azure-nextgen:web/latest:getCustomApi", {
         "apiName": args.apiName,
         "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -28,6 +29,10 @@ export interface GetCustomApiArgs {
      * The resource group
      */
     readonly resourceGroupName: string;
+    /**
+     * Subscription Id
+     */
+    readonly subscriptionId?: string;
 }
 
 /**

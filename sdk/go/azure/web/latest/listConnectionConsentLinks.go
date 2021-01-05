@@ -23,6 +23,8 @@ type ListConnectionConsentLinksArgs struct {
 	Parameters []ConsentLinkParameterDefinition `pulumi:"parameters"`
 	// The resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Subscription Id
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // Collection of consent links

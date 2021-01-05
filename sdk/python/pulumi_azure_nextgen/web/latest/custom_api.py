@@ -23,6 +23,7 @@ class CustomApi(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CustomApiPropertiesDefinitionArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -38,6 +39,7 @@ class CustomApi(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['CustomApiPropertiesDefinitionArgs']] properties: Custom API properties
         :param pulumi.Input[str] resource_group_name: The resource group
+        :param pulumi.Input[str] subscription_id: Subscription Id
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
@@ -66,6 +68,7 @@ class CustomApi(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['subscription_id'] = subscription_id
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None

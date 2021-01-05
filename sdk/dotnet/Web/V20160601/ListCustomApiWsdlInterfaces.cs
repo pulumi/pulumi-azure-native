@@ -43,6 +43,12 @@ namespace Pulumi.AzureNextGen.Web.V20160601
         public Inputs.WsdlServiceArgs? Service { get; set; }
 
         /// <summary>
+        /// Subscription Id
+        /// </summary>
+        [Input("subscriptionId")]
+        public string? SubscriptionId { get; set; }
+
+        /// <summary>
         /// The WSDL URL
         /// </summary>
         [Input("url")]

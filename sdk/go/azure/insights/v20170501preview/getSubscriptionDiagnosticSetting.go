@@ -19,6 +19,8 @@ func LookupSubscriptionDiagnosticSetting(ctx *pulumi.Context, args *LookupSubscr
 type LookupSubscriptionDiagnosticSettingArgs struct {
 	// The name of the diagnostic setting.
 	Name string `pulumi:"name"`
+	// The subscription id.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The subscription diagnostic setting resource.

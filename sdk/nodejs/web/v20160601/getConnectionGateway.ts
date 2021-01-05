@@ -16,6 +16,7 @@ export function getConnectionGateway(args: GetConnectionGatewayArgs, opts?: pulu
     return pulumi.runtime.invoke("azure-nextgen:web/v20160601:getConnectionGateway", {
         "connectionGatewayName": args.connectionGatewayName,
         "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -28,6 +29,10 @@ export interface GetConnectionGatewayArgs {
      * The resource group
      */
     readonly resourceGroupName: string;
+    /**
+     * Subscription Id
+     */
+    readonly subscriptionId?: string;
 }
 
 /**

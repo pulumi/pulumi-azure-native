@@ -353,6 +353,8 @@ type clusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The server certificate used by reverse proxy.
 	ReverseProxyCertificate *CertificateDescription `pulumi:"reverseProxyCertificate"`
+	// The customer subscription identifier
+	SubscriptionId *string `pulumi:"subscriptionId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The policy to use when upgrading the cluster.
@@ -419,6 +421,8 @@ type ClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The server certificate used by reverse proxy.
 	ReverseProxyCertificate CertificateDescriptionPtrInput
+	// The customer subscription identifier
+	SubscriptionId pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The policy to use when upgrading the cluster.

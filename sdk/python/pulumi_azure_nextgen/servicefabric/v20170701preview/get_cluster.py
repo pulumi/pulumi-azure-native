@@ -353,16 +353,19 @@ class AwaitableGetClusterResult(GetClusterResult):
 
 def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
+                subscription_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str cluster_name: The name of the cluster resource
     :param str resource_group_name: The name of the resource group.
+    :param str subscription_id: The customer subscription identifier
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['subscriptionId'] = subscription_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

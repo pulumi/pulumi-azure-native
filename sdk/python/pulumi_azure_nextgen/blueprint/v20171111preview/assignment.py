@@ -27,6 +27,7 @@ class Assignment(pulumi.CustomResource):
                  locks: Optional[pulumi.Input[pulumi.InputType['AssignmentLockSettingsArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueBaseArgs']]]]] = None,
                  resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupValueArgs']]]]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -44,6 +45,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AssignmentLockSettingsArgs']] locks: Defines how Blueprint-managed resources will be locked.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueBaseArgs']]]] parameters: Blueprint parameter values.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupValueArgs']]]] resource_groups: Names and locations of resource group placeholders.
+        :param pulumi.Input[str] subscription_id: azure subscriptionId, which we assign the blueprint to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,6 +83,7 @@ class Assignment(pulumi.CustomResource):
             if resource_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_groups'")
             __props__['resource_groups'] = resource_groups
+            __props__['subscription_id'] = subscription_id
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['status'] = None
