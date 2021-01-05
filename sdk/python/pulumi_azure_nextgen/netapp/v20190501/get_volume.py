@@ -66,8 +66,8 @@ class GetVolumeResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if usage_threshold and not isinstance(usage_threshold, int):
-            raise TypeError("Expected argument 'usage_threshold' to be a int")
+        if usage_threshold and not isinstance(usage_threshold, float):
+            raise TypeError("Expected argument 'usage_threshold' to be a float")
         pulumi.set(__self__, "usage_threshold", usage_threshold)
 
     @property
@@ -192,7 +192,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="usageThreshold")
-    def usage_threshold(self) -> int:
+    def usage_threshold(self) -> float:
         """
         Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         """

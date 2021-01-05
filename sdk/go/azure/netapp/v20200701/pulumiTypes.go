@@ -471,7 +471,7 @@ type DailySchedule struct {
 	// Daily snapshot count to keep
 	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *int `pulumi:"usedBytes"`
+	UsedBytes *float64 `pulumi:"usedBytes"`
 }
 
 // DailyScheduleInput is an input type that accepts DailyScheduleArgs and DailyScheduleOutput values.
@@ -494,7 +494,7 @@ type DailyScheduleArgs struct {
 	// Daily snapshot count to keep
 	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.IntPtrInput `pulumi:"usedBytes"`
+	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (DailyScheduleArgs) ElementType() reflect.Type {
@@ -591,8 +591,8 @@ func (o DailyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o DailyScheduleOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DailySchedule) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+func (o DailyScheduleOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DailySchedule) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
 
 type DailySchedulePtrOutput struct{ *pulumi.OutputState }
@@ -644,13 +644,13 @@ func (o DailySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o DailySchedulePtrOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DailySchedule) *int {
+func (o DailySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DailySchedule) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UsedBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Daily Schedule properties
@@ -662,7 +662,7 @@ type DailyScheduleResponse struct {
 	// Daily snapshot count to keep
 	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *int `pulumi:"usedBytes"`
+	UsedBytes *float64 `pulumi:"usedBytes"`
 }
 
 // DailyScheduleResponseInput is an input type that accepts DailyScheduleResponseArgs and DailyScheduleResponseOutput values.
@@ -685,7 +685,7 @@ type DailyScheduleResponseArgs struct {
 	// Daily snapshot count to keep
 	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.IntPtrInput `pulumi:"usedBytes"`
+	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (DailyScheduleResponseArgs) ElementType() reflect.Type {
@@ -782,8 +782,8 @@ func (o DailyScheduleResponseOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o DailyScheduleResponseOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DailyScheduleResponse) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+func (o DailyScheduleResponseOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DailyScheduleResponse) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
 
 type DailyScheduleResponsePtrOutput struct{ *pulumi.OutputState }
@@ -835,13 +835,13 @@ func (o DailyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o DailyScheduleResponsePtrOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DailyScheduleResponse) *int {
+func (o DailyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DailyScheduleResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UsedBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Volume Export Policy Rule
@@ -1285,7 +1285,7 @@ type HourlySchedule struct {
 	// Hourly snapshot count to keep
 	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *int `pulumi:"usedBytes"`
+	UsedBytes *float64 `pulumi:"usedBytes"`
 }
 
 // HourlyScheduleInput is an input type that accepts HourlyScheduleArgs and HourlyScheduleOutput values.
@@ -1306,7 +1306,7 @@ type HourlyScheduleArgs struct {
 	// Hourly snapshot count to keep
 	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.IntPtrInput `pulumi:"usedBytes"`
+	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (HourlyScheduleArgs) ElementType() reflect.Type {
@@ -1398,8 +1398,8 @@ func (o HourlyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o HourlyScheduleOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HourlySchedule) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+func (o HourlyScheduleOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HourlySchedule) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
 
 type HourlySchedulePtrOutput struct{ *pulumi.OutputState }
@@ -1441,13 +1441,13 @@ func (o HourlySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o HourlySchedulePtrOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HourlySchedule) *int {
+func (o HourlySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *HourlySchedule) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UsedBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Hourly Schedule properties
@@ -1457,7 +1457,7 @@ type HourlyScheduleResponse struct {
 	// Hourly snapshot count to keep
 	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *int `pulumi:"usedBytes"`
+	UsedBytes *float64 `pulumi:"usedBytes"`
 }
 
 // HourlyScheduleResponseInput is an input type that accepts HourlyScheduleResponseArgs and HourlyScheduleResponseOutput values.
@@ -1478,7 +1478,7 @@ type HourlyScheduleResponseArgs struct {
 	// Hourly snapshot count to keep
 	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.IntPtrInput `pulumi:"usedBytes"`
+	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (HourlyScheduleResponseArgs) ElementType() reflect.Type {
@@ -1570,8 +1570,8 @@ func (o HourlyScheduleResponseOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o HourlyScheduleResponseOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HourlyScheduleResponse) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+func (o HourlyScheduleResponseOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HourlyScheduleResponse) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
 
 type HourlyScheduleResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1613,13 +1613,13 @@ func (o HourlyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o HourlyScheduleResponsePtrOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HourlyScheduleResponse) *int {
+func (o HourlyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *HourlyScheduleResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UsedBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Monthly Schedule properties
@@ -1633,7 +1633,7 @@ type MonthlySchedule struct {
 	// Monthly snapshot count to keep
 	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *int `pulumi:"usedBytes"`
+	UsedBytes *float64 `pulumi:"usedBytes"`
 }
 
 // MonthlyScheduleInput is an input type that accepts MonthlyScheduleArgs and MonthlyScheduleOutput values.
@@ -1658,7 +1658,7 @@ type MonthlyScheduleArgs struct {
 	// Monthly snapshot count to keep
 	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.IntPtrInput `pulumi:"usedBytes"`
+	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (MonthlyScheduleArgs) ElementType() reflect.Type {
@@ -1760,8 +1760,8 @@ func (o MonthlyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o MonthlyScheduleOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MonthlySchedule) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+func (o MonthlyScheduleOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonthlySchedule) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
 
 type MonthlySchedulePtrOutput struct{ *pulumi.OutputState }
@@ -1823,13 +1823,13 @@ func (o MonthlySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o MonthlySchedulePtrOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MonthlySchedule) *int {
+func (o MonthlySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonthlySchedule) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UsedBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Monthly Schedule properties
@@ -1843,7 +1843,7 @@ type MonthlyScheduleResponse struct {
 	// Monthly snapshot count to keep
 	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *int `pulumi:"usedBytes"`
+	UsedBytes *float64 `pulumi:"usedBytes"`
 }
 
 // MonthlyScheduleResponseInput is an input type that accepts MonthlyScheduleResponseArgs and MonthlyScheduleResponseOutput values.
@@ -1868,7 +1868,7 @@ type MonthlyScheduleResponseArgs struct {
 	// Monthly snapshot count to keep
 	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.IntPtrInput `pulumi:"usedBytes"`
+	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (MonthlyScheduleResponseArgs) ElementType() reflect.Type {
@@ -1970,8 +1970,8 @@ func (o MonthlyScheduleResponseOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o MonthlyScheduleResponseOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MonthlyScheduleResponse) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+func (o MonthlyScheduleResponseOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonthlyScheduleResponse) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
 
 type MonthlyScheduleResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2033,13 +2033,13 @@ func (o MonthlyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput 
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o MonthlyScheduleResponsePtrOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MonthlyScheduleResponse) *int {
+func (o MonthlyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonthlyScheduleResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UsedBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Mount target properties
@@ -4207,7 +4207,7 @@ type WeeklySchedule struct {
 	// Weekly snapshot count to keep
 	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *int `pulumi:"usedBytes"`
+	UsedBytes *float64 `pulumi:"usedBytes"`
 }
 
 // WeeklyScheduleInput is an input type that accepts WeeklyScheduleArgs and WeeklyScheduleOutput values.
@@ -4232,7 +4232,7 @@ type WeeklyScheduleArgs struct {
 	// Weekly snapshot count to keep
 	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.IntPtrInput `pulumi:"usedBytes"`
+	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (WeeklyScheduleArgs) ElementType() reflect.Type {
@@ -4334,8 +4334,8 @@ func (o WeeklyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o WeeklyScheduleOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WeeklySchedule) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+func (o WeeklyScheduleOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v WeeklySchedule) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
 
 type WeeklySchedulePtrOutput struct{ *pulumi.OutputState }
@@ -4397,13 +4397,13 @@ func (o WeeklySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o WeeklySchedulePtrOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WeeklySchedule) *int {
+func (o WeeklySchedulePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WeeklySchedule) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UsedBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Weekly Schedule properties, make a snapshot every week at a specific day or days
@@ -4417,7 +4417,7 @@ type WeeklyScheduleResponse struct {
 	// Weekly snapshot count to keep
 	SnapshotsToKeep *int `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes *int `pulumi:"usedBytes"`
+	UsedBytes *float64 `pulumi:"usedBytes"`
 }
 
 // WeeklyScheduleResponseInput is an input type that accepts WeeklyScheduleResponseArgs and WeeklyScheduleResponseOutput values.
@@ -4442,7 +4442,7 @@ type WeeklyScheduleResponseArgs struct {
 	// Weekly snapshot count to keep
 	SnapshotsToKeep pulumi.IntPtrInput `pulumi:"snapshotsToKeep"`
 	// Resource size in bytes, current storage usage for the volume in bytes
-	UsedBytes pulumi.IntPtrInput `pulumi:"usedBytes"`
+	UsedBytes pulumi.Float64PtrInput `pulumi:"usedBytes"`
 }
 
 func (WeeklyScheduleResponseArgs) ElementType() reflect.Type {
@@ -4544,8 +4544,8 @@ func (o WeeklyScheduleResponseOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o WeeklyScheduleResponseOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WeeklyScheduleResponse) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+func (o WeeklyScheduleResponseOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v WeeklyScheduleResponse) *float64 { return v.UsedBytes }).(pulumi.Float64PtrOutput)
 }
 
 type WeeklyScheduleResponsePtrOutput struct{ *pulumi.OutputState }
@@ -4607,13 +4607,13 @@ func (o WeeklyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 }
 
 // Resource size in bytes, current storage usage for the volume in bytes
-func (o WeeklyScheduleResponsePtrOutput) UsedBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WeeklyScheduleResponse) *int {
+func (o WeeklyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WeeklyScheduleResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UsedBytes
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 func init() {

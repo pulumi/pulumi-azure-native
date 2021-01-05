@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// Peer ASN.
         /// </summary>
         [Output("peerAsn")]
-        public Output<int?> PeerAsn { get; private set; } = null!;
+        public Output<double?> PeerAsn { get; private set; } = null!;
 
         /// <summary>
         /// Peer IP.
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// Peer ASN.
         /// </summary>
         [Input("peerAsn")]
-        public Input<int>? PeerAsn { get; set; }
+        public Input<double>? PeerAsn { get; set; }
 
         /// <summary>
         /// Peer IP.

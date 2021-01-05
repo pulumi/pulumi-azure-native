@@ -19,12 +19,12 @@ class DnsConfigArgs:
     def __init__(__self__, *,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  relative_name: Optional[pulumi.Input[str]] = None,
-                 ttl: Optional[pulumi.Input[int]] = None):
+                 ttl: Optional[pulumi.Input[float]] = None):
         """
         Class containing DNS settings in a Traffic Manager profile.
         :param pulumi.Input[str] fqdn: Gets or sets the fully-qualified domain name (FQDN) of the Traffic Manager profile.  This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
         :param pulumi.Input[str] relative_name: Gets or sets the relative DNS name provided by this Traffic Manager profile.  This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-        :param pulumi.Input[int] ttl: Gets or sets the DNS Time-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+        :param pulumi.Input[float] ttl: Gets or sets the DNS Time-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
@@ -59,14 +59,14 @@ class DnsConfigArgs:
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[int]]:
+    def ttl(self) -> Optional[pulumi.Input[float]]:
         """
         Gets or sets the DNS Time-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[int]]):
+    def ttl(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "ttl", value)
 
 
@@ -77,26 +77,26 @@ class EndpointArgs:
                  endpoint_monitor_status: Optional[pulumi.Input[str]] = None,
                  endpoint_status: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 min_child_endpoints: Optional[pulumi.Input[int]] = None,
+                 min_child_endpoints: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[float]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 weight: Optional[pulumi.Input[int]] = None):
+                 weight: Optional[pulumi.Input[float]] = None):
         """
         Class representing a Traffic Manager endpoint.
         :param pulumi.Input[str] endpoint_location: Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
         :param pulumi.Input[str] endpoint_monitor_status: Gets or sets the monitoring status of the endpoint.
         :param pulumi.Input[str] endpoint_status: Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
         :param pulumi.Input[str] id: Gets or sets the ID of the Traffic Manager endpoint.
-        :param pulumi.Input[int] min_child_endpoints: Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param pulumi.Input[float] min_child_endpoints: Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         :param pulumi.Input[str] name: Gets or sets the name of the Traffic Manager endpoint.
-        :param pulumi.Input[int] priority: Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+        :param pulumi.Input[float] priority: Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param pulumi.Input[str] target: Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         :param pulumi.Input[str] target_resource_id: Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
         :param pulumi.Input[str] type: Gets or sets the endpoint type of the Traffic Manager endpoint.
-        :param pulumi.Input[int] weight: Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+        :param pulumi.Input[float] weight: Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         if endpoint_location is not None:
             pulumi.set(__self__, "endpoint_location", endpoint_location)
@@ -171,14 +171,14 @@ class EndpointArgs:
 
     @property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> Optional[pulumi.Input[int]]:
+    def min_child_endpoints(self) -> Optional[pulumi.Input[float]]:
         """
         Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
         return pulumi.get(self, "min_child_endpoints")
 
     @min_child_endpoints.setter
-    def min_child_endpoints(self, value: Optional[pulumi.Input[int]]):
+    def min_child_endpoints(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min_child_endpoints", value)
 
     @property
@@ -195,14 +195,14 @@ class EndpointArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[int]]:
+    def priority(self) -> Optional[pulumi.Input[float]]:
         """
         Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[int]]):
+    def priority(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -243,14 +243,14 @@ class EndpointArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[int]]:
+    def weight(self) -> Optional[pulumi.Input[float]]:
         """
         Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[int]]):
+    def weight(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "weight", value)
 
 
@@ -258,13 +258,13 @@ class EndpointArgs:
 class MonitorConfigArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
+                 port: Optional[pulumi.Input[float]] = None,
                  profile_monitor_status: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
         """
         Class containing endpoint monitoring settings in a Traffic Manager profile.
         :param pulumi.Input[str] path: Gets or sets the path relative to the endpoint domain name used to probe for endpoint health.
-        :param pulumi.Input[int] port: Gets or sets the TCP port used to probe for endpoint health.
+        :param pulumi.Input[float] port: Gets or sets the TCP port used to probe for endpoint health.
         :param pulumi.Input[str] profile_monitor_status: Gets or sets the profile-level monitoring status of the Traffic Manager profile.
         :param pulumi.Input[str] protocol: Gets or sets the protocol (HTTP or HTTPS) used to probe for endpoint health.
         """
@@ -291,14 +291,14 @@ class MonitorConfigArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
+    def port(self) -> Optional[pulumi.Input[float]]:
         """
         Gets or sets the TCP port used to probe for endpoint health.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
+    def port(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "port", value)
 
     @property

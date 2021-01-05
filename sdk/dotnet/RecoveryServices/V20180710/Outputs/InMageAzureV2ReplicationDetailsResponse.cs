@@ -165,7 +165,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The RPO in seconds.
         /// </summary>
-        public readonly int? RpoInSeconds;
+        public readonly double? RpoInSeconds;
         /// <summary>
         /// The selected recovery azure network Id.
         /// </summary>
@@ -311,7 +311,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
 
             int? resyncProgressPercentage,
 
-            int? rpoInSeconds,
+            double? rpoInSeconds,
 
             string? selectedRecoveryAzureNetworkId,
 

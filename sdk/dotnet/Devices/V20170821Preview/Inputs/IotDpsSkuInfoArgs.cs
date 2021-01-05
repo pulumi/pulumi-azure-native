@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20170821Preview.Inputs
         /// The number of services of the selected tier allowed in the subscription.
         /// </summary>
         [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
+        public Input<double>? Capacity { get; set; }
 
         [Input("name")]
         public InputUnion<string, Pulumi.AzureNextGen.Devices.V20170821Preview.IotDpsSku>? Name { get; set; }

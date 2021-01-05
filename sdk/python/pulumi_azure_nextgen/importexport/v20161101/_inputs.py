@@ -23,7 +23,7 @@ __all__ = [
 class DriveStatusArgs:
     def __init__(__self__, *,
                  bit_locker_key: Optional[pulumi.Input[str]] = None,
-                 bytes_succeeded: Optional[pulumi.Input[int]] = None,
+                 bytes_succeeded: Optional[pulumi.Input[float]] = None,
                  copy_status: Optional[pulumi.Input[str]] = None,
                  drive_header_hash: Optional[pulumi.Input[str]] = None,
                  drive_id: Optional[pulumi.Input[str]] = None,
@@ -37,7 +37,7 @@ class DriveStatusArgs:
         """
         Provides information about the drive's status
         :param pulumi.Input[str] bit_locker_key: The BitLocker key used to encrypt the drive.
-        :param pulumi.Input[int] bytes_succeeded: Bytes successfully transferred for the drive.
+        :param pulumi.Input[float] bytes_succeeded: Bytes successfully transferred for the drive.
         :param pulumi.Input[str] copy_status: Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
         :param pulumi.Input[str] drive_header_hash: The drive header hash value.
         :param pulumi.Input[str] drive_id: The drive's hardware serial number, without spaces.
@@ -88,14 +88,14 @@ class DriveStatusArgs:
 
     @property
     @pulumi.getter(name="bytesSucceeded")
-    def bytes_succeeded(self) -> Optional[pulumi.Input[int]]:
+    def bytes_succeeded(self) -> Optional[pulumi.Input[float]]:
         """
         Bytes successfully transferred for the drive.
         """
         return pulumi.get(self, "bytes_succeeded")
 
     @bytes_succeeded.setter
-    def bytes_succeeded(self, value: Optional[pulumi.Input[int]]):
+    def bytes_succeeded(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "bytes_succeeded", value)
 
     @property

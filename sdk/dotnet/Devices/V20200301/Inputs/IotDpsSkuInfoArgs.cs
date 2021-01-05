@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200301.Inputs
         /// The number of units to provision
         /// </summary>
         [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
+        public Input<double>? Capacity { get; set; }
 
         /// <summary>
         /// Sku name.

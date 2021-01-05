@@ -32,7 +32,7 @@ type LiveOutput struct {
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The initial timestamp that the live output will start at, any content before this value will not be archived.
-	OutputSnapTime pulumi.IntPtrOutput `pulumi:"outputSnapTime"`
+	OutputSnapTime pulumi.Float64PtrOutput `pulumi:"outputSnapTime"`
 	// The provisioning state of the live output.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource state of the live output.
@@ -123,7 +123,7 @@ type liveOutputState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The initial timestamp that the live output will start at, any content before this value will not be archived.
-	OutputSnapTime *int `pulumi:"outputSnapTime"`
+	OutputSnapTime *float64 `pulumi:"outputSnapTime"`
 	// The provisioning state of the live output.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource state of the live output.
@@ -150,7 +150,7 @@ type LiveOutputState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The initial timestamp that the live output will start at, any content before this value will not be archived.
-	OutputSnapTime pulumi.IntPtrInput
+	OutputSnapTime pulumi.Float64PtrInput
 	// The provisioning state of the live output.
 	ProvisioningState pulumi.StringPtrInput
 	// The resource state of the live output.
@@ -181,7 +181,7 @@ type liveOutputArgs struct {
 	// The manifest file name. If not provided, the service will generate one automatically.
 	ManifestName *string `pulumi:"manifestName"`
 	// The initial timestamp that the live output will start at, any content before this value will not be archived.
-	OutputSnapTime *int `pulumi:"outputSnapTime"`
+	OutputSnapTime *float64 `pulumi:"outputSnapTime"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -205,7 +205,7 @@ type LiveOutputArgs struct {
 	// The manifest file name. If not provided, the service will generate one automatically.
 	ManifestName pulumi.StringPtrInput
 	// The initial timestamp that the live output will start at, any content before this value will not be archived.
-	OutputSnapTime pulumi.IntPtrInput
+	OutputSnapTime pulumi.Float64PtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 }

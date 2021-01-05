@@ -20,11 +20,11 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         /// <summary>
         /// Count of source database objects
         /// </summary>
-        public readonly ImmutableDictionary<string, int>? SourceDatabaseObjectCount;
+        public readonly ImmutableDictionary<string, double>? SourceDatabaseObjectCount;
         /// <summary>
         /// Count of target database objects
         /// </summary>
-        public readonly ImmutableDictionary<string, int>? TargetDatabaseObjectCount;
+        public readonly ImmutableDictionary<string, double>? TargetDatabaseObjectCount;
         /// <summary>
         /// List of errors that happened while performing schema compare validation
         /// </summary>
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         private SchemaComparisonValidationResultResponse(
             Outputs.SchemaComparisonValidationResultTypeResponse schemaDifferences,
 
-            ImmutableDictionary<string, int>? sourceDatabaseObjectCount,
+            ImmutableDictionary<string, double>? sourceDatabaseObjectCount,
 
-            ImmutableDictionary<string, int>? targetDatabaseObjectCount,
+            ImmutableDictionary<string, double>? targetDatabaseObjectCount,
 
             Outputs.ValidationErrorResponse validationErrors)
         {

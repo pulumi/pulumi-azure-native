@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// The absolute end time boundary.
         /// </summary>
         [Input("endTimestamp")]
-        public Input<int>? EndTimestamp { get; set; }
+        public Input<double>? EndTimestamp { get; set; }
 
         /// <summary>
         /// The indicator of forcing existing of end time stamp.
@@ -31,25 +31,25 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// The relative to end right edge.
         /// </summary>
         [Input("liveBackoffDuration")]
-        public Input<int>? LiveBackoffDuration { get; set; }
+        public Input<double>? LiveBackoffDuration { get; set; }
 
         /// <summary>
         /// The relative to end sliding window.
         /// </summary>
         [Input("presentationWindowDuration")]
-        public Input<int>? PresentationWindowDuration { get; set; }
+        public Input<double>? PresentationWindowDuration { get; set; }
 
         /// <summary>
         /// The absolute start time boundary.
         /// </summary>
         [Input("startTimestamp")]
-        public Input<int>? StartTimestamp { get; set; }
+        public Input<double>? StartTimestamp { get; set; }
 
         /// <summary>
         /// The time scale of time stamps.
         /// </summary>
         [Input("timescale")]
-        public Input<int>? Timescale { get; set; }
+        public Input<double>? Timescale { get; set; }
 
         public PresentationTimeRangeArgs()
         {

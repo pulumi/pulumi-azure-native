@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// <summary>
         /// Size of the topic, in bytes.
         /// </summary>
-        public readonly int SizeInBytes;
+        public readonly double SizeInBytes;
         /// <summary>
         /// Enumerates the possible values for the status of a messaging entity.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 
             bool? requiresDuplicateDetection,
 
-            int sizeInBytes,
+            double sizeInBytes,
 
             string? status,
 

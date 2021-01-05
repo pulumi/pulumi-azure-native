@@ -2080,13 +2080,13 @@ class SiteLimitsResponse(dict):
     Represents metric limits set on a web app.
     """
     def __init__(__self__, *,
-                 max_disk_size_in_mb: Optional[int] = None,
-                 max_memory_in_mb: Optional[int] = None,
+                 max_disk_size_in_mb: Optional[float] = None,
+                 max_memory_in_mb: Optional[float] = None,
                  max_percentage_cpu: Optional[float] = None):
         """
         Represents metric limits set on a web app.
-        :param int max_disk_size_in_mb: Maximum allowed disk size usage in MB
-        :param int max_memory_in_mb: Maximum allowed memory usage in MB
+        :param float max_disk_size_in_mb: Maximum allowed disk size usage in MB
+        :param float max_memory_in_mb: Maximum allowed memory usage in MB
         :param float max_percentage_cpu: Maximum allowed CPU usage percentage
         """
         if max_disk_size_in_mb is not None:
@@ -2098,7 +2098,7 @@ class SiteLimitsResponse(dict):
 
     @property
     @pulumi.getter(name="maxDiskSizeInMb")
-    def max_disk_size_in_mb(self) -> Optional[int]:
+    def max_disk_size_in_mb(self) -> Optional[float]:
         """
         Maximum allowed disk size usage in MB
         """
@@ -2106,7 +2106,7 @@ class SiteLimitsResponse(dict):
 
     @property
     @pulumi.getter(name="maxMemoryInMb")
-    def max_memory_in_mb(self) -> Optional[int]:
+    def max_memory_in_mb(self) -> Optional[float]:
         """
         Maximum allowed memory usage in MB
         """
@@ -2254,26 +2254,26 @@ class StampCapacityResponse(dict):
     Class containing stamp capacity information
     """
     def __init__(__self__, *,
-                 available_capacity: Optional[int] = None,
+                 available_capacity: Optional[float] = None,
                  compute_mode: Optional[str] = None,
                  exclude_from_capacity_allocation: Optional[bool] = None,
                  is_applicable_for_all_compute_modes: Optional[bool] = None,
                  name: Optional[str] = None,
                  site_mode: Optional[str] = None,
-                 total_capacity: Optional[int] = None,
+                 total_capacity: Optional[float] = None,
                  unit: Optional[str] = None,
                  worker_size: Optional[str] = None,
                  worker_size_id: Optional[int] = None):
         """
         Class containing stamp capacity information
-        :param int available_capacity: Available capacity (# of machines, bytes of storage etc...)
+        :param float available_capacity: Available capacity (# of machines, bytes of storage etc...)
         :param str compute_mode: Shared/Dedicated workers
         :param bool exclude_from_capacity_allocation: If true it includes basic sites
                            Basic sites are not used for capacity allocation.
         :param bool is_applicable_for_all_compute_modes: Is capacity applicable for all sites?
         :param str name: Name of the stamp
         :param str site_mode: Shared or Dedicated
-        :param int total_capacity: Total capacity (# of machines, bytes of storage etc...)
+        :param float total_capacity: Total capacity (# of machines, bytes of storage etc...)
         :param str unit: Name of the unit
         :param str worker_size: Size of the machines
         :param int worker_size_id: Size Id of machines: 
@@ -2304,7 +2304,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="availableCapacity")
-    def available_capacity(self) -> Optional[int]:
+    def available_capacity(self) -> Optional[float]:
         """
         Available capacity (# of machines, bytes of storage etc...)
         """
@@ -2353,7 +2353,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="totalCapacity")
-    def total_capacity(self) -> Optional[int]:
+    def total_capacity(self) -> Optional[float]:
         """
         Total capacity (# of machines, bytes of storage etc...)
         """

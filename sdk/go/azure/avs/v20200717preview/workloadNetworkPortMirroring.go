@@ -26,7 +26,7 @@ type WorkloadNetworkPortMirroring struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision pulumi.IntPtrOutput `pulumi:"revision"`
+	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
 	// Source VM Group.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
 	// Port Mirroring Status.
@@ -84,7 +84,7 @@ type workloadNetworkPortMirroringState struct {
 	// The provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// Source VM Group.
 	Source *string `pulumi:"source"`
 	// Port Mirroring Status.
@@ -105,7 +105,7 @@ type WorkloadNetworkPortMirroringState struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringPtrInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 	// Source VM Group.
 	Source pulumi.StringPtrInput
 	// Port Mirroring Status.
@@ -132,7 +132,7 @@ type workloadNetworkPortMirroringArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// Source VM Group.
 	Source *string `pulumi:"source"`
 }
@@ -152,7 +152,7 @@ type WorkloadNetworkPortMirroringArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 	// Source VM Group.
 	Source pulumi.StringPtrInput
 }

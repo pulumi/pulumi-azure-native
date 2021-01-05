@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview.Inputs
         /// Gets or sets the TTL of the records in the RecordSet.
         /// </summary>
         [Input("ttl")]
-        public Input<int>? Ttl { get; set; }
+        public Input<double>? Ttl { get; set; }
 
         public RecordSetPropertiesArgs()
         {

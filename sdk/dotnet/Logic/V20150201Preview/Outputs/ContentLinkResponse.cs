@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Outputs
         /// <summary>
         /// Gets or sets the content size.
         /// </summary>
-        public readonly int? ContentSize;
+        public readonly double? ContentSize;
         /// <summary>
         /// Gets or sets the content version.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Outputs
         private ContentLinkResponse(
             Outputs.ContentHashResponse? contentHash,
 
-            int? contentSize,
+            double? contentSize,
 
             string? contentVersion,
 

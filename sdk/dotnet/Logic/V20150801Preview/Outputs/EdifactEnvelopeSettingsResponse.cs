@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Outputs
         /// <summary>
         /// The group control number lower bound.
         /// </summary>
-        public readonly int? GroupControlNumberLowerBound;
+        public readonly double? GroupControlNumberLowerBound;
         /// <summary>
         /// The group control number prefix.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Outputs
         /// <summary>
         /// The group control number upper bound.
         /// </summary>
-        public readonly int? GroupControlNumberUpperBound;
+        public readonly double? GroupControlNumberUpperBound;
         /// <summary>
         /// The group controlling agency code.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Outputs
         /// <summary>
         /// The interchange control number lower bound.
         /// </summary>
-        public readonly int? InterchangeControlNumberLowerBound;
+        public readonly double? InterchangeControlNumberLowerBound;
         /// <summary>
         /// The interchange control number prefix.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Outputs
         /// <summary>
         /// The interchange control number upper bound.
         /// </summary>
-        public readonly int? InterchangeControlNumberUpperBound;
+        public readonly double? InterchangeControlNumberUpperBound;
         /// <summary>
         /// The value indicating whether the message is a test interchange.
         /// </summary>
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Outputs
         /// <summary>
         /// The transaction set control number lower bound.
         /// </summary>
-        public readonly int? TransactionSetControlNumberLowerBound;
+        public readonly double? TransactionSetControlNumberLowerBound;
         /// <summary>
         /// The transaction set control number prefix.
         /// </summary>
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Outputs
         /// <summary>
         /// The transaction set control number upper bound.
         /// </summary>
-        public readonly int? TransactionSetControlNumberUpperBound;
+        public readonly double? TransactionSetControlNumberUpperBound;
 
         [OutputConstructor]
         private EdifactEnvelopeSettingsResponse(
@@ -204,13 +204,13 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Outputs
 
             string? groupAssociationAssignedCode,
 
-            int? groupControlNumberLowerBound,
+            double? groupControlNumberLowerBound,
 
             string? groupControlNumberPrefix,
 
             string? groupControlNumberSuffix,
 
-            int? groupControlNumberUpperBound,
+            double? groupControlNumberUpperBound,
 
             string? groupControllingAgencyCode,
 
@@ -218,13 +218,13 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Outputs
 
             string? groupMessageVersion,
 
-            int? interchangeControlNumberLowerBound,
+            double? interchangeControlNumberLowerBound,
 
             string? interchangeControlNumberPrefix,
 
             string? interchangeControlNumberSuffix,
 
-            int? interchangeControlNumberUpperBound,
+            double? interchangeControlNumberUpperBound,
 
             bool? isTestInterchange,
 
@@ -254,13 +254,13 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Outputs
 
             string? senderReverseRoutingAddress,
 
-            int? transactionSetControlNumberLowerBound,
+            double? transactionSetControlNumberLowerBound,
 
             string? transactionSetControlNumberPrefix,
 
             string? transactionSetControlNumberSuffix,
 
-            int? transactionSetControlNumberUpperBound)
+            double? transactionSetControlNumberUpperBound)
         {
             ApplicationReferenceId = applicationReferenceId;
             ApplyDelimiterStringAdvice = applyDelimiterStringAdvice;

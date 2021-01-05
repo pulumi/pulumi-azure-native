@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.Outputs
         /// <summary>
         /// The Model version assigned by Model Management Service.
         /// </summary>
-        public readonly int? Version;
+        public readonly double? Version;
 
         [OutputConstructor]
         private ModelResponse(
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.Outputs
 
             string url,
 
-            int? version)
+            double? version)
         {
             CreatedTime = createdTime;
             Datasets = datasets;

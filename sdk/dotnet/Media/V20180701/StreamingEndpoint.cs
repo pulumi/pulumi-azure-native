@@ -97,7 +97,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// Max cache age
         /// </summary>
         [Output("maxCacheAge")]
-        public Output<int?> MaxCacheAge { get; private set; } = null!;
+        public Output<double?> MaxCacheAge { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -264,7 +264,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// Max cache age
         /// </summary>
         [Input("maxCacheAge")]
-        public Input<int>? MaxCacheAge { get; set; }
+        public Input<double>? MaxCacheAge { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

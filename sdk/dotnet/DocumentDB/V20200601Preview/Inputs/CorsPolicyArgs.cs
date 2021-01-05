@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
         /// The maximum amount time that a browser should cache the preflight OPTIONS request.
         /// </summary>
         [Input("maxAgeInSeconds")]
-        public Input<int>? MaxAgeInSeconds { get; set; }
+        public Input<double>? MaxAgeInSeconds { get; set; }
 
         public CorsPolicyArgs()
         {

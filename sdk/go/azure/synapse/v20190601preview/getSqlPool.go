@@ -38,7 +38,7 @@ type LookupSqlPoolResult struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Maximum size in bytes
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Resource state

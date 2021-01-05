@@ -20,15 +20,15 @@ type Zone struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets pulumi.IntPtrOutput `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordSets pulumi.Float64PtrOutput `pulumi:"maxNumberOfRecordSets"`
 	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordsPerRecordSet pulumi.IntOutput `pulumi:"maxNumberOfRecordsPerRecordSet"`
+	MaxNumberOfRecordsPerRecordSet pulumi.Float64Output `pulumi:"maxNumberOfRecordsPerRecordSet"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
 	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets pulumi.IntPtrOutput `pulumi:"numberOfRecordSets"`
+	NumberOfRecordSets pulumi.Float64PtrOutput `pulumi:"numberOfRecordSets"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -99,15 +99,15 @@ type zoneState struct {
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordSets *float64 `pulumi:"maxNumberOfRecordSets"`
 	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordsPerRecordSet *int `pulumi:"maxNumberOfRecordsPerRecordSet"`
+	MaxNumberOfRecordsPerRecordSet *float64 `pulumi:"maxNumberOfRecordsPerRecordSet"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
 	NameServers []string `pulumi:"nameServers"`
 	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
+	NumberOfRecordSets *float64 `pulumi:"numberOfRecordSets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -120,15 +120,15 @@ type ZoneState struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets pulumi.IntPtrInput
+	MaxNumberOfRecordSets pulumi.Float64PtrInput
 	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordsPerRecordSet pulumi.IntPtrInput
+	MaxNumberOfRecordsPerRecordSet pulumi.Float64PtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
 	NameServers pulumi.StringArrayInput
 	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets pulumi.IntPtrInput
+	NumberOfRecordSets pulumi.Float64PtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -145,9 +145,9 @@ type zoneArgs struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordSets *float64 `pulumi:"maxNumberOfRecordSets"`
 	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
+	NumberOfRecordSets *float64 `pulumi:"numberOfRecordSets"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -163,9 +163,9 @@ type ZoneArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets pulumi.IntPtrInput
+	MaxNumberOfRecordSets pulumi.Float64PtrInput
 	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets pulumi.IntPtrInput
+	NumberOfRecordSets pulumi.Float64PtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

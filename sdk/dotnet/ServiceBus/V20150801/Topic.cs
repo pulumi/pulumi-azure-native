@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
         /// </summary>
         [Output("maxSizeInMegabytes")]
-        public Output<int?> MaxSizeInMegabytes { get; private set; } = null!;
+        public Output<double?> MaxSizeInMegabytes { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// Size of the topic, in bytes.
         /// </summary>
         [Output("sizeInBytes")]
-        public Output<int> SizeInBytes { get; private set; } = null!;
+        public Output<double> SizeInBytes { get; private set; } = null!;
 
         /// <summary>
         /// Enumerates the possible values for the status of a messaging entity.
@@ -269,7 +269,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
         /// </summary>
         [Input("maxSizeInMegabytes")]
-        public Input<int>? MaxSizeInMegabytes { get; set; }
+        public Input<double>? MaxSizeInMegabytes { get; set; }
 
         /// <summary>
         /// Topic name.

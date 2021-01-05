@@ -27,20 +27,20 @@ class GetDiskResult:
         if disk_access_id and not isinstance(disk_access_id, str):
             raise TypeError("Expected argument 'disk_access_id' to be a str")
         pulumi.set(__self__, "disk_access_id", disk_access_id)
-        if disk_iops_read_only and not isinstance(disk_iops_read_only, int):
-            raise TypeError("Expected argument 'disk_iops_read_only' to be a int")
+        if disk_iops_read_only and not isinstance(disk_iops_read_only, float):
+            raise TypeError("Expected argument 'disk_iops_read_only' to be a float")
         pulumi.set(__self__, "disk_iops_read_only", disk_iops_read_only)
-        if disk_iops_read_write and not isinstance(disk_iops_read_write, int):
-            raise TypeError("Expected argument 'disk_iops_read_write' to be a int")
+        if disk_iops_read_write and not isinstance(disk_iops_read_write, float):
+            raise TypeError("Expected argument 'disk_iops_read_write' to be a float")
         pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
-        if disk_m_bps_read_only and not isinstance(disk_m_bps_read_only, int):
-            raise TypeError("Expected argument 'disk_m_bps_read_only' to be a int")
+        if disk_m_bps_read_only and not isinstance(disk_m_bps_read_only, float):
+            raise TypeError("Expected argument 'disk_m_bps_read_only' to be a float")
         pulumi.set(__self__, "disk_m_bps_read_only", disk_m_bps_read_only)
-        if disk_m_bps_read_write and not isinstance(disk_m_bps_read_write, int):
-            raise TypeError("Expected argument 'disk_m_bps_read_write' to be a int")
+        if disk_m_bps_read_write and not isinstance(disk_m_bps_read_write, float):
+            raise TypeError("Expected argument 'disk_m_bps_read_write' to be a float")
         pulumi.set(__self__, "disk_m_bps_read_write", disk_m_bps_read_write)
-        if disk_size_bytes and not isinstance(disk_size_bytes, int):
-            raise TypeError("Expected argument 'disk_size_bytes' to be a int")
+        if disk_size_bytes and not isinstance(disk_size_bytes, float):
+            raise TypeError("Expected argument 'disk_size_bytes' to be a float")
         pulumi.set(__self__, "disk_size_bytes", disk_size_bytes)
         if disk_size_gb and not isinstance(disk_size_gb, int):
             raise TypeError("Expected argument 'disk_size_gb' to be a int")
@@ -127,7 +127,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskIOPSReadOnly")
-    def disk_iops_read_only(self) -> Optional[int]:
+    def disk_iops_read_only(self) -> Optional[float]:
         """
         The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
         """
@@ -135,7 +135,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskIOPSReadWrite")
-    def disk_iops_read_write(self) -> Optional[int]:
+    def disk_iops_read_write(self) -> Optional[float]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         """
@@ -143,7 +143,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskMBpsReadOnly")
-    def disk_m_bps_read_only(self) -> Optional[int]:
+    def disk_m_bps_read_only(self) -> Optional[float]:
         """
         The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         """
@@ -151,7 +151,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskMBpsReadWrite")
-    def disk_m_bps_read_write(self) -> Optional[int]:
+    def disk_m_bps_read_write(self) -> Optional[float]:
         """
         The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         """
@@ -159,7 +159,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskSizeBytes")
-    def disk_size_bytes(self) -> int:
+    def disk_size_bytes(self) -> float:
         """
         The size of the disk in bytes. This field is read only.
         """

@@ -34,7 +34,7 @@ type ExpressRouteCircuitPeering struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The peer ASN.
-	PeerASN pulumi.IntPtrOutput `pulumi:"peerASN"`
+	PeerASN pulumi.Float64PtrOutput `pulumi:"peerASN"`
 	// The list of peered circuit connections associated with Azure Private Peering for this circuit.
 	PeeredConnections PeerExpressRouteCircuitConnectionResponseArrayOutput `pulumi:"peeredConnections"`
 	// The peering type.
@@ -223,7 +223,7 @@ type expressRouteCircuitPeeringState struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The list of peered circuit connections associated with Azure Private Peering for this circuit.
 	PeeredConnections []PeerExpressRouteCircuitConnectionResponse `pulumi:"peeredConnections"`
 	// The peering type.
@@ -270,7 +270,7 @@ type ExpressRouteCircuitPeeringState struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
 	// The peer ASN.
-	PeerASN pulumi.IntPtrInput
+	PeerASN pulumi.Float64PtrInput
 	// The list of peered circuit connections associated with Azure Private Peering for this circuit.
 	PeeredConnections PeerExpressRouteCircuitConnectionResponseArrayInput
 	// The peering type.
@@ -321,7 +321,7 @@ type expressRouteCircuitPeeringArgs struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
 	// The peering type.
@@ -371,7 +371,7 @@ type ExpressRouteCircuitPeeringArgs struct {
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
 	// The peer ASN.
-	PeerASN pulumi.IntPtrInput
+	PeerASN pulumi.Float64PtrInput
 	// The name of the peering.
 	PeeringName pulumi.StringInput
 	// The peering type.

@@ -137,7 +137,7 @@ func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
 
 type Sku struct {
 	// The capacity value
-	Capacity *int `pulumi:"capacity"`
+	Capacity *float64 `pulumi:"capacity"`
 	// The name of the SKU.
 	Name *string `pulumi:"name"`
 }
@@ -155,7 +155,7 @@ type SkuInput interface {
 
 type SkuArgs struct {
 	// The capacity value
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
 	// The name of the SKU.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
@@ -187,8 +187,8 @@ func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 }
 
 // The capacity value
-func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o SkuOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Sku) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 // The name of the SKU.

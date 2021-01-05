@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview.Inputs
         /// Gets or sets the maximum number of record sets that can be created in this zone.
         /// </summary>
         [Input("maxNumberOfRecordSets")]
-        public Input<int>? MaxNumberOfRecordSets { get; set; }
+        public Input<double>? MaxNumberOfRecordSets { get; set; }
 
         /// <summary>
         /// Gets or sets the current number of record sets in this zone.
         /// </summary>
         [Input("numberOfRecordSets")]
-        public Input<int>? NumberOfRecordSets { get; set; }
+        public Input<double>? NumberOfRecordSets { get; set; }
 
         public ZonePropertiesArgs()
         {

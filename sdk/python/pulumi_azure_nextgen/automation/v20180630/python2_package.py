@@ -204,7 +204,7 @@ class Python2Package(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> pulumi.Output[Optional[int]]:
+    def size_in_bytes(self) -> pulumi.Output[Optional[float]]:
         """
         Gets or sets the size in bytes of the module.
         """

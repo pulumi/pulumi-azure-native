@@ -48,7 +48,7 @@ type LookupVolumeContainerResult struct {
 	// The path ID of storage account associated with the volume container.
 	StorageAccountCredentialId string `pulumi:"storageAccountCredentialId"`
 	// The total cloud storage for the volume container.
-	TotalCloudStorageUsageInBytes int `pulumi:"totalCloudStorageUsageInBytes"`
+	TotalCloudStorageUsageInBytes float64 `pulumi:"totalCloudStorageUsageInBytes"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 	// The number of volumes in the volume Container.

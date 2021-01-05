@@ -1138,6 +1138,10 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 	var primitiveTypeName string
 	if len(resolvedSchema.Type) > 0 {
 		primitiveTypeName = resolvedSchema.Type[0]
+		if primitiveTypeName == "integer" && resolvedSchema.Format == "int64" {
+			// Pulumi schema's integer is limited to 32 bits. Model a 64-bit integer as a number.
+			primitiveTypeName = "number"
+		}
 	}
 
 	// If this is an enum and it's an input type, generate the enum type definition.

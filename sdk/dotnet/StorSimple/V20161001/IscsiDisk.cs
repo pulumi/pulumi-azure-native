@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The local used capacity in bytes.
         /// </summary>
         [Output("localUsedCapacityInBytes")]
-        public Output<int> LocalUsedCapacityInBytes { get; private set; } = null!;
+        public Output<double> LocalUsedCapacityInBytes { get; private set; } = null!;
 
         /// <summary>
         /// The monitoring.
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The provisioned capacity in bytes.
         /// </summary>
         [Output("provisionedCapacityInBytes")]
-        public Output<int> ProvisionedCapacityInBytes { get; private set; } = null!;
+        public Output<double> ProvisionedCapacityInBytes { get; private set; } = null!;
 
         /// <summary>
         /// The type.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The used capacity in bytes.
         /// </summary>
         [Output("usedCapacityInBytes")]
-        public Output<int> UsedCapacityInBytes { get; private set; } = null!;
+        public Output<double> UsedCapacityInBytes { get; private set; } = null!;
 
 
         /// <summary>
@@ -188,7 +188,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The provisioned capacity in bytes.
         /// </summary>
         [Input("provisionedCapacityInBytes", required: true)]
-        public Input<int> ProvisionedCapacityInBytes { get; set; } = null!;
+        public Input<double> ProvisionedCapacityInBytes { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

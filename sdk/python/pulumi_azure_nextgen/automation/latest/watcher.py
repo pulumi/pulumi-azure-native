@@ -18,7 +18,7 @@ class Watcher(pulumi.CustomResource):
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 execution_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
+                 execution_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  script_name: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class Watcher(pulumi.CustomResource):
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] description: Gets or sets the description.
         :param pulumi.Input[str] etag: Gets or sets the etag of the resource.
-        :param pulumi.Input[int] execution_frequency_in_seconds: Gets or sets the frequency at which the watcher is invoked.
+        :param pulumi.Input[float] execution_frequency_in_seconds: Gets or sets the frequency at which the watcher is invoked.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] script_name: Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
@@ -139,7 +139,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionFrequencyInSeconds")
-    def execution_frequency_in_seconds(self) -> pulumi.Output[Optional[int]]:
+    def execution_frequency_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         Gets or sets the frequency at which the watcher is invoked.
         """

@@ -25,7 +25,7 @@ type BackupSchedule struct {
 	// The name of the object.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of backups to be retained.
-	RetentionCount pulumi.IntOutput `pulumi:"retentionCount"`
+	RetentionCount pulumi.Float64Output `pulumi:"retentionCount"`
 	// The schedule recurrence.
 	ScheduleRecurrence ScheduleRecurrenceResponseOutput `pulumi:"scheduleRecurrence"`
 	// The schedule status.
@@ -104,7 +104,7 @@ type backupScheduleState struct {
 	// The name of the object.
 	Name *string `pulumi:"name"`
 	// The number of backups to be retained.
-	RetentionCount *int `pulumi:"retentionCount"`
+	RetentionCount *float64 `pulumi:"retentionCount"`
 	// The schedule recurrence.
 	ScheduleRecurrence *ScheduleRecurrenceResponse `pulumi:"scheduleRecurrence"`
 	// The schedule status.
@@ -125,7 +125,7 @@ type BackupScheduleState struct {
 	// The name of the object.
 	Name pulumi.StringPtrInput
 	// The number of backups to be retained.
-	RetentionCount pulumi.IntPtrInput
+	RetentionCount pulumi.Float64PtrInput
 	// The schedule recurrence.
 	ScheduleRecurrence ScheduleRecurrenceResponsePtrInput
 	// The schedule status.
@@ -156,7 +156,7 @@ type backupScheduleArgs struct {
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of backups to be retained.
-	RetentionCount int `pulumi:"retentionCount"`
+	RetentionCount float64 `pulumi:"retentionCount"`
 	// The schedule recurrence.
 	ScheduleRecurrence ScheduleRecurrence `pulumi:"scheduleRecurrence"`
 	// The schedule status.
@@ -182,7 +182,7 @@ type BackupScheduleArgs struct {
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The number of backups to be retained.
-	RetentionCount pulumi.IntInput
+	RetentionCount pulumi.Float64Input
 	// The schedule recurrence.
 	ScheduleRecurrence ScheduleRecurrenceInput
 	// The schedule status.

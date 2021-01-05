@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Inputs
         /// Severity of alert fired
         /// </summary>
         [Input("severity", required: true)]
-        public Input<int> Severity { get; set; } = null!;
+        public Input<double> Severity { get; set; } = null!;
 
         public HealthStateArgs()
         {

@@ -26,7 +26,7 @@ type Pool struct {
 	// The service level of the file system
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
 	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size pulumi.IntOutput `pulumi:"size"`
+	Size pulumi.Float64Output `pulumi:"size"`
 	// Resource tags
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// Resource type
@@ -136,7 +136,7 @@ type poolState struct {
 	// The service level of the file system
 	ServiceLevel *string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size *int `pulumi:"size"`
+	Size *float64 `pulumi:"size"`
 	// Resource tags
 	Tags interface{} `pulumi:"tags"`
 	// Resource type
@@ -155,7 +155,7 @@ type PoolState struct {
 	// The service level of the file system
 	ServiceLevel pulumi.StringPtrInput
 	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size pulumi.IntPtrInput
+	Size pulumi.Float64PtrInput
 	// Resource tags
 	Tags pulumi.Input
 	// Resource type
@@ -178,7 +178,7 @@ type poolArgs struct {
 	// The service level of the file system
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size int `pulumi:"size"`
+	Size float64 `pulumi:"size"`
 	// Resource tags
 	Tags interface{} `pulumi:"tags"`
 }
@@ -196,7 +196,7 @@ type PoolArgs struct {
 	// The service level of the file system
 	ServiceLevel pulumi.StringInput
 	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size pulumi.IntInput
+	Size pulumi.Float64Input
 	// Resource tags
 	Tags pulumi.Input
 }

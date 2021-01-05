@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190615.Inputs
         /// Sync time for deferred deletion in UTC
         /// </summary>
         [Input("deferredDeleteSyncTimeInUTC")]
-        public Input<int>? DeferredDeleteSyncTimeInUTC { get; set; }
+        public Input<double>? DeferredDeleteSyncTimeInUTC { get; set; }
 
         /// <summary>
         /// Time for deferred deletion in UTC

@@ -34,7 +34,7 @@ type LookupWatcherResult struct {
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
 	// Gets or sets the frequency at which the watcher is invoked.
-	ExecutionFrequencyInSeconds *int `pulumi:"executionFrequencyInSeconds"`
+	ExecutionFrequencyInSeconds *float64 `pulumi:"executionFrequencyInSeconds"`
 	// Fully qualified resource Id for the resource
 	Id string `pulumi:"id"`
 	// Details of the user who last modified the watcher.

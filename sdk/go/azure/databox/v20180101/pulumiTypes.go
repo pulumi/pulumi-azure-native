@@ -444,15 +444,15 @@ type CopyProgressResponse struct {
 	// Id of the account where the data needs to be uploaded.
 	AccountId string `pulumi:"accountId"`
 	// Amount of data uploaded by the job as of now.
-	BytesSentToCloud int `pulumi:"bytesSentToCloud"`
+	BytesSentToCloud float64 `pulumi:"bytesSentToCloud"`
 	// Number of files processed by the job as of now.
-	FilesProcessed int `pulumi:"filesProcessed"`
+	FilesProcessed float64 `pulumi:"filesProcessed"`
 	// Name of the storage account where the data needs to be uploaded.
 	StorageAccountName string `pulumi:"storageAccountName"`
 	// Total amount of data to be processed by the job.
-	TotalBytesToProcess int `pulumi:"totalBytesToProcess"`
+	TotalBytesToProcess float64 `pulumi:"totalBytesToProcess"`
 	// Total number of files to be processed by the job.
-	TotalFilesToProcess int `pulumi:"totalFilesToProcess"`
+	TotalFilesToProcess float64 `pulumi:"totalFilesToProcess"`
 }
 
 // CopyProgressResponseInput is an input type that accepts CopyProgressResponseArgs and CopyProgressResponseOutput values.
@@ -471,15 +471,15 @@ type CopyProgressResponseArgs struct {
 	// Id of the account where the data needs to be uploaded.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// Amount of data uploaded by the job as of now.
-	BytesSentToCloud pulumi.IntInput `pulumi:"bytesSentToCloud"`
+	BytesSentToCloud pulumi.Float64Input `pulumi:"bytesSentToCloud"`
 	// Number of files processed by the job as of now.
-	FilesProcessed pulumi.IntInput `pulumi:"filesProcessed"`
+	FilesProcessed pulumi.Float64Input `pulumi:"filesProcessed"`
 	// Name of the storage account where the data needs to be uploaded.
 	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 	// Total amount of data to be processed by the job.
-	TotalBytesToProcess pulumi.IntInput `pulumi:"totalBytesToProcess"`
+	TotalBytesToProcess pulumi.Float64Input `pulumi:"totalBytesToProcess"`
 	// Total number of files to be processed by the job.
-	TotalFilesToProcess pulumi.IntInput `pulumi:"totalFilesToProcess"`
+	TotalFilesToProcess pulumi.Float64Input `pulumi:"totalFilesToProcess"`
 }
 
 func (CopyProgressResponseArgs) ElementType() reflect.Type {
@@ -540,13 +540,13 @@ func (o CopyProgressResponseOutput) AccountId() pulumi.StringOutput {
 }
 
 // Amount of data uploaded by the job as of now.
-func (o CopyProgressResponseOutput) BytesSentToCloud() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.BytesSentToCloud }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) BytesSentToCloud() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.BytesSentToCloud }).(pulumi.Float64Output)
 }
 
 // Number of files processed by the job as of now.
-func (o CopyProgressResponseOutput) FilesProcessed() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.FilesProcessed }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) FilesProcessed() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.FilesProcessed }).(pulumi.Float64Output)
 }
 
 // Name of the storage account where the data needs to be uploaded.
@@ -555,13 +555,13 @@ func (o CopyProgressResponseOutput) StorageAccountName() pulumi.StringOutput {
 }
 
 // Total amount of data to be processed by the job.
-func (o CopyProgressResponseOutput) TotalBytesToProcess() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.TotalBytesToProcess }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) TotalBytesToProcess() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.TotalBytesToProcess }).(pulumi.Float64Output)
 }
 
 // Total number of files to be processed by the job.
-func (o CopyProgressResponseOutput) TotalFilesToProcess() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.TotalFilesToProcess }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) TotalFilesToProcess() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.TotalFilesToProcess }).(pulumi.Float64Output)
 }
 
 type CopyProgressResponseArrayOutput struct{ *pulumi.OutputState }
@@ -748,7 +748,7 @@ func (o DataBoxDiskCopyLogDetailsResponseOutput) VerboseLogLink() pulumi.StringO
 // DataBox Disk Copy Progress
 type DataBoxDiskCopyProgressResponse struct {
 	// Bytes copied during the copy of disk.
-	BytesCopied int `pulumi:"bytesCopied"`
+	BytesCopied float64 `pulumi:"bytesCopied"`
 	// Indicates the percentage completed for the copy of the disk.
 	PercentComplete int `pulumi:"percentComplete"`
 	// The serial number of the disk
@@ -771,7 +771,7 @@ type DataBoxDiskCopyProgressResponseInput interface {
 // DataBox Disk Copy Progress
 type DataBoxDiskCopyProgressResponseArgs struct {
 	// Bytes copied during the copy of disk.
-	BytesCopied pulumi.IntInput `pulumi:"bytesCopied"`
+	BytesCopied pulumi.Float64Input `pulumi:"bytesCopied"`
 	// Indicates the percentage completed for the copy of the disk.
 	PercentComplete pulumi.IntInput `pulumi:"percentComplete"`
 	// The serial number of the disk
@@ -833,8 +833,8 @@ func (o DataBoxDiskCopyProgressResponseOutput) ToDataBoxDiskCopyProgressResponse
 }
 
 // Bytes copied during the copy of disk.
-func (o DataBoxDiskCopyProgressResponseOutput) BytesCopied() pulumi.IntOutput {
-	return o.ApplyT(func(v DataBoxDiskCopyProgressResponse) int { return v.BytesCopied }).(pulumi.IntOutput)
+func (o DataBoxDiskCopyProgressResponseOutput) BytesCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v DataBoxDiskCopyProgressResponse) float64 { return v.BytesCopied }).(pulumi.Float64Output)
 }
 
 // Indicates the percentage completed for the copy of the disk.

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401.Outputs
         /// <summary>
         /// Analytical TTL.
         /// </summary>
-        public readonly int? AnalyticalStorageTtl;
+        public readonly double? AnalyticalStorageTtl;
         /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401.Outputs
 
         [OutputConstructor]
         private SqlContainerGetPropertiesResponseResource(
-            int? analyticalStorageTtl,
+            double? analyticalStorageTtl,
 
             Outputs.ConflictResolutionPolicyResponse? conflictResolutionPolicy,
 

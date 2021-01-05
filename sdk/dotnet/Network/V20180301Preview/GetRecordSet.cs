@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Network.V20180301Preview
         /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
-        public readonly int? Ttl;
+        public readonly double? Ttl;
         /// <summary>
         /// The list of TXT records in the record set.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNextGen.Network.V20180301Preview
 
             ImmutableArray<Outputs.SrvRecordResponse> srvRecords,
 
-            int? ttl,
+            double? ttl,
 
             ImmutableArray<Outputs.TxtRecordResponse> txtRecords,
 

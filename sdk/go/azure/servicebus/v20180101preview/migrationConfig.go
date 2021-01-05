@@ -20,7 +20,7 @@ type MigrationConfig struct {
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount pulumi.IntOutput `pulumi:"pendingReplicationOperationsCount"`
+	PendingReplicationOperationsCount pulumi.Float64Output `pulumi:"pendingReplicationOperationsCount"`
 	// Name to access Standard Namespace after migration
 	PostMigrationName pulumi.StringOutput `pulumi:"postMigrationName"`
 	// Provisioning state of Migration Configuration
@@ -89,7 +89,7 @@ type migrationConfigState struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount *int `pulumi:"pendingReplicationOperationsCount"`
+	PendingReplicationOperationsCount *float64 `pulumi:"pendingReplicationOperationsCount"`
 	// Name to access Standard Namespace after migration
 	PostMigrationName *string `pulumi:"postMigrationName"`
 	// Provisioning state of Migration Configuration
@@ -106,7 +106,7 @@ type MigrationConfigState struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount pulumi.IntPtrInput
+	PendingReplicationOperationsCount pulumi.Float64PtrInput
 	// Name to access Standard Namespace after migration
 	PostMigrationName pulumi.StringPtrInput
 	// Provisioning state of Migration Configuration

@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest.Outputs
         /// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
         /// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
         /// </summary>
-        public readonly int? MaximumCapacity;
+        public readonly double? MaximumCapacity;
         /// <summary>
         /// The name of the metric.
         /// </summary>
@@ -32,23 +32,23 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest.Outputs
         /// If set to zero, no capacity is reserved for this metric.
         /// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
         /// </summary>
-        public readonly int? ReservationCapacity;
+        public readonly double? ReservationCapacity;
         /// <summary>
         /// The total metric capacity for Service Fabric application.
         /// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
         /// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
         /// </summary>
-        public readonly int? TotalApplicationCapacity;
+        public readonly double? TotalApplicationCapacity;
 
         [OutputConstructor]
         private ApplicationMetricDescriptionResponse(
-            int? maximumCapacity,
+            double? maximumCapacity,
 
             string? name,
 
-            int? reservationCapacity,
+            double? reservationCapacity,
 
-            int? totalApplicationCapacity)
+            double? totalApplicationCapacity)
         {
             MaximumCapacity = maximumCapacity;
             Name = name;

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The disk capacity in bytes.
         /// </summary>
-        public readonly int CapacityInBytes;
+        public readonly double CapacityInBytes;
         /// <summary>
         /// The disk Id.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
 
         [OutputConstructor]
         private AgentDiskDetailsResponse(
-            int capacityInBytes,
+            double capacityInBytes,
 
             string diskId,
 

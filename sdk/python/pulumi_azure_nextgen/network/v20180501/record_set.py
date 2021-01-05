@@ -32,7 +32,7 @@ class RecordSet(pulumi.CustomResource):
                  soa_record: Optional[pulumi.Input[pulumi.InputType['SoaRecordArgs']]] = None,
                  srv_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]]] = None,
                  target_resource: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 ttl: Optional[pulumi.Input[int]] = None,
+                 ttl: Optional[pulumi.Input[float]] = None,
                  txt_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -58,7 +58,7 @@ class RecordSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SoaRecordArgs']] soa_record: The SOA record in the record set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]] srv_records: The list of SRV records in the record set.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] target_resource: A reference to an azure resource from where the dns resource value is taken.
-        :param pulumi.Input[int] ttl: The TTL (time-to-live) of the records in the record set.
+        :param pulumi.Input[float] ttl: The TTL (time-to-live) of the records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]] txt_records: The list of TXT records in the record set.
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
         """
@@ -257,7 +257,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> pulumi.Output[Optional[int]]:
+    def ttl(self) -> pulumi.Output[Optional[float]]:
         """
         The TTL (time-to-live) of the records in the record set.
         """

@@ -27,12 +27,12 @@ class DnsConfigResponse(dict):
     def __init__(__self__, *,
                  fqdn: str,
                  relative_name: Optional[str] = None,
-                 ttl: Optional[int] = None):
+                 ttl: Optional[float] = None):
         """
         Class containing DNS settings in a Traffic Manager profile.
         :param str fqdn: The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
         :param str relative_name: The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-        :param int ttl: The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+        :param float ttl: The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
         pulumi.set(__self__, "fqdn", fqdn)
         if relative_name is not None:
@@ -58,7 +58,7 @@ class DnsConfigResponse(dict):
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[int]:
+    def ttl(self) -> Optional[float]:
         """
         The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
@@ -118,13 +118,13 @@ class EndpointResponse(dict):
                  endpoint_status: Optional[str] = None,
                  geo_mapping: Optional[Sequence[str]] = None,
                  id: Optional[str] = None,
-                 min_child_endpoints: Optional[int] = None,
+                 min_child_endpoints: Optional[float] = None,
                  name: Optional[str] = None,
-                 priority: Optional[int] = None,
+                 priority: Optional[float] = None,
                  target: Optional[str] = None,
                  target_resource_id: Optional[str] = None,
                  type: Optional[str] = None,
-                 weight: Optional[int] = None):
+                 weight: Optional[float] = None):
         """
         Class representing a Traffic Manager endpoint.
         :param Sequence['EndpointPropertiesResponseCustomHeadersArgs'] custom_headers: List of custom headers.
@@ -133,13 +133,13 @@ class EndpointResponse(dict):
         :param str endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         :param Sequence[str] geo_mapping: The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param str id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-        :param int min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param float min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         :param str name: The name of the resource
-        :param int priority: The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+        :param float priority: The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param str target: The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         :param str target_resource_id: The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
         :param str type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-        :param int weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+        :param float weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
@@ -218,7 +218,7 @@ class EndpointResponse(dict):
 
     @property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> Optional[int]:
+    def min_child_endpoints(self) -> Optional[float]:
         """
         The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
@@ -234,7 +234,7 @@ class EndpointResponse(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[int]:
+    def priority(self) -> Optional[float]:
         """
         The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         """
@@ -266,7 +266,7 @@ class EndpointResponse(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[int]:
+    def weight(self) -> Optional[float]:
         """
         The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
@@ -284,24 +284,24 @@ class MonitorConfigResponse(dict):
     def __init__(__self__, *,
                  custom_headers: Optional[Sequence['outputs.MonitorConfigResponseCustomHeaders']] = None,
                  expected_status_code_ranges: Optional[Sequence['outputs.MonitorConfigResponseExpectedStatusCodeRanges']] = None,
-                 interval_in_seconds: Optional[int] = None,
+                 interval_in_seconds: Optional[float] = None,
                  path: Optional[str] = None,
-                 port: Optional[int] = None,
+                 port: Optional[float] = None,
                  profile_monitor_status: Optional[str] = None,
                  protocol: Optional[str] = None,
-                 timeout_in_seconds: Optional[int] = None,
-                 tolerated_number_of_failures: Optional[int] = None):
+                 timeout_in_seconds: Optional[float] = None,
+                 tolerated_number_of_failures: Optional[float] = None):
         """
         Class containing endpoint monitoring settings in a Traffic Manager profile.
         :param Sequence['MonitorConfigResponseCustomHeadersArgs'] custom_headers: List of custom headers.
         :param Sequence['MonitorConfigResponseExpectedStatusCodeRangesArgs'] expected_status_code_ranges: List of expected status code ranges.
-        :param int interval_in_seconds: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
+        :param float interval_in_seconds: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         :param str path: The path relative to the endpoint domain name used to probe for endpoint health.
-        :param int port: The TCP port used to probe for endpoint health.
+        :param float port: The TCP port used to probe for endpoint health.
         :param str profile_monitor_status: The profile-level monitoring status of the Traffic Manager profile.
         :param str protocol: The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
-        :param int timeout_in_seconds: The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-        :param int tolerated_number_of_failures: The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+        :param float timeout_in_seconds: The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
+        :param float tolerated_number_of_failures: The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         """
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
@@ -340,7 +340,7 @@ class MonitorConfigResponse(dict):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[int]:
+    def interval_in_seconds(self) -> Optional[float]:
         """
         The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         """
@@ -356,7 +356,7 @@ class MonitorConfigResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[int]:
+    def port(self) -> Optional[float]:
         """
         The TCP port used to probe for endpoint health.
         """
@@ -380,7 +380,7 @@ class MonitorConfigResponse(dict):
 
     @property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[int]:
+    def timeout_in_seconds(self) -> Optional[float]:
         """
         The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
         """
@@ -388,7 +388,7 @@ class MonitorConfigResponse(dict):
 
     @property
     @pulumi.getter(name="toleratedNumberOfFailures")
-    def tolerated_number_of_failures(self) -> Optional[int]:
+    def tolerated_number_of_failures(self) -> Optional[float]:
         """
         The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         """

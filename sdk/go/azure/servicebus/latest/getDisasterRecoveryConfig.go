@@ -36,7 +36,7 @@ type LookupDisasterRecoveryConfigResult struct {
 	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
 	PartnerNamespace *string `pulumi:"partnerNamespace"`
 	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount int `pulumi:"pendingReplicationOperationsCount"`
+	PendingReplicationOperationsCount float64 `pulumi:"pendingReplicationOperationsCount"`
 	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
 	ProvisioningState string `pulumi:"provisioningState"`
 	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'

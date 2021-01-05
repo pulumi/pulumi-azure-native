@@ -25,31 +25,31 @@ namespace Pulumi.AzureNextGen.Compute.V20191101
         /// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Output("diskIOPSReadOnly")]
-        public Output<int?> DiskIOPSReadOnly { get; private set; } = null!;
+        public Output<double?> DiskIOPSReadOnly { get; private set; } = null!;
 
         /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Output("diskIOPSReadWrite")]
-        public Output<int?> DiskIOPSReadWrite { get; private set; } = null!;
+        public Output<double?> DiskIOPSReadWrite { get; private set; } = null!;
 
         /// <summary>
         /// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         /// </summary>
         [Output("diskMBpsReadOnly")]
-        public Output<int?> DiskMBpsReadOnly { get; private set; } = null!;
+        public Output<double?> DiskMBpsReadOnly { get; private set; } = null!;
 
         /// <summary>
         /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         /// </summary>
         [Output("diskMBpsReadWrite")]
-        public Output<int?> DiskMBpsReadWrite { get; private set; } = null!;
+        public Output<double?> DiskMBpsReadWrite { get; private set; } = null!;
 
         /// <summary>
         /// The size of the disk in bytes. This field is read only.
         /// </summary>
         [Output("diskSizeBytes")]
-        public Output<int> DiskSizeBytes { get; private set; } = null!;
+        public Output<double> DiskSizeBytes { get; private set; } = null!;
 
         /// <summary>
         /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
@@ -233,25 +233,25 @@ namespace Pulumi.AzureNextGen.Compute.V20191101
         /// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Input("diskIOPSReadOnly")]
-        public Input<int>? DiskIOPSReadOnly { get; set; }
+        public Input<double>? DiskIOPSReadOnly { get; set; }
 
         /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Input("diskIOPSReadWrite")]
-        public Input<int>? DiskIOPSReadWrite { get; set; }
+        public Input<double>? DiskIOPSReadWrite { get; set; }
 
         /// <summary>
         /// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         /// </summary>
         [Input("diskMBpsReadOnly")]
-        public Input<int>? DiskMBpsReadOnly { get; set; }
+        public Input<double>? DiskMBpsReadOnly { get; set; }
 
         /// <summary>
         /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         /// </summary>
         [Input("diskMBpsReadWrite")]
-        public Input<int>? DiskMBpsReadWrite { get; set; }
+        public Input<double>? DiskMBpsReadWrite { get; set; }
 
         /// <summary>
         /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.

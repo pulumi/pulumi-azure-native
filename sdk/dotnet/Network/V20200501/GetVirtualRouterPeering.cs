@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// <summary>
         /// Peer ASN.
         /// </summary>
-        public readonly int? PeerAsn;
+        public readonly double? PeerAsn;
         /// <summary>
         /// Peer IP.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 
             string? name,
 
-            int? peerAsn,
+            double? peerAsn,
 
             string? peerIp,
 

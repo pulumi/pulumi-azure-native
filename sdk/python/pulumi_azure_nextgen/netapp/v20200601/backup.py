@@ -165,7 +165,7 @@ class Backup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Output[int]:
+    def size(self) -> pulumi.Output[float]:
         """
         Size of backup
         """

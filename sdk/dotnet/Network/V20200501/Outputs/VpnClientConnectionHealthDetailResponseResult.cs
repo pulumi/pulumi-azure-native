@@ -16,27 +16,27 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Outputs
         /// <summary>
         /// The egress bytes per second.
         /// </summary>
-        public readonly int EgressBytesTransferred;
+        public readonly double EgressBytesTransferred;
         /// <summary>
         /// The egress packets per second.
         /// </summary>
-        public readonly int EgressPacketsTransferred;
+        public readonly double EgressPacketsTransferred;
         /// <summary>
         /// The ingress bytes per second.
         /// </summary>
-        public readonly int IngressBytesTransferred;
+        public readonly double IngressBytesTransferred;
         /// <summary>
         /// The ingress packets per second.
         /// </summary>
-        public readonly int IngressPacketsTransferred;
+        public readonly double IngressPacketsTransferred;
         /// <summary>
         /// The max band width.
         /// </summary>
-        public readonly int MaxBandwidth;
+        public readonly double MaxBandwidth;
         /// <summary>
         /// The max packets transferred per second.
         /// </summary>
-        public readonly int MaxPacketsPerSecond;
+        public readonly double MaxPacketsPerSecond;
         /// <summary>
         /// The assigned private Ip of a connected vpn client.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Outputs
         /// <summary>
         /// The duration time of a connected vpn client.
         /// </summary>
-        public readonly int VpnConnectionDuration;
+        public readonly double VpnConnectionDuration;
         /// <summary>
         /// The vpn client Id.
         /// </summary>
@@ -64,23 +64,23 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Outputs
 
         [OutputConstructor]
         private VpnClientConnectionHealthDetailResponseResult(
-            int egressBytesTransferred,
+            double egressBytesTransferred,
 
-            int egressPacketsTransferred,
+            double egressPacketsTransferred,
 
-            int ingressBytesTransferred,
+            double ingressBytesTransferred,
 
-            int ingressPacketsTransferred,
+            double ingressPacketsTransferred,
 
-            int maxBandwidth,
+            double maxBandwidth,
 
-            int maxPacketsPerSecond,
+            double maxPacketsPerSecond,
 
             string privateIpAddress,
 
             string publicIpAddress,
 
-            int vpnConnectionDuration,
+            double vpnConnectionDuration,
 
             string vpnConnectionId,
 

@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.V20161201
         /// The egress bytes transferred in this connection.
         /// </summary>
         [Output("egressBytesTransferred")]
-        public Output<int> EgressBytesTransferred { get; private set; } = null!;
+        public Output<double> EgressBytesTransferred { get; private set; } = null!;
 
         /// <summary>
         /// EnableBgp flag
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20161201
         /// The ingress bytes transferred in this connection.
         /// </summary>
         [Output("ingressBytesTransferred")]
-        public Output<int> IngressBytesTransferred { get; private set; } = null!;
+        public Output<double> IngressBytesTransferred { get; private set; } = null!;
 
         /// <summary>
         /// A common class for general resource information

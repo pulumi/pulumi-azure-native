@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// <summary>
         /// The count of schedules the backup policy contains.
         /// </summary>
-        public readonly int SchedulesCount;
+        public readonly double SchedulesCount;
         /// <summary>
         /// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
 
             string scheduledBackupStatus,
 
-            int schedulesCount,
+            double schedulesCount,
 
             string ssmHostName,
 

@@ -24,8 +24,8 @@ class GetDiskResult:
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
-        if disk_iops_read_write and not isinstance(disk_iops_read_write, int):
-            raise TypeError("Expected argument 'disk_iops_read_write' to be a int")
+        if disk_iops_read_write and not isinstance(disk_iops_read_write, float):
+            raise TypeError("Expected argument 'disk_iops_read_write' to be a float")
         pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
         if disk_m_bps_read_write and not isinstance(disk_m_bps_read_write, int):
             raise TypeError("Expected argument 'disk_m_bps_read_write' to be a int")
@@ -86,7 +86,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskIOPSReadWrite")
-    def disk_iops_read_write(self) -> Optional[int]:
+    def disk_iops_read_write(self) -> Optional[float]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         """

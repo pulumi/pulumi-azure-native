@@ -469,9 +469,9 @@ type KeyAttributes struct {
 	// Determines whether or not the object is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Expiry date in seconds since 1970-01-01T00:00:00Z.
-	Expires *int `pulumi:"expires"`
+	Expires *float64 `pulumi:"expires"`
 	// Not before date in seconds since 1970-01-01T00:00:00Z.
-	NotBefore *int `pulumi:"notBefore"`
+	NotBefore *float64 `pulumi:"notBefore"`
 }
 
 // KeyAttributesInput is an input type that accepts KeyAttributesArgs and KeyAttributesOutput values.
@@ -490,9 +490,9 @@ type KeyAttributesArgs struct {
 	// Determines whether or not the object is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Expiry date in seconds since 1970-01-01T00:00:00Z.
-	Expires pulumi.IntPtrInput `pulumi:"expires"`
+	Expires pulumi.Float64PtrInput `pulumi:"expires"`
 	// Not before date in seconds since 1970-01-01T00:00:00Z.
-	NotBefore pulumi.IntPtrInput `pulumi:"notBefore"`
+	NotBefore pulumi.Float64PtrInput `pulumi:"notBefore"`
 }
 
 func (KeyAttributesArgs) ElementType() reflect.Type {
@@ -579,13 +579,13 @@ func (o KeyAttributesOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Expiry date in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesOutput) Expires() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyAttributes) *int { return v.Expires }).(pulumi.IntPtrOutput)
+func (o KeyAttributesOutput) Expires() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KeyAttributes) *float64 { return v.Expires }).(pulumi.Float64PtrOutput)
 }
 
 // Not before date in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesOutput) NotBefore() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyAttributes) *int { return v.NotBefore }).(pulumi.IntPtrOutput)
+func (o KeyAttributesOutput) NotBefore() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KeyAttributes) *float64 { return v.NotBefore }).(pulumi.Float64PtrOutput)
 }
 
 type KeyAttributesPtrOutput struct{ *pulumi.OutputState }
@@ -617,39 +617,39 @@ func (o KeyAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Expiry date in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesPtrOutput) Expires() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyAttributes) *int {
+func (o KeyAttributesPtrOutput) Expires() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyAttributes) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Expires
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Not before date in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesPtrOutput) NotBefore() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyAttributes) *int {
+func (o KeyAttributesPtrOutput) NotBefore() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyAttributes) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.NotBefore
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The attributes of the key.
 type KeyAttributesResponse struct {
 	// Creation time in seconds since 1970-01-01T00:00:00Z.
-	Created int `pulumi:"created"`
+	Created float64 `pulumi:"created"`
 	// Determines whether or not the object is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Expiry date in seconds since 1970-01-01T00:00:00Z.
-	Expires *int `pulumi:"expires"`
+	Expires *float64 `pulumi:"expires"`
 	// Not before date in seconds since 1970-01-01T00:00:00Z.
-	NotBefore *int `pulumi:"notBefore"`
+	NotBefore *float64 `pulumi:"notBefore"`
 	// The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
 	RecoveryLevel string `pulumi:"recoveryLevel"`
 	// Last updated time in seconds since 1970-01-01T00:00:00Z.
-	Updated int `pulumi:"updated"`
+	Updated float64 `pulumi:"updated"`
 }
 
 // KeyAttributesResponseInput is an input type that accepts KeyAttributesResponseArgs and KeyAttributesResponseOutput values.
@@ -666,17 +666,17 @@ type KeyAttributesResponseInput interface {
 // The attributes of the key.
 type KeyAttributesResponseArgs struct {
 	// Creation time in seconds since 1970-01-01T00:00:00Z.
-	Created pulumi.IntInput `pulumi:"created"`
+	Created pulumi.Float64Input `pulumi:"created"`
 	// Determines whether or not the object is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Expiry date in seconds since 1970-01-01T00:00:00Z.
-	Expires pulumi.IntPtrInput `pulumi:"expires"`
+	Expires pulumi.Float64PtrInput `pulumi:"expires"`
 	// Not before date in seconds since 1970-01-01T00:00:00Z.
-	NotBefore pulumi.IntPtrInput `pulumi:"notBefore"`
+	NotBefore pulumi.Float64PtrInput `pulumi:"notBefore"`
 	// The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
 	RecoveryLevel pulumi.StringInput `pulumi:"recoveryLevel"`
 	// Last updated time in seconds since 1970-01-01T00:00:00Z.
-	Updated pulumi.IntInput `pulumi:"updated"`
+	Updated pulumi.Float64Input `pulumi:"updated"`
 }
 
 func (KeyAttributesResponseArgs) ElementType() reflect.Type {
@@ -758,8 +758,8 @@ func (o KeyAttributesResponseOutput) ToKeyAttributesResponsePtrOutputWithContext
 }
 
 // Creation time in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesResponseOutput) Created() pulumi.IntOutput {
-	return o.ApplyT(func(v KeyAttributesResponse) int { return v.Created }).(pulumi.IntOutput)
+func (o KeyAttributesResponseOutput) Created() pulumi.Float64Output {
+	return o.ApplyT(func(v KeyAttributesResponse) float64 { return v.Created }).(pulumi.Float64Output)
 }
 
 // Determines whether or not the object is enabled.
@@ -768,13 +768,13 @@ func (o KeyAttributesResponseOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Expiry date in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesResponseOutput) Expires() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyAttributesResponse) *int { return v.Expires }).(pulumi.IntPtrOutput)
+func (o KeyAttributesResponseOutput) Expires() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KeyAttributesResponse) *float64 { return v.Expires }).(pulumi.Float64PtrOutput)
 }
 
 // Not before date in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesResponseOutput) NotBefore() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyAttributesResponse) *int { return v.NotBefore }).(pulumi.IntPtrOutput)
+func (o KeyAttributesResponseOutput) NotBefore() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KeyAttributesResponse) *float64 { return v.NotBefore }).(pulumi.Float64PtrOutput)
 }
 
 // The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
@@ -783,8 +783,8 @@ func (o KeyAttributesResponseOutput) RecoveryLevel() pulumi.StringOutput {
 }
 
 // Last updated time in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesResponseOutput) Updated() pulumi.IntOutput {
-	return o.ApplyT(func(v KeyAttributesResponse) int { return v.Updated }).(pulumi.IntOutput)
+func (o KeyAttributesResponseOutput) Updated() pulumi.Float64Output {
+	return o.ApplyT(func(v KeyAttributesResponse) float64 { return v.Updated }).(pulumi.Float64Output)
 }
 
 type KeyAttributesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -806,13 +806,13 @@ func (o KeyAttributesResponsePtrOutput) Elem() KeyAttributesResponseOutput {
 }
 
 // Creation time in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesResponsePtrOutput) Created() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyAttributesResponse) *int {
+func (o KeyAttributesResponsePtrOutput) Created() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyAttributesResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.Created
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Determines whether or not the object is enabled.
@@ -826,23 +826,23 @@ func (o KeyAttributesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Expiry date in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesResponsePtrOutput) Expires() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyAttributesResponse) *int {
+func (o KeyAttributesResponsePtrOutput) Expires() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyAttributesResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Expires
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Not before date in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesResponsePtrOutput) NotBefore() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyAttributesResponse) *int {
+func (o KeyAttributesResponsePtrOutput) NotBefore() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyAttributesResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.NotBefore
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
@@ -856,13 +856,13 @@ func (o KeyAttributesResponsePtrOutput) RecoveryLevel() pulumi.StringPtrOutput {
 }
 
 // Last updated time in seconds since 1970-01-01T00:00:00Z.
-func (o KeyAttributesResponsePtrOutput) Updated() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyAttributesResponse) *int {
+func (o KeyAttributesResponsePtrOutput) Updated() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyAttributesResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.Updated
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The properties of the key.

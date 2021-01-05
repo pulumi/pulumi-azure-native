@@ -23,7 +23,7 @@ type Watcher struct {
 	// Gets or sets the etag of the resource.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Gets or sets the frequency at which the watcher is invoked.
-	ExecutionFrequencyInSeconds pulumi.IntPtrOutput `pulumi:"executionFrequencyInSeconds"`
+	ExecutionFrequencyInSeconds pulumi.Float64PtrOutput `pulumi:"executionFrequencyInSeconds"`
 	// Details of the user who last modified the watcher.
 	LastModifiedBy pulumi.StringOutput `pulumi:"lastModifiedBy"`
 	// Gets or sets the last modified time.
@@ -97,7 +97,7 @@ type watcherState struct {
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
 	// Gets or sets the frequency at which the watcher is invoked.
-	ExecutionFrequencyInSeconds *int `pulumi:"executionFrequencyInSeconds"`
+	ExecutionFrequencyInSeconds *float64 `pulumi:"executionFrequencyInSeconds"`
 	// Details of the user who last modified the watcher.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
 	// Gets or sets the last modified time.
@@ -128,7 +128,7 @@ type WatcherState struct {
 	// Gets or sets the etag of the resource.
 	Etag pulumi.StringPtrInput
 	// Gets or sets the frequency at which the watcher is invoked.
-	ExecutionFrequencyInSeconds pulumi.IntPtrInput
+	ExecutionFrequencyInSeconds pulumi.Float64PtrInput
 	// Details of the user who last modified the watcher.
 	LastModifiedBy pulumi.StringPtrInput
 	// Gets or sets the last modified time.
@@ -163,7 +163,7 @@ type watcherArgs struct {
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
 	// Gets or sets the frequency at which the watcher is invoked.
-	ExecutionFrequencyInSeconds *int `pulumi:"executionFrequencyInSeconds"`
+	ExecutionFrequencyInSeconds *float64 `pulumi:"executionFrequencyInSeconds"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// Name of an Azure Resource group.
@@ -189,7 +189,7 @@ type WatcherArgs struct {
 	// Gets or sets the etag of the resource.
 	Etag pulumi.StringPtrInput
 	// Gets or sets the frequency at which the watcher is invoked.
-	ExecutionFrequencyInSeconds pulumi.IntPtrInput
+	ExecutionFrequencyInSeconds pulumi.Float64PtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// Name of an Azure Resource group.

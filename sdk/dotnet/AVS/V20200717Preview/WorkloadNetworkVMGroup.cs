@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// NSX revision number.
         /// </summary>
         [Output("revision")]
-        public Output<int?> Revision { get; private set; } = null!;
+        public Output<double?> Revision { get; private set; } = null!;
 
         /// <summary>
         /// VM Group status.
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// NSX revision number.
         /// </summary>
         [Input("revision")]
-        public Input<int>? Revision { get; set; }
+        public Input<double>? Revision { get; set; }
 
         /// <summary>
         /// NSX VM Group identifier. Generally the same as the VM Group's display name

@@ -193,13 +193,13 @@ class DailyScheduleResponse(dict):
                  hour: Optional[int] = None,
                  minute: Optional[int] = None,
                  snapshots_to_keep: Optional[int] = None,
-                 used_bytes: Optional[int] = None):
+                 used_bytes: Optional[float] = None):
         """
         Daily Schedule properties
         :param int hour: Indicates which hour in UTC timezone a snapshot should be taken
         :param int minute: Indicates which minute snapshot should be taken
         :param int snapshots_to_keep: Daily snapshot count to keep
-        :param int used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
         """
         if hour is not None:
             pulumi.set(__self__, "hour", hour)
@@ -236,7 +236,7 @@ class DailyScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[int]:
+    def used_bytes(self) -> Optional[float]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """
@@ -436,12 +436,12 @@ class HourlyScheduleResponse(dict):
     def __init__(__self__, *,
                  minute: Optional[int] = None,
                  snapshots_to_keep: Optional[int] = None,
-                 used_bytes: Optional[int] = None):
+                 used_bytes: Optional[float] = None):
         """
         Hourly Schedule properties
         :param int minute: Indicates which minute snapshot should be taken
         :param int snapshots_to_keep: Hourly snapshot count to keep
-        :param int used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
         """
         if minute is not None:
             pulumi.set(__self__, "minute", minute)
@@ -468,7 +468,7 @@ class HourlyScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[int]:
+    def used_bytes(self) -> Optional[float]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """
@@ -488,14 +488,14 @@ class MonthlyScheduleResponse(dict):
                  hour: Optional[int] = None,
                  minute: Optional[int] = None,
                  snapshots_to_keep: Optional[int] = None,
-                 used_bytes: Optional[int] = None):
+                 used_bytes: Optional[float] = None):
         """
         Monthly Schedule properties
         :param str days_of_month: Indicates which days of the month snapshot should be taken. A comma delimited string.
         :param int hour: Indicates which hour in UTC timezone a snapshot should be taken
         :param int minute: Indicates which minute snapshot should be taken
         :param int snapshots_to_keep: Monthly snapshot count to keep
-        :param int used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
         """
         if days_of_month is not None:
             pulumi.set(__self__, "days_of_month", days_of_month)
@@ -542,7 +542,7 @@ class MonthlyScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[int]:
+    def used_bytes(self) -> Optional[float]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """
@@ -907,14 +907,14 @@ class WeeklyScheduleResponse(dict):
                  hour: Optional[int] = None,
                  minute: Optional[int] = None,
                  snapshots_to_keep: Optional[int] = None,
-                 used_bytes: Optional[int] = None):
+                 used_bytes: Optional[float] = None):
         """
         Weekly Schedule properties, make a snapshot every week at a specific day or days
         :param str day: Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
         :param int hour: Indicates which hour in UTC timezone a snapshot should be taken
         :param int minute: Indicates which minute snapshot should be taken
         :param int snapshots_to_keep: Weekly snapshot count to keep
-        :param int used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
         """
         if day is not None:
             pulumi.set(__self__, "day", day)
@@ -961,7 +961,7 @@ class WeeklyScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[int]:
+    def used_bytes(self) -> Optional[float]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """

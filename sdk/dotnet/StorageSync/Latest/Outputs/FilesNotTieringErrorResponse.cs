@@ -20,13 +20,13 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
         /// <summary>
         /// Count of files with this error
         /// </summary>
-        public readonly int FileCount;
+        public readonly double FileCount;
 
         [OutputConstructor]
         private FilesNotTieringErrorResponse(
             int errorCode,
 
-            int fileCount)
+            double fileCount)
         {
             ErrorCode = errorCode;
             FileCount = fileCount;

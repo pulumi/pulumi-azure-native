@@ -66,7 +66,7 @@ type LookupVirtualHubResult struct {
 	// List of all virtual hub route table v2s associated with this VirtualHub.
 	VirtualHubRouteTableV2s []VirtualHubRouteTableV2Response `pulumi:"virtualHubRouteTableV2s"`
 	// VirtualRouter ASN.
-	VirtualRouterAsn *int `pulumi:"virtualRouterAsn"`
+	VirtualRouterAsn *float64 `pulumi:"virtualRouterAsn"`
 	// VirtualRouter IPs.
 	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 	// The VirtualWAN to which the VirtualHub belongs.

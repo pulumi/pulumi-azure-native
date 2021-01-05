@@ -4591,9 +4591,9 @@ type PredictionDistributionDefinitionResponse struct {
 	// Distributions of the prediction.
 	Distributions []PredictionDistributionDefinitionResponseDistributions `pulumi:"distributions"`
 	// Total negatives in the distribution.
-	TotalNegatives *int `pulumi:"totalNegatives"`
+	TotalNegatives *float64 `pulumi:"totalNegatives"`
 	// Total positive in the distribution.
-	TotalPositives *int `pulumi:"totalPositives"`
+	TotalPositives *float64 `pulumi:"totalPositives"`
 }
 
 // PredictionDistributionDefinitionResponseInput is an input type that accepts PredictionDistributionDefinitionResponseArgs and PredictionDistributionDefinitionResponseOutput values.
@@ -4612,9 +4612,9 @@ type PredictionDistributionDefinitionResponseArgs struct {
 	// Distributions of the prediction.
 	Distributions PredictionDistributionDefinitionResponseDistributionsArrayInput `pulumi:"distributions"`
 	// Total negatives in the distribution.
-	TotalNegatives pulumi.IntPtrInput `pulumi:"totalNegatives"`
+	TotalNegatives pulumi.Float64PtrInput `pulumi:"totalNegatives"`
 	// Total positive in the distribution.
-	TotalPositives pulumi.IntPtrInput `pulumi:"totalPositives"`
+	TotalPositives pulumi.Float64PtrInput `pulumi:"totalPositives"`
 }
 
 func (PredictionDistributionDefinitionResponseArgs) ElementType() reflect.Type {
@@ -4652,25 +4652,25 @@ func (o PredictionDistributionDefinitionResponseOutput) Distributions() Predicti
 }
 
 // Total negatives in the distribution.
-func (o PredictionDistributionDefinitionResponseOutput) TotalNegatives() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PredictionDistributionDefinitionResponse) *int { return v.TotalNegatives }).(pulumi.IntPtrOutput)
+func (o PredictionDistributionDefinitionResponseOutput) TotalNegatives() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponse) *float64 { return v.TotalNegatives }).(pulumi.Float64PtrOutput)
 }
 
 // Total positive in the distribution.
-func (o PredictionDistributionDefinitionResponseOutput) TotalPositives() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PredictionDistributionDefinitionResponse) *int { return v.TotalPositives }).(pulumi.IntPtrOutput)
+func (o PredictionDistributionDefinitionResponseOutput) TotalPositives() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponse) *float64 { return v.TotalPositives }).(pulumi.Float64PtrOutput)
 }
 
 // The definition of a prediction distribution.
 type PredictionDistributionDefinitionResponseDistributions struct {
 	// Number of negatives.
-	Negatives *int `pulumi:"negatives"`
+	Negatives *float64 `pulumi:"negatives"`
 	// Number of negatives above threshold.
-	NegativesAboveThreshold *int `pulumi:"negativesAboveThreshold"`
+	NegativesAboveThreshold *float64 `pulumi:"negativesAboveThreshold"`
 	// Number of positives.
-	Positives *int `pulumi:"positives"`
+	Positives *float64 `pulumi:"positives"`
 	// Number of positives above threshold.
-	PositivesAboveThreshold *int `pulumi:"positivesAboveThreshold"`
+	PositivesAboveThreshold *float64 `pulumi:"positivesAboveThreshold"`
 	// Score threshold.
 	ScoreThreshold *int `pulumi:"scoreThreshold"`
 }
@@ -4689,13 +4689,13 @@ type PredictionDistributionDefinitionResponseDistributionsInput interface {
 // The definition of a prediction distribution.
 type PredictionDistributionDefinitionResponseDistributionsArgs struct {
 	// Number of negatives.
-	Negatives pulumi.IntPtrInput `pulumi:"negatives"`
+	Negatives pulumi.Float64PtrInput `pulumi:"negatives"`
 	// Number of negatives above threshold.
-	NegativesAboveThreshold pulumi.IntPtrInput `pulumi:"negativesAboveThreshold"`
+	NegativesAboveThreshold pulumi.Float64PtrInput `pulumi:"negativesAboveThreshold"`
 	// Number of positives.
-	Positives pulumi.IntPtrInput `pulumi:"positives"`
+	Positives pulumi.Float64PtrInput `pulumi:"positives"`
 	// Number of positives above threshold.
-	PositivesAboveThreshold pulumi.IntPtrInput `pulumi:"positivesAboveThreshold"`
+	PositivesAboveThreshold pulumi.Float64PtrInput `pulumi:"positivesAboveThreshold"`
 	// Score threshold.
 	ScoreThreshold pulumi.IntPtrInput `pulumi:"scoreThreshold"`
 }
@@ -4753,23 +4753,27 @@ func (o PredictionDistributionDefinitionResponseDistributionsOutput) ToPredictio
 }
 
 // Number of negatives.
-func (o PredictionDistributionDefinitionResponseDistributionsOutput) Negatives() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *int { return v.Negatives }).(pulumi.IntPtrOutput)
+func (o PredictionDistributionDefinitionResponseDistributionsOutput) Negatives() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *float64 { return v.Negatives }).(pulumi.Float64PtrOutput)
 }
 
 // Number of negatives above threshold.
-func (o PredictionDistributionDefinitionResponseDistributionsOutput) NegativesAboveThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *int { return v.NegativesAboveThreshold }).(pulumi.IntPtrOutput)
+func (o PredictionDistributionDefinitionResponseDistributionsOutput) NegativesAboveThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *float64 {
+		return v.NegativesAboveThreshold
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Number of positives.
-func (o PredictionDistributionDefinitionResponseDistributionsOutput) Positives() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *int { return v.Positives }).(pulumi.IntPtrOutput)
+func (o PredictionDistributionDefinitionResponseDistributionsOutput) Positives() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *float64 { return v.Positives }).(pulumi.Float64PtrOutput)
 }
 
 // Number of positives above threshold.
-func (o PredictionDistributionDefinitionResponseDistributionsOutput) PositivesAboveThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *int { return v.PositivesAboveThreshold }).(pulumi.IntPtrOutput)
+func (o PredictionDistributionDefinitionResponseDistributionsOutput) PositivesAboveThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *float64 {
+		return v.PositivesAboveThreshold
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Score threshold.

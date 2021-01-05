@@ -38,7 +38,7 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	// The dead peer detection timeout of this connection in seconds.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// The egress bytes transferred in this connection.
-	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// A unique read-only string that changes whenever the resource is updated.
@@ -48,7 +48,7 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The ingress bytes transferred in this connection.
-	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
 	// The reference to local network gateway resource.

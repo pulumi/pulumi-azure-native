@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// Number of items backed up in this container.
         /// </summary>
-        public readonly int? ProtectedItemCount;
+        public readonly double? ProtectedItemCount;
         /// <summary>
         /// Status of registration of the container with the Recovery Services Vault.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             string? healthStatus,
 
-            int? protectedItemCount,
+            double? protectedItemCount,
 
             string? registrationStatus,
 

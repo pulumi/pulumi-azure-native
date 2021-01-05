@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// The initial timestamp that the live output will start at, any content before this value will not be archived.
         /// </summary>
-        public readonly int? OutputSnapTime;
+        public readonly double? OutputSnapTime;
         /// <summary>
         /// The provisioning state of the live output.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             string name,
 
-            int? outputSnapTime,
+            double? outputSnapTime,
 
             string provisioningState,
 

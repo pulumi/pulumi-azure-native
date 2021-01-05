@@ -16,29 +16,29 @@ namespace Pulumi.AzureNextGen.Network.V20170601.Outputs
         /// <summary>
         /// Gets BytesIn of the peering.
         /// </summary>
-        public readonly int? PrimarybytesIn;
+        public readonly double? PrimarybytesIn;
         /// <summary>
         /// Gets BytesOut of the peering.
         /// </summary>
-        public readonly int? PrimarybytesOut;
+        public readonly double? PrimarybytesOut;
         /// <summary>
         /// Gets BytesIn of the peering.
         /// </summary>
-        public readonly int? SecondarybytesIn;
+        public readonly double? SecondarybytesIn;
         /// <summary>
         /// Gets BytesOut of the peering.
         /// </summary>
-        public readonly int? SecondarybytesOut;
+        public readonly double? SecondarybytesOut;
 
         [OutputConstructor]
         private ExpressRouteCircuitStatsResponse(
-            int? primarybytesIn,
+            double? primarybytesIn,
 
-            int? primarybytesOut,
+            double? primarybytesOut,
 
-            int? secondarybytesIn,
+            double? secondarybytesIn,
 
-            int? secondarybytesOut)
+            double? secondarybytesOut)
         {
             PrimarybytesIn = primarybytesIn;
             PrimarybytesOut = primarybytesOut;

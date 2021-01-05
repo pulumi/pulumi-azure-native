@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The volume capacity.
         /// </summary>
-        public readonly int? CapacityInBytes;
+        public readonly double? CapacityInBytes;
         /// <summary>
         /// The free space available in this volume.
         /// </summary>
-        public readonly int? FreeSpaceInBytes;
+        public readonly double? FreeSpaceInBytes;
         /// <summary>
         /// The threshold percentage.
         /// </summary>
@@ -32,9 +32,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
 
         [OutputConstructor]
         private RetentionVolumeResponse(
-            int? capacityInBytes,
+            double? capacityInBytes,
 
-            int? freeSpaceInBytes,
+            double? freeSpaceInBytes,
 
             int? thresholdPercentage,
 

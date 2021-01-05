@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501.Outputs
         /// <summary>
         /// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         /// </summary>
-        public readonly int? MinChildEndpoints;
+        public readonly double? MinChildEndpoints;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501.Outputs
         /// <summary>
         /// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         /// </summary>
-        public readonly int? Priority;
+        public readonly double? Priority;
         /// <summary>
         /// The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501.Outputs
         /// <summary>
         /// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         /// </summary>
-        public readonly int? Weight;
+        public readonly double? Weight;
 
         [OutputConstructor]
         private EndpointResponse(
@@ -74,11 +74,11 @@ namespace Pulumi.AzureNextGen.Network.V20170501.Outputs
 
             string id,
 
-            int? minChildEndpoints,
+            double? minChildEndpoints,
 
             string name,
 
-            int? priority,
+            double? priority,
 
             string? target,
 
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501.Outputs
 
             string type,
 
-            int? weight)
+            double? weight)
         {
             EndpointLocation = endpointLocation;
             EndpointMonitorStatus = endpointMonitorStatus;

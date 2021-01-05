@@ -48,7 +48,7 @@ type LookupVolumeResult struct {
 	// The operation status on the volume.
 	OperationStatus string `pulumi:"operationStatus"`
 	// The size of the volume in bytes.
-	SizeInBytes int `pulumi:"sizeInBytes"`
+	SizeInBytes float64 `pulumi:"sizeInBytes"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 	// The ID of the volume container, in which this volume is created.

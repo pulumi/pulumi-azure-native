@@ -827,7 +827,7 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 // Contains the REP (rendezvous endpoint) and “Sender” access token.
 type HybridConnectionConfigResponse struct {
 	// Timestamp when this token will be expired.
-	ExpirationTime int `pulumi:"expirationTime"`
+	ExpirationTime float64 `pulumi:"expirationTime"`
 	// Name of the connection
 	HybridConnectionName string `pulumi:"hybridConnectionName"`
 	// Name of the relay.
@@ -850,7 +850,7 @@ type HybridConnectionConfigResponseInput interface {
 // Contains the REP (rendezvous endpoint) and “Sender” access token.
 type HybridConnectionConfigResponseArgs struct {
 	// Timestamp when this token will be expired.
-	ExpirationTime pulumi.IntInput `pulumi:"expirationTime"`
+	ExpirationTime pulumi.Float64Input `pulumi:"expirationTime"`
 	// Name of the connection
 	HybridConnectionName pulumi.StringInput `pulumi:"hybridConnectionName"`
 	// Name of the relay.
@@ -887,8 +887,8 @@ func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOu
 }
 
 // Timestamp when this token will be expired.
-func (o HybridConnectionConfigResponseOutput) ExpirationTime() pulumi.IntOutput {
-	return o.ApplyT(func(v HybridConnectionConfigResponse) int { return v.ExpirationTime }).(pulumi.IntOutput)
+func (o HybridConnectionConfigResponseOutput) ExpirationTime() pulumi.Float64Output {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) float64 { return v.ExpirationTime }).(pulumi.Float64Output)
 }
 
 // Name of the connection

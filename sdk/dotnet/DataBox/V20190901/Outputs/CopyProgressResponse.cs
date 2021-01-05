@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901.Outputs
         /// <summary>
         /// Amount of data uploaded by the job as of now.
         /// </summary>
-        public readonly int BytesSentToCloud;
+        public readonly double BytesSentToCloud;
         /// <summary>
         /// Data Destination Type.
         /// </summary>
@@ -28,23 +28,23 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901.Outputs
         /// <summary>
         /// Number of files which could not be copied
         /// </summary>
-        public readonly int FilesErroredOut;
+        public readonly double FilesErroredOut;
         /// <summary>
         /// Number of files processed by the job as of now.
         /// </summary>
-        public readonly int FilesProcessed;
+        public readonly double FilesProcessed;
         /// <summary>
         /// Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
         /// </summary>
-        public readonly int InvalidFileBytesUploaded;
+        public readonly double InvalidFileBytesUploaded;
         /// <summary>
         /// Number of files not adhering to azure naming conventions which were processed by automatic renaming
         /// </summary>
-        public readonly int InvalidFilesProcessed;
+        public readonly double InvalidFilesProcessed;
         /// <summary>
         /// Number of folders not adhering to azure naming conventions which were processed by automatic renaming
         /// </summary>
-        public readonly int RenamedContainerCount;
+        public readonly double RenamedContainerCount;
         /// <summary>
         /// Name of the storage account where the data needs to be uploaded.
         /// </summary>
@@ -52,35 +52,35 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901.Outputs
         /// <summary>
         /// Total amount of data to be processed by the job.
         /// </summary>
-        public readonly int TotalBytesToProcess;
+        public readonly double TotalBytesToProcess;
         /// <summary>
         /// Total number of files to be processed by the job.
         /// </summary>
-        public readonly int TotalFilesToProcess;
+        public readonly double TotalFilesToProcess;
 
         [OutputConstructor]
         private CopyProgressResponse(
             string accountId,
 
-            int bytesSentToCloud,
+            double bytesSentToCloud,
 
             string dataDestinationType,
 
-            int filesErroredOut,
+            double filesErroredOut,
 
-            int filesProcessed,
+            double filesProcessed,
 
-            int invalidFileBytesUploaded,
+            double invalidFileBytesUploaded,
 
-            int invalidFilesProcessed,
+            double invalidFilesProcessed,
 
-            int renamedContainerCount,
+            double renamedContainerCount,
 
             string storageAccountName,
 
-            int totalBytesToProcess,
+            double totalBytesToProcess,
 
-            int totalFilesToProcess)
+            double totalFilesToProcess)
         {
             AccountId = accountId;
             BytesSentToCloud = bytesSentToCloud;

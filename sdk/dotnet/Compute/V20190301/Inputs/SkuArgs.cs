@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301.Inputs
         /// Specifies the number of virtual machines in the scale set.
         /// </summary>
         [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
+        public Input<double>? Capacity { get; set; }
 
         /// <summary>
         /// The sku name.

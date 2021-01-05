@@ -4128,8 +4128,8 @@ func (o EnvironmentVariableWithSecretValueResponseArrayOutput) Index(i pulumi.In
 // Properties of the file or directory.
 type FileResponse struct {
 	// The file size.
-	ContentLength *int    `pulumi:"contentLength"`
-	DownloadUrl   *string `pulumi:"downloadUrl"`
+	ContentLength *float64 `pulumi:"contentLength"`
+	DownloadUrl   *string  `pulumi:"downloadUrl"`
 	// Indicates if the file is a directory.
 	IsDirectory bool `pulumi:"isDirectory"`
 	// The time at which the file was last modified.
@@ -4152,8 +4152,8 @@ type FileResponseInput interface {
 // Properties of the file or directory.
 type FileResponseArgs struct {
 	// The file size.
-	ContentLength pulumi.IntPtrInput    `pulumi:"contentLength"`
-	DownloadUrl   pulumi.StringPtrInput `pulumi:"downloadUrl"`
+	ContentLength pulumi.Float64PtrInput `pulumi:"contentLength"`
+	DownloadUrl   pulumi.StringPtrInput  `pulumi:"downloadUrl"`
 	// Indicates if the file is a directory.
 	IsDirectory pulumi.BoolInput `pulumi:"isDirectory"`
 	// The time at which the file was last modified.
@@ -4215,8 +4215,8 @@ func (o FileResponseOutput) ToFileResponseOutputWithContext(ctx context.Context)
 }
 
 // The file size.
-func (o FileResponseOutput) ContentLength() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FileResponse) *int { return v.ContentLength }).(pulumi.IntPtrOutput)
+func (o FileResponseOutput) ContentLength() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FileResponse) *float64 { return v.ContentLength }).(pulumi.Float64PtrOutput)
 }
 
 func (o FileResponseOutput) DownloadUrl() pulumi.StringPtrOutput {

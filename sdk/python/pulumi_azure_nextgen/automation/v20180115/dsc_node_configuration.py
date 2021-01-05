@@ -150,7 +150,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> pulumi.Output[Optional[int]]:
+    def node_count(self) -> pulumi.Output[Optional[float]]:
         """
         Number of nodes with this node configuration assigned
         """

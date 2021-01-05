@@ -15,7 +15,7 @@ type DeliveryPackageInformation struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName string `pulumi:"carrierName"`
 	// The number of drives included in the package.
-	DriveCount *int `pulumi:"driveCount"`
+	DriveCount *float64 `pulumi:"driveCount"`
 	// The date when the package is shipped.
 	ShipDate *string `pulumi:"shipDate"`
 	// The tracking number of the package.
@@ -38,7 +38,7 @@ type DeliveryPackageInformationArgs struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName pulumi.StringInput `pulumi:"carrierName"`
 	// The number of drives included in the package.
-	DriveCount pulumi.IntPtrInput `pulumi:"driveCount"`
+	DriveCount pulumi.Float64PtrInput `pulumi:"driveCount"`
 	// The date when the package is shipped.
 	ShipDate pulumi.StringPtrInput `pulumi:"shipDate"`
 	// The tracking number of the package.
@@ -129,8 +129,8 @@ func (o DeliveryPackageInformationOutput) CarrierName() pulumi.StringOutput {
 }
 
 // The number of drives included in the package.
-func (o DeliveryPackageInformationOutput) DriveCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeliveryPackageInformation) *int { return v.DriveCount }).(pulumi.IntPtrOutput)
+func (o DeliveryPackageInformationOutput) DriveCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeliveryPackageInformation) *float64 { return v.DriveCount }).(pulumi.Float64PtrOutput)
 }
 
 // The date when the package is shipped.
@@ -172,13 +172,13 @@ func (o DeliveryPackageInformationPtrOutput) CarrierName() pulumi.StringPtrOutpu
 }
 
 // The number of drives included in the package.
-func (o DeliveryPackageInformationPtrOutput) DriveCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeliveryPackageInformation) *int {
+func (o DeliveryPackageInformationPtrOutput) DriveCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformation) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.DriveCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The date when the package is shipped.
@@ -206,7 +206,7 @@ type DeliveryPackageInformationResponse struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName string `pulumi:"carrierName"`
 	// The number of drives included in the package.
-	DriveCount *int `pulumi:"driveCount"`
+	DriveCount *float64 `pulumi:"driveCount"`
 	// The date when the package is shipped.
 	ShipDate *string `pulumi:"shipDate"`
 	// The tracking number of the package.
@@ -229,7 +229,7 @@ type DeliveryPackageInformationResponseArgs struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName pulumi.StringInput `pulumi:"carrierName"`
 	// The number of drives included in the package.
-	DriveCount pulumi.IntPtrInput `pulumi:"driveCount"`
+	DriveCount pulumi.Float64PtrInput `pulumi:"driveCount"`
 	// The date when the package is shipped.
 	ShipDate pulumi.StringPtrInput `pulumi:"shipDate"`
 	// The tracking number of the package.
@@ -320,8 +320,8 @@ func (o DeliveryPackageInformationResponseOutput) CarrierName() pulumi.StringOut
 }
 
 // The number of drives included in the package.
-func (o DeliveryPackageInformationResponseOutput) DriveCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeliveryPackageInformationResponse) *int { return v.DriveCount }).(pulumi.IntPtrOutput)
+func (o DeliveryPackageInformationResponseOutput) DriveCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeliveryPackageInformationResponse) *float64 { return v.DriveCount }).(pulumi.Float64PtrOutput)
 }
 
 // The date when the package is shipped.
@@ -363,13 +363,13 @@ func (o DeliveryPackageInformationResponsePtrOutput) CarrierName() pulumi.String
 }
 
 // The number of drives included in the package.
-func (o DeliveryPackageInformationResponsePtrOutput) DriveCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeliveryPackageInformationResponse) *int {
+func (o DeliveryPackageInformationResponsePtrOutput) DriveCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformationResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.DriveCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The date when the package is shipped.
@@ -506,7 +506,7 @@ type DriveStatus struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey *string `pulumi:"bitLockerKey"`
 	// Bytes successfully transferred for the drive.
-	BytesSucceeded *int `pulumi:"bytesSucceeded"`
+	BytesSucceeded *float64 `pulumi:"bytesSucceeded"`
 	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
 	CopyStatus *string `pulumi:"copyStatus"`
 	// The drive header hash value.
@@ -545,7 +545,7 @@ type DriveStatusArgs struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey pulumi.StringPtrInput `pulumi:"bitLockerKey"`
 	// Bytes successfully transferred for the drive.
-	BytesSucceeded pulumi.IntPtrInput `pulumi:"bytesSucceeded"`
+	BytesSucceeded pulumi.Float64PtrInput `pulumi:"bytesSucceeded"`
 	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
 	CopyStatus pulumi.StringPtrInput `pulumi:"copyStatus"`
 	// The drive header hash value.
@@ -626,8 +626,8 @@ func (o DriveStatusOutput) BitLockerKey() pulumi.StringPtrOutput {
 }
 
 // Bytes successfully transferred for the drive.
-func (o DriveStatusOutput) BytesSucceeded() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DriveStatus) *int { return v.BytesSucceeded }).(pulumi.IntPtrOutput)
+func (o DriveStatusOutput) BytesSucceeded() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DriveStatus) *float64 { return v.BytesSucceeded }).(pulumi.Float64PtrOutput)
 }
 
 // Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
@@ -705,7 +705,7 @@ type DriveStatusResponse struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey *string `pulumi:"bitLockerKey"`
 	// Bytes successfully transferred for the drive.
-	BytesSucceeded *int `pulumi:"bytesSucceeded"`
+	BytesSucceeded *float64 `pulumi:"bytesSucceeded"`
 	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
 	CopyStatus *string `pulumi:"copyStatus"`
 	// The drive header hash value.
@@ -744,7 +744,7 @@ type DriveStatusResponseArgs struct {
 	// The BitLocker key used to encrypt the drive.
 	BitLockerKey pulumi.StringPtrInput `pulumi:"bitLockerKey"`
 	// Bytes successfully transferred for the drive.
-	BytesSucceeded pulumi.IntPtrInput `pulumi:"bytesSucceeded"`
+	BytesSucceeded pulumi.Float64PtrInput `pulumi:"bytesSucceeded"`
 	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
 	CopyStatus pulumi.StringPtrInput `pulumi:"copyStatus"`
 	// The drive header hash value.
@@ -825,8 +825,8 @@ func (o DriveStatusResponseOutput) BitLockerKey() pulumi.StringPtrOutput {
 }
 
 // Bytes successfully transferred for the drive.
-func (o DriveStatusResponseOutput) BytesSucceeded() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DriveStatusResponse) *int { return v.BytesSucceeded }).(pulumi.IntPtrOutput)
+func (o DriveStatusResponseOutput) BytesSucceeded() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DriveStatusResponse) *float64 { return v.BytesSucceeded }).(pulumi.Float64PtrOutput)
 }
 
 // Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
@@ -2678,7 +2678,7 @@ type PackageInformation struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName string `pulumi:"carrierName"`
 	// The number of drives included in the package.
-	DriveCount int `pulumi:"driveCount"`
+	DriveCount float64 `pulumi:"driveCount"`
 	// The date when the package is shipped.
 	ShipDate string `pulumi:"shipDate"`
 	// The tracking number of the package.
@@ -2701,7 +2701,7 @@ type PackageInformationArgs struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName pulumi.StringInput `pulumi:"carrierName"`
 	// The number of drives included in the package.
-	DriveCount pulumi.IntInput `pulumi:"driveCount"`
+	DriveCount pulumi.Float64Input `pulumi:"driveCount"`
 	// The date when the package is shipped.
 	ShipDate pulumi.StringInput `pulumi:"shipDate"`
 	// The tracking number of the package.
@@ -2792,8 +2792,8 @@ func (o PackageInformationOutput) CarrierName() pulumi.StringOutput {
 }
 
 // The number of drives included in the package.
-func (o PackageInformationOutput) DriveCount() pulumi.IntOutput {
-	return o.ApplyT(func(v PackageInformation) int { return v.DriveCount }).(pulumi.IntOutput)
+func (o PackageInformationOutput) DriveCount() pulumi.Float64Output {
+	return o.ApplyT(func(v PackageInformation) float64 { return v.DriveCount }).(pulumi.Float64Output)
 }
 
 // The date when the package is shipped.
@@ -2835,13 +2835,13 @@ func (o PackageInformationPtrOutput) CarrierName() pulumi.StringPtrOutput {
 }
 
 // The number of drives included in the package.
-func (o PackageInformationPtrOutput) DriveCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PackageInformation) *int {
+func (o PackageInformationPtrOutput) DriveCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PackageInformation) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.DriveCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The date when the package is shipped.
@@ -2869,7 +2869,7 @@ type PackageInformationResponse struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName string `pulumi:"carrierName"`
 	// The number of drives included in the package.
-	DriveCount int `pulumi:"driveCount"`
+	DriveCount float64 `pulumi:"driveCount"`
 	// The date when the package is shipped.
 	ShipDate string `pulumi:"shipDate"`
 	// The tracking number of the package.
@@ -2892,7 +2892,7 @@ type PackageInformationResponseArgs struct {
 	// The name of the carrier that is used to ship the import or export drives.
 	CarrierName pulumi.StringInput `pulumi:"carrierName"`
 	// The number of drives included in the package.
-	DriveCount pulumi.IntInput `pulumi:"driveCount"`
+	DriveCount pulumi.Float64Input `pulumi:"driveCount"`
 	// The date when the package is shipped.
 	ShipDate pulumi.StringInput `pulumi:"shipDate"`
 	// The tracking number of the package.
@@ -2983,8 +2983,8 @@ func (o PackageInformationResponseOutput) CarrierName() pulumi.StringOutput {
 }
 
 // The number of drives included in the package.
-func (o PackageInformationResponseOutput) DriveCount() pulumi.IntOutput {
-	return o.ApplyT(func(v PackageInformationResponse) int { return v.DriveCount }).(pulumi.IntOutput)
+func (o PackageInformationResponseOutput) DriveCount() pulumi.Float64Output {
+	return o.ApplyT(func(v PackageInformationResponse) float64 { return v.DriveCount }).(pulumi.Float64Output)
 }
 
 // The date when the package is shipped.
@@ -3026,13 +3026,13 @@ func (o PackageInformationResponsePtrOutput) CarrierName() pulumi.StringPtrOutpu
 }
 
 // The number of drives included in the package.
-func (o PackageInformationResponsePtrOutput) DriveCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PackageInformationResponse) *int {
+func (o PackageInformationResponsePtrOutput) DriveCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PackageInformationResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.DriveCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The date when the package is shipped.

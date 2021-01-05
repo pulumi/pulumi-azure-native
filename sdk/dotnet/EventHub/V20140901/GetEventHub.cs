@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
         /// <summary>
         /// Number of days to retain the events for this Event Hub.
         /// </summary>
-        public readonly int? MessageRetentionInDays;
+        public readonly double? MessageRetentionInDays;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
         /// <summary>
         /// Number of partitions created for the Event Hub.
         /// </summary>
-        public readonly int? PartitionCount;
+        public readonly double? PartitionCount;
         /// <summary>
         /// Current number of shards on the Event Hub.
         /// </summary>
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
 
             string? location,
 
-            int? messageRetentionInDays,
+            double? messageRetentionInDays,
 
             string name,
 
-            int? partitionCount,
+            double? partitionCount,
 
             ImmutableArray<string> partitionIds,
 

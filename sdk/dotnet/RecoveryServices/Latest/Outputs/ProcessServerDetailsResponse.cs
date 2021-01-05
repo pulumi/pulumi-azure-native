@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The available memory.
         /// </summary>
-        public readonly int AvailableMemoryInBytes;
+        public readonly double AvailableMemoryInBytes;
         /// <summary>
         /// The available disk space.
         /// </summary>
-        public readonly int AvailableSpaceInBytes;
+        public readonly double AvailableSpaceInBytes;
         /// <summary>
         /// The free disk space percentage.
         /// </summary>
@@ -60,27 +60,27 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The throughput in bytes.
         /// </summary>
-        public readonly int ThroughputInBytes;
+        public readonly double ThroughputInBytes;
         /// <summary>
         /// The uploading pending data in bytes.
         /// </summary>
-        public readonly int ThroughputUploadPendingDataInBytes;
+        public readonly double ThroughputUploadPendingDataInBytes;
         /// <summary>
         /// The total memory.
         /// </summary>
-        public readonly int TotalMemoryInBytes;
+        public readonly double TotalMemoryInBytes;
         /// <summary>
         /// The total disk space.
         /// </summary>
-        public readonly int TotalSpaceInBytes;
+        public readonly double TotalSpaceInBytes;
         /// <summary>
         /// The used memory.
         /// </summary>
-        public readonly int UsedMemoryInBytes;
+        public readonly double UsedMemoryInBytes;
         /// <summary>
         /// The used disk space.
         /// </summary>
-        public readonly int UsedSpaceInBytes;
+        public readonly double UsedSpaceInBytes;
         /// <summary>
         /// The process server version.
         /// </summary>
@@ -88,9 +88,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
         [OutputConstructor]
         private ProcessServerDetailsResponse(
-            int availableMemoryInBytes,
+            double availableMemoryInBytes,
 
-            int availableSpaceInBytes,
+            double availableSpaceInBytes,
 
             double freeSpacePercentage,
 
@@ -110,17 +110,17 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             double processorUsagePercentage,
 
-            int throughputInBytes,
+            double throughputInBytes,
 
-            int throughputUploadPendingDataInBytes,
+            double throughputUploadPendingDataInBytes,
 
-            int totalMemoryInBytes,
+            double totalMemoryInBytes,
 
-            int totalSpaceInBytes,
+            double totalSpaceInBytes,
 
-            int usedMemoryInBytes,
+            double usedMemoryInBytes,
 
-            int usedSpaceInBytes,
+            double usedSpaceInBytes,
 
             string version)
         {

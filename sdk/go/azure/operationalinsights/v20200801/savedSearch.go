@@ -34,7 +34,7 @@ type SavedSearch struct {
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The version number of the query language. The current version is 2 and is the default.
-	Version pulumi.IntPtrOutput `pulumi:"version"`
+	Version pulumi.Float64PtrOutput `pulumi:"version"`
 }
 
 // NewSavedSearch registers a new resource with the given unique name, arguments, and options.
@@ -115,7 +115,7 @@ type savedSearchState struct {
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The version number of the query language. The current version is 2 and is the default.
-	Version *int `pulumi:"version"`
+	Version *float64 `pulumi:"version"`
 }
 
 type SavedSearchState struct {
@@ -138,7 +138,7 @@ type SavedSearchState struct {
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The version number of the query language. The current version is 2 and is the default.
-	Version pulumi.IntPtrInput
+	Version pulumi.Float64PtrInput
 }
 
 func (SavedSearchState) ElementType() reflect.Type {
@@ -165,7 +165,7 @@ type savedSearchArgs struct {
 	// The tags attached to the saved search.
 	Tags []Tag `pulumi:"tags"`
 	// The version number of the query language. The current version is 2 and is the default.
-	Version *int `pulumi:"version"`
+	Version *float64 `pulumi:"version"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
@@ -191,7 +191,7 @@ type SavedSearchArgs struct {
 	// The tags attached to the saved search.
 	Tags TagArrayInput
 	// The version number of the query language. The current version is 2 and is the default.
-	Version pulumi.IntPtrInput
+	Version pulumi.Float64PtrInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }

@@ -43,13 +43,13 @@ type Topic struct {
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
-	MaxSizeInMegabytes pulumi.IntPtrOutput `pulumi:"maxSizeInMegabytes"`
+	MaxSizeInMegabytes pulumi.Float64PtrOutput `pulumi:"maxSizeInMegabytes"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Value indicating if this topic requires duplicate detection.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
 	// Size of the topic, in bytes.
-	SizeInBytes pulumi.IntOutput `pulumi:"sizeInBytes"`
+	SizeInBytes pulumi.Float64Output `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Number of subscriptions.
@@ -146,13 +146,13 @@ type topicState struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
-	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
+	MaxSizeInMegabytes *float64 `pulumi:"maxSizeInMegabytes"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Value indicating if this topic requires duplicate detection.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// Size of the topic, in bytes.
-	SizeInBytes *int `pulumi:"sizeInBytes"`
+	SizeInBytes *float64 `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status *string `pulumi:"status"`
 	// Number of subscriptions.
@@ -194,13 +194,13 @@ type TopicState struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
-	MaxSizeInMegabytes pulumi.IntPtrInput
+	MaxSizeInMegabytes pulumi.Float64PtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
 	// Value indicating if this topic requires duplicate detection.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// Size of the topic, in bytes.
-	SizeInBytes pulumi.IntPtrInput
+	SizeInBytes pulumi.Float64PtrInput
 	// Enumerates the possible values for the status of a messaging entity.
 	Status pulumi.StringPtrInput
 	// Number of subscriptions.
@@ -240,7 +240,7 @@ type topicArgs struct {
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
-	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
+	MaxSizeInMegabytes *float64 `pulumi:"maxSizeInMegabytes"`
 	// Topic name.
 	Name *string `pulumi:"name"`
 	// The namespace name
@@ -281,7 +281,7 @@ type TopicArgs struct {
 	// Location of the resource.
 	Location pulumi.StringInput
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
-	MaxSizeInMegabytes pulumi.IntPtrInput
+	MaxSizeInMegabytes pulumi.Float64PtrInput
 	// Topic name.
 	Name pulumi.StringPtrInput
 	// The namespace name

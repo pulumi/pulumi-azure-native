@@ -88,11 +88,11 @@ class HealthStateResponse(dict):
     """
     def __init__(__self__, *,
                  health_state_name: str,
-                 severity: int):
+                 severity: float):
         """
         Specifies the health state to alert on and the corresponding severity
         :param str health_state_name: Health state name
-        :param int severity: Severity of alert fired
+        :param float severity: Severity of alert fired
         """
         pulumi.set(__self__, "health_state_name", health_state_name)
         pulumi.set(__self__, "severity", severity)
@@ -107,7 +107,7 @@ class HealthStateResponse(dict):
 
     @property
     @pulumi.getter
-    def severity(self) -> int:
+    def severity(self) -> float:
         """
         Severity of alert fired
         """

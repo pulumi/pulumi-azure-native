@@ -48,7 +48,7 @@ type LookupVirtualRouterResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// VirtualRouter ASN.
-	VirtualRouterAsn *int `pulumi:"virtualRouterAsn"`
+	VirtualRouterAsn *float64 `pulumi:"virtualRouterAsn"`
 	// VirtualRouter IPs
 	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 }

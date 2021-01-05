@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The disk capacity in bytes.
         /// </summary>
-        public readonly int CapacityInBytes;
+        public readonly double CapacityInBytes;
         /// <summary>
         /// The disk encryption set ARM Id.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
         [OutputConstructor]
         private InMageRcmProtectedDiskDetailsResponse(
-            int capacityInBytes,
+            double capacityInBytes,
 
             string diskEncryptionSetId,
 

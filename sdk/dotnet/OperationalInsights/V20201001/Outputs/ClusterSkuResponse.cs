@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001.Outputs
         /// <summary>
         /// The capacity value
         /// </summary>
-        public readonly int? Capacity;
+        public readonly double? Capacity;
         /// <summary>
         /// The name of the SKU.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001.Outputs
 
         [OutputConstructor]
         private ClusterSkuResponse(
-            int? capacity,
+            double? capacity,
 
             string? name)
         {

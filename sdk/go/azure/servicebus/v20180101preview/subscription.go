@@ -42,7 +42,7 @@ type Subscription struct {
 	// Number of maximum deliveries.
 	MaxDeliveryCount pulumi.IntPtrOutput `pulumi:"maxDeliveryCount"`
 	// Number of messages.
-	MessageCount pulumi.IntOutput `pulumi:"messageCount"`
+	MessageCount pulumi.Float64Output `pulumi:"messageCount"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Value indicating if a subscription supports the concept of sessions.
@@ -138,7 +138,7 @@ type subscriptionState struct {
 	// Number of maximum deliveries.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// Number of messages.
-	MessageCount *int `pulumi:"messageCount"`
+	MessageCount *float64 `pulumi:"messageCount"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Value indicating if a subscription supports the concept of sessions.
@@ -179,7 +179,7 @@ type SubscriptionState struct {
 	// Number of maximum deliveries.
 	MaxDeliveryCount pulumi.IntPtrInput
 	// Number of messages.
-	MessageCount pulumi.IntPtrInput
+	MessageCount pulumi.Float64PtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
 	// Value indicating if a subscription supports the concept of sessions.

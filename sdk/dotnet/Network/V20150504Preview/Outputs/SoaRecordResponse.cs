@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview.Outputs
         /// <summary>
         /// Gets or sets the expire time for this record.
         /// </summary>
-        public readonly int? ExpireTime;
+        public readonly double? ExpireTime;
         /// <summary>
         /// Gets or sets the domain name of the authoritative name server, without a terminating dot.
         /// </summary>
@@ -28,35 +28,35 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview.Outputs
         /// <summary>
         /// Gets or sets the minimum TTL value for this record.
         /// </summary>
-        public readonly int? MinimumTTL;
+        public readonly double? MinimumTTL;
         /// <summary>
         /// Gets or sets the refresh value for this record.
         /// </summary>
-        public readonly int? RefreshTime;
+        public readonly double? RefreshTime;
         /// <summary>
         /// Gets or sets the retry time for this record.
         /// </summary>
-        public readonly int? RetryTime;
+        public readonly double? RetryTime;
         /// <summary>
         /// Gets or sets the serial number for this record.
         /// </summary>
-        public readonly int? SerialNumber;
+        public readonly double? SerialNumber;
 
         [OutputConstructor]
         private SoaRecordResponse(
             string? email,
 
-            int? expireTime,
+            double? expireTime,
 
             string? host,
 
-            int? minimumTTL,
+            double? minimumTTL,
 
-            int? refreshTime,
+            double? refreshTime,
 
-            int? retryTime,
+            double? retryTime,
 
-            int? serialNumber)
+            double? serialNumber)
         {
             Email = email;
             ExpireTime = expireTime;

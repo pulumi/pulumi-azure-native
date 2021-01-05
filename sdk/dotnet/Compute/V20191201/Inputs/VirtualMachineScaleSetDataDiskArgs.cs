@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.Compute.V20191201.Inputs
         /// Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
         /// </summary>
         [Input("diskIOPSReadWrite")]
-        public Input<int>? DiskIOPSReadWrite { get; set; }
+        public Input<double>? DiskIOPSReadWrite { get; set; }
 
         /// <summary>
         /// Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
         /// </summary>
         [Input("diskMBpsReadWrite")]
-        public Input<int>? DiskMBpsReadWrite { get; set; }
+        public Input<double>? DiskMBpsReadWrite { get; set; }
 
         /// <summary>
         /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; This value cannot be larger than 1023 GB

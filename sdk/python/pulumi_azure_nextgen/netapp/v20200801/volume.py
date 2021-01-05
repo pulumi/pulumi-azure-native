@@ -37,7 +37,7 @@ class Volume(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mibps: Optional[pulumi.Input[float]] = None,
-                 usage_threshold: Optional[pulumi.Input[int]] = None,
+                 usage_threshold: Optional[pulumi.Input[float]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -66,7 +66,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[int] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] volume_type: What type of volume is this
         """
@@ -323,7 +323,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageThreshold")
-    def usage_threshold(self) -> pulumi.Output[int]:
+    def usage_threshold(self) -> pulumi.Output[float]:
         """
         Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         """

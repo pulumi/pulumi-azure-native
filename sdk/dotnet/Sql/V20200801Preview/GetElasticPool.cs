@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// The storage limit for the database elastic pool in bytes.
         /// </summary>
-        public readonly int? MaxSizeBytes;
+        public readonly double? MaxSizeBytes;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
             string? maintenanceConfigurationId,
 
-            int? maxSizeBytes,
+            double? maxSizeBytes,
 
             string name,
 

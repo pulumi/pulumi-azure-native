@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401.Inputs
         /// The initial score assigned to this radius server.
         /// </summary>
         [Input("radiusServerScore")]
-        public Input<int>? RadiusServerScore { get; set; }
+        public Input<double>? RadiusServerScore { get; set; }
 
         /// <summary>
         /// The secret used for this radius server.

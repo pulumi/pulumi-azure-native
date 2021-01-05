@@ -2174,13 +2174,13 @@ class SiteLimitsResponse(dict):
     Metric limits set on an app.
     """
     def __init__(__self__, *,
-                 max_disk_size_in_mb: Optional[int] = None,
-                 max_memory_in_mb: Optional[int] = None,
+                 max_disk_size_in_mb: Optional[float] = None,
+                 max_memory_in_mb: Optional[float] = None,
                  max_percentage_cpu: Optional[float] = None):
         """
         Metric limits set on an app.
-        :param int max_disk_size_in_mb: Maximum allowed disk size usage in MB.
-        :param int max_memory_in_mb: Maximum allowed memory usage in MB.
+        :param float max_disk_size_in_mb: Maximum allowed disk size usage in MB.
+        :param float max_memory_in_mb: Maximum allowed memory usage in MB.
         :param float max_percentage_cpu: Maximum allowed CPU usage percentage.
         """
         if max_disk_size_in_mb is not None:
@@ -2192,7 +2192,7 @@ class SiteLimitsResponse(dict):
 
     @property
     @pulumi.getter(name="maxDiskSizeInMb")
-    def max_disk_size_in_mb(self) -> Optional[int]:
+    def max_disk_size_in_mb(self) -> Optional[float]:
         """
         Maximum allowed disk size usage in MB.
         """
@@ -2200,7 +2200,7 @@ class SiteLimitsResponse(dict):
 
     @property
     @pulumi.getter(name="maxMemoryInMb")
-    def max_memory_in_mb(self) -> Optional[int]:
+    def max_memory_in_mb(self) -> Optional[float]:
         """
         Maximum allowed memory usage in MB.
         """

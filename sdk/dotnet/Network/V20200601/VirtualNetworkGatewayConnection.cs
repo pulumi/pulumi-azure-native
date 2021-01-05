@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// The egress bytes transferred in this connection.
         /// </summary>
         [Output("egressBytesTransferred")]
-        public Output<int> EgressBytesTransferred { get; private set; } = null!;
+        public Output<double> EgressBytesTransferred { get; private set; } = null!;
 
         /// <summary>
         /// EnableBgp flag.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// The ingress bytes transferred in this connection.
         /// </summary>
         [Output("ingressBytesTransferred")]
-        public Output<int> IngressBytesTransferred { get; private set; } = null!;
+        public Output<double> IngressBytesTransferred { get; private set; } = null!;
 
         /// <summary>
         /// The IPSec Policies to be considered by this connection.

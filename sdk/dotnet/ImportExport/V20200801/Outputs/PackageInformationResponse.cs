@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801.Outputs
         /// <summary>
         /// The number of drives included in the package.
         /// </summary>
-        public readonly int DriveCount;
+        public readonly double DriveCount;
         /// <summary>
         /// The date when the package is shipped.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801.Outputs
         private PackageInformationResponse(
             string carrierName,
 
-            int driveCount,
+            double driveCount,
 
             string shipDate,
 

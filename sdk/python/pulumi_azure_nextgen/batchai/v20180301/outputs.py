@@ -724,14 +724,14 @@ class FileResponseResult(dict):
     def __init__(__self__, *,
                  is_directory: bool,
                  name: str,
-                 content_length: Optional[int] = None,
+                 content_length: Optional[float] = None,
                  download_url: Optional[str] = None,
                  last_modified: Optional[str] = None):
         """
         Properties of the file or directory.
         :param bool is_directory: Indicates if the file is a directory.
         :param str name: Name of the file.
-        :param int content_length: The file size.
+        :param float content_length: The file size.
         :param str last_modified: The time at which the file was last modified.
         """
         pulumi.set(__self__, "is_directory", is_directory)
@@ -761,7 +761,7 @@ class FileResponseResult(dict):
 
     @property
     @pulumi.getter(name="contentLength")
-    def content_length(self) -> Optional[int]:
+    def content_length(self) -> Optional[float]:
         """
         The file size.
         """

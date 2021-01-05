@@ -58,7 +58,7 @@ type LookupSubscriptionResult struct {
 	// Number of maximum deliveries.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// Number of messages.
-	MessageCount int `pulumi:"messageCount"`
+	MessageCount float64 `pulumi:"messageCount"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Value indicating if a subscription supports the concept of sessions.

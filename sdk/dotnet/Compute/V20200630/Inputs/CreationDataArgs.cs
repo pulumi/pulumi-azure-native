@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630.Inputs
         /// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         /// </summary>
         [Input("uploadSizeBytes")]
-        public Input<int>? UploadSizeBytes { get; set; }
+        public Input<double>? UploadSizeBytes { get; set; }
 
         public CreationDataArgs()
         {

@@ -145,7 +145,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeBytes")
-    def disk_size_bytes(self) -> pulumi.Output[int]:
+    def disk_size_bytes(self) -> pulumi.Output[float]:
         """
         The size of the disk in bytes. This field is read only.
         """

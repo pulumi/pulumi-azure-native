@@ -136,11 +136,11 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <summary>
         /// The max log size for this database.
         /// </summary>
-        public readonly int MaxLogSizeBytes;
+        public readonly double MaxLogSizeBytes;
         /// <summary>
         /// The max size of the database expressed in bytes.
         /// </summary>
-        public readonly int? MaxSizeBytes;
+        public readonly double? MaxSizeBytes;
         /// <summary>
         /// Minimal capacity that database will always have allocated, if not paused
         /// </summary>
@@ -270,9 +270,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 
             string managedBy,
 
-            int maxLogSizeBytes,
+            double maxLogSizeBytes,
 
-            int? maxSizeBytes,
+            double? maxSizeBytes,
 
             double? minCapacity,
 

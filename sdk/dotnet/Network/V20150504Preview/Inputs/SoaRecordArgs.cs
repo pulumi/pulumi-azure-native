@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview.Inputs
         /// Gets or sets the expire time for this record.
         /// </summary>
         [Input("expireTime")]
-        public Input<int>? ExpireTime { get; set; }
+        public Input<double>? ExpireTime { get; set; }
 
         /// <summary>
         /// Gets or sets the domain name of the authoritative name server, without a terminating dot.
@@ -37,25 +37,25 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview.Inputs
         /// Gets or sets the minimum TTL value for this record.
         /// </summary>
         [Input("minimumTTL")]
-        public Input<int>? MinimumTTL { get; set; }
+        public Input<double>? MinimumTTL { get; set; }
 
         /// <summary>
         /// Gets or sets the refresh value for this record.
         /// </summary>
         [Input("refreshTime")]
-        public Input<int>? RefreshTime { get; set; }
+        public Input<double>? RefreshTime { get; set; }
 
         /// <summary>
         /// Gets or sets the retry time for this record.
         /// </summary>
         [Input("retryTime")]
-        public Input<int>? RetryTime { get; set; }
+        public Input<double>? RetryTime { get; set; }
 
         /// <summary>
         /// Gets or sets the serial number for this record.
         /// </summary>
         [Input("serialNumber")]
-        public Input<int>? SerialNumber { get; set; }
+        public Input<double>? SerialNumber { get; set; }
 
         public SoaRecordArgs()
         {

@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501
         /// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         /// </summary>
         [Output("minChildEndpoints")]
-        public Output<int?> MinChildEndpoints { get; private set; } = null!;
+        public Output<double?> MinChildEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501
         /// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         /// </summary>
         [Output("priority")]
-        public Output<int?> Priority { get; private set; } = null!;
+        public Output<double?> Priority { get; private set; } = null!;
 
         /// <summary>
         /// The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501
         /// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         /// </summary>
         [Output("weight")]
-        public Output<int?> Weight { get; private set; } = null!;
+        public Output<double?> Weight { get; private set; } = null!;
 
 
         /// <summary>
@@ -181,13 +181,13 @@ namespace Pulumi.AzureNextGen.Network.V20170501
         /// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         /// </summary>
         [Input("minChildEndpoints")]
-        public Input<int>? MinChildEndpoints { get; set; }
+        public Input<double>? MinChildEndpoints { get; set; }
 
         /// <summary>
         /// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         /// </summary>
         [Input("priority")]
-        public Input<int>? Priority { get; set; }
+        public Input<double>? Priority { get; set; }
 
         /// <summary>
         /// The name of the Traffic Manager profile.
@@ -217,7 +217,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501
         /// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         /// </summary>
         [Input("weight")]
-        public Input<int>? Weight { get; set; }
+        public Input<double>? Weight { get; set; }
 
         public EndpointArgs()
         {

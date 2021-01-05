@@ -5193,7 +5193,7 @@ func (o BackendAddressPoolResponseArrayOutput) Index(i pulumi.IntInput) BackendA
 
 type BgpSettings struct {
 	// Gets or sets this BGP speaker's ASN
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// Gets or sets the BGP peering address and BGP identifier of this BGP speaker
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 	// Gets or sets the weight added to routes learned from this BGP speaker
@@ -5213,7 +5213,7 @@ type BgpSettingsInput interface {
 
 type BgpSettingsArgs struct {
 	// Gets or sets this BGP speaker's ASN
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// Gets or sets the BGP peering address and BGP identifier of this BGP speaker
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 	// Gets or sets the weight added to routes learned from this BGP speaker
@@ -5298,8 +5298,8 @@ func (o BgpSettingsOutput) ToBgpSettingsPtrOutputWithContext(ctx context.Context
 }
 
 // Gets or sets this BGP speaker's ASN
-func (o BgpSettingsOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BgpSettings) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o BgpSettingsOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BgpSettings) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the BGP peering address and BGP identifier of this BGP speaker
@@ -5331,13 +5331,13 @@ func (o BgpSettingsPtrOutput) Elem() BgpSettingsOutput {
 }
 
 // Gets or sets this BGP speaker's ASN
-func (o BgpSettingsPtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BgpSettings) *int {
+func (o BgpSettingsPtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BgpSettings) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the BGP peering address and BGP identifier of this BGP speaker
@@ -5362,7 +5362,7 @@ func (o BgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutput {
 
 type BgpSettingsResponse struct {
 	// Gets or sets this BGP speaker's ASN
-	Asn *int `pulumi:"asn"`
+	Asn *float64 `pulumi:"asn"`
 	// Gets or sets the BGP peering address and BGP identifier of this BGP speaker
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
 	// Gets or sets the weight added to routes learned from this BGP speaker
@@ -5382,7 +5382,7 @@ type BgpSettingsResponseInput interface {
 
 type BgpSettingsResponseArgs struct {
 	// Gets or sets this BGP speaker's ASN
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.Float64PtrInput `pulumi:"asn"`
 	// Gets or sets the BGP peering address and BGP identifier of this BGP speaker
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
 	// Gets or sets the weight added to routes learned from this BGP speaker
@@ -5467,8 +5467,8 @@ func (o BgpSettingsResponseOutput) ToBgpSettingsResponsePtrOutputWithContext(ctx
 }
 
 // Gets or sets this BGP speaker's ASN
-func (o BgpSettingsResponseOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BgpSettingsResponse) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o BgpSettingsResponseOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BgpSettingsResponse) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the BGP peering address and BGP identifier of this BGP speaker
@@ -5500,13 +5500,13 @@ func (o BgpSettingsResponsePtrOutput) Elem() BgpSettingsResponseOutput {
 }
 
 // Gets or sets this BGP speaker's ASN
-func (o BgpSettingsResponsePtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BgpSettingsResponse) *int {
+func (o BgpSettingsResponsePtrOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BgpSettingsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Asn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets the BGP peering address and BGP identifier of this BGP speaker
@@ -7674,13 +7674,13 @@ func (o ExpressRouteCircuitSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 // Contains Stats associated with the peering
 type ExpressRouteCircuitStats struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn *int `pulumi:"primarybytesIn"`
+	PrimarybytesIn *float64 `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut *int `pulumi:"primarybytesOut"`
+	PrimarybytesOut *float64 `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn *int `pulumi:"secondarybytesIn"`
+	SecondarybytesIn *float64 `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut *int `pulumi:"secondarybytesOut"`
+	SecondarybytesOut *float64 `pulumi:"secondarybytesOut"`
 }
 
 // ExpressRouteCircuitStatsInput is an input type that accepts ExpressRouteCircuitStatsArgs and ExpressRouteCircuitStatsOutput values.
@@ -7697,13 +7697,13 @@ type ExpressRouteCircuitStatsInput interface {
 // Contains Stats associated with the peering
 type ExpressRouteCircuitStatsArgs struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn pulumi.IntPtrInput `pulumi:"primarybytesIn"`
+	PrimarybytesIn pulumi.Float64PtrInput `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut pulumi.IntPtrInput `pulumi:"primarybytesOut"`
+	PrimarybytesOut pulumi.Float64PtrInput `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn pulumi.IntPtrInput `pulumi:"secondarybytesIn"`
+	SecondarybytesIn pulumi.Float64PtrInput `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut pulumi.IntPtrInput `pulumi:"secondarybytesOut"`
+	SecondarybytesOut pulumi.Float64PtrInput `pulumi:"secondarybytesOut"`
 }
 
 func (ExpressRouteCircuitStatsArgs) ElementType() reflect.Type {
@@ -7785,23 +7785,23 @@ func (o ExpressRouteCircuitStatsOutput) ToExpressRouteCircuitStatsPtrOutputWithC
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.PrimarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.PrimarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.PrimarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.PrimarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.SecondarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.SecondarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStats) *int { return v.SecondarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStats) *float64 { return v.SecondarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 type ExpressRouteCircuitStatsPtrOutput struct{ *pulumi.OutputState }
@@ -7823,55 +7823,55 @@ func (o ExpressRouteCircuitStatsPtrOutput) Elem() ExpressRouteCircuitStatsOutput
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStats) *int {
+func (o ExpressRouteCircuitStatsPtrOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStats) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Contains Stats associated with the peering
 type ExpressRouteCircuitStatsResponse struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn *int `pulumi:"primarybytesIn"`
+	PrimarybytesIn *float64 `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut *int `pulumi:"primarybytesOut"`
+	PrimarybytesOut *float64 `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn *int `pulumi:"secondarybytesIn"`
+	SecondarybytesIn *float64 `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut *int `pulumi:"secondarybytesOut"`
+	SecondarybytesOut *float64 `pulumi:"secondarybytesOut"`
 }
 
 // ExpressRouteCircuitStatsResponseInput is an input type that accepts ExpressRouteCircuitStatsResponseArgs and ExpressRouteCircuitStatsResponseOutput values.
@@ -7888,13 +7888,13 @@ type ExpressRouteCircuitStatsResponseInput interface {
 // Contains Stats associated with the peering
 type ExpressRouteCircuitStatsResponseArgs struct {
 	// Gets BytesIn of the peering.
-	PrimarybytesIn pulumi.IntPtrInput `pulumi:"primarybytesIn"`
+	PrimarybytesIn pulumi.Float64PtrInput `pulumi:"primarybytesIn"`
 	// Gets BytesOut of the peering.
-	PrimarybytesOut pulumi.IntPtrInput `pulumi:"primarybytesOut"`
+	PrimarybytesOut pulumi.Float64PtrInput `pulumi:"primarybytesOut"`
 	// Gets BytesIn of the peering.
-	SecondarybytesIn pulumi.IntPtrInput `pulumi:"secondarybytesIn"`
+	SecondarybytesIn pulumi.Float64PtrInput `pulumi:"secondarybytesIn"`
 	// Gets BytesOut of the peering.
-	SecondarybytesOut pulumi.IntPtrInput `pulumi:"secondarybytesOut"`
+	SecondarybytesOut pulumi.Float64PtrInput `pulumi:"secondarybytesOut"`
 }
 
 func (ExpressRouteCircuitStatsResponseArgs) ElementType() reflect.Type {
@@ -7976,23 +7976,23 @@ func (o ExpressRouteCircuitStatsResponseOutput) ToExpressRouteCircuitStatsRespon
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.PrimarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.PrimarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.PrimarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.PrimarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.SecondarybytesIn }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.SecondarybytesIn }).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *int { return v.SecondarybytesOut }).(pulumi.IntPtrOutput)
+func (o ExpressRouteCircuitStatsResponseOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitStatsResponse) *float64 { return v.SecondarybytesOut }).(pulumi.Float64PtrOutput)
 }
 
 type ExpressRouteCircuitStatsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -8014,43 +8014,43 @@ func (o ExpressRouteCircuitStatsResponsePtrOutput) Elem() ExpressRouteCircuitSta
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) PrimarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PrimarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesIn of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesIn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesIn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesIn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets BytesOut of the peering.
-func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesOut() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *int {
+func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesOut() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitStatsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SecondarybytesOut
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Frontend IP address of the load balancer

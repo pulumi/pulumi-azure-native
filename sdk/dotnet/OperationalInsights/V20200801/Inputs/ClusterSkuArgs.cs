@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801.Inputs
         /// The capacity value
         /// </summary>
         [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
+        public Input<double>? Capacity { get; set; }
 
         /// <summary>
         /// The name of the SKU.

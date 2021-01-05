@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// The egress bytes transferred in this connection.
         /// </summary>
-        public readonly int EgressBytesTransferred;
+        public readonly double EgressBytesTransferred;
         /// <summary>
         /// EnableBgp flag
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// The ingress bytes transferred in this connection.
         /// </summary>
-        public readonly int IngressBytesTransferred;
+        public readonly double IngressBytesTransferred;
         /// <summary>
         /// The IPSec Policies to be considered by this connection.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string connectionType,
 
-            int egressBytesTransferred,
+            double egressBytesTransferred,
 
             bool? enableBgp,
 
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string? id,
 
-            int ingressBytesTransferred,
+            double ingressBytesTransferred,
 
             ImmutableArray<Outputs.IpsecPolicyResponse> ipsecPolicies,
 

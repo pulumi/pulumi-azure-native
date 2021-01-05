@@ -198,7 +198,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containmentState")
-    def containment_state(self) -> pulumi.Output[int]:
+    def containment_state(self) -> pulumi.Output[float]:
         """
         The containment state of the database.
         """

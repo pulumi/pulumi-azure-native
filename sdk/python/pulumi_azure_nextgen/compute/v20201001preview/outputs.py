@@ -477,12 +477,12 @@ class CloudServiceRoleSkuResponse(dict):
     Describes the cloud service role sku.
     """
     def __init__(__self__, *,
-                 capacity: Optional[int] = None,
+                 capacity: Optional[float] = None,
                  name: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         Describes the cloud service role sku.
-        :param int capacity: Specifies the number of role instances in the cloud service.
+        :param float capacity: Specifies the number of role instances in the cloud service.
         :param str name: The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
         :param str tier: Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
         """
@@ -495,7 +495,7 @@ class CloudServiceRoleSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[int]:
+    def capacity(self) -> Optional[float]:
         """
         Specifies the number of role instances in the cloud service.
         """

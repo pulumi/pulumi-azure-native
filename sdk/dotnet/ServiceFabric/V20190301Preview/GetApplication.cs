@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301Preview
         /// <summary>
         /// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
         /// </summary>
-        public readonly int? MaximumNodes;
+        public readonly double? MaximumNodes;
         /// <summary>
         /// List of application capacity metric description.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301Preview
         /// <summary>
         /// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
         /// </summary>
-        public readonly int? MinimumNodes;
+        public readonly double? MinimumNodes;
         /// <summary>
         /// Azure resource name.
         /// </summary>
@@ -114,11 +114,11 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301Preview
 
             string? location,
 
-            int? maximumNodes,
+            double? maximumNodes,
 
             ImmutableArray<Outputs.ApplicationMetricDescriptionResponse> metrics,
 
-            int? minimumNodes,
+            double? minimumNodes,
 
             string name,
 

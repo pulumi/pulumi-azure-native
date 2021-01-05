@@ -430,7 +430,7 @@ class CreationDataResponse(dict):
                  source_resource_id: Optional[str] = None,
                  source_uri: Optional[str] = None,
                  storage_account_id: Optional[str] = None,
-                 upload_size_bytes: Optional[int] = None):
+                 upload_size_bytes: Optional[float] = None):
         """
         Data used when creating a disk.
         :param str create_option: This enumerates the possible sources of a disk's creation.
@@ -439,7 +439,7 @@ class CreationDataResponse(dict):
         :param str source_resource_id: If createOption is Copy, this is the ARM id of the source snapshot or disk.
         :param str source_uri: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
         :param str storage_account_id: If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
-        :param int upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+        :param float upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
         pulumi.set(__self__, "create_option", create_option)
         pulumi.set(__self__, "source_unique_id", source_unique_id)
@@ -504,7 +504,7 @@ class CreationDataResponse(dict):
 
     @property
     @pulumi.getter(name="uploadSizeBytes")
-    def upload_size_bytes(self) -> Optional[int]:
+    def upload_size_bytes(self) -> Optional[float]:
         """
         If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
@@ -3065,12 +3065,12 @@ class SkuResponse(dict):
     Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
     """
     def __init__(__self__, *,
-                 capacity: Optional[int] = None,
+                 capacity: Optional[float] = None,
                  name: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
-        :param int capacity: Specifies the number of virtual machines in the scale set.
+        :param float capacity: Specifies the number of virtual machines in the scale set.
         :param str name: The sku name.
         :param str tier: Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
         """
@@ -3083,7 +3083,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[int]:
+    def capacity(self) -> Optional[float]:
         """
         Specifies the number of virtual machines in the scale set.
         """

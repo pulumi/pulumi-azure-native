@@ -2369,13 +2369,13 @@ class SsisEnvironmentReferenceResponseResult(dict):
     def __init__(__self__, *,
                  environment_folder_name: Optional[str] = None,
                  environment_name: Optional[str] = None,
-                 id: Optional[int] = None,
+                 id: Optional[float] = None,
                  reference_type: Optional[str] = None):
         """
         Ssis environment reference.
         :param str environment_folder_name: Environment folder name.
         :param str environment_name: Environment name.
-        :param int id: Environment reference id.
+        :param float id: Environment reference id.
         :param str reference_type: Reference type
         """
         if environment_folder_name is not None:
@@ -2405,7 +2405,7 @@ class SsisEnvironmentReferenceResponseResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[int]:
+    def id(self) -> Optional[float]:
         """
         Environment reference id.
         """
@@ -2428,8 +2428,8 @@ class SsisEnvironmentResponseResult(dict):
     def __init__(__self__, *,
                  type: str,
                  description: Optional[str] = None,
-                 folder_id: Optional[int] = None,
-                 id: Optional[int] = None,
+                 folder_id: Optional[float] = None,
+                 id: Optional[float] = None,
                  name: Optional[str] = None,
                  variables: Optional[Sequence['outputs.SsisVariableResponseResult']] = None):
         """
@@ -2437,8 +2437,8 @@ class SsisEnvironmentResponseResult(dict):
         :param str type: Type of metadata.
                Expected value is 'Environment'.
         :param str description: Metadata description.
-        :param int folder_id: Folder id which contains environment.
-        :param int id: Metadata id.
+        :param float folder_id: Folder id which contains environment.
+        :param float id: Metadata id.
         :param str name: Metadata name.
         :param Sequence['SsisVariableResponseArgs'] variables: Variable in environment
         """
@@ -2473,7 +2473,7 @@ class SsisEnvironmentResponseResult(dict):
 
     @property
     @pulumi.getter(name="folderId")
-    def folder_id(self) -> Optional[int]:
+    def folder_id(self) -> Optional[float]:
         """
         Folder id which contains environment.
         """
@@ -2481,7 +2481,7 @@ class SsisEnvironmentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[int]:
+    def id(self) -> Optional[float]:
         """
         Metadata id.
         """
@@ -2512,14 +2512,14 @@ class SsisFolderResponseResult(dict):
     def __init__(__self__, *,
                  type: str,
                  description: Optional[str] = None,
-                 id: Optional[int] = None,
+                 id: Optional[float] = None,
                  name: Optional[str] = None):
         """
         Ssis folder.
         :param str type: Type of metadata.
                Expected value is 'Folder'.
         :param str description: Metadata description.
-        :param int id: Metadata id.
+        :param float id: Metadata id.
         :param str name: Metadata name.
         """
         pulumi.set(__self__, "type", 'Folder')
@@ -2549,7 +2549,7 @@ class SsisFolderResponseResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[int]:
+    def id(self) -> Optional[float]:
         """
         Metadata id.
         """
@@ -2572,23 +2572,23 @@ class SsisPackageResponseResult(dict):
     def __init__(__self__, *,
                  type: str,
                  description: Optional[str] = None,
-                 folder_id: Optional[int] = None,
-                 id: Optional[int] = None,
+                 folder_id: Optional[float] = None,
+                 id: Optional[float] = None,
                  name: Optional[str] = None,
                  parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
-                 project_id: Optional[int] = None,
-                 project_version: Optional[int] = None):
+                 project_id: Optional[float] = None,
+                 project_version: Optional[float] = None):
         """
         Ssis Package.
         :param str type: Type of metadata.
                Expected value is 'Package'.
         :param str description: Metadata description.
-        :param int folder_id: Folder id which contains package.
-        :param int id: Metadata id.
+        :param float folder_id: Folder id which contains package.
+        :param float id: Metadata id.
         :param str name: Metadata name.
         :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in package
-        :param int project_id: Project id which contains package.
-        :param int project_version: Project version which contains package.
+        :param float project_id: Project id which contains package.
+        :param float project_version: Project version which contains package.
         """
         pulumi.set(__self__, "type", 'Package')
         if description is not None:
@@ -2625,7 +2625,7 @@ class SsisPackageResponseResult(dict):
 
     @property
     @pulumi.getter(name="folderId")
-    def folder_id(self) -> Optional[int]:
+    def folder_id(self) -> Optional[float]:
         """
         Folder id which contains package.
         """
@@ -2633,7 +2633,7 @@ class SsisPackageResponseResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[int]:
+    def id(self) -> Optional[float]:
         """
         Metadata id.
         """
@@ -2657,7 +2657,7 @@ class SsisPackageResponseResult(dict):
 
     @property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[int]:
+    def project_id(self) -> Optional[float]:
         """
         Project id which contains package.
         """
@@ -2665,7 +2665,7 @@ class SsisPackageResponseResult(dict):
 
     @property
     @pulumi.getter(name="projectVersion")
-    def project_version(self) -> Optional[int]:
+    def project_version(self) -> Optional[float]:
         """
         Project version which contains package.
         """
@@ -2682,7 +2682,7 @@ class SsisParameterResponseResult(dict):
                  default_value: Optional[str] = None,
                  description: Optional[str] = None,
                  design_default_value: Optional[str] = None,
-                 id: Optional[int] = None,
+                 id: Optional[float] = None,
                  name: Optional[str] = None,
                  required: Optional[bool] = None,
                  sensitive: Optional[bool] = None,
@@ -2696,7 +2696,7 @@ class SsisParameterResponseResult(dict):
         :param str default_value: Default value of parameter.
         :param str description: Parameter description.
         :param str design_default_value: Design default value of parameter.
-        :param int id: Parameter id.
+        :param float id: Parameter id.
         :param str name: Parameter name.
         :param bool required: Whether parameter is required.
         :param bool sensitive: Whether parameter is sensitive.
@@ -2764,7 +2764,7 @@ class SsisParameterResponseResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[int]:
+    def id(self) -> Optional[float]:
         """
         Parameter id.
         """
@@ -2836,22 +2836,22 @@ class SsisProjectResponseResult(dict):
                  type: str,
                  description: Optional[str] = None,
                  environment_refs: Optional[Sequence['outputs.SsisEnvironmentReferenceResponseResult']] = None,
-                 folder_id: Optional[int] = None,
-                 id: Optional[int] = None,
+                 folder_id: Optional[float] = None,
+                 id: Optional[float] = None,
                  name: Optional[str] = None,
                  parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
-                 version: Optional[int] = None):
+                 version: Optional[float] = None):
         """
         Ssis project.
         :param str type: Type of metadata.
                Expected value is 'Project'.
         :param str description: Metadata description.
         :param Sequence['SsisEnvironmentReferenceResponseArgs'] environment_refs: Environment reference in project
-        :param int folder_id: Folder id which contains project.
-        :param int id: Metadata id.
+        :param float folder_id: Folder id which contains project.
+        :param float id: Metadata id.
         :param str name: Metadata name.
         :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in project
-        :param int version: Project version.
+        :param float version: Project version.
         """
         pulumi.set(__self__, "type", 'Project')
         if description is not None:
@@ -2896,7 +2896,7 @@ class SsisProjectResponseResult(dict):
 
     @property
     @pulumi.getter(name="folderId")
-    def folder_id(self) -> Optional[int]:
+    def folder_id(self) -> Optional[float]:
         """
         Folder id which contains project.
         """
@@ -2904,7 +2904,7 @@ class SsisProjectResponseResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[int]:
+    def id(self) -> Optional[float]:
         """
         Metadata id.
         """
@@ -2928,7 +2928,7 @@ class SsisProjectResponseResult(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[int]:
+    def version(self) -> Optional[float]:
         """
         Project version.
         """
@@ -2943,7 +2943,7 @@ class SsisVariableResponseResult(dict):
     def __init__(__self__, *,
                  data_type: Optional[str] = None,
                  description: Optional[str] = None,
-                 id: Optional[int] = None,
+                 id: Optional[float] = None,
                  name: Optional[str] = None,
                  sensitive: Optional[bool] = None,
                  sensitive_value: Optional[str] = None,
@@ -2952,7 +2952,7 @@ class SsisVariableResponseResult(dict):
         Ssis variable.
         :param str data_type: Variable type.
         :param str description: Variable description.
-        :param int id: Variable id.
+        :param float id: Variable id.
         :param str name: Variable name.
         :param bool sensitive: Whether variable is sensitive.
         :param str sensitive_value: Variable sensitive value.
@@ -2991,7 +2991,7 @@ class SsisVariableResponseResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[int]:
+    def id(self) -> Optional[float]:
         """
         Variable id.
         """

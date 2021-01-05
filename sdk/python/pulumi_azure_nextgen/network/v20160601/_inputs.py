@@ -1801,11 +1801,11 @@ class BackendAddressPoolArgs:
 @pulumi.input_type
 class BgpSettingsArgs:
     def __init__(__self__, *,
-                 asn: Optional[pulumi.Input[int]] = None,
+                 asn: Optional[pulumi.Input[float]] = None,
                  bgp_peering_address: Optional[pulumi.Input[str]] = None,
                  peer_weight: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] asn: Gets or sets this BGP speaker's ASN
+        :param pulumi.Input[float] asn: Gets or sets this BGP speaker's ASN
         :param pulumi.Input[str] bgp_peering_address: Gets or sets the BGP peering address and BGP identifier of this BGP speaker
         :param pulumi.Input[int] peer_weight: Gets or sets the weight added to routes learned from this BGP speaker
         """
@@ -1818,14 +1818,14 @@ class BgpSettingsArgs:
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[pulumi.Input[int]]:
+    def asn(self) -> Optional[pulumi.Input[float]]:
         """
         Gets or sets this BGP speaker's ASN
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[pulumi.Input[int]]):
+    def asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "asn", value)
 
     @property
@@ -2464,16 +2464,16 @@ class ExpressRouteCircuitSkuArgs:
 @pulumi.input_type
 class ExpressRouteCircuitStatsArgs:
     def __init__(__self__, *,
-                 primarybytes_in: Optional[pulumi.Input[int]] = None,
-                 primarybytes_out: Optional[pulumi.Input[int]] = None,
-                 secondarybytes_in: Optional[pulumi.Input[int]] = None,
-                 secondarybytes_out: Optional[pulumi.Input[int]] = None):
+                 primarybytes_in: Optional[pulumi.Input[float]] = None,
+                 primarybytes_out: Optional[pulumi.Input[float]] = None,
+                 secondarybytes_in: Optional[pulumi.Input[float]] = None,
+                 secondarybytes_out: Optional[pulumi.Input[float]] = None):
         """
         Contains Stats associated with the peering
-        :param pulumi.Input[int] primarybytes_in: Gets BytesIn of the peering.
-        :param pulumi.Input[int] primarybytes_out: Gets BytesOut of the peering.
-        :param pulumi.Input[int] secondarybytes_in: Gets BytesIn of the peering.
-        :param pulumi.Input[int] secondarybytes_out: Gets BytesOut of the peering.
+        :param pulumi.Input[float] primarybytes_in: Gets BytesIn of the peering.
+        :param pulumi.Input[float] primarybytes_out: Gets BytesOut of the peering.
+        :param pulumi.Input[float] secondarybytes_in: Gets BytesIn of the peering.
+        :param pulumi.Input[float] secondarybytes_out: Gets BytesOut of the peering.
         """
         if primarybytes_in is not None:
             pulumi.set(__self__, "primarybytes_in", primarybytes_in)
@@ -2486,50 +2486,50 @@ class ExpressRouteCircuitStatsArgs:
 
     @property
     @pulumi.getter(name="primarybytesIn")
-    def primarybytes_in(self) -> Optional[pulumi.Input[int]]:
+    def primarybytes_in(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesIn of the peering.
         """
         return pulumi.get(self, "primarybytes_in")
 
     @primarybytes_in.setter
-    def primarybytes_in(self, value: Optional[pulumi.Input[int]]):
+    def primarybytes_in(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "primarybytes_in", value)
 
     @property
     @pulumi.getter(name="primarybytesOut")
-    def primarybytes_out(self) -> Optional[pulumi.Input[int]]:
+    def primarybytes_out(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesOut of the peering.
         """
         return pulumi.get(self, "primarybytes_out")
 
     @primarybytes_out.setter
-    def primarybytes_out(self, value: Optional[pulumi.Input[int]]):
+    def primarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "primarybytes_out", value)
 
     @property
     @pulumi.getter(name="secondarybytesIn")
-    def secondarybytes_in(self) -> Optional[pulumi.Input[int]]:
+    def secondarybytes_in(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesIn of the peering.
         """
         return pulumi.get(self, "secondarybytes_in")
 
     @secondarybytes_in.setter
-    def secondarybytes_in(self, value: Optional[pulumi.Input[int]]):
+    def secondarybytes_in(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_in", value)
 
     @property
     @pulumi.getter(name="secondarybytesOut")
-    def secondarybytes_out(self) -> Optional[pulumi.Input[int]]:
+    def secondarybytes_out(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesOut of the peering.
         """
         return pulumi.get(self, "secondarybytes_out")
 
     @secondarybytes_out.setter
-    def secondarybytes_out(self, value: Optional[pulumi.Input[int]]):
+    def secondarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_out", value)
 
 

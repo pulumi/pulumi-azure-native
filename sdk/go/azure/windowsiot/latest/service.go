@@ -29,7 +29,7 @@ type Service struct {
 	// Windows IoT Device Service notes.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// Windows IoT Device Service device allocation,
-	Quantity pulumi.IntPtrOutput `pulumi:"quantity"`
+	Quantity pulumi.Float64PtrOutput `pulumi:"quantity"`
 	// Windows IoT Device Service start date,
 	StartDate pulumi.StringOutput `pulumi:"startDate"`
 	// Resource tags.
@@ -95,7 +95,7 @@ type serviceState struct {
 	// Windows IoT Device Service notes.
 	Notes *string `pulumi:"notes"`
 	// Windows IoT Device Service device allocation,
-	Quantity *int `pulumi:"quantity"`
+	Quantity *float64 `pulumi:"quantity"`
 	// Windows IoT Device Service start date,
 	StartDate *string `pulumi:"startDate"`
 	// Resource tags.
@@ -118,7 +118,7 @@ type ServiceState struct {
 	// Windows IoT Device Service notes.
 	Notes pulumi.StringPtrInput
 	// Windows IoT Device Service device allocation,
-	Quantity pulumi.IntPtrInput
+	Quantity pulumi.Float64PtrInput
 	// Windows IoT Device Service start date,
 	StartDate pulumi.StringPtrInput
 	// Resource tags.
@@ -141,7 +141,7 @@ type serviceArgs struct {
 	// Windows IoT Device Service notes.
 	Notes *string `pulumi:"notes"`
 	// Windows IoT Device Service device allocation,
-	Quantity *int `pulumi:"quantity"`
+	Quantity *float64 `pulumi:"quantity"`
 	// The name of the resource group that contains the Windows IoT Device Service.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -157,7 +157,7 @@ type ServiceArgs struct {
 	// Windows IoT Device Service notes.
 	Notes pulumi.StringPtrInput
 	// Windows IoT Device Service device allocation,
-	Quantity pulumi.IntPtrInput
+	Quantity pulumi.Float64PtrInput
 	// The name of the resource group that contains the Windows IoT Device Service.
 	ResourceGroupName pulumi.StringInput
 }

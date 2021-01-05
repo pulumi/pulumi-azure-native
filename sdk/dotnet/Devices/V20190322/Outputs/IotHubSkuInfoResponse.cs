@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Devices.V20190322.Outputs
         /// <summary>
         /// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         /// </summary>
-        public readonly int? Capacity;
+        public readonly double? Capacity;
         /// <summary>
         /// The name of the SKU.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Devices.V20190322.Outputs
 
         [OutputConstructor]
         private IotHubSkuInfoResponse(
-            int? capacity,
+            double? capacity,
 
             string name,
 

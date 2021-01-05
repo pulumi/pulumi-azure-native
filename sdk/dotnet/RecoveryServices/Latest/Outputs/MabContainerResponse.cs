@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// ContainerID represents the container.
         /// </summary>
-        public readonly int? ContainerId;
+        public readonly double? ContainerId;
         /// <summary>
         /// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
         /// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// Number of items backed up in this container.
         /// </summary>
-        public readonly int? ProtectedItemCount;
+        public readonly double? ProtectedItemCount;
         /// <summary>
         /// Status of registration of the container with the Recovery Services Vault.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             string? containerHealthState,
 
-            int? containerId,
+            double? containerId,
 
             string containerType,
 
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             ImmutableArray<Outputs.MABContainerHealthDetailsResponse> mabContainerHealthDetails,
 
-            int? protectedItemCount,
+            double? protectedItemCount,
 
             string? registrationStatus)
         {

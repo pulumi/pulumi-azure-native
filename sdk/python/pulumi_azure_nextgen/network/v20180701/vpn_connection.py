@@ -130,7 +130,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> pulumi.Output[int]:
+    def egress_bytes_transferred(self) -> pulumi.Output[float]:
         """
         Egress bytes transferred.
         """
@@ -154,7 +154,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> pulumi.Output[int]:
+    def ingress_bytes_transferred(self) -> pulumi.Output[float]:
         """
         Ingress bytes transferred.
         """

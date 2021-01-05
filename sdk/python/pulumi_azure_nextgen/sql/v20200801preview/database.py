@@ -29,7 +29,7 @@ class Database(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[int]] = None,
+                 max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
                  read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
@@ -81,7 +81,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
         :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
-        :param pulumi.Input[int] max_size_bytes: The max size of the database expressed in bytes.
+        :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
         :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
@@ -374,7 +374,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxLogSizeBytes")
-    def max_log_size_bytes(self) -> pulumi.Output[int]:
+    def max_log_size_bytes(self) -> pulumi.Output[float]:
         """
         The max log size for this database.
         """
@@ -382,7 +382,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> pulumi.Output[Optional[int]]:
+    def max_size_bytes(self) -> pulumi.Output[Optional[float]]:
         """
         The max size of the database expressed in bytes.
         """

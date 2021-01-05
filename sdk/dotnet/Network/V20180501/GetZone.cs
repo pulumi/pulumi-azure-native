@@ -54,11 +54,11 @@ namespace Pulumi.AzureNextGen.Network.V20180501
         /// <summary>
         /// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        public readonly int MaxNumberOfRecordSets;
+        public readonly double MaxNumberOfRecordSets;
         /// <summary>
         /// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        public readonly int MaxNumberOfRecordsPerRecordSet;
+        public readonly double MaxNumberOfRecordsPerRecordSet;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Network.V20180501
         /// <summary>
         /// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        public readonly int NumberOfRecordSets;
+        public readonly double NumberOfRecordSets;
         /// <summary>
         /// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         /// </summary>
@@ -100,15 +100,15 @@ namespace Pulumi.AzureNextGen.Network.V20180501
 
             string location,
 
-            int maxNumberOfRecordSets,
+            double maxNumberOfRecordSets,
 
-            int maxNumberOfRecordsPerRecordSet,
+            double maxNumberOfRecordsPerRecordSet,
 
             string name,
 
             ImmutableArray<string> nameServers,
 
-            int numberOfRecordSets,
+            double numberOfRecordSets,
 
             ImmutableArray<Outputs.SubResourceResponse> registrationVirtualNetworks,
 

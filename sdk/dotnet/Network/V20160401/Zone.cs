@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.Network.V20160401
         /// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Output("maxNumberOfRecordSets")]
-        public Output<int?> MaxNumberOfRecordSets { get; private set; } = null!;
+        public Output<double?> MaxNumberOfRecordSets { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Output("maxNumberOfRecordsPerRecordSet")]
-        public Output<int> MaxNumberOfRecordsPerRecordSet { get; private set; } = null!;
+        public Output<double> MaxNumberOfRecordsPerRecordSet { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20160401
         /// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Output("numberOfRecordSets")]
-        public Output<int?> NumberOfRecordSets { get; private set; } = null!;
+        public Output<double?> NumberOfRecordSets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -139,13 +139,13 @@ namespace Pulumi.AzureNextGen.Network.V20160401
         /// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Input("maxNumberOfRecordSets")]
-        public Input<int>? MaxNumberOfRecordSets { get; set; }
+        public Input<double>? MaxNumberOfRecordSets { get; set; }
 
         /// <summary>
         /// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Input("numberOfRecordSets")]
-        public Input<int>? NumberOfRecordSets { get; set; }
+        public Input<double>? NumberOfRecordSets { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

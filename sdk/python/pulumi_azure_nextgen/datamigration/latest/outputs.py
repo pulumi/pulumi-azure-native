@@ -2257,8 +2257,8 @@ class DataItemMigrationSummaryResultResponse(dict):
     def __init__(__self__, *,
                  ended_on: str,
                  error_prefix: str,
-                 items_completed_count: int,
-                 items_count: int,
+                 items_completed_count: float,
+                 items_count: float,
                  name: str,
                  result_prefix: str,
                  started_on: str,
@@ -2268,8 +2268,8 @@ class DataItemMigrationSummaryResultResponse(dict):
         Basic summary of a data item migration
         :param str ended_on: Migration end time
         :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
-        :param int items_completed_count: Number of successfully completed items
-        :param int items_count: Number of items
+        :param float items_completed_count: Number of successfully completed items
+        :param float items_count: Number of items
         :param str name: Name of the item
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param str started_on: Migration start time
@@ -2304,7 +2304,7 @@ class DataItemMigrationSummaryResultResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCompletedCount")
-    def items_completed_count(self) -> int:
+    def items_completed_count(self) -> float:
         """
         Number of successfully completed items
         """
@@ -2312,7 +2312,7 @@ class DataItemMigrationSummaryResultResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCount")
-    def items_count(self) -> int:
+    def items_count(self) -> float:
         """
         Number of items
         """
@@ -2595,8 +2595,8 @@ class DatabaseSummaryResultResponse(dict):
     def __init__(__self__, *,
                  ended_on: str,
                  error_prefix: str,
-                 items_completed_count: int,
-                 items_count: int,
+                 items_completed_count: float,
+                 items_count: float,
                  name: str,
                  result_prefix: str,
                  size_mb: float,
@@ -2607,8 +2607,8 @@ class DatabaseSummaryResultResponse(dict):
         Summary of database results in the migration
         :param str ended_on: Migration end time
         :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
-        :param int items_completed_count: Number of successfully completed items
-        :param int items_count: Number of items
+        :param float items_completed_count: Number of successfully completed items
+        :param float items_count: Number of items
         :param str name: Name of the item
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param float size_mb: Size of the database in megabytes
@@ -2645,7 +2645,7 @@ class DatabaseSummaryResultResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCompletedCount")
-    def items_completed_count(self) -> int:
+    def items_completed_count(self) -> float:
         """
         Number of successfully completed items
         """
@@ -2653,7 +2653,7 @@ class DatabaseSummaryResultResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCount")
-    def items_count(self) -> int:
+    def items_count(self) -> float:
         """
         Number of items
         """
@@ -2755,7 +2755,7 @@ class ExecutionStatisticsResponse(dict):
     def __init__(__self__, *,
                  cpu_time_ms: float,
                  elapsed_time_ms: float,
-                 execution_count: int,
+                 execution_count: float,
                  has_errors: bool,
                  sql_errors: Sequence[str],
                  wait_stats: Optional[Mapping[str, 'outputs.WaitStatisticsResponse']] = None):
@@ -2763,7 +2763,7 @@ class ExecutionStatisticsResponse(dict):
         Description about the errors happen while performing migration validation
         :param float cpu_time_ms: CPU Time in millisecond(s) for the query execution
         :param float elapsed_time_ms: Time taken in millisecond(s) for executing the query
-        :param int execution_count: No. of query executions
+        :param float execution_count: No. of query executions
         :param bool has_errors: Indicates whether the query resulted in an error
         :param Sequence[str] sql_errors: List of sql Errors
         :param Mapping[str, 'WaitStatisticsResponseArgs'] wait_stats: Dictionary of sql query execution wait types and the respective statistics
@@ -2794,7 +2794,7 @@ class ExecutionStatisticsResponse(dict):
 
     @property
     @pulumi.getter(name="executionCount")
-    def execution_count(self) -> int:
+    def execution_count(self) -> float:
         """
         No. of query executions
         """
@@ -3775,38 +3775,38 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse(dict):
 @pulumi.output_type
 class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
     def __init__(__self__, *,
-                 applied_changes: int,
-                 cdc_delete_counter: int,
-                 cdc_insert_counter: int,
-                 cdc_update_counter: int,
+                 applied_changes: float,
+                 cdc_delete_counter: float,
+                 cdc_insert_counter: float,
+                 cdc_update_counter: float,
                  database_name: str,
                  ended_on: str,
-                 full_load_completed_tables: int,
-                 full_load_errored_tables: int,
-                 full_load_loading_tables: int,
-                 full_load_queued_tables: int,
+                 full_load_completed_tables: float,
+                 full_load_errored_tables: float,
+                 full_load_loading_tables: float,
+                 full_load_queued_tables: float,
                  id: str,
-                 incoming_changes: int,
+                 incoming_changes: float,
                  initialization_completed: bool,
-                 latency: int,
+                 latency: float,
                  migration_state: str,
                  result_type: str,
                  started_on: str):
         """
-        :param int applied_changes: Number of applied changes
-        :param int cdc_delete_counter: Number of cdc deletes
-        :param int cdc_insert_counter: Number of cdc inserts
-        :param int cdc_update_counter: Number of cdc updates
+        :param float applied_changes: Number of applied changes
+        :param float cdc_delete_counter: Number of cdc deletes
+        :param float cdc_insert_counter: Number of cdc inserts
+        :param float cdc_update_counter: Number of cdc updates
         :param str database_name: Name of the database
         :param str ended_on: Migration end time
-        :param int full_load_completed_tables: Number of tables completed in full load
-        :param int full_load_errored_tables: Number of tables errored in full load
-        :param int full_load_loading_tables: Number of tables loading in full load
-        :param int full_load_queued_tables: Number of tables queued in full load
+        :param float full_load_completed_tables: Number of tables completed in full load
+        :param float full_load_errored_tables: Number of tables errored in full load
+        :param float full_load_loading_tables: Number of tables loading in full load
+        :param float full_load_queued_tables: Number of tables queued in full load
         :param str id: Result identifier
-        :param int incoming_changes: Number of incoming changes
+        :param float incoming_changes: Number of incoming changes
         :param bool initialization_completed: Indicates if initial load (full load) has been completed
-        :param int latency: CDC apply latency
+        :param float latency: CDC apply latency
         :param str migration_state: Migration state that this database is in
         :param str result_type: Result type
                Expected value is 'DatabaseLevelOutput'.
@@ -3832,7 +3832,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="appliedChanges")
-    def applied_changes(self) -> int:
+    def applied_changes(self) -> float:
         """
         Number of applied changes
         """
@@ -3840,7 +3840,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
-    def cdc_delete_counter(self) -> int:
+    def cdc_delete_counter(self) -> float:
         """
         Number of cdc deletes
         """
@@ -3848,7 +3848,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="cdcInsertCounter")
-    def cdc_insert_counter(self) -> int:
+    def cdc_insert_counter(self) -> float:
         """
         Number of cdc inserts
         """
@@ -3856,7 +3856,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="cdcUpdateCounter")
-    def cdc_update_counter(self) -> int:
+    def cdc_update_counter(self) -> float:
         """
         Number of cdc updates
         """
@@ -3880,7 +3880,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="fullLoadCompletedTables")
-    def full_load_completed_tables(self) -> int:
+    def full_load_completed_tables(self) -> float:
         """
         Number of tables completed in full load
         """
@@ -3888,7 +3888,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="fullLoadErroredTables")
-    def full_load_errored_tables(self) -> int:
+    def full_load_errored_tables(self) -> float:
         """
         Number of tables errored in full load
         """
@@ -3896,7 +3896,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="fullLoadLoadingTables")
-    def full_load_loading_tables(self) -> int:
+    def full_load_loading_tables(self) -> float:
         """
         Number of tables loading in full load
         """
@@ -3904,7 +3904,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="fullLoadQueuedTables")
-    def full_load_queued_tables(self) -> int:
+    def full_load_queued_tables(self) -> float:
         """
         Number of tables queued in full load
         """
@@ -3920,7 +3920,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="incomingChanges")
-    def incoming_changes(self) -> int:
+    def incoming_changes(self) -> float:
         """
         Number of incoming changes
         """
@@ -3936,7 +3936,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter
-    def latency(self) -> int:
+    def latency(self) -> float:
         """
         CDC apply latency
         """
@@ -4122,35 +4122,35 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse(dict):
                  cdc_delete_counter: str,
                  cdc_insert_counter: str,
                  cdc_update_counter: str,
-                 data_errors_counter: int,
+                 data_errors_counter: float,
                  database_name: str,
                  full_load_ended_on: str,
                  full_load_est_finish_time: str,
                  full_load_started_on: str,
-                 full_load_total_rows: int,
+                 full_load_total_rows: float,
                  id: str,
                  last_modified_time: str,
                  result_type: str,
                  state: str,
                  table_name: str,
-                 total_changes_applied: int):
+                 total_changes_applied: float):
         """
         :param str cdc_delete_counter: Number of applied deletes
         :param str cdc_insert_counter: Number of applied inserts
         :param str cdc_update_counter: Number of applied updates
-        :param int data_errors_counter: Number of data errors occurred
+        :param float data_errors_counter: Number of data errors occurred
         :param str database_name: Name of the database
         :param str full_load_ended_on: Full load end time
         :param str full_load_est_finish_time: Estimate to finish full load
         :param str full_load_started_on: Full load start time
-        :param int full_load_total_rows: Number of rows applied in full load
+        :param float full_load_total_rows: Number of rows applied in full load
         :param str id: Result identifier
         :param str last_modified_time: Last modified time on target
         :param str result_type: Result type
                Expected value is 'TableLevelOutput'.
         :param str state: Current state of the table migration
         :param str table_name: Name of the table
-        :param int total_changes_applied: Total number of applied changes
+        :param float total_changes_applied: Total number of applied changes
         """
         pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
         pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
@@ -4194,7 +4194,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="dataErrorsCounter")
-    def data_errors_counter(self) -> int:
+    def data_errors_counter(self) -> float:
         """
         Number of data errors occurred
         """
@@ -4234,7 +4234,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="fullLoadTotalRows")
-    def full_load_total_rows(self) -> int:
+    def full_load_total_rows(self) -> float:
         """
         Number of rows applied in full load
         """
@@ -4283,7 +4283,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="totalChangesApplied")
-    def total_changes_applied(self) -> int:
+    def total_changes_applied(self) -> float:
         """
         Total number of applied changes
         """
@@ -4558,38 +4558,38 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse(d
 @pulumi.output_type
 class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(dict):
     def __init__(__self__, *,
-                 applied_changes: int,
-                 cdc_delete_counter: int,
-                 cdc_insert_counter: int,
-                 cdc_update_counter: int,
+                 applied_changes: float,
+                 cdc_delete_counter: float,
+                 cdc_insert_counter: float,
+                 cdc_update_counter: float,
                  database_name: str,
                  ended_on: str,
-                 full_load_completed_tables: int,
-                 full_load_errored_tables: int,
-                 full_load_loading_tables: int,
-                 full_load_queued_tables: int,
+                 full_load_completed_tables: float,
+                 full_load_errored_tables: float,
+                 full_load_loading_tables: float,
+                 full_load_queued_tables: float,
                  id: str,
-                 incoming_changes: int,
+                 incoming_changes: float,
                  initialization_completed: bool,
-                 latency: int,
+                 latency: float,
                  migration_state: str,
                  result_type: str,
                  started_on: str):
         """
-        :param int applied_changes: Number of applied changes
-        :param int cdc_delete_counter: Number of cdc deletes
-        :param int cdc_insert_counter: Number of cdc inserts
-        :param int cdc_update_counter: Number of cdc updates
+        :param float applied_changes: Number of applied changes
+        :param float cdc_delete_counter: Number of cdc deletes
+        :param float cdc_insert_counter: Number of cdc inserts
+        :param float cdc_update_counter: Number of cdc updates
         :param str database_name: Name of the database
         :param str ended_on: Migration end time
-        :param int full_load_completed_tables: Number of tables completed in full load
-        :param int full_load_errored_tables: Number of tables errored in full load
-        :param int full_load_loading_tables: Number of tables loading in full load
-        :param int full_load_queued_tables: Number of tables queued in full load
+        :param float full_load_completed_tables: Number of tables completed in full load
+        :param float full_load_errored_tables: Number of tables errored in full load
+        :param float full_load_loading_tables: Number of tables loading in full load
+        :param float full_load_queued_tables: Number of tables queued in full load
         :param str id: Result identifier
-        :param int incoming_changes: Number of incoming changes
+        :param float incoming_changes: Number of incoming changes
         :param bool initialization_completed: Indicates if initial load (full load) has been completed
-        :param int latency: CDC apply latency
+        :param float latency: CDC apply latency
         :param str migration_state: Migration state that this database is in
         :param str result_type: Result type
                Expected value is 'DatabaseLevelOutput'.
@@ -4615,7 +4615,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
 
     @property
     @pulumi.getter(name="appliedChanges")
-    def applied_changes(self) -> int:
+    def applied_changes(self) -> float:
         """
         Number of applied changes
         """
@@ -4623,7 +4623,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
-    def cdc_delete_counter(self) -> int:
+    def cdc_delete_counter(self) -> float:
         """
         Number of cdc deletes
         """
@@ -4631,7 +4631,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
 
     @property
     @pulumi.getter(name="cdcInsertCounter")
-    def cdc_insert_counter(self) -> int:
+    def cdc_insert_counter(self) -> float:
         """
         Number of cdc inserts
         """
@@ -4639,7 +4639,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
 
     @property
     @pulumi.getter(name="cdcUpdateCounter")
-    def cdc_update_counter(self) -> int:
+    def cdc_update_counter(self) -> float:
         """
         Number of cdc updates
         """
@@ -4663,7 +4663,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
 
     @property
     @pulumi.getter(name="fullLoadCompletedTables")
-    def full_load_completed_tables(self) -> int:
+    def full_load_completed_tables(self) -> float:
         """
         Number of tables completed in full load
         """
@@ -4671,7 +4671,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
 
     @property
     @pulumi.getter(name="fullLoadErroredTables")
-    def full_load_errored_tables(self) -> int:
+    def full_load_errored_tables(self) -> float:
         """
         Number of tables errored in full load
         """
@@ -4679,7 +4679,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
 
     @property
     @pulumi.getter(name="fullLoadLoadingTables")
-    def full_load_loading_tables(self) -> int:
+    def full_load_loading_tables(self) -> float:
         """
         Number of tables loading in full load
         """
@@ -4687,7 +4687,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
 
     @property
     @pulumi.getter(name="fullLoadQueuedTables")
-    def full_load_queued_tables(self) -> int:
+    def full_load_queued_tables(self) -> float:
         """
         Number of tables queued in full load
         """
@@ -4703,7 +4703,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
 
     @property
     @pulumi.getter(name="incomingChanges")
-    def incoming_changes(self) -> int:
+    def incoming_changes(self) -> float:
         """
         Number of incoming changes
         """
@@ -4719,7 +4719,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
 
     @property
     @pulumi.getter
-    def latency(self) -> int:
+    def latency(self) -> float:
         """
         CDC apply latency
         """
@@ -4902,38 +4902,38 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(
 @pulumi.output_type
 class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse(dict):
     def __init__(__self__, *,
-                 cdc_delete_counter: int,
-                 cdc_insert_counter: int,
-                 cdc_update_counter: int,
-                 data_errors_counter: int,
+                 cdc_delete_counter: float,
+                 cdc_insert_counter: float,
+                 cdc_update_counter: float,
+                 data_errors_counter: float,
                  database_name: str,
                  full_load_ended_on: str,
                  full_load_est_finish_time: str,
                  full_load_started_on: str,
-                 full_load_total_rows: int,
+                 full_load_total_rows: float,
                  id: str,
                  last_modified_time: str,
                  result_type: str,
                  state: str,
                  table_name: str,
-                 total_changes_applied: int):
+                 total_changes_applied: float):
         """
-        :param int cdc_delete_counter: Number of applied deletes
-        :param int cdc_insert_counter: Number of applied inserts
-        :param int cdc_update_counter: Number of applied updates
-        :param int data_errors_counter: Number of data errors occurred
+        :param float cdc_delete_counter: Number of applied deletes
+        :param float cdc_insert_counter: Number of applied inserts
+        :param float cdc_update_counter: Number of applied updates
+        :param float data_errors_counter: Number of data errors occurred
         :param str database_name: Name of the database
         :param str full_load_ended_on: Full load end time
         :param str full_load_est_finish_time: Estimate to finish full load
         :param str full_load_started_on: Full load start time
-        :param int full_load_total_rows: Number of rows applied in full load
+        :param float full_load_total_rows: Number of rows applied in full load
         :param str id: Result identifier
         :param str last_modified_time: Last modified time on target
         :param str result_type: Result type
                Expected value is 'TableLevelOutput'.
         :param str state: Current state of the table migration
         :param str table_name: Name of the table
-        :param int total_changes_applied: Total number of applied changes
+        :param float total_changes_applied: Total number of applied changes
         """
         pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
         pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
@@ -4953,7 +4953,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse(dict
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
-    def cdc_delete_counter(self) -> int:
+    def cdc_delete_counter(self) -> float:
         """
         Number of applied deletes
         """
@@ -4961,7 +4961,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse(dict
 
     @property
     @pulumi.getter(name="cdcInsertCounter")
-    def cdc_insert_counter(self) -> int:
+    def cdc_insert_counter(self) -> float:
         """
         Number of applied inserts
         """
@@ -4969,7 +4969,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse(dict
 
     @property
     @pulumi.getter(name="cdcUpdateCounter")
-    def cdc_update_counter(self) -> int:
+    def cdc_update_counter(self) -> float:
         """
         Number of applied updates
         """
@@ -4977,7 +4977,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse(dict
 
     @property
     @pulumi.getter(name="dataErrorsCounter")
-    def data_errors_counter(self) -> int:
+    def data_errors_counter(self) -> float:
         """
         Number of data errors occurred
         """
@@ -5017,7 +5017,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse(dict
 
     @property
     @pulumi.getter(name="fullLoadTotalRows")
-    def full_load_total_rows(self) -> int:
+    def full_load_total_rows(self) -> float:
         """
         Number of rows applied in full load
         """
@@ -5066,7 +5066,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse(dict
 
     @property
     @pulumi.getter(name="totalChangesApplied")
-    def total_changes_applied(self) -> int:
+    def total_changes_applied(self) -> float:
         """
         Total number of applied changes
         """
@@ -5451,38 +5451,38 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse(dict):
 @pulumi.output_type
 class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
     def __init__(__self__, *,
-                 applied_changes: int,
-                 cdc_delete_counter: int,
-                 cdc_insert_counter: int,
-                 cdc_update_counter: int,
+                 applied_changes: float,
+                 cdc_delete_counter: float,
+                 cdc_insert_counter: float,
+                 cdc_update_counter: float,
                  database_name: str,
                  ended_on: str,
-                 full_load_completed_tables: int,
-                 full_load_errored_tables: int,
-                 full_load_loading_tables: int,
-                 full_load_queued_tables: int,
+                 full_load_completed_tables: float,
+                 full_load_errored_tables: float,
+                 full_load_loading_tables: float,
+                 full_load_queued_tables: float,
                  id: str,
-                 incoming_changes: int,
+                 incoming_changes: float,
                  initialization_completed: bool,
-                 latency: int,
+                 latency: float,
                  migration_state: str,
                  result_type: str,
                  started_on: str):
         """
-        :param int applied_changes: Number of applied changes
-        :param int cdc_delete_counter: Number of cdc deletes
-        :param int cdc_insert_counter: Number of cdc inserts
-        :param int cdc_update_counter: Number of cdc updates
+        :param float applied_changes: Number of applied changes
+        :param float cdc_delete_counter: Number of cdc deletes
+        :param float cdc_insert_counter: Number of cdc inserts
+        :param float cdc_update_counter: Number of cdc updates
         :param str database_name: Name of the database
         :param str ended_on: Migration end time
-        :param int full_load_completed_tables: Number of tables completed in full load
-        :param int full_load_errored_tables: Number of tables errored in full load
-        :param int full_load_loading_tables: Number of tables loading in full load
-        :param int full_load_queued_tables: Number of tables queued in full load
+        :param float full_load_completed_tables: Number of tables completed in full load
+        :param float full_load_errored_tables: Number of tables errored in full load
+        :param float full_load_loading_tables: Number of tables loading in full load
+        :param float full_load_queued_tables: Number of tables queued in full load
         :param str id: Result identifier
-        :param int incoming_changes: Number of incoming changes
+        :param float incoming_changes: Number of incoming changes
         :param bool initialization_completed: Indicates if initial load (full load) has been completed
-        :param int latency: CDC apply latency
+        :param float latency: CDC apply latency
         :param str migration_state: Migration state that this database is in
         :param str result_type: Result type
                Expected value is 'DatabaseLevelOutput'.
@@ -5508,7 +5508,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="appliedChanges")
-    def applied_changes(self) -> int:
+    def applied_changes(self) -> float:
         """
         Number of applied changes
         """
@@ -5516,7 +5516,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
-    def cdc_delete_counter(self) -> int:
+    def cdc_delete_counter(self) -> float:
         """
         Number of cdc deletes
         """
@@ -5524,7 +5524,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="cdcInsertCounter")
-    def cdc_insert_counter(self) -> int:
+    def cdc_insert_counter(self) -> float:
         """
         Number of cdc inserts
         """
@@ -5532,7 +5532,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="cdcUpdateCounter")
-    def cdc_update_counter(self) -> int:
+    def cdc_update_counter(self) -> float:
         """
         Number of cdc updates
         """
@@ -5556,7 +5556,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="fullLoadCompletedTables")
-    def full_load_completed_tables(self) -> int:
+    def full_load_completed_tables(self) -> float:
         """
         Number of tables completed in full load
         """
@@ -5564,7 +5564,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="fullLoadErroredTables")
-    def full_load_errored_tables(self) -> int:
+    def full_load_errored_tables(self) -> float:
         """
         Number of tables errored in full load
         """
@@ -5572,7 +5572,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="fullLoadLoadingTables")
-    def full_load_loading_tables(self) -> int:
+    def full_load_loading_tables(self) -> float:
         """
         Number of tables loading in full load
         """
@@ -5580,7 +5580,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="fullLoadQueuedTables")
-    def full_load_queued_tables(self) -> int:
+    def full_load_queued_tables(self) -> float:
         """
         Number of tables queued in full load
         """
@@ -5596,7 +5596,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="incomingChanges")
-    def incoming_changes(self) -> int:
+    def incoming_changes(self) -> float:
         """
         Number of incoming changes
         """
@@ -5612,7 +5612,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter
-    def latency(self) -> int:
+    def latency(self) -> float:
         """
         CDC apply latency
         """
@@ -5806,38 +5806,38 @@ class MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse(dict):
 @pulumi.output_type
 class MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(dict):
     def __init__(__self__, *,
-                 cdc_delete_counter: int,
-                 cdc_insert_counter: int,
-                 cdc_update_counter: int,
-                 data_errors_counter: int,
+                 cdc_delete_counter: float,
+                 cdc_insert_counter: float,
+                 cdc_update_counter: float,
+                 data_errors_counter: float,
                  database_name: str,
                  full_load_ended_on: str,
                  full_load_est_finish_time: str,
                  full_load_started_on: str,
-                 full_load_total_rows: int,
+                 full_load_total_rows: float,
                  id: str,
                  last_modified_time: str,
                  result_type: str,
                  state: str,
                  table_name: str,
-                 total_changes_applied: int):
+                 total_changes_applied: float):
         """
-        :param int cdc_delete_counter: Number of applied deletes
-        :param int cdc_insert_counter: Number of applied inserts
-        :param int cdc_update_counter: Number of applied updates
-        :param int data_errors_counter: Number of data errors occurred
+        :param float cdc_delete_counter: Number of applied deletes
+        :param float cdc_insert_counter: Number of applied inserts
+        :param float cdc_update_counter: Number of applied updates
+        :param float data_errors_counter: Number of data errors occurred
         :param str database_name: Name of the database
         :param str full_load_ended_on: Full load end time
         :param str full_load_est_finish_time: Estimate to finish full load
         :param str full_load_started_on: Full load start time
-        :param int full_load_total_rows: Number of rows applied in full load
+        :param float full_load_total_rows: Number of rows applied in full load
         :param str id: Result identifier
         :param str last_modified_time: Last modified time on target
         :param str result_type: Result type
                Expected value is 'TableLevelOutput'.
         :param str state: Current state of the table migration
         :param str table_name: Name of the table
-        :param int total_changes_applied: Total number of applied changes
+        :param float total_changes_applied: Total number of applied changes
         """
         pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
         pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
@@ -5857,7 +5857,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
-    def cdc_delete_counter(self) -> int:
+    def cdc_delete_counter(self) -> float:
         """
         Number of applied deletes
         """
@@ -5865,7 +5865,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="cdcInsertCounter")
-    def cdc_insert_counter(self) -> int:
+    def cdc_insert_counter(self) -> float:
         """
         Number of applied inserts
         """
@@ -5873,7 +5873,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="cdcUpdateCounter")
-    def cdc_update_counter(self) -> int:
+    def cdc_update_counter(self) -> float:
         """
         Number of applied updates
         """
@@ -5881,7 +5881,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="dataErrorsCounter")
-    def data_errors_counter(self) -> int:
+    def data_errors_counter(self) -> float:
         """
         Number of data errors occurred
         """
@@ -5921,7 +5921,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="fullLoadTotalRows")
-    def full_load_total_rows(self) -> int:
+    def full_load_total_rows(self) -> float:
         """
         Number of rows applied in full load
         """
@@ -5970,7 +5970,7 @@ class MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="totalChangesApplied")
-    def total_changes_applied(self) -> int:
+    def total_changes_applied(self) -> float:
         """
         Total number of applied changes
         """
@@ -6134,13 +6134,13 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
     def __init__(__self__, *,
                  database_name: str,
                  ended_on: str,
-                 error_count: int,
+                 error_count: float,
                  error_prefix: str,
                  exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
                  id: str,
                  message: str,
-                 number_of_objects: int,
-                 number_of_objects_completed: int,
+                 number_of_objects: float,
+                 number_of_objects_completed: float,
                  object_summary: Mapping[str, 'outputs.DataItemMigrationSummaryResultResponse'],
                  result_prefix: str,
                  result_type: str,
@@ -6152,13 +6152,13 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
         Database level result for Sql Server to Azure Sql DB migration.
         :param str database_name: Name of the item
         :param str ended_on: Migration end time
-        :param int error_count: Number of database/object errors.
+        :param float error_count: Number of database/object errors.
         :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
         :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str id: Result identifier
         :param str message: Migration progress message
-        :param int number_of_objects: Number of objects
-        :param int number_of_objects_completed: Number of successfully completed objects
+        :param float number_of_objects: Number of objects
+        :param float number_of_objects_completed: Number of successfully completed objects
         :param Mapping[str, 'DataItemMigrationSummaryResultResponseArgs'] object_summary: Summary of object results in the migration
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param str result_type: Result type
@@ -6203,7 +6203,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="errorCount")
-    def error_count(self) -> int:
+    def error_count(self) -> float:
         """
         Number of database/object errors.
         """
@@ -6243,7 +6243,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfObjects")
-    def number_of_objects(self) -> int:
+    def number_of_objects(self) -> float:
         """
         Number of objects
         """
@@ -6251,7 +6251,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfObjectsCompleted")
-    def number_of_objects_completed(self) -> int:
+    def number_of_objects_completed(self) -> float:
         """
         Number of successfully completed objects
         """
@@ -6512,7 +6512,7 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
     def __init__(__self__, *,
                  database_summary: Mapping[str, 'outputs.DatabaseSummaryResultResponse'],
                  databases: Mapping[str, str],
-                 duration_in_seconds: int,
+                 duration_in_seconds: float,
                  ended_on: str,
                  exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
                  id: str,
@@ -6530,7 +6530,7 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
         Migration level result for Sql server to Azure Sql DB migration.
         :param Mapping[str, 'DatabaseSummaryResultResponseArgs'] database_summary: Summary of database results in the migration
         :param Mapping[str, str] databases: Selected databases as a map from database name to database id
-        :param int duration_in_seconds: Duration of task execution in seconds.
+        :param float duration_in_seconds: Duration of task execution in seconds.
         :param str ended_on: Migration end time
         :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str id: Result identifier
@@ -6581,7 +6581,7 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
 
     @property
     @pulumi.getter(name="durationInSeconds")
-    def duration_in_seconds(self) -> int:
+    def duration_in_seconds(self) -> float:
         """
         Duration of task execution in seconds.
         """
@@ -6705,8 +6705,8 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
                  ended_on: str,
                  error_prefix: str,
                  id: str,
-                 items_completed_count: int,
-                 items_count: int,
+                 items_completed_count: float,
+                 items_count: float,
                  object_name: str,
                  result_prefix: str,
                  result_type: str,
@@ -6718,8 +6718,8 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
         :param str ended_on: Migration end time
         :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
         :param str id: Result identifier
-        :param int items_completed_count: Number of successfully completed items
-        :param int items_count: Number of items
+        :param float items_completed_count: Number of successfully completed items
+        :param float items_count: Number of items
         :param str object_name: Name of the item
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param str result_type: Result type
@@ -6766,7 +6766,7 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCompletedCount")
-    def items_completed_count(self) -> int:
+    def items_completed_count(self) -> float:
         """
         Number of successfully completed items
         """
@@ -6774,7 +6774,7 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
 
     @property
     @pulumi.getter(name="itemsCount")
-    def items_count(self) -> int:
+    def items_count(self) -> float:
         """
         Number of items
         """
@@ -8989,13 +8989,13 @@ class QueryExecutionResultResponse(dict):
     def __init__(__self__, *,
                  query_text: str,
                  source_result: 'outputs.ExecutionStatisticsResponse',
-                 statements_in_batch: int,
+                 statements_in_batch: float,
                  target_result: 'outputs.ExecutionStatisticsResponse'):
         """
         Describes query analysis results for execution in source and target
         :param str query_text: Query text retrieved from the source server
         :param 'ExecutionStatisticsResponseArgs' source_result: Query analysis result from the source
-        :param int statements_in_batch: Total no. of statements in the batch
+        :param float statements_in_batch: Total no. of statements in the batch
         :param 'ExecutionStatisticsResponseArgs' target_result: Query analysis result from the target
         """
         pulumi.set(__self__, "query_text", query_text)
@@ -9021,7 +9021,7 @@ class QueryExecutionResultResponse(dict):
 
     @property
     @pulumi.getter(name="statementsInBatch")
-    def statements_in_batch(self) -> int:
+    def statements_in_batch(self) -> float:
         """
         Total no. of statements in the batch
         """
@@ -9128,14 +9128,14 @@ class SchemaComparisonValidationResultResponse(dict):
     def __init__(__self__, *,
                  schema_differences: 'outputs.SchemaComparisonValidationResultTypeResponse',
                  validation_errors: 'outputs.ValidationErrorResponse',
-                 source_database_object_count: Optional[Mapping[str, int]] = None,
-                 target_database_object_count: Optional[Mapping[str, int]] = None):
+                 source_database_object_count: Optional[Mapping[str, float]] = None,
+                 target_database_object_count: Optional[Mapping[str, float]] = None):
         """
         Results for schema comparison between the source and target
         :param 'SchemaComparisonValidationResultTypeResponseArgs' schema_differences: List of schema differences between the source and target databases
         :param 'ValidationErrorResponseArgs' validation_errors: List of errors that happened while performing schema compare validation
-        :param Mapping[str, int] source_database_object_count: Count of source database objects
-        :param Mapping[str, int] target_database_object_count: Count of target database objects
+        :param Mapping[str, float] source_database_object_count: Count of source database objects
+        :param Mapping[str, float] target_database_object_count: Count of target database objects
         """
         pulumi.set(__self__, "schema_differences", schema_differences)
         pulumi.set(__self__, "validation_errors", validation_errors)
@@ -9162,7 +9162,7 @@ class SchemaComparisonValidationResultResponse(dict):
 
     @property
     @pulumi.getter(name="sourceDatabaseObjectCount")
-    def source_database_object_count(self) -> Optional[Mapping[str, int]]:
+    def source_database_object_count(self) -> Optional[Mapping[str, float]]:
         """
         Count of source database objects
         """
@@ -9170,7 +9170,7 @@ class SchemaComparisonValidationResultResponse(dict):
 
     @property
     @pulumi.getter(name="targetDatabaseObjectCount")
-    def target_database_object_count(self) -> Optional[Mapping[str, int]]:
+    def target_database_object_count(self) -> Optional[Mapping[str, float]]:
         """
         Count of target database objects
         """
@@ -10263,12 +10263,12 @@ class WaitStatisticsResponse(dict):
     Wait statistics gathered during query batch execution
     """
     def __init__(__self__, *,
-                 wait_count: int,
+                 wait_count: float,
                  wait_time_ms: float,
                  wait_type: str):
         """
         Wait statistics gathered during query batch execution
-        :param int wait_count: Total no. of waits
+        :param float wait_count: Total no. of waits
         :param float wait_time_ms: Total wait time in millisecond(s)
         :param str wait_type: Type of the Wait
         """
@@ -10278,7 +10278,7 @@ class WaitStatisticsResponse(dict):
 
     @property
     @pulumi.getter(name="waitCount")
-    def wait_count(self) -> int:
+    def wait_count(self) -> float:
         """
         Total no. of waits
         """

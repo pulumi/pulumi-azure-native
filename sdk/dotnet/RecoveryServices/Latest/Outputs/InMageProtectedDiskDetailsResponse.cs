@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The disk capacity in bytes.
         /// </summary>
-        public readonly int? DiskCapacityInBytes;
+        public readonly double? DiskCapacityInBytes;
         /// <summary>
         /// The disk id.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The file system capacity in bytes.
         /// </summary>
-        public readonly int? FileSystemCapacityInBytes;
+        public readonly double? FileSystemCapacityInBytes;
         /// <summary>
         /// The health error code for the disk.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The resync duration in seconds.
         /// </summary>
-        public readonly int? ResyncDurationInSeconds;
+        public readonly double? ResyncDurationInSeconds;
         /// <summary>
         /// The resync progress percentage.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The RPO in seconds.
         /// </summary>
-        public readonly int? RpoInSeconds;
+        public readonly double? RpoInSeconds;
         /// <summary>
         /// The source data transit in MB.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
         [OutputConstructor]
         private InMageProtectedDiskDetailsResponse(
-            int? diskCapacityInBytes,
+            double? diskCapacityInBytes,
 
             string? diskId,
 
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             string? diskResized,
 
-            int? fileSystemCapacityInBytes,
+            double? fileSystemCapacityInBytes,
 
             string? healthErrorCode,
 
@@ -94,13 +94,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             double? psDataInMB,
 
-            int? resyncDurationInSeconds,
+            double? resyncDurationInSeconds,
 
             int? resyncProgressPercentage,
 
             string? resyncRequired,
 
-            int? rpoInSeconds,
+            double? rpoInSeconds,
 
             double? sourceDataInMB,
 

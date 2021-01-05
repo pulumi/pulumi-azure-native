@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Compute.V20170330.Outputs
         /// <summary>
         /// Specifies the number of virtual machines in the scale set. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
         /// </summary>
-        public readonly int? Capacity;
+        public readonly double? Capacity;
         /// <summary>
         /// The sku name.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Compute.V20170330.Outputs
 
         [OutputConstructor]
         private SkuResponse(
-            int? capacity,
+            double? capacity,
 
             string? name,
 

@@ -20,11 +20,11 @@ type EventHub struct {
 	// Resource location
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Number of days to retain the events for this Event Hub.
-	MessageRetentionInDays pulumi.IntPtrOutput `pulumi:"messageRetentionInDays"`
+	MessageRetentionInDays pulumi.Float64PtrOutput `pulumi:"messageRetentionInDays"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Number of partitions created for the Event Hub.
-	PartitionCount pulumi.IntPtrOutput `pulumi:"partitionCount"`
+	PartitionCount pulumi.Float64PtrOutput `pulumi:"partitionCount"`
 	// Current number of shards on the Event Hub.
 	PartitionIds pulumi.StringArrayOutput `pulumi:"partitionIds"`
 	// Enumerates the possible values for the status of the Event Hub.
@@ -96,11 +96,11 @@ type eventHubState struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Number of days to retain the events for this Event Hub.
-	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
+	MessageRetentionInDays *float64 `pulumi:"messageRetentionInDays"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Number of partitions created for the Event Hub.
-	PartitionCount *int `pulumi:"partitionCount"`
+	PartitionCount *float64 `pulumi:"partitionCount"`
 	// Current number of shards on the Event Hub.
 	PartitionIds []string `pulumi:"partitionIds"`
 	// Enumerates the possible values for the status of the Event Hub.
@@ -117,11 +117,11 @@ type EventHubState struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Number of days to retain the events for this Event Hub.
-	MessageRetentionInDays pulumi.IntPtrInput
+	MessageRetentionInDays pulumi.Float64PtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
 	// Number of partitions created for the Event Hub.
-	PartitionCount pulumi.IntPtrInput
+	PartitionCount pulumi.Float64PtrInput
 	// Current number of shards on the Event Hub.
 	PartitionIds pulumi.StringArrayInput
 	// Enumerates the possible values for the status of the Event Hub.
@@ -142,13 +142,13 @@ type eventHubArgs struct {
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Number of days to retain the events for this Event Hub.
-	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
+	MessageRetentionInDays *float64 `pulumi:"messageRetentionInDays"`
 	// Name of the Event Hub.
 	Name *string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Number of partitions created for the Event Hub.
-	PartitionCount *int `pulumi:"partitionCount"`
+	PartitionCount *float64 `pulumi:"partitionCount"`
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Enumerates the possible values for the status of the Event Hub.
@@ -164,13 +164,13 @@ type EventHubArgs struct {
 	// Location of the resource.
 	Location pulumi.StringInput
 	// Number of days to retain the events for this Event Hub.
-	MessageRetentionInDays pulumi.IntPtrInput
+	MessageRetentionInDays pulumi.Float64PtrInput
 	// Name of the Event Hub.
 	Name pulumi.StringPtrInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
 	// Number of partitions created for the Event Hub.
-	PartitionCount pulumi.IntPtrInput
+	PartitionCount pulumi.Float64PtrInput
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of the Event Hub.

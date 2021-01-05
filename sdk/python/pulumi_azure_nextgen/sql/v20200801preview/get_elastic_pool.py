@@ -39,8 +39,8 @@ class GetElasticPoolResult:
         if maintenance_configuration_id and not isinstance(maintenance_configuration_id, str):
             raise TypeError("Expected argument 'maintenance_configuration_id' to be a str")
         pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
-        if max_size_bytes and not isinstance(max_size_bytes, int):
-            raise TypeError("Expected argument 'max_size_bytes' to be a int")
+        if max_size_bytes and not isinstance(max_size_bytes, float):
+            raise TypeError("Expected argument 'max_size_bytes' to be a float")
         pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -114,7 +114,7 @@ class GetElasticPoolResult:
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[int]:
+    def max_size_bytes(self) -> Optional[float]:
         """
         The storage limit for the database elastic pool in bytes.
         """

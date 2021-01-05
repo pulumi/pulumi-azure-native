@@ -28,11 +28,11 @@ namespace Pulumi.AzureNextGen.Network.V20170301.Outputs
         /// <summary>
         /// The number of BGP messages received
         /// </summary>
-        public readonly int MessagesReceived;
+        public readonly double MessagesReceived;
         /// <summary>
         /// The number of BGP messages sent
         /// </summary>
-        public readonly int MessagesSent;
+        public readonly double MessagesSent;
         /// <summary>
         /// The remote BGP peer
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301.Outputs
         /// <summary>
         /// The number of routes learned from this peer
         /// </summary>
-        public readonly int RoutesReceived;
+        public readonly double RoutesReceived;
         /// <summary>
         /// The BGP peer state
         /// </summary>
@@ -54,13 +54,13 @@ namespace Pulumi.AzureNextGen.Network.V20170301.Outputs
 
             string localAddress,
 
-            int messagesReceived,
+            double messagesReceived,
 
-            int messagesSent,
+            double messagesSent,
 
             string neighbor,
 
-            int routesReceived,
+            double routesReceived,
 
             string state)
         {

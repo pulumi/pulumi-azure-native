@@ -2380,13 +2380,13 @@ class SiteConfigArgs:
 @pulumi.input_type
 class SiteLimitsArgs:
     def __init__(__self__, *,
-                 max_disk_size_in_mb: Optional[pulumi.Input[int]] = None,
-                 max_memory_in_mb: Optional[pulumi.Input[int]] = None,
+                 max_disk_size_in_mb: Optional[pulumi.Input[float]] = None,
+                 max_memory_in_mb: Optional[pulumi.Input[float]] = None,
                  max_percentage_cpu: Optional[pulumi.Input[float]] = None):
         """
         Metric limits set on an app.
-        :param pulumi.Input[int] max_disk_size_in_mb: Maximum allowed disk size usage in MB.
-        :param pulumi.Input[int] max_memory_in_mb: Maximum allowed memory usage in MB.
+        :param pulumi.Input[float] max_disk_size_in_mb: Maximum allowed disk size usage in MB.
+        :param pulumi.Input[float] max_memory_in_mb: Maximum allowed memory usage in MB.
         :param pulumi.Input[float] max_percentage_cpu: Maximum allowed CPU usage percentage.
         """
         if max_disk_size_in_mb is not None:
@@ -2398,26 +2398,26 @@ class SiteLimitsArgs:
 
     @property
     @pulumi.getter(name="maxDiskSizeInMb")
-    def max_disk_size_in_mb(self) -> Optional[pulumi.Input[int]]:
+    def max_disk_size_in_mb(self) -> Optional[pulumi.Input[float]]:
         """
         Maximum allowed disk size usage in MB.
         """
         return pulumi.get(self, "max_disk_size_in_mb")
 
     @max_disk_size_in_mb.setter
-    def max_disk_size_in_mb(self, value: Optional[pulumi.Input[int]]):
+    def max_disk_size_in_mb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_disk_size_in_mb", value)
 
     @property
     @pulumi.getter(name="maxMemoryInMb")
-    def max_memory_in_mb(self) -> Optional[pulumi.Input[int]]:
+    def max_memory_in_mb(self) -> Optional[pulumi.Input[float]]:
         """
         Maximum allowed memory usage in MB.
         """
         return pulumi.get(self, "max_memory_in_mb")
 
     @max_memory_in_mb.setter
-    def max_memory_in_mb(self, value: Optional[pulumi.Input[int]]):
+    def max_memory_in_mb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_memory_in_mb", value)
 
     @property

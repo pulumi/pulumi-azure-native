@@ -70,7 +70,7 @@ type LookupDatabaseResult struct {
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The resource identifier of the recoverable database associated with create operation of this database.

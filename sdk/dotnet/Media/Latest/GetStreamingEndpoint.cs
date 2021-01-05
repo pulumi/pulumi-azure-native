@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// Max cache age
         /// </summary>
-        public readonly int? MaxCacheAge;
+        public readonly double? MaxCacheAge;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             string location,
 
-            int? maxCacheAge,
+            double? maxCacheAge,
 
             string name,
 

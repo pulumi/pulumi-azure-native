@@ -29,26 +29,26 @@ class GetPrivateZoneResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, int):
-            raise TypeError("Expected argument 'max_number_of_record_sets' to be a int")
+        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, float):
+            raise TypeError("Expected argument 'max_number_of_record_sets' to be a float")
         pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
-        if max_number_of_virtual_network_links and not isinstance(max_number_of_virtual_network_links, int):
-            raise TypeError("Expected argument 'max_number_of_virtual_network_links' to be a int")
+        if max_number_of_virtual_network_links and not isinstance(max_number_of_virtual_network_links, float):
+            raise TypeError("Expected argument 'max_number_of_virtual_network_links' to be a float")
         pulumi.set(__self__, "max_number_of_virtual_network_links", max_number_of_virtual_network_links)
-        if max_number_of_virtual_network_links_with_registration and not isinstance(max_number_of_virtual_network_links_with_registration, int):
-            raise TypeError("Expected argument 'max_number_of_virtual_network_links_with_registration' to be a int")
+        if max_number_of_virtual_network_links_with_registration and not isinstance(max_number_of_virtual_network_links_with_registration, float):
+            raise TypeError("Expected argument 'max_number_of_virtual_network_links_with_registration' to be a float")
         pulumi.set(__self__, "max_number_of_virtual_network_links_with_registration", max_number_of_virtual_network_links_with_registration)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if number_of_record_sets and not isinstance(number_of_record_sets, int):
-            raise TypeError("Expected argument 'number_of_record_sets' to be a int")
+        if number_of_record_sets and not isinstance(number_of_record_sets, float):
+            raise TypeError("Expected argument 'number_of_record_sets' to be a float")
         pulumi.set(__self__, "number_of_record_sets", number_of_record_sets)
-        if number_of_virtual_network_links and not isinstance(number_of_virtual_network_links, int):
-            raise TypeError("Expected argument 'number_of_virtual_network_links' to be a int")
+        if number_of_virtual_network_links and not isinstance(number_of_virtual_network_links, float):
+            raise TypeError("Expected argument 'number_of_virtual_network_links' to be a float")
         pulumi.set(__self__, "number_of_virtual_network_links", number_of_virtual_network_links)
-        if number_of_virtual_network_links_with_registration and not isinstance(number_of_virtual_network_links_with_registration, int):
-            raise TypeError("Expected argument 'number_of_virtual_network_links_with_registration' to be a int")
+        if number_of_virtual_network_links_with_registration and not isinstance(number_of_virtual_network_links_with_registration, float):
+            raise TypeError("Expected argument 'number_of_virtual_network_links_with_registration' to be a float")
         pulumi.set(__self__, "number_of_virtual_network_links_with_registration", number_of_virtual_network_links_with_registration)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -86,7 +86,7 @@ class GetPrivateZoneResult:
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> int:
+    def max_number_of_record_sets(self) -> float:
         """
         The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -94,7 +94,7 @@ class GetPrivateZoneResult:
 
     @property
     @pulumi.getter(name="maxNumberOfVirtualNetworkLinks")
-    def max_number_of_virtual_network_links(self) -> int:
+    def max_number_of_virtual_network_links(self) -> float:
         """
         The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -102,7 +102,7 @@ class GetPrivateZoneResult:
 
     @property
     @pulumi.getter(name="maxNumberOfVirtualNetworkLinksWithRegistration")
-    def max_number_of_virtual_network_links_with_registration(self) -> int:
+    def max_number_of_virtual_network_links_with_registration(self) -> float:
         """
         The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -118,7 +118,7 @@ class GetPrivateZoneResult:
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> int:
+    def number_of_record_sets(self) -> float:
         """
         The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -126,7 +126,7 @@ class GetPrivateZoneResult:
 
     @property
     @pulumi.getter(name="numberOfVirtualNetworkLinks")
-    def number_of_virtual_network_links(self) -> int:
+    def number_of_virtual_network_links(self) -> float:
         """
         The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -134,7 +134,7 @@ class GetPrivateZoneResult:
 
     @property
     @pulumi.getter(name="numberOfVirtualNetworkLinksWithRegistration")
-    def number_of_virtual_network_links_with_registration(self) -> int:
+    def number_of_virtual_network_links_with_registration(self) -> float:
         """
         The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
         """

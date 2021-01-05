@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
         /// <summary>
         /// Available capacity (# of machines, bytes of storage etc...)
         /// </summary>
-        public readonly int? AvailableCapacity;
+        public readonly double? AvailableCapacity;
         /// <summary>
         /// Shared/Dedicated workers
         /// </summary>
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
         /// <summary>
         /// Total capacity (# of machines, bytes of storage etc...)
         /// </summary>
-        public readonly int? TotalCapacity;
+        public readonly double? TotalCapacity;
         /// <summary>
         /// Name of the unit
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
 
         [OutputConstructor]
         private StampCapacityResponse(
-            int? availableCapacity,
+            double? availableCapacity,
 
             string? computeMode,
 
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
 
             string? siteMode,
 
-            int? totalCapacity,
+            double? totalCapacity,
 
             string? unit,
 

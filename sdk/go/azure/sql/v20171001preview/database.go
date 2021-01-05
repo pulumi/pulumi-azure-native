@@ -66,9 +66,9 @@ type Database struct {
 	// Resource that manages the database.
 	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
 	// The max log size for this database.
-	MaxLogSizeBytes pulumi.IntOutput `pulumi:"maxLogSizeBytes"`
+	MaxLogSizeBytes pulumi.Float64Output `pulumi:"maxLogSizeBytes"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrOutput `pulumi:"maxSizeBytes"`
+	MaxSizeBytes pulumi.Float64PtrOutput `pulumi:"maxSizeBytes"`
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity pulumi.Float64PtrOutput `pulumi:"minCapacity"`
 	// Resource name.
@@ -224,9 +224,9 @@ type databaseState struct {
 	// Resource that manages the database.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The max log size for this database.
-	MaxLogSizeBytes *int `pulumi:"maxLogSizeBytes"`
+	MaxLogSizeBytes *float64 `pulumi:"maxLogSizeBytes"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity *float64 `pulumi:"minCapacity"`
 	// Resource name.
@@ -321,9 +321,9 @@ type DatabaseState struct {
 	// Resource that manages the database.
 	ManagedBy pulumi.StringPtrInput
 	// The max log size for this database.
-	MaxLogSizeBytes pulumi.IntPtrInput
+	MaxLogSizeBytes pulumi.Float64PtrInput
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity pulumi.Float64PtrInput
 	// Resource name.
@@ -406,7 +406,7 @@ type databaseArgs struct {
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity *float64 `pulumi:"minCapacity"`
 	// The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
@@ -478,7 +478,7 @@ type DatabaseArgs struct {
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId pulumi.StringPtrInput
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity pulumi.Float64PtrInput
 	// The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.

@@ -44,7 +44,7 @@ type LookupBackupPolicyResult struct {
 	// Indicates whether at least one of the schedules in the backup policy is active or not.
 	ScheduledBackupStatus string `pulumi:"scheduledBackupStatus"`
 	// The count of schedules the backup policy contains.
-	SchedulesCount int `pulumi:"schedulesCount"`
+	SchedulesCount float64 `pulumi:"schedulesCount"`
 	// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
 	SsmHostName string `pulumi:"ssmHostName"`
 	// The hierarchical type of the object.

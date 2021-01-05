@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// <summary>
         /// Variable id.
         /// </summary>
-        public readonly int? Id;
+        public readonly double? Id;
         /// <summary>
         /// Variable name.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
 
             string? description,
 
-            int? id,
+            double? id,
 
             string? name,
 

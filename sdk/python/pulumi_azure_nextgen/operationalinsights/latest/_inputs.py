@@ -26,11 +26,11 @@ __all__ = [
 @pulumi.input_type
 class ClusterSkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[int]] = None,
+                 capacity: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]] = None):
         """
         The cluster sku definition.
-        :param pulumi.Input[int] capacity: The capacity value
+        :param pulumi.Input[float] capacity: The capacity value
         :param pulumi.Input[Union[str, 'ClusterSkuNameEnum']] name: The name of the SKU.
         """
         if capacity is not None:
@@ -40,14 +40,14 @@ class ClusterSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
+    def capacity(self) -> Optional[pulumi.Input[float]]:
         """
         The capacity value
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
+    def capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "capacity", value)
 
     @property

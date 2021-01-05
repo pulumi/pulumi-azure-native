@@ -16,13 +16,13 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
         /// Playback duration
         /// </summary>
         [Input("playbackDurationSeconds", required: true)]
-        public Input<int> PlaybackDurationSeconds { get; set; } = null!;
+        public Input<double> PlaybackDurationSeconds { get; set; } = null!;
 
         /// <summary>
         /// Storage duration
         /// </summary>
         [Input("storageDurationSeconds", required: true)]
-        public Input<int> StorageDurationSeconds { get; set; } = null!;
+        public Input<double> StorageDurationSeconds { get; set; } = null!;
 
         public ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs()
         {

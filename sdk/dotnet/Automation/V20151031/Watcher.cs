@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// Gets or sets the frequency at which the watcher is invoked.
         /// </summary>
         [Output("executionFrequencyInSeconds")]
-        public Output<int?> ExecutionFrequencyInSeconds { get; private set; } = null!;
+        public Output<double?> ExecutionFrequencyInSeconds { get; private set; } = null!;
 
         /// <summary>
         /// Details of the user who last modified the watcher.
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// Gets or sets the frequency at which the watcher is invoked.
         /// </summary>
         [Input("executionFrequencyInSeconds")]
-        public Input<int>? ExecutionFrequencyInSeconds { get; set; }
+        public Input<double>? ExecutionFrequencyInSeconds { get; set; }
 
         /// <summary>
         /// The Azure Region where the resource lives

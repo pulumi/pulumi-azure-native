@@ -109,13 +109,13 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
         /// </summary>
         [Output("maxSizeInMegabytes")]
-        public Output<int?> MaxSizeInMegabytes { get; private set; } = null!;
+        public Output<double?> MaxSizeInMegabytes { get; private set; } = null!;
 
         /// <summary>
         /// The number of messages in the queue.
         /// </summary>
         [Output("messageCount")]
-        public Output<int> MessageCount { get; private set; } = null!;
+        public Output<double> MessageCount { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// The size of the queue, in bytes.
         /// </summary>
         [Output("sizeInBytes")]
-        public Output<int> SizeInBytes { get; private set; } = null!;
+        public Output<double> SizeInBytes { get; private set; } = null!;
 
         /// <summary>
         /// Enumerates the possible values for the status of a messaging entity.
@@ -293,7 +293,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
         /// </summary>
         [Input("maxSizeInMegabytes")]
-        public Input<int>? MaxSizeInMegabytes { get; set; }
+        public Input<double>? MaxSizeInMegabytes { get; set; }
 
         /// <summary>
         /// Queue name.

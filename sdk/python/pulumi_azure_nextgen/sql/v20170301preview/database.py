@@ -25,7 +25,7 @@ class Database(pulumi.CustomResource):
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[int]] = None,
+                 max_size_bytes: Optional[pulumi.Input[float]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -69,7 +69,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
-        :param pulumi.Input[int] max_size_bytes: The max size of the database expressed in bytes.
+        :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -277,7 +277,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> pulumi.Output[Optional[int]]:
+    def max_size_bytes(self) -> pulumi.Output[Optional[float]]:
         """
         The max size of the database expressed in bytes.
         """

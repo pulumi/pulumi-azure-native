@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301.Outputs
         /// <summary>
         /// Last cloud tiering result (HResult)
         /// </summary>
-        public readonly int TotalFileCount;
+        public readonly double TotalFileCount;
 
         [OutputConstructor]
         private CloudTieringFilesNotTieringResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301.Outputs
 
             string lastUpdatedTimestamp,
 
-            int totalFileCount)
+            double totalFileCount)
         {
             Errors = errors;
             LastUpdatedTimestamp = lastUpdatedTimestamp;

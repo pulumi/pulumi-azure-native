@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// The average document size, or -1 if the average size is unknown
         /// </summary>
-        public readonly int AverageDocumentSize;
+        public readonly double AverageDocumentSize;
         /// <summary>
         /// The estimated total data size, in bytes, or -1 if the size is unknown.
         /// </summary>
-        public readonly int DataSize;
+        public readonly double DataSize;
         /// <summary>
         /// The name of the database containing the collection
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// The estimated total number of documents, or -1 if the document count is unknown
         /// </summary>
-        public readonly int DocumentCount;
+        public readonly double DocumentCount;
         /// <summary>
         /// Whether the collection is a capped collection (i.e. whether it has a fixed size and acts like a circular buffer)
         /// </summary>
@@ -64,13 +64,13 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
         [OutputConstructor]
         private MongoDbCollectionInfoResponse(
-            int averageDocumentSize,
+            double averageDocumentSize,
 
-            int dataSize,
+            double dataSize,
 
             string databaseName,
 
-            int documentCount,
+            double documentCount,
 
             bool isCapped,
 

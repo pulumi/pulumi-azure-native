@@ -58,15 +58,15 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        public readonly int MaxNumberOfRecordSets;
+        public readonly double MaxNumberOfRecordSets;
         /// <summary>
         /// The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        public readonly int MaxNumberOfVirtualNetworkLinks;
+        public readonly double MaxNumberOfVirtualNetworkLinks;
         /// <summary>
         /// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        public readonly int MaxNumberOfVirtualNetworkLinksWithRegistration;
+        public readonly double MaxNumberOfVirtualNetworkLinksWithRegistration;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -74,15 +74,15 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        public readonly int NumberOfRecordSets;
+        public readonly double NumberOfRecordSets;
         /// <summary>
         /// The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        public readonly int NumberOfVirtualNetworkLinks;
+        public readonly double NumberOfVirtualNetworkLinks;
         /// <summary>
         /// The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        public readonly int NumberOfVirtualNetworkLinksWithRegistration;
+        public readonly double NumberOfVirtualNetworkLinksWithRegistration;
         /// <summary>
         /// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
@@ -106,19 +106,19 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string? location,
 
-            int maxNumberOfRecordSets,
+            double maxNumberOfRecordSets,
 
-            int maxNumberOfVirtualNetworkLinks,
+            double maxNumberOfVirtualNetworkLinks,
 
-            int maxNumberOfVirtualNetworkLinksWithRegistration,
+            double maxNumberOfVirtualNetworkLinksWithRegistration,
 
             string name,
 
-            int numberOfRecordSets,
+            double numberOfRecordSets,
 
-            int numberOfVirtualNetworkLinks,
+            double numberOfVirtualNetworkLinks,
 
-            int numberOfVirtualNetworkLinksWithRegistration,
+            double numberOfVirtualNetworkLinksWithRegistration,
 
             string provisioningState,
 

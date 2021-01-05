@@ -27,7 +27,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_appliance_asn: Optional[pulumi.Input[int]] = None,
+                 virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -46,7 +46,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']] sku: Network Virtual Appliance SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[int] virtual_appliance_asn: VirtualAppliance ASN.
+        :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
         """
         if __name__ is not None:
@@ -194,7 +194,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualApplianceAsn")
-    def virtual_appliance_asn(self) -> pulumi.Output[Optional[int]]:
+    def virtual_appliance_asn(self) -> pulumi.Output[Optional[float]]:
         """
         VirtualAppliance ASN.
         """

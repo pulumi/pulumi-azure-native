@@ -216,7 +216,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareUsageBytes")
-    def share_usage_bytes(self) -> pulumi.Output[int]:
+    def share_usage_bytes(self) -> pulumi.Output[float]:
         """
         The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         """

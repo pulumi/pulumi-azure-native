@@ -13,15 +13,15 @@ import (
 // Message Count Details.
 type MessageCountDetailsResponse struct {
 	// Number of active messages in the queue, topic, or subscription.
-	ActiveMessageCount int `pulumi:"activeMessageCount"`
+	ActiveMessageCount float64 `pulumi:"activeMessageCount"`
 	// Number of messages that are dead lettered.
-	DeadLetterMessageCount int `pulumi:"deadLetterMessageCount"`
+	DeadLetterMessageCount float64 `pulumi:"deadLetterMessageCount"`
 	// Number of scheduled messages.
-	ScheduledMessageCount int `pulumi:"scheduledMessageCount"`
+	ScheduledMessageCount float64 `pulumi:"scheduledMessageCount"`
 	// Number of messages transferred into dead letters.
-	TransferDeadLetterMessageCount int `pulumi:"transferDeadLetterMessageCount"`
+	TransferDeadLetterMessageCount float64 `pulumi:"transferDeadLetterMessageCount"`
 	// Number of messages transferred to another queue, topic, or subscription.
-	TransferMessageCount int `pulumi:"transferMessageCount"`
+	TransferMessageCount float64 `pulumi:"transferMessageCount"`
 }
 
 // MessageCountDetailsResponseInput is an input type that accepts MessageCountDetailsResponseArgs and MessageCountDetailsResponseOutput values.
@@ -38,15 +38,15 @@ type MessageCountDetailsResponseInput interface {
 // Message Count Details.
 type MessageCountDetailsResponseArgs struct {
 	// Number of active messages in the queue, topic, or subscription.
-	ActiveMessageCount pulumi.IntInput `pulumi:"activeMessageCount"`
+	ActiveMessageCount pulumi.Float64Input `pulumi:"activeMessageCount"`
 	// Number of messages that are dead lettered.
-	DeadLetterMessageCount pulumi.IntInput `pulumi:"deadLetterMessageCount"`
+	DeadLetterMessageCount pulumi.Float64Input `pulumi:"deadLetterMessageCount"`
 	// Number of scheduled messages.
-	ScheduledMessageCount pulumi.IntInput `pulumi:"scheduledMessageCount"`
+	ScheduledMessageCount pulumi.Float64Input `pulumi:"scheduledMessageCount"`
 	// Number of messages transferred into dead letters.
-	TransferDeadLetterMessageCount pulumi.IntInput `pulumi:"transferDeadLetterMessageCount"`
+	TransferDeadLetterMessageCount pulumi.Float64Input `pulumi:"transferDeadLetterMessageCount"`
 	// Number of messages transferred to another queue, topic, or subscription.
-	TransferMessageCount pulumi.IntInput `pulumi:"transferMessageCount"`
+	TransferMessageCount pulumi.Float64Input `pulumi:"transferMessageCount"`
 }
 
 func (MessageCountDetailsResponseArgs) ElementType() reflect.Type {
@@ -128,28 +128,28 @@ func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponsePtrOutpu
 }
 
 // Number of active messages in the queue, topic, or subscription.
-func (o MessageCountDetailsResponseOutput) ActiveMessageCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MessageCountDetailsResponse) int { return v.ActiveMessageCount }).(pulumi.IntOutput)
+func (o MessageCountDetailsResponseOutput) ActiveMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.ActiveMessageCount }).(pulumi.Float64Output)
 }
 
 // Number of messages that are dead lettered.
-func (o MessageCountDetailsResponseOutput) DeadLetterMessageCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MessageCountDetailsResponse) int { return v.DeadLetterMessageCount }).(pulumi.IntOutput)
+func (o MessageCountDetailsResponseOutput) DeadLetterMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.DeadLetterMessageCount }).(pulumi.Float64Output)
 }
 
 // Number of scheduled messages.
-func (o MessageCountDetailsResponseOutput) ScheduledMessageCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MessageCountDetailsResponse) int { return v.ScheduledMessageCount }).(pulumi.IntOutput)
+func (o MessageCountDetailsResponseOutput) ScheduledMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.ScheduledMessageCount }).(pulumi.Float64Output)
 }
 
 // Number of messages transferred into dead letters.
-func (o MessageCountDetailsResponseOutput) TransferDeadLetterMessageCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MessageCountDetailsResponse) int { return v.TransferDeadLetterMessageCount }).(pulumi.IntOutput)
+func (o MessageCountDetailsResponseOutput) TransferDeadLetterMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.TransferDeadLetterMessageCount }).(pulumi.Float64Output)
 }
 
 // Number of messages transferred to another queue, topic, or subscription.
-func (o MessageCountDetailsResponseOutput) TransferMessageCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MessageCountDetailsResponse) int { return v.TransferMessageCount }).(pulumi.IntOutput)
+func (o MessageCountDetailsResponseOutput) TransferMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.TransferMessageCount }).(pulumi.Float64Output)
 }
 
 type MessageCountDetailsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -171,53 +171,53 @@ func (o MessageCountDetailsResponsePtrOutput) Elem() MessageCountDetailsResponse
 }
 
 // Number of active messages in the queue, topic, or subscription.
-func (o MessageCountDetailsResponsePtrOutput) ActiveMessageCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) *int {
+func (o MessageCountDetailsResponsePtrOutput) ActiveMessageCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.ActiveMessageCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Number of messages that are dead lettered.
-func (o MessageCountDetailsResponsePtrOutput) DeadLetterMessageCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) *int {
+func (o MessageCountDetailsResponsePtrOutput) DeadLetterMessageCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.DeadLetterMessageCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Number of scheduled messages.
-func (o MessageCountDetailsResponsePtrOutput) ScheduledMessageCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) *int {
+func (o MessageCountDetailsResponsePtrOutput) ScheduledMessageCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.ScheduledMessageCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Number of messages transferred into dead letters.
-func (o MessageCountDetailsResponsePtrOutput) TransferDeadLetterMessageCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) *int {
+func (o MessageCountDetailsResponsePtrOutput) TransferDeadLetterMessageCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TransferDeadLetterMessageCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Number of messages transferred to another queue, topic, or subscription.
-func (o MessageCountDetailsResponsePtrOutput) TransferMessageCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) *int {
+func (o MessageCountDetailsResponsePtrOutput) TransferMessageCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.TransferMessageCount
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // SKU of the namespace.

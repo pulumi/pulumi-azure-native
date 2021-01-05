@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// <summary>
         /// Gets or sets the size in bytes of the module.
         /// </summary>
-        public readonly int? SizeInBytes;
+        public readonly double? SizeInBytes;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
             string? provisioningState,
 
-            int? sizeInBytes,
+            double? sizeInBytes,
 
             ImmutableDictionary<string, string>? tags,
 

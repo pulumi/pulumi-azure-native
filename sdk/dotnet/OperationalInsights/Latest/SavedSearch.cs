@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// The version number of the query language. The current version is 2 and is the default.
         /// </summary>
         [Output("version")]
-        public Output<int?> Version { get; private set; } = null!;
+        public Output<double?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// The version number of the query language. The current version is 2 and is the default.
         /// </summary>
         [Input("version")]
-        public Input<int>? Version { get; set; }
+        public Input<double>? Version { get; set; }
 
         /// <summary>
         /// The name of the workspace.

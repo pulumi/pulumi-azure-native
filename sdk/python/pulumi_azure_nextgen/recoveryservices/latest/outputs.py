@@ -270,7 +270,7 @@ class A2AProtectedDiskDetailsResponse(dict):
                  data_pending_at_source_agent_in_mb: Optional[float] = None,
                  data_pending_in_staging_storage_account_in_mb: Optional[float] = None,
                  dek_key_vault_arm_id: Optional[str] = None,
-                 disk_capacity_in_bytes: Optional[int] = None,
+                 disk_capacity_in_bytes: Optional[float] = None,
                  disk_name: Optional[str] = None,
                  disk_state: Optional[str] = None,
                  disk_type: Optional[str] = None,
@@ -293,7 +293,7 @@ class A2AProtectedDiskDetailsResponse(dict):
         :param float data_pending_at_source_agent_in_mb: The data pending at source virtual machine in MB.
         :param float data_pending_in_staging_storage_account_in_mb: The data pending for replication in MB at staging account.
         :param str dek_key_vault_arm_id: The KeyVault resource id for secret (BEK).
-        :param int disk_capacity_in_bytes: The disk capacity in bytes.
+        :param float disk_capacity_in_bytes: The disk capacity in bytes.
         :param str disk_name: The disk name.
         :param str disk_state: The disk state.
         :param str disk_type: The type of disk.
@@ -388,7 +388,7 @@ class A2AProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
-    def disk_capacity_in_bytes(self) -> Optional[int]:
+    def disk_capacity_in_bytes(self) -> Optional[float]:
         """
         The disk capacity in bytes.
         """
@@ -536,7 +536,7 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
                  data_pending_at_source_agent_in_mb: Optional[float] = None,
                  data_pending_in_staging_storage_account_in_mb: Optional[float] = None,
                  dek_key_vault_arm_id: Optional[str] = None,
-                 disk_capacity_in_bytes: Optional[int] = None,
+                 disk_capacity_in_bytes: Optional[float] = None,
                  disk_id: Optional[str] = None,
                  disk_name: Optional[str] = None,
                  disk_state: Optional[str] = None,
@@ -564,7 +564,7 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
         :param float data_pending_at_source_agent_in_mb: The data pending at source virtual machine in MB.
         :param float data_pending_in_staging_storage_account_in_mb: The data pending for replication in MB at staging account.
         :param str dek_key_vault_arm_id: The KeyVault resource id for secret (BEK).
-        :param int disk_capacity_in_bytes: The disk capacity in bytes.
+        :param float disk_capacity_in_bytes: The disk capacity in bytes.
         :param str disk_id: The managed disk Arm id.
         :param str disk_name: The disk name.
         :param str disk_state: The disk state.
@@ -674,7 +674,7 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
-    def disk_capacity_in_bytes(self) -> Optional[int]:
+    def disk_capacity_in_bytes(self) -> Optional[float]:
         """
         The disk capacity in bytes.
         """
@@ -965,7 +965,7 @@ class A2AReplicationDetailsResponse(dict):
                  recovery_fabric_location: Optional[str] = None,
                  recovery_fabric_object_id: Optional[str] = None,
                  recovery_proximity_placement_group_id: Optional[str] = None,
-                 rpo_in_seconds: Optional[int] = None,
+                 rpo_in_seconds: Optional[float] = None,
                  selected_recovery_azure_network_id: Optional[str] = None,
                  selected_tfo_azure_network_id: Optional[str] = None,
                  test_failover_recovery_fabric_object_id: Optional[str] = None,
@@ -1010,7 +1010,7 @@ class A2AReplicationDetailsResponse(dict):
         :param str recovery_fabric_location: The recovery fabric location.
         :param str recovery_fabric_object_id: The recovery fabric object Id.
         :param str recovery_proximity_placement_group_id: The recovery proximity placement group Id.
-        :param int rpo_in_seconds: The last RPO value in seconds.
+        :param float rpo_in_seconds: The last RPO value in seconds.
         :param str selected_recovery_azure_network_id: The recovery virtual network.
         :param str selected_tfo_azure_network_id: The test failover virtual network.
         :param str test_failover_recovery_fabric_object_id: The test failover fabric object Id.
@@ -1359,7 +1359,7 @@ class A2AReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[int]:
+    def rpo_in_seconds(self) -> Optional[float]:
         """
         The last RPO value in seconds.
         """
@@ -1542,14 +1542,14 @@ class AgentDiskDetailsResponse(dict):
     Agent disk details.
     """
     def __init__(__self__, *,
-                 capacity_in_bytes: int,
+                 capacity_in_bytes: float,
                  disk_id: str,
                  disk_name: str,
                  is_os_disk: str,
                  lun_id: int):
         """
         Agent disk details.
-        :param int capacity_in_bytes: The disk capacity in bytes.
+        :param float capacity_in_bytes: The disk capacity in bytes.
         :param str disk_id: The disk Id.
         :param str disk_name: The disk name.
         :param str is_os_disk: A value indicating whether the disk is the OS disk.
@@ -1563,7 +1563,7 @@ class AgentDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="capacityInBytes")
-    def capacity_in_bytes(self) -> int:
+    def capacity_in_bytes(self) -> float:
         """
         The disk capacity in bytes.
         """
@@ -3211,7 +3211,7 @@ class AzureStorageContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
-                 protected_item_count: Optional[int] = None,
+                 protected_item_count: Optional[float] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
                  source_resource_id: Optional[str] = None,
@@ -3226,7 +3226,7 @@ class AzureStorageContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param int protected_item_count: Number of items backed up in this container.
+        :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
         :param str source_resource_id: Fully qualified ARM url.
@@ -3288,7 +3288,7 @@ class AzureStorageContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[int]:
+    def protected_item_count(self) -> Optional[float]:
         """
         Number of items backed up in this container.
         """
@@ -4991,13 +4991,13 @@ class DiskDetailsResponse(dict):
     On-prem disk details data.
     """
     def __init__(__self__, *,
-                 max_size_mb: Optional[int] = None,
+                 max_size_mb: Optional[float] = None,
                  vhd_id: Optional[str] = None,
                  vhd_name: Optional[str] = None,
                  vhd_type: Optional[str] = None):
         """
         On-prem disk details data.
-        :param int max_size_mb: The hard disk max size in MB.
+        :param float max_size_mb: The hard disk max size in MB.
         :param str vhd_id: The VHD Id.
         :param str vhd_name: The VHD name.
         :param str vhd_type: The type of the volume.
@@ -5013,7 +5013,7 @@ class DiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="maxSizeMB")
-    def max_size_mb(self) -> Optional[int]:
+    def max_size_mb(self) -> Optional[float]:
         """
         The hard disk max size in MB.
         """
@@ -5148,7 +5148,7 @@ class DpmContainerResponse(dict):
                  extended_info: Optional['outputs.DPMContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
-                 protected_item_count: Optional[int] = None,
+                 protected_item_count: Optional[float] = None,
                  protection_status: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  upgrade_available: Optional[bool] = None):
@@ -5167,7 +5167,7 @@ class DpmContainerResponse(dict):
         :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param int protected_item_count: Number of protected items in the BackupEngine
+        :param float protected_item_count: Number of protected items in the BackupEngine
         :param str protection_status: Protection status of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param bool upgrade_available: To check if upgrade available
@@ -5276,7 +5276,7 @@ class DpmContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[int]:
+    def protected_item_count(self) -> Optional[float]:
         """
         Number of protected items in the BackupEngine
         """
@@ -5799,7 +5799,7 @@ class GenericProtectedItemResponse(dict):
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
                  policy_state: Optional[str] = None,
-                 protected_item_id: Optional[int] = None,
+                 protected_item_id: Optional[float] = None,
                  protection_state: Optional[str] = None,
                  source_associations: Optional[Mapping[str, str]] = None,
                  source_resource_id: Optional[str] = None,
@@ -5822,7 +5822,7 @@ class GenericProtectedItemResponse(dict):
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param int protected_item_id: Data Plane Service ID of the protected item.
+        :param float protected_item_id: Data Plane Service ID of the protected item.
         :param str protection_state: Backup state of this backup item.
         :param Mapping[str, str] source_associations: Loosely coupled (type, value) associations (example - parent of a protected item)
         :param str source_resource_id: ARM ID of the resource to be backed up.
@@ -5991,7 +5991,7 @@ class GenericProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemId")
-    def protected_item_id(self) -> Optional[int]:
+    def protected_item_id(self) -> Optional[float]:
         """
         Data Plane Service ID of the protected item.
         """
@@ -6422,7 +6422,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
                  recovery_azure_storage_account: Optional[str] = None,
                  recovery_azure_vm_size: Optional[str] = None,
                  recovery_azure_vm_name: Optional[str] = None,
-                 rpo_in_seconds: Optional[int] = None,
+                 rpo_in_seconds: Optional[float] = None,
                  selected_recovery_azure_network_id: Optional[str] = None,
                  selected_source_nic_id: Optional[str] = None,
                  source_vm_cpu_count: Optional[int] = None,
@@ -6452,7 +6452,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         :param str recovery_azure_storage_account: The recovery Azure storage account.
         :param str recovery_azure_vm_size: The Recovery Azure VM size.
         :param str recovery_azure_vm_name: Recovery Azure given name.
-        :param int rpo_in_seconds: Last RPO value.
+        :param float rpo_in_seconds: Last RPO value.
         :param str selected_recovery_azure_network_id: The selected recovery azure network Id.
         :param str selected_source_nic_id: The selected source nic Id which will be used as the primary nic during failover.
         :param int source_vm_cpu_count: The CPU count of the VM on the primary side.
@@ -6642,7 +6642,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[int]:
+    def rpo_in_seconds(self) -> Optional[float]:
         """
         Last RPO value.
         """
@@ -8046,36 +8046,36 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
     InMageAzureV2 protected disk details.
     """
     def __init__(__self__, *,
-                 disk_capacity_in_bytes: Optional[int] = None,
+                 disk_capacity_in_bytes: Optional[float] = None,
                  disk_id: Optional[str] = None,
                  disk_name: Optional[str] = None,
                  disk_resized: Optional[str] = None,
-                 file_system_capacity_in_bytes: Optional[int] = None,
+                 file_system_capacity_in_bytes: Optional[float] = None,
                  health_error_code: Optional[str] = None,
                  last_rpo_calculated_time: Optional[str] = None,
                  protection_stage: Optional[str] = None,
                  ps_data_in_mega_bytes: Optional[float] = None,
-                 resync_duration_in_seconds: Optional[int] = None,
+                 resync_duration_in_seconds: Optional[float] = None,
                  resync_progress_percentage: Optional[int] = None,
                  resync_required: Optional[str] = None,
-                 rpo_in_seconds: Optional[int] = None,
+                 rpo_in_seconds: Optional[float] = None,
                  source_data_in_mega_bytes: Optional[float] = None,
                  target_data_in_mega_bytes: Optional[float] = None):
         """
         InMageAzureV2 protected disk details.
-        :param int disk_capacity_in_bytes: The disk capacity in bytes.
+        :param float disk_capacity_in_bytes: The disk capacity in bytes.
         :param str disk_id: The disk id.
         :param str disk_name: The disk name.
         :param str disk_resized: A value indicating whether disk is resized.
-        :param int file_system_capacity_in_bytes: The disk file system capacity in bytes.
+        :param float file_system_capacity_in_bytes: The disk file system capacity in bytes.
         :param str health_error_code: The health error code for the disk.
         :param str last_rpo_calculated_time: The last RPO calculated time.
         :param str protection_stage: The protection stage.
         :param float ps_data_in_mega_bytes: The PS data transit in MB.
-        :param int resync_duration_in_seconds: The resync duration in seconds.
+        :param float resync_duration_in_seconds: The resync duration in seconds.
         :param int resync_progress_percentage: The resync progress percentage.
         :param str resync_required: A value indicating whether resync is required for this disk.
-        :param int rpo_in_seconds: The RPO in seconds.
+        :param float rpo_in_seconds: The RPO in seconds.
         :param float source_data_in_mega_bytes: The source data transit in MB.
         :param float target_data_in_mega_bytes: The target data transit in MB.
         """
@@ -8112,7 +8112,7 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
-    def disk_capacity_in_bytes(self) -> Optional[int]:
+    def disk_capacity_in_bytes(self) -> Optional[float]:
         """
         The disk capacity in bytes.
         """
@@ -8144,7 +8144,7 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="fileSystemCapacityInBytes")
-    def file_system_capacity_in_bytes(self) -> Optional[int]:
+    def file_system_capacity_in_bytes(self) -> Optional[float]:
         """
         The disk file system capacity in bytes.
         """
@@ -8184,7 +8184,7 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="resyncDurationInSeconds")
-    def resync_duration_in_seconds(self) -> Optional[int]:
+    def resync_duration_in_seconds(self) -> Optional[float]:
         """
         The resync duration in seconds.
         """
@@ -8208,7 +8208,7 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[int]:
+    def rpo_in_seconds(self) -> Optional[float]:
         """
         The RPO in seconds.
         """
@@ -8277,7 +8277,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
                  recovery_azure_vm_size: Optional[str] = None,
                  replica_id: Optional[str] = None,
                  resync_progress_percentage: Optional[int] = None,
-                 rpo_in_seconds: Optional[int] = None,
+                 rpo_in_seconds: Optional[float] = None,
                  selected_recovery_azure_network_id: Optional[str] = None,
                  selected_source_nic_id: Optional[str] = None,
                  selected_tfo_azure_network_id: Optional[str] = None,
@@ -8335,7 +8335,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str recovery_azure_vm_size: The Recovery Azure VM size.
         :param str replica_id: The replica id of the protected item.
         :param int resync_progress_percentage: The resync progress percentage.
-        :param int rpo_in_seconds: The RPO in seconds.
+        :param float rpo_in_seconds: The RPO in seconds.
         :param str selected_recovery_azure_network_id: The selected recovery azure network Id.
         :param str selected_source_nic_id: The selected source nic Id which will be used as the primary nic during failover.
         :param str selected_tfo_azure_network_id: The test failover virtual network.
@@ -8762,7 +8762,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[int]:
+    def rpo_in_seconds(self) -> Optional[float]:
         """
         The RPO in seconds.
         """
@@ -9064,36 +9064,36 @@ class InMageProtectedDiskDetailsResponse(dict):
     InMage protected disk details.
     """
     def __init__(__self__, *,
-                 disk_capacity_in_bytes: Optional[int] = None,
+                 disk_capacity_in_bytes: Optional[float] = None,
                  disk_id: Optional[str] = None,
                  disk_name: Optional[str] = None,
                  disk_resized: Optional[str] = None,
-                 file_system_capacity_in_bytes: Optional[int] = None,
+                 file_system_capacity_in_bytes: Optional[float] = None,
                  health_error_code: Optional[str] = None,
                  last_rpo_calculated_time: Optional[str] = None,
                  protection_stage: Optional[str] = None,
                  ps_data_in_mb: Optional[float] = None,
-                 resync_duration_in_seconds: Optional[int] = None,
+                 resync_duration_in_seconds: Optional[float] = None,
                  resync_progress_percentage: Optional[int] = None,
                  resync_required: Optional[str] = None,
-                 rpo_in_seconds: Optional[int] = None,
+                 rpo_in_seconds: Optional[float] = None,
                  source_data_in_mb: Optional[float] = None,
                  target_data_in_mb: Optional[float] = None):
         """
         InMage protected disk details.
-        :param int disk_capacity_in_bytes: The disk capacity in bytes.
+        :param float disk_capacity_in_bytes: The disk capacity in bytes.
         :param str disk_id: The disk id.
         :param str disk_name: The disk name.
         :param str disk_resized: A value indicating whether disk is resized.
-        :param int file_system_capacity_in_bytes: The file system capacity in bytes.
+        :param float file_system_capacity_in_bytes: The file system capacity in bytes.
         :param str health_error_code: The health error code for the disk.
         :param str last_rpo_calculated_time: The last RPO calculated time.
         :param str protection_stage: The protection stage.
         :param float ps_data_in_mb: The PS data transit in MB.
-        :param int resync_duration_in_seconds: The resync duration in seconds.
+        :param float resync_duration_in_seconds: The resync duration in seconds.
         :param int resync_progress_percentage: The resync progress percentage.
         :param str resync_required: A value indicating whether resync is required for this disk.
-        :param int rpo_in_seconds: The RPO in seconds.
+        :param float rpo_in_seconds: The RPO in seconds.
         :param float source_data_in_mb: The source data transit in MB.
         :param float target_data_in_mb: The target data transit in MB.
         """
@@ -9130,7 +9130,7 @@ class InMageProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
-    def disk_capacity_in_bytes(self) -> Optional[int]:
+    def disk_capacity_in_bytes(self) -> Optional[float]:
         """
         The disk capacity in bytes.
         """
@@ -9162,7 +9162,7 @@ class InMageProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="fileSystemCapacityInBytes")
-    def file_system_capacity_in_bytes(self) -> Optional[int]:
+    def file_system_capacity_in_bytes(self) -> Optional[float]:
         """
         The file system capacity in bytes.
         """
@@ -9202,7 +9202,7 @@ class InMageProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="resyncDurationInSeconds")
-    def resync_duration_in_seconds(self) -> Optional[int]:
+    def resync_duration_in_seconds(self) -> Optional[float]:
         """
         The resync duration in seconds.
         """
@@ -9226,7 +9226,7 @@ class InMageProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[int]:
+    def rpo_in_seconds(self) -> Optional[float]:
         """
         The RPO in seconds.
         """
@@ -9940,7 +9940,7 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
     InMageRcm protected disk details.
     """
     def __init__(__self__, *,
-                 capacity_in_bytes: int,
+                 capacity_in_bytes: float,
                  disk_encryption_set_id: str,
                  disk_id: str,
                  disk_name: str,
@@ -9951,7 +9951,7 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
                  target_managed_disk_id: str):
         """
         InMageRcm protected disk details.
-        :param int capacity_in_bytes: The disk capacity in bytes.
+        :param float capacity_in_bytes: The disk capacity in bytes.
         :param str disk_encryption_set_id: The disk encryption set ARM Id.
         :param str disk_id: The disk Id.
         :param str disk_name: The disk name.
@@ -9973,7 +9973,7 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="capacityInBytes")
-    def capacity_in_bytes(self) -> int:
+    def capacity_in_bytes(self) -> float:
         """
         The disk capacity in bytes.
         """
@@ -10060,9 +10060,9 @@ class InMageRcmReplicationDetailsResponse(dict):
                  fabric_discovery_machine_id: str,
                  failover_recovery_point_id: str,
                  firmware_type: str,
-                 initial_replication_processed_bytes: int,
+                 initial_replication_processed_bytes: float,
                  initial_replication_progress_percentage: int,
-                 initial_replication_transferred_bytes: int,
+                 initial_replication_transferred_bytes: float,
                  instance_type: str,
                  internal_identifier: str,
                  is_last_upgrade_successful: str,
@@ -10072,7 +10072,7 @@ class InMageRcmReplicationDetailsResponse(dict):
                  last_recovery_point_id: str,
                  last_recovery_point_received: str,
                  last_rpo_calculated_time: str,
-                 last_rpo_in_seconds: int,
+                 last_rpo_in_seconds: float,
                  license_type: str,
                  mobility_agent_details: 'outputs.InMageRcmMobilityAgentDetailsResponse',
                  multi_vm_group_name: str,
@@ -10081,11 +10081,11 @@ class InMageRcmReplicationDetailsResponse(dict):
                  process_server_name: str,
                  processor_core_count: int,
                  protected_disks: Sequence['outputs.InMageRcmProtectedDiskDetailsResponse'],
-                 resync_processed_bytes: int,
+                 resync_processed_bytes: float,
                  resync_progress_percentage: int,
                  resync_required: str,
                  resync_state: str,
-                 resync_transferred_bytes: int,
+                 resync_transferred_bytes: float,
                  run_as_account_id: str,
                  target_availability_set_id: str,
                  target_availability_zone: str,
@@ -10107,9 +10107,9 @@ class InMageRcmReplicationDetailsResponse(dict):
         :param str fabric_discovery_machine_id: The ARM Id of the discovered VM.
         :param str failover_recovery_point_id: The recovery point Id to which the VM was failed over.
         :param str firmware_type: The firmware type.
-        :param int initial_replication_processed_bytes: The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        :param float initial_replication_processed_bytes: The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
         :param int initial_replication_progress_percentage: The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
-        :param int initial_replication_transferred_bytes: The initial replication transferred bytes from source VM to azure for all selected disks on source VM.
+        :param float initial_replication_transferred_bytes: The initial replication transferred bytes from source VM to azure for all selected disks on source VM.
         :param str instance_type: Gets the Instance type.
                Expected value is 'InMageRcm'.
         :param str internal_identifier: The virtual machine internal identifier.
@@ -10120,7 +10120,7 @@ class InMageRcmReplicationDetailsResponse(dict):
         :param str last_recovery_point_id: The last recovery point Id.
         :param str last_recovery_point_received: The last recovery point received time.
         :param str last_rpo_calculated_time: The last recovery point objective calculated time.
-        :param int last_rpo_in_seconds: The last recovery point objective value.
+        :param float last_rpo_in_seconds: The last recovery point objective value.
         :param str license_type: License Type of the VM to be used.
         :param 'InMageRcmMobilityAgentDetailsResponseArgs' mobility_agent_details: The mobility agent information.
         :param str multi_vm_group_name: The multi VM group name.
@@ -10129,11 +10129,11 @@ class InMageRcmReplicationDetailsResponse(dict):
         :param str process_server_name: The process server name.
         :param int processor_core_count: The processor core count.
         :param Sequence['InMageRcmProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
-        :param int resync_processed_bytes: The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        :param float resync_processed_bytes: The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
         :param int resync_progress_percentage: The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
         :param str resync_required: A value indicating whether resync is required.
         :param str resync_state: The resync state.
-        :param int resync_transferred_bytes: The resync transferred bytes from source VM to azure for all selected disks on source VM.
+        :param float resync_transferred_bytes: The resync transferred bytes from source VM to azure for all selected disks on source VM.
         :param str run_as_account_id: The run-as account Id.
         :param str target_availability_set_id: The target availability set Id.
         :param str target_availability_zone: The target availability zone.
@@ -10251,7 +10251,7 @@ class InMageRcmReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="initialReplicationProcessedBytes")
-    def initial_replication_processed_bytes(self) -> int:
+    def initial_replication_processed_bytes(self) -> float:
         """
         The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
         """
@@ -10267,7 +10267,7 @@ class InMageRcmReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="initialReplicationTransferredBytes")
-    def initial_replication_transferred_bytes(self) -> int:
+    def initial_replication_transferred_bytes(self) -> float:
         """
         The initial replication transferred bytes from source VM to azure for all selected disks on source VM.
         """
@@ -10348,7 +10348,7 @@ class InMageRcmReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="lastRpoInSeconds")
-    def last_rpo_in_seconds(self) -> int:
+    def last_rpo_in_seconds(self) -> float:
         """
         The last recovery point objective value.
         """
@@ -10420,7 +10420,7 @@ class InMageRcmReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="resyncProcessedBytes")
-    def resync_processed_bytes(self) -> int:
+    def resync_processed_bytes(self) -> float:
         """
         The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
         """
@@ -10452,7 +10452,7 @@ class InMageRcmReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="resyncTransferredBytes")
-    def resync_transferred_bytes(self) -> int:
+    def resync_transferred_bytes(self) -> float:
         """
         The resync transferred bytes from source VM to azure for all selected disks on source VM.
         """
@@ -10592,7 +10592,7 @@ class InMageReplicationDetailsResponse(dict):
                  resync_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
                  retention_window_end: Optional[str] = None,
                  retention_window_start: Optional[str] = None,
-                 rpo_in_seconds: Optional[int] = None,
+                 rpo_in_seconds: Optional[float] = None,
                  source_vm_cpu_count: Optional[int] = None,
                  source_vm_ram_size_in_mb: Optional[int] = None,
                  uncompressed_data_rate_in_mb: Optional[float] = None,
@@ -10633,7 +10633,7 @@ class InMageReplicationDetailsResponse(dict):
         :param 'InitialReplicationDetailsResponseArgs' resync_details: The resync details of the machine
         :param str retention_window_end: The retention window end time.
         :param str retention_window_start: The retention window start time.
-        :param int rpo_in_seconds: The RPO in seconds.
+        :param float rpo_in_seconds: The RPO in seconds.
         :param int source_vm_cpu_count: The CPU count of the VM on the primary side.
         :param int source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
         :param float uncompressed_data_rate_in_mb: The uncompressed data change rate in MB.
@@ -10947,7 +10947,7 @@ class InMageReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[int]:
+    def rpo_in_seconds(self) -> Optional[float]:
         """
         The RPO in seconds.
         """
@@ -11740,12 +11740,12 @@ class MabContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  can_re_register: Optional[bool] = None,
                  container_health_state: Optional[str] = None,
-                 container_id: Optional[int] = None,
+                 container_id: Optional[float] = None,
                  extended_info: Optional['outputs.MabContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
                  mab_container_health_details: Optional[Sequence['outputs.MABContainerHealthDetailsResponse']] = None,
-                 protected_item_count: Optional[int] = None,
+                 protected_item_count: Optional[float] = None,
                  registration_status: Optional[str] = None):
         """
         Container with items backed up using MAB backup engine.
@@ -11758,12 +11758,12 @@ class MabContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param bool can_re_register: Can the container be registered one more time.
         :param str container_health_state: Health state of mab container.
-        :param int container_id: ContainerID represents the container.
+        :param float container_id: ContainerID represents the container.
         :param 'MabContainerExtendedInfoResponseArgs' extended_info: Additional information for this container
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param Sequence['MABContainerHealthDetailsResponseArgs'] mab_container_health_details: Health details on this mab container.
-        :param int protected_item_count: Number of items backed up in this container.
+        :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
         pulumi.set(__self__, "container_type", 'Windows')
@@ -11836,7 +11836,7 @@ class MabContainerResponse(dict):
 
     @property
     @pulumi.getter(name="containerId")
-    def container_id(self) -> Optional[int]:
+    def container_id(self) -> Optional[float]:
         """
         ContainerID represents the container.
         """
@@ -11876,7 +11876,7 @@ class MabContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[int]:
+    def protected_item_count(self) -> Optional[float]:
         """
         Number of items backed up in this container.
         """
@@ -11956,7 +11956,7 @@ class MabFileFolderProtectedItemResponse(dict):
                  computer_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
-                 deferred_delete_sync_time_in_utc: Optional[int] = None,
+                 deferred_delete_sync_time_in_utc: Optional[float] = None,
                  deferred_delete_time_in_utc: Optional[str] = None,
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.MabFileFolderProtectedItemExtendedInfoResponse'] = None,
@@ -11980,7 +11980,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param str computer_name: Name of the computer associated with this backup item.
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-        :param int deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
+        :param float deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'MabFileFolderProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
@@ -12089,7 +12089,7 @@ class MabFileFolderProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="deferredDeleteSyncTimeInUTC")
-    def deferred_delete_sync_time_in_utc(self) -> Optional[int]:
+    def deferred_delete_sync_time_in_utc(self) -> Optional[float]:
         """
         Sync time for deferred deletion in UTC
         """
@@ -13243,8 +13243,8 @@ class ProcessServerDetailsResponse(dict):
     Process server details.
     """
     def __init__(__self__, *,
-                 available_memory_in_bytes: int,
-                 available_space_in_bytes: int,
+                 available_memory_in_bytes: float,
+                 available_space_in_bytes: float,
                  free_space_percentage: float,
                  health: str,
                  health_errors: Sequence['outputs.HealthErrorResponse'],
@@ -13254,17 +13254,17 @@ class ProcessServerDetailsResponse(dict):
                  memory_usage_percentage: float,
                  name: str,
                  processor_usage_percentage: float,
-                 throughput_in_bytes: int,
-                 throughput_upload_pending_data_in_bytes: int,
-                 total_memory_in_bytes: int,
-                 total_space_in_bytes: int,
-                 used_memory_in_bytes: int,
-                 used_space_in_bytes: int,
+                 throughput_in_bytes: float,
+                 throughput_upload_pending_data_in_bytes: float,
+                 total_memory_in_bytes: float,
+                 total_space_in_bytes: float,
+                 used_memory_in_bytes: float,
+                 used_space_in_bytes: float,
                  version: str):
         """
         Process server details.
-        :param int available_memory_in_bytes: The available memory.
-        :param int available_space_in_bytes: The available disk space.
+        :param float available_memory_in_bytes: The available memory.
+        :param float available_space_in_bytes: The available disk space.
         :param float free_space_percentage: The free disk space percentage.
         :param str health: The health of the process server.
         :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
@@ -13274,12 +13274,12 @@ class ProcessServerDetailsResponse(dict):
         :param float memory_usage_percentage: The memory usage percentage.
         :param str name: The process server name.
         :param float processor_usage_percentage: The processor usage percentage.
-        :param int throughput_in_bytes: The throughput in bytes.
-        :param int throughput_upload_pending_data_in_bytes: The uploading pending data in bytes.
-        :param int total_memory_in_bytes: The total memory.
-        :param int total_space_in_bytes: The total disk space.
-        :param int used_memory_in_bytes: The used memory.
-        :param int used_space_in_bytes: The used disk space.
+        :param float throughput_in_bytes: The throughput in bytes.
+        :param float throughput_upload_pending_data_in_bytes: The uploading pending data in bytes.
+        :param float total_memory_in_bytes: The total memory.
+        :param float total_space_in_bytes: The total disk space.
+        :param float used_memory_in_bytes: The used memory.
+        :param float used_space_in_bytes: The used disk space.
         :param str version: The process server version.
         """
         pulumi.set(__self__, "available_memory_in_bytes", available_memory_in_bytes)
@@ -13303,7 +13303,7 @@ class ProcessServerDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="availableMemoryInBytes")
-    def available_memory_in_bytes(self) -> int:
+    def available_memory_in_bytes(self) -> float:
         """
         The available memory.
         """
@@ -13311,7 +13311,7 @@ class ProcessServerDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="availableSpaceInBytes")
-    def available_space_in_bytes(self) -> int:
+    def available_space_in_bytes(self) -> float:
         """
         The available disk space.
         """
@@ -13391,7 +13391,7 @@ class ProcessServerDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="throughputInBytes")
-    def throughput_in_bytes(self) -> int:
+    def throughput_in_bytes(self) -> float:
         """
         The throughput in bytes.
         """
@@ -13399,7 +13399,7 @@ class ProcessServerDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="throughputUploadPendingDataInBytes")
-    def throughput_upload_pending_data_in_bytes(self) -> int:
+    def throughput_upload_pending_data_in_bytes(self) -> float:
         """
         The uploading pending data in bytes.
         """
@@ -13407,7 +13407,7 @@ class ProcessServerDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="totalMemoryInBytes")
-    def total_memory_in_bytes(self) -> int:
+    def total_memory_in_bytes(self) -> float:
         """
         The total memory.
         """
@@ -13415,7 +13415,7 @@ class ProcessServerDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="totalSpaceInBytes")
-    def total_space_in_bytes(self) -> int:
+    def total_space_in_bytes(self) -> float:
         """
         The total disk space.
         """
@@ -13423,7 +13423,7 @@ class ProcessServerDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="usedMemoryInBytes")
-    def used_memory_in_bytes(self) -> int:
+    def used_memory_in_bytes(self) -> float:
         """
         The used memory.
         """
@@ -13431,7 +13431,7 @@ class ProcessServerDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="usedSpaceInBytes")
-    def used_space_in_bytes(self) -> int:
+    def used_space_in_bytes(self) -> float:
         """
         The used disk space.
         """
@@ -13459,15 +13459,15 @@ class ProcessServerResponse(dict):
                  mars_communication_status: str,
                  mars_registration_status: str,
                  ps_stats_refresh_time: str,
-                 throughput_in_bytes: int,
-                 throughput_in_m_bps: int,
+                 throughput_in_bytes: float,
+                 throughput_in_m_bps: float,
                  throughput_status: str,
-                 throughput_upload_pending_data_in_bytes: int,
+                 throughput_upload_pending_data_in_bytes: float,
                  agent_expiry_date: Optional[str] = None,
                  agent_version: Optional[str] = None,
                  agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
-                 available_memory_in_bytes: Optional[int] = None,
-                 available_space_in_bytes: Optional[int] = None,
+                 available_memory_in_bytes: Optional[float] = None,
+                 available_space_in_bytes: Optional[float] = None,
                  cpu_load: Optional[str] = None,
                  cpu_load_status: Optional[str] = None,
                  friendly_name: Optional[str] = None,
@@ -13488,8 +13488,8 @@ class ProcessServerResponse(dict):
                  ssl_cert_expiry_remaining_days: Optional[int] = None,
                  system_load: Optional[str] = None,
                  system_load_status: Optional[str] = None,
-                 total_memory_in_bytes: Optional[int] = None,
-                 total_space_in_bytes: Optional[int] = None,
+                 total_memory_in_bytes: Optional[float] = None,
+                 total_space_in_bytes: Optional[float] = None,
                  version_status: Optional[str] = None):
         """
         Details of the Process Server.
@@ -13497,15 +13497,15 @@ class ProcessServerResponse(dict):
         :param str mars_communication_status: The MARS communication status.
         :param str mars_registration_status: The MARS registration status.
         :param str ps_stats_refresh_time: The process server stats refresh time.
-        :param int throughput_in_bytes: The throughput in bytes.
-        :param int throughput_in_m_bps: The throughput in MBps.
+        :param float throughput_in_bytes: The throughput in bytes.
+        :param float throughput_in_m_bps: The throughput in MBps.
         :param str throughput_status: The throughput status.
-        :param int throughput_upload_pending_data_in_bytes: The uploading pending data in bytes.
+        :param float throughput_upload_pending_data_in_bytes: The uploading pending data in bytes.
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The version of the scout component on the server.
         :param 'VersionDetailsResponseArgs' agent_version_details: The agent version details.
-        :param int available_memory_in_bytes: The available memory.
-        :param int available_space_in_bytes: The available space.
+        :param float available_memory_in_bytes: The available memory.
+        :param float available_space_in_bytes: The available space.
         :param str cpu_load: The percentage of the CPU load.
         :param str cpu_load_status: The CPU load status.
         :param str friendly_name: The Process Server's friendly name.
@@ -13526,8 +13526,8 @@ class ProcessServerResponse(dict):
         :param int ssl_cert_expiry_remaining_days: CS SSL cert expiry date.
         :param str system_load: The percentage of the system load.
         :param str system_load_status: The system load status.
-        :param int total_memory_in_bytes: The total memory.
-        :param int total_space_in_bytes: The total space.
+        :param float total_memory_in_bytes: The total memory.
+        :param float total_space_in_bytes: The total space.
         :param str version_status: Version status
         """
         pulumi.set(__self__, "health", health)
@@ -13629,7 +13629,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="throughputInBytes")
-    def throughput_in_bytes(self) -> int:
+    def throughput_in_bytes(self) -> float:
         """
         The throughput in bytes.
         """
@@ -13637,7 +13637,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="throughputInMBps")
-    def throughput_in_m_bps(self) -> int:
+    def throughput_in_m_bps(self) -> float:
         """
         The throughput in MBps.
         """
@@ -13653,7 +13653,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="throughputUploadPendingDataInBytes")
-    def throughput_upload_pending_data_in_bytes(self) -> int:
+    def throughput_upload_pending_data_in_bytes(self) -> float:
         """
         The uploading pending data in bytes.
         """
@@ -13685,7 +13685,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="availableMemoryInBytes")
-    def available_memory_in_bytes(self) -> Optional[int]:
+    def available_memory_in_bytes(self) -> Optional[float]:
         """
         The available memory.
         """
@@ -13693,7 +13693,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="availableSpaceInBytes")
-    def available_space_in_bytes(self) -> Optional[int]:
+    def available_space_in_bytes(self) -> Optional[float]:
         """
         The available space.
         """
@@ -13861,7 +13861,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="totalMemoryInBytes")
-    def total_memory_in_bytes(self) -> Optional[int]:
+    def total_memory_in_bytes(self) -> Optional[float]:
         """
         The total memory.
         """
@@ -13869,7 +13869,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="totalSpaceInBytes")
-    def total_space_in_bytes(self) -> Optional[int]:
+    def total_space_in_bytes(self) -> Optional[float]:
         """
         The total space.
         """
@@ -15663,14 +15663,14 @@ class RetentionVolumeResponse(dict):
     The retention details of the MT.
     """
     def __init__(__self__, *,
-                 capacity_in_bytes: Optional[int] = None,
-                 free_space_in_bytes: Optional[int] = None,
+                 capacity_in_bytes: Optional[float] = None,
+                 free_space_in_bytes: Optional[float] = None,
                  threshold_percentage: Optional[int] = None,
                  volume_name: Optional[str] = None):
         """
         The retention details of the MT.
-        :param int capacity_in_bytes: The volume capacity.
-        :param int free_space_in_bytes: The free space available in this volume.
+        :param float capacity_in_bytes: The volume capacity.
+        :param float free_space_in_bytes: The free space available in this volume.
         :param int threshold_percentage: The threshold percentage.
         :param str volume_name: The volume name.
         """
@@ -15685,7 +15685,7 @@ class RetentionVolumeResponse(dict):
 
     @property
     @pulumi.getter(name="capacityInBytes")
-    def capacity_in_bytes(self) -> Optional[int]:
+    def capacity_in_bytes(self) -> Optional[float]:
         """
         The volume capacity.
         """
@@ -15693,7 +15693,7 @@ class RetentionVolumeResponse(dict):
 
     @property
     @pulumi.getter(name="freeSpaceInBytes")
-    def free_space_in_bytes(self) -> Optional[int]:
+    def free_space_in_bytes(self) -> Optional[float]:
         """
         The free space available in this volume.
         """
@@ -16957,7 +16957,7 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
     VMwareCbt protected disk details.
     """
     def __init__(__self__, *,
-                 capacity_in_bytes: int,
+                 capacity_in_bytes: float,
                  disk_id: str,
                  disk_name: str,
                  disk_path: str,
@@ -16969,7 +16969,7 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
                  disk_type: Optional[str] = None):
         """
         VMwareCbt protected disk details.
-        :param int capacity_in_bytes: The disk capacity in bytes.
+        :param float capacity_in_bytes: The disk capacity in bytes.
         :param str disk_id: The disk id.
         :param str disk_name: The disk name.
         :param str disk_path: The disk path.
@@ -16994,7 +16994,7 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="capacityInBytes")
-    def capacity_in_bytes(self) -> int:
+    def capacity_in_bytes(self) -> float:
         """
         The disk capacity in bytes.
         """
@@ -17180,8 +17180,8 @@ class VMwareDetailsResponse(dict):
                  agent_expiry_date: Optional[str] = None,
                  agent_version: Optional[str] = None,
                  agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
-                 available_memory_in_bytes: Optional[int] = None,
-                 available_space_in_bytes: Optional[int] = None,
+                 available_memory_in_bytes: Optional[float] = None,
+                 available_space_in_bytes: Optional[float] = None,
                  cpu_load: Optional[str] = None,
                  cpu_load_status: Optional[str] = None,
                  cs_service_status: Optional[str] = None,
@@ -17203,8 +17203,8 @@ class VMwareDetailsResponse(dict):
                  ssl_cert_expiry_remaining_days: Optional[int] = None,
                  system_load: Optional[str] = None,
                  system_load_status: Optional[str] = None,
-                 total_memory_in_bytes: Optional[int] = None,
-                 total_space_in_bytes: Optional[int] = None,
+                 total_memory_in_bytes: Optional[float] = None,
+                 total_space_in_bytes: Optional[float] = None,
                  version_status: Optional[str] = None,
                  web_load: Optional[str] = None,
                  web_load_status: Optional[str] = None):
@@ -17216,8 +17216,8 @@ class VMwareDetailsResponse(dict):
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The agent Version.
         :param 'VersionDetailsResponseArgs' agent_version_details: The agent version details.
-        :param int available_memory_in_bytes: The available memory.
-        :param int available_space_in_bytes: The available space.
+        :param float available_memory_in_bytes: The available memory.
+        :param float available_space_in_bytes: The available space.
         :param str cpu_load: The percentage of the CPU load.
         :param str cpu_load_status: The CPU load status.
         :param str cs_service_status: The CS service status.
@@ -17239,8 +17239,8 @@ class VMwareDetailsResponse(dict):
         :param int ssl_cert_expiry_remaining_days: CS SSL cert expiry date.
         :param str system_load: The percentage of the system load.
         :param str system_load_status: The system load status.
-        :param int total_memory_in_bytes: The total memory.
-        :param int total_space_in_bytes: The total space.
+        :param float total_memory_in_bytes: The total memory.
+        :param float total_space_in_bytes: The total space.
         :param str version_status: Version status
         :param str web_load: The web load.
         :param str web_load_status: The web load status.
@@ -17354,7 +17354,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="availableMemoryInBytes")
-    def available_memory_in_bytes(self) -> Optional[int]:
+    def available_memory_in_bytes(self) -> Optional[float]:
         """
         The available memory.
         """
@@ -17362,7 +17362,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="availableSpaceInBytes")
-    def available_space_in_bytes(self) -> Optional[int]:
+    def available_space_in_bytes(self) -> Optional[float]:
         """
         The available space.
         """
@@ -17538,7 +17538,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="totalMemoryInBytes")
-    def total_memory_in_bytes(self) -> Optional[int]:
+    def total_memory_in_bytes(self) -> Optional[float]:
         """
         The total memory.
         """
@@ -17546,7 +17546,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="totalSpaceInBytes")
-    def total_space_in_bytes(self) -> Optional[int]:
+    def total_space_in_bytes(self) -> Optional[float]:
         """
         The total space.
         """
@@ -18010,12 +18010,12 @@ class WorkloadInquiryDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  inquiry_validation: Optional['outputs.InquiryValidationResponse'] = None,
-                 item_count: Optional[int] = None,
+                 item_count: Optional[float] = None,
                  type: Optional[str] = None):
         """
         Details of an inquired protectable item.
         :param 'InquiryValidationResponseArgs' inquiry_validation: Inquiry validation such as permissions and other backup validations.
-        :param int item_count: Contains the protectable item Count inside this Container.
+        :param float item_count: Contains the protectable item Count inside this Container.
         :param str type: Type of the Workload such as SQL, Oracle etc.
         """
         if inquiry_validation is not None:
@@ -18035,7 +18035,7 @@ class WorkloadInquiryDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="itemCount")
-    def item_count(self) -> Optional[int]:
+    def item_count(self) -> Optional[float]:
         """
         Contains the protectable item Count inside this Container.
         """

@@ -77,7 +77,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// Last RPO value.
         /// </summary>
-        public readonly int? RpoInSeconds;
+        public readonly double? RpoInSeconds;
         /// <summary>
         /// The selected recovery azure network Id.
         /// </summary>
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
 
             string? recoveryAzureVmName,
 
-            int? rpoInSeconds,
+            double? rpoInSeconds,
 
             string? selectedRecoveryAzureNetworkId,
 

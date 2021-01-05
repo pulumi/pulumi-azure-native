@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// <summary>
         /// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         /// </summary>
-        public readonly int? MinChildEndpoints;
+        public readonly double? MinChildEndpoints;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// <summary>
         /// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         /// </summary>
-        public readonly int? Priority;
+        public readonly double? Priority;
         /// <summary>
         /// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// <summary>
         /// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         /// </summary>
-        public readonly int? Weight;
+        public readonly double? Weight;
 
         [OutputConstructor]
         private EndpointResponse(
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             string? id,
 
-            int? minChildEndpoints,
+            double? minChildEndpoints,
 
             string? name,
 
-            int? priority,
+            double? priority,
 
             ImmutableArray<Outputs.EndpointPropertiesResponseSubnets> subnets,
 
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             string? type,
 
-            int? weight)
+            double? weight)
         {
             CustomHeaders = customHeaders;
             EndpointLocation = endpointLocation;

@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
         /// <summary>
         /// Total count of recall errors.
         /// </summary>
-        public readonly int TotalRecallErrorsCount;
+        public readonly double TotalRecallErrorsCount;
 
         [OutputConstructor]
         private ServerEndpointRecallStatusResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
 
             ImmutableArray<Outputs.ServerEndpointRecallErrorResponse> recallErrors,
 
-            int totalRecallErrorsCount)
+            double totalRecallErrorsCount)
         {
             LastUpdatedTimestamp = lastUpdatedTimestamp;
             RecallErrors = recallErrors;

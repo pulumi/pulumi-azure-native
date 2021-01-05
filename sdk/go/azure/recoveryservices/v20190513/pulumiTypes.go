@@ -5498,7 +5498,7 @@ type GenericProtectedItem struct {
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState *string `pulumi:"policyState"`
 	// Data Plane Service ID of the protected item.
-	ProtectedItemId *int `pulumi:"protectedItemId"`
+	ProtectedItemId *float64 `pulumi:"protectedItemId"`
 	// backup item type.
 	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
@@ -5554,7 +5554,7 @@ type GenericProtectedItemArgs struct {
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
 	// Data Plane Service ID of the protected item.
-	ProtectedItemId pulumi.IntPtrInput `pulumi:"protectedItemId"`
+	ProtectedItemId pulumi.Float64PtrInput `pulumi:"protectedItemId"`
 	// backup item type.
 	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
@@ -5666,8 +5666,8 @@ func (o GenericProtectedItemOutput) PolicyState() pulumi.StringPtrOutput {
 }
 
 // Data Plane Service ID of the protected item.
-func (o GenericProtectedItemOutput) ProtectedItemId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GenericProtectedItem) *int { return v.ProtectedItemId }).(pulumi.IntPtrOutput)
+func (o GenericProtectedItemOutput) ProtectedItemId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GenericProtectedItem) *float64 { return v.ProtectedItemId }).(pulumi.Float64PtrOutput)
 }
 
 // backup item type.
@@ -5727,7 +5727,7 @@ type GenericProtectedItemResponse struct {
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState *string `pulumi:"policyState"`
 	// Data Plane Service ID of the protected item.
-	ProtectedItemId *int `pulumi:"protectedItemId"`
+	ProtectedItemId *float64 `pulumi:"protectedItemId"`
 	// backup item type.
 	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
@@ -5783,7 +5783,7 @@ type GenericProtectedItemResponseArgs struct {
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
 	// Data Plane Service ID of the protected item.
-	ProtectedItemId pulumi.IntPtrInput `pulumi:"protectedItemId"`
+	ProtectedItemId pulumi.Float64PtrInput `pulumi:"protectedItemId"`
 	// backup item type.
 	// Expected value is 'GenericProtectedItem'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
@@ -5895,8 +5895,8 @@ func (o GenericProtectedItemResponseOutput) PolicyState() pulumi.StringPtrOutput
 }
 
 // Data Plane Service ID of the protected item.
-func (o GenericProtectedItemResponseOutput) ProtectedItemId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GenericProtectedItemResponse) *int { return v.ProtectedItemId }).(pulumi.IntPtrOutput)
+func (o GenericProtectedItemResponseOutput) ProtectedItemId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemResponse) *float64 { return v.ProtectedItemId }).(pulumi.Float64PtrOutput)
 }
 
 // backup item type.
@@ -5938,7 +5938,7 @@ type MabFileFolderProtectedItem struct {
 	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 	CreateMode *string `pulumi:"createMode"`
 	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC *int `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteSyncTimeInUTC *float64 `pulumi:"deferredDeleteSyncTimeInUTC"`
 	// Time for deferred deletion in UTC
 	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
 	// Time remaining before the DS marked for deferred delete is permanently deleted
@@ -5996,7 +5996,7 @@ type MabFileFolderProtectedItemArgs struct {
 	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
 	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC pulumi.IntPtrInput `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteSyncTimeInUTC pulumi.Float64PtrInput `pulumi:"deferredDeleteSyncTimeInUTC"`
 	// Time for deferred deletion in UTC
 	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
 	// Time remaining before the DS marked for deferred delete is permanently deleted
@@ -6083,8 +6083,8 @@ func (o MabFileFolderProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 }
 
 // Sync time for deferred deletion in UTC
-func (o MabFileFolderProtectedItemOutput) DeferredDeleteSyncTimeInUTC() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MabFileFolderProtectedItem) *int { return v.DeferredDeleteSyncTimeInUTC }).(pulumi.IntPtrOutput)
+func (o MabFileFolderProtectedItemOutput) DeferredDeleteSyncTimeInUTC() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItem) *float64 { return v.DeferredDeleteSyncTimeInUTC }).(pulumi.Float64PtrOutput)
 }
 
 // Time for deferred deletion in UTC
@@ -6522,7 +6522,7 @@ type MabFileFolderProtectedItemResponse struct {
 	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 	CreateMode *string `pulumi:"createMode"`
 	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC *int `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteSyncTimeInUTC *float64 `pulumi:"deferredDeleteSyncTimeInUTC"`
 	// Time for deferred deletion in UTC
 	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
 	// Time remaining before the DS marked for deferred delete is permanently deleted
@@ -6580,7 +6580,7 @@ type MabFileFolderProtectedItemResponseArgs struct {
 	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
 	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC pulumi.IntPtrInput `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteSyncTimeInUTC pulumi.Float64PtrInput `pulumi:"deferredDeleteSyncTimeInUTC"`
 	// Time for deferred deletion in UTC
 	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
 	// Time remaining before the DS marked for deferred delete is permanently deleted
@@ -6667,8 +6667,8 @@ func (o MabFileFolderProtectedItemResponseOutput) CreateMode() pulumi.StringPtrO
 }
 
 // Sync time for deferred deletion in UTC
-func (o MabFileFolderProtectedItemResponseOutput) DeferredDeleteSyncTimeInUTC() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *int { return v.DeferredDeleteSyncTimeInUTC }).(pulumi.IntPtrOutput)
+func (o MabFileFolderProtectedItemResponseOutput) DeferredDeleteSyncTimeInUTC() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *float64 { return v.DeferredDeleteSyncTimeInUTC }).(pulumi.Float64PtrOutput)
 }
 
 // Time for deferred deletion in UTC

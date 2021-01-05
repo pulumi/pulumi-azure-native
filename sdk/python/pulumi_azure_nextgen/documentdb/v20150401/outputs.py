@@ -270,12 +270,12 @@ class ConsistencyPolicyResponse(dict):
     def __init__(__self__, *,
                  default_consistency_level: str,
                  max_interval_in_seconds: Optional[int] = None,
-                 max_staleness_prefix: Optional[int] = None):
+                 max_staleness_prefix: Optional[float] = None):
         """
         The consistency policy for the Cosmos DB database account.
         :param str default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
         :param int max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        :param int max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        :param float max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
         pulumi.set(__self__, "default_consistency_level", default_consistency_level)
         if max_interval_in_seconds is not None:
@@ -301,7 +301,7 @@ class ConsistencyPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxStalenessPrefix")
-    def max_staleness_prefix(self) -> Optional[int]:
+    def max_staleness_prefix(self) -> Optional[float]:
         """
         When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """

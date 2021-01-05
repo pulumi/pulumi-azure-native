@@ -2760,12 +2760,12 @@ class BackendAddressPoolArgs:
 @pulumi.input_type
 class BgpSettingsArgs:
     def __init__(__self__, *,
-                 asn: Optional[pulumi.Input[int]] = None,
+                 asn: Optional[pulumi.Input[float]] = None,
                  bgp_peering_address: Optional[pulumi.Input[str]] = None,
                  peer_weight: Optional[pulumi.Input[int]] = None):
         """
         BGP settings details
-        :param pulumi.Input[int] asn: The BGP speaker's ASN.
+        :param pulumi.Input[float] asn: The BGP speaker's ASN.
         :param pulumi.Input[str] bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
         :param pulumi.Input[int] peer_weight: The weight added to routes learned from this BGP speaker.
         """
@@ -2778,14 +2778,14 @@ class BgpSettingsArgs:
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[pulumi.Input[int]]:
+    def asn(self) -> Optional[pulumi.Input[float]]:
         """
         The BGP speaker's ASN.
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[pulumi.Input[int]]):
+    def asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "asn", value)
 
     @property
@@ -2936,11 +2936,11 @@ class DhcpOptionsArgs:
 class DnsConfigArgs:
     def __init__(__self__, *,
                  relative_name: Optional[pulumi.Input[str]] = None,
-                 ttl: Optional[pulumi.Input[int]] = None):
+                 ttl: Optional[pulumi.Input[float]] = None):
         """
         Class containing DNS settings in a Traffic Manager profile.
         :param pulumi.Input[str] relative_name: The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-        :param pulumi.Input[int] ttl: The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+        :param pulumi.Input[float] ttl: The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
         if relative_name is not None:
             pulumi.set(__self__, "relative_name", relative_name)
@@ -2961,14 +2961,14 @@ class DnsConfigArgs:
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[int]]:
+    def ttl(self) -> Optional[pulumi.Input[float]]:
         """
         The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[int]]):
+    def ttl(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "ttl", value)
 
 
@@ -2979,22 +2979,22 @@ class EndpointArgs:
                  endpoint_monitor_status: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]] = None,
                  endpoint_status: Optional[pulumi.Input[Union[str, 'EndpointStatus']]] = None,
                  geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 min_child_endpoints: Optional[pulumi.Input[int]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
+                 min_child_endpoints: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[float]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
-                 weight: Optional[pulumi.Input[int]] = None):
+                 weight: Optional[pulumi.Input[float]] = None):
         """
         Class representing a Traffic Manager endpoint.
         :param pulumi.Input[str] endpoint_location: Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
         :param pulumi.Input[Union[str, 'EndpointMonitorStatus']] endpoint_monitor_status: The monitoring status of the endpoint.
         :param pulumi.Input[Union[str, 'EndpointStatus']] endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mapping: The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-        :param pulumi.Input[int] min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-        :param pulumi.Input[int] priority: The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+        :param pulumi.Input[float] min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param pulumi.Input[float] priority: The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param pulumi.Input[str] target: The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         :param pulumi.Input[str] target_resource_id: The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-        :param pulumi.Input[int] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+        :param pulumi.Input[float] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         if endpoint_location is not None:
             pulumi.set(__self__, "endpoint_location", endpoint_location)
@@ -3065,26 +3065,26 @@ class EndpointArgs:
 
     @property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> Optional[pulumi.Input[int]]:
+    def min_child_endpoints(self) -> Optional[pulumi.Input[float]]:
         """
         The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
         return pulumi.get(self, "min_child_endpoints")
 
     @min_child_endpoints.setter
-    def min_child_endpoints(self, value: Optional[pulumi.Input[int]]):
+    def min_child_endpoints(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min_child_endpoints", value)
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[int]]:
+    def priority(self) -> Optional[pulumi.Input[float]]:
         """
         The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[int]]):
+    def priority(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -3113,14 +3113,14 @@ class EndpointArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[int]]:
+    def weight(self) -> Optional[pulumi.Input[float]]:
         """
         The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[int]]):
+    def weight(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "weight", value)
 
 
@@ -3327,7 +3327,7 @@ class ExpressRouteCircuitPeeringArgs:
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  microsoft_peering_config: Optional[pulumi.Input['ExpressRouteCircuitPeeringConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peer_asn: Optional[pulumi.Input[float]] = None,
                  peering_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringType']]] = None,
                  primary_azure_port: Optional[pulumi.Input[str]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
@@ -3349,7 +3349,7 @@ class ExpressRouteCircuitPeeringArgs:
         :param pulumi.Input[str] last_modified_by: Gets whether the provider or the customer last modified the peering.
         :param pulumi.Input['ExpressRouteCircuitPeeringConfigArgs'] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[int] peer_asn: The peer ASN.
+        :param pulumi.Input[float] peer_asn: The peer ASN.
         :param pulumi.Input[Union[str, 'ExpressRoutePeeringType']] peering_type: The peering type.
         :param pulumi.Input[str] primary_azure_port: The primary port.
         :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
@@ -3501,14 +3501,14 @@ class ExpressRouteCircuitPeeringArgs:
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> Optional[pulumi.Input[int]]:
+    def peer_asn(self) -> Optional[pulumi.Input[float]]:
         """
         The peer ASN.
         """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter
-    def peer_asn(self, value: Optional[pulumi.Input[int]]):
+    def peer_asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "peer_asn", value)
 
     @property
@@ -3863,16 +3863,16 @@ class ExpressRouteCircuitSkuArgs:
 @pulumi.input_type
 class ExpressRouteCircuitStatsArgs:
     def __init__(__self__, *,
-                 primarybytes_in: Optional[pulumi.Input[int]] = None,
-                 primarybytes_out: Optional[pulumi.Input[int]] = None,
-                 secondarybytes_in: Optional[pulumi.Input[int]] = None,
-                 secondarybytes_out: Optional[pulumi.Input[int]] = None):
+                 primarybytes_in: Optional[pulumi.Input[float]] = None,
+                 primarybytes_out: Optional[pulumi.Input[float]] = None,
+                 secondarybytes_in: Optional[pulumi.Input[float]] = None,
+                 secondarybytes_out: Optional[pulumi.Input[float]] = None):
         """
         Contains stats associated with the peering.
-        :param pulumi.Input[int] primarybytes_in: Gets BytesIn of the peering.
-        :param pulumi.Input[int] primarybytes_out: Gets BytesOut of the peering.
-        :param pulumi.Input[int] secondarybytes_in: Gets BytesIn of the peering.
-        :param pulumi.Input[int] secondarybytes_out: Gets BytesOut of the peering.
+        :param pulumi.Input[float] primarybytes_in: Gets BytesIn of the peering.
+        :param pulumi.Input[float] primarybytes_out: Gets BytesOut of the peering.
+        :param pulumi.Input[float] secondarybytes_in: Gets BytesIn of the peering.
+        :param pulumi.Input[float] secondarybytes_out: Gets BytesOut of the peering.
         """
         if primarybytes_in is not None:
             pulumi.set(__self__, "primarybytes_in", primarybytes_in)
@@ -3885,50 +3885,50 @@ class ExpressRouteCircuitStatsArgs:
 
     @property
     @pulumi.getter(name="primarybytesIn")
-    def primarybytes_in(self) -> Optional[pulumi.Input[int]]:
+    def primarybytes_in(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesIn of the peering.
         """
         return pulumi.get(self, "primarybytes_in")
 
     @primarybytes_in.setter
-    def primarybytes_in(self, value: Optional[pulumi.Input[int]]):
+    def primarybytes_in(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "primarybytes_in", value)
 
     @property
     @pulumi.getter(name="primarybytesOut")
-    def primarybytes_out(self) -> Optional[pulumi.Input[int]]:
+    def primarybytes_out(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesOut of the peering.
         """
         return pulumi.get(self, "primarybytes_out")
 
     @primarybytes_out.setter
-    def primarybytes_out(self, value: Optional[pulumi.Input[int]]):
+    def primarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "primarybytes_out", value)
 
     @property
     @pulumi.getter(name="secondarybytesIn")
-    def secondarybytes_in(self) -> Optional[pulumi.Input[int]]:
+    def secondarybytes_in(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesIn of the peering.
         """
         return pulumi.get(self, "secondarybytes_in")
 
     @secondarybytes_in.setter
-    def secondarybytes_in(self, value: Optional[pulumi.Input[int]]):
+    def secondarybytes_in(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_in", value)
 
     @property
     @pulumi.getter(name="secondarybytesOut")
-    def secondarybytes_out(self) -> Optional[pulumi.Input[int]]:
+    def secondarybytes_out(self) -> Optional[pulumi.Input[float]]:
         """
         Gets BytesOut of the peering.
         """
         return pulumi.get(self, "secondarybytes_out")
 
     @secondarybytes_out.setter
-    def secondarybytes_out(self, value: Optional[pulumi.Input[int]]):
+    def secondarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_out", value)
 
 
@@ -5081,22 +5081,22 @@ class LocalNetworkGatewayArgs:
 @pulumi.input_type
 class MonitorConfigArgs:
     def __init__(__self__, *,
-                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 interval_in_seconds: Optional[pulumi.Input[float]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
+                 port: Optional[pulumi.Input[float]] = None,
                  profile_monitor_status: Optional[pulumi.Input[Union[str, 'ProfileMonitorStatus']]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'MonitorProtocol']]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-                 tolerated_number_of_failures: Optional[pulumi.Input[int]] = None):
+                 timeout_in_seconds: Optional[pulumi.Input[float]] = None,
+                 tolerated_number_of_failures: Optional[pulumi.Input[float]] = None):
         """
         Class containing endpoint monitoring settings in a Traffic Manager profile.
-        :param pulumi.Input[int] interval_in_seconds: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
+        :param pulumi.Input[float] interval_in_seconds: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         :param pulumi.Input[str] path: The path relative to the endpoint domain name used to probe for endpoint health.
-        :param pulumi.Input[int] port: The TCP port used to probe for endpoint health.
+        :param pulumi.Input[float] port: The TCP port used to probe for endpoint health.
         :param pulumi.Input[Union[str, 'ProfileMonitorStatus']] profile_monitor_status: The profile-level monitoring status of the Traffic Manager profile.
         :param pulumi.Input[Union[str, 'MonitorProtocol']] protocol: The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
-        :param pulumi.Input[int] timeout_in_seconds: The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-        :param pulumi.Input[int] tolerated_number_of_failures: The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+        :param pulumi.Input[float] timeout_in_seconds: The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
+        :param pulumi.Input[float] tolerated_number_of_failures: The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         """
         if interval_in_seconds is not None:
             pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
@@ -5115,14 +5115,14 @@ class MonitorConfigArgs:
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+    def interval_in_seconds(self) -> Optional[pulumi.Input[float]]:
         """
         The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         """
         return pulumi.get(self, "interval_in_seconds")
 
     @interval_in_seconds.setter
-    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+    def interval_in_seconds(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "interval_in_seconds", value)
 
     @property
@@ -5139,14 +5139,14 @@ class MonitorConfigArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
+    def port(self) -> Optional[pulumi.Input[float]]:
         """
         The TCP port used to probe for endpoint health.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
+    def port(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "port", value)
 
     @property
@@ -5175,26 +5175,26 @@ class MonitorConfigArgs:
 
     @property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[float]]:
         """
         The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @property
     @pulumi.getter(name="toleratedNumberOfFailures")
-    def tolerated_number_of_failures(self) -> Optional[pulumi.Input[int]]:
+    def tolerated_number_of_failures(self) -> Optional[pulumi.Input[float]]:
         """
         The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         """
         return pulumi.get(self, "tolerated_number_of_failures")
 
     @tolerated_number_of_failures.setter
-    def tolerated_number_of_failures(self, value: Optional[pulumi.Input[int]]):
+    def tolerated_number_of_failures(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "tolerated_number_of_failures", value)
 
 

@@ -2293,7 +2293,7 @@ class GenericProtectedItemArgs:
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policy_state: Optional[pulumi.Input[str]] = None,
-                 protected_item_id: Optional[pulumi.Input[int]] = None,
+                 protected_item_id: Optional[pulumi.Input[float]] = None,
                  protected_item_type: Optional[pulumi.Input[str]] = None,
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  source_associations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -2315,7 +2315,7 @@ class GenericProtectedItemArgs:
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param pulumi.Input[int] protected_item_id: Data Plane Service ID of the protected item.
+        :param pulumi.Input[float] protected_item_id: Data Plane Service ID of the protected item.
         :param pulumi.Input[str] protected_item_type: backup item type.
                Expected value is 'GenericProtectedItem'.
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
@@ -2534,14 +2534,14 @@ class GenericProtectedItemArgs:
 
     @property
     @pulumi.getter(name="protectedItemId")
-    def protected_item_id(self) -> Optional[pulumi.Input[int]]:
+    def protected_item_id(self) -> Optional[pulumi.Input[float]]:
         """
         Data Plane Service ID of the protected item.
         """
         return pulumi.get(self, "protected_item_id")
 
     @protected_item_id.setter
-    def protected_item_id(self, value: Optional[pulumi.Input[int]]):
+    def protected_item_id(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "protected_item_id", value)
 
     @property
@@ -2614,7 +2614,7 @@ class MabFileFolderProtectedItemArgs:
                  computer_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
-                 deferred_delete_sync_time_in_utc: Optional[pulumi.Input[int]] = None,
+                 deferred_delete_sync_time_in_utc: Optional[pulumi.Input[float]] = None,
                  deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
                  deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['MabFileFolderProtectedItemExtendedInfoArgs']] = None,
@@ -2637,7 +2637,7 @@ class MabFileFolderProtectedItemArgs:
         :param pulumi.Input[str] computer_name: Name of the computer associated with this backup item.
         :param pulumi.Input[str] container_name: Unique name of container
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-        :param pulumi.Input[int] deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
+        :param pulumi.Input[float] deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param pulumi.Input['MabFileFolderProtectedItemExtendedInfoArgs'] extended_info: Additional information with this backup item.
@@ -2760,14 +2760,14 @@ class MabFileFolderProtectedItemArgs:
 
     @property
     @pulumi.getter(name="deferredDeleteSyncTimeInUTC")
-    def deferred_delete_sync_time_in_utc(self) -> Optional[pulumi.Input[int]]:
+    def deferred_delete_sync_time_in_utc(self) -> Optional[pulumi.Input[float]]:
         """
         Sync time for deferred deletion in UTC
         """
         return pulumi.get(self, "deferred_delete_sync_time_in_utc")
 
     @deferred_delete_sync_time_in_utc.setter
-    def deferred_delete_sync_time_in_utc(self, value: Optional[pulumi.Input[int]]):
+    def deferred_delete_sync_time_in_utc(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "deferred_delete_sync_time_in_utc", value)
 
     @property

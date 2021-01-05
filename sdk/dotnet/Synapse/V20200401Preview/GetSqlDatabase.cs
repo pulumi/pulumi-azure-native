@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         /// <summary>
         /// The max size of the database expressed in bytes.
         /// </summary>
-        public readonly int? MaxSizeBytes;
+        public readonly double? MaxSizeBytes;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
 
             string location,
 
-            int? maxSizeBytes,
+            double? maxSizeBytes,
 
             string name,
 

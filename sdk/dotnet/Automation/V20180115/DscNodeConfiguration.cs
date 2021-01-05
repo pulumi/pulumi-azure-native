@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Automation.V20180115
         /// Number of nodes with this node configuration assigned
         /// </summary>
         [Output("nodeCount")]
-        public Output<int?> NodeCount { get; private set; } = null!;
+        public Output<double?> NodeCount { get; private set; } = null!;
 
         /// <summary>
         /// Source of node configuration.

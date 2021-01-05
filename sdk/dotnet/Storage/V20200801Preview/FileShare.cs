@@ -97,7 +97,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         /// </summary>
         [Output("shareUsageBytes")]
-        public Output<int> ShareUsageBytes { get; private set; } = null!;
+        public Output<double> ShareUsageBytes { get; private set; } = null!;
 
         /// <summary>
         /// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".

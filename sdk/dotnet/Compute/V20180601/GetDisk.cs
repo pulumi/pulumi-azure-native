@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
         /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
         /// </summary>
-        public readonly int? DiskIOPSReadWrite;
+        public readonly double? DiskIOPSReadWrite;
         /// <summary>
         /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
         private GetDiskResult(
             Outputs.CreationDataResponse creationData,
 
-            int? diskIOPSReadWrite,
+            double? diskIOPSReadWrite,
 
             int? diskMBpsReadWrite,
 

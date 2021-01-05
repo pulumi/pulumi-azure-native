@@ -60,7 +60,7 @@ type LookupQueueResult struct {
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// The number of messages in the queue.
-	MessageCount int `pulumi:"messageCount"`
+	MessageCount float64 `pulumi:"messageCount"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// A value indicating if this queue requires duplicate detection.
@@ -68,7 +68,7 @@ type LookupQueueResult struct {
 	// A value that indicates whether the queue supports the concept of sessions.
 	RequiresSession *bool `pulumi:"requiresSession"`
 	// The size of the queue, in bytes.
-	SizeInBytes int `pulumi:"sizeInBytes"`
+	SizeInBytes float64 `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status *string `pulumi:"status"`
 	// Resource type

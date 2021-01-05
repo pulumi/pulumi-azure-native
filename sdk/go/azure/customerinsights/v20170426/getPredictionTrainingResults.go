@@ -32,7 +32,7 @@ type GetPredictionTrainingResultsResult struct {
 	// Prediction distribution.
 	PredictionDistribution PredictionDistributionDefinitionResponse `pulumi:"predictionDistribution"`
 	// Instance count of the primary profile.
-	PrimaryProfileInstanceCount int `pulumi:"primaryProfileInstanceCount"`
+	PrimaryProfileInstanceCount float64 `pulumi:"primaryProfileInstanceCount"`
 	// Score name.
 	ScoreName string `pulumi:"scoreName"`
 	// The hub name.

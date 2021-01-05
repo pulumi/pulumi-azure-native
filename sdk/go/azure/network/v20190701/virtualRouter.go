@@ -34,7 +34,7 @@ type VirtualRouter struct {
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// VirtualRouter ASN.
-	VirtualRouterAsn pulumi.IntPtrOutput `pulumi:"virtualRouterAsn"`
+	VirtualRouterAsn pulumi.Float64PtrOutput `pulumi:"virtualRouterAsn"`
 	// VirtualRouter IPs
 	VirtualRouterIps pulumi.StringArrayOutput `pulumi:"virtualRouterIps"`
 }
@@ -126,7 +126,7 @@ type virtualRouterState struct {
 	// Resource type.
 	Type *string `pulumi:"type"`
 	// VirtualRouter ASN.
-	VirtualRouterAsn *int `pulumi:"virtualRouterAsn"`
+	VirtualRouterAsn *float64 `pulumi:"virtualRouterAsn"`
 	// VirtualRouter IPs
 	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 }
@@ -151,7 +151,7 @@ type VirtualRouterState struct {
 	// Resource type.
 	Type pulumi.StringPtrInput
 	// VirtualRouter ASN.
-	VirtualRouterAsn pulumi.IntPtrInput
+	VirtualRouterAsn pulumi.Float64PtrInput
 	// VirtualRouter IPs
 	VirtualRouterIps pulumi.StringArrayInput
 }
@@ -174,7 +174,7 @@ type virtualRouterArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// VirtualRouter ASN.
-	VirtualRouterAsn *int `pulumi:"virtualRouterAsn"`
+	VirtualRouterAsn *float64 `pulumi:"virtualRouterAsn"`
 	// VirtualRouter IPs
 	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 	// The name of the Virtual Router.
@@ -196,7 +196,7 @@ type VirtualRouterArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// VirtualRouter ASN.
-	VirtualRouterAsn pulumi.IntPtrInput
+	VirtualRouterAsn pulumi.Float64PtrInput
 	// VirtualRouter IPs
 	VirtualRouterIps pulumi.StringArrayInput
 	// The name of the Virtual Router.

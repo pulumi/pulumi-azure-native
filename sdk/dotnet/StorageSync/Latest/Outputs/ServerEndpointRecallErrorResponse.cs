@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
         /// <summary>
         /// Count of occurences of the error
         /// </summary>
-        public readonly int Count;
+        public readonly double Count;
         /// <summary>
         /// Error code (HResult)
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
 
         [OutputConstructor]
         private ServerEndpointRecallErrorResponse(
-            int count,
+            double count,
 
             int errorCode)
         {

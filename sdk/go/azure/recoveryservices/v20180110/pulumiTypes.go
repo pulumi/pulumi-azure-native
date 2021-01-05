@@ -440,7 +440,7 @@ type A2AProtectedDiskDetailsResponse struct {
 	// The KeyVault resource id for secret (BEK).
 	DekKeyVaultArmId *string `pulumi:"dekKeyVaultArmId"`
 	// The disk capacity in bytes.
-	DiskCapacityInBytes *int `pulumi:"diskCapacityInBytes"`
+	DiskCapacityInBytes *float64 `pulumi:"diskCapacityInBytes"`
 	// The disk name.
 	DiskName *string `pulumi:"diskName"`
 	// The type of disk.
@@ -493,7 +493,7 @@ type A2AProtectedDiskDetailsResponseArgs struct {
 	// The KeyVault resource id for secret (BEK).
 	DekKeyVaultArmId pulumi.StringPtrInput `pulumi:"dekKeyVaultArmId"`
 	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.IntPtrInput `pulumi:"diskCapacityInBytes"`
+	DiskCapacityInBytes pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
 	// The disk name.
 	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
 	// The type of disk.
@@ -594,8 +594,8 @@ func (o A2AProtectedDiskDetailsResponseOutput) DekKeyVaultArmId() pulumi.StringP
 }
 
 // The disk capacity in bytes.
-func (o A2AProtectedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *int { return v.DiskCapacityInBytes }).(pulumi.IntPtrOutput)
+func (o A2AProtectedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *float64 { return v.DiskCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The disk name.
@@ -702,7 +702,7 @@ type A2AProtectedManagedDiskDetailsResponse struct {
 	// The KeyVault resource id for secret (BEK).
 	DekKeyVaultArmId *string `pulumi:"dekKeyVaultArmId"`
 	// The disk capacity in bytes.
-	DiskCapacityInBytes *int `pulumi:"diskCapacityInBytes"`
+	DiskCapacityInBytes *float64 `pulumi:"diskCapacityInBytes"`
 	// The managed disk Arm id.
 	DiskId *string `pulumi:"diskId"`
 	// The disk name.
@@ -759,7 +759,7 @@ type A2AProtectedManagedDiskDetailsResponseArgs struct {
 	// The KeyVault resource id for secret (BEK).
 	DekKeyVaultArmId pulumi.StringPtrInput `pulumi:"dekKeyVaultArmId"`
 	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.IntPtrInput `pulumi:"diskCapacityInBytes"`
+	DiskCapacityInBytes pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
 	// The managed disk Arm id.
 	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
 	// The disk name.
@@ -866,8 +866,8 @@ func (o A2AProtectedManagedDiskDetailsResponseOutput) DekKeyVaultArmId() pulumi.
 }
 
 // The disk capacity in bytes.
-func (o A2AProtectedManagedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *int { return v.DiskCapacityInBytes }).(pulumi.IntPtrOutput)
+func (o A2AProtectedManagedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *float64 { return v.DiskCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The managed disk Arm id.
@@ -1123,7 +1123,7 @@ type A2AReplicationDetailsResponse struct {
 	// The recovery fabric object Id.
 	RecoveryFabricObjectId *string `pulumi:"recoveryFabricObjectId"`
 	// The last RPO value in seconds.
-	RpoInSeconds *int `pulumi:"rpoInSeconds"`
+	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
 	// The recovery virtual network.
 	SelectedRecoveryAzureNetworkId *string `pulumi:"selectedRecoveryAzureNetworkId"`
 	// The test failover fabric object Id.
@@ -1203,7 +1203,7 @@ type A2AReplicationDetailsResponseArgs struct {
 	// The recovery fabric object Id.
 	RecoveryFabricObjectId pulumi.StringPtrInput `pulumi:"recoveryFabricObjectId"`
 	// The last RPO value in seconds.
-	RpoInSeconds pulumi.IntPtrInput `pulumi:"rpoInSeconds"`
+	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
 	// The recovery virtual network.
 	SelectedRecoveryAzureNetworkId pulumi.StringPtrInput `pulumi:"selectedRecoveryAzureNetworkId"`
 	// The test failover fabric object Id.
@@ -1374,8 +1374,8 @@ func (o A2AReplicationDetailsResponseOutput) RecoveryFabricObjectId() pulumi.Str
 }
 
 // The last RPO value in seconds.
-func (o A2AReplicationDetailsResponseOutput) RpoInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v A2AReplicationDetailsResponse) *int { return v.RpoInSeconds }).(pulumi.IntPtrOutput)
+func (o A2AReplicationDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v A2AReplicationDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The recovery virtual network.
@@ -3820,7 +3820,7 @@ func (o DataStoreResponseArrayOutput) Index(i pulumi.IntInput) DataStoreResponse
 // On-prem disk details data.
 type DiskDetailsResponse struct {
 	// The hard disk max size in MB.
-	MaxSizeMB *int `pulumi:"maxSizeMB"`
+	MaxSizeMB *float64 `pulumi:"maxSizeMB"`
 	// The VHD Id.
 	VhdId *string `pulumi:"vhdId"`
 	// The VHD name.
@@ -3843,7 +3843,7 @@ type DiskDetailsResponseInput interface {
 // On-prem disk details data.
 type DiskDetailsResponseArgs struct {
 	// The hard disk max size in MB.
-	MaxSizeMB pulumi.IntPtrInput `pulumi:"maxSizeMB"`
+	MaxSizeMB pulumi.Float64PtrInput `pulumi:"maxSizeMB"`
 	// The VHD Id.
 	VhdId pulumi.StringPtrInput `pulumi:"vhdId"`
 	// The VHD name.
@@ -3905,8 +3905,8 @@ func (o DiskDetailsResponseOutput) ToDiskDetailsResponseOutputWithContext(ctx co
 }
 
 // The hard disk max size in MB.
-func (o DiskDetailsResponseOutput) MaxSizeMB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DiskDetailsResponse) *int { return v.MaxSizeMB }).(pulumi.IntPtrOutput)
+func (o DiskDetailsResponseOutput) MaxSizeMB() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DiskDetailsResponse) *float64 { return v.MaxSizeMB }).(pulumi.Float64PtrOutput)
 }
 
 // The VHD Id.
@@ -5791,7 +5791,7 @@ type HyperVReplicaAzureReplicationDetailsResponse struct {
 	// Recovery Azure given name.
 	RecoveryAzureVmName *string `pulumi:"recoveryAzureVmName"`
 	// Last RPO value.
-	RpoInSeconds *int `pulumi:"rpoInSeconds"`
+	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
 	// The selected recovery azure network Id.
 	SelectedRecoveryAzureNetworkId *string `pulumi:"selectedRecoveryAzureNetworkId"`
 	// The selected source nic Id which will be used as the primary nic during failover.
@@ -5857,7 +5857,7 @@ type HyperVReplicaAzureReplicationDetailsResponseArgs struct {
 	// Recovery Azure given name.
 	RecoveryAzureVmName pulumi.StringPtrInput `pulumi:"recoveryAzureVmName"`
 	// Last RPO value.
-	RpoInSeconds pulumi.IntPtrInput `pulumi:"rpoInSeconds"`
+	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
 	// The selected recovery azure network Id.
 	SelectedRecoveryAzureNetworkId pulumi.StringPtrInput `pulumi:"selectedRecoveryAzureNetworkId"`
 	// The selected source nic Id which will be used as the primary nic during failover.
@@ -5988,8 +5988,8 @@ func (o HyperVReplicaAzureReplicationDetailsResponseOutput) RecoveryAzureVmName(
 }
 
 // Last RPO value.
-func (o HyperVReplicaAzureReplicationDetailsResponseOutput) RpoInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *int { return v.RpoInSeconds }).(pulumi.IntPtrOutput)
+func (o HyperVReplicaAzureReplicationDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The selected recovery azure network Id.
@@ -8241,7 +8241,7 @@ func (o InMageAzureV2PolicyInputOutput) RecoveryPointThresholdInMinutes() pulumi
 // InMageAzureV2 protected disk details.
 type InMageAzureV2ProtectedDiskDetailsResponse struct {
 	// The disk capacity in bytes.
-	DiskCapacityInBytes *int `pulumi:"diskCapacityInBytes"`
+	DiskCapacityInBytes *float64 `pulumi:"diskCapacityInBytes"`
 	// The disk id.
 	DiskId *string `pulumi:"diskId"`
 	// The disk name.
@@ -8249,7 +8249,7 @@ type InMageAzureV2ProtectedDiskDetailsResponse struct {
 	// A value indicating whether disk is resized.
 	DiskResized *string `pulumi:"diskResized"`
 	// The disk file system capacity in bytes.
-	FileSystemCapacityInBytes *int `pulumi:"fileSystemCapacityInBytes"`
+	FileSystemCapacityInBytes *float64 `pulumi:"fileSystemCapacityInBytes"`
 	// The health error code for the disk.
 	HealthErrorCode *string `pulumi:"healthErrorCode"`
 	// The last RPO calculated time.
@@ -8259,13 +8259,13 @@ type InMageAzureV2ProtectedDiskDetailsResponse struct {
 	// The PS data transit in MB.
 	PsDataInMegaBytes *float64 `pulumi:"psDataInMegaBytes"`
 	// The resync duration in seconds.
-	ResyncDurationInSeconds *int `pulumi:"resyncDurationInSeconds"`
+	ResyncDurationInSeconds *float64 `pulumi:"resyncDurationInSeconds"`
 	// The resync progress percentage.
 	ResyncProgressPercentage *int `pulumi:"resyncProgressPercentage"`
 	// A value indicating whether resync is required for this disk.
 	ResyncRequired *string `pulumi:"resyncRequired"`
 	// The RPO in seconds.
-	RpoInSeconds *int `pulumi:"rpoInSeconds"`
+	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
 	// The source data transit in MB.
 	SourceDataInMegaBytes *float64 `pulumi:"sourceDataInMegaBytes"`
 	// The target data transit in MB.
@@ -8286,7 +8286,7 @@ type InMageAzureV2ProtectedDiskDetailsResponseInput interface {
 // InMageAzureV2 protected disk details.
 type InMageAzureV2ProtectedDiskDetailsResponseArgs struct {
 	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.IntPtrInput `pulumi:"diskCapacityInBytes"`
+	DiskCapacityInBytes pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
 	// The disk id.
 	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
 	// The disk name.
@@ -8294,7 +8294,7 @@ type InMageAzureV2ProtectedDiskDetailsResponseArgs struct {
 	// A value indicating whether disk is resized.
 	DiskResized pulumi.StringPtrInput `pulumi:"diskResized"`
 	// The disk file system capacity in bytes.
-	FileSystemCapacityInBytes pulumi.IntPtrInput `pulumi:"fileSystemCapacityInBytes"`
+	FileSystemCapacityInBytes pulumi.Float64PtrInput `pulumi:"fileSystemCapacityInBytes"`
 	// The health error code for the disk.
 	HealthErrorCode pulumi.StringPtrInput `pulumi:"healthErrorCode"`
 	// The last RPO calculated time.
@@ -8304,13 +8304,13 @@ type InMageAzureV2ProtectedDiskDetailsResponseArgs struct {
 	// The PS data transit in MB.
 	PsDataInMegaBytes pulumi.Float64PtrInput `pulumi:"psDataInMegaBytes"`
 	// The resync duration in seconds.
-	ResyncDurationInSeconds pulumi.IntPtrInput `pulumi:"resyncDurationInSeconds"`
+	ResyncDurationInSeconds pulumi.Float64PtrInput `pulumi:"resyncDurationInSeconds"`
 	// The resync progress percentage.
 	ResyncProgressPercentage pulumi.IntPtrInput `pulumi:"resyncProgressPercentage"`
 	// A value indicating whether resync is required for this disk.
 	ResyncRequired pulumi.StringPtrInput `pulumi:"resyncRequired"`
 	// The RPO in seconds.
-	RpoInSeconds pulumi.IntPtrInput `pulumi:"rpoInSeconds"`
+	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
 	// The source data transit in MB.
 	SourceDataInMegaBytes pulumi.Float64PtrInput `pulumi:"sourceDataInMegaBytes"`
 	// The target data transit in MB.
@@ -8370,8 +8370,8 @@ func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) ToInMageAzureV2Protecte
 }
 
 // The disk capacity in bytes.
-func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *int { return v.DiskCapacityInBytes }).(pulumi.IntPtrOutput)
+func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *float64 { return v.DiskCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The disk id.
@@ -8390,8 +8390,8 @@ func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) DiskResized() pulumi.St
 }
 
 // The disk file system capacity in bytes.
-func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) FileSystemCapacityInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *int { return v.FileSystemCapacityInBytes }).(pulumi.IntPtrOutput)
+func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) FileSystemCapacityInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *float64 { return v.FileSystemCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The health error code for the disk.
@@ -8415,8 +8415,8 @@ func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) PsDataInMegaBytes() pul
 }
 
 // The resync duration in seconds.
-func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) ResyncDurationInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *int { return v.ResyncDurationInSeconds }).(pulumi.IntPtrOutput)
+func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) ResyncDurationInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *float64 { return v.ResyncDurationInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The resync progress percentage.
@@ -8430,8 +8430,8 @@ func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) ResyncRequired() pulumi
 }
 
 // The RPO in seconds.
-func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) RpoInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *int { return v.RpoInSeconds }).(pulumi.IntPtrOutput)
+func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The source data transit in MB.
@@ -8538,7 +8538,7 @@ type InMageAzureV2ReplicationDetailsResponse struct {
 	// The resync progress percentage.
 	ResyncProgressPercentage *int `pulumi:"resyncProgressPercentage"`
 	// The RPO in seconds.
-	RpoInSeconds *int `pulumi:"rpoInSeconds"`
+	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
 	// The selected recovery azure network Id.
 	SelectedRecoveryAzureNetworkId *string `pulumi:"selectedRecoveryAzureNetworkId"`
 	// The selected source nic Id which will be used as the primary nic during failover.
@@ -8654,7 +8654,7 @@ type InMageAzureV2ReplicationDetailsResponseArgs struct {
 	// The resync progress percentage.
 	ResyncProgressPercentage pulumi.IntPtrInput `pulumi:"resyncProgressPercentage"`
 	// The RPO in seconds.
-	RpoInSeconds pulumi.IntPtrInput `pulumi:"rpoInSeconds"`
+	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
 	// The selected recovery azure network Id.
 	SelectedRecoveryAzureNetworkId pulumi.StringPtrInput `pulumi:"selectedRecoveryAzureNetworkId"`
 	// The selected source nic Id which will be used as the primary nic during failover.
@@ -8893,8 +8893,8 @@ func (o InMageAzureV2ReplicationDetailsResponseOutput) ResyncProgressPercentage(
 }
 
 // The RPO in seconds.
-func (o InMageAzureV2ReplicationDetailsResponseOutput) RpoInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *int { return v.RpoInSeconds }).(pulumi.IntPtrOutput)
+func (o InMageAzureV2ReplicationDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The selected recovery azure network Id.
@@ -9653,7 +9653,7 @@ func (o InMagePolicyInputOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtr
 // InMage protected disk details.
 type InMageProtectedDiskDetailsResponse struct {
 	// The disk capacity in bytes.
-	DiskCapacityInBytes *int `pulumi:"diskCapacityInBytes"`
+	DiskCapacityInBytes *float64 `pulumi:"diskCapacityInBytes"`
 	// The disk id.
 	DiskId *string `pulumi:"diskId"`
 	// The disk name.
@@ -9661,7 +9661,7 @@ type InMageProtectedDiskDetailsResponse struct {
 	// A value indicating whether disk is resized.
 	DiskResized *string `pulumi:"diskResized"`
 	// The file system capacity in bytes.
-	FileSystemCapacityInBytes *int `pulumi:"fileSystemCapacityInBytes"`
+	FileSystemCapacityInBytes *float64 `pulumi:"fileSystemCapacityInBytes"`
 	// The health error code for the disk.
 	HealthErrorCode *string `pulumi:"healthErrorCode"`
 	// The last RPO calculated time.
@@ -9671,13 +9671,13 @@ type InMageProtectedDiskDetailsResponse struct {
 	// The PS data transit in MB.
 	PsDataInMB *float64 `pulumi:"psDataInMB"`
 	// The resync duration in seconds.
-	ResyncDurationInSeconds *int `pulumi:"resyncDurationInSeconds"`
+	ResyncDurationInSeconds *float64 `pulumi:"resyncDurationInSeconds"`
 	// The resync progress percentage.
 	ResyncProgressPercentage *int `pulumi:"resyncProgressPercentage"`
 	// A value indicating whether resync is required for this disk.
 	ResyncRequired *string `pulumi:"resyncRequired"`
 	// The RPO in seconds.
-	RpoInSeconds *int `pulumi:"rpoInSeconds"`
+	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
 	// The source data transit in MB.
 	SourceDataInMB *float64 `pulumi:"sourceDataInMB"`
 	// The target data transit in MB.
@@ -9698,7 +9698,7 @@ type InMageProtectedDiskDetailsResponseInput interface {
 // InMage protected disk details.
 type InMageProtectedDiskDetailsResponseArgs struct {
 	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.IntPtrInput `pulumi:"diskCapacityInBytes"`
+	DiskCapacityInBytes pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
 	// The disk id.
 	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
 	// The disk name.
@@ -9706,7 +9706,7 @@ type InMageProtectedDiskDetailsResponseArgs struct {
 	// A value indicating whether disk is resized.
 	DiskResized pulumi.StringPtrInput `pulumi:"diskResized"`
 	// The file system capacity in bytes.
-	FileSystemCapacityInBytes pulumi.IntPtrInput `pulumi:"fileSystemCapacityInBytes"`
+	FileSystemCapacityInBytes pulumi.Float64PtrInput `pulumi:"fileSystemCapacityInBytes"`
 	// The health error code for the disk.
 	HealthErrorCode pulumi.StringPtrInput `pulumi:"healthErrorCode"`
 	// The last RPO calculated time.
@@ -9716,13 +9716,13 @@ type InMageProtectedDiskDetailsResponseArgs struct {
 	// The PS data transit in MB.
 	PsDataInMB pulumi.Float64PtrInput `pulumi:"psDataInMB"`
 	// The resync duration in seconds.
-	ResyncDurationInSeconds pulumi.IntPtrInput `pulumi:"resyncDurationInSeconds"`
+	ResyncDurationInSeconds pulumi.Float64PtrInput `pulumi:"resyncDurationInSeconds"`
 	// The resync progress percentage.
 	ResyncProgressPercentage pulumi.IntPtrInput `pulumi:"resyncProgressPercentage"`
 	// A value indicating whether resync is required for this disk.
 	ResyncRequired pulumi.StringPtrInput `pulumi:"resyncRequired"`
 	// The RPO in seconds.
-	RpoInSeconds pulumi.IntPtrInput `pulumi:"rpoInSeconds"`
+	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
 	// The source data transit in MB.
 	SourceDataInMB pulumi.Float64PtrInput `pulumi:"sourceDataInMB"`
 	// The target data transit in MB.
@@ -9782,8 +9782,8 @@ func (o InMageProtectedDiskDetailsResponseOutput) ToInMageProtectedDiskDetailsRe
 }
 
 // The disk capacity in bytes.
-func (o InMageProtectedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *int { return v.DiskCapacityInBytes }).(pulumi.IntPtrOutput)
+func (o InMageProtectedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *float64 { return v.DiskCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The disk id.
@@ -9802,8 +9802,8 @@ func (o InMageProtectedDiskDetailsResponseOutput) DiskResized() pulumi.StringPtr
 }
 
 // The file system capacity in bytes.
-func (o InMageProtectedDiskDetailsResponseOutput) FileSystemCapacityInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *int { return v.FileSystemCapacityInBytes }).(pulumi.IntPtrOutput)
+func (o InMageProtectedDiskDetailsResponseOutput) FileSystemCapacityInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *float64 { return v.FileSystemCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The health error code for the disk.
@@ -9827,8 +9827,8 @@ func (o InMageProtectedDiskDetailsResponseOutput) PsDataInMB() pulumi.Float64Ptr
 }
 
 // The resync duration in seconds.
-func (o InMageProtectedDiskDetailsResponseOutput) ResyncDurationInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *int { return v.ResyncDurationInSeconds }).(pulumi.IntPtrOutput)
+func (o InMageProtectedDiskDetailsResponseOutput) ResyncDurationInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *float64 { return v.ResyncDurationInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The resync progress percentage.
@@ -9842,8 +9842,8 @@ func (o InMageProtectedDiskDetailsResponseOutput) ResyncRequired() pulumi.String
 }
 
 // The RPO in seconds.
-func (o InMageProtectedDiskDetailsResponseOutput) RpoInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *int { return v.RpoInSeconds }).(pulumi.IntPtrOutput)
+func (o InMageProtectedDiskDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The source data transit in MB.
@@ -9936,7 +9936,7 @@ type InMageReplicationDetailsResponse struct {
 	// The retention window start time.
 	RetentionWindowStart *string `pulumi:"retentionWindowStart"`
 	// The RPO in seconds.
-	RpoInSeconds *int `pulumi:"rpoInSeconds"`
+	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
 	// The CPU count of the VM on the primary side.
 	SourceVmCpuCount *int `pulumi:"sourceVmCpuCount"`
 	// The RAM size of the VM on the primary side.
@@ -10028,7 +10028,7 @@ type InMageReplicationDetailsResponseArgs struct {
 	// The retention window start time.
 	RetentionWindowStart pulumi.StringPtrInput `pulumi:"retentionWindowStart"`
 	// The RPO in seconds.
-	RpoInSeconds pulumi.IntPtrInput `pulumi:"rpoInSeconds"`
+	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
 	// The CPU count of the VM on the primary side.
 	SourceVmCpuCount pulumi.IntPtrInput `pulumi:"sourceVmCpuCount"`
 	// The RAM size of the VM on the primary side.
@@ -10218,8 +10218,8 @@ func (o InMageReplicationDetailsResponseOutput) RetentionWindowStart() pulumi.St
 }
 
 // The RPO in seconds.
-func (o InMageReplicationDetailsResponseOutput) RpoInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageReplicationDetailsResponse) *int { return v.RpoInSeconds }).(pulumi.IntPtrOutput)
+func (o InMageReplicationDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InMageReplicationDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The CPU count of the VM on the primary side.
@@ -12630,9 +12630,9 @@ type ProcessServerResponse struct {
 	// The agent version details.
 	AgentVersionDetails *VersionDetailsResponse `pulumi:"agentVersionDetails"`
 	// The available memory.
-	AvailableMemoryInBytes *int `pulumi:"availableMemoryInBytes"`
+	AvailableMemoryInBytes *float64 `pulumi:"availableMemoryInBytes"`
 	// The available space.
-	AvailableSpaceInBytes *int `pulumi:"availableSpaceInBytes"`
+	AvailableSpaceInBytes *float64 `pulumi:"availableSpaceInBytes"`
 	// The percentage of the CPU load.
 	CpuLoad *string `pulumi:"cpuLoad"`
 	// The CPU load status.
@@ -12674,9 +12674,9 @@ type ProcessServerResponse struct {
 	// The system load status.
 	SystemLoadStatus *string `pulumi:"systemLoadStatus"`
 	// The total memory.
-	TotalMemoryInBytes *int `pulumi:"totalMemoryInBytes"`
+	TotalMemoryInBytes *float64 `pulumi:"totalMemoryInBytes"`
 	// The total space.
-	TotalSpaceInBytes *int `pulumi:"totalSpaceInBytes"`
+	TotalSpaceInBytes *float64 `pulumi:"totalSpaceInBytes"`
 	// Version status
 	VersionStatus *string `pulumi:"versionStatus"`
 }
@@ -12701,9 +12701,9 @@ type ProcessServerResponseArgs struct {
 	// The agent version details.
 	AgentVersionDetails VersionDetailsResponsePtrInput `pulumi:"agentVersionDetails"`
 	// The available memory.
-	AvailableMemoryInBytes pulumi.IntPtrInput `pulumi:"availableMemoryInBytes"`
+	AvailableMemoryInBytes pulumi.Float64PtrInput `pulumi:"availableMemoryInBytes"`
 	// The available space.
-	AvailableSpaceInBytes pulumi.IntPtrInput `pulumi:"availableSpaceInBytes"`
+	AvailableSpaceInBytes pulumi.Float64PtrInput `pulumi:"availableSpaceInBytes"`
 	// The percentage of the CPU load.
 	CpuLoad pulumi.StringPtrInput `pulumi:"cpuLoad"`
 	// The CPU load status.
@@ -12745,9 +12745,9 @@ type ProcessServerResponseArgs struct {
 	// The system load status.
 	SystemLoadStatus pulumi.StringPtrInput `pulumi:"systemLoadStatus"`
 	// The total memory.
-	TotalMemoryInBytes pulumi.IntPtrInput `pulumi:"totalMemoryInBytes"`
+	TotalMemoryInBytes pulumi.Float64PtrInput `pulumi:"totalMemoryInBytes"`
 	// The total space.
-	TotalSpaceInBytes pulumi.IntPtrInput `pulumi:"totalSpaceInBytes"`
+	TotalSpaceInBytes pulumi.Float64PtrInput `pulumi:"totalSpaceInBytes"`
 	// Version status
 	VersionStatus pulumi.StringPtrInput `pulumi:"versionStatus"`
 }
@@ -12820,13 +12820,13 @@ func (o ProcessServerResponseOutput) AgentVersionDetails() VersionDetailsRespons
 }
 
 // The available memory.
-func (o ProcessServerResponseOutput) AvailableMemoryInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcessServerResponse) *int { return v.AvailableMemoryInBytes }).(pulumi.IntPtrOutput)
+func (o ProcessServerResponseOutput) AvailableMemoryInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ProcessServerResponse) *float64 { return v.AvailableMemoryInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The available space.
-func (o ProcessServerResponseOutput) AvailableSpaceInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcessServerResponse) *int { return v.AvailableSpaceInBytes }).(pulumi.IntPtrOutput)
+func (o ProcessServerResponseOutput) AvailableSpaceInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ProcessServerResponse) *float64 { return v.AvailableSpaceInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The percentage of the CPU load.
@@ -12930,13 +12930,13 @@ func (o ProcessServerResponseOutput) SystemLoadStatus() pulumi.StringPtrOutput {
 }
 
 // The total memory.
-func (o ProcessServerResponseOutput) TotalMemoryInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcessServerResponse) *int { return v.TotalMemoryInBytes }).(pulumi.IntPtrOutput)
+func (o ProcessServerResponseOutput) TotalMemoryInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ProcessServerResponse) *float64 { return v.TotalMemoryInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The total space.
-func (o ProcessServerResponseOutput) TotalSpaceInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcessServerResponse) *int { return v.TotalSpaceInBytes }).(pulumi.IntPtrOutput)
+func (o ProcessServerResponseOutput) TotalSpaceInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ProcessServerResponse) *float64 { return v.TotalSpaceInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // Version status
@@ -15821,9 +15821,9 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) TestFailoverStateDe
 // The retention details of the MT.
 type RetentionVolumeResponse struct {
 	// The volume capacity.
-	CapacityInBytes *int `pulumi:"capacityInBytes"`
+	CapacityInBytes *float64 `pulumi:"capacityInBytes"`
 	// The free space available in this volume.
-	FreeSpaceInBytes *int `pulumi:"freeSpaceInBytes"`
+	FreeSpaceInBytes *float64 `pulumi:"freeSpaceInBytes"`
 	// The threshold percentage.
 	ThresholdPercentage *int `pulumi:"thresholdPercentage"`
 	// The volume name.
@@ -15844,9 +15844,9 @@ type RetentionVolumeResponseInput interface {
 // The retention details of the MT.
 type RetentionVolumeResponseArgs struct {
 	// The volume capacity.
-	CapacityInBytes pulumi.IntPtrInput `pulumi:"capacityInBytes"`
+	CapacityInBytes pulumi.Float64PtrInput `pulumi:"capacityInBytes"`
 	// The free space available in this volume.
-	FreeSpaceInBytes pulumi.IntPtrInput `pulumi:"freeSpaceInBytes"`
+	FreeSpaceInBytes pulumi.Float64PtrInput `pulumi:"freeSpaceInBytes"`
 	// The threshold percentage.
 	ThresholdPercentage pulumi.IntPtrInput `pulumi:"thresholdPercentage"`
 	// The volume name.
@@ -15906,13 +15906,13 @@ func (o RetentionVolumeResponseOutput) ToRetentionVolumeResponseOutputWithContex
 }
 
 // The volume capacity.
-func (o RetentionVolumeResponseOutput) CapacityInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RetentionVolumeResponse) *int { return v.CapacityInBytes }).(pulumi.IntPtrOutput)
+func (o RetentionVolumeResponseOutput) CapacityInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RetentionVolumeResponse) *float64 { return v.CapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The free space available in this volume.
-func (o RetentionVolumeResponseOutput) FreeSpaceInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RetentionVolumeResponse) *int { return v.FreeSpaceInBytes }).(pulumi.IntPtrOutput)
+func (o RetentionVolumeResponseOutput) FreeSpaceInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RetentionVolumeResponse) *float64 { return v.FreeSpaceInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The threshold percentage.
@@ -18605,7 +18605,7 @@ func (o VMwareCbtPolicyCreationInputOutput) RecoveryPointHistoryInMinutes() pulu
 // VMwareCbt protected disk details.
 type VMwareCbtProtectedDiskDetailsResponse struct {
 	// The disk capacity in bytes.
-	CapacityInBytes int `pulumi:"capacityInBytes"`
+	CapacityInBytes float64 `pulumi:"capacityInBytes"`
 	// The DiskEncryptionSet ARM Id.
 	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
 	// The disk id.
@@ -18642,7 +18642,7 @@ type VMwareCbtProtectedDiskDetailsResponseInput interface {
 // VMwareCbt protected disk details.
 type VMwareCbtProtectedDiskDetailsResponseArgs struct {
 	// The disk capacity in bytes.
-	CapacityInBytes pulumi.IntInput `pulumi:"capacityInBytes"`
+	CapacityInBytes pulumi.Float64Input `pulumi:"capacityInBytes"`
 	// The DiskEncryptionSet ARM Id.
 	DiskEncryptionSetId pulumi.StringInput `pulumi:"diskEncryptionSetId"`
 	// The disk id.
@@ -18718,8 +18718,8 @@ func (o VMwareCbtProtectedDiskDetailsResponseOutput) ToVMwareCbtProtectedDiskDet
 }
 
 // The disk capacity in bytes.
-func (o VMwareCbtProtectedDiskDetailsResponseOutput) CapacityInBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) int { return v.CapacityInBytes }).(pulumi.IntOutput)
+func (o VMwareCbtProtectedDiskDetailsResponseOutput) CapacityInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) float64 { return v.CapacityInBytes }).(pulumi.Float64Output)
 }
 
 // The DiskEncryptionSet ARM Id.
@@ -18919,9 +18919,9 @@ type VMwareDetailsResponse struct {
 	// The agent version details.
 	AgentVersionDetails *VersionDetailsResponse `pulumi:"agentVersionDetails"`
 	// The available memory.
-	AvailableMemoryInBytes *int `pulumi:"availableMemoryInBytes"`
+	AvailableMemoryInBytes *float64 `pulumi:"availableMemoryInBytes"`
 	// The available space.
-	AvailableSpaceInBytes *int `pulumi:"availableSpaceInBytes"`
+	AvailableSpaceInBytes *float64 `pulumi:"availableSpaceInBytes"`
 	// The percentage of the CPU load.
 	CpuLoad *string `pulumi:"cpuLoad"`
 	// The CPU load status.
@@ -18968,9 +18968,9 @@ type VMwareDetailsResponse struct {
 	// The system load status.
 	SystemLoadStatus *string `pulumi:"systemLoadStatus"`
 	// The total memory.
-	TotalMemoryInBytes *int `pulumi:"totalMemoryInBytes"`
+	TotalMemoryInBytes *float64 `pulumi:"totalMemoryInBytes"`
 	// The total space.
-	TotalSpaceInBytes *int `pulumi:"totalSpaceInBytes"`
+	TotalSpaceInBytes *float64 `pulumi:"totalSpaceInBytes"`
 	// Version status
 	VersionStatus *string `pulumi:"versionStatus"`
 	// The web load.
@@ -19001,9 +19001,9 @@ type VMwareDetailsResponseArgs struct {
 	// The agent version details.
 	AgentVersionDetails VersionDetailsResponsePtrInput `pulumi:"agentVersionDetails"`
 	// The available memory.
-	AvailableMemoryInBytes pulumi.IntPtrInput `pulumi:"availableMemoryInBytes"`
+	AvailableMemoryInBytes pulumi.Float64PtrInput `pulumi:"availableMemoryInBytes"`
 	// The available space.
-	AvailableSpaceInBytes pulumi.IntPtrInput `pulumi:"availableSpaceInBytes"`
+	AvailableSpaceInBytes pulumi.Float64PtrInput `pulumi:"availableSpaceInBytes"`
 	// The percentage of the CPU load.
 	CpuLoad pulumi.StringPtrInput `pulumi:"cpuLoad"`
 	// The CPU load status.
@@ -19050,9 +19050,9 @@ type VMwareDetailsResponseArgs struct {
 	// The system load status.
 	SystemLoadStatus pulumi.StringPtrInput `pulumi:"systemLoadStatus"`
 	// The total memory.
-	TotalMemoryInBytes pulumi.IntPtrInput `pulumi:"totalMemoryInBytes"`
+	TotalMemoryInBytes pulumi.Float64PtrInput `pulumi:"totalMemoryInBytes"`
 	// The total space.
-	TotalSpaceInBytes pulumi.IntPtrInput `pulumi:"totalSpaceInBytes"`
+	TotalSpaceInBytes pulumi.Float64PtrInput `pulumi:"totalSpaceInBytes"`
 	// Version status
 	VersionStatus pulumi.StringPtrInput `pulumi:"versionStatus"`
 	// The web load.
@@ -19109,13 +19109,13 @@ func (o VMwareDetailsResponseOutput) AgentVersionDetails() VersionDetailsRespons
 }
 
 // The available memory.
-func (o VMwareDetailsResponseOutput) AvailableMemoryInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VMwareDetailsResponse) *int { return v.AvailableMemoryInBytes }).(pulumi.IntPtrOutput)
+func (o VMwareDetailsResponseOutput) AvailableMemoryInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VMwareDetailsResponse) *float64 { return v.AvailableMemoryInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The available space.
-func (o VMwareDetailsResponseOutput) AvailableSpaceInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VMwareDetailsResponse) *int { return v.AvailableSpaceInBytes }).(pulumi.IntPtrOutput)
+func (o VMwareDetailsResponseOutput) AvailableSpaceInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VMwareDetailsResponse) *float64 { return v.AvailableSpaceInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The percentage of the CPU load.
@@ -19230,13 +19230,13 @@ func (o VMwareDetailsResponseOutput) SystemLoadStatus() pulumi.StringPtrOutput {
 }
 
 // The total memory.
-func (o VMwareDetailsResponseOutput) TotalMemoryInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VMwareDetailsResponse) *int { return v.TotalMemoryInBytes }).(pulumi.IntPtrOutput)
+func (o VMwareDetailsResponseOutput) TotalMemoryInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VMwareDetailsResponse) *float64 { return v.TotalMemoryInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The total space.
-func (o VMwareDetailsResponseOutput) TotalSpaceInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VMwareDetailsResponse) *int { return v.TotalSpaceInBytes }).(pulumi.IntPtrOutput)
+func (o VMwareDetailsResponseOutput) TotalSpaceInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VMwareDetailsResponse) *float64 { return v.TotalSpaceInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // Version status

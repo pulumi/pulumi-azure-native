@@ -116,20 +116,20 @@ class KeyAttributesResponse(dict):
     The attributes of the key.
     """
     def __init__(__self__, *,
-                 created: int,
+                 created: float,
                  recovery_level: str,
-                 updated: int,
+                 updated: float,
                  enabled: Optional[bool] = None,
-                 expires: Optional[int] = None,
-                 not_before: Optional[int] = None):
+                 expires: Optional[float] = None,
+                 not_before: Optional[float] = None):
         """
         The attributes of the key.
-        :param int created: Creation time in seconds since 1970-01-01T00:00:00Z.
+        :param float created: Creation time in seconds since 1970-01-01T00:00:00Z.
         :param str recovery_level: The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
-        :param int updated: Last updated time in seconds since 1970-01-01T00:00:00Z.
+        :param float updated: Last updated time in seconds since 1970-01-01T00:00:00Z.
         :param bool enabled: Determines whether or not the object is enabled.
-        :param int expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
-        :param int not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
+        :param float expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
+        :param float not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
         """
         pulumi.set(__self__, "created", created)
         pulumi.set(__self__, "recovery_level", recovery_level)
@@ -143,7 +143,7 @@ class KeyAttributesResponse(dict):
 
     @property
     @pulumi.getter
-    def created(self) -> int:
+    def created(self) -> float:
         """
         Creation time in seconds since 1970-01-01T00:00:00Z.
         """
@@ -159,7 +159,7 @@ class KeyAttributesResponse(dict):
 
     @property
     @pulumi.getter
-    def updated(self) -> int:
+    def updated(self) -> float:
         """
         Last updated time in seconds since 1970-01-01T00:00:00Z.
         """
@@ -175,7 +175,7 @@ class KeyAttributesResponse(dict):
 
     @property
     @pulumi.getter
-    def expires(self) -> Optional[int]:
+    def expires(self) -> Optional[float]:
         """
         Expiry date in seconds since 1970-01-01T00:00:00Z.
         """
@@ -183,7 +183,7 @@ class KeyAttributesResponse(dict):
 
     @property
     @pulumi.getter(name="notBefore")
-    def not_before(self) -> Optional[int]:
+    def not_before(self) -> Optional[float]:
         """
         Not before date in seconds since 1970-01-01T00:00:00Z.
         """

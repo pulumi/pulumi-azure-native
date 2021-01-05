@@ -24,17 +24,17 @@ type IscsiDisk struct {
 	// The disk status.
 	DiskStatus pulumi.StringOutput `pulumi:"diskStatus"`
 	// The local used capacity in bytes.
-	LocalUsedCapacityInBytes pulumi.IntOutput `pulumi:"localUsedCapacityInBytes"`
+	LocalUsedCapacityInBytes pulumi.Float64Output `pulumi:"localUsedCapacityInBytes"`
 	// The monitoring.
 	MonitoringStatus pulumi.StringOutput `pulumi:"monitoringStatus"`
 	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioned capacity in bytes.
-	ProvisionedCapacityInBytes pulumi.IntOutput `pulumi:"provisionedCapacityInBytes"`
+	ProvisionedCapacityInBytes pulumi.Float64Output `pulumi:"provisionedCapacityInBytes"`
 	// The type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The used capacity in bytes.
-	UsedCapacityInBytes pulumi.IntOutput `pulumi:"usedCapacityInBytes"`
+	UsedCapacityInBytes pulumi.Float64Output `pulumi:"usedCapacityInBytes"`
 }
 
 // NewIscsiDisk registers a new resource with the given unique name, arguments, and options.
@@ -102,17 +102,17 @@ type iscsiDiskState struct {
 	// The disk status.
 	DiskStatus *string `pulumi:"diskStatus"`
 	// The local used capacity in bytes.
-	LocalUsedCapacityInBytes *int `pulumi:"localUsedCapacityInBytes"`
+	LocalUsedCapacityInBytes *float64 `pulumi:"localUsedCapacityInBytes"`
 	// The monitoring.
 	MonitoringStatus *string `pulumi:"monitoringStatus"`
 	// The name.
 	Name *string `pulumi:"name"`
 	// The provisioned capacity in bytes.
-	ProvisionedCapacityInBytes *int `pulumi:"provisionedCapacityInBytes"`
+	ProvisionedCapacityInBytes *float64 `pulumi:"provisionedCapacityInBytes"`
 	// The type.
 	Type *string `pulumi:"type"`
 	// The used capacity in bytes.
-	UsedCapacityInBytes *int `pulumi:"usedCapacityInBytes"`
+	UsedCapacityInBytes *float64 `pulumi:"usedCapacityInBytes"`
 }
 
 type IscsiDiskState struct {
@@ -125,17 +125,17 @@ type IscsiDiskState struct {
 	// The disk status.
 	DiskStatus pulumi.StringPtrInput
 	// The local used capacity in bytes.
-	LocalUsedCapacityInBytes pulumi.IntPtrInput
+	LocalUsedCapacityInBytes pulumi.Float64PtrInput
 	// The monitoring.
 	MonitoringStatus pulumi.StringPtrInput
 	// The name.
 	Name pulumi.StringPtrInput
 	// The provisioned capacity in bytes.
-	ProvisionedCapacityInBytes pulumi.IntPtrInput
+	ProvisionedCapacityInBytes pulumi.Float64PtrInput
 	// The type.
 	Type pulumi.StringPtrInput
 	// The used capacity in bytes.
-	UsedCapacityInBytes pulumi.IntPtrInput
+	UsedCapacityInBytes pulumi.Float64PtrInput
 }
 
 func (IscsiDiskState) ElementType() reflect.Type {
@@ -162,7 +162,7 @@ type iscsiDiskArgs struct {
 	// The monitoring.
 	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The provisioned capacity in bytes.
-	ProvisionedCapacityInBytes int `pulumi:"provisionedCapacityInBytes"`
+	ProvisionedCapacityInBytes float64 `pulumi:"provisionedCapacityInBytes"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -188,7 +188,7 @@ type IscsiDiskArgs struct {
 	// The monitoring.
 	MonitoringStatus MonitoringStatus
 	// The provisioned capacity in bytes.
-	ProvisionedCapacityInBytes pulumi.IntInput
+	ProvisionedCapacityInBytes pulumi.Float64Input
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 }

@@ -34,11 +34,11 @@ type LookupEventHubResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
+	MessageRetentionInDays *float64 `pulumi:"messageRetentionInDays"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-	PartitionCount *int `pulumi:"partitionCount"`
+	PartitionCount *float64 `pulumi:"partitionCount"`
 	// Current number of shards on the Event Hub.
 	PartitionIds []string `pulumi:"partitionIds"`
 	// Enumerates the possible values for the status of the Event Hub.

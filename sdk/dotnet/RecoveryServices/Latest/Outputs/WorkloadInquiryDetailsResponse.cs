@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// Contains the protectable item Count inside this Container.
         /// </summary>
-        public readonly int? ItemCount;
+        public readonly double? ItemCount;
         /// <summary>
         /// Type of the Workload such as SQL, Oracle etc.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         private WorkloadInquiryDetailsResponse(
             Outputs.InquiryValidationResponse? inquiryValidation,
 
-            int? itemCount,
+            double? itemCount,
 
             string? type)
         {

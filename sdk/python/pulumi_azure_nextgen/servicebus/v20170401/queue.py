@@ -259,7 +259,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> pulumi.Output[int]:
+    def message_count(self) -> pulumi.Output[float]:
         """
         The number of messages in the queue.
         """
@@ -291,7 +291,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> pulumi.Output[int]:
+    def size_in_bytes(self) -> pulumi.Output[float]:
         """
         The size of the queue, in bytes.
         """

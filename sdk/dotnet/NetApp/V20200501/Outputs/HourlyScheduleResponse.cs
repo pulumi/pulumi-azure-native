@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501.Outputs
         /// <summary>
         /// Resource size in bytes, current storage usage for the volume in bytes
         /// </summary>
-        public readonly int? UsedBytes;
+        public readonly double? UsedBytes;
 
         [OutputConstructor]
         private HourlyScheduleResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501.Outputs
 
             int? snapshotsToKeep,
 
-            int? usedBytes)
+            double? usedBytes)
         {
             Minute = minute;
             SnapshotsToKeep = snapshotsToKeep;

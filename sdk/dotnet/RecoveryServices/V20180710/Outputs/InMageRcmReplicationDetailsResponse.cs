@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
         /// </summary>
-        public readonly int InitialReplicationProcessedBytes;
+        public readonly double InitialReplicationProcessedBytes;
         /// <summary>
         /// The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The initial replication transferred bytes from source VM to azure for all selected disks on source VM.
         /// </summary>
-        public readonly int InitialReplicationTransferredBytes;
+        public readonly double InitialReplicationTransferredBytes;
         /// <summary>
         /// Gets the Instance type.
         /// Expected value is 'InMageRcm'.
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The last recovery point objective value.
         /// </summary>
-        public readonly int LastRpoInSeconds;
+        public readonly double LastRpoInSeconds;
         /// <summary>
         /// License Type of the VM to be used.
         /// </summary>
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
         /// </summary>
-        public readonly int ResyncProcessedBytes;
+        public readonly double ResyncProcessedBytes;
         /// <summary>
         /// The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
         /// </summary>
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The resync transferred bytes from source VM to azure for all selected disks on source VM.
         /// </summary>
-        public readonly int ResyncTransferredBytes;
+        public readonly double ResyncTransferredBytes;
         /// <summary>
         /// The run-as account Id.
         /// </summary>
@@ -211,11 +211,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
 
             string firmwareType,
 
-            int initialReplicationProcessedBytes,
+            double initialReplicationProcessedBytes,
 
             int initialReplicationProgressPercentage,
 
-            int initialReplicationTransferredBytes,
+            double initialReplicationTransferredBytes,
 
             string instanceType,
 
@@ -235,7 +235,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
 
             string lastRpoCalculatedTime,
 
-            int lastRpoInSeconds,
+            double lastRpoInSeconds,
 
             string licenseType,
 
@@ -253,7 +253,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
 
             ImmutableArray<Outputs.InMageRcmProtectedDiskDetailsResponse> protectedDisks,
 
-            int resyncProcessedBytes,
+            double resyncProcessedBytes,
 
             int resyncProgressPercentage,
 
@@ -261,7 +261,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
 
             string resyncState,
 
-            int resyncTransferredBytes,
+            double resyncTransferredBytes,
 
             string runAsAccountId,
 

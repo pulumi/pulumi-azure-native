@@ -2125,7 +2125,7 @@ class SwaggerSpecificationResponse(dict):
 @pulumi.output_type
 class ThrottlingMetricResponse(dict):
     def __init__(__self__, *,
-                 limit: int,
+                 limit: float,
                  type: str,
                  interval: Optional[str] = None):
         pulumi.set(__self__, "limit", limit)
@@ -2135,7 +2135,7 @@ class ThrottlingMetricResponse(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> int:
+    def limit(self) -> float:
         return pulumi.get(self, "limit")
 
     @property

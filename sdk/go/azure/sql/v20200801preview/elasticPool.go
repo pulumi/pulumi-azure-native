@@ -26,7 +26,7 @@ type ElasticPool struct {
 	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationId"`
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes pulumi.IntPtrOutput `pulumi:"maxSizeBytes"`
+	MaxSizeBytes pulumi.Float64PtrOutput `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The per database settings for the elastic pool.
@@ -112,7 +112,7 @@ type elasticPoolState struct {
 	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// The per database settings for the elastic pool.
@@ -143,7 +143,7 @@ type ElasticPoolState struct {
 	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId pulumi.StringPtrInput
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// The per database settings for the elastic pool.
@@ -176,7 +176,7 @@ type elasticPoolArgs struct {
 	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// The per database settings for the elastic pool.
 	PerDatabaseSettings *ElasticPoolPerDatabaseSettings `pulumi:"perDatabaseSettings"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -204,7 +204,7 @@ type ElasticPoolArgs struct {
 	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId pulumi.StringPtrInput
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// The per database settings for the elastic pool.
 	PerDatabaseSettings ElasticPoolPerDatabaseSettingsPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

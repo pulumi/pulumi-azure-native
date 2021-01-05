@@ -39,8 +39,8 @@ class GetWorkloadNetworkSegmentResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if revision and not isinstance(revision, int):
-            raise TypeError("Expected argument 'revision' to be a int")
+        if revision and not isinstance(revision, float):
+            raise TypeError("Expected argument 'revision' to be a float")
         pulumi.set(__self__, "revision", revision)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
@@ -102,7 +102,7 @@ class GetWorkloadNetworkSegmentResult:
 
     @property
     @pulumi.getter
-    def revision(self) -> Optional[int]:
+    def revision(self) -> Optional[float]:
         """
         NSX revision number.
         """

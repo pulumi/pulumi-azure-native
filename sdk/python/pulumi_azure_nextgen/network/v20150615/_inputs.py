@@ -1703,11 +1703,11 @@ class BackendAddressPoolArgs:
 @pulumi.input_type
 class BgpSettingsArgs:
     def __init__(__self__, *,
-                 asn: Optional[pulumi.Input[int]] = None,
+                 asn: Optional[pulumi.Input[float]] = None,
                  bgp_peering_address: Optional[pulumi.Input[str]] = None,
                  peer_weight: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] asn: Gets or sets this BGP speaker's ASN
+        :param pulumi.Input[float] asn: Gets or sets this BGP speaker's ASN
         :param pulumi.Input[str] bgp_peering_address: Gets or sets the BGP peering address and BGP identifier of this BGP speaker
         :param pulumi.Input[int] peer_weight: Gets or sets the weight added to routes learned from this BGP speaker
         """
@@ -1720,14 +1720,14 @@ class BgpSettingsArgs:
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[pulumi.Input[int]]:
+    def asn(self) -> Optional[pulumi.Input[float]]:
         """
         Gets or sets this BGP speaker's ASN
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[pulumi.Input[int]]):
+    def asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "asn", value)
 
     @property

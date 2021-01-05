@@ -30,7 +30,7 @@ type WorkloadNetworkDnsService struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision pulumi.IntPtrOutput `pulumi:"revision"`
+	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
 	// DNS Service status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource type.
@@ -90,7 +90,7 @@ type workloadNetworkDnsServiceState struct {
 	// The provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// DNS Service status.
 	Status *string `pulumi:"status"`
 	// Resource type.
@@ -113,7 +113,7 @@ type WorkloadNetworkDnsServiceState struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringPtrInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 	// DNS Service status.
 	Status pulumi.StringPtrInput
 	// Resource type.
@@ -142,7 +142,7 @@ type workloadNetworkDnsServiceArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 }
 
 // The set of arguments for constructing a WorkloadNetworkDnsService resource.
@@ -164,7 +164,7 @@ type WorkloadNetworkDnsServiceArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 }
 
 func (WorkloadNetworkDnsServiceArgs) ElementType() reflect.Type {

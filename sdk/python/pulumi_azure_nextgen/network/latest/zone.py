@@ -125,7 +125,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> pulumi.Output[int]:
+    def max_number_of_record_sets(self) -> pulumi.Output[float]:
         """
         The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -133,7 +133,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfRecordsPerRecordSet")
-    def max_number_of_records_per_record_set(self) -> pulumi.Output[int]:
+    def max_number_of_records_per_record_set(self) -> pulumi.Output[float]:
         """
         The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -157,7 +157,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> pulumi.Output[int]:
+    def number_of_record_sets(self) -> pulumi.Output[float]:
         """
         The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """

@@ -160,7 +160,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceLocalCapacity")
-    def device_local_capacity(self) -> pulumi.Output[int]:
+    def device_local_capacity(self) -> pulumi.Output[float]:
         """
         The Data Box Edge/Gateway device local capacity in MB.
         """

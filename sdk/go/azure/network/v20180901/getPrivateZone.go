@@ -32,19 +32,19 @@ type LookupPrivateZoneResult struct {
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets int `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordSets float64 `pulumi:"maxNumberOfRecordSets"`
 	// The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinks int `pulumi:"maxNumberOfVirtualNetworkLinks"`
+	MaxNumberOfVirtualNetworkLinks float64 `pulumi:"maxNumberOfVirtualNetworkLinks"`
 	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinksWithRegistration int `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
+	MaxNumberOfVirtualNetworkLinksWithRegistration float64 `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets int `pulumi:"numberOfRecordSets"`
+	NumberOfRecordSets float64 `pulumi:"numberOfRecordSets"`
 	// The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinks int `pulumi:"numberOfVirtualNetworkLinks"`
+	NumberOfVirtualNetworkLinks float64 `pulumi:"numberOfVirtualNetworkLinks"`
 	// The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinksWithRegistration int `pulumi:"numberOfVirtualNetworkLinksWithRegistration"`
+	NumberOfVirtualNetworkLinksWithRegistration float64 `pulumi:"numberOfVirtualNetworkLinksWithRegistration"`
 	// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.

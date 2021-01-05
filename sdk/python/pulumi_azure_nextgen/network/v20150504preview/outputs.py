@@ -206,7 +206,7 @@ class RecordSetPropertiesResponse(dict):
                  s_oa_record: Optional['outputs.SoaRecordResponse'] = None,
                  s_rv_records: Optional[Sequence['outputs.SrvRecordResponse']] = None,
                  t_xt_records: Optional[Sequence['outputs.TxtRecordResponse']] = None,
-                 ttl: Optional[int] = None):
+                 ttl: Optional[float] = None):
         """
         Represents the properties of the records in the RecordSet.
         :param Sequence['AaaaRecordResponseArgs'] a_aaa_records: Gets or sets the list of AAAA records in the RecordSet.
@@ -218,7 +218,7 @@ class RecordSetPropertiesResponse(dict):
         :param 'SoaRecordResponseArgs' s_oa_record: Gets or sets the SOA record in the RecordSet.
         :param Sequence['SrvRecordResponseArgs'] s_rv_records: Gets or sets the list of SRV records in the RecordSet.
         :param Sequence['TxtRecordResponseArgs'] t_xt_records: Gets or sets the list of TXT records in the RecordSet.
-        :param int ttl: Gets or sets the TTL of the records in the RecordSet.
+        :param float ttl: Gets or sets the TTL of the records in the RecordSet.
         """
         if a_aaa_records is not None:
             pulumi.set(__self__, "a_aaa_records", a_aaa_records)
@@ -315,7 +315,7 @@ class RecordSetPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[int]:
+    def ttl(self) -> Optional[float]:
         """
         Gets or sets the TTL of the records in the RecordSet.
         """
@@ -332,21 +332,21 @@ class SoaRecordResponse(dict):
     """
     def __init__(__self__, *,
                  email: Optional[str] = None,
-                 expire_time: Optional[int] = None,
+                 expire_time: Optional[float] = None,
                  host: Optional[str] = None,
-                 minimum_ttl: Optional[int] = None,
-                 refresh_time: Optional[int] = None,
-                 retry_time: Optional[int] = None,
-                 serial_number: Optional[int] = None):
+                 minimum_ttl: Optional[float] = None,
+                 refresh_time: Optional[float] = None,
+                 retry_time: Optional[float] = None,
+                 serial_number: Optional[float] = None):
         """
         An SOA record.
         :param str email: Gets or sets the email for this record.
-        :param int expire_time: Gets or sets the expire time for this record.
+        :param float expire_time: Gets or sets the expire time for this record.
         :param str host: Gets or sets the domain name of the authoritative name server, without a terminating dot.
-        :param int minimum_ttl: Gets or sets the minimum TTL value for this record.
-        :param int refresh_time: Gets or sets the refresh value for this record.
-        :param int retry_time: Gets or sets the retry time for this record.
-        :param int serial_number: Gets or sets the serial number for this record.
+        :param float minimum_ttl: Gets or sets the minimum TTL value for this record.
+        :param float refresh_time: Gets or sets the refresh value for this record.
+        :param float retry_time: Gets or sets the retry time for this record.
+        :param float serial_number: Gets or sets the serial number for this record.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -373,7 +373,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[int]:
+    def expire_time(self) -> Optional[float]:
         """
         Gets or sets the expire time for this record.
         """
@@ -389,7 +389,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="minimumTTL")
-    def minimum_ttl(self) -> Optional[int]:
+    def minimum_ttl(self) -> Optional[float]:
         """
         Gets or sets the minimum TTL value for this record.
         """
@@ -397,7 +397,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[int]:
+    def refresh_time(self) -> Optional[float]:
         """
         Gets or sets the refresh value for this record.
         """
@@ -405,7 +405,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[int]:
+    def retry_time(self) -> Optional[float]:
         """
         Gets or sets the retry time for this record.
         """
@@ -413,7 +413,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[int]:
+    def serial_number(self) -> Optional[float]:
         """
         Gets or sets the serial number for this record.
         """
@@ -517,12 +517,12 @@ class ZonePropertiesResponse(dict):
     Represents the properties of the zone.
     """
     def __init__(__self__, *,
-                 max_number_of_record_sets: Optional[int] = None,
-                 number_of_record_sets: Optional[int] = None):
+                 max_number_of_record_sets: Optional[float] = None,
+                 number_of_record_sets: Optional[float] = None):
         """
         Represents the properties of the zone.
-        :param int max_number_of_record_sets: Gets or sets the maximum number of record sets that can be created in this zone.
-        :param int number_of_record_sets: Gets or sets the current number of record sets in this zone.
+        :param float max_number_of_record_sets: Gets or sets the maximum number of record sets that can be created in this zone.
+        :param float number_of_record_sets: Gets or sets the current number of record sets in this zone.
         """
         if max_number_of_record_sets is not None:
             pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
@@ -531,7 +531,7 @@ class ZonePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> Optional[int]:
+    def max_number_of_record_sets(self) -> Optional[float]:
         """
         Gets or sets the maximum number of record sets that can be created in this zone.
         """
@@ -539,7 +539,7 @@ class ZonePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> Optional[int]:
+    def number_of_record_sets(self) -> Optional[float]:
         """
         Gets or sets the current number of record sets in this zone.
         """

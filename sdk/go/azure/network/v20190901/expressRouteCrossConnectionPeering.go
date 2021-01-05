@@ -30,7 +30,7 @@ type ExpressRouteCrossConnectionPeering struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The peer ASN.
-	PeerASN pulumi.IntPtrOutput `pulumi:"peerASN"`
+	PeerASN pulumi.Float64PtrOutput `pulumi:"peerASN"`
 	// The peering type.
 	PeeringType pulumi.StringPtrOutput `pulumi:"peeringType"`
 	// The primary port.
@@ -170,7 +170,7 @@ type expressRouteCrossConnectionPeeringState struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The peering type.
 	PeeringType *string `pulumi:"peeringType"`
 	// The primary port.
@@ -207,7 +207,7 @@ type ExpressRouteCrossConnectionPeeringState struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
 	// The peer ASN.
-	PeerASN pulumi.IntPtrInput
+	PeerASN pulumi.Float64PtrInput
 	// The peering type.
 	PeeringType pulumi.StringPtrInput
 	// The primary port.
@@ -246,7 +246,7 @@ type expressRouteCrossConnectionPeeringArgs struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
+	PeerASN *float64 `pulumi:"peerASN"`
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
 	// The peering type.
@@ -280,7 +280,7 @@ type ExpressRouteCrossConnectionPeeringArgs struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
 	// The peer ASN.
-	PeerASN pulumi.IntPtrInput
+	PeerASN pulumi.Float64PtrInput
 	// The name of the peering.
 	PeeringName pulumi.StringInput
 	// The peering type.

@@ -131,25 +131,25 @@ class ApplicationMetricDescriptionResponse(dict):
     Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
     """
     def __init__(__self__, *,
-                 maximum_capacity: Optional[int] = None,
+                 maximum_capacity: Optional[float] = None,
                  name: Optional[str] = None,
-                 reservation_capacity: Optional[int] = None,
-                 total_application_capacity: Optional[int] = None):
+                 reservation_capacity: Optional[float] = None,
+                 total_application_capacity: Optional[float] = None):
         """
         Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
 
-        :param int maximum_capacity: The maximum node capacity for Service Fabric application.
+        :param float maximum_capacity: The maximum node capacity for Service Fabric application.
                This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
                If set to zero, capacity for this metric is unlimited on each node.
                When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
                When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
         :param str name: The name of the metric.
-        :param int reservation_capacity: The node reservation capacity for Service Fabric application.
+        :param float reservation_capacity: The node reservation capacity for Service Fabric application.
                This is the amount of load which is reserved on nodes which have instances of this application.
                If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
                If set to zero, no capacity is reserved for this metric.
                When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-        :param int total_application_capacity: The total metric capacity for Service Fabric application.
+        :param float total_application_capacity: The total metric capacity for Service Fabric application.
                This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
                When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
         """
@@ -164,7 +164,7 @@ class ApplicationMetricDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="maximumCapacity")
-    def maximum_capacity(self) -> Optional[int]:
+    def maximum_capacity(self) -> Optional[float]:
         """
         The maximum node capacity for Service Fabric application.
         This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
@@ -184,7 +184,7 @@ class ApplicationMetricDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="reservationCapacity")
-    def reservation_capacity(self) -> Optional[int]:
+    def reservation_capacity(self) -> Optional[float]:
         """
         The node reservation capacity for Service Fabric application.
         This is the amount of load which is reserved on nodes which have instances of this application.
@@ -196,7 +196,7 @@ class ApplicationMetricDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="totalApplicationCapacity")
-    def total_application_capacity(self) -> Optional[int]:
+    def total_application_capacity(self) -> Optional[float]:
         """
         The total metric capacity for Service Fabric application.
         This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.

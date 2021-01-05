@@ -20,11 +20,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// <summary>
         /// Folder id which contains package.
         /// </summary>
-        public readonly int? FolderId;
+        public readonly double? FolderId;
         /// <summary>
         /// Metadata id.
         /// </summary>
-        public readonly int? Id;
+        public readonly double? Id;
         /// <summary>
         /// Metadata name.
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// <summary>
         /// Project id which contains package.
         /// </summary>
-        public readonly int? ProjectId;
+        public readonly double? ProjectId;
         /// <summary>
         /// Project version which contains package.
         /// </summary>
-        public readonly int? ProjectVersion;
+        public readonly double? ProjectVersion;
         /// <summary>
         /// Type of metadata.
         /// Expected value is 'Package'.
@@ -51,17 +51,17 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         private SsisPackageResponseResult(
             string? description,
 
-            int? folderId,
+            double? folderId,
 
-            int? id,
+            double? id,
 
             string? name,
 
             ImmutableArray<Outputs.SsisParameterResponseResult> parameters,
 
-            int? projectId,
+            double? projectId,
 
-            int? projectVersion,
+            double? projectVersion,
 
             string type)
         {

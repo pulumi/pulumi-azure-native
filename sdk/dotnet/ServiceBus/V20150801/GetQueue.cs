@@ -112,11 +112,11 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// <summary>
         /// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
         /// </summary>
-        public readonly int? MaxSizeInMegabytes;
+        public readonly double? MaxSizeInMegabytes;
         /// <summary>
         /// The number of messages in the queue.
         /// </summary>
-        public readonly int MessageCount;
+        public readonly double MessageCount;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// <summary>
         /// The size of the queue, in bytes.
         /// </summary>
-        public readonly int SizeInBytes;
+        public readonly double SizeInBytes;
         /// <summary>
         /// Enumerates the possible values for the status of a messaging entity.
         /// </summary>
@@ -184,9 +184,9 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
 
             int? maxDeliveryCount,
 
-            int? maxSizeInMegabytes,
+            double? maxSizeInMegabytes,
 
-            int messageCount,
+            double messageCount,
 
             string name,
 
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
 
             bool? requiresSession,
 
-            int sizeInBytes,
+            double sizeInBytes,
 
             string? status,
 

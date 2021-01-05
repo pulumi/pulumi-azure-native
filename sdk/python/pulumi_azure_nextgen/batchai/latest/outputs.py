@@ -912,14 +912,14 @@ class FileResponseResult(dict):
     Properties of the file or directory.
     """
     def __init__(__self__, *,
-                 content_length: int,
+                 content_length: float,
                  download_url: str,
                  file_type: str,
                  last_modified: str,
                  name: str):
         """
         Properties of the file or directory.
-        :param int content_length: The file of the size.
+        :param float content_length: The file of the size.
         :param str download_url: URL to download the corresponding file. The downloadUrl is not returned for directories.
         :param str file_type: Type of the file. Possible values are file and directory.
         :param str last_modified: The time at which the file was last modified.
@@ -933,7 +933,7 @@ class FileResponseResult(dict):
 
     @property
     @pulumi.getter(name="contentLength")
-    def content_length(self) -> int:
+    def content_length(self) -> float:
         """
         The file of the size.
         """

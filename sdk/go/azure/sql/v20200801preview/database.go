@@ -70,9 +70,9 @@ type Database struct {
 	// Resource that manages the database.
 	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
 	// The max log size for this database.
-	MaxLogSizeBytes pulumi.IntOutput `pulumi:"maxLogSizeBytes"`
+	MaxLogSizeBytes pulumi.Float64Output `pulumi:"maxLogSizeBytes"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrOutput `pulumi:"maxSizeBytes"`
+	MaxSizeBytes pulumi.Float64PtrOutput `pulumi:"maxSizeBytes"`
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity pulumi.Float64PtrOutput `pulumi:"minCapacity"`
 	// Resource name.
@@ -234,9 +234,9 @@ type databaseState struct {
 	// Resource that manages the database.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The max log size for this database.
-	MaxLogSizeBytes *int `pulumi:"maxLogSizeBytes"`
+	MaxLogSizeBytes *float64 `pulumi:"maxLogSizeBytes"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity *float64 `pulumi:"minCapacity"`
 	// Resource name.
@@ -337,9 +337,9 @@ type DatabaseState struct {
 	// Resource that manages the database.
 	ManagedBy pulumi.StringPtrInput
 	// The max log size for this database.
-	MaxLogSizeBytes pulumi.IntPtrInput
+	MaxLogSizeBytes pulumi.Float64PtrInput
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity pulumi.Float64PtrInput
 	// Resource name.
@@ -428,7 +428,7 @@ type databaseArgs struct {
 	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity *float64 `pulumi:"minCapacity"`
 	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
@@ -506,7 +506,7 @@ type DatabaseArgs struct {
 	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
 	MaintenanceConfigurationId pulumi.StringPtrInput
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity pulumi.Float64PtrInput
 	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.

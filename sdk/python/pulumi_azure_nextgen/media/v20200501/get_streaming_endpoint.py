@@ -63,8 +63,8 @@ class GetStreamingEndpointResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_cache_age and not isinstance(max_cache_age, int):
-            raise TypeError("Expected argument 'max_cache_age' to be a int")
+        if max_cache_age and not isinstance(max_cache_age, float):
+            raise TypeError("Expected argument 'max_cache_age' to be a float")
         pulumi.set(__self__, "max_cache_age", max_cache_age)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -199,7 +199,7 @@ class GetStreamingEndpointResult:
 
     @property
     @pulumi.getter(name="maxCacheAge")
-    def max_cache_age(self) -> Optional[int]:
+    def max_cache_age(self) -> Optional[float]:
         """
         Max cache age
         """

@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.Automation.V20180630
         /// Gets or sets the size in bytes of the module.
         /// </summary>
         [Output("sizeInBytes")]
-        public Output<int?> SizeInBytes { get; private set; } = null!;
+        public Output<double?> SizeInBytes { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

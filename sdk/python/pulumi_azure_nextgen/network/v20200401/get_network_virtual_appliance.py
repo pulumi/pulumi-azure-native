@@ -54,8 +54,8 @@ class GetNetworkVirtualApplianceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if virtual_appliance_asn and not isinstance(virtual_appliance_asn, int):
-            raise TypeError("Expected argument 'virtual_appliance_asn' to be a int")
+        if virtual_appliance_asn and not isinstance(virtual_appliance_asn, float):
+            raise TypeError("Expected argument 'virtual_appliance_asn' to be a float")
         pulumi.set(__self__, "virtual_appliance_asn", virtual_appliance_asn)
         if virtual_appliance_nics and not isinstance(virtual_appliance_nics, list):
             raise TypeError("Expected argument 'virtual_appliance_nics' to be a list")
@@ -154,7 +154,7 @@ class GetNetworkVirtualApplianceResult:
 
     @property
     @pulumi.getter(name="virtualApplianceAsn")
-    def virtual_appliance_asn(self) -> Optional[int]:
+    def virtual_appliance_asn(self) -> Optional[float]:
         """
         VirtualAppliance ASN.
         """

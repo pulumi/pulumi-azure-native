@@ -37,19 +37,19 @@ namespace Pulumi.AzureNextGen.Network.V20200101
         /// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Output("maxNumberOfRecordSets")]
-        public Output<int> MaxNumberOfRecordSets { get; private set; } = null!;
+        public Output<double> MaxNumberOfRecordSets { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Output("maxNumberOfVirtualNetworkLinks")]
-        public Output<int> MaxNumberOfVirtualNetworkLinks { get; private set; } = null!;
+        public Output<double> MaxNumberOfVirtualNetworkLinks { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Output("maxNumberOfVirtualNetworkLinksWithRegistration")]
-        public Output<int> MaxNumberOfVirtualNetworkLinksWithRegistration { get; private set; } = null!;
+        public Output<double> MaxNumberOfVirtualNetworkLinksWithRegistration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -61,19 +61,19 @@ namespace Pulumi.AzureNextGen.Network.V20200101
         /// The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Output("numberOfRecordSets")]
-        public Output<int> NumberOfRecordSets { get; private set; } = null!;
+        public Output<double> NumberOfRecordSets { get; private set; } = null!;
 
         /// <summary>
         /// The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Output("numberOfVirtualNetworkLinks")]
-        public Output<int> NumberOfVirtualNetworkLinks { get; private set; } = null!;
+        public Output<double> NumberOfVirtualNetworkLinks { get; private set; } = null!;
 
         /// <summary>
         /// The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Output("numberOfVirtualNetworkLinksWithRegistration")]
-        public Output<int> NumberOfVirtualNetworkLinksWithRegistration { get; private set; } = null!;
+        public Output<double> NumberOfVirtualNetworkLinksWithRegistration { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.

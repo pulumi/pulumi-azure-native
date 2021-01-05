@@ -72,7 +72,7 @@ type ListSiteBackupStatusSecretsSlotResult struct {
 	// True if this backup has been created due to a schedule being triggered.
 	Scheduled *bool `pulumi:"scheduled"`
 	// Size of the backup in bytes
-	SizeInBytes *int `pulumi:"sizeInBytes"`
+	SizeInBytes *float64 `pulumi:"sizeInBytes"`
 	// Backup status
 	Status string `pulumi:"status"`
 	// SAS URL for the storage account container which contains this backup
@@ -82,5 +82,5 @@ type ListSiteBackupStatusSecretsSlotResult struct {
 	// Resource type
 	Type *string `pulumi:"type"`
 	// Size of the original web app which has been backed up
-	WebsiteSizeInBytes *int `pulumi:"websiteSizeInBytes"`
+	WebsiteSizeInBytes *float64 `pulumi:"websiteSizeInBytes"`
 }

@@ -46,9 +46,9 @@ type Queue struct {
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
 	MaxDeliveryCount pulumi.IntPtrOutput `pulumi:"maxDeliveryCount"`
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
-	MaxSizeInMegabytes pulumi.IntPtrOutput `pulumi:"maxSizeInMegabytes"`
+	MaxSizeInMegabytes pulumi.Float64PtrOutput `pulumi:"maxSizeInMegabytes"`
 	// The number of messages in the queue.
-	MessageCount pulumi.IntOutput `pulumi:"messageCount"`
+	MessageCount pulumi.Float64Output `pulumi:"messageCount"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A value indicating if this queue requires duplicate detection.
@@ -56,7 +56,7 @@ type Queue struct {
 	// A value that indicates whether the queue supports the concept of sessions.
 	RequiresSession pulumi.BoolPtrOutput `pulumi:"requiresSession"`
 	// The size of the queue, in bytes.
-	SizeInBytes pulumi.IntOutput `pulumi:"sizeInBytes"`
+	SizeInBytes pulumi.Float64Output `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A value that indicates whether the queue supports ordering.
@@ -154,9 +154,9 @@ type queueState struct {
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
-	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
+	MaxSizeInMegabytes *float64 `pulumi:"maxSizeInMegabytes"`
 	// The number of messages in the queue.
-	MessageCount *int `pulumi:"messageCount"`
+	MessageCount *float64 `pulumi:"messageCount"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// A value indicating if this queue requires duplicate detection.
@@ -164,7 +164,7 @@ type queueState struct {
 	// A value that indicates whether the queue supports the concept of sessions.
 	RequiresSession *bool `pulumi:"requiresSession"`
 	// The size of the queue, in bytes.
-	SizeInBytes *int `pulumi:"sizeInBytes"`
+	SizeInBytes *float64 `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status *string `pulumi:"status"`
 	// A value that indicates whether the queue supports ordering.
@@ -207,9 +207,9 @@ type QueueState struct {
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
 	MaxDeliveryCount pulumi.IntPtrInput
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
-	MaxSizeInMegabytes pulumi.IntPtrInput
+	MaxSizeInMegabytes pulumi.Float64PtrInput
 	// The number of messages in the queue.
-	MessageCount pulumi.IntPtrInput
+	MessageCount pulumi.Float64PtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
 	// A value indicating if this queue requires duplicate detection.
@@ -217,7 +217,7 @@ type QueueState struct {
 	// A value that indicates whether the queue supports the concept of sessions.
 	RequiresSession pulumi.BoolPtrInput
 	// The size of the queue, in bytes.
-	SizeInBytes pulumi.IntPtrInput
+	SizeInBytes pulumi.Float64PtrInput
 	// Enumerates the possible values for the status of a messaging entity.
 	Status pulumi.StringPtrInput
 	// A value that indicates whether the queue supports ordering.
@@ -258,7 +258,7 @@ type queueArgs struct {
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
-	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
+	MaxSizeInMegabytes *float64 `pulumi:"maxSizeInMegabytes"`
 	// Queue name.
 	Name *string `pulumi:"name"`
 	// The namespace name
@@ -304,7 +304,7 @@ type QueueArgs struct {
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
 	MaxDeliveryCount pulumi.IntPtrInput
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
-	MaxSizeInMegabytes pulumi.IntPtrInput
+	MaxSizeInMegabytes pulumi.Float64PtrInput
 	// Queue name.
 	Name pulumi.StringPtrInput
 	// The namespace name

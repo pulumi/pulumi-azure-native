@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The peer ASN.
         /// </summary>
         [Output("peerASN")]
-        public Output<int?> PeerASN { get; private set; } = null!;
+        public Output<double?> PeerASN { get; private set; } = null!;
 
         /// <summary>
         /// The list of peered circuit connections associated with Azure Private Peering for this circuit.
@@ -299,7 +299,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The peer ASN.
         /// </summary>
         [Input("peerASN")]
-        public Input<int>? PeerASN { get; set; }
+        public Input<double>? PeerASN { get; set; }
 
         /// <summary>
         /// The name of the peering.

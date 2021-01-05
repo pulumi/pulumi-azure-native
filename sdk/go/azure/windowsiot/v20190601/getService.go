@@ -40,7 +40,7 @@ type LookupServiceResult struct {
 	// Windows IoT Device Service notes.
 	Notes *string `pulumi:"notes"`
 	// Windows IoT Device Service device allocation,
-	Quantity *int `pulumi:"quantity"`
+	Quantity *float64 `pulumi:"quantity"`
 	// Windows IoT Device Service start date,
 	StartDate string `pulumi:"startDate"`
 	// Resource tags.

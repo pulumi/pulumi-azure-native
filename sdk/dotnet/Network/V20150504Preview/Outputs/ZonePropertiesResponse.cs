@@ -16,17 +16,17 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview.Outputs
         /// <summary>
         /// Gets or sets the maximum number of record sets that can be created in this zone.
         /// </summary>
-        public readonly int? MaxNumberOfRecordSets;
+        public readonly double? MaxNumberOfRecordSets;
         /// <summary>
         /// Gets or sets the current number of record sets in this zone.
         /// </summary>
-        public readonly int? NumberOfRecordSets;
+        public readonly double? NumberOfRecordSets;
 
         [OutputConstructor]
         private ZonePropertiesResponse(
-            int? maxNumberOfRecordSets,
+            double? maxNumberOfRecordSets,
 
-            int? numberOfRecordSets)
+            double? numberOfRecordSets)
         {
             MaxNumberOfRecordSets = maxNumberOfRecordSets;
             NumberOfRecordSets = numberOfRecordSets;

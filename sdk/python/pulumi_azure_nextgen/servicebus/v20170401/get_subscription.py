@@ -63,8 +63,8 @@ class GetSubscriptionResult:
         if max_delivery_count and not isinstance(max_delivery_count, int):
             raise TypeError("Expected argument 'max_delivery_count' to be a int")
         pulumi.set(__self__, "max_delivery_count", max_delivery_count)
-        if message_count and not isinstance(message_count, int):
-            raise TypeError("Expected argument 'message_count' to be a int")
+        if message_count and not isinstance(message_count, float):
+            raise TypeError("Expected argument 'message_count' to be a float")
         pulumi.set(__self__, "message_count", message_count)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -196,7 +196,7 @@ class GetSubscriptionResult:
 
     @property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> int:
+    def message_count(self) -> float:
         """
         Number of messages.
         """

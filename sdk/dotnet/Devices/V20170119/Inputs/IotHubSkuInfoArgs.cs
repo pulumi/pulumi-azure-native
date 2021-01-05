@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20170119.Inputs
         /// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         /// </summary>
         [Input("capacity", required: true)]
-        public Input<int> Capacity { get; set; } = null!;
+        public Input<double> Capacity { get; set; } = null!;
 
         /// <summary>
         /// The name of the SKU.

@@ -40,7 +40,7 @@ type LookupWorkloadNetworkPortMirroringResult struct {
 	// The provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// Source VM Group.
 	Source *string `pulumi:"source"`
 	// Port Mirroring Status.

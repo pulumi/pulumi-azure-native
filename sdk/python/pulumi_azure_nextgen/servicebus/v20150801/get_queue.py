@@ -69,11 +69,11 @@ class GetQueueResult:
         if max_delivery_count and not isinstance(max_delivery_count, int):
             raise TypeError("Expected argument 'max_delivery_count' to be a int")
         pulumi.set(__self__, "max_delivery_count", max_delivery_count)
-        if max_size_in_megabytes and not isinstance(max_size_in_megabytes, int):
-            raise TypeError("Expected argument 'max_size_in_megabytes' to be a int")
+        if max_size_in_megabytes and not isinstance(max_size_in_megabytes, float):
+            raise TypeError("Expected argument 'max_size_in_megabytes' to be a float")
         pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
-        if message_count and not isinstance(message_count, int):
-            raise TypeError("Expected argument 'message_count' to be a int")
+        if message_count and not isinstance(message_count, float):
+            raise TypeError("Expected argument 'message_count' to be a float")
         pulumi.set(__self__, "message_count", message_count)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -84,8 +84,8 @@ class GetQueueResult:
         if requires_session and not isinstance(requires_session, bool):
             raise TypeError("Expected argument 'requires_session' to be a bool")
         pulumi.set(__self__, "requires_session", requires_session)
-        if size_in_bytes and not isinstance(size_in_bytes, int):
-            raise TypeError("Expected argument 'size_in_bytes' to be a int")
+        if size_in_bytes and not isinstance(size_in_bytes, float):
+            raise TypeError("Expected argument 'size_in_bytes' to be a float")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
@@ -230,7 +230,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> Optional[int]:
+    def max_size_in_megabytes(self) -> Optional[float]:
         """
         The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
         """
@@ -238,7 +238,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> int:
+    def message_count(self) -> float:
         """
         The number of messages in the queue.
         """
@@ -270,7 +270,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> int:
+    def size_in_bytes(self) -> float:
         """
         The size of the queue, in bytes.
         """

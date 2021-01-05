@@ -30,8 +30,8 @@ class GetVirtualNetworkGatewayConnectionResult:
         if connection_type and not isinstance(connection_type, str):
             raise TypeError("Expected argument 'connection_type' to be a str")
         pulumi.set(__self__, "connection_type", connection_type)
-        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, int):
-            raise TypeError("Expected argument 'egress_bytes_transferred' to be a int")
+        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, float):
+            raise TypeError("Expected argument 'egress_bytes_transferred' to be a float")
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
         if enable_bgp and not isinstance(enable_bgp, bool):
             raise TypeError("Expected argument 'enable_bgp' to be a bool")
@@ -42,8 +42,8 @@ class GetVirtualNetworkGatewayConnectionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, int):
-            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a int")
+        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, float):
+            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a float")
         pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
         if local_network_gateway2 and not isinstance(local_network_gateway2, dict):
             raise TypeError("Expected argument 'local_network_gateway2' to be a dict")
@@ -108,7 +108,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> Optional[int]:
+    def egress_bytes_transferred(self) -> Optional[float]:
         """
         The egress bytes transferred in this connection.
         """
@@ -140,7 +140,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> Optional[int]:
+    def ingress_bytes_transferred(self) -> Optional[float]:
         """
         The ingress bytes transferred in this connection.
         """

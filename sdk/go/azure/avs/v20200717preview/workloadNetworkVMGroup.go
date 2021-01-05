@@ -24,7 +24,7 @@ type WorkloadNetworkVMGroup struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision pulumi.IntPtrOutput `pulumi:"revision"`
+	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
 	// VM Group status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource type.
@@ -78,7 +78,7 @@ type workloadNetworkVMGroupState struct {
 	// The provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// VM Group status.
 	Status *string `pulumi:"status"`
 	// Resource type.
@@ -95,7 +95,7 @@ type WorkloadNetworkVMGroupState struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringPtrInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 	// VM Group status.
 	Status pulumi.StringPtrInput
 	// Resource type.
@@ -116,7 +116,7 @@ type workloadNetworkVMGroupArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// NSX VM Group identifier. Generally the same as the VM Group's display name
 	VmGroupId string `pulumi:"vmGroupId"`
 }
@@ -132,7 +132,7 @@ type WorkloadNetworkVMGroupArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 	// NSX VM Group identifier. Generally the same as the VM Group's display name
 	VmGroupId pulumi.StringInput
 }

@@ -1505,32 +1505,32 @@ type CopyProgressResponse struct {
 	// Id of the account where the data needs to be uploaded.
 	AccountId string `pulumi:"accountId"`
 	// To indicate bytes transferred.
-	BytesProcessed int `pulumi:"bytesProcessed"`
+	BytesProcessed float64 `pulumi:"bytesProcessed"`
 	// Data Account Type.
 	DataAccountType string `pulumi:"dataAccountType"`
 	// To indicate directories errored out in the job.
-	DirectoriesErroredOut int `pulumi:"directoriesErroredOut"`
+	DirectoriesErroredOut float64 `pulumi:"directoriesErroredOut"`
 	// Number of files which could not be copied
-	FilesErroredOut int `pulumi:"filesErroredOut"`
+	FilesErroredOut float64 `pulumi:"filesErroredOut"`
 	// Number of files processed
-	FilesProcessed int `pulumi:"filesProcessed"`
+	FilesProcessed float64 `pulumi:"filesProcessed"`
 	// To indicate directories renamed
-	InvalidDirectoriesProcessed int `pulumi:"invalidDirectoriesProcessed"`
+	InvalidDirectoriesProcessed float64 `pulumi:"invalidDirectoriesProcessed"`
 	// Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
-	InvalidFileBytesUploaded int `pulumi:"invalidFileBytesUploaded"`
+	InvalidFileBytesUploaded float64 `pulumi:"invalidFileBytesUploaded"`
 	// Number of files not adhering to azure naming conventions which were processed by automatic renaming
-	InvalidFilesProcessed int `pulumi:"invalidFilesProcessed"`
+	InvalidFilesProcessed float64 `pulumi:"invalidFilesProcessed"`
 	// To indicate if enumeration of data is in progress.
 	// Until this is true, the TotalBytesToProcess may not be valid.
 	IsEnumerationInProgress bool `pulumi:"isEnumerationInProgress"`
 	// Number of folders not adhering to azure naming conventions which were processed by automatic renaming
-	RenamedContainerCount int `pulumi:"renamedContainerCount"`
+	RenamedContainerCount float64 `pulumi:"renamedContainerCount"`
 	// Name of the storage account. This will be empty for data account types other than storage account.
 	StorageAccountName string `pulumi:"storageAccountName"`
 	// Total amount of data to be processed by the job.
-	TotalBytesToProcess int `pulumi:"totalBytesToProcess"`
+	TotalBytesToProcess float64 `pulumi:"totalBytesToProcess"`
 	// Total files to process
-	TotalFilesToProcess int `pulumi:"totalFilesToProcess"`
+	TotalFilesToProcess float64 `pulumi:"totalFilesToProcess"`
 	// Transfer type of data
 	TransferType string `pulumi:"transferType"`
 }
@@ -1551,32 +1551,32 @@ type CopyProgressResponseArgs struct {
 	// Id of the account where the data needs to be uploaded.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// To indicate bytes transferred.
-	BytesProcessed pulumi.IntInput `pulumi:"bytesProcessed"`
+	BytesProcessed pulumi.Float64Input `pulumi:"bytesProcessed"`
 	// Data Account Type.
 	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
 	// To indicate directories errored out in the job.
-	DirectoriesErroredOut pulumi.IntInput `pulumi:"directoriesErroredOut"`
+	DirectoriesErroredOut pulumi.Float64Input `pulumi:"directoriesErroredOut"`
 	// Number of files which could not be copied
-	FilesErroredOut pulumi.IntInput `pulumi:"filesErroredOut"`
+	FilesErroredOut pulumi.Float64Input `pulumi:"filesErroredOut"`
 	// Number of files processed
-	FilesProcessed pulumi.IntInput `pulumi:"filesProcessed"`
+	FilesProcessed pulumi.Float64Input `pulumi:"filesProcessed"`
 	// To indicate directories renamed
-	InvalidDirectoriesProcessed pulumi.IntInput `pulumi:"invalidDirectoriesProcessed"`
+	InvalidDirectoriesProcessed pulumi.Float64Input `pulumi:"invalidDirectoriesProcessed"`
 	// Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
-	InvalidFileBytesUploaded pulumi.IntInput `pulumi:"invalidFileBytesUploaded"`
+	InvalidFileBytesUploaded pulumi.Float64Input `pulumi:"invalidFileBytesUploaded"`
 	// Number of files not adhering to azure naming conventions which were processed by automatic renaming
-	InvalidFilesProcessed pulumi.IntInput `pulumi:"invalidFilesProcessed"`
+	InvalidFilesProcessed pulumi.Float64Input `pulumi:"invalidFilesProcessed"`
 	// To indicate if enumeration of data is in progress.
 	// Until this is true, the TotalBytesToProcess may not be valid.
 	IsEnumerationInProgress pulumi.BoolInput `pulumi:"isEnumerationInProgress"`
 	// Number of folders not adhering to azure naming conventions which were processed by automatic renaming
-	RenamedContainerCount pulumi.IntInput `pulumi:"renamedContainerCount"`
+	RenamedContainerCount pulumi.Float64Input `pulumi:"renamedContainerCount"`
 	// Name of the storage account. This will be empty for data account types other than storage account.
 	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 	// Total amount of data to be processed by the job.
-	TotalBytesToProcess pulumi.IntInput `pulumi:"totalBytesToProcess"`
+	TotalBytesToProcess pulumi.Float64Input `pulumi:"totalBytesToProcess"`
 	// Total files to process
-	TotalFilesToProcess pulumi.IntInput `pulumi:"totalFilesToProcess"`
+	TotalFilesToProcess pulumi.Float64Input `pulumi:"totalFilesToProcess"`
 	// Transfer type of data
 	TransferType pulumi.StringInput `pulumi:"transferType"`
 }
@@ -1639,8 +1639,8 @@ func (o CopyProgressResponseOutput) AccountId() pulumi.StringOutput {
 }
 
 // To indicate bytes transferred.
-func (o CopyProgressResponseOutput) BytesProcessed() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.BytesProcessed }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) BytesProcessed() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.BytesProcessed }).(pulumi.Float64Output)
 }
 
 // Data Account Type.
@@ -1649,33 +1649,33 @@ func (o CopyProgressResponseOutput) DataAccountType() pulumi.StringOutput {
 }
 
 // To indicate directories errored out in the job.
-func (o CopyProgressResponseOutput) DirectoriesErroredOut() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.DirectoriesErroredOut }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) DirectoriesErroredOut() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.DirectoriesErroredOut }).(pulumi.Float64Output)
 }
 
 // Number of files which could not be copied
-func (o CopyProgressResponseOutput) FilesErroredOut() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.FilesErroredOut }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) FilesErroredOut() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.FilesErroredOut }).(pulumi.Float64Output)
 }
 
 // Number of files processed
-func (o CopyProgressResponseOutput) FilesProcessed() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.FilesProcessed }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) FilesProcessed() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.FilesProcessed }).(pulumi.Float64Output)
 }
 
 // To indicate directories renamed
-func (o CopyProgressResponseOutput) InvalidDirectoriesProcessed() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.InvalidDirectoriesProcessed }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) InvalidDirectoriesProcessed() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.InvalidDirectoriesProcessed }).(pulumi.Float64Output)
 }
 
 // Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
-func (o CopyProgressResponseOutput) InvalidFileBytesUploaded() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.InvalidFileBytesUploaded }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) InvalidFileBytesUploaded() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.InvalidFileBytesUploaded }).(pulumi.Float64Output)
 }
 
 // Number of files not adhering to azure naming conventions which were processed by automatic renaming
-func (o CopyProgressResponseOutput) InvalidFilesProcessed() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.InvalidFilesProcessed }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) InvalidFilesProcessed() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.InvalidFilesProcessed }).(pulumi.Float64Output)
 }
 
 // To indicate if enumeration of data is in progress.
@@ -1685,8 +1685,8 @@ func (o CopyProgressResponseOutput) IsEnumerationInProgress() pulumi.BoolOutput 
 }
 
 // Number of folders not adhering to azure naming conventions which were processed by automatic renaming
-func (o CopyProgressResponseOutput) RenamedContainerCount() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.RenamedContainerCount }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) RenamedContainerCount() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.RenamedContainerCount }).(pulumi.Float64Output)
 }
 
 // Name of the storage account. This will be empty for data account types other than storage account.
@@ -1695,13 +1695,13 @@ func (o CopyProgressResponseOutput) StorageAccountName() pulumi.StringOutput {
 }
 
 // Total amount of data to be processed by the job.
-func (o CopyProgressResponseOutput) TotalBytesToProcess() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.TotalBytesToProcess }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) TotalBytesToProcess() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.TotalBytesToProcess }).(pulumi.Float64Output)
 }
 
 // Total files to process
-func (o CopyProgressResponseOutput) TotalFilesToProcess() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressResponse) int { return v.TotalFilesToProcess }).(pulumi.IntOutput)
+func (o CopyProgressResponseOutput) TotalFilesToProcess() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressResponse) float64 { return v.TotalFilesToProcess }).(pulumi.Float64Output)
 }
 
 // Transfer type of data
@@ -1902,7 +1902,7 @@ func (o DataBoxDiskCopyLogDetailsResponseOutput) VerboseLogLink() pulumi.StringO
 // DataBox Disk Copy Progress
 type DataBoxDiskCopyProgressResponse struct {
 	// Bytes copied during the copy of disk.
-	BytesCopied int `pulumi:"bytesCopied"`
+	BytesCopied float64 `pulumi:"bytesCopied"`
 	// Indicates the percentage completed for the copy of the disk.
 	PercentComplete int `pulumi:"percentComplete"`
 	// The serial number of the disk
@@ -1925,7 +1925,7 @@ type DataBoxDiskCopyProgressResponseInput interface {
 // DataBox Disk Copy Progress
 type DataBoxDiskCopyProgressResponseArgs struct {
 	// Bytes copied during the copy of disk.
-	BytesCopied pulumi.IntInput `pulumi:"bytesCopied"`
+	BytesCopied pulumi.Float64Input `pulumi:"bytesCopied"`
 	// Indicates the percentage completed for the copy of the disk.
 	PercentComplete pulumi.IntInput `pulumi:"percentComplete"`
 	// The serial number of the disk
@@ -1987,8 +1987,8 @@ func (o DataBoxDiskCopyProgressResponseOutput) ToDataBoxDiskCopyProgressResponse
 }
 
 // Bytes copied during the copy of disk.
-func (o DataBoxDiskCopyProgressResponseOutput) BytesCopied() pulumi.IntOutput {
-	return o.ApplyT(func(v DataBoxDiskCopyProgressResponse) int { return v.BytesCopied }).(pulumi.IntOutput)
+func (o DataBoxDiskCopyProgressResponseOutput) BytesCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v DataBoxDiskCopyProgressResponse) float64 { return v.BytesCopied }).(pulumi.Float64Output)
 }
 
 // Indicates the percentage completed for the copy of the disk.

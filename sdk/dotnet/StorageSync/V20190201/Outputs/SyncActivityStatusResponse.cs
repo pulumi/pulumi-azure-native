@@ -16,15 +16,15 @@ namespace Pulumi.AzureNextGen.StorageSync.V20190201.Outputs
         /// <summary>
         /// Applied bytes
         /// </summary>
-        public readonly int AppliedBytes;
+        public readonly double AppliedBytes;
         /// <summary>
         /// Applied item count.
         /// </summary>
-        public readonly int AppliedItemCount;
+        public readonly double AppliedItemCount;
         /// <summary>
         /// Per item error count
         /// </summary>
-        public readonly int PerItemErrorCount;
+        public readonly double PerItemErrorCount;
         /// <summary>
         /// Timestamp when properties were updated
         /// </summary>
@@ -32,25 +32,25 @@ namespace Pulumi.AzureNextGen.StorageSync.V20190201.Outputs
         /// <summary>
         /// Total bytes (if available)
         /// </summary>
-        public readonly int TotalBytes;
+        public readonly double TotalBytes;
         /// <summary>
         /// Total item count (if available)
         /// </summary>
-        public readonly int TotalItemCount;
+        public readonly double TotalItemCount;
 
         [OutputConstructor]
         private SyncActivityStatusResponse(
-            int appliedBytes,
+            double appliedBytes,
 
-            int appliedItemCount,
+            double appliedItemCount,
 
-            int perItemErrorCount,
+            double perItemErrorCount,
 
             string timestamp,
 
-            int totalBytes,
+            double totalBytes,
 
-            int totalItemCount)
+            double totalItemCount)
         {
             AppliedBytes = appliedBytes;
             AppliedItemCount = appliedItemCount;

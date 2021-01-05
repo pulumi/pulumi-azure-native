@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// Data Plane Service ID of the protected item.
         /// </summary>
-        public readonly int? ProtectedItemId;
+        public readonly double? ProtectedItemId;
         /// <summary>
         /// backup item type.
         /// Expected value is 'GenericProtectedItem'.
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             string? policyState,
 
-            int? protectedItemId,
+            double? protectedItemId,
 
             string protectedItemType,
 

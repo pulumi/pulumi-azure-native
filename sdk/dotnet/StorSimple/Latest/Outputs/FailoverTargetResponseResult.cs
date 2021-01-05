@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest.Outputs
         /// <summary>
         /// The amount of free local storage available on the device in bytes.
         /// </summary>
-        public readonly int? AvailableLocalStorageInBytes;
+        public readonly double? AvailableLocalStorageInBytes;
         /// <summary>
         /// The amount of free tiered storage available for the device in bytes.
         /// </summary>
-        public readonly int? AvailableTieredStorageInBytes;
+        public readonly double? AvailableTieredStorageInBytes;
         /// <summary>
         /// The count of data containers on the device.
         /// </summary>
@@ -60,9 +60,9 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest.Outputs
 
         [OutputConstructor]
         private FailoverTargetResponseResult(
-            int? availableLocalStorageInBytes,
+            double? availableLocalStorageInBytes,
 
-            int? availableTieredStorageInBytes,
+            double? availableTieredStorageInBytes,
 
             int? dataContainersCount,
 

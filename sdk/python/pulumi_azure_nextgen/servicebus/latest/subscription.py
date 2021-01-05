@@ -239,7 +239,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> pulumi.Output[int]:
+    def message_count(self) -> pulumi.Output[float]:
         """
         Number of messages.
         """

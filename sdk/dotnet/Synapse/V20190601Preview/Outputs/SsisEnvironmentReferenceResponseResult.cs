@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// <summary>
         /// Environment reference id.
         /// </summary>
-        public readonly int? Id;
+        public readonly double? Id;
         /// <summary>
         /// Reference type
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
 
             string? environmentName,
 
-            int? id,
+            double? id,
 
             string? referenceType)
         {

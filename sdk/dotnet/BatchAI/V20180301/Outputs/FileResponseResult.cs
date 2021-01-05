@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301.Outputs
         /// <summary>
         /// The file size.
         /// </summary>
-        public readonly int? ContentLength;
+        public readonly double? ContentLength;
         public readonly string? DownloadUrl;
         /// <summary>
         /// Indicates if the file is a directory.
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301.Outputs
 
         [OutputConstructor]
         private FileResponseResult(
-            int? contentLength,
+            double? contentLength,
 
             string? downloadUrl,
 

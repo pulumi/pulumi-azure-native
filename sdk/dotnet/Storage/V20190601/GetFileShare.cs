@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         /// <summary>
         /// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         /// </summary>
-        public readonly int ShareUsageBytes;
+        public readonly double ShareUsageBytes;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
 
             int? shareQuota,
 
-            int shareUsageBytes,
+            double shareUsageBytes,
 
             string type,
 

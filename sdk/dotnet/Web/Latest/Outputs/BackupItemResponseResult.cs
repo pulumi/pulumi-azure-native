@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
         /// <summary>
         /// Size of the backup in bytes.
         /// </summary>
-        public readonly int SizeInBytes;
+        public readonly double SizeInBytes;
         /// <summary>
         /// Backup status.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
         /// <summary>
         /// Size of the original web app which has been backed up.
         /// </summary>
-        public readonly int WebsiteSizeInBytes;
+        public readonly double WebsiteSizeInBytes;
 
         [OutputConstructor]
         private BackupItemResponseResult(
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
 
             bool scheduled,
 
-            int sizeInBytes,
+            double sizeInBytes,
 
             string status,
 
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
 
             string type,
 
-            int websiteSizeInBytes)
+            double websiteSizeInBytes)
         {
             BackupId = backupId;
             BlobName = blobName;

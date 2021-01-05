@@ -1579,12 +1579,12 @@ class SkuResponse(dict):
     Describes a virtual machine scale set sku.
     """
     def __init__(__self__, *,
-                 capacity: Optional[int] = None,
+                 capacity: Optional[float] = None,
                  name: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         Describes a virtual machine scale set sku.
-        :param int capacity: Specifies the number of virtual machines in the scale set.
+        :param float capacity: Specifies the number of virtual machines in the scale set.
         :param str name: The sku name.
         :param str tier: Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
         """
@@ -1597,7 +1597,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[int]:
+    def capacity(self) -> Optional[float]:
         """
         Specifies the number of virtual machines in the scale set.
         """

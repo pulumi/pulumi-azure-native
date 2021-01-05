@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// The storage limit for the database elastic pool in bytes.
         /// </summary>
         [Output("maxSizeBytes")]
-        public Output<int?> MaxSizeBytes { get; private set; } = null!;
+        public Output<double?> MaxSizeBytes { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -179,7 +179,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// The storage limit for the database elastic pool in bytes.
         /// </summary>
         [Input("maxSizeBytes")]
-        public Input<int>? MaxSizeBytes { get; set; }
+        public Input<double>? MaxSizeBytes { get; set; }
 
         /// <summary>
         /// The per database settings for the elastic pool.

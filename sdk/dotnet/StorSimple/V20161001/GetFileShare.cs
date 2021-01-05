@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <summary>
         /// The local used capacity in Bytes.
         /// </summary>
-        public readonly int LocalUsedCapacityInBytes;
+        public readonly double LocalUsedCapacityInBytes;
         /// <summary>
         /// The monitoring status
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <summary>
         /// The total provisioned capacity in Bytes
         /// </summary>
-        public readonly int ProvisionedCapacityInBytes;
+        public readonly double ProvisionedCapacityInBytes;
         /// <summary>
         /// The Share Status
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <summary>
         /// The used capacity in Bytes.
         /// </summary>
-        public readonly int UsedCapacityInBytes;
+        public readonly double UsedCapacityInBytes;
 
         [OutputConstructor]
         private GetFileShareResult(
@@ -112,19 +112,19 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 
             string id,
 
-            int localUsedCapacityInBytes,
+            double localUsedCapacityInBytes,
 
             string monitoringStatus,
 
             string name,
 
-            int provisionedCapacityInBytes,
+            double provisionedCapacityInBytes,
 
             string shareStatus,
 
             string type,
 
-            int usedCapacityInBytes)
+            double usedCapacityInBytes)
         {
             AdminUser = adminUser;
             DataPolicy = dataPolicy;

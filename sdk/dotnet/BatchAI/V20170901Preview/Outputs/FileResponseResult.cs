@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Outputs
         /// <summary>
         /// The file size.
         /// </summary>
-        public readonly int? ContentLength;
+        public readonly double? ContentLength;
         /// <summary>
         /// This will be returned only if the model has been archived. During job run, this won't be returned and customers can use SSH tunneling to download. Users can use Get Remote Login Information API to get the IP address and port information of all the compute nodes running the job.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Outputs
 
         [OutputConstructor]
         private FileResponseResult(
-            int? contentLength,
+            double? contentLength,
 
             string downloadUrl,
 

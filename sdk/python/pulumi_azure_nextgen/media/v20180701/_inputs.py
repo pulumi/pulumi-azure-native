@@ -785,7 +785,7 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
                  fair_play_pfx_password: pulumi.Input[str],
                  odata_type: pulumi.Input[str],
                  rental_and_lease_key_type: pulumi.Input[Union[str, 'ContentKeyPolicyFairPlayRentalAndLeaseKeyType']],
-                 rental_duration: pulumi.Input[int],
+                 rental_duration: pulumi.Input[float],
                  offline_rental_configuration: Optional[pulumi.Input['ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs']] = None):
         """
         Specifies a configuration for FairPlay licenses.
@@ -795,7 +795,7 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
         :param pulumi.Input[Union[str, 'ContentKeyPolicyFairPlayRentalAndLeaseKeyType']] rental_and_lease_key_type: The rental and lease key type.
-        :param pulumi.Input[int] rental_duration: The rental duration. Must be greater than or equal to 0.
+        :param pulumi.Input[float] rental_duration: The rental duration. Must be greater than or equal to 0.
         :param pulumi.Input['ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs'] offline_rental_configuration: Offline rental policy
         """
         pulumi.set(__self__, "ask", ask)
@@ -870,14 +870,14 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
 
     @property
     @pulumi.getter(name="rentalDuration")
-    def rental_duration(self) -> pulumi.Input[int]:
+    def rental_duration(self) -> pulumi.Input[float]:
         """
         The rental duration. Must be greater than or equal to 0.
         """
         return pulumi.get(self, "rental_duration")
 
     @rental_duration.setter
-    def rental_duration(self, value: pulumi.Input[int]):
+    def rental_duration(self, value: pulumi.Input[float]):
         pulumi.set(self, "rental_duration", value)
 
     @property
@@ -896,37 +896,37 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
 @pulumi.input_type
 class ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs:
     def __init__(__self__, *,
-                 playback_duration_seconds: pulumi.Input[int],
-                 storage_duration_seconds: pulumi.Input[int]):
+                 playback_duration_seconds: pulumi.Input[float],
+                 storage_duration_seconds: pulumi.Input[float]):
         """
-        :param pulumi.Input[int] playback_duration_seconds: Playback duration
-        :param pulumi.Input[int] storage_duration_seconds: Storage duration
+        :param pulumi.Input[float] playback_duration_seconds: Playback duration
+        :param pulumi.Input[float] storage_duration_seconds: Storage duration
         """
         pulumi.set(__self__, "playback_duration_seconds", playback_duration_seconds)
         pulumi.set(__self__, "storage_duration_seconds", storage_duration_seconds)
 
     @property
     @pulumi.getter(name="playbackDurationSeconds")
-    def playback_duration_seconds(self) -> pulumi.Input[int]:
+    def playback_duration_seconds(self) -> pulumi.Input[float]:
         """
         Playback duration
         """
         return pulumi.get(self, "playback_duration_seconds")
 
     @playback_duration_seconds.setter
-    def playback_duration_seconds(self, value: pulumi.Input[int]):
+    def playback_duration_seconds(self, value: pulumi.Input[float]):
         pulumi.set(self, "playback_duration_seconds", value)
 
     @property
     @pulumi.getter(name="storageDurationSeconds")
-    def storage_duration_seconds(self) -> pulumi.Input[int]:
+    def storage_duration_seconds(self) -> pulumi.Input[float]:
         """
         Storage duration
         """
         return pulumi.get(self, "storage_duration_seconds")
 
     @storage_duration_seconds.setter
-    def storage_duration_seconds(self, value: pulumi.Input[int]):
+    def storage_duration_seconds(self, value: pulumi.Input[float]):
         pulumi.set(self, "storage_duration_seconds", value)
 
 
@@ -3251,20 +3251,20 @@ class OutputFileArgs:
 @pulumi.input_type
 class PresentationTimeRangeArgs:
     def __init__(__self__, *,
-                 end_timestamp: Optional[pulumi.Input[int]] = None,
+                 end_timestamp: Optional[pulumi.Input[float]] = None,
                  force_end_timestamp: Optional[pulumi.Input[bool]] = None,
-                 live_backoff_duration: Optional[pulumi.Input[int]] = None,
-                 presentation_window_duration: Optional[pulumi.Input[int]] = None,
-                 start_timestamp: Optional[pulumi.Input[int]] = None,
-                 timescale: Optional[pulumi.Input[int]] = None):
+                 live_backoff_duration: Optional[pulumi.Input[float]] = None,
+                 presentation_window_duration: Optional[pulumi.Input[float]] = None,
+                 start_timestamp: Optional[pulumi.Input[float]] = None,
+                 timescale: Optional[pulumi.Input[float]] = None):
         """
         The presentation time range, this is asset related and not recommended for Account Filter.
-        :param pulumi.Input[int] end_timestamp: The absolute end time boundary.
+        :param pulumi.Input[float] end_timestamp: The absolute end time boundary.
         :param pulumi.Input[bool] force_end_timestamp: The indicator of forcing existing of end time stamp.
-        :param pulumi.Input[int] live_backoff_duration: The relative to end right edge.
-        :param pulumi.Input[int] presentation_window_duration: The relative to end sliding window.
-        :param pulumi.Input[int] start_timestamp: The absolute start time boundary.
-        :param pulumi.Input[int] timescale: The time scale of time stamps.
+        :param pulumi.Input[float] live_backoff_duration: The relative to end right edge.
+        :param pulumi.Input[float] presentation_window_duration: The relative to end sliding window.
+        :param pulumi.Input[float] start_timestamp: The absolute start time boundary.
+        :param pulumi.Input[float] timescale: The time scale of time stamps.
         """
         if end_timestamp is not None:
             pulumi.set(__self__, "end_timestamp", end_timestamp)
@@ -3281,14 +3281,14 @@ class PresentationTimeRangeArgs:
 
     @property
     @pulumi.getter(name="endTimestamp")
-    def end_timestamp(self) -> Optional[pulumi.Input[int]]:
+    def end_timestamp(self) -> Optional[pulumi.Input[float]]:
         """
         The absolute end time boundary.
         """
         return pulumi.get(self, "end_timestamp")
 
     @end_timestamp.setter
-    def end_timestamp(self, value: Optional[pulumi.Input[int]]):
+    def end_timestamp(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "end_timestamp", value)
 
     @property
@@ -3305,50 +3305,50 @@ class PresentationTimeRangeArgs:
 
     @property
     @pulumi.getter(name="liveBackoffDuration")
-    def live_backoff_duration(self) -> Optional[pulumi.Input[int]]:
+    def live_backoff_duration(self) -> Optional[pulumi.Input[float]]:
         """
         The relative to end right edge.
         """
         return pulumi.get(self, "live_backoff_duration")
 
     @live_backoff_duration.setter
-    def live_backoff_duration(self, value: Optional[pulumi.Input[int]]):
+    def live_backoff_duration(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "live_backoff_duration", value)
 
     @property
     @pulumi.getter(name="presentationWindowDuration")
-    def presentation_window_duration(self) -> Optional[pulumi.Input[int]]:
+    def presentation_window_duration(self) -> Optional[pulumi.Input[float]]:
         """
         The relative to end sliding window.
         """
         return pulumi.get(self, "presentation_window_duration")
 
     @presentation_window_duration.setter
-    def presentation_window_duration(self, value: Optional[pulumi.Input[int]]):
+    def presentation_window_duration(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "presentation_window_duration", value)
 
     @property
     @pulumi.getter(name="startTimestamp")
-    def start_timestamp(self) -> Optional[pulumi.Input[int]]:
+    def start_timestamp(self) -> Optional[pulumi.Input[float]]:
         """
         The absolute start time boundary.
         """
         return pulumi.get(self, "start_timestamp")
 
     @start_timestamp.setter
-    def start_timestamp(self, value: Optional[pulumi.Input[int]]):
+    def start_timestamp(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "start_timestamp", value)
 
     @property
     @pulumi.getter
-    def timescale(self) -> Optional[pulumi.Input[int]]:
+    def timescale(self) -> Optional[pulumi.Input[float]]:
         """
         The time scale of time stamps.
         """
         return pulumi.get(self, "timescale")
 
     @timescale.setter
-    def timescale(self, value: Optional[pulumi.Input[int]]):
+    def timescale(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "timescale", value)
 
 

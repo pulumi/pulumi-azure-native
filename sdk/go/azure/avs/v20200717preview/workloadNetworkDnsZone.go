@@ -20,7 +20,7 @@ type WorkloadNetworkDnsZone struct {
 	// DNS Server IP array of the DNS Zone.
 	DnsServerIps pulumi.StringArrayOutput `pulumi:"dnsServerIps"`
 	// Number of DNS Services using the DNS zone.
-	DnsServices pulumi.IntPtrOutput `pulumi:"dnsServices"`
+	DnsServices pulumi.Float64PtrOutput `pulumi:"dnsServices"`
 	// Domain names of the DNS Zone.
 	Domain pulumi.StringArrayOutput `pulumi:"domain"`
 	// Resource name.
@@ -28,7 +28,7 @@ type WorkloadNetworkDnsZone struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision pulumi.IntPtrOutput `pulumi:"revision"`
+	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
 	// Source IP of the DNS Zone.
 	SourceIp pulumi.StringPtrOutput `pulumi:"sourceIp"`
 	// Resource type.
@@ -78,7 +78,7 @@ type workloadNetworkDnsZoneState struct {
 	// DNS Server IP array of the DNS Zone.
 	DnsServerIps []string `pulumi:"dnsServerIps"`
 	// Number of DNS Services using the DNS zone.
-	DnsServices *int `pulumi:"dnsServices"`
+	DnsServices *float64 `pulumi:"dnsServices"`
 	// Domain names of the DNS Zone.
 	Domain []string `pulumi:"domain"`
 	// Resource name.
@@ -86,7 +86,7 @@ type workloadNetworkDnsZoneState struct {
 	// The provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// Source IP of the DNS Zone.
 	SourceIp *string `pulumi:"sourceIp"`
 	// Resource type.
@@ -99,7 +99,7 @@ type WorkloadNetworkDnsZoneState struct {
 	// DNS Server IP array of the DNS Zone.
 	DnsServerIps pulumi.StringArrayInput
 	// Number of DNS Services using the DNS zone.
-	DnsServices pulumi.IntPtrInput
+	DnsServices pulumi.Float64PtrInput
 	// Domain names of the DNS Zone.
 	Domain pulumi.StringArrayInput
 	// Resource name.
@@ -107,7 +107,7 @@ type WorkloadNetworkDnsZoneState struct {
 	// The provisioning state
 	ProvisioningState pulumi.StringPtrInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 	// Source IP of the DNS Zone.
 	SourceIp pulumi.StringPtrInput
 	// Resource type.
@@ -124,7 +124,7 @@ type workloadNetworkDnsZoneArgs struct {
 	// DNS Server IP array of the DNS Zone.
 	DnsServerIps []string `pulumi:"dnsServerIps"`
 	// Number of DNS Services using the DNS zone.
-	DnsServices *int `pulumi:"dnsServices"`
+	DnsServices *float64 `pulumi:"dnsServices"`
 	// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
 	DnsZoneId string `pulumi:"dnsZoneId"`
 	// Domain names of the DNS Zone.
@@ -134,7 +134,7 @@ type workloadNetworkDnsZoneArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// NSX revision number.
-	Revision *int `pulumi:"revision"`
+	Revision *float64 `pulumi:"revision"`
 	// Source IP of the DNS Zone.
 	SourceIp *string `pulumi:"sourceIp"`
 }
@@ -146,7 +146,7 @@ type WorkloadNetworkDnsZoneArgs struct {
 	// DNS Server IP array of the DNS Zone.
 	DnsServerIps pulumi.StringArrayInput
 	// Number of DNS Services using the DNS zone.
-	DnsServices pulumi.IntPtrInput
+	DnsServices pulumi.Float64PtrInput
 	// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
 	DnsZoneId pulumi.StringInput
 	// Domain names of the DNS Zone.
@@ -156,7 +156,7 @@ type WorkloadNetworkDnsZoneArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// NSX revision number.
-	Revision pulumi.IntPtrInput
+	Revision pulumi.Float64PtrInput
 	// Source IP of the DNS Zone.
 	SourceIp pulumi.StringPtrInput
 }

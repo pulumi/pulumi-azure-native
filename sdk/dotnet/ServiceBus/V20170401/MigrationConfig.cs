@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
         /// Number of entities pending to be replicated.
         /// </summary>
         [Output("pendingReplicationOperationsCount")]
-        public Output<int> PendingReplicationOperationsCount { get; private set; } = null!;
+        public Output<double> PendingReplicationOperationsCount { get; private set; } = null!;
 
         /// <summary>
         /// Name to access Standard Namespace after migration

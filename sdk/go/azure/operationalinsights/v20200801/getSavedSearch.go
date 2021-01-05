@@ -48,5 +48,5 @@ type LookupSavedSearchResult struct {
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The version number of the query language. The current version is 2 and is the default.
-	Version *int `pulumi:"version"`
+	Version *float64 `pulumi:"version"`
 }

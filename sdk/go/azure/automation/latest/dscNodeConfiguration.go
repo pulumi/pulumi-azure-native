@@ -27,7 +27,7 @@ type DscNodeConfiguration struct {
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Number of nodes with this node configuration assigned
-	NodeCount pulumi.IntPtrOutput `pulumi:"nodeCount"`
+	NodeCount pulumi.Float64PtrOutput `pulumi:"nodeCount"`
 	// Source of node configuration.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
 	// The type of the resource.
@@ -98,7 +98,7 @@ type dscNodeConfigurationState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Number of nodes with this node configuration assigned
-	NodeCount *int `pulumi:"nodeCount"`
+	NodeCount *float64 `pulumi:"nodeCount"`
 	// Source of node configuration.
 	Source *string `pulumi:"source"`
 	// The type of the resource.
@@ -117,7 +117,7 @@ type DscNodeConfigurationState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Number of nodes with this node configuration assigned
-	NodeCount pulumi.IntPtrInput
+	NodeCount pulumi.Float64PtrInput
 	// Source of node configuration.
 	Source pulumi.StringPtrInput
 	// The type of the resource.

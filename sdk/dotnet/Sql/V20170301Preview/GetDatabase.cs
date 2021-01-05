@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// <summary>
         /// The max size of the database expressed in bytes.
         /// </summary>
-        public readonly int? MaxSizeBytes;
+        public readonly double? MaxSizeBytes;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
 
             string? longTermRetentionBackupResourceId,
 
-            int? maxSizeBytes,
+            double? maxSizeBytes,
 
             string name,
 

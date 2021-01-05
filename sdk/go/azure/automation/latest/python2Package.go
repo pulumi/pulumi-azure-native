@@ -41,7 +41,7 @@ type Python2Package struct {
 	// Gets or sets the provisioning state of the module.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Gets or sets the size in bytes of the module.
-	SizeInBytes pulumi.IntPtrOutput `pulumi:"sizeInBytes"`
+	SizeInBytes pulumi.Float64PtrOutput `pulumi:"sizeInBytes"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -122,7 +122,7 @@ type python2PackageState struct {
 	// Gets or sets the provisioning state of the module.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets the size in bytes of the module.
-	SizeInBytes *int `pulumi:"sizeInBytes"`
+	SizeInBytes *float64 `pulumi:"sizeInBytes"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -157,7 +157,7 @@ type Python2PackageState struct {
 	// Gets or sets the provisioning state of the module.
 	ProvisioningState pulumi.StringPtrInput
 	// Gets or sets the size in bytes of the module.
-	SizeInBytes pulumi.IntPtrInput
+	SizeInBytes pulumi.Float64PtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource.

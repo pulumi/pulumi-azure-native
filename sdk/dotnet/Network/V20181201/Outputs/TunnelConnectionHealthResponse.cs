@@ -20,11 +20,11 @@ namespace Pulumi.AzureNextGen.Network.V20181201.Outputs
         /// <summary>
         /// The Egress Bytes Transferred in this connection
         /// </summary>
-        public readonly int EgressBytesTransferred;
+        public readonly double EgressBytesTransferred;
         /// <summary>
         /// The Ingress Bytes Transferred in this connection
         /// </summary>
-        public readonly int IngressBytesTransferred;
+        public readonly double IngressBytesTransferred;
         /// <summary>
         /// The time at which connection was established in Utc format.
         /// </summary>
@@ -38,9 +38,9 @@ namespace Pulumi.AzureNextGen.Network.V20181201.Outputs
         private TunnelConnectionHealthResponse(
             string connectionStatus,
 
-            int egressBytesTransferred,
+            double egressBytesTransferred,
 
-            int ingressBytesTransferred,
+            double ingressBytesTransferred,
 
             string lastConnectionEstablishedUtcTime,
 

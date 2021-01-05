@@ -45,8 +45,8 @@ class GetSavedSearchResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if version and not isinstance(version, int):
-            raise TypeError("Expected argument 'version' to be a int")
+        if version and not isinstance(version, float):
+            raise TypeError("Expected argument 'version' to be a float")
         pulumi.set(__self__, "version", version)
 
     @property
@@ -115,7 +115,7 @@ class GetSavedSearchResult:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[int]:
+    def version(self) -> Optional[float]:
         """
         The version number of the query language. The current version is 2 and is the default.
         """

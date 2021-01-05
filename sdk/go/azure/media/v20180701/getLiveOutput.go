@@ -48,7 +48,7 @@ type LookupLiveOutputResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The output snapshot time.
-	OutputSnapTime *int `pulumi:"outputSnapTime"`
+	OutputSnapTime *float64 `pulumi:"outputSnapTime"`
 	// The provisioning state of the Live Output.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource state of the Live Output.

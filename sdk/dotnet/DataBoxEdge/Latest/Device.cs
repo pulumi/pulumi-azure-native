@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// The Data Box Edge/Gateway device local capacity in MB.
         /// </summary>
         [Output("deviceLocalCapacity")]
-        public Output<int> DeviceLocalCapacity { get; private set; } = null!;
+        public Output<double> DeviceLocalCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The Data Box Edge/Gateway device model.

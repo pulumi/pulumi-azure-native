@@ -24,7 +24,7 @@ type ElasticPool struct {
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes pulumi.IntPtrOutput `pulumi:"maxSizeBytes"`
+	MaxSizeBytes pulumi.Float64PtrOutput `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The per database settings for the elastic pool.
@@ -108,7 +108,7 @@ type elasticPoolState struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// The per database settings for the elastic pool.
@@ -137,7 +137,7 @@ type ElasticPoolState struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// The per database settings for the elastic pool.
@@ -168,7 +168,7 @@ type elasticPoolArgs struct {
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// The per database settings for the elastic pool.
 	PerDatabaseSettings *ElasticPoolPerDatabaseSettings `pulumi:"perDatabaseSettings"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -194,7 +194,7 @@ type ElasticPoolArgs struct {
 	// Resource location.
 	Location pulumi.StringInput
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// The per database settings for the elastic pool.
 	PerDatabaseSettings ElasticPoolPerDatabaseSettingsPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

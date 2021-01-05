@@ -132,7 +132,7 @@ class AzureStorageContainerArgs:
                  container_type: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
-                 protected_item_count: Optional[pulumi.Input[int]] = None,
+                 protected_item_count: Optional[pulumi.Input[float]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class AzureStorageContainerArgs:
                Expected value is 'StorageContainer'.
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
-        :param pulumi.Input[int] protected_item_count: Number of items backed up in this container.
+        :param pulumi.Input[float] protected_item_count: Number of items backed up in this container.
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
         :param pulumi.Input[str] resource_group: Resource group name of Recovery Services Vault.
         :param pulumi.Input[str] source_resource_id: Fully qualified ARM url.
@@ -226,14 +226,14 @@ class AzureStorageContainerArgs:
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[pulumi.Input[int]]:
+    def protected_item_count(self) -> Optional[pulumi.Input[float]]:
         """
         Number of items backed up in this container.
         """
         return pulumi.get(self, "protected_item_count")
 
     @protected_item_count.setter
-    def protected_item_count(self, value: Optional[pulumi.Input[int]]):
+    def protected_item_count(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "protected_item_count", value)
 
     @property
@@ -667,7 +667,7 @@ class DpmContainerArgs:
                  extended_info: Optional[pulumi.Input['DPMContainerExtendedInfoArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
-                 protected_item_count: Optional[pulumi.Input[int]] = None,
+                 protected_item_count: Optional[pulumi.Input[float]] = None,
                  protection_status: Optional[pulumi.Input[str]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None,
                  upgrade_available: Optional[pulumi.Input[bool]] = None):
@@ -686,7 +686,7 @@ class DpmContainerArgs:
         :param pulumi.Input['DPMContainerExtendedInfoArgs'] extended_info: Extended Info of the container.
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
-        :param pulumi.Input[int] protected_item_count: Number of protected items in the BackupEngine
+        :param pulumi.Input[float] protected_item_count: Number of protected items in the BackupEngine
         :param pulumi.Input[str] protection_status: Protection status of the container.
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
         :param pulumi.Input[bool] upgrade_available: To check if upgrade available
@@ -832,14 +832,14 @@ class DpmContainerArgs:
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[pulumi.Input[int]]:
+    def protected_item_count(self) -> Optional[pulumi.Input[float]]:
         """
         Number of protected items in the BackupEngine
         """
         return pulumi.get(self, "protected_item_count")
 
     @protected_item_count.setter
-    def protected_item_count(self, value: Optional[pulumi.Input[int]]):
+    def protected_item_count(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "protected_item_count", value)
 
     @property
@@ -1354,13 +1354,13 @@ class MabContainerArgs:
                  backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  can_re_register: Optional[pulumi.Input[bool]] = None,
                  container_health_state: Optional[pulumi.Input[str]] = None,
-                 container_id: Optional[pulumi.Input[int]] = None,
+                 container_id: Optional[pulumi.Input[float]] = None,
                  container_type: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['MabContainerExtendedInfoArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
                  mab_container_health_details: Optional[pulumi.Input[Sequence[pulumi.Input['MABContainerHealthDetailsArgs']]]] = None,
-                 protected_item_count: Optional[pulumi.Input[int]] = None,
+                 protected_item_count: Optional[pulumi.Input[float]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None):
         """
         Container with items backed up using MAB backup engine.
@@ -1368,7 +1368,7 @@ class MabContainerArgs:
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[bool] can_re_register: Can the container be registered one more time.
         :param pulumi.Input[str] container_health_state: Health state of mab container.
-        :param pulumi.Input[int] container_id: ContainerID represents the container.
+        :param pulumi.Input[float] container_id: ContainerID represents the container.
         :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -1378,7 +1378,7 @@ class MabContainerArgs:
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
         :param pulumi.Input[Sequence[pulumi.Input['MABContainerHealthDetailsArgs']]] mab_container_health_details: Health details on this mab container.
-        :param pulumi.Input[int] protected_item_count: Number of items backed up in this container.
+        :param pulumi.Input[float] protected_item_count: Number of items backed up in this container.
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
         """
         if agent_version is not None:
@@ -1456,14 +1456,14 @@ class MabContainerArgs:
 
     @property
     @pulumi.getter(name="containerId")
-    def container_id(self) -> Optional[pulumi.Input[int]]:
+    def container_id(self) -> Optional[pulumi.Input[float]]:
         """
         ContainerID represents the container.
         """
         return pulumi.get(self, "container_id")
 
     @container_id.setter
-    def container_id(self, value: Optional[pulumi.Input[int]]):
+    def container_id(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "container_id", value)
 
     @property
@@ -1532,14 +1532,14 @@ class MabContainerArgs:
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[pulumi.Input[int]]:
+    def protected_item_count(self) -> Optional[pulumi.Input[float]]:
         """
         Number of items backed up in this container.
         """
         return pulumi.get(self, "protected_item_count")
 
     @protected_item_count.setter
-    def protected_item_count(self, value: Optional[pulumi.Input[int]]):
+    def protected_item_count(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "protected_item_count", value)
 
     @property
@@ -1647,12 +1647,12 @@ class MabContainerExtendedInfoArgs:
 class WorkloadInquiryDetailsArgs:
     def __init__(__self__, *,
                  inquiry_validation: Optional[pulumi.Input['InquiryValidationArgs']] = None,
-                 item_count: Optional[pulumi.Input[int]] = None,
+                 item_count: Optional[pulumi.Input[float]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Details of an inquired protectable item.
         :param pulumi.Input['InquiryValidationArgs'] inquiry_validation: Inquiry validation such as permissions and other backup validations.
-        :param pulumi.Input[int] item_count: Contains the protectable item Count inside this Container.
+        :param pulumi.Input[float] item_count: Contains the protectable item Count inside this Container.
         :param pulumi.Input[str] type: Type of the Workload such as SQL, Oracle etc.
         """
         if inquiry_validation is not None:
@@ -1676,14 +1676,14 @@ class WorkloadInquiryDetailsArgs:
 
     @property
     @pulumi.getter(name="itemCount")
-    def item_count(self) -> Optional[pulumi.Input[int]]:
+    def item_count(self) -> Optional[pulumi.Input[float]]:
         """
         Contains the protectable item Count inside this Container.
         """
         return pulumi.get(self, "item_count")
 
     @item_count.setter
-    def item_count(self, value: Optional[pulumi.Input[int]]):
+    def item_count(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "item_count", value)
 
     @property

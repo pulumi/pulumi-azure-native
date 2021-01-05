@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// Number of bytes captured per packet, the remaining bytes are truncated.
         /// </summary>
-        public readonly int? BytesToCapturePerPacket;
+        public readonly double? BytesToCapturePerPacket;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// Maximum size of the capture output.
         /// </summary>
-        public readonly int? TotalBytesPerSession;
+        public readonly double? TotalBytesPerSession;
 
         [OutputConstructor]
         private GetPacketCaptureResult(
-            int? bytesToCapturePerPacket,
+            double? bytesToCapturePerPacket,
 
             string etag,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             int? timeLimitInSeconds,
 
-            int? totalBytesPerSession)
+            double? totalBytesPerSession)
         {
             BytesToCapturePerPacket = bytesToCapturePerPacket;
             Etag = etag;

@@ -9877,7 +9877,7 @@ func (o DatasetResponseLatestPtrOutput) VersionId() pulumi.StringPtrOutput {
 // Sql Query/Table/Stored Procedure details.
 type DatasetResponseSqlDataPath struct {
 	// SQL query timeout. Unit in seconds.
-	QueryTimeout int `pulumi:"queryTimeout"`
+	QueryTimeout float64 `pulumi:"queryTimeout"`
 	// SQL query
 	SqlQuery string `pulumi:"sqlQuery"`
 	// SQL storedProcedure name
@@ -9900,7 +9900,7 @@ type DatasetResponseSqlDataPathInput interface {
 // Sql Query/Table/Stored Procedure details.
 type DatasetResponseSqlDataPathArgs struct {
 	// SQL query timeout. Unit in seconds.
-	QueryTimeout pulumi.IntInput `pulumi:"queryTimeout"`
+	QueryTimeout pulumi.Float64Input `pulumi:"queryTimeout"`
 	// SQL query
 	SqlQuery pulumi.StringInput `pulumi:"sqlQuery"`
 	// SQL storedProcedure name
@@ -9988,8 +9988,8 @@ func (o DatasetResponseSqlDataPathOutput) ToDatasetResponseSqlDataPathPtrOutputW
 }
 
 // SQL query timeout. Unit in seconds.
-func (o DatasetResponseSqlDataPathOutput) QueryTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v DatasetResponseSqlDataPath) int { return v.QueryTimeout }).(pulumi.IntOutput)
+func (o DatasetResponseSqlDataPathOutput) QueryTimeout() pulumi.Float64Output {
+	return o.ApplyT(func(v DatasetResponseSqlDataPath) float64 { return v.QueryTimeout }).(pulumi.Float64Output)
 }
 
 // SQL query
@@ -10026,13 +10026,13 @@ func (o DatasetResponseSqlDataPathPtrOutput) Elem() DatasetResponseSqlDataPathOu
 }
 
 // SQL query timeout. Unit in seconds.
-func (o DatasetResponseSqlDataPathPtrOutput) QueryTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseSqlDataPath) *int {
+func (o DatasetResponseSqlDataPathPtrOutput) QueryTimeout() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DatasetResponseSqlDataPath) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.QueryTimeout
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // SQL query
@@ -14401,7 +14401,7 @@ type Model struct {
 	// The URL of the Model. Usually a SAS URL.
 	Url string `pulumi:"url"`
 	// The Model version assigned by Model Management Service.
-	Version *int `pulumi:"version"`
+	Version *float64 `pulumi:"version"`
 }
 
 // ModelInput is an input type that accepts ModelArgs and ModelOutput values.
@@ -14458,7 +14458,7 @@ type ModelArgs struct {
 	// The URL of the Model. Usually a SAS URL.
 	Url pulumi.StringInput `pulumi:"url"`
 	// The Model version assigned by Model Management Service.
-	Version pulumi.IntPtrInput `pulumi:"version"`
+	Version pulumi.Float64PtrInput `pulumi:"version"`
 }
 
 func (ModelArgs) ElementType() reflect.Type {
@@ -14614,8 +14614,8 @@ func (o ModelOutput) Url() pulumi.StringOutput {
 }
 
 // The Model version assigned by Model Management Service.
-func (o ModelOutput) Version() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Model) *int { return v.Version }).(pulumi.IntPtrOutput)
+func (o ModelOutput) Version() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Model) *float64 { return v.Version }).(pulumi.Float64PtrOutput)
 }
 
 type ModelArrayOutput struct{ *pulumi.OutputState }
@@ -16587,7 +16587,7 @@ type ModelResponse struct {
 	// The URL of the Model. Usually a SAS URL.
 	Url string `pulumi:"url"`
 	// The Model version assigned by Model Management Service.
-	Version *int `pulumi:"version"`
+	Version *float64 `pulumi:"version"`
 }
 
 // ModelResponseInput is an input type that accepts ModelResponseArgs and ModelResponseOutput values.
@@ -16644,7 +16644,7 @@ type ModelResponseArgs struct {
 	// The URL of the Model. Usually a SAS URL.
 	Url pulumi.StringInput `pulumi:"url"`
 	// The Model version assigned by Model Management Service.
-	Version pulumi.IntPtrInput `pulumi:"version"`
+	Version pulumi.Float64PtrInput `pulumi:"version"`
 }
 
 func (ModelResponseArgs) ElementType() reflect.Type {
@@ -16800,8 +16800,8 @@ func (o ModelResponseOutput) Url() pulumi.StringOutput {
 }
 
 // The Model version assigned by Model Management Service.
-func (o ModelResponseOutput) Version() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ModelResponse) *int { return v.Version }).(pulumi.IntPtrOutput)
+func (o ModelResponseOutput) Version() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ModelResponse) *float64 { return v.Version }).(pulumi.Float64PtrOutput)
 }
 
 type ModelResponseArrayOutput struct{ *pulumi.OutputState }

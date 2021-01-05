@@ -20,11 +20,11 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101.Outputs
         /// <summary>
         /// Amount of data uploaded by the job as of now.
         /// </summary>
-        public readonly int BytesSentToCloud;
+        public readonly double BytesSentToCloud;
         /// <summary>
         /// Number of files processed by the job as of now.
         /// </summary>
-        public readonly int FilesProcessed;
+        public readonly double FilesProcessed;
         /// <summary>
         /// Name of the storage account where the data needs to be uploaded.
         /// </summary>
@@ -32,25 +32,25 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101.Outputs
         /// <summary>
         /// Total amount of data to be processed by the job.
         /// </summary>
-        public readonly int TotalBytesToProcess;
+        public readonly double TotalBytesToProcess;
         /// <summary>
         /// Total number of files to be processed by the job.
         /// </summary>
-        public readonly int TotalFilesToProcess;
+        public readonly double TotalFilesToProcess;
 
         [OutputConstructor]
         private CopyProgressResponse(
             string accountId,
 
-            int bytesSentToCloud,
+            double bytesSentToCloud,
 
-            int filesProcessed,
+            double filesProcessed,
 
             string storageAccountName,
 
-            int totalBytesToProcess,
+            double totalBytesToProcess,
 
-            int totalFilesToProcess)
+            double totalFilesToProcess)
         {
             AccountId = accountId;
             BytesSentToCloud = bytesSentToCloud;

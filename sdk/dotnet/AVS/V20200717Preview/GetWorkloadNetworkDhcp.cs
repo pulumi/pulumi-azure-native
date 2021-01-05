@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// NSX revision number.
         /// </summary>
-        public readonly int? Revision;
+        public readonly double? Revision;
         /// <summary>
         /// NSX Segments consuming DHCP.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             string provisioningState,
 
-            int? revision,
+            double? revision,
 
             ImmutableArray<string> segments,
 

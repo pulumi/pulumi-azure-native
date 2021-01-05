@@ -50,7 +50,7 @@ type LookupNetworkVirtualApplianceResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// VirtualAppliance ASN.
-	VirtualApplianceAsn *int `pulumi:"virtualApplianceAsn"`
+	VirtualApplianceAsn *float64 `pulumi:"virtualApplianceAsn"`
 	// List of Virtual Appliance Network Interfaces.
 	VirtualApplianceNics []VirtualApplianceNicPropertiesResponse `pulumi:"virtualApplianceNics"`
 	// The Virtual Hub where Network Virtual Appliance is being deployed.

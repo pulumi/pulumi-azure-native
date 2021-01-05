@@ -1946,7 +1946,7 @@ class ModelArgs:
                  sample_input_data: Optional[pulumi.Input[str]] = None,
                  sample_output_data: Optional[pulumi.Input[str]] = None,
                  unpack: Optional[pulumi.Input[bool]] = None,
-                 version: Optional[pulumi.Input[int]] = None):
+                 version: Optional[pulumi.Input[float]] = None):
         """
         An Azure Machine Learning Model.
         :param pulumi.Input[str] mime_type: The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
@@ -1969,7 +1969,7 @@ class ModelArgs:
         :param pulumi.Input[str] sample_input_data: Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
         :param pulumi.Input[str] sample_output_data: Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
         :param pulumi.Input[bool] unpack: Indicates whether we need to unpack the Model during docker Image creation.
-        :param pulumi.Input[int] version: The Model version assigned by Model Management Service.
+        :param pulumi.Input[float] version: The Model version assigned by Model Management Service.
         """
         pulumi.set(__self__, "mime_type", mime_type)
         pulumi.set(__self__, "name", name)
@@ -2253,14 +2253,14 @@ class ModelArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[int]]:
+    def version(self) -> Optional[pulumi.Input[float]]:
         """
         The Model version assigned by Model Management Service.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[int]]):
+    def version(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "version", value)
 
 

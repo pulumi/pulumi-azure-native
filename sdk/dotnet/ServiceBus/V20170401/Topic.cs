@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
         /// Size of the topic, in bytes.
         /// </summary>
         [Output("sizeInBytes")]
-        public Output<int> SizeInBytes { get; private set; } = null!;
+        public Output<double> SizeInBytes { get; private set; } = null!;
 
         /// <summary>
         /// Enumerates the possible values for the status of a messaging entity.

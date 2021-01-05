@@ -465,7 +465,7 @@ type ApplicationMetricDescription struct {
 	// If set to zero, capacity for this metric is unlimited on each node.
 	// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
 	// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-	MaximumCapacity *int `pulumi:"maximumCapacity"`
+	MaximumCapacity *float64 `pulumi:"maximumCapacity"`
 	// The name of the metric.
 	Name *string `pulumi:"name"`
 	// The node reservation capacity for Service Fabric application.
@@ -473,11 +473,11 @@ type ApplicationMetricDescription struct {
 	// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
 	// If set to zero, no capacity is reserved for this metric.
 	// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-	ReservationCapacity *int `pulumi:"reservationCapacity"`
+	ReservationCapacity *float64 `pulumi:"reservationCapacity"`
 	// The total metric capacity for Service Fabric application.
 	// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
 	// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-	TotalApplicationCapacity *int `pulumi:"totalApplicationCapacity"`
+	TotalApplicationCapacity *float64 `pulumi:"totalApplicationCapacity"`
 }
 
 // ApplicationMetricDescriptionInput is an input type that accepts ApplicationMetricDescriptionArgs and ApplicationMetricDescriptionOutput values.
@@ -498,7 +498,7 @@ type ApplicationMetricDescriptionArgs struct {
 	// If set to zero, capacity for this metric is unlimited on each node.
 	// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
 	// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-	MaximumCapacity pulumi.IntPtrInput `pulumi:"maximumCapacity"`
+	MaximumCapacity pulumi.Float64PtrInput `pulumi:"maximumCapacity"`
 	// The name of the metric.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The node reservation capacity for Service Fabric application.
@@ -506,11 +506,11 @@ type ApplicationMetricDescriptionArgs struct {
 	// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
 	// If set to zero, no capacity is reserved for this metric.
 	// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-	ReservationCapacity pulumi.IntPtrInput `pulumi:"reservationCapacity"`
+	ReservationCapacity pulumi.Float64PtrInput `pulumi:"reservationCapacity"`
 	// The total metric capacity for Service Fabric application.
 	// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
 	// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-	TotalApplicationCapacity pulumi.IntPtrInput `pulumi:"totalApplicationCapacity"`
+	TotalApplicationCapacity pulumi.Float64PtrInput `pulumi:"totalApplicationCapacity"`
 }
 
 func (ApplicationMetricDescriptionArgs) ElementType() reflect.Type {
@@ -570,8 +570,8 @@ func (o ApplicationMetricDescriptionOutput) ToApplicationMetricDescriptionOutput
 // If set to zero, capacity for this metric is unlimited on each node.
 // When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
 // When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-func (o ApplicationMetricDescriptionOutput) MaximumCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescription) *int { return v.MaximumCapacity }).(pulumi.IntPtrOutput)
+func (o ApplicationMetricDescriptionOutput) MaximumCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescription) *float64 { return v.MaximumCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // The name of the metric.
@@ -584,15 +584,15 @@ func (o ApplicationMetricDescriptionOutput) Name() pulumi.StringPtrOutput {
 // If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
 // If set to zero, no capacity is reserved for this metric.
 // When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-func (o ApplicationMetricDescriptionOutput) ReservationCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescription) *int { return v.ReservationCapacity }).(pulumi.IntPtrOutput)
+func (o ApplicationMetricDescriptionOutput) ReservationCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescription) *float64 { return v.ReservationCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // The total metric capacity for Service Fabric application.
 // This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
 // When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-func (o ApplicationMetricDescriptionOutput) TotalApplicationCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescription) *int { return v.TotalApplicationCapacity }).(pulumi.IntPtrOutput)
+func (o ApplicationMetricDescriptionOutput) TotalApplicationCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescription) *float64 { return v.TotalApplicationCapacity }).(pulumi.Float64PtrOutput)
 }
 
 type ApplicationMetricDescriptionArrayOutput struct{ *pulumi.OutputState }
@@ -622,7 +622,7 @@ type ApplicationMetricDescriptionResponse struct {
 	// If set to zero, capacity for this metric is unlimited on each node.
 	// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
 	// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-	MaximumCapacity *int `pulumi:"maximumCapacity"`
+	MaximumCapacity *float64 `pulumi:"maximumCapacity"`
 	// The name of the metric.
 	Name *string `pulumi:"name"`
 	// The node reservation capacity for Service Fabric application.
@@ -630,11 +630,11 @@ type ApplicationMetricDescriptionResponse struct {
 	// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
 	// If set to zero, no capacity is reserved for this metric.
 	// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-	ReservationCapacity *int `pulumi:"reservationCapacity"`
+	ReservationCapacity *float64 `pulumi:"reservationCapacity"`
 	// The total metric capacity for Service Fabric application.
 	// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
 	// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-	TotalApplicationCapacity *int `pulumi:"totalApplicationCapacity"`
+	TotalApplicationCapacity *float64 `pulumi:"totalApplicationCapacity"`
 }
 
 // ApplicationMetricDescriptionResponseInput is an input type that accepts ApplicationMetricDescriptionResponseArgs and ApplicationMetricDescriptionResponseOutput values.
@@ -655,7 +655,7 @@ type ApplicationMetricDescriptionResponseArgs struct {
 	// If set to zero, capacity for this metric is unlimited on each node.
 	// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
 	// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-	MaximumCapacity pulumi.IntPtrInput `pulumi:"maximumCapacity"`
+	MaximumCapacity pulumi.Float64PtrInput `pulumi:"maximumCapacity"`
 	// The name of the metric.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The node reservation capacity for Service Fabric application.
@@ -663,11 +663,11 @@ type ApplicationMetricDescriptionResponseArgs struct {
 	// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
 	// If set to zero, no capacity is reserved for this metric.
 	// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-	ReservationCapacity pulumi.IntPtrInput `pulumi:"reservationCapacity"`
+	ReservationCapacity pulumi.Float64PtrInput `pulumi:"reservationCapacity"`
 	// The total metric capacity for Service Fabric application.
 	// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
 	// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-	TotalApplicationCapacity pulumi.IntPtrInput `pulumi:"totalApplicationCapacity"`
+	TotalApplicationCapacity pulumi.Float64PtrInput `pulumi:"totalApplicationCapacity"`
 }
 
 func (ApplicationMetricDescriptionResponseArgs) ElementType() reflect.Type {
@@ -727,8 +727,8 @@ func (o ApplicationMetricDescriptionResponseOutput) ToApplicationMetricDescripti
 // If set to zero, capacity for this metric is unlimited on each node.
 // When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
 // When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-func (o ApplicationMetricDescriptionResponseOutput) MaximumCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *int { return v.MaximumCapacity }).(pulumi.IntPtrOutput)
+func (o ApplicationMetricDescriptionResponseOutput) MaximumCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *float64 { return v.MaximumCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // The name of the metric.
@@ -741,15 +741,15 @@ func (o ApplicationMetricDescriptionResponseOutput) Name() pulumi.StringPtrOutpu
 // If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
 // If set to zero, no capacity is reserved for this metric.
 // When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-func (o ApplicationMetricDescriptionResponseOutput) ReservationCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *int { return v.ReservationCapacity }).(pulumi.IntPtrOutput)
+func (o ApplicationMetricDescriptionResponseOutput) ReservationCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *float64 { return v.ReservationCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // The total metric capacity for Service Fabric application.
 // This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
 // When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-func (o ApplicationMetricDescriptionResponseOutput) TotalApplicationCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *int { return v.TotalApplicationCapacity }).(pulumi.IntPtrOutput)
+func (o ApplicationMetricDescriptionResponseOutput) TotalApplicationCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *float64 { return v.TotalApplicationCapacity }).(pulumi.Float64PtrOutput)
 }
 
 type ApplicationMetricDescriptionResponseArrayOutput struct{ *pulumi.OutputState }

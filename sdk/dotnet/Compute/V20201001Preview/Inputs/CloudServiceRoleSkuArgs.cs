@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview.Inputs
         /// Specifies the number of role instances in the cloud service.
         /// </summary>
         [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
+        public Input<double>? Capacity { get; set; }
 
         /// <summary>
         /// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.

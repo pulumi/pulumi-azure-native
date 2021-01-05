@@ -134,7 +134,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// VirtualRouter ASN.
         /// </summary>
         [Output("virtualRouterAsn")]
-        public Output<int?> VirtualRouterAsn { get; private set; } = null!;
+        public Output<double?> VirtualRouterAsn { get; private set; } = null!;
 
         /// <summary>
         /// VirtualRouter IPs.
@@ -328,7 +328,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// VirtualRouter ASN.
         /// </summary>
         [Input("virtualRouterAsn")]
-        public Input<int>? VirtualRouterAsn { get; set; }
+        public Input<double>? VirtualRouterAsn { get; set; }
 
         [Input("virtualRouterIps")]
         private InputList<string>? _virtualRouterIps;

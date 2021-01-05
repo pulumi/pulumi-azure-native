@@ -23,7 +23,7 @@ class FileShare(pulumi.CustomResource):
                  file_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
-                 provisioned_capacity_in_bytes: Optional[pulumi.Input[int]] = None,
+                 provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_status: Optional[pulumi.Input['ShareStatus']] = None,
@@ -42,7 +42,7 @@ class FileShare(pulumi.CustomResource):
         :param pulumi.Input[str] file_server_name: The file server name.
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring status
-        :param pulumi.Input[int] provisioned_capacity_in_bytes: The total provisioned capacity in Bytes
+        :param pulumi.Input[float] provisioned_capacity_in_bytes: The total provisioned capacity in Bytes
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] share_name: The file share name.
         :param pulumi.Input['ShareStatus'] share_status: The Share Status
@@ -151,7 +151,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localUsedCapacityInBytes")
-    def local_used_capacity_in_bytes(self) -> pulumi.Output[int]:
+    def local_used_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The local used capacity in Bytes.
         """
@@ -175,7 +175,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> pulumi.Output[int]:
+    def provisioned_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The total provisioned capacity in Bytes
         """
@@ -199,7 +199,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usedCapacityInBytes")
-    def used_capacity_in_bytes(self) -> pulumi.Output[int]:
+    def used_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The used capacity in Bytes.
         """

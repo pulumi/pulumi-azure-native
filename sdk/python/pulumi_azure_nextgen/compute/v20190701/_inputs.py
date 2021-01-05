@@ -371,7 +371,7 @@ class CreationDataArgs:
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
-                 upload_size_bytes: Optional[pulumi.Input[int]] = None):
+                 upload_size_bytes: Optional[pulumi.Input[float]] = None):
         """
         Data used when creating a disk.
         :param pulumi.Input[Union[str, 'DiskCreateOption']] create_option: This enumerates the possible sources of a disk's creation.
@@ -379,7 +379,7 @@ class CreationDataArgs:
         :param pulumi.Input[str] source_resource_id: If createOption is Copy, this is the ARM id of the source snapshot or disk.
         :param pulumi.Input[str] source_uri: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
         :param pulumi.Input[str] storage_account_id: Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-        :param pulumi.Input[int] upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+        :param pulumi.Input[float] upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
         pulumi.set(__self__, "create_option", create_option)
         if image_reference is not None:
@@ -455,14 +455,14 @@ class CreationDataArgs:
 
     @property
     @pulumi.getter(name="uploadSizeBytes")
-    def upload_size_bytes(self) -> Optional[pulumi.Input[int]]:
+    def upload_size_bytes(self) -> Optional[pulumi.Input[float]]:
         """
         If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
         return pulumi.get(self, "upload_size_bytes")
 
     @upload_size_bytes.setter
-    def upload_size_bytes(self, value: Optional[pulumi.Input[int]]):
+    def upload_size_bytes(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "upload_size_bytes", value)
 
 
@@ -2990,12 +2990,12 @@ class ScheduledEventsProfileArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[int]] = None,
+                 capacity: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
-        :param pulumi.Input[int] capacity: Specifies the number of virtual machines in the scale set.
+        :param pulumi.Input[float] capacity: Specifies the number of virtual machines in the scale set.
         :param pulumi.Input[str] name: The sku name.
         :param pulumi.Input[str] tier: Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
         """
@@ -3008,14 +3008,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
+    def capacity(self) -> Optional[pulumi.Input[float]]:
         """
         Specifies the number of virtual machines in the scale set.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
+    def capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -3660,8 +3660,8 @@ class VirtualMachineScaleSetDataDiskArgs:
                  create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']],
                  lun: pulumi.Input[int],
                  caching: Optional[pulumi.Input['CachingTypes']] = None,
-                 disk_iops_read_write: Optional[pulumi.Input[int]] = None,
-                 disk_m_bps_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_iops_read_write: Optional[pulumi.Input[float]] = None,
+                 disk_m_bps_read_write: Optional[pulumi.Input[float]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  managed_disk: Optional[pulumi.Input['VirtualMachineScaleSetManagedDiskParametersArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -3671,8 +3671,8 @@ class VirtualMachineScaleSetDataDiskArgs:
         :param pulumi.Input[Union[str, 'DiskCreateOptionTypes']] create_option: The create option.
         :param pulumi.Input[int] lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param pulumi.Input['CachingTypes'] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-        :param pulumi.Input[int] disk_iops_read_write: Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-        :param pulumi.Input[int] disk_m_bps_read_write: Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
+        :param pulumi.Input[float] disk_iops_read_write: Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
+        :param pulumi.Input[float] disk_m_bps_read_write: Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param pulumi.Input['VirtualMachineScaleSetManagedDiskParametersArgs'] managed_disk: The managed disk parameters.
         :param pulumi.Input[str] name: The disk name.
@@ -3733,26 +3733,26 @@ class VirtualMachineScaleSetDataDiskArgs:
 
     @property
     @pulumi.getter(name="diskIOPSReadWrite")
-    def disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
+    def disk_iops_read_write(self) -> Optional[pulumi.Input[float]]:
         """
         Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
         """
         return pulumi.get(self, "disk_iops_read_write")
 
     @disk_iops_read_write.setter
-    def disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
+    def disk_iops_read_write(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "disk_iops_read_write", value)
 
     @property
     @pulumi.getter(name="diskMBpsReadWrite")
-    def disk_m_bps_read_write(self) -> Optional[pulumi.Input[int]]:
+    def disk_m_bps_read_write(self) -> Optional[pulumi.Input[float]]:
         """
         Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
         """
         return pulumi.get(self, "disk_m_bps_read_write")
 
     @disk_m_bps_read_write.setter
-    def disk_m_bps_read_write(self, value: Optional[pulumi.Input[int]]):
+    def disk_m_bps_read_write(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "disk_m_bps_read_write", value)
 
     @property

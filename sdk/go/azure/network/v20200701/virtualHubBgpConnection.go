@@ -22,7 +22,7 @@ type VirtualHubBgpConnection struct {
 	// Name of the connection.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Peer ASN.
-	PeerAsn pulumi.IntPtrOutput `pulumi:"peerAsn"`
+	PeerAsn pulumi.Float64PtrOutput `pulumi:"peerAsn"`
 	// Peer IP.
 	PeerIp pulumi.StringPtrOutput `pulumi:"peerIp"`
 	// The provisioning state of the resource.
@@ -88,7 +88,7 @@ type virtualHubBgpConnectionState struct {
 	// Name of the connection.
 	Name *string `pulumi:"name"`
 	// Peer ASN.
-	PeerAsn *int `pulumi:"peerAsn"`
+	PeerAsn *float64 `pulumi:"peerAsn"`
 	// Peer IP.
 	PeerIp *string `pulumi:"peerIp"`
 	// The provisioning state of the resource.
@@ -105,7 +105,7 @@ type VirtualHubBgpConnectionState struct {
 	// Name of the connection.
 	Name pulumi.StringPtrInput
 	// Peer ASN.
-	PeerAsn pulumi.IntPtrInput
+	PeerAsn pulumi.Float64PtrInput
 	// Peer IP.
 	PeerIp pulumi.StringPtrInput
 	// The provisioning state of the resource.
@@ -126,7 +126,7 @@ type virtualHubBgpConnectionArgs struct {
 	// Name of the connection.
 	Name *string `pulumi:"name"`
 	// Peer ASN.
-	PeerAsn *int `pulumi:"peerAsn"`
+	PeerAsn *float64 `pulumi:"peerAsn"`
 	// Peer IP.
 	PeerIp *string `pulumi:"peerIp"`
 	// The resource group name of the VirtualHub.
@@ -144,7 +144,7 @@ type VirtualHubBgpConnectionArgs struct {
 	// Name of the connection.
 	Name pulumi.StringPtrInput
 	// Peer ASN.
-	PeerAsn pulumi.IntPtrInput
+	PeerAsn pulumi.Float64PtrInput
 	// Peer IP.
 	PeerIp pulumi.StringPtrInput
 	// The resource group name of the VirtualHub.

@@ -59,8 +59,8 @@ class ListWebAppBackupStatusSecretsSlotResult:
         if scheduled and not isinstance(scheduled, bool):
             raise TypeError("Expected argument 'scheduled' to be a bool")
         pulumi.set(__self__, "scheduled", scheduled)
-        if size_in_bytes and not isinstance(size_in_bytes, int):
-            raise TypeError("Expected argument 'size_in_bytes' to be a int")
+        if size_in_bytes and not isinstance(size_in_bytes, float):
+            raise TypeError("Expected argument 'size_in_bytes' to be a float")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
@@ -71,8 +71,8 @@ class ListWebAppBackupStatusSecretsSlotResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if website_size_in_bytes and not isinstance(website_size_in_bytes, int):
-            raise TypeError("Expected argument 'website_size_in_bytes' to be a int")
+        if website_size_in_bytes and not isinstance(website_size_in_bytes, float):
+            raise TypeError("Expected argument 'website_size_in_bytes' to be a float")
         pulumi.set(__self__, "website_size_in_bytes", website_size_in_bytes)
 
     @property
@@ -173,7 +173,7 @@ class ListWebAppBackupStatusSecretsSlotResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> int:
+    def size_in_bytes(self) -> float:
         """
         Size of the backup in bytes.
         """
@@ -205,7 +205,7 @@ class ListWebAppBackupStatusSecretsSlotResult:
 
     @property
     @pulumi.getter(name="websiteSizeInBytes")
-    def website_size_in_bytes(self) -> int:
+    def website_size_in_bytes(self) -> float:
         """
         Size of the original web app which has been backed up.
         """

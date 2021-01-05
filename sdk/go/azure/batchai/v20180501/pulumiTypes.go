@@ -4835,7 +4835,7 @@ func (o EnvironmentVariableWithSecretValueResponseArrayOutput) Index(i pulumi.In
 // Properties of the file or directory.
 type FileResponse struct {
 	// The file of the size.
-	ContentLength int `pulumi:"contentLength"`
+	ContentLength float64 `pulumi:"contentLength"`
 	// URL to download the corresponding file. The downloadUrl is not returned for directories.
 	DownloadUrl string `pulumi:"downloadUrl"`
 	// Type of the file. Possible values are file and directory.
@@ -4860,7 +4860,7 @@ type FileResponseInput interface {
 // Properties of the file or directory.
 type FileResponseArgs struct {
 	// The file of the size.
-	ContentLength pulumi.IntInput `pulumi:"contentLength"`
+	ContentLength pulumi.Float64Input `pulumi:"contentLength"`
 	// URL to download the corresponding file. The downloadUrl is not returned for directories.
 	DownloadUrl pulumi.StringInput `pulumi:"downloadUrl"`
 	// Type of the file. Possible values are file and directory.
@@ -4924,8 +4924,8 @@ func (o FileResponseOutput) ToFileResponseOutputWithContext(ctx context.Context)
 }
 
 // The file of the size.
-func (o FileResponseOutput) ContentLength() pulumi.IntOutput {
-	return o.ApplyT(func(v FileResponse) int { return v.ContentLength }).(pulumi.IntOutput)
+func (o FileResponseOutput) ContentLength() pulumi.Float64Output {
+	return o.ApplyT(func(v FileResponse) float64 { return v.ContentLength }).(pulumi.Float64Output)
 }
 
 // URL to download the corresponding file. The downloadUrl is not returned for directories.

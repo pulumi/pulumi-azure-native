@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// The peer ASN.
         /// </summary>
-        public readonly int? PeerASN;
+        public readonly double? PeerASN;
         /// <summary>
         /// The peering type.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string? name,
 
-            int? peerASN,
+            double? peerASN,
 
             string? peeringType,
 

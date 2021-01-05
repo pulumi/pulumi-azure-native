@@ -22,13 +22,13 @@ type VirtualNetworkGatewayConnection struct {
 	// Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
 	ConnectionType pulumi.StringOutput `pulumi:"connectionType"`
 	// The egress bytes transferred in this connection.
-	EgressBytesTransferred pulumi.IntOutput `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred pulumi.Float64Output `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag
 	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The ingress bytes transferred in this connection.
-	IngressBytesTransferred pulumi.IntOutput `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred pulumi.Float64Output `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyResponseArrayOutput `pulumi:"ipsecPolicies"`
 	// The reference to local network gateway resource.
@@ -211,13 +211,13 @@ type virtualNetworkGatewayConnectionState struct {
 	// Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
 	ConnectionType *string `pulumi:"connectionType"`
 	// The egress bytes transferred in this connection.
-	EgressBytesTransferred *int `pulumi:"egressBytesTransferred"`
+	EgressBytesTransferred *float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// The ingress bytes transferred in this connection.
-	IngressBytesTransferred *int `pulumi:"ingressBytesTransferred"`
+	IngressBytesTransferred *float64 `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
 	// The reference to local network gateway resource.
@@ -258,13 +258,13 @@ type VirtualNetworkGatewayConnectionState struct {
 	// Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
 	ConnectionType pulumi.StringPtrInput
 	// The egress bytes transferred in this connection.
-	EgressBytesTransferred pulumi.IntPtrInput
+	EgressBytesTransferred pulumi.Float64PtrInput
 	// EnableBgp flag
 	EnableBgp pulumi.BoolPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// The ingress bytes transferred in this connection.
-	IngressBytesTransferred pulumi.IntPtrInput
+	IngressBytesTransferred pulumi.Float64PtrInput
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyResponseArrayInput
 	// The reference to local network gateway resource.

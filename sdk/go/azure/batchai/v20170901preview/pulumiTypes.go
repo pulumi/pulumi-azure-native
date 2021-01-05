@@ -3549,7 +3549,7 @@ func (o EnvironmentSettingResponseArrayOutput) Index(i pulumi.IntInput) Environm
 // Properties of the file.
 type FileResponse struct {
 	// The file size.
-	ContentLength *int `pulumi:"contentLength"`
+	ContentLength *float64 `pulumi:"contentLength"`
 	// This will be returned only if the model has been archived. During job run, this won't be returned and customers can use SSH tunneling to download. Users can use Get Remote Login Information API to get the IP address and port information of all the compute nodes running the job.
 	DownloadUrl string `pulumi:"downloadUrl"`
 	// The time at which the file was last modified.
@@ -3572,7 +3572,7 @@ type FileResponseInput interface {
 // Properties of the file.
 type FileResponseArgs struct {
 	// The file size.
-	ContentLength pulumi.IntPtrInput `pulumi:"contentLength"`
+	ContentLength pulumi.Float64PtrInput `pulumi:"contentLength"`
 	// This will be returned only if the model has been archived. During job run, this won't be returned and customers can use SSH tunneling to download. Users can use Get Remote Login Information API to get the IP address and port information of all the compute nodes running the job.
 	DownloadUrl pulumi.StringInput `pulumi:"downloadUrl"`
 	// The time at which the file was last modified.
@@ -3634,8 +3634,8 @@ func (o FileResponseOutput) ToFileResponseOutputWithContext(ctx context.Context)
 }
 
 // The file size.
-func (o FileResponseOutput) ContentLength() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FileResponse) *int { return v.ContentLength }).(pulumi.IntPtrOutput)
+func (o FileResponseOutput) ContentLength() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FileResponse) *float64 { return v.ContentLength }).(pulumi.Float64PtrOutput)
 }
 
 // This will be returned only if the model has been archived. During job run, this won't be returned and customers can use SSH tunneling to download. Users can use Get Remote Login Information API to get the IP address and port information of all the compute nodes running the job.

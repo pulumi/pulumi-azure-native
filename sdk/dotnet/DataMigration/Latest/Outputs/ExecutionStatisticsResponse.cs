@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
         /// <summary>
         /// No. of query executions
         /// </summary>
-        public readonly int ExecutionCount;
+        public readonly double ExecutionCount;
         /// <summary>
         /// Indicates whether the query resulted in an error
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Outputs
 
             double elapsedTimeMs,
 
-            int executionCount,
+            double executionCount,
 
             bool hasErrors,
 

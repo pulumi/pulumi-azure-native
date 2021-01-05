@@ -2044,22 +2044,22 @@ class TargetResponseResult(dict):
     """
     def __init__(__self__, *,
                  digest: Optional[str] = None,
-                 length: Optional[int] = None,
+                 length: Optional[float] = None,
                  media_type: Optional[str] = None,
                  name: Optional[str] = None,
                  repository: Optional[str] = None,
-                 size: Optional[int] = None,
+                 size: Optional[float] = None,
                  tag: Optional[str] = None,
                  url: Optional[str] = None,
                  version: Optional[str] = None):
         """
         The target of the event.
         :param str digest: The digest of the content, as defined by the Registry V2 HTTP API Specification.
-        :param int length: The number of bytes of the content. Same as Size field.
+        :param float length: The number of bytes of the content. Same as Size field.
         :param str media_type: The MIME type of the referenced object.
         :param str name: The name of the artifact.
         :param str repository: The repository name.
-        :param int size: The number of bytes of the content. Same as Length field.
+        :param float size: The number of bytes of the content. Same as Length field.
         :param str tag: The tag name.
         :param str url: The direct URL to the content.
         :param str version: The version of the artifact.
@@ -2093,7 +2093,7 @@ class TargetResponseResult(dict):
 
     @property
     @pulumi.getter
-    def length(self) -> Optional[int]:
+    def length(self) -> Optional[float]:
         """
         The number of bytes of the content. Same as Size field.
         """
@@ -2125,7 +2125,7 @@ class TargetResponseResult(dict):
 
     @property
     @pulumi.getter
-    def size(self) -> Optional[int]:
+    def size(self) -> Optional[float]:
         """
         The number of bytes of the content. Same as Length field.
         """

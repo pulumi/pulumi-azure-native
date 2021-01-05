@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// <summary>
         /// The output snapshot time.
         /// </summary>
-        public readonly int? OutputSnapTime;
+        public readonly double? OutputSnapTime;
         /// <summary>
         /// The provisioning state of the Live Output.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
 
             string name,
 
-            int? outputSnapTime,
+            double? outputSnapTime,
 
             string provisioningState,
 

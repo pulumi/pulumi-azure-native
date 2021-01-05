@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// The number of backups to be retained.
         /// </summary>
         [Output("retentionCount")]
-        public Output<int> RetentionCount { get; private set; } = null!;
+        public Output<double> RetentionCount { get; private set; } = null!;
 
         /// <summary>
         /// The schedule recurrence.
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// The number of backups to be retained.
         /// </summary>
         [Input("retentionCount", required: true)]
-        public Input<int> RetentionCount { get; set; } = null!;
+        public Input<double> RetentionCount { get; set; } = null!;
 
         /// <summary>
         /// The schedule recurrence.

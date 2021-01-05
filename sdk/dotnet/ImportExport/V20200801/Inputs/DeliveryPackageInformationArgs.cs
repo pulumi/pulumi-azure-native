@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801.Inputs
         /// The number of drives included in the package.
         /// </summary>
         [Input("driveCount")]
-        public Input<int>? DriveCount { get; set; }
+        public Input<double>? DriveCount { get; set; }
 
         /// <summary>
         /// The date when the package is shipped.

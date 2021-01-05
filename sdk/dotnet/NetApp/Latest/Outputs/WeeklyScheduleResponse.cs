@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
         /// <summary>
         /// Resource size in bytes, current storage usage for the volume in bytes
         /// </summary>
-        public readonly int? UsedBytes;
+        public readonly double? UsedBytes;
 
         [OutputConstructor]
         private WeeklyScheduleResponse(
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
 
             int? snapshotsToKeep,
 
-            int? usedBytes)
+            double? usedBytes)
         {
             Day = day;
             Hour = hour;

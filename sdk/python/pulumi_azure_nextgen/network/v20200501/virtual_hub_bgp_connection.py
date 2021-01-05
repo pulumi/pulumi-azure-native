@@ -18,7 +18,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                  connection_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peer_asn: Optional[pulumi.Input[float]] = None,
                  peer_ip: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         :param pulumi.Input[str] connection_name: The name of the connection.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the connection.
-        :param pulumi.Input[int] peer_asn: Peer ASN.
+        :param pulumi.Input[float] peer_asn: Peer ASN.
         :param pulumi.Input[str] peer_ip: Peer IP.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
@@ -124,7 +124,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> pulumi.Output[Optional[int]]:
+    def peer_asn(self) -> pulumi.Output[Optional[float]]:
         """
         Peer ASN.
         """

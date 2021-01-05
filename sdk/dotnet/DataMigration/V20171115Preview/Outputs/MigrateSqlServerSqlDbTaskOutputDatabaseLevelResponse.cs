@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview.Outputs
         /// <summary>
         /// Number of database/object errors.
         /// </summary>
-        public readonly int ErrorCount;
+        public readonly double ErrorCount;
         /// <summary>
         /// Wildcard string prefix to use for querying all errors of the item
         /// </summary>
@@ -44,11 +44,11 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview.Outputs
         /// <summary>
         /// Number of objects
         /// </summary>
-        public readonly int NumberOfObjects;
+        public readonly double NumberOfObjects;
         /// <summary>
         /// Number of successfully completed objects
         /// </summary>
-        public readonly int NumberOfObjectsCompleted;
+        public readonly double NumberOfObjectsCompleted;
         /// <summary>
         /// Summary of object results in the migration
         /// </summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview.Outputs
 
             string endedOn,
 
-            int errorCount,
+            double errorCount,
 
             string errorPrefix,
 
@@ -95,9 +95,9 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview.Outputs
 
             string message,
 
-            int numberOfObjects,
+            double numberOfObjects,
 
-            int numberOfObjectsCompleted,
+            double numberOfObjectsCompleted,
 
             ImmutableDictionary<string, Outputs.DataItemMigrationSummaryResultResponse> objectSummary,
 

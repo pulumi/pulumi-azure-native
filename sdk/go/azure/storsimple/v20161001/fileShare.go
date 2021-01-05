@@ -22,19 +22,19 @@ type FileShare struct {
 	// Description for file share
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The local used capacity in Bytes.
-	LocalUsedCapacityInBytes pulumi.IntOutput `pulumi:"localUsedCapacityInBytes"`
+	LocalUsedCapacityInBytes pulumi.Float64Output `pulumi:"localUsedCapacityInBytes"`
 	// The monitoring status
 	MonitoringStatus pulumi.StringOutput `pulumi:"monitoringStatus"`
 	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The total provisioned capacity in Bytes
-	ProvisionedCapacityInBytes pulumi.IntOutput `pulumi:"provisionedCapacityInBytes"`
+	ProvisionedCapacityInBytes pulumi.Float64Output `pulumi:"provisionedCapacityInBytes"`
 	// The Share Status
 	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
 	// The type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The used capacity in Bytes.
-	UsedCapacityInBytes pulumi.IntOutput `pulumi:"usedCapacityInBytes"`
+	UsedCapacityInBytes pulumi.Float64Output `pulumi:"usedCapacityInBytes"`
 }
 
 // NewFileShare registers a new resource with the given unique name, arguments, and options.
@@ -100,19 +100,19 @@ type fileShareState struct {
 	// Description for file share
 	Description *string `pulumi:"description"`
 	// The local used capacity in Bytes.
-	LocalUsedCapacityInBytes *int `pulumi:"localUsedCapacityInBytes"`
+	LocalUsedCapacityInBytes *float64 `pulumi:"localUsedCapacityInBytes"`
 	// The monitoring status
 	MonitoringStatus *string `pulumi:"monitoringStatus"`
 	// The name.
 	Name *string `pulumi:"name"`
 	// The total provisioned capacity in Bytes
-	ProvisionedCapacityInBytes *int `pulumi:"provisionedCapacityInBytes"`
+	ProvisionedCapacityInBytes *float64 `pulumi:"provisionedCapacityInBytes"`
 	// The Share Status
 	ShareStatus *string `pulumi:"shareStatus"`
 	// The type.
 	Type *string `pulumi:"type"`
 	// The used capacity in Bytes.
-	UsedCapacityInBytes *int `pulumi:"usedCapacityInBytes"`
+	UsedCapacityInBytes *float64 `pulumi:"usedCapacityInBytes"`
 }
 
 type FileShareState struct {
@@ -123,19 +123,19 @@ type FileShareState struct {
 	// Description for file share
 	Description pulumi.StringPtrInput
 	// The local used capacity in Bytes.
-	LocalUsedCapacityInBytes pulumi.IntPtrInput
+	LocalUsedCapacityInBytes pulumi.Float64PtrInput
 	// The monitoring status
 	MonitoringStatus pulumi.StringPtrInput
 	// The name.
 	Name pulumi.StringPtrInput
 	// The total provisioned capacity in Bytes
-	ProvisionedCapacityInBytes pulumi.IntPtrInput
+	ProvisionedCapacityInBytes pulumi.Float64PtrInput
 	// The Share Status
 	ShareStatus pulumi.StringPtrInput
 	// The type.
 	Type pulumi.StringPtrInput
 	// The used capacity in Bytes.
-	UsedCapacityInBytes pulumi.IntPtrInput
+	UsedCapacityInBytes pulumi.Float64PtrInput
 }
 
 func (FileShareState) ElementType() reflect.Type {
@@ -158,7 +158,7 @@ type fileShareArgs struct {
 	// The monitoring status
 	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The total provisioned capacity in Bytes
-	ProvisionedCapacityInBytes int `pulumi:"provisionedCapacityInBytes"`
+	ProvisionedCapacityInBytes float64 `pulumi:"provisionedCapacityInBytes"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The file share name.
@@ -184,7 +184,7 @@ type FileShareArgs struct {
 	// The monitoring status
 	MonitoringStatus MonitoringStatus
 	// The total provisioned capacity in Bytes
-	ProvisionedCapacityInBytes pulumi.IntInput
+	ProvisionedCapacityInBytes pulumi.Float64Input
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The file share name.

@@ -1269,9 +1269,9 @@ type DataItemMigrationSummaryResultResponse struct {
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix string `pulumi:"errorPrefix"`
 	// Number of successfully completed items
-	ItemsCompletedCount int `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount float64 `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount int `pulumi:"itemsCount"`
+	ItemsCount float64 `pulumi:"itemsCount"`
 	// Name of the item
 	Name string `pulumi:"name"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -1302,9 +1302,9 @@ type DataItemMigrationSummaryResultResponseArgs struct {
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix pulumi.StringInput `pulumi:"errorPrefix"`
 	// Number of successfully completed items
-	ItemsCompletedCount pulumi.IntInput `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount pulumi.Float64Input `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount pulumi.IntInput `pulumi:"itemsCount"`
+	ItemsCount pulumi.Float64Input `pulumi:"itemsCount"`
 	// Name of the item
 	Name pulumi.StringInput `pulumi:"name"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -1380,13 +1380,13 @@ func (o DataItemMigrationSummaryResultResponseOutput) ErrorPrefix() pulumi.Strin
 }
 
 // Number of successfully completed items
-func (o DataItemMigrationSummaryResultResponseOutput) ItemsCompletedCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) int { return v.ItemsCompletedCount }).(pulumi.IntOutput)
+func (o DataItemMigrationSummaryResultResponseOutput) ItemsCompletedCount() pulumi.Float64Output {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) float64 { return v.ItemsCompletedCount }).(pulumi.Float64Output)
 }
 
 // Number of items
-func (o DataItemMigrationSummaryResultResponseOutput) ItemsCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) int { return v.ItemsCount }).(pulumi.IntOutput)
+func (o DataItemMigrationSummaryResultResponseOutput) ItemsCount() pulumi.Float64Output {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) float64 { return v.ItemsCount }).(pulumi.Float64Output)
 }
 
 // Name of the item
@@ -1795,9 +1795,9 @@ type DatabaseSummaryResultResponse struct {
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix string `pulumi:"errorPrefix"`
 	// Number of successfully completed items
-	ItemsCompletedCount int `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount float64 `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount int `pulumi:"itemsCount"`
+	ItemsCount float64 `pulumi:"itemsCount"`
 	// Name of the item
 	Name string `pulumi:"name"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -1830,9 +1830,9 @@ type DatabaseSummaryResultResponseArgs struct {
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix pulumi.StringInput `pulumi:"errorPrefix"`
 	// Number of successfully completed items
-	ItemsCompletedCount pulumi.IntInput `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount pulumi.Float64Input `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount pulumi.IntInput `pulumi:"itemsCount"`
+	ItemsCount pulumi.Float64Input `pulumi:"itemsCount"`
 	// Name of the item
 	Name pulumi.StringInput `pulumi:"name"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -1910,13 +1910,13 @@ func (o DatabaseSummaryResultResponseOutput) ErrorPrefix() pulumi.StringOutput {
 }
 
 // Number of successfully completed items
-func (o DatabaseSummaryResultResponseOutput) ItemsCompletedCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DatabaseSummaryResultResponse) int { return v.ItemsCompletedCount }).(pulumi.IntOutput)
+func (o DatabaseSummaryResultResponseOutput) ItemsCompletedCount() pulumi.Float64Output {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) float64 { return v.ItemsCompletedCount }).(pulumi.Float64Output)
 }
 
 // Number of items
-func (o DatabaseSummaryResultResponseOutput) ItemsCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DatabaseSummaryResultResponse) int { return v.ItemsCount }).(pulumi.IntOutput)
+func (o DatabaseSummaryResultResponseOutput) ItemsCount() pulumi.Float64Output {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) float64 { return v.ItemsCount }).(pulumi.Float64Output)
 }
 
 // Name of the item
@@ -3334,7 +3334,7 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse struct {
 	// Migration end time
 	EndedOn string `pulumi:"endedOn"`
 	// Number of database/object errors.
-	ErrorCount int `pulumi:"errorCount"`
+	ErrorCount float64 `pulumi:"errorCount"`
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix string `pulumi:"errorPrefix"`
 	// Migration exceptions and warnings.
@@ -3344,9 +3344,9 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse struct {
 	// Migration progress message
 	Message string `pulumi:"message"`
 	// Number of objects
-	NumberOfObjects int `pulumi:"numberOfObjects"`
+	NumberOfObjects float64 `pulumi:"numberOfObjects"`
 	// Number of successfully completed objects
-	NumberOfObjectsCompleted int `pulumi:"numberOfObjectsCompleted"`
+	NumberOfObjectsCompleted float64 `pulumi:"numberOfObjectsCompleted"`
 	// Summary of object results in the migration
 	ObjectSummary map[string]DataItemMigrationSummaryResultResponse `pulumi:"objectSummary"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -3382,7 +3382,7 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs struct {
 	// Migration end time
 	EndedOn pulumi.StringInput `pulumi:"endedOn"`
 	// Number of database/object errors.
-	ErrorCount pulumi.IntInput `pulumi:"errorCount"`
+	ErrorCount pulumi.Float64Input `pulumi:"errorCount"`
 	// Wildcard string prefix to use for querying all errors of the item
 	ErrorPrefix pulumi.StringInput `pulumi:"errorPrefix"`
 	// Migration exceptions and warnings.
@@ -3392,9 +3392,9 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs struct {
 	// Migration progress message
 	Message pulumi.StringInput `pulumi:"message"`
 	// Number of objects
-	NumberOfObjects pulumi.IntInput `pulumi:"numberOfObjects"`
+	NumberOfObjects pulumi.Float64Input `pulumi:"numberOfObjects"`
 	// Number of successfully completed objects
-	NumberOfObjectsCompleted pulumi.IntInput `pulumi:"numberOfObjectsCompleted"`
+	NumberOfObjectsCompleted pulumi.Float64Input `pulumi:"numberOfObjectsCompleted"`
 	// Summary of object results in the migration
 	ObjectSummary DataItemMigrationSummaryResultResponseMapInput `pulumi:"objectSummary"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -3450,8 +3450,8 @@ func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) EndedOn() pu
 }
 
 // Number of database/object errors.
-func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) ErrorCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) int { return v.ErrorCount }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) ErrorCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) float64 { return v.ErrorCount }).(pulumi.Float64Output)
 }
 
 // Wildcard string prefix to use for querying all errors of the item
@@ -3477,13 +3477,15 @@ func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) Message() pu
 }
 
 // Number of objects
-func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) NumberOfObjects() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) int { return v.NumberOfObjects }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) NumberOfObjects() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) float64 { return v.NumberOfObjects }).(pulumi.Float64Output)
 }
 
 // Number of successfully completed objects
-func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) NumberOfObjectsCompleted() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) int { return v.NumberOfObjectsCompleted }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) NumberOfObjectsCompleted() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) float64 {
+		return v.NumberOfObjectsCompleted
+	}).(pulumi.Float64Output)
 }
 
 // Summary of object results in the migration
@@ -3676,7 +3678,7 @@ type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse struct {
 	// Selected databases as a map from database name to database id
 	Databases map[string]string `pulumi:"databases"`
 	// Duration of task execution in seconds.
-	DurationInSeconds int `pulumi:"durationInSeconds"`
+	DurationInSeconds float64 `pulumi:"durationInSeconds"`
 	// Migration end time
 	EndedOn string `pulumi:"endedOn"`
 	// Migration exceptions and warnings.
@@ -3724,7 +3726,7 @@ type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs struct {
 	// Selected databases as a map from database name to database id
 	Databases pulumi.StringMapInput `pulumi:"databases"`
 	// Duration of task execution in seconds.
-	DurationInSeconds pulumi.IntInput `pulumi:"durationInSeconds"`
+	DurationInSeconds pulumi.Float64Input `pulumi:"durationInSeconds"`
 	// Migration end time
 	EndedOn pulumi.StringInput `pulumi:"endedOn"`
 	// Migration exceptions and warnings.
@@ -3794,8 +3796,8 @@ func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) Databases()
 }
 
 // Duration of task execution in seconds.
-func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) DurationInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse) int { return v.DurationInSeconds }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) DurationInSeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse) float64 { return v.DurationInSeconds }).(pulumi.Float64Output)
 }
 
 // Migration end time
@@ -3881,9 +3883,9 @@ type MigrateSqlServerSqlDbTaskOutputTableLevelResponse struct {
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Number of successfully completed items
-	ItemsCompletedCount int `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount float64 `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount int `pulumi:"itemsCount"`
+	ItemsCount float64 `pulumi:"itemsCount"`
 	// Name of the item
 	ObjectName string `pulumi:"objectName"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -3919,9 +3921,9 @@ type MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs struct {
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Number of successfully completed items
-	ItemsCompletedCount pulumi.IntInput `pulumi:"itemsCompletedCount"`
+	ItemsCompletedCount pulumi.Float64Input `pulumi:"itemsCompletedCount"`
 	// Number of items
-	ItemsCount pulumi.IntInput `pulumi:"itemsCount"`
+	ItemsCount pulumi.Float64Input `pulumi:"itemsCount"`
 	// Name of the item
 	ObjectName pulumi.StringInput `pulumi:"objectName"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
@@ -3980,13 +3982,13 @@ func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) Id() pulumi.Str
 }
 
 // Number of successfully completed items
-func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) ItemsCompletedCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputTableLevelResponse) int { return v.ItemsCompletedCount }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) ItemsCompletedCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputTableLevelResponse) float64 { return v.ItemsCompletedCount }).(pulumi.Float64Output)
 }
 
 // Number of items
-func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) ItemsCount() pulumi.IntOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputTableLevelResponse) int { return v.ItemsCount }).(pulumi.IntOutput)
+func (o MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput) ItemsCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputTableLevelResponse) float64 { return v.ItemsCount }).(pulumi.Float64Output)
 }
 
 // Name of the item

@@ -38,7 +38,7 @@ type LookupElasticPoolResult struct {
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The per database settings for the elastic pool.

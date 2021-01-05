@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Outputs
         /// <summary>
         /// The rental duration. Must be greater than or equal to 0.
         /// </summary>
-        public readonly int RentalDuration;
+        public readonly double RentalDuration;
 
         [OutputConstructor]
         private ContentKeyPolicyFairPlayConfigurationResponse(
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Outputs
 
             string rentalAndLeaseKeyType,
 
-            int rentalDuration)
+            double rentalDuration)
         {
             Ask = ask;
             FairPlayPfx = fairPlayPfx;

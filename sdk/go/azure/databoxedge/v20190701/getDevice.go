@@ -36,7 +36,7 @@ type LookupDeviceResult struct {
 	// The device software version number of the device (eg: 1.2.18105.6).
 	DeviceHcsVersion string `pulumi:"deviceHcsVersion"`
 	// The Data Box Edge/Gateway device local capacity in MB.
-	DeviceLocalCapacity int `pulumi:"deviceLocalCapacity"`
+	DeviceLocalCapacity float64 `pulumi:"deviceLocalCapacity"`
 	// The Data Box Edge/Gateway device model.
 	DeviceModel string `pulumi:"deviceModel"`
 	// The Data Box Edge/Gateway device software version.

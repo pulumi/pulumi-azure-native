@@ -142,9 +142,9 @@ type CapacityReservationPropertiesResponse struct {
 	// The last time Sku was updated.
 	LastSkuUpdate string `pulumi:"lastSkuUpdate"`
 	// Maximum CapacityReservation value in GB.
-	MaxCapacity int `pulumi:"maxCapacity"`
+	MaxCapacity float64 `pulumi:"maxCapacity"`
 	// Minimum CapacityReservation value in GB.
-	MinCapacity int `pulumi:"minCapacity"`
+	MinCapacity float64 `pulumi:"minCapacity"`
 }
 
 // CapacityReservationPropertiesResponseInput is an input type that accepts CapacityReservationPropertiesResponseArgs and CapacityReservationPropertiesResponseOutput values.
@@ -163,9 +163,9 @@ type CapacityReservationPropertiesResponseArgs struct {
 	// The last time Sku was updated.
 	LastSkuUpdate pulumi.StringInput `pulumi:"lastSkuUpdate"`
 	// Maximum CapacityReservation value in GB.
-	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+	MaxCapacity pulumi.Float64Input `pulumi:"maxCapacity"`
 	// Minimum CapacityReservation value in GB.
-	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
+	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
 }
 
 func (CapacityReservationPropertiesResponseArgs) ElementType() reflect.Type {
@@ -252,13 +252,13 @@ func (o CapacityReservationPropertiesResponseOutput) LastSkuUpdate() pulumi.Stri
 }
 
 // Maximum CapacityReservation value in GB.
-func (o CapacityReservationPropertiesResponseOutput) MaxCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v CapacityReservationPropertiesResponse) int { return v.MaxCapacity }).(pulumi.IntOutput)
+func (o CapacityReservationPropertiesResponseOutput) MaxCapacity() pulumi.Float64Output {
+	return o.ApplyT(func(v CapacityReservationPropertiesResponse) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
 }
 
 // Minimum CapacityReservation value in GB.
-func (o CapacityReservationPropertiesResponseOutput) MinCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v CapacityReservationPropertiesResponse) int { return v.MinCapacity }).(pulumi.IntOutput)
+func (o CapacityReservationPropertiesResponseOutput) MinCapacity() pulumi.Float64Output {
+	return o.ApplyT(func(v CapacityReservationPropertiesResponse) float64 { return v.MinCapacity }).(pulumi.Float64Output)
 }
 
 type CapacityReservationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -290,29 +290,29 @@ func (o CapacityReservationPropertiesResponsePtrOutput) LastSkuUpdate() pulumi.S
 }
 
 // Maximum CapacityReservation value in GB.
-func (o CapacityReservationPropertiesResponsePtrOutput) MaxCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *int {
+func (o CapacityReservationPropertiesResponsePtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.MaxCapacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Minimum CapacityReservation value in GB.
-func (o CapacityReservationPropertiesResponsePtrOutput) MinCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *int {
+func (o CapacityReservationPropertiesResponsePtrOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.MinCapacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The cluster sku definition.
 type ClusterSku struct {
 	// The capacity value
-	Capacity *int `pulumi:"capacity"`
+	Capacity *float64 `pulumi:"capacity"`
 	// The name of the SKU.
 	Name *string `pulumi:"name"`
 }
@@ -331,7 +331,7 @@ type ClusterSkuInput interface {
 // The cluster sku definition.
 type ClusterSkuArgs struct {
 	// The capacity value
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
 	// The name of the SKU.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
@@ -415,8 +415,8 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) 
 }
 
 // The capacity value
-func (o ClusterSkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o ClusterSkuOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ClusterSku) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 // The name of the SKU.
@@ -443,13 +443,13 @@ func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
 }
 
 // The capacity value
-func (o ClusterSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterSku) *int {
+func (o ClusterSkuPtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ClusterSku) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The name of the SKU.
@@ -465,7 +465,7 @@ func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
 // The cluster sku definition.
 type ClusterSkuResponse struct {
 	// The capacity value
-	Capacity *int `pulumi:"capacity"`
+	Capacity *float64 `pulumi:"capacity"`
 	// The name of the SKU.
 	Name *string `pulumi:"name"`
 }
@@ -484,7 +484,7 @@ type ClusterSkuResponseInput interface {
 // The cluster sku definition.
 type ClusterSkuResponseArgs struct {
 	// The capacity value
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
 	// The name of the SKU.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
@@ -568,8 +568,8 @@ func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutputWithContext(ctx c
 }
 
 // The capacity value
-func (o ClusterSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o ClusterSkuResponseOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ClusterSkuResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
 // The name of the SKU.
@@ -596,13 +596,13 @@ func (o ClusterSkuResponsePtrOutput) Elem() ClusterSkuResponseOutput {
 }
 
 // The capacity value
-func (o ClusterSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterSkuResponse) *int {
+func (o ClusterSkuResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ClusterSkuResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The name of the SKU.

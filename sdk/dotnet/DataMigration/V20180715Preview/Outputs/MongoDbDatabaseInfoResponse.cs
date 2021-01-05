@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// The average document size, or -1 if the average size is unknown
         /// </summary>
-        public readonly int AverageDocumentSize;
+        public readonly double AverageDocumentSize;
         /// <summary>
         /// A list of supported collections in a MongoDB database
         /// </summary>
@@ -24,11 +24,11 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// The estimated total data size, in bytes, or -1 if the size is unknown.
         /// </summary>
-        public readonly int DataSize;
+        public readonly double DataSize;
         /// <summary>
         /// The estimated total number of documents, or -1 if the document count is unknown
         /// </summary>
-        public readonly int DocumentCount;
+        public readonly double DocumentCount;
         /// <summary>
         /// The unqualified name of the database or collection
         /// </summary>
@@ -44,13 +44,13 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
         [OutputConstructor]
         private MongoDbDatabaseInfoResponse(
-            int averageDocumentSize,
+            double averageDocumentSize,
 
             ImmutableArray<Outputs.MongoDbCollectionInfoResponse> collections,
 
-            int dataSize,
+            double dataSize,
 
-            int documentCount,
+            double documentCount,
 
             string name,
 

@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The group control number lower bound.
         /// </summary>
         [Input("groupControlNumberLowerBound", required: true)]
-        public Input<int> GroupControlNumberLowerBound { get; set; } = null!;
+        public Input<double> GroupControlNumberLowerBound { get; set; } = null!;
 
         /// <summary>
         /// The group control number prefix.
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The group control number upper bound.
         /// </summary>
         [Input("groupControlNumberUpperBound", required: true)]
-        public Input<int> GroupControlNumberUpperBound { get; set; } = null!;
+        public Input<double> GroupControlNumberUpperBound { get; set; } = null!;
 
         /// <summary>
         /// The group controlling agency code.
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The interchange control number lower bound.
         /// </summary>
         [Input("interchangeControlNumberLowerBound", required: true)]
-        public Input<int> InterchangeControlNumberLowerBound { get; set; } = null!;
+        public Input<double> InterchangeControlNumberLowerBound { get; set; } = null!;
 
         /// <summary>
         /// The interchange control number prefix.
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The interchange control number upper bound.
         /// </summary>
         [Input("interchangeControlNumberUpperBound", required: true)]
-        public Input<int> InterchangeControlNumberUpperBound { get; set; } = null!;
+        public Input<double> InterchangeControlNumberUpperBound { get; set; } = null!;
 
         /// <summary>
         /// The value indicating whether the message is a test interchange.
@@ -241,7 +241,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The transaction set control number lower bound.
         /// </summary>
         [Input("transactionSetControlNumberLowerBound", required: true)]
-        public Input<int> TransactionSetControlNumberLowerBound { get; set; } = null!;
+        public Input<double> TransactionSetControlNumberLowerBound { get; set; } = null!;
 
         /// <summary>
         /// The transaction set control number prefix.
@@ -259,7 +259,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The transaction set control number upper bound.
         /// </summary>
         [Input("transactionSetControlNumberUpperBound", required: true)]
-        public Input<int> TransactionSetControlNumberUpperBound { get; set; } = null!;
+        public Input<double> TransactionSetControlNumberUpperBound { get; set; } = null!;
 
         public EdifactEnvelopeSettingsArgs()
         {

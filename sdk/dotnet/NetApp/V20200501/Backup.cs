@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
         /// Size of backup
         /// </summary>
         [Output("size")]
-        public Output<int> Size { get; private set; } = null!;
+        public Output<double> Size { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

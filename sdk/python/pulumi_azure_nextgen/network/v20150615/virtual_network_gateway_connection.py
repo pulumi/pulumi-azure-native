@@ -21,11 +21,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_status: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionStatus']]] = None,
                  connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
-                 egress_bytes_transferred: Optional[pulumi.Input[int]] = None,
+                 egress_bytes_transferred: Optional[pulumi.Input[float]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ingress_bytes_transferred: Optional[pulumi.Input[int]] = None,
+                 ingress_bytes_transferred: Optional[pulumi.Input[float]] = None,
                  local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  peer: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -49,11 +49,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_key: The authorizationKey.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionStatus']] connection_status: Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']] connection_type: Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
-        :param pulumi.Input[int] egress_bytes_transferred: The egress bytes transferred in this connection.
+        :param pulumi.Input[float] egress_bytes_transferred: The egress bytes transferred in this connection.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource Identifier.
-        :param pulumi.Input[int] ingress_bytes_transferred: The ingress bytes transferred in this connection.
+        :param pulumi.Input[float] ingress_bytes_transferred: The ingress bytes transferred in this connection.
         :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']] local_network_gateway2: A common class for general resource information
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] peer: The reference to peerings resource.
@@ -162,7 +162,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> pulumi.Output[Optional[int]]:
+    def egress_bytes_transferred(self) -> pulumi.Output[Optional[float]]:
         """
         The egress bytes transferred in this connection.
         """
@@ -186,7 +186,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> pulumi.Output[Optional[int]]:
+    def ingress_bytes_transferred(self) -> pulumi.Output[Optional[float]]:
         """
         The ingress bytes transferred in this connection.
         """

@@ -2370,20 +2370,20 @@ class BgpPeerStatusResponseResult(dict):
                  asn: int,
                  connected_duration: str,
                  local_address: str,
-                 messages_received: int,
-                 messages_sent: int,
+                 messages_received: float,
+                 messages_sent: float,
                  neighbor: str,
-                 routes_received: int,
+                 routes_received: float,
                  state: str):
         """
         BGP peer status details
         :param int asn: The autonomous system number of the remote BGP peer
         :param str connected_duration: For how long the peering has been up
         :param str local_address: The virtual network gateway's local address
-        :param int messages_received: The number of BGP messages received
-        :param int messages_sent: The number of BGP messages sent
+        :param float messages_received: The number of BGP messages received
+        :param float messages_sent: The number of BGP messages sent
         :param str neighbor: The remote BGP peer
-        :param int routes_received: The number of routes learned from this peer
+        :param float routes_received: The number of routes learned from this peer
         :param str state: The BGP peer state
         """
         pulumi.set(__self__, "asn", asn)
@@ -2421,7 +2421,7 @@ class BgpPeerStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="messagesReceived")
-    def messages_received(self) -> int:
+    def messages_received(self) -> float:
         """
         The number of BGP messages received
         """
@@ -2429,7 +2429,7 @@ class BgpPeerStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="messagesSent")
-    def messages_sent(self) -> int:
+    def messages_sent(self) -> float:
         """
         The number of BGP messages sent
         """
@@ -2445,7 +2445,7 @@ class BgpPeerStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="routesReceived")
-    def routes_received(self) -> int:
+    def routes_received(self) -> float:
         """
         The number of routes learned from this peer
         """
@@ -2466,12 +2466,12 @@ class BgpSettingsResponse(dict):
     BGP settings details
     """
     def __init__(__self__, *,
-                 asn: Optional[int] = None,
+                 asn: Optional[float] = None,
                  bgp_peering_address: Optional[str] = None,
                  peer_weight: Optional[int] = None):
         """
         BGP settings details
-        :param int asn: The BGP speaker's ASN.
+        :param float asn: The BGP speaker's ASN.
         :param str bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
         :param int peer_weight: The weight added to routes learned from this BGP speaker.
         """
@@ -2484,7 +2484,7 @@ class BgpSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[int]:
+    def asn(self) -> Optional[float]:
         """
         The BGP speaker's ASN.
         """
@@ -2808,7 +2808,7 @@ class ExpressRouteCircuitPeeringResponse(dict):
                  last_modified_by: Optional[str] = None,
                  microsoft_peering_config: Optional['outputs.ExpressRouteCircuitPeeringConfigResponse'] = None,
                  name: Optional[str] = None,
-                 peer_asn: Optional[int] = None,
+                 peer_asn: Optional[float] = None,
                  peering_type: Optional[str] = None,
                  primary_azure_port: Optional[str] = None,
                  primary_peer_address_prefix: Optional[str] = None,
@@ -2830,7 +2830,7 @@ class ExpressRouteCircuitPeeringResponse(dict):
         :param str last_modified_by: Gets whether the provider or the customer last modified the peering.
         :param 'ExpressRouteCircuitPeeringConfigResponseArgs' microsoft_peering_config: The Microsoft peering configuration.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param int peer_asn: The peer ASN.
+        :param float peer_asn: The peer ASN.
         :param str peering_type: The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
         :param str primary_azure_port: The primary port.
         :param str primary_peer_address_prefix: The primary address prefix.
@@ -2949,7 +2949,7 @@ class ExpressRouteCircuitPeeringResponse(dict):
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> Optional[int]:
+    def peer_asn(self) -> Optional[float]:
         """
         The peer ASN.
         """
@@ -3153,16 +3153,16 @@ class ExpressRouteCircuitStatsResponse(dict):
     Contains stats associated with the peering.
     """
     def __init__(__self__, *,
-                 primarybytes_in: Optional[int] = None,
-                 primarybytes_out: Optional[int] = None,
-                 secondarybytes_in: Optional[int] = None,
-                 secondarybytes_out: Optional[int] = None):
+                 primarybytes_in: Optional[float] = None,
+                 primarybytes_out: Optional[float] = None,
+                 secondarybytes_in: Optional[float] = None,
+                 secondarybytes_out: Optional[float] = None):
         """
         Contains stats associated with the peering.
-        :param int primarybytes_in: Gets BytesIn of the peering.
-        :param int primarybytes_out: Gets BytesOut of the peering.
-        :param int secondarybytes_in: Gets BytesIn of the peering.
-        :param int secondarybytes_out: Gets BytesOut of the peering.
+        :param float primarybytes_in: Gets BytesIn of the peering.
+        :param float primarybytes_out: Gets BytesOut of the peering.
+        :param float secondarybytes_in: Gets BytesIn of the peering.
+        :param float secondarybytes_out: Gets BytesOut of the peering.
         """
         if primarybytes_in is not None:
             pulumi.set(__self__, "primarybytes_in", primarybytes_in)
@@ -3175,7 +3175,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="primarybytesIn")
-    def primarybytes_in(self) -> Optional[int]:
+    def primarybytes_in(self) -> Optional[float]:
         """
         Gets BytesIn of the peering.
         """
@@ -3183,7 +3183,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="primarybytesOut")
-    def primarybytes_out(self) -> Optional[int]:
+    def primarybytes_out(self) -> Optional[float]:
         """
         Gets BytesOut of the peering.
         """
@@ -3191,7 +3191,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="secondarybytesIn")
-    def secondarybytes_in(self) -> Optional[int]:
+    def secondarybytes_in(self) -> Optional[float]:
         """
         Gets BytesIn of the peering.
         """
@@ -3199,7 +3199,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="secondarybytesOut")
-    def secondarybytes_out(self) -> Optional[int]:
+    def secondarybytes_out(self) -> Optional[float]:
         """
         Gets BytesOut of the peering.
         """
@@ -6669,15 +6669,15 @@ class TunnelConnectionHealthResponse(dict):
     """
     def __init__(__self__, *,
                  connection_status: str,
-                 egress_bytes_transferred: int,
-                 ingress_bytes_transferred: int,
+                 egress_bytes_transferred: float,
+                 ingress_bytes_transferred: float,
                  last_connection_established_utc_time: str,
                  tunnel: str):
         """
         VirtualNetworkGatewayConnection properties
         :param str connection_status: Virtual network Gateway connection status
-        :param int egress_bytes_transferred: The Egress Bytes Transferred in this connection
-        :param int ingress_bytes_transferred: The Ingress Bytes Transferred in this connection
+        :param float egress_bytes_transferred: The Egress Bytes Transferred in this connection
+        :param float ingress_bytes_transferred: The Ingress Bytes Transferred in this connection
         :param str last_connection_established_utc_time: The time at which connection was established in Utc format.
         :param str tunnel: Tunnel name.
         """
@@ -6697,7 +6697,7 @@ class TunnelConnectionHealthResponse(dict):
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> int:
+    def egress_bytes_transferred(self) -> float:
         """
         The Egress Bytes Transferred in this connection
         """
@@ -6705,7 +6705,7 @@ class TunnelConnectionHealthResponse(dict):
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> int:
+    def ingress_bytes_transferred(self) -> float:
         """
         The Ingress Bytes Transferred in this connection
         """

@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <summary>
         /// VirtualAppliance ASN.
         /// </summary>
-        public readonly int? VirtualApplianceAsn;
+        public readonly double? VirtualApplianceAsn;
         /// <summary>
         /// List of Virtual Appliance Network Interfaces.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 
             string type,
 
-            int? virtualApplianceAsn,
+            double? virtualApplianceAsn,
 
             ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse> virtualApplianceNics,
 

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Outputs
         /// <summary>
         /// SQL query timeout. Unit in seconds.
         /// </summary>
-        public readonly int QueryTimeout;
+        public readonly double QueryTimeout;
         /// <summary>
         /// SQL query
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Outputs
 
         [OutputConstructor]
         private DatasetResponseSqlDataPath(
-            int queryTimeout,
+            double queryTimeout,
 
             string sqlQuery,
 

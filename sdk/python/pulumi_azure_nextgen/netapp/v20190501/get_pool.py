@@ -38,8 +38,8 @@ class GetPoolResult:
         if service_level and not isinstance(service_level, str):
             raise TypeError("Expected argument 'service_level' to be a str")
         pulumi.set(__self__, "service_level", service_level)
-        if size and not isinstance(size, int):
-            raise TypeError("Expected argument 'size' to be a int")
+        if size and not isinstance(size, float):
+            raise TypeError("Expected argument 'size' to be a float")
         pulumi.set(__self__, "size", size)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -98,7 +98,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter
-    def size(self) -> int:
+    def size(self) -> float:
         """
         Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         """

@@ -20,19 +20,19 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426.Outputs
         /// <summary>
         /// Total negatives in the distribution.
         /// </summary>
-        public readonly int? TotalNegatives;
+        public readonly double? TotalNegatives;
         /// <summary>
         /// Total positive in the distribution.
         /// </summary>
-        public readonly int? TotalPositives;
+        public readonly double? TotalPositives;
 
         [OutputConstructor]
         private PredictionDistributionDefinitionResponseResult(
             ImmutableArray<Outputs.PredictionDistributionDefinitionResponseDistributionsResult> distributions,
 
-            int? totalNegatives,
+            double? totalNegatives,
 
-            int? totalPositives)
+            double? totalPositives)
         {
             Distributions = distributions;
             TotalNegatives = totalNegatives;

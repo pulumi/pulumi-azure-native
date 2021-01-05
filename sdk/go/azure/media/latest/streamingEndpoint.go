@@ -43,7 +43,7 @@ type StreamingEndpoint struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Max cache age
-	MaxCacheAge pulumi.IntPtrOutput `pulumi:"maxCacheAge"`
+	MaxCacheAge pulumi.Float64PtrOutput `pulumi:"maxCacheAge"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the streaming endpoint.
@@ -147,7 +147,7 @@ type streamingEndpointState struct {
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Max cache age
-	MaxCacheAge *int `pulumi:"maxCacheAge"`
+	MaxCacheAge *float64 `pulumi:"maxCacheAge"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The provisioning state of the streaming endpoint.
@@ -190,7 +190,7 @@ type StreamingEndpointState struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Max cache age
-	MaxCacheAge pulumi.IntPtrInput
+	MaxCacheAge pulumi.Float64PtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The provisioning state of the streaming endpoint.
@@ -233,7 +233,7 @@ type streamingEndpointArgs struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Max cache age
-	MaxCacheAge *int `pulumi:"maxCacheAge"`
+	MaxCacheAge *float64 `pulumi:"maxCacheAge"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of scale units. Use the Scale operation to adjust this value.
@@ -269,7 +269,7 @@ type StreamingEndpointArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// Max cache age
-	MaxCacheAge pulumi.IntPtrInput
+	MaxCacheAge pulumi.Float64PtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The number of scale units. Use the Scale operation to adjust this value.

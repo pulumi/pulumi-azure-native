@@ -5228,13 +5228,13 @@ class BastionShareableLinkArgs:
 @pulumi.input_type
 class BgpSettingsArgs:
     def __init__(__self__, *,
-                 asn: Optional[pulumi.Input[int]] = None,
+                 asn: Optional[pulumi.Input[float]] = None,
                  bgp_peering_address: Optional[pulumi.Input[str]] = None,
                  bgp_peering_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['IPConfigurationBgpPeeringAddressArgs']]]] = None,
                  peer_weight: Optional[pulumi.Input[int]] = None):
         """
         BGP settings details.
-        :param pulumi.Input[int] asn: The BGP speaker's ASN.
+        :param pulumi.Input[float] asn: The BGP speaker's ASN.
         :param pulumi.Input[str] bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
         :param pulumi.Input[Sequence[pulumi.Input['IPConfigurationBgpPeeringAddressArgs']]] bgp_peering_addresses: BGP peering address with IP configuration ID for virtual network gateway.
         :param pulumi.Input[int] peer_weight: The weight added to routes learned from this BGP speaker.
@@ -5250,14 +5250,14 @@ class BgpSettingsArgs:
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[pulumi.Input[int]]:
+    def asn(self) -> Optional[pulumi.Input[float]]:
         """
         The BGP speaker's ASN.
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[pulumi.Input[int]]):
+    def asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "asn", value)
 
     @property
@@ -6777,11 +6777,11 @@ class DhcpOptionsArgs:
 class DnsConfigArgs:
     def __init__(__self__, *,
                  relative_name: Optional[pulumi.Input[str]] = None,
-                 ttl: Optional[pulumi.Input[int]] = None):
+                 ttl: Optional[pulumi.Input[float]] = None):
         """
         Class containing DNS settings in a Traffic Manager profile.
         :param pulumi.Input[str] relative_name: The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-        :param pulumi.Input[int] ttl: The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+        :param pulumi.Input[float] ttl: The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
         if relative_name is not None:
             pulumi.set(__self__, "relative_name", relative_name)
@@ -6802,14 +6802,14 @@ class DnsConfigArgs:
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[int]]:
+    def ttl(self) -> Optional[pulumi.Input[float]]:
         """
         The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[int]]):
+    def ttl(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "ttl", value)
 
 
@@ -6878,14 +6878,14 @@ class EndpointArgs:
                  endpoint_status: Optional[pulumi.Input[Union[str, 'EndpointStatus']]] = None,
                  geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 min_child_endpoints: Optional[pulumi.Input[int]] = None,
+                 min_child_endpoints: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[float]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsArgs']]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 weight: Optional[pulumi.Input[int]] = None):
+                 weight: Optional[pulumi.Input[float]] = None):
         """
         Class representing a Traffic Manager endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]] custom_headers: List of custom headers.
@@ -6894,14 +6894,14 @@ class EndpointArgs:
         :param pulumi.Input[Union[str, 'EndpointStatus']] endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mapping: The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-        :param pulumi.Input[int] min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param pulumi.Input[float] min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[int] priority: The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+        :param pulumi.Input[float] priority: The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsArgs']]] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         :param pulumi.Input[str] target: The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         :param pulumi.Input[str] target_resource_id: The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
         :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-        :param pulumi.Input[int] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+        :param pulumi.Input[float] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
@@ -7006,14 +7006,14 @@ class EndpointArgs:
 
     @property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> Optional[pulumi.Input[int]]:
+    def min_child_endpoints(self) -> Optional[pulumi.Input[float]]:
         """
         The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
         return pulumi.get(self, "min_child_endpoints")
 
     @min_child_endpoints.setter
-    def min_child_endpoints(self, value: Optional[pulumi.Input[int]]):
+    def min_child_endpoints(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min_child_endpoints", value)
 
     @property
@@ -7030,14 +7030,14 @@ class EndpointArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[int]]:
+    def priority(self) -> Optional[pulumi.Input[float]]:
         """
         The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[int]]):
+    def priority(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -7090,14 +7090,14 @@ class EndpointArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[int]]:
+    def weight(self) -> Optional[pulumi.Input[float]]:
         """
         The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[int]]):
+    def weight(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "weight", value)
 
 
@@ -7423,7 +7423,7 @@ class ExpressRouteCircuitPeeringArgs:
                  ipv6_peering_config: Optional[pulumi.Input['Ipv6ExpressRouteCircuitPeeringConfigArgs']] = None,
                  microsoft_peering_config: Optional[pulumi.Input['ExpressRouteCircuitPeeringConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peer_asn: Optional[pulumi.Input[float]] = None,
                  peering_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringType']]] = None,
                  primary_azure_port: Optional[pulumi.Input[str]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
@@ -7443,7 +7443,7 @@ class ExpressRouteCircuitPeeringArgs:
         :param pulumi.Input['Ipv6ExpressRouteCircuitPeeringConfigArgs'] ipv6_peering_config: The IPv6 peering configuration.
         :param pulumi.Input['ExpressRouteCircuitPeeringConfigArgs'] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[int] peer_asn: The peer ASN.
+        :param pulumi.Input[float] peer_asn: The peer ASN.
         :param pulumi.Input[Union[str, 'ExpressRoutePeeringType']] peering_type: The peering type.
         :param pulumi.Input[str] primary_azure_port: The primary port.
         :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
@@ -7578,14 +7578,14 @@ class ExpressRouteCircuitPeeringArgs:
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> Optional[pulumi.Input[int]]:
+    def peer_asn(self) -> Optional[pulumi.Input[float]]:
         """
         The peer ASN.
         """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter
-    def peer_asn(self, value: Optional[pulumi.Input[int]]):
+    def peer_asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "peer_asn", value)
 
     @property
@@ -7936,16 +7936,16 @@ class ExpressRouteCircuitSkuArgs:
 @pulumi.input_type
 class ExpressRouteCircuitStatsArgs:
     def __init__(__self__, *,
-                 primarybytes_in: Optional[pulumi.Input[int]] = None,
-                 primarybytes_out: Optional[pulumi.Input[int]] = None,
-                 secondarybytes_in: Optional[pulumi.Input[int]] = None,
-                 secondarybytes_out: Optional[pulumi.Input[int]] = None):
+                 primarybytes_in: Optional[pulumi.Input[float]] = None,
+                 primarybytes_out: Optional[pulumi.Input[float]] = None,
+                 secondarybytes_in: Optional[pulumi.Input[float]] = None,
+                 secondarybytes_out: Optional[pulumi.Input[float]] = None):
         """
         Contains stats associated with the peering.
-        :param pulumi.Input[int] primarybytes_in: The Primary BytesIn of the peering.
-        :param pulumi.Input[int] primarybytes_out: The primary BytesOut of the peering.
-        :param pulumi.Input[int] secondarybytes_in: The secondary BytesIn of the peering.
-        :param pulumi.Input[int] secondarybytes_out: The secondary BytesOut of the peering.
+        :param pulumi.Input[float] primarybytes_in: The Primary BytesIn of the peering.
+        :param pulumi.Input[float] primarybytes_out: The primary BytesOut of the peering.
+        :param pulumi.Input[float] secondarybytes_in: The secondary BytesIn of the peering.
+        :param pulumi.Input[float] secondarybytes_out: The secondary BytesOut of the peering.
         """
         if primarybytes_in is not None:
             pulumi.set(__self__, "primarybytes_in", primarybytes_in)
@@ -7958,50 +7958,50 @@ class ExpressRouteCircuitStatsArgs:
 
     @property
     @pulumi.getter(name="primarybytesIn")
-    def primarybytes_in(self) -> Optional[pulumi.Input[int]]:
+    def primarybytes_in(self) -> Optional[pulumi.Input[float]]:
         """
         The Primary BytesIn of the peering.
         """
         return pulumi.get(self, "primarybytes_in")
 
     @primarybytes_in.setter
-    def primarybytes_in(self, value: Optional[pulumi.Input[int]]):
+    def primarybytes_in(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "primarybytes_in", value)
 
     @property
     @pulumi.getter(name="primarybytesOut")
-    def primarybytes_out(self) -> Optional[pulumi.Input[int]]:
+    def primarybytes_out(self) -> Optional[pulumi.Input[float]]:
         """
         The primary BytesOut of the peering.
         """
         return pulumi.get(self, "primarybytes_out")
 
     @primarybytes_out.setter
-    def primarybytes_out(self, value: Optional[pulumi.Input[int]]):
+    def primarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "primarybytes_out", value)
 
     @property
     @pulumi.getter(name="secondarybytesIn")
-    def secondarybytes_in(self) -> Optional[pulumi.Input[int]]:
+    def secondarybytes_in(self) -> Optional[pulumi.Input[float]]:
         """
         The secondary BytesIn of the peering.
         """
         return pulumi.get(self, "secondarybytes_in")
 
     @secondarybytes_in.setter
-    def secondarybytes_in(self, value: Optional[pulumi.Input[int]]):
+    def secondarybytes_in(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_in", value)
 
     @property
     @pulumi.getter(name="secondarybytesOut")
-    def secondarybytes_out(self) -> Optional[pulumi.Input[int]]:
+    def secondarybytes_out(self) -> Optional[pulumi.Input[float]]:
         """
         The secondary BytesOut of the peering.
         """
         return pulumi.get(self, "secondarybytes_out")
 
     @secondarybytes_out.setter
-    def secondarybytes_out(self, value: Optional[pulumi.Input[int]]):
+    def secondarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_out", value)
 
 
@@ -11575,24 +11575,24 @@ class MonitorConfigArgs:
     def __init__(__self__, *,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorConfigCustomHeadersArgs']]]] = None,
                  expected_status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesArgs']]]] = None,
-                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 interval_in_seconds: Optional[pulumi.Input[float]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
+                 port: Optional[pulumi.Input[float]] = None,
                  profile_monitor_status: Optional[pulumi.Input[Union[str, 'ProfileMonitorStatus']]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'MonitorProtocol']]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-                 tolerated_number_of_failures: Optional[pulumi.Input[int]] = None):
+                 timeout_in_seconds: Optional[pulumi.Input[float]] = None,
+                 tolerated_number_of_failures: Optional[pulumi.Input[float]] = None):
         """
         Class containing endpoint monitoring settings in a Traffic Manager profile.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorConfigCustomHeadersArgs']]] custom_headers: List of custom headers.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesArgs']]] expected_status_code_ranges: List of expected status code ranges.
-        :param pulumi.Input[int] interval_in_seconds: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
+        :param pulumi.Input[float] interval_in_seconds: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         :param pulumi.Input[str] path: The path relative to the endpoint domain name used to probe for endpoint health.
-        :param pulumi.Input[int] port: The TCP port used to probe for endpoint health.
+        :param pulumi.Input[float] port: The TCP port used to probe for endpoint health.
         :param pulumi.Input[Union[str, 'ProfileMonitorStatus']] profile_monitor_status: The profile-level monitoring status of the Traffic Manager profile.
         :param pulumi.Input[Union[str, 'MonitorProtocol']] protocol: The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
-        :param pulumi.Input[int] timeout_in_seconds: The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-        :param pulumi.Input[int] tolerated_number_of_failures: The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+        :param pulumi.Input[float] timeout_in_seconds: The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
+        :param pulumi.Input[float] tolerated_number_of_failures: The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         """
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
@@ -11639,14 +11639,14 @@ class MonitorConfigArgs:
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+    def interval_in_seconds(self) -> Optional[pulumi.Input[float]]:
         """
         The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         """
         return pulumi.get(self, "interval_in_seconds")
 
     @interval_in_seconds.setter
-    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+    def interval_in_seconds(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "interval_in_seconds", value)
 
     @property
@@ -11663,14 +11663,14 @@ class MonitorConfigArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
+    def port(self) -> Optional[pulumi.Input[float]]:
         """
         The TCP port used to probe for endpoint health.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
+    def port(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "port", value)
 
     @property
@@ -11699,26 +11699,26 @@ class MonitorConfigArgs:
 
     @property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[float]]:
         """
         The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @property
     @pulumi.getter(name="toleratedNumberOfFailures")
-    def tolerated_number_of_failures(self) -> Optional[pulumi.Input[int]]:
+    def tolerated_number_of_failures(self) -> Optional[pulumi.Input[float]]:
         """
         The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         """
         return pulumi.get(self, "tolerated_number_of_failures")
 
     @tolerated_number_of_failures.setter
-    def tolerated_number_of_failures(self, value: Optional[pulumi.Input[int]]):
+    def tolerated_number_of_failures(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "tolerated_number_of_failures", value)
 
 
@@ -14808,12 +14808,12 @@ class QosPortRangeArgs:
 class RadiusServerArgs:
     def __init__(__self__, *,
                  radius_server_address: pulumi.Input[str],
-                 radius_server_score: Optional[pulumi.Input[int]] = None,
+                 radius_server_score: Optional[pulumi.Input[float]] = None,
                  radius_server_secret: Optional[pulumi.Input[str]] = None):
         """
         Radius Server Settings.
         :param pulumi.Input[str] radius_server_address: The address of this radius server.
-        :param pulumi.Input[int] radius_server_score: The initial score assigned to this radius server.
+        :param pulumi.Input[float] radius_server_score: The initial score assigned to this radius server.
         :param pulumi.Input[str] radius_server_secret: The secret used for this radius server.
         """
         pulumi.set(__self__, "radius_server_address", radius_server_address)
@@ -14836,14 +14836,14 @@ class RadiusServerArgs:
 
     @property
     @pulumi.getter(name="radiusServerScore")
-    def radius_server_score(self) -> Optional[pulumi.Input[int]]:
+    def radius_server_score(self) -> Optional[pulumi.Input[float]]:
         """
         The initial score assigned to this radius server.
         """
         return pulumi.get(self, "radius_server_score")
 
     @radius_server_score.setter
-    def radius_server_score(self, value: Optional[pulumi.Input[int]]):
+    def radius_server_score(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "radius_server_score", value)
 
     @property
@@ -16251,21 +16251,21 @@ class ServiceEndpointPropertiesFormatArgs:
 class SoaRecordArgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input[str]] = None,
-                 expire_time: Optional[pulumi.Input[int]] = None,
+                 expire_time: Optional[pulumi.Input[float]] = None,
                  host: Optional[pulumi.Input[str]] = None,
-                 minimum_ttl: Optional[pulumi.Input[int]] = None,
-                 refresh_time: Optional[pulumi.Input[int]] = None,
-                 retry_time: Optional[pulumi.Input[int]] = None,
-                 serial_number: Optional[pulumi.Input[int]] = None):
+                 minimum_ttl: Optional[pulumi.Input[float]] = None,
+                 refresh_time: Optional[pulumi.Input[float]] = None,
+                 retry_time: Optional[pulumi.Input[float]] = None,
+                 serial_number: Optional[pulumi.Input[float]] = None):
         """
         An SOA record.
         :param pulumi.Input[str] email: The email contact for this SOA record.
-        :param pulumi.Input[int] expire_time: The expire time for this SOA record.
+        :param pulumi.Input[float] expire_time: The expire time for this SOA record.
         :param pulumi.Input[str] host: The domain name of the authoritative name server for this SOA record.
-        :param pulumi.Input[int] minimum_ttl: The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-        :param pulumi.Input[int] refresh_time: The refresh value for this SOA record.
-        :param pulumi.Input[int] retry_time: The retry time for this SOA record.
-        :param pulumi.Input[int] serial_number: The serial number for this SOA record.
+        :param pulumi.Input[float] minimum_ttl: The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+        :param pulumi.Input[float] refresh_time: The refresh value for this SOA record.
+        :param pulumi.Input[float] retry_time: The retry time for this SOA record.
+        :param pulumi.Input[float] serial_number: The serial number for this SOA record.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -16296,14 +16296,14 @@ class SoaRecordArgs:
 
     @property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[pulumi.Input[int]]:
+    def expire_time(self) -> Optional[pulumi.Input[float]]:
         """
         The expire time for this SOA record.
         """
         return pulumi.get(self, "expire_time")
 
     @expire_time.setter
-    def expire_time(self, value: Optional[pulumi.Input[int]]):
+    def expire_time(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "expire_time", value)
 
     @property
@@ -16320,50 +16320,50 @@ class SoaRecordArgs:
 
     @property
     @pulumi.getter(name="minimumTtl")
-    def minimum_ttl(self) -> Optional[pulumi.Input[int]]:
+    def minimum_ttl(self) -> Optional[pulumi.Input[float]]:
         """
         The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
         """
         return pulumi.get(self, "minimum_ttl")
 
     @minimum_ttl.setter
-    def minimum_ttl(self, value: Optional[pulumi.Input[int]]):
+    def minimum_ttl(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "minimum_ttl", value)
 
     @property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[pulumi.Input[int]]:
+    def refresh_time(self) -> Optional[pulumi.Input[float]]:
         """
         The refresh value for this SOA record.
         """
         return pulumi.get(self, "refresh_time")
 
     @refresh_time.setter
-    def refresh_time(self, value: Optional[pulumi.Input[int]]):
+    def refresh_time(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "refresh_time", value)
 
     @property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[pulumi.Input[int]]:
+    def retry_time(self) -> Optional[pulumi.Input[float]]:
         """
         The retry time for this SOA record.
         """
         return pulumi.get(self, "retry_time")
 
     @retry_time.setter
-    def retry_time(self, value: Optional[pulumi.Input[int]]):
+    def retry_time(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "retry_time", value)
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[int]]:
+    def serial_number(self) -> Optional[pulumi.Input[float]]:
         """
         The serial number for this SOA record.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[int]]):
+    def serial_number(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "serial_number", value)
 
 
@@ -18558,11 +18558,11 @@ class VpnConnectionArgs:
 @pulumi.input_type
 class VpnLinkBgpSettingsArgs:
     def __init__(__self__, *,
-                 asn: Optional[pulumi.Input[int]] = None,
+                 asn: Optional[pulumi.Input[float]] = None,
                  bgp_peering_address: Optional[pulumi.Input[str]] = None):
         """
         BGP settings details for a link.
-        :param pulumi.Input[int] asn: The BGP speaker's ASN.
+        :param pulumi.Input[float] asn: The BGP speaker's ASN.
         :param pulumi.Input[str] bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
         """
         if asn is not None:
@@ -18572,14 +18572,14 @@ class VpnLinkBgpSettingsArgs:
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[pulumi.Input[int]]:
+    def asn(self) -> Optional[pulumi.Input[float]]:
         """
         The BGP speaker's ASN.
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[pulumi.Input[int]]):
+    def asn(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "asn", value)
 
     @property

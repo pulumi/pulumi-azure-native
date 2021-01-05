@@ -84,11 +84,11 @@ class HealthAlertCriteriaArgs:
 class HealthStateArgs:
     def __init__(__self__, *,
                  health_state_name: pulumi.Input[Union[str, 'HealthStateName']],
-                 severity: pulumi.Input[int]):
+                 severity: pulumi.Input[float]):
         """
         Specifies the health state to alert on and the corresponding severity
         :param pulumi.Input[Union[str, 'HealthStateName']] health_state_name: Health state name
-        :param pulumi.Input[int] severity: Severity of alert fired
+        :param pulumi.Input[float] severity: Severity of alert fired
         """
         pulumi.set(__self__, "health_state_name", health_state_name)
         pulumi.set(__self__, "severity", severity)
@@ -107,14 +107,14 @@ class HealthStateArgs:
 
     @property
     @pulumi.getter
-    def severity(self) -> pulumi.Input[int]:
+    def severity(self) -> pulumi.Input[float]:
         """
         Severity of alert fired
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: pulumi.Input[int]):
+    def severity(self, value: pulumi.Input[float]):
         pulumi.set(self, "severity", value)
 
 

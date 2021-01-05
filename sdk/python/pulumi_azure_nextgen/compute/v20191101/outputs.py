@@ -38,7 +38,7 @@ class CreationDataResponse(dict):
                  source_resource_id: Optional[str] = None,
                  source_uri: Optional[str] = None,
                  storage_account_id: Optional[str] = None,
-                 upload_size_bytes: Optional[int] = None):
+                 upload_size_bytes: Optional[float] = None):
         """
         Data used when creating a disk.
         :param str create_option: This enumerates the possible sources of a disk's creation.
@@ -48,7 +48,7 @@ class CreationDataResponse(dict):
         :param str source_resource_id: If createOption is Copy, this is the ARM id of the source snapshot or disk.
         :param str source_uri: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
         :param str storage_account_id: Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-        :param int upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+        :param float upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
         pulumi.set(__self__, "create_option", create_option)
         pulumi.set(__self__, "source_unique_id", source_unique_id)
@@ -123,7 +123,7 @@ class CreationDataResponse(dict):
 
     @property
     @pulumi.getter(name="uploadSizeBytes")
-    def upload_size_bytes(self) -> Optional[int]:
+    def upload_size_bytes(self) -> Optional[float]:
         """
         If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """

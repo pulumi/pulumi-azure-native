@@ -1847,7 +1847,7 @@ type ConsistencyPolicy struct {
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix *int `pulumi:"maxStalenessPrefix"`
+	MaxStalenessPrefix *float64 `pulumi:"maxStalenessPrefix"`
 }
 
 // ConsistencyPolicyInput is an input type that accepts ConsistencyPolicyArgs and ConsistencyPolicyOutput values.
@@ -1868,7 +1868,7 @@ type ConsistencyPolicyArgs struct {
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix pulumi.IntPtrInput `pulumi:"maxStalenessPrefix"`
+	MaxStalenessPrefix pulumi.Float64PtrInput `pulumi:"maxStalenessPrefix"`
 }
 
 func (ConsistencyPolicyArgs) ElementType() reflect.Type {
@@ -1960,8 +1960,8 @@ func (o ConsistencyPolicyOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-func (o ConsistencyPolicyOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConsistencyPolicy) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
+func (o ConsistencyPolicyOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConsistencyPolicy) *float64 { return v.MaxStalenessPrefix }).(pulumi.Float64PtrOutput)
 }
 
 type ConsistencyPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -2003,13 +2003,13 @@ func (o ConsistencyPolicyPtrOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-func (o ConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConsistencyPolicy) *int {
+func (o ConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConsistencyPolicy) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxStalenessPrefix
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The consistency policy for the Cosmos DB database account.
@@ -2019,7 +2019,7 @@ type ConsistencyPolicyResponse struct {
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix *int `pulumi:"maxStalenessPrefix"`
+	MaxStalenessPrefix *float64 `pulumi:"maxStalenessPrefix"`
 }
 
 // ConsistencyPolicyResponseInput is an input type that accepts ConsistencyPolicyResponseArgs and ConsistencyPolicyResponseOutput values.
@@ -2040,7 +2040,7 @@ type ConsistencyPolicyResponseArgs struct {
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-	MaxStalenessPrefix pulumi.IntPtrInput `pulumi:"maxStalenessPrefix"`
+	MaxStalenessPrefix pulumi.Float64PtrInput `pulumi:"maxStalenessPrefix"`
 }
 
 func (ConsistencyPolicyResponseArgs) ElementType() reflect.Type {
@@ -2132,8 +2132,8 @@ func (o ConsistencyPolicyResponseOutput) MaxIntervalInSeconds() pulumi.IntPtrOut
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-func (o ConsistencyPolicyResponseOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConsistencyPolicyResponse) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
+func (o ConsistencyPolicyResponseOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConsistencyPolicyResponse) *float64 { return v.MaxStalenessPrefix }).(pulumi.Float64PtrOutput)
 }
 
 type ConsistencyPolicyResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2175,13 +2175,13 @@ func (o ConsistencyPolicyResponsePtrOutput) MaxIntervalInSeconds() pulumi.IntPtr
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-func (o ConsistencyPolicyResponsePtrOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConsistencyPolicyResponse) *int {
+func (o ConsistencyPolicyResponsePtrOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConsistencyPolicyResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.MaxStalenessPrefix
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The configuration of the partition key to be used for partitioning data into multiple partitions

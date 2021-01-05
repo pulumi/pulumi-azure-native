@@ -21,7 +21,7 @@ class SqlPool(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[str]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[int]] = None,
+                 max_size_bytes: Optional[pulumi.Input[float]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -44,7 +44,7 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[str] create_mode: What is this?
         :param pulumi.Input[str] creation_date: Date the SQL pool was created
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[int] max_size_bytes: Maximum size in bytes
+        :param pulumi.Input[float] max_size_bytes: Maximum size in bytes
         :param pulumi.Input[str] provisioning_state: Resource state
         :param pulumi.Input[str] recoverable_database_id: Backup database to restore from
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -158,7 +158,7 @@ class SqlPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> pulumi.Output[Optional[int]]:
+    def max_size_bytes(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum size in bytes
         """

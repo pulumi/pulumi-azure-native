@@ -63,7 +63,7 @@ class DriveStatusResponse(dict):
     """
     def __init__(__self__, *,
                  bit_locker_key: Optional[str] = None,
-                 bytes_succeeded: Optional[int] = None,
+                 bytes_succeeded: Optional[float] = None,
                  copy_status: Optional[str] = None,
                  drive_header_hash: Optional[str] = None,
                  drive_id: Optional[str] = None,
@@ -77,7 +77,7 @@ class DriveStatusResponse(dict):
         """
         Provides information about the drive's status
         :param str bit_locker_key: The BitLocker key used to encrypt the drive.
-        :param int bytes_succeeded: Bytes successfully transferred for the drive.
+        :param float bytes_succeeded: Bytes successfully transferred for the drive.
         :param str copy_status: Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
         :param str drive_header_hash: The drive header hash value.
         :param str drive_id: The drive's hardware serial number, without spaces.
@@ -124,7 +124,7 @@ class DriveStatusResponse(dict):
 
     @property
     @pulumi.getter(name="bytesSucceeded")
-    def bytes_succeeded(self) -> Optional[int]:
+    def bytes_succeeded(self) -> Optional[float]:
         """
         Bytes successfully transferred for the drive.
         """

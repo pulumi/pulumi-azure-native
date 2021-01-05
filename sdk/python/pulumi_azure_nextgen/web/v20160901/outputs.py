@@ -399,26 +399,26 @@ class StampCapacityResponse(dict):
     Stamp capacity information.
     """
     def __init__(__self__, *,
-                 available_capacity: Optional[int] = None,
+                 available_capacity: Optional[float] = None,
                  compute_mode: Optional[str] = None,
                  exclude_from_capacity_allocation: Optional[bool] = None,
                  is_applicable_for_all_compute_modes: Optional[bool] = None,
                  name: Optional[str] = None,
                  site_mode: Optional[str] = None,
-                 total_capacity: Optional[int] = None,
+                 total_capacity: Optional[float] = None,
                  unit: Optional[str] = None,
                  worker_size: Optional[str] = None,
                  worker_size_id: Optional[int] = None):
         """
         Stamp capacity information.
-        :param int available_capacity: Available capacity (# of machines, bytes of storage etc...).
+        :param float available_capacity: Available capacity (# of machines, bytes of storage etc...).
         :param str compute_mode: Shared/dedicated workers.
         :param bool exclude_from_capacity_allocation: If <code>true</code>, it includes basic apps.
                Basic apps are not used for capacity allocation.
         :param bool is_applicable_for_all_compute_modes: <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
         :param str name: Name of the stamp.
         :param str site_mode: Shared or Dedicated.
-        :param int total_capacity: Total capacity (# of machines, bytes of storage etc...).
+        :param float total_capacity: Total capacity (# of machines, bytes of storage etc...).
         :param str unit: Name of the unit.
         :param str worker_size: Size of the machines.
         :param int worker_size_id: Size ID of machines: 
@@ -449,7 +449,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="availableCapacity")
-    def available_capacity(self) -> Optional[int]:
+    def available_capacity(self) -> Optional[float]:
         """
         Available capacity (# of machines, bytes of storage etc...).
         """
@@ -498,7 +498,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="totalCapacity")
-    def total_capacity(self) -> Optional[int]:
+    def total_capacity(self) -> Optional[float]:
         """
         Total capacity (# of machines, bytes of storage etc...).
         """

@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Network.V20180401
         /// <summary>
         /// Maximum number of endpoints to be returned for MultiValue routing type.
         /// </summary>
-        public readonly int? MaxReturn;
+        public readonly double? MaxReturn;
         /// <summary>
         /// The endpoint monitoring settings of the Traffic Manager profile.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Network.V20180401
 
             string? location,
 
-            int? maxReturn,
+            double? maxReturn,
 
             Outputs.MonitorConfigResponse? monitorConfig,
 

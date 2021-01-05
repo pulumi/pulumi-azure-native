@@ -56,7 +56,7 @@ type Database struct {
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId pulumi.StringPtrOutput `pulumi:"longTermRetentionBackupResourceId"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrOutput `pulumi:"maxSizeBytes"`
+	MaxSizeBytes pulumi.Float64PtrOutput `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource identifier of the recoverable database associated with create operation of this database.
@@ -188,7 +188,7 @@ type databaseState struct {
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// The resource identifier of the recoverable database associated with create operation of this database.
@@ -259,7 +259,7 @@ type DatabaseState struct {
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId pulumi.StringPtrInput
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// The resource identifier of the recoverable database associated with create operation of this database.
@@ -324,7 +324,7 @@ type databaseArgs struct {
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// The resource identifier of the recoverable database associated with create operation of this database.
 	RecoverableDatabaseId *string `pulumi:"recoverableDatabaseId"`
 	// The resource identifier of the recovery point associated with create operation of this database.
@@ -384,7 +384,7 @@ type DatabaseArgs struct {
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId pulumi.StringPtrInput
 	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.IntPtrInput
+	MaxSizeBytes pulumi.Float64PtrInput
 	// The resource identifier of the recoverable database associated with create operation of this database.
 	RecoverableDatabaseId pulumi.StringPtrInput
 	// The resource identifier of the recovery point associated with create operation of this database.

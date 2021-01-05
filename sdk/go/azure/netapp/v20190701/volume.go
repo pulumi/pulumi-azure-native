@@ -44,7 +44,7 @@ type Volume struct {
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold pulumi.IntOutput `pulumi:"usageThreshold"`
+	UsageThreshold pulumi.Float64Output `pulumi:"usageThreshold"`
 }
 
 // NewVolume registers a new resource with the given unique name, arguments, and options.
@@ -174,7 +174,7 @@ type volumeState struct {
 	// Resource type
 	Type *string `pulumi:"type"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold *int `pulumi:"usageThreshold"`
+	UsageThreshold *float64 `pulumi:"usageThreshold"`
 }
 
 type VolumeState struct {
@@ -207,7 +207,7 @@ type VolumeState struct {
 	// Resource type
 	Type pulumi.StringPtrInput
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold pulumi.IntPtrInput
+	UsageThreshold pulumi.Float64PtrInput
 }
 
 func (VolumeState) ElementType() reflect.Type {
@@ -240,7 +240,7 @@ type volumeArgs struct {
 	// Resource tags
 	Tags interface{} `pulumi:"tags"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold int `pulumi:"usageThreshold"`
+	UsageThreshold float64 `pulumi:"usageThreshold"`
 	// The name of the volume
 	VolumeName string `pulumi:"volumeName"`
 }
@@ -272,7 +272,7 @@ type VolumeArgs struct {
 	// Resource tags
 	Tags pulumi.Input
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold pulumi.IntInput
+	UsageThreshold pulumi.Float64Input
 	// The name of the volume
 	VolumeName pulumi.StringInput
 }

@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Outputs
         /// <summary>
         /// The disk capacity in bytes.
         /// </summary>
-        public readonly int? DiskCapacityInBytes;
+        public readonly double? DiskCapacityInBytes;
         /// <summary>
         /// The managed disk Arm id.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Outputs
 
             double? dataPendingInStagingStorageAccountInMB,
 
-            int? diskCapacityInBytes,
+            double? diskCapacityInBytes,
 
             string? diskId,
 

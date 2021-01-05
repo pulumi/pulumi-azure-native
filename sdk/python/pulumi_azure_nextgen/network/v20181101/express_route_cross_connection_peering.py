@@ -25,7 +25,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peer_asn: Optional[pulumi.Input[float]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
                  peering_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringType']]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
@@ -49,7 +49,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_by: Gets whether the provider or the customer last modified the peering.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[int] peer_asn: The peer ASN.
+        :param pulumi.Input[float] peer_asn: The peer ASN.
         :param pulumi.Input[str] peering_name: The name of the peering.
         :param pulumi.Input[Union[str, 'ExpressRoutePeeringType']] peering_type: The peering type.
         :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
@@ -187,7 +187,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> pulumi.Output[Optional[int]]:
+    def peer_asn(self) -> pulumi.Output[Optional[float]]:
         """
         The peer ASN.
         """

@@ -16,17 +16,17 @@ namespace Pulumi.AzureNextGen.Media.Latest.Outputs
         /// <summary>
         /// Playback duration
         /// </summary>
-        public readonly int PlaybackDurationSeconds;
+        public readonly double PlaybackDurationSeconds;
         /// <summary>
         /// Storage duration
         /// </summary>
-        public readonly int StorageDurationSeconds;
+        public readonly double StorageDurationSeconds;
 
         [OutputConstructor]
         private ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse(
-            int playbackDurationSeconds,
+            double playbackDurationSeconds,
 
-            int storageDurationSeconds)
+            double storageDurationSeconds)
         {
             PlaybackDurationSeconds = playbackDurationSeconds;
             StorageDurationSeconds = storageDurationSeconds;

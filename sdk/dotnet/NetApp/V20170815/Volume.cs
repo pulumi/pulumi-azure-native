@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20170815
         /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
         /// </summary>
         [Output("usageThreshold")]
-        public Output<int?> UsageThreshold { get; private set; } = null!;
+        public Output<double?> UsageThreshold { get; private set; } = null!;
 
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20170815
         /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
         /// </summary>
         [Input("usageThreshold")]
-        public Input<int>? UsageThreshold { get; set; }
+        public Input<double>? UsageThreshold { get; set; }
 
         /// <summary>
         /// The name of the volume

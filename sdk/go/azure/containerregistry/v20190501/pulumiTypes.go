@@ -3633,7 +3633,7 @@ type TargetResponse struct {
 	// The digest of the content, as defined by the Registry V2 HTTP API Specification.
 	Digest *string `pulumi:"digest"`
 	// The number of bytes of the content. Same as Size field.
-	Length *int `pulumi:"length"`
+	Length *float64 `pulumi:"length"`
 	// The MIME type of the referenced object.
 	MediaType *string `pulumi:"mediaType"`
 	// The name of the artifact.
@@ -3641,7 +3641,7 @@ type TargetResponse struct {
 	// The repository name.
 	Repository *string `pulumi:"repository"`
 	// The number of bytes of the content. Same as Length field.
-	Size *int `pulumi:"size"`
+	Size *float64 `pulumi:"size"`
 	// The tag name.
 	Tag *string `pulumi:"tag"`
 	// The direct URL to the content.
@@ -3666,7 +3666,7 @@ type TargetResponseArgs struct {
 	// The digest of the content, as defined by the Registry V2 HTTP API Specification.
 	Digest pulumi.StringPtrInput `pulumi:"digest"`
 	// The number of bytes of the content. Same as Size field.
-	Length pulumi.IntPtrInput `pulumi:"length"`
+	Length pulumi.Float64PtrInput `pulumi:"length"`
 	// The MIME type of the referenced object.
 	MediaType pulumi.StringPtrInput `pulumi:"mediaType"`
 	// The name of the artifact.
@@ -3674,7 +3674,7 @@ type TargetResponseArgs struct {
 	// The repository name.
 	Repository pulumi.StringPtrInput `pulumi:"repository"`
 	// The number of bytes of the content. Same as Length field.
-	Size pulumi.IntPtrInput `pulumi:"size"`
+	Size pulumi.Float64PtrInput `pulumi:"size"`
 	// The tag name.
 	Tag pulumi.StringPtrInput `pulumi:"tag"`
 	// The direct URL to the content.
@@ -3767,8 +3767,8 @@ func (o TargetResponseOutput) Digest() pulumi.StringPtrOutput {
 }
 
 // The number of bytes of the content. Same as Size field.
-func (o TargetResponseOutput) Length() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TargetResponse) *int { return v.Length }).(pulumi.IntPtrOutput)
+func (o TargetResponseOutput) Length() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TargetResponse) *float64 { return v.Length }).(pulumi.Float64PtrOutput)
 }
 
 // The MIME type of the referenced object.
@@ -3787,8 +3787,8 @@ func (o TargetResponseOutput) Repository() pulumi.StringPtrOutput {
 }
 
 // The number of bytes of the content. Same as Length field.
-func (o TargetResponseOutput) Size() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TargetResponse) *int { return v.Size }).(pulumi.IntPtrOutput)
+func (o TargetResponseOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TargetResponse) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
 }
 
 // The tag name.
@@ -3835,13 +3835,13 @@ func (o TargetResponsePtrOutput) Digest() pulumi.StringPtrOutput {
 }
 
 // The number of bytes of the content. Same as Size field.
-func (o TargetResponsePtrOutput) Length() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TargetResponse) *int {
+func (o TargetResponsePtrOutput) Length() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TargetResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Length
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The MIME type of the referenced object.
@@ -3875,13 +3875,13 @@ func (o TargetResponsePtrOutput) Repository() pulumi.StringPtrOutput {
 }
 
 // The number of bytes of the content. Same as Length field.
-func (o TargetResponsePtrOutput) Size() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TargetResponse) *int {
+func (o TargetResponsePtrOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TargetResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Size
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The tag name.

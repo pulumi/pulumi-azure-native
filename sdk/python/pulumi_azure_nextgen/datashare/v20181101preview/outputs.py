@@ -341,34 +341,34 @@ class SynchronizationDetailsResponseResult(dict):
                  data_set_type: str,
                  duration_ms: int,
                  end_time: str,
-                 files_read: int,
-                 files_written: int,
+                 files_read: float,
+                 files_written: float,
                  message: str,
                  name: str,
-                 rows_copied: int,
-                 rows_read: int,
-                 size_read: int,
-                 size_written: int,
+                 rows_copied: float,
+                 rows_read: float,
+                 size_read: float,
+                 size_written: float,
                  start_time: str,
                  status: str,
-                 v_core: int):
+                 v_core: float):
         """
         Synchronization details at data set level
         :param str data_set_id: Id of data set
         :param str data_set_type: Type of the data set
         :param int duration_ms: Duration of data set level copy
         :param str end_time: End time of data set level copy
-        :param int files_read: The number of files read from the source data set
-        :param int files_written: The number of files written into the sink data set
+        :param float files_read: The number of files read from the source data set
+        :param float files_written: The number of files written into the sink data set
         :param str message: Error message if any
         :param str name: Name of the data set
-        :param int rows_copied: The number of files copied into the sink data set
-        :param int rows_read: The number of rows read from the source data set.
-        :param int size_read: The size of the data read from the source data set in bytes
-        :param int size_written: The size of the data written into the sink data set in bytes
+        :param float rows_copied: The number of files copied into the sink data set
+        :param float rows_read: The number of rows read from the source data set.
+        :param float size_read: The size of the data read from the source data set in bytes
+        :param float size_written: The size of the data written into the sink data set in bytes
         :param str start_time: Start time of data set level copy
         :param str status: Raw Status
-        :param int v_core: The vCore units consumed for the data set synchronization
+        :param float v_core: The vCore units consumed for the data set synchronization
         """
         pulumi.set(__self__, "data_set_id", data_set_id)
         pulumi.set(__self__, "data_set_type", data_set_type)
@@ -420,7 +420,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="filesRead")
-    def files_read(self) -> int:
+    def files_read(self) -> float:
         """
         The number of files read from the source data set
         """
@@ -428,7 +428,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="filesWritten")
-    def files_written(self) -> int:
+    def files_written(self) -> float:
         """
         The number of files written into the sink data set
         """
@@ -452,7 +452,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="rowsCopied")
-    def rows_copied(self) -> int:
+    def rows_copied(self) -> float:
         """
         The number of files copied into the sink data set
         """
@@ -460,7 +460,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="rowsRead")
-    def rows_read(self) -> int:
+    def rows_read(self) -> float:
         """
         The number of rows read from the source data set.
         """
@@ -468,7 +468,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="sizeRead")
-    def size_read(self) -> int:
+    def size_read(self) -> float:
         """
         The size of the data read from the source data set in bytes
         """
@@ -476,7 +476,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="sizeWritten")
-    def size_written(self) -> int:
+    def size_written(self) -> float:
         """
         The size of the data written into the sink data set in bytes
         """
@@ -500,7 +500,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="vCore")
-    def v_core(self) -> int:
+    def v_core(self) -> float:
         """
         The vCore units consumed for the data set synchronization
         """

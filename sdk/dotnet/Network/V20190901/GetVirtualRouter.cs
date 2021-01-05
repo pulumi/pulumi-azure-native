@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// VirtualRouter ASN.
         /// </summary>
-        public readonly int? VirtualRouterAsn;
+        public readonly double? VirtualRouterAsn;
         /// <summary>
         /// VirtualRouter IPs.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
 
             string type,
 
-            int? virtualRouterAsn,
+            double? virtualRouterAsn,
 
             ImmutableArray<string> virtualRouterIps)
         {

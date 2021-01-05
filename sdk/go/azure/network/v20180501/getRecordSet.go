@@ -62,7 +62,7 @@ type LookupRecordSetResult struct {
 	// A reference to an azure resource from where the dns resource value is taken.
 	TargetResource *SubResourceResponse `pulumi:"targetResource"`
 	// The TTL (time-to-live) of the records in the record set.
-	Ttl *int `pulumi:"ttl"`
+	Ttl *float64 `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords []TxtRecordResponse `pulumi:"txtRecords"`
 	// The type of the record set.

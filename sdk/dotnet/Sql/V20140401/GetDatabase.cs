@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// <summary>
         /// The containment state of the database.
         /// </summary>
-        public readonly int ContainmentState;
+        public readonly double ContainmentState;
         /// <summary>
         /// Specifies the mode of database creation.
         /// 
@@ -222,7 +222,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         private GetDatabaseResult(
             string? collation,
 
-            int containmentState,
+            double containmentState,
 
             string? createMode,
 

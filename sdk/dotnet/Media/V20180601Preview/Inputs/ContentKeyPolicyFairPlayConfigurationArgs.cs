@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
         /// The rental duration. Must be greater than or equal to 0.
         /// </summary>
         [Input("rentalDuration", required: true)]
-        public Input<int> RentalDuration { get; set; } = null!;
+        public Input<double> RentalDuration { get; set; } = null!;
 
         public ContentKeyPolicyFairPlayConfigurationArgs()
         {
