@@ -884,6 +884,7 @@
         "attestation/v20201001/getAttestationProvider.ts",
         "attestation/v20201001/index.ts",
         "authorization/index.ts",
+        "authorization/latest/getClientConfig.ts",
         "authorization/latest/getManagementLockAtResourceGroupLevel.ts",
         "authorization/latest/getManagementLockAtResourceLevel.ts",
         "authorization/latest/getManagementLockAtSubscriptionLevel.ts",

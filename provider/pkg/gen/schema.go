@@ -294,6 +294,11 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 		}
 	}
 
+	err := genMixins(&pkg)
+	if err != nil {
+		return nil, nil, nil, err
+	}
+
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
 		"importBasePath":       goBasePath,
 		"packageImportAliases": golangImportAliases,
@@ -331,6 +336,36 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	})
 
 	return &pkg, &metadata, exampleMap, nil
+}
+
+func genMixins(pkg *pschema.PackageSpec) error {
+	// Mixin 'getClientConfig' to read current configuration values.
+	if _, has := pkg.Functions["azure-nextgen:authorization/latest:getClientConfig"]; has {
+		return errors.New("Invoke 'azure-nextgen:authorization/latest:getClientConfig' is already defined")
+	}
+	pkg.Functions["azure-nextgen:authorization/latest:getClientConfig"] = schema.FunctionSpec{
+		Description: "Use this function to access the current configuration of the Azure NextGen provider.",
+		Outputs: &schema.ObjectTypeSpec{
+			Description: "Configuration values returned by getClientConfig.",
+			Properties: map[string]schema.PropertySpec{
+				"clientId": {
+					TypeSpec: schema.TypeSpec{Type: "string"},
+				},
+				"objectId": {
+					TypeSpec: schema.TypeSpec{Type: "string"},
+				},
+				"subscriptionId": {
+					TypeSpec: schema.TypeSpec{Type: "string"},
+				},
+				"tenantId": {
+					TypeSpec: schema.TypeSpec{Type: "string"},
+				},
+			},
+			Type: "object",
+			Required: []string{"clientId", "objectId", "subscriptionId", "tenantId"},
+		},
+	}
+	return nil
 }
 
 // Microsoft-specific API extension constants.

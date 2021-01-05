@@ -128,10 +128,6 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 	}
 
 	envName := authConfig.Environment
-	if envName == "" {
-		envName = "public"
-	}
-
 	env, err := azure.EnvironmentFromName(envName)
 	if err != nil {
 		env, err = azure.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", envName))
@@ -171,6 +167,21 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 
 	var outputs map[string]interface{}
 	switch req.Tok {
+	case "azure-nextgen:authorization/latest:getClientConfig":
+		auth, err := k.getAuthConfig()
+		if err != nil {
+			return nil, fmt.Errorf("getting auth config: %w", err)
+		}
+		objectId, err := auth.GetAuthenticatedObjectID(ctx)
+		if err != nil {
+			return nil, fmt.Errorf("getting authenticated object ID: %w", err)
+		}
+		outputs = map[string]interface{}{
+			"clientId":       auth.ClientID,
+			"objectId":       objectId,
+			"subscriptionId": auth.SubscriptionID,
+			"tenantId":       auth.TenantID,
+		}
 	case "azure-nextgen:armtemplate:decode":
 		var text string
 		if textArg := args["text"]; textArg.HasValue() && textArg.IsString() {
@@ -192,7 +203,7 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 	default:
 		res, ok := k.resourceMap.Invokes[req.Tok]
 		if !ok {
-			return nil, errors.Errorf("Resource type %s not found", req.Tok)
+			return nil, errors.Errorf("Invoke type %s not found", req.Tok)
 		}
 
 		parameters := res.GetParameters
@@ -1303,12 +1314,16 @@ func (k *azureNextGenProvider) getAuthConfig() (*authentication.Config, error) {
 		}
 	}
 	useMsi := k.getConfig("useMsi", "ARM_USE_MSI") == "true"
+	envName := k.getConfig("environment", "ARM_ENVIRONMENT")
+	if envName == "" {
+		envName = "public"
+	}
 	builder := &authentication.Builder{
 		SubscriptionID: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
 		ClientID:       k.getConfig("clientId", "ARM_CLIENT_ID"),
 		ClientSecret:   k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
 		TenantID:       k.getConfig("tenantId", "ARM_TENANT_ID"),
-		Environment:    k.getConfig("environment", "ARM_ENVIRONMENT"),
+		Environment:    envName,
 		ClientCertPath: k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
 		ClientCertPassword: k.getConfig("clientCertificatePassword",
 			"ARM_CLIENT_CERTIFICATE_PASSWORD"),
