@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
         /// <summary>
         /// Task output. This is ignored if submitted.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse, Union<Outputs.ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse, Union<Outputs.ConnectToSourceSqlServerTaskOutputLoginLevelResponse, Outputs.ConnectToSourceSqlServerTaskOutputTaskLevelResponse>>>> Output;
+        public readonly ImmutableArray<object> Output;
         /// <summary>
         /// The state of the task. This is ignored if submitted.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
 
             Outputs.ConnectToSourceSqlServerTaskInputResponse? input,
 
-            ImmutableArray<Union<Outputs.ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse, Union<Outputs.ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse, Union<Outputs.ConnectToSourceSqlServerTaskOutputLoginLevelResponse, Outputs.ConnectToSourceSqlServerTaskOutputTaskLevelResponse>>>> output,
+            ImmutableArray<object> output,
 
             string state,
 

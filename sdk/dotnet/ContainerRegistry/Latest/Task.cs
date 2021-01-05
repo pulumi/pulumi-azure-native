@@ -75,7 +75,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
         /// The properties of a task step.
         /// </summary>
         [Output("step")]
-        public Output<Union<Outputs.DockerBuildStepResponse, Union<Outputs.EncodedTaskStepResponse, Outputs.FileTaskStepResponse>>> Step { get; private set; } = null!;
+        public Output<object> Step { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

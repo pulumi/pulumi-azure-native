@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
     public sealed class StandardEncoderPresetArgs : Pulumi.ResourceArgs
     {
         [Input("codecs")]
-        private InputList<Union<Inputs.AudioArgs, Union<Inputs.CopyAudioArgs, Union<Inputs.CopyVideoArgs, Inputs.VideoArgs>>>>? _codecs;
+        private InputList<object>? _codecs;
 
         /// <summary>
         /// The list of codecs to be used when encoding the input video.
         /// </summary>
-        public InputList<Union<Inputs.AudioArgs, Union<Inputs.CopyAudioArgs, Union<Inputs.CopyVideoArgs, Inputs.VideoArgs>>>> Codecs
+        public InputList<object> Codecs
         {
-            get => _codecs ?? (_codecs = new InputList<Union<Inputs.AudioArgs, Union<Inputs.CopyAudioArgs, Union<Inputs.CopyVideoArgs, Inputs.VideoArgs>>>>());
+            get => _codecs ?? (_codecs = new InputList<object>());
             set => _codecs = value;
         }
 

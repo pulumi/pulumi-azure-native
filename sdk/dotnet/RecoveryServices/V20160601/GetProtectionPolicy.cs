@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
         /// <summary>
         /// The base class for a backup policy. Workload-specific backup policies are derived from this class.
         /// </summary>
-        public readonly Union<Outputs.AzureIaaSVMProtectionPolicyResponse, Union<Outputs.AzureSqlProtectionPolicyResponse, Outputs.MabProtectionPolicyResponse>> Properties;
+        public readonly object Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
 
             string? name,
 
-            Union<Outputs.AzureIaaSVMProtectionPolicyResponse, Union<Outputs.AzureSqlProtectionPolicyResponse, Outputs.MabProtectionPolicyResponse>> properties,
+            object properties,
 
             ImmutableDictionary<string, string>? tags,
 

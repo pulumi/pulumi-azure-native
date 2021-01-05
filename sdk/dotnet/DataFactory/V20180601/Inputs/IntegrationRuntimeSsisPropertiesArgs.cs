@@ -40,14 +40,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.IntegrationRuntimeEdition>? Edition { get; set; }
 
         [Input("expressCustomSetupProperties")]
-        private InputList<Union<Inputs.AzPowerShellSetupArgs, Union<Inputs.CmdkeySetupArgs, Union<Inputs.ComponentSetupArgs, Inputs.EnvironmentVariableSetupArgs>>>>? _expressCustomSetupProperties;
+        private InputList<object>? _expressCustomSetupProperties;
 
         /// <summary>
         /// Custom setup without script properties for a SSIS integration runtime.
         /// </summary>
-        public InputList<Union<Inputs.AzPowerShellSetupArgs, Union<Inputs.CmdkeySetupArgs, Union<Inputs.ComponentSetupArgs, Inputs.EnvironmentVariableSetupArgs>>>> ExpressCustomSetupProperties
+        public InputList<object> ExpressCustomSetupProperties
         {
-            get => _expressCustomSetupProperties ?? (_expressCustomSetupProperties = new InputList<Union<Inputs.AzPowerShellSetupArgs, Union<Inputs.CmdkeySetupArgs, Union<Inputs.ComponentSetupArgs, Inputs.EnvironmentVariableSetupArgs>>>>());
+            get => _expressCustomSetupProperties ?? (_expressCustomSetupProperties = new InputList<object>());
             set => _expressCustomSetupProperties = value;
         }
 

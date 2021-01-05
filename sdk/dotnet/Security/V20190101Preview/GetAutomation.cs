@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// <summary>
         /// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.AutomationActionEventHubResponse, Union<Outputs.AutomationActionLogicAppResponse, Outputs.AutomationActionWorkspaceResponse>>> Actions;
+        public readonly ImmutableArray<object> Actions;
         /// <summary>
         /// The security automation description.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
 
         [OutputConstructor]
         private GetAutomationResult(
-            ImmutableArray<Union<Outputs.AutomationActionEventHubResponse, Union<Outputs.AutomationActionLogicAppResponse, Outputs.AutomationActionWorkspaceResponse>>> actions,
+            ImmutableArray<object> actions,
 
             string? description,
 

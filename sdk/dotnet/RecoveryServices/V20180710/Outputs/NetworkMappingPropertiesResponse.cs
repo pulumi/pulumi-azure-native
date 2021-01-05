@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The fabric specific settings.
         /// </summary>
-        public readonly Union<Outputs.AzureToAzureNetworkMappingSettingsResponse, Union<Outputs.VmmToAzureNetworkMappingSettingsResponse, Outputs.VmmToVmmNetworkMappingSettingsResponse>>? FabricSpecificSettings;
+        public readonly object? FabricSpecificSettings;
         /// <summary>
         /// The primary fabric friendly name.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Outputs
 
         [OutputConstructor]
         private NetworkMappingPropertiesResponse(
-            Union<Outputs.AzureToAzureNetworkMappingSettingsResponse, Union<Outputs.VmmToAzureNetworkMappingSettingsResponse, Outputs.VmmToVmmNetworkMappingSettingsResponse>>? fabricSpecificSettings,
+            object? fabricSpecificSettings,
 
             string? primaryFabricFriendlyName,
 

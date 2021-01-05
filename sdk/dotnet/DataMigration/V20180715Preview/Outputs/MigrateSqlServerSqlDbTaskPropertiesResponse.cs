@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// Task output. This is ignored if submitted.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse, Union<Outputs.MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse, Union<Outputs.MigrateSqlServerSqlDbTaskOutputErrorResponse, Union<Outputs.MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse, Union<Outputs.MigrateSqlServerSqlDbTaskOutputTableLevelResponse, Outputs.MigrateSqlServerSqlDbTaskOutputValidationResultResponse>>>>>> Output;
+        public readonly ImmutableArray<object> Output;
         /// <summary>
         /// The state of the task. This is ignored if submitted.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
             Outputs.MigrateSqlServerSqlDbTaskInputResponse? input,
 
-            ImmutableArray<Union<Outputs.MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse, Union<Outputs.MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse, Union<Outputs.MigrateSqlServerSqlDbTaskOutputErrorResponse, Union<Outputs.MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse, Union<Outputs.MigrateSqlServerSqlDbTaskOutputTableLevelResponse, Outputs.MigrateSqlServerSqlDbTaskOutputValidationResultResponse>>>>>> output,
+            ImmutableArray<object> output,
 
             string state,
 

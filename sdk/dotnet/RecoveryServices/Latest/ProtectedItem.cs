@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// ProtectedItemResource properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.AzureFileshareProtectedItemResponse, Union<Outputs.AzureIaaSVMProtectedItemResponse, Union<Outputs.AzureSqlProtectedItemResponse, Union<Outputs.AzureVmWorkloadProtectedItemResponse, Union<Outputs.DPMProtectedItemResponse, Union<Outputs.GenericProtectedItemResponse, Outputs.MabFileFolderProtectedItemResponse>>>>>>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// ProtectedItemResource properties
         /// </summary>
         [Input("properties")]
-        public InputUnion<Inputs.AzureFileshareProtectedItemArgs, InputUnion<Inputs.AzureIaaSVMProtectedItemArgs, InputUnion<Inputs.AzureSqlProtectedItemArgs, InputUnion<Inputs.AzureVmWorkloadProtectedItemArgs, InputUnion<Inputs.DPMProtectedItemArgs, InputUnion<Inputs.GenericProtectedItemArgs, Inputs.MabFileFolderProtectedItemArgs>>>>>>? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// Item name to be backed up.

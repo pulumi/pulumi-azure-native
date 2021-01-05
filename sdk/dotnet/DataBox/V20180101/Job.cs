@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101
         /// Details of a job run. This field will only be sent for expand details filter.
         /// </summary>
         [Output("details")]
-        public Output<Union<Outputs.DataBoxDiskJobDetailsResponse, Union<Outputs.DataBoxHeavyJobDetailsResponse, Outputs.DataBoxJobDetailsResponse>>?> Details { get; private set; } = null!;
+        public Output<object?> Details { get; private set; } = null!;
 
         /// <summary>
         /// Top level error for the job.
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101
         /// Details of a job run. This field will only be sent for expand details filter.
         /// </summary>
         [Input("details")]
-        public InputUnion<Inputs.DataBoxDiskJobDetailsArgs, InputUnion<Inputs.DataBoxHeavyJobDetailsArgs, Inputs.DataBoxJobDetailsArgs>>? Details { get; set; }
+        public Input<object>? Details { get; set; }
 
         /// <summary>
         /// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only

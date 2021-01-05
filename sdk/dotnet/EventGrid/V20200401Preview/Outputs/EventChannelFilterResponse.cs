@@ -16,10 +16,10 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview.Outputs
         /// <summary>
         /// An array of advanced filters that are used for filtering event channels.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.BoolEqualsAdvancedFilterResponse, Union<Outputs.NumberGreaterThanAdvancedFilterResponse, Union<Outputs.NumberGreaterThanOrEqualsAdvancedFilterResponse, Union<Outputs.NumberInAdvancedFilterResponse, Union<Outputs.NumberLessThanAdvancedFilterResponse, Union<Outputs.NumberLessThanOrEqualsAdvancedFilterResponse, Union<Outputs.NumberNotInAdvancedFilterResponse, Union<Outputs.StringBeginsWithAdvancedFilterResponse, Union<Outputs.StringContainsAdvancedFilterResponse, Union<Outputs.StringEndsWithAdvancedFilterResponse, Union<Outputs.StringInAdvancedFilterResponse, Outputs.StringNotInAdvancedFilterResponse>>>>>>>>>>>> AdvancedFilters;
+        public readonly ImmutableArray<object> AdvancedFilters;
 
         [OutputConstructor]
-        private EventChannelFilterResponse(ImmutableArray<Union<Outputs.BoolEqualsAdvancedFilterResponse, Union<Outputs.NumberGreaterThanAdvancedFilterResponse, Union<Outputs.NumberGreaterThanOrEqualsAdvancedFilterResponse, Union<Outputs.NumberInAdvancedFilterResponse, Union<Outputs.NumberLessThanAdvancedFilterResponse, Union<Outputs.NumberLessThanOrEqualsAdvancedFilterResponse, Union<Outputs.NumberNotInAdvancedFilterResponse, Union<Outputs.StringBeginsWithAdvancedFilterResponse, Union<Outputs.StringContainsAdvancedFilterResponse, Union<Outputs.StringEndsWithAdvancedFilterResponse, Union<Outputs.StringInAdvancedFilterResponse, Outputs.StringNotInAdvancedFilterResponse>>>>>>>>>>>> advancedFilters)
+        private EventChannelFilterResponse(ImmutableArray<object> advancedFilters)
         {
             AdvancedFilters = advancedFilters;
         }

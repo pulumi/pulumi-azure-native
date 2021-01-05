@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Custom setup without script properties for a SSIS integration runtime.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.AzPowerShellSetupResponse, Union<Outputs.CmdkeySetupResponse, Union<Outputs.ComponentSetupResponse, Outputs.EnvironmentVariableSetupResponse>>>> ExpressCustomSetupProperties;
+        public readonly ImmutableArray<object> ExpressCustomSetupProperties;
         /// <summary>
         /// License type for bringing your own license scenario.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             string? edition,
 
-            ImmutableArray<Union<Outputs.AzPowerShellSetupResponse, Union<Outputs.CmdkeySetupResponse, Union<Outputs.ComponentSetupResponse, Outputs.EnvironmentVariableSetupResponse>>>> expressCustomSetupProperties,
+            ImmutableArray<object> expressCustomSetupProperties,
 
             string? licenseType,
 

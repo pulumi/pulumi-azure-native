@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest.Inputs
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("serialization")]
-        public InputUnion<Inputs.AvroSerializationArgs, InputUnion<Inputs.CsvSerializationArgs, Inputs.JsonSerializationArgs>>? Serialization { get; set; }
+        public Input<object>? Serialization { get; set; }
 
         /// <summary>
         /// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.

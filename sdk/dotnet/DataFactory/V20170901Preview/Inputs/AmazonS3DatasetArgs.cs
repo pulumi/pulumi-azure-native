@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         /// The data compression method used for the Amazon S3 object.
         /// </summary>
         [Input("compression")]
-        public InputUnion<Inputs.DatasetBZip2CompressionArgs, InputUnion<Inputs.DatasetDeflateCompressionArgs, InputUnion<Inputs.DatasetGZipCompressionArgs, Inputs.DatasetZipDeflateCompressionArgs>>>? Compression { get; set; }
+        public Input<object>? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         /// The format of files.
         /// </summary>
         [Input("format")]
-        public InputUnion<Inputs.AvroFormatArgs, InputUnion<Inputs.JsonFormatArgs, InputUnion<Inputs.OrcFormatArgs, InputUnion<Inputs.ParquetFormatArgs, Inputs.TextFormatArgs>>>>? Format { get; set; }
+        public Input<object>? Format { get; set; }
 
         /// <summary>
         /// The key of the Amazon S3 object. Type: string (or Expression with resultType string).

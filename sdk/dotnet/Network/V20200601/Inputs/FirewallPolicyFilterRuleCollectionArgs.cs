@@ -41,14 +41,14 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         public Input<string> RuleCollectionType { get; set; } = null!;
 
         [Input("rules")]
-        private InputList<Union<Inputs.ApplicationRuleArgs, Union<Inputs.NatRuleArgs, Inputs.NetworkRuleArgs>>>? _rules;
+        private InputList<object>? _rules;
 
         /// <summary>
         /// List of rules included in a rule collection.
         /// </summary>
-        public InputList<Union<Inputs.ApplicationRuleArgs, Union<Inputs.NatRuleArgs, Inputs.NetworkRuleArgs>>> Rules
+        public InputList<object> Rules
         {
-            get => _rules ?? (_rules = new InputList<Union<Inputs.ApplicationRuleArgs, Union<Inputs.NatRuleArgs, Inputs.NetworkRuleArgs>>>());
+            get => _rules ?? (_rules = new InputList<object>());
             set => _rules = value;
         }
 

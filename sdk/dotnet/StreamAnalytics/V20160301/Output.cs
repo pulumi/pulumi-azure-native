@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Output("datasource")]
-        public Output<Union<Outputs.AzureDataLakeStoreOutputDataSourceResponse, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponse, Union<Outputs.AzureTableOutputDataSourceResponse, Union<Outputs.BlobOutputDataSourceResponse, Union<Outputs.DocumentDbOutputDataSourceResponse, Union<Outputs.EventHubOutputDataSourceResponse, Union<Outputs.PowerBIOutputDataSourceResponse, Union<Outputs.ServiceBusQueueOutputDataSourceResponse, Outputs.ServiceBusTopicOutputDataSourceResponse>>>>>>>>?> Datasource { get; private set; } = null!;
+        public Output<object?> Datasource { get; private set; } = null!;
 
         /// <summary>
         /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Output("serialization")]
-        public Output<Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Outputs.JsonSerializationResponse>>?> Serialization { get; private set; } = null!;
+        public Output<object?> Serialization { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("datasource")]
-        public InputUnion<Inputs.AzureDataLakeStoreOutputDataSourceArgs, InputUnion<Inputs.AzureSqlDatabaseOutputDataSourceArgs, InputUnion<Inputs.AzureTableOutputDataSourceArgs, InputUnion<Inputs.BlobOutputDataSourceArgs, InputUnion<Inputs.DocumentDbOutputDataSourceArgs, InputUnion<Inputs.EventHubOutputDataSourceArgs, InputUnion<Inputs.PowerBIOutputDataSourceArgs, InputUnion<Inputs.ServiceBusQueueOutputDataSourceArgs, Inputs.ServiceBusTopicOutputDataSourceArgs>>>>>>>>? Datasource { get; set; }
+        public Input<object>? Datasource { get; set; }
 
         /// <summary>
         /// The name of the streaming job.
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("serialization")]
-        public InputUnion<Inputs.AvroSerializationArgs, InputUnion<Inputs.CsvSerializationArgs, Inputs.JsonSerializationArgs>>? Serialization { get; set; }
+        public Input<object>? Serialization { get; set; }
 
         public OutputArgs()
         {

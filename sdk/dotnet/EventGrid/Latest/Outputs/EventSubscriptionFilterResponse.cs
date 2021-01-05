@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest.Outputs
         /// <summary>
         /// An array of advanced filters that are used for filtering event subscriptions.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.BoolEqualsAdvancedFilterResponse, Union<Outputs.NumberGreaterThanAdvancedFilterResponse, Union<Outputs.NumberGreaterThanOrEqualsAdvancedFilterResponse, Union<Outputs.NumberInAdvancedFilterResponse, Union<Outputs.NumberLessThanAdvancedFilterResponse, Union<Outputs.NumberLessThanOrEqualsAdvancedFilterResponse, Union<Outputs.NumberNotInAdvancedFilterResponse, Union<Outputs.StringBeginsWithAdvancedFilterResponse, Union<Outputs.StringContainsAdvancedFilterResponse, Union<Outputs.StringEndsWithAdvancedFilterResponse, Union<Outputs.StringInAdvancedFilterResponse, Outputs.StringNotInAdvancedFilterResponse>>>>>>>>>>>> AdvancedFilters;
+        public readonly ImmutableArray<object> AdvancedFilters;
         /// <summary>
         /// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest.Outputs
 
         [OutputConstructor]
         private EventSubscriptionFilterResponse(
-            ImmutableArray<Union<Outputs.BoolEqualsAdvancedFilterResponse, Union<Outputs.NumberGreaterThanAdvancedFilterResponse, Union<Outputs.NumberGreaterThanOrEqualsAdvancedFilterResponse, Union<Outputs.NumberInAdvancedFilterResponse, Union<Outputs.NumberLessThanAdvancedFilterResponse, Union<Outputs.NumberLessThanOrEqualsAdvancedFilterResponse, Union<Outputs.NumberNotInAdvancedFilterResponse, Union<Outputs.StringBeginsWithAdvancedFilterResponse, Union<Outputs.StringContainsAdvancedFilterResponse, Union<Outputs.StringEndsWithAdvancedFilterResponse, Union<Outputs.StringInAdvancedFilterResponse, Outputs.StringNotInAdvancedFilterResponse>>>>>>>>>>>> advancedFilters,
+            ImmutableArray<object> advancedFilters,
 
             ImmutableArray<string> includedEventTypes,
 

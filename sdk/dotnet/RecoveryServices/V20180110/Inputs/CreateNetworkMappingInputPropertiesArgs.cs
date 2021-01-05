@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110.Inputs
         /// Fabric specific input properties.
         /// </summary>
         [Input("fabricSpecificDetails")]
-        public InputUnion<Inputs.AzureToAzureCreateNetworkMappingInputArgs, InputUnion<Inputs.VmmToAzureCreateNetworkMappingInputArgs, Inputs.VmmToVmmCreateNetworkMappingInputArgs>>? FabricSpecificDetails { get; set; }
+        public Input<object>? FabricSpecificDetails { get; set; }
 
         /// <summary>
         /// Recovery fabric Name.

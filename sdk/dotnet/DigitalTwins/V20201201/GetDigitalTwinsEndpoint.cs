@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201201
         /// <summary>
         /// DigitalTwinsInstance endpoint resource properties.
         /// </summary>
-        public readonly Union<Outputs.EventGridResponse, Union<Outputs.EventHubResponse, Outputs.ServiceBusResponse>> Properties;
+        public readonly object Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201201
 
             string name,
 
-            Union<Outputs.EventGridResponse, Union<Outputs.EventHubResponse, Outputs.ServiceBusResponse>> properties,
+            object properties,
 
             string type)
         {

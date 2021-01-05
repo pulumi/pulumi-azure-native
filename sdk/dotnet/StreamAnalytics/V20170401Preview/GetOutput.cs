@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Union<Outputs.AzureDataLakeStoreOutputDataSourceResponse, Union<Outputs.AzureFunctionOutputDataSourceResponse, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponse, Union<Outputs.AzureSynapseOutputDataSourceResponse, Union<Outputs.AzureTableOutputDataSourceResponse, Union<Outputs.BlobOutputDataSourceResponse, Union<Outputs.DocumentDbOutputDataSourceResponse, Union<Outputs.EventHubOutputDataSourceResponse, Union<Outputs.EventHubV2OutputDataSourceResponse, Union<Outputs.PowerBIOutputDataSourceResponse, Union<Outputs.ServiceBusQueueOutputDataSourceResponse, Outputs.ServiceBusTopicOutputDataSourceResponse>>>>>>>>>>>? Datasource;
+        public readonly object? Datasource;
         /// <summary>
         /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Union<Outputs.CustomClrSerializationResponse, Union<Outputs.JsonSerializationResponse, Outputs.ParquetSerializationResponse>>>>? Serialization;
+        public readonly object? Serialization;
         public readonly double? SizeWindow;
         public readonly string? TimeWindow;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 
         [OutputConstructor]
         private GetOutputResult(
-            Union<Outputs.AzureDataLakeStoreOutputDataSourceResponse, Union<Outputs.AzureFunctionOutputDataSourceResponse, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponse, Union<Outputs.AzureSynapseOutputDataSourceResponse, Union<Outputs.AzureTableOutputDataSourceResponse, Union<Outputs.BlobOutputDataSourceResponse, Union<Outputs.DocumentDbOutputDataSourceResponse, Union<Outputs.EventHubOutputDataSourceResponse, Union<Outputs.EventHubV2OutputDataSourceResponse, Union<Outputs.PowerBIOutputDataSourceResponse, Union<Outputs.ServiceBusQueueOutputDataSourceResponse, Outputs.ServiceBusTopicOutputDataSourceResponse>>>>>>>>>>>? datasource,
+            object? datasource,
 
             Outputs.DiagnosticsResponse diagnostics,
 
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 
             string? name,
 
-            Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Union<Outputs.CustomClrSerializationResponse, Union<Outputs.JsonSerializationResponse, Outputs.ParquetSerializationResponse>>>>? serialization,
+            object? serialization,
 
             double? sizeWindow,
 

@@ -57,7 +57,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <summary>
         /// object which contains secret parameters
         /// </summary>
-        public readonly Union<Outputs.CustomerCertificateParametersResponse, Union<Outputs.ManagedCertificateParametersResponse, Outputs.UrlSigningKeyParametersResponse>>? Parameters;
+        public readonly object? Parameters;
         /// <summary>
         /// Provisioning status
         /// </summary>
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 
             string name,
 
-            Union<Outputs.CustomerCertificateParametersResponse, Union<Outputs.ManagedCertificateParametersResponse, Outputs.UrlSigningKeyParametersResponse>>? parameters,
+            object? parameters,
 
             string provisioningState,
 

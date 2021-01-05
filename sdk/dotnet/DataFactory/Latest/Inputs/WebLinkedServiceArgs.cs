@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// Web linked service properties.
         /// </summary>
         [Input("typeProperties", required: true)]
-        public InputUnion<Inputs.WebAnonymousAuthenticationArgs, InputUnion<Inputs.WebBasicAuthenticationArgs, Inputs.WebClientCertificateAuthenticationArgs>> TypeProperties { get; set; } = null!;
+        public Input<object> TypeProperties { get; set; } = null!;
 
         public WebLinkedServiceArgs()
         {

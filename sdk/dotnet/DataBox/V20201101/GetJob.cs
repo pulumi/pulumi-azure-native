@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
         /// <summary>
         /// Details of a job run. This field will only be sent for expand details filter.
         /// </summary>
-        public readonly Union<Outputs.DataBoxDiskJobDetailsResponse, Union<Outputs.DataBoxHeavyJobDetailsResponse, Outputs.DataBoxJobDetailsResponse>>? Details;
+        public readonly object? Details;
         /// <summary>
         /// Top level error for the job.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
 
             string? deliveryType,
 
-            Union<Outputs.DataBoxDiskJobDetailsResponse, Union<Outputs.DataBoxHeavyJobDetailsResponse, Outputs.DataBoxJobDetailsResponse>>? details,
+            object? details,
 
             Outputs.CloudErrorResponse error,
 

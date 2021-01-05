@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The data compression method used on files.
         /// </summary>
-        public readonly Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>? Compression;
+        public readonly object? Compression;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The format of files.
         /// </summary>
-        public readonly Union<Outputs.AvroFormatResponse, Union<Outputs.JsonFormatResponse, Union<Outputs.OrcFormatResponse, Union<Outputs.ParquetFormatResponse, Outputs.TextFormatResponse>>>>? Format;
+        public readonly object? Format;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -71,11 +71,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
             ImmutableArray<object> annotations,
 
-            Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>? compression,
+            object? compression,
 
             string? description,
 
-            Union<Outputs.AvroFormatResponse, Union<Outputs.JsonFormatResponse, Union<Outputs.OrcFormatResponse, Union<Outputs.ParquetFormatResponse, Outputs.TextFormatResponse>>>>? format,
+            object? format,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 

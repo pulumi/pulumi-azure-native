@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// Task output. This is ignored if submitted.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse, Union<Outputs.MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse, Union<Outputs.MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse, Union<Outputs.MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse, Outputs.MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse>>>>> Output;
+        public readonly ImmutableArray<object> Output;
         /// <summary>
         /// The state of the task. This is ignored if submitted.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
             Outputs.MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse? input,
 
-            ImmutableArray<Union<Outputs.MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse, Union<Outputs.MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse, Union<Outputs.MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse, Union<Outputs.MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse, Outputs.MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse>>>>> output,
+            ImmutableArray<object> output,
 
             string state,
 

@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview
         /// <summary>
         /// Compute properties
         /// </summary>
-        public readonly Union<Outputs.AKSResponse, Union<Outputs.AmlComputeResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.DataLakeAnalyticsResponse, Union<Outputs.DatabricksResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>>>> Properties;
+        public readonly object Properties;
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview
 
             string name,
 
-            Union<Outputs.AKSResponse, Union<Outputs.AmlComputeResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.DataLakeAnalyticsResponse, Union<Outputs.DatabricksResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>>>> properties,
+            object properties,
 
             Outputs.SkuResponse? sku,
 

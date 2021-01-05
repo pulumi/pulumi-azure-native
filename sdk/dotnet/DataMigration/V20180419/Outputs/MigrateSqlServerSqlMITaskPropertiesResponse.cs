@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
         /// <summary>
         /// Task output. This is ignored if submitted.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse, Union<Outputs.MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse, Union<Outputs.MigrateSqlServerSqlMITaskOutputErrorResponse, Union<Outputs.MigrateSqlServerSqlMITaskOutputLoginLevelResponse, Outputs.MigrateSqlServerSqlMITaskOutputMigrationLevelResponse>>>>> Output;
+        public readonly ImmutableArray<object> Output;
         /// <summary>
         /// The state of the task. This is ignored if submitted.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
 
             Outputs.MigrateSqlServerSqlMITaskInputResponse? input,
 
-            ImmutableArray<Union<Outputs.MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse, Union<Outputs.MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse, Union<Outputs.MigrateSqlServerSqlMITaskOutputErrorResponse, Union<Outputs.MigrateSqlServerSqlMITaskOutputLoginLevelResponse, Outputs.MigrateSqlServerSqlMITaskOutputMigrationLevelResponse>>>>> output,
+            ImmutableArray<object> output,
 
             string state,
 

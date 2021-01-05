@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <summary>
         /// ProtectionContainerResource properties
         /// </summary>
-        public readonly Union<Outputs.AzureSqlContainerResponse, Union<Outputs.AzureStorageContainerResponse, Union<Outputs.AzureWorkloadContainerResponse, Union<Outputs.DpmContainerResponse, Union<Outputs.GenericContainerResponse, Union<Outputs.IaaSVMContainerResponse, Outputs.MabContainerResponse>>>>>> Properties;
+        public readonly object Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 
             string name,
 
-            Union<Outputs.AzureSqlContainerResponse, Union<Outputs.AzureStorageContainerResponse, Union<Outputs.AzureWorkloadContainerResponse, Union<Outputs.DpmContainerResponse, Union<Outputs.GenericContainerResponse, Union<Outputs.IaaSVMContainerResponse, Outputs.MabContainerResponse>>>>>> properties,
+            object properties,
 
             ImmutableDictionary<string, string>? tags,
 

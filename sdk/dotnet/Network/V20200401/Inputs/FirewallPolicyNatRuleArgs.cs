@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401.Inputs
         /// The match conditions for incoming traffic.
         /// </summary>
         [Input("ruleCondition")]
-        public InputUnion<Inputs.ApplicationRuleConditionArgs, InputUnion<Inputs.NatRuleConditionArgs, Inputs.NetworkRuleConditionArgs>>? RuleCondition { get; set; }
+        public Input<object>? RuleCondition { get; set; }
 
         /// <summary>
         /// The type of the rule.

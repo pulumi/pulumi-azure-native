@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
         /// The base class for a backup policy. Workload-specific backup policies are derived from this class.
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.AzureIaaSVMProtectionPolicyResponse, Union<Outputs.AzureSqlProtectionPolicyResponse, Outputs.MabProtectionPolicyResponse>>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
         /// The base class for a backup policy. Workload-specific backup policies are derived from this class.
         /// </summary>
         [Input("properties")]
-        public InputUnion<Inputs.AzureIaaSVMProtectionPolicyArgs, InputUnion<Inputs.AzureSqlProtectionPolicyArgs, Inputs.MabProtectionPolicyArgs>>? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group associated with the Recovery Services vault.

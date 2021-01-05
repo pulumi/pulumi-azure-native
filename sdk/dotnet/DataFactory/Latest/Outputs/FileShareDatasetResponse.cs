@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The data compression method used for the file system.
         /// </summary>
-        public readonly Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Union<Outputs.DatasetTarCompressionResponse, Union<Outputs.DatasetTarGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>>>? Compression;
+        public readonly object? Compression;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The format of the files.
         /// </summary>
-        public readonly Union<Outputs.AvroFormatResponse, Union<Outputs.JsonFormatResponse, Union<Outputs.OrcFormatResponse, Union<Outputs.ParquetFormatResponse, Outputs.TextFormatResponse>>>>? Format;
+        public readonly object? Format;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         private FileShareDatasetResponse(
             ImmutableArray<object> annotations,
 
-            Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Union<Outputs.DatasetTarCompressionResponse, Union<Outputs.DatasetTarGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>>>? compression,
+            object? compression,
 
             string? description,
 
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             object? folderPath,
 
-            Union<Outputs.AvroFormatResponse, Union<Outputs.JsonFormatResponse, Union<Outputs.OrcFormatResponse, Union<Outputs.ParquetFormatResponse, Outputs.TextFormatResponse>>>>? format,
+            object? format,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 

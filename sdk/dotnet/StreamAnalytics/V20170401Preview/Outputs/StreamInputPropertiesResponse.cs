@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
         /// <summary>
         /// Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Union<Outputs.BlobStreamInputDataSourceResponse, Union<Outputs.EventHubStreamInputDataSourceResponse, Union<Outputs.EventHubV2StreamInputDataSourceResponse, Outputs.IoTHubStreamInputDataSourceResponse>>>? Datasource;
+        public readonly object? Datasource;
         /// <summary>
         /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
         /// <summary>
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Union<Outputs.CustomClrSerializationResponse, Union<Outputs.JsonSerializationResponse, Outputs.ParquetSerializationResponse>>>>? Serialization;
+        public readonly object? Serialization;
         /// <summary>
         /// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Stream'.
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
         private StreamInputPropertiesResponse(
             Outputs.CompressionResponse? compression,
 
-            Union<Outputs.BlobStreamInputDataSourceResponse, Union<Outputs.EventHubStreamInputDataSourceResponse, Union<Outputs.EventHubV2StreamInputDataSourceResponse, Outputs.IoTHubStreamInputDataSourceResponse>>>? datasource,
+            object? datasource,
 
             Outputs.DiagnosticsResponse diagnostics,
 
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Outputs
 
             string? partitionKey,
 
-            Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Union<Outputs.CustomClrSerializationResponse, Union<Outputs.JsonSerializationResponse, Outputs.ParquetSerializationResponse>>>>? serialization,
+            object? serialization,
 
             string type)
         {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Fabric provider specific creation input.
         /// </summary>
         [Input("customDetails")]
-        public InputUnion<Inputs.AzureFabricCreationInputArgs, InputUnion<Inputs.InMageRcmFabricCreationInputArgs, Inputs.VMwareV2FabricCreationInputArgs>>? CustomDetails { get; set; }
+        public Input<object>? CustomDetails { get; set; }
 
         public FabricCreationInputPropertiesArgs()
         {

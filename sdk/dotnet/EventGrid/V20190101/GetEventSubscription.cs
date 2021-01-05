@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190101
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
-        public readonly Union<Outputs.EventHubEventSubscriptionDestinationResponse, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponse, Union<Outputs.StorageQueueEventSubscriptionDestinationResponse, Outputs.WebHookEventSubscriptionDestinationResponse>>>? Destination;
+        public readonly object? Destination;
         /// <summary>
         /// Information about the filter for the event subscription.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190101
         private GetEventSubscriptionResult(
             Outputs.StorageBlobDeadLetterDestinationResponse? deadLetterDestination,
 
-            Union<Outputs.EventHubEventSubscriptionDestinationResponse, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponse, Union<Outputs.StorageQueueEventSubscriptionDestinationResponse, Outputs.WebHookEventSubscriptionDestinationResponse>>>? destination,
+            object? destination,
 
             Outputs.EventSubscriptionFilterResponse? filter,
 

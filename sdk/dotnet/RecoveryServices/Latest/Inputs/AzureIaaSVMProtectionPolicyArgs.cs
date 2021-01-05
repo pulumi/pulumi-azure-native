@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Backup schedule specified as part of backup policy.
         /// </summary>
         [Input("schedulePolicy")]
-        public InputUnion<Inputs.LogSchedulePolicyArgs, InputUnion<Inputs.LongTermSchedulePolicyArgs, Inputs.SimpleSchedulePolicyArgs>>? SchedulePolicy { get; set; }
+        public Input<object>? SchedulePolicy { get; set; }
 
         /// <summary>
         /// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".

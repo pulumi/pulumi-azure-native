@@ -20,13 +20,13 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901.Outputs
         /// <summary>
         /// Secrets related to this job.
         /// </summary>
-        public readonly Union<Outputs.DataBoxDiskJobSecretsResponseResult, Union<Outputs.DataBoxHeavyJobSecretsResponseResult, Outputs.DataboxJobSecretsResponseResult>> JobSecrets;
+        public readonly object JobSecrets;
 
         [OutputConstructor]
         private UnencryptedCredentialsResponseResult(
             string jobName,
 
-            Union<Outputs.DataBoxDiskJobSecretsResponseResult, Union<Outputs.DataBoxHeavyJobSecretsResponseResult, Outputs.DataboxJobSecretsResponseResult>> jobSecrets)
+            object jobSecrets)
         {
             JobName = jobName;
             JobSecrets = jobSecrets;

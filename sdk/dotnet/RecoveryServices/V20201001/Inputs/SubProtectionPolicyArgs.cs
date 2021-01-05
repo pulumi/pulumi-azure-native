@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Backup schedule specified as part of backup policy.
         /// </summary>
         [Input("schedulePolicy")]
-        public InputUnion<Inputs.LogSchedulePolicyArgs, InputUnion<Inputs.LongTermSchedulePolicyArgs, Inputs.SimpleSchedulePolicyArgs>>? SchedulePolicy { get; set; }
+        public Input<object>? SchedulePolicy { get; set; }
 
         public SubProtectionPolicyArgs()
         {

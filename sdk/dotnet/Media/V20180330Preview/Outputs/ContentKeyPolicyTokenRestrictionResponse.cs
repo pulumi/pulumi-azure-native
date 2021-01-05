@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Outputs
         /// <summary>
         /// A list of alternative verification keys.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ContentKeyPolicyRsaTokenKeyResponse, Union<Outputs.ContentKeyPolicySymmetricTokenKeyResponse, Outputs.ContentKeyPolicyX509CertificateTokenKeyResponse>>> AlternateVerificationKeys;
+        public readonly ImmutableArray<object> AlternateVerificationKeys;
         /// <summary>
         /// The audience for the token.
         /// </summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Outputs
         /// <summary>
         /// The primary verification key.
         /// </summary>
-        public readonly Union<Outputs.ContentKeyPolicyRsaTokenKeyResponse, Union<Outputs.ContentKeyPolicySymmetricTokenKeyResponse, Outputs.ContentKeyPolicyX509CertificateTokenKeyResponse>> PrimaryVerificationKey;
+        public readonly object PrimaryVerificationKey;
         /// <summary>
         /// A list of required token claims.
         /// </summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Outputs
 
         [OutputConstructor]
         private ContentKeyPolicyTokenRestrictionResponse(
-            ImmutableArray<Union<Outputs.ContentKeyPolicyRsaTokenKeyResponse, Union<Outputs.ContentKeyPolicySymmetricTokenKeyResponse, Outputs.ContentKeyPolicyX509CertificateTokenKeyResponse>>> alternateVerificationKeys,
+            ImmutableArray<object> alternateVerificationKeys,
 
             string audience,
 
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Outputs
 
             string? openIdConnectDiscoveryDocument,
 
-            Union<Outputs.ContentKeyPolicyRsaTokenKeyResponse, Union<Outputs.ContentKeyPolicySymmetricTokenKeyResponse, Outputs.ContentKeyPolicyX509CertificateTokenKeyResponse>> primaryVerificationKey,
+            object primaryVerificationKey,
 
             ImmutableArray<Outputs.ContentKeyPolicyTokenClaimResponse> requiredClaims,
 

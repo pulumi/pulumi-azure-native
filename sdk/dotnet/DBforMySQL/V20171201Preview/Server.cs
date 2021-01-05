@@ -201,7 +201,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
         /// Properties of the server.
         /// </summary>
         [Input("properties", required: true)]
-        public InputUnion<Inputs.ServerPropertiesForDefaultCreateArgs, InputUnion<Inputs.ServerPropertiesForGeoRestoreArgs, InputUnion<Inputs.ServerPropertiesForReplicaArgs, Inputs.ServerPropertiesForRestoreArgs>>> Properties { get; set; } = null!;
+        public Input<object> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

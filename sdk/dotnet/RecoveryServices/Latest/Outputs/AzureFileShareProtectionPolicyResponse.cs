@@ -29,7 +29,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// Backup schedule specified as part of backup policy.
         /// </summary>
-        public readonly Union<Outputs.LogSchedulePolicyResponse, Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>>? SchedulePolicy;
+        public readonly object? SchedulePolicy;
         /// <summary>
         /// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? retentionPolicy,
 
-            Union<Outputs.LogSchedulePolicyResponse, Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>>? schedulePolicy,
+            object? schedulePolicy,
 
             string? timeZone,
 
