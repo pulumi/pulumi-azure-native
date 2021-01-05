@@ -1,4 +1,6 @@
+import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
+import * as authorization from "@pulumi/azure-nextgen/authorization/latest";
 // TODO change to latest when https://github.com/Azure/azure-rest-api-specs/issues/11634 is fixed
 import * as containerinstance from "@pulumi/azure-nextgen/containerinstance/v20191201";
 import * as keyvault from "@pulumi/azure-nextgen/keyvault/latest";
@@ -48,10 +50,7 @@ const container = new containerinstance.ContainerGroup("containergroup", {
     },
 });
 
-// TODO: read IDs with an invoke when it's available
-// https://github.com/pulumi/pulumi-azure-nextgen/issues/107
-const tenantId = "706143bc-e1d4-4593-aee2-c9dc60ab9be7";
-const currentPrincipalId = "e7d1b8ea-596b-44be-890f-8355a351244c";
+const config = pulumi.output(authorization.getClientConfig());
 
 const vault = new keyvault.Vault("vault", {
     resourceGroupName: resourceGroup.name,
@@ -59,7 +58,7 @@ const vault = new keyvault.Vault("vault", {
     vaultName: randomString,
     properties: {
         accessPolicies: [{
-            objectId: currentPrincipalId,
+            objectId: config.objectId,
             permissions: {
                 keys: [
                     keyvault.KeyPermissions.Get,
@@ -78,19 +77,19 @@ const vault = new keyvault.Vault("vault", {
                     keyvault.SecretPermissions.Purge,
                 ],
             },
-            tenantId,
+            tenantId: config.tenantId,
         }, {
             objectId: container.identity.apply(i => i?.userAssignedIdentities!).apply(uai => Object.values(uai)[0].principalId),
             permissions: {
                 secrets: [keyvault.SecretPermissions.Get],
             },
-            tenantId,
+            tenantId: config.tenantId,
         }],
         sku: {
             family: keyvault.SkuFamily.A,
             name: keyvault.SkuName.Standard,
         },
-        tenantId,
+        tenantId: config.tenantId,
     },
 });
 
