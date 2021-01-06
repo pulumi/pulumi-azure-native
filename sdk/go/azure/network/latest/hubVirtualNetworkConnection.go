@@ -12,7 +12,7 @@ import (
 )
 
 // HubVirtualNetworkConnection Resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type HubVirtualNetworkConnection struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +59,9 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:HubVirtualNetworkConnection"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Private Endpoint Connection Response Properties
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20200202:PrivateEndpointConnection" }, { type: "azure-nextgen:recoveryservices/v20201001:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20200202:PrivateEndpointConnection" }, { type: "azure-nextgen:recoveryservices/v20201001:PrivateEndpointConnection" }, { type: "azure-nextgen:recoveryservices/v20201201:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

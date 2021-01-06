@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 {
     /// <summary>
+    /// The type of private cloud addon
+    /// </summary>
+    [EnumType]
+    public readonly struct AddonType : IEquatable<AddonType>
+    {
+        private readonly string _value;
+
+        private AddonType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AddonType SRM { get; } = new AddonType("SRM");
+        public static AddonType VR { get; } = new AddonType("VR");
+
+        public static bool operator ==(AddonType left, AddonType right) => left.Equals(right);
+        public static bool operator !=(AddonType left, AddonType right) => !left.Equals(right);
+
+        public static explicit operator string(AddonType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AddonType other && Equals(other);
+        public bool Equals(AddonType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of DHCP: SERVER or RELAY.
     /// </summary>
     [EnumType]

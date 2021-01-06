@@ -163,6 +163,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ExpressRouteCrossConnectionPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

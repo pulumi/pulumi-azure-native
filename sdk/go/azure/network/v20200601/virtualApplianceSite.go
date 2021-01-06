@@ -55,6 +55,9 @@ func NewVirtualApplianceSite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualApplianceSite"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualApplianceSite"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualApplianceSite

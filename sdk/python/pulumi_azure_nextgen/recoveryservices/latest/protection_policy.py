@@ -30,7 +30,7 @@ class ProtectionPolicy(pulumi.CustomResource):
                  __opts__=None):
         """
         Base class for backup policy. Workload-specific backup policies are derived from this class.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -74,7 +74,7 @@ class ProtectionPolicy(pulumi.CustomResource):
             __props__['vault_name'] = vault_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160601:ProtectionPolicy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201001:ProtectionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160601:ProtectionPolicy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201001:ProtectionPolicy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201201:ProtectionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProtectionPolicy, __self__).__init__(
             'azure-nextgen:recoveryservices/latest:ProtectionPolicy',

@@ -29,7 +29,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
                  __opts__=None):
         """
         A DDoS custom policy in a resource group.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +73,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
             __props__['public_ip_addresses'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20181101:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20181201:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190201:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190401:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190601:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190701:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190801:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190901:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191101:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191201:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200301:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200501:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200601:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200701:DdosCustomPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20181101:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20181201:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190201:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190401:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190601:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190701:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190801:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190901:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191101:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191201:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200301:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200501:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200601:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200701:DdosCustomPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200801:DdosCustomPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DdosCustomPolicy, __self__).__init__(
             'azure-nextgen:network/latest:DdosCustomPolicy',

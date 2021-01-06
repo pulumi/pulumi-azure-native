@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['CustomIPPrefix']
 
@@ -20,6 +21,7 @@ class CustomIPPrefix(pulumi.CustomResource):
                  cidr: Optional[pulumi.Input[str]] = None,
                  commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
                  custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -30,13 +32,14 @@ class CustomIPPrefix(pulumi.CustomResource):
                  __opts__=None):
         """
         Custom IP prefix resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: The prefix range in CIDR notation. Should include the start address and the prefix length.
         :param pulumi.Input[Union[str, 'CommissionedState']] commissioned_state: The commissioned state of the Custom IP Prefix.
         :param pulumi.Input[str] custom_ip_prefix_name: The name of the custom IP prefix.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the custom IP prefix.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -65,6 +68,7 @@ class CustomIPPrefix(pulumi.CustomResource):
             if custom_ip_prefix_name is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_ip_prefix_name'")
             __props__['custom_ip_prefix_name'] = custom_ip_prefix_name
+            __props__['extended_location'] = extended_location
             __props__['id'] = id
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
@@ -78,7 +82,7 @@ class CustomIPPrefix(pulumi.CustomResource):
             __props__['public_ip_prefixes'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200601:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200701:CustomIPPrefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200601:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200701:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200801:CustomIPPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomIPPrefix, __self__).__init__(
             'azure-nextgen:network/latest:CustomIPPrefix',
@@ -127,6 +131,14 @@ class CustomIPPrefix(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location of the custom IP prefix.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter

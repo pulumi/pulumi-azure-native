@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * RouteTable resource in a virtual hub.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class HubRouteTable extends pulumi.CustomResource {
     /**
@@ -117,7 +117,7 @@ export class HubRouteTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200401:HubRouteTable" }, { type: "azure-nextgen:network/v20200501:HubRouteTable" }, { type: "azure-nextgen:network/v20200601:HubRouteTable" }, { type: "azure-nextgen:network/v20200701:HubRouteTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200401:HubRouteTable" }, { type: "azure-nextgen:network/v20200501:HubRouteTable" }, { type: "azure-nextgen:network/v20200601:HubRouteTable" }, { type: "azure-nextgen:network/v20200701:HubRouteTable" }, { type: "azure-nextgen:network/v20200801:HubRouteTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HubRouteTable.__pulumiType, name, inputs, opts);
     }

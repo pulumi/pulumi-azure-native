@@ -99,6 +99,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:SecurityPartnerProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

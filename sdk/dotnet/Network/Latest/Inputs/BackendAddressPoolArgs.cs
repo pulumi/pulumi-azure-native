@@ -34,6 +34,12 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         }
 
         /// <summary>
+        /// The location of the backend address pool.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         /// </summary>
         [Input("name")]

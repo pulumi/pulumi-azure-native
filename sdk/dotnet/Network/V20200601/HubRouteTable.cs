@@ -92,6 +92,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:HubRouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

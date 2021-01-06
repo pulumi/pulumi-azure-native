@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// </summary>
         public readonly double EgressBytesTransferred;
         /// <summary>
+        /// List of egress NatRules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> EgressNatRules;
+        /// <summary>
         /// EnableBgp flag.
         /// </summary>
         public readonly bool? EnableBgp;
@@ -45,6 +49,10 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// Ingress bytes transferred.
         /// </summary>
         public readonly double IngressBytesTransferred;
+        /// <summary>
+        /// List of ingress NatRules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> IngressNatRules;
         /// <summary>
         /// The IPSec Policies to be considered by this connection.
         /// </summary>
@@ -82,6 +90,10 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// </summary>
         public readonly string? VpnConnectionProtocolType;
         /// <summary>
+        /// Vpn link connection mode.
+        /// </summary>
+        public readonly string? VpnLinkConnectionMode;
+        /// <summary>
         /// Id of the connected vpn site link.
         /// </summary>
         public readonly Outputs.SubResourceResponse? VpnSiteLink;
@@ -94,6 +106,8 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             double egressBytesTransferred,
 
+            ImmutableArray<Outputs.SubResourceResponse> egressNatRules,
+
             bool? enableBgp,
 
             bool? enableRateLimiting,
@@ -103,6 +117,8 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
             string? id,
 
             double ingressBytesTransferred,
+
+            ImmutableArray<Outputs.SubResourceResponse> ingressNatRules,
 
             ImmutableArray<Outputs.IpsecPolicyResponse> ipsecPolicies,
 
@@ -122,16 +138,20 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             string? vpnConnectionProtocolType,
 
+            string? vpnLinkConnectionMode,
+
             Outputs.SubResourceResponse? vpnSiteLink)
         {
             ConnectionBandwidth = connectionBandwidth;
             ConnectionStatus = connectionStatus;
             EgressBytesTransferred = egressBytesTransferred;
+            EgressNatRules = egressNatRules;
             EnableBgp = enableBgp;
             EnableRateLimiting = enableRateLimiting;
             Etag = etag;
             Id = id;
             IngressBytesTransferred = ingressBytesTransferred;
+            IngressNatRules = ingressNatRules;
             IpsecPolicies = ipsecPolicies;
             Name = name;
             ProvisioningState = provisioningState;
@@ -141,6 +161,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
             UseLocalAzureIpAddress = useLocalAzureIpAddress;
             UsePolicyBasedTrafficSelectors = usePolicyBasedTrafficSelectors;
             VpnConnectionProtocolType = vpnConnectionProtocolType;
+            VpnLinkConnectionMode = vpnLinkConnectionMode;
             VpnSiteLink = vpnSiteLink;
         }
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// An application security group in a resource group.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:ApplicationSecurityGroup")]
     public partial class ApplicationSecurityGroup : Pulumi.CustomResource
@@ -108,6 +108,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ApplicationSecurityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

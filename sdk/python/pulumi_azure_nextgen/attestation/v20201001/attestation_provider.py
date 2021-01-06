@@ -30,11 +30,11 @@ class AttestationProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The supported Azure location where the attestation service instance should be created.
-        :param pulumi.Input[pulumi.InputType['AttestationServiceCreationSpecificParamsArgs']] properties: Properties of the attestation service instance
-        :param pulumi.Input[str] provider_name: Name of the attestation service instance.
+        :param pulumi.Input[str] location: The supported Azure location where the attestation provider should be created.
+        :param pulumi.Input[pulumi.InputType['AttestationServiceCreationSpecificParamsArgs']] properties: Properties of the attestation provider
+        :param pulumi.Input[str] provider_name: Name of the attestation provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the attestation service instance.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the attestation provider.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,6 +68,7 @@ class AttestationProvider(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['attest_uri'] = None
             __props__['name'] = None
+            __props__['private_endpoint_connections'] = None
             __props__['status'] = None
             __props__['system_data'] = None
             __props__['trust_model'] = None
@@ -123,6 +124,14 @@ class AttestationProvider(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connections associated with the attestation provider.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
@@ -150,7 +159,7 @@ class AttestationProvider(pulumi.CustomResource):
     @pulumi.getter(name="trustModel")
     def trust_model(self) -> pulumi.Output[Optional[str]]:
         """
-        Trust model for the attestation service instance.
+        Trust model for the attestation provider.
         """
         return pulumi.get(self, "trust_model")
 

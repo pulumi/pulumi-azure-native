@@ -12,7 +12,7 @@ import (
 )
 
 // The X509 Certificate.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-08-31.
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +81,12 @@ func NewCertificate(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200801:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devices/v20200831:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devices/v20200831preview:Certificate"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -68,6 +68,7 @@ from .get_load_balancer import *
 from .get_load_balancer_backend_address_pool import *
 from .get_local_network_gateway import *
 from .get_nat_gateway import *
+from .get_nat_rule import *
 from .get_network_experiment_profile import *
 from .get_network_interface import *
 from .get_network_interface_tap_configuration import *
@@ -136,6 +137,7 @@ from .load_balancer import *
 from .load_balancer_backend_address_pool import *
 from .local_network_gateway import *
 from .nat_gateway import *
+from .nat_rule import *
 from .network_experiment_profile import *
 from .network_interface import *
 from .network_interface_tap_configuration import *
@@ -272,6 +274,8 @@ def _register_module():
                 return LocalNetworkGateway(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:network/latest:NatGateway":
                 return NatGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:NatRule":
+                return NatRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:network/latest:NetworkExperimentProfile":
                 return NetworkExperimentProfile(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:network/latest:NetworkInterface":

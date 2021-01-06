@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        public readonly Outputs.ReportConfigDatasetResponse? Dataset;
+        public readonly Outputs.ReportConfigDatasetResponse? DataSet;
         /// <summary>
         /// Selected date range for viewing cost in.
         /// </summary>
@@ -75,6 +75,10 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// Resource Id.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Include monetary commitment
+        /// </summary>
+        public readonly bool IncludeMonetaryCommitment;
         /// <summary>
         /// List of KPIs to show in Cost Analysis UI.
         /// </summary>
@@ -122,7 +126,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
 
             string currency,
 
-            Outputs.ReportConfigDatasetResponse? dataset,
+            Outputs.ReportConfigDatasetResponse? dataSet,
 
             string dateRange,
 
@@ -131,6 +135,8 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
             string? eTag,
 
             string id,
+
+            bool includeMonetaryCommitment,
 
             ImmutableArray<Outputs.KpiPropertiesResponse> kpis,
 
@@ -154,11 +160,12 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
             Chart = chart;
             CreatedOn = createdOn;
             Currency = currency;
-            Dataset = dataset;
+            DataSet = dataSet;
             DateRange = dateRange;
             DisplayName = displayName;
             ETag = eTag;
             Id = id;
+            IncludeMonetaryCommitment = includeMonetaryCommitment;
             Kpis = kpis;
             Metric = metric;
             ModifiedOn = modifiedOn;

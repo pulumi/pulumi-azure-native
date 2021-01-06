@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * ExpressRouteConnection resource.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class ExpressRouteConnection extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      * The ExpressRoute circuit peering.
      */
     public readonly expressRouteCircuitPeering!: pulumi.Output<outputs.network.latest.ExpressRouteCircuitPeeringIdResponse>;
+    /**
+     * Enable FastPath to vWan Firewall hub.
+     */
+    public readonly expressRouteGatewayBypass!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource.
      */
@@ -94,6 +98,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
             inputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
+            inputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
             inputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -105,6 +110,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             inputs["authorizationKey"] = undefined /*out*/;
             inputs["enableInternetSecurity"] = undefined /*out*/;
             inputs["expressRouteCircuitPeering"] = undefined /*out*/;
+            inputs["expressRouteGatewayBypass"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["routingConfiguration"] = undefined /*out*/;
@@ -117,7 +123,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181001:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181101:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190401:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190601:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190701:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190801:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190901:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20191101:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20191201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200301:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200401:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200501:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200601:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200701:ExpressRouteConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181001:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181101:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190401:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190601:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190701:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190801:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190901:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20191101:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20191201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200301:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200401:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200501:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200601:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200701:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200801:ExpressRouteConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ExpressRouteConnection.__pulumiType, name, inputs, opts);
     }
@@ -143,6 +149,10 @@ export interface ExpressRouteConnectionArgs {
      * The ExpressRoute circuit peering.
      */
     readonly expressRouteCircuitPeering: pulumi.Input<inputs.network.latest.ExpressRouteCircuitPeeringId>;
+    /**
+     * Enable FastPath to vWan Firewall hub.
+     */
+    readonly expressRouteGatewayBypass?: pulumi.Input<boolean>;
     /**
      * The name of the ExpressRoute gateway.
      */

@@ -21,6 +21,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -28,7 +29,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  __opts__=None):
         """
         Pool of backend IP addresses.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -36,6 +37,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]] load_balancer_backend_addresses: An array of backend addresses.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
+        :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
@@ -64,6 +66,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
             if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
+            __props__['location'] = location
             __props__['name'] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -75,7 +78,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
             __props__['outbound_rules'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancerBackendAddressPool, __self__).__init__(
             'azure-nextgen:network/latest:LoadBalancerBackendAddressPool',
@@ -132,6 +135,14 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         An array of references to load balancing rules that use this backend address pool.
         """
         return pulumi.get(self, "load_balancing_rules")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[Optional[str]]:
+        """
+        The location of the backend address pool.
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter

@@ -29,7 +29,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
                  __opts__=None):
         """
         VirtualHubRouteTableV2 Resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +73,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['etag'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHubRouteTableV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualHubRouteTableV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHubRouteTableV2, __self__).__init__(
             'azure-nextgen:network/latest:VirtualHubRouteTableV2',

@@ -27,7 +27,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
                  __opts__=None):
         """
         Virtual Router Peering resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -72,7 +72,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualRouterPeering")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualRouterPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualRouterPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualRouterPeering, __self__).__init__(
             'azure-nextgen:network/latest:VirtualRouterPeering',

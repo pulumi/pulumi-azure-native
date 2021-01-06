@@ -472,8 +472,6 @@ type ManagedHsmProperties struct {
 	EnablePurgeProtection *bool `pulumi:"enablePurgeProtection"`
 	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
 	EnableSoftDelete *bool `pulumi:"enableSoftDelete"`
-	// The URI of the managed hsm pool for performing operations on keys.
-	HsmUri *string `pulumi:"hsmUri"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds []string `pulumi:"initialAdminObjectIds"`
 	// softDelete data retention days. It accepts >=7 and <=90.
@@ -501,8 +499,6 @@ type ManagedHsmPropertiesArgs struct {
 	EnablePurgeProtection pulumi.BoolPtrInput `pulumi:"enablePurgeProtection"`
 	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
 	EnableSoftDelete pulumi.BoolPtrInput `pulumi:"enableSoftDelete"`
-	// The URI of the managed hsm pool for performing operations on keys.
-	HsmUri pulumi.StringPtrInput `pulumi:"hsmUri"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds pulumi.StringArrayInput `pulumi:"initialAdminObjectIds"`
 	// softDelete data retention days. It accepts >=7 and <=90.
@@ -604,11 +600,6 @@ func (o ManagedHsmPropertiesOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedHsmProperties) *bool { return v.EnableSoftDelete }).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the managed hsm pool for performing operations on keys.
-func (o ManagedHsmPropertiesOutput) HsmUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedHsmProperties) *string { return v.HsmUri }).(pulumi.StringPtrOutput)
-}
-
 // Array of initial administrators object ids for this managed hsm pool.
 func (o ManagedHsmPropertiesOutput) InitialAdminObjectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedHsmProperties) []string { return v.InitialAdminObjectIds }).(pulumi.StringArrayOutput)
@@ -672,16 +663,6 @@ func (o ManagedHsmPropertiesPtrOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the managed hsm pool for performing operations on keys.
-func (o ManagedHsmPropertiesPtrOutput) HsmUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedHsmProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HsmUri
-	}).(pulumi.StringPtrOutput)
-}
-
 // Array of initial administrators object ids for this managed hsm pool.
 func (o ManagedHsmPropertiesPtrOutput) InitialAdminObjectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedHsmProperties) []string {
@@ -721,7 +702,7 @@ type ManagedHsmPropertiesResponse struct {
 	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
 	EnableSoftDelete *bool `pulumi:"enableSoftDelete"`
 	// The URI of the managed hsm pool for performing operations on keys.
-	HsmUri *string `pulumi:"hsmUri"`
+	HsmUri string `pulumi:"hsmUri"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds []string `pulumi:"initialAdminObjectIds"`
 	// Provisioning state.
@@ -754,7 +735,7 @@ type ManagedHsmPropertiesResponseArgs struct {
 	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
 	EnableSoftDelete pulumi.BoolPtrInput `pulumi:"enableSoftDelete"`
 	// The URI of the managed hsm pool for performing operations on keys.
-	HsmUri pulumi.StringPtrInput `pulumi:"hsmUri"`
+	HsmUri pulumi.StringInput `pulumi:"hsmUri"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds pulumi.StringArrayInput `pulumi:"initialAdminObjectIds"`
 	// Provisioning state.
@@ -861,8 +842,8 @@ func (o ManagedHsmPropertiesResponseOutput) EnableSoftDelete() pulumi.BoolPtrOut
 }
 
 // The URI of the managed hsm pool for performing operations on keys.
-func (o ManagedHsmPropertiesResponseOutput) HsmUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *string { return v.HsmUri }).(pulumi.StringPtrOutput)
+func (o ManagedHsmPropertiesResponseOutput) HsmUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) string { return v.HsmUri }).(pulumi.StringOutput)
 }
 
 // Array of initial administrators object ids for this managed hsm pool.
@@ -944,7 +925,7 @@ func (o ManagedHsmPropertiesResponsePtrOutput) HsmUri() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.HsmUri
+		return &v.HsmUri
 	}).(pulumi.StringPtrOutput)
 }
 

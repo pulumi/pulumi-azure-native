@@ -52,6 +52,10 @@ export interface GetCustomIPPrefixResult {
      */
     readonly etag: string;
     /**
+     * The extended location of the custom IP prefix.
+     */
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    /**
      * Resource ID.
      */
     readonly id?: string;

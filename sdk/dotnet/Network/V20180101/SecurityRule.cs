@@ -182,6 +182,7 @@ namespace Pulumi.AzureNextGen.Network.V20180101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:SecurityRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

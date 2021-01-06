@@ -12,7 +12,7 @@ import (
 )
 
 // A network interface in a resource group.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 
@@ -173,6 +173,9 @@ func NewNetworkInterface(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:NetworkInterface"),
 		},
 	})
 	opts = append(opts, aliases)

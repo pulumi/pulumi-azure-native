@@ -133,6 +133,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:InboundNatRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

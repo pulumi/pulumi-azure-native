@@ -19,13 +19,16 @@ class GetRouteResult:
     """
     Route resource.
     """
-    def __init__(__self__, address_prefix=None, etag=None, id=None, name=None, next_hop_ip_address=None, next_hop_type=None, provisioning_state=None):
+    def __init__(__self__, address_prefix=None, etag=None, has_bgp_override=None, id=None, name=None, next_hop_ip_address=None, next_hop_type=None, provisioning_state=None, type=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if has_bgp_override and not isinstance(has_bgp_override, bool):
+            raise TypeError("Expected argument 'has_bgp_override' to be a bool")
+        pulumi.set(__self__, "has_bgp_override", has_bgp_override)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,6 +44,9 @@ class GetRouteResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -57,6 +63,14 @@ class GetRouteResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="hasBgpOverride")
+    def has_bgp_override(self) -> Optional[bool]:
+        """
+        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        """
+        return pulumi.get(self, "has_bgp_override")
 
     @property
     @pulumi.getter
@@ -98,6 +112,14 @@ class GetRouteResult:
         """
         return pulumi.get(self, "provisioning_state")
 
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
 
 class AwaitableGetRouteResult(GetRouteResult):
     # pylint: disable=using-constant-test
@@ -107,11 +129,13 @@ class AwaitableGetRouteResult(GetRouteResult):
         return GetRouteResult(
             address_prefix=self.address_prefix,
             etag=self.etag,
+            has_bgp_override=self.has_bgp_override,
             id=self.id,
             name=self.name,
             next_hop_ip_address=self.next_hop_ip_address,
             next_hop_type=self.next_hop_type,
-            provisioning_state=self.provisioning_state)
+            provisioning_state=self.provisioning_state,
+            type=self.type)
 
 
 def get_route(resource_group_name: Optional[str] = None,
@@ -138,8 +162,10 @@ def get_route(resource_group_name: Optional[str] = None,
     return AwaitableGetRouteResult(
         address_prefix=__ret__.address_prefix,
         etag=__ret__.etag,
+        has_bgp_override=__ret__.has_bgp_override,
         id=__ret__.id,
         name=__ret__.name,
         next_hop_ip_address=__ret__.next_hop_ip_address,
         next_hop_type=__ret__.next_hop_type,
-        provisioning_state=__ret__.provisioning_state)
+        provisioning_state=__ret__.provisioning_state,
+        type=__ret__.type)

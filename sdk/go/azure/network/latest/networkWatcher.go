@@ -12,7 +12,7 @@ import (
 )
 
 // Network watcher in a resource group.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type NetworkWatcher struct {
 	pulumi.CustomResourceState
 
@@ -133,6 +133,9 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:NetworkWatcher"),
 		},
 	})
 	opts = append(opts, aliases)

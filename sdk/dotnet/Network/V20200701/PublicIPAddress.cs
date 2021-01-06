@@ -188,6 +188,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PublicIPAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PublicIPAddress"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

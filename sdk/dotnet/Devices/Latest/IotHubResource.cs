@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
 {
     /// <summary>
     /// The description of the IoT hub.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-08-31.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:devices/latest:IotHubResource")]
     public partial class IotHubResource : Pulumi.CustomResource
@@ -98,6 +98,8 @@ namespace Pulumi.AzureNextGen.Devices.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200615:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200710preview:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200801:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831preview:IotHubResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

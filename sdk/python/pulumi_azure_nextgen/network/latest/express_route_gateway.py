@@ -29,7 +29,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
                  __opts__=None):
         """
         ExpressRoute gateway resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -76,7 +76,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ExpressRouteGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ExpressRouteGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ExpressRouteGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRouteGateway, __self__).__init__(
             'azure-nextgen:network/latest:ExpressRouteGateway',

@@ -115,4 +115,8 @@ export interface GetSecurityRuleResult {
      * The source port ranges.
      */
     readonly sourcePortRanges?: string[];
+    /**
+     * The type of the resource.
+     */
+    readonly type?: string;
 }

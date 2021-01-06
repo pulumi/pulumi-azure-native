@@ -131,6 +131,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:NatGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NatGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NatGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

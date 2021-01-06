@@ -111,6 +111,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NetworkProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

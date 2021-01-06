@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// List of all the nat Rules associated with the gateway.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnGatewayNatRuleResponse> NatRules;
+        /// <summary>
         /// The provisioning state of the VPN gateway resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string name,
 
+            ImmutableArray<Outputs.VpnGatewayNatRuleResponse> natRules,
+
             string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             IsRoutingPreferenceInternet = isRoutingPreferenceInternet;
             Location = location;
             Name = name;
+            NatRules = natRules;
             ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;

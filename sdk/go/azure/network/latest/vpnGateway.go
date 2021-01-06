@@ -12,7 +12,7 @@ import (
 )
 
 // VpnGateway Resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type VpnGateway struct {
 	pulumi.CustomResourceState
 
@@ -30,6 +30,8 @@ type VpnGateway struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of all the nat Rules associated with the gateway.
+	NatRules VpnGatewayNatRuleResponseArrayOutput `pulumi:"natRules"`
 	// The provisioning state of the VPN gateway resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
@@ -119,6 +121,9 @@ func NewVpnGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VpnGateway"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:VpnGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VpnGateway
@@ -157,6 +162,8 @@ type vpnGatewayState struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
+	// List of all the nat Rules associated with the gateway.
+	NatRules []VpnGatewayNatRuleResponse `pulumi:"natRules"`
 	// The provisioning state of the VPN gateway resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
@@ -184,6 +191,8 @@ type VpnGatewayState struct {
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
+	// List of all the nat Rules associated with the gateway.
+	NatRules VpnGatewayNatRuleResponseArrayInput
 	// The provisioning state of the VPN gateway resource.
 	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.
@@ -213,6 +222,8 @@ type vpnGatewayArgs struct {
 	IsRoutingPreferenceInternet *bool `pulumi:"isRoutingPreferenceInternet"`
 	// Resource location.
 	Location string `pulumi:"location"`
+	// List of all the nat Rules associated with the gateway.
+	NatRules []VpnGatewayNatRule `pulumi:"natRules"`
 	// The resource group name of the VpnGateway.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -237,6 +248,8 @@ type VpnGatewayArgs struct {
 	IsRoutingPreferenceInternet pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringInput
+	// List of all the nat Rules associated with the gateway.
+	NatRules VpnGatewayNatRuleArrayInput
 	// The resource group name of the VpnGateway.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

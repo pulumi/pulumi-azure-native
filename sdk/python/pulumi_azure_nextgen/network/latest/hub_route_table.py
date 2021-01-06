@@ -29,7 +29,7 @@ class HubRouteTable(pulumi.CustomResource):
                  __opts__=None):
         """
         RouteTable resource in a virtual hub.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -76,7 +76,7 @@ class HubRouteTable(pulumi.CustomResource):
             __props__['propagating_connections'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200401:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200501:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200601:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200701:HubRouteTable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200401:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200501:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200601:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200701:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200801:HubRouteTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HubRouteTable, __self__).__init__(
             'azure-nextgen:network/latest:HubRouteTable',

@@ -12,7 +12,7 @@ import (
 )
 
 // Custom IP prefix resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type CustomIPPrefix struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type CustomIPPrefix struct {
 	CommissionedState pulumi.StringPtrOutput `pulumi:"commissionedState"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The extended location of the custom IP prefix.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
@@ -60,6 +62,9 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:CustomIPPrefix"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:CustomIPPrefix"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomIPPrefix
@@ -90,6 +95,8 @@ type customIPPrefixState struct {
 	CommissionedState *string `pulumi:"commissionedState"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The extended location of the custom IP prefix.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -115,6 +122,8 @@ type CustomIPPrefixState struct {
 	CommissionedState pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The extended location of the custom IP prefix.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
@@ -144,6 +153,8 @@ type customIPPrefixArgs struct {
 	CommissionedState *string `pulumi:"commissionedState"`
 	// The name of the custom IP prefix.
 	CustomIpPrefixName string `pulumi:"customIpPrefixName"`
+	// The extended location of the custom IP prefix.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -164,6 +175,8 @@ type CustomIPPrefixArgs struct {
 	CommissionedState pulumi.StringPtrInput
 	// The name of the custom IP prefix.
 	CustomIpPrefixName pulumi.StringInput
+	// The extended location of the custom IP prefix.
+	ExtendedLocation ExtendedLocationPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

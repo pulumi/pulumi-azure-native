@@ -12,7 +12,7 @@ import (
 )
 
 // ExpressRouteConnection resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type ExpressRouteConnection struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type ExpressRouteConnection struct {
 	EnableInternetSecurity pulumi.BoolPtrOutput `pulumi:"enableInternetSecurity"`
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponseOutput `pulumi:"expressRouteCircuitPeering"`
+	// Enable FastPath to vWan Firewall hub.
+	ExpressRouteGatewayBypass pulumi.BoolPtrOutput `pulumi:"expressRouteGatewayBypass"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the express route connection resource.
@@ -106,6 +108,9 @@ func NewExpressRouteConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteConnection"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ExpressRouteConnection
@@ -136,6 +141,8 @@ type expressRouteConnectionState struct {
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering *ExpressRouteCircuitPeeringIdResponse `pulumi:"expressRouteCircuitPeering"`
+	// Enable FastPath to vWan Firewall hub.
+	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
 	// The provisioning state of the express route connection resource.
@@ -153,6 +160,8 @@ type ExpressRouteConnectionState struct {
 	EnableInternetSecurity pulumi.BoolPtrInput
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponsePtrInput
+	// Enable FastPath to vWan Firewall hub.
+	ExpressRouteGatewayBypass pulumi.BoolPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
 	// The provisioning state of the express route connection resource.
@@ -176,6 +185,8 @@ type expressRouteConnectionArgs struct {
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringId `pulumi:"expressRouteCircuitPeering"`
+	// Enable FastPath to vWan Firewall hub.
+	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
 	// Resource ID.
@@ -200,6 +211,8 @@ type ExpressRouteConnectionArgs struct {
 	EnableInternetSecurity pulumi.BoolPtrInput
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdInput
+	// Enable FastPath to vWan Firewall hub.
+	ExpressRouteGatewayBypass pulumi.BoolPtrInput
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName pulumi.StringInput
 	// Resource ID.

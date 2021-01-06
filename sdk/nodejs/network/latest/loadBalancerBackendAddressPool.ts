@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Pool of backend IP addresses.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     /**
@@ -53,6 +53,10 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly loadBalancingRules!: pulumi.Output<outputs.network.latest.SubResourceResponse[]>;
     /**
+     * The location of the backend address pool.
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
@@ -96,6 +100,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["loadBalancerBackendAddresses"] = args ? args.loadBalancerBackendAddresses : undefined;
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["backendIPConfigurations"] = undefined /*out*/;
@@ -110,6 +115,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["loadBalancerBackendAddresses"] = undefined /*out*/;
             inputs["loadBalancingRules"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["outboundRule"] = undefined /*out*/;
             inputs["outboundRules"] = undefined /*out*/;
@@ -123,7 +129,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LoadBalancerBackendAddressPool.__pulumiType, name, inputs, opts);
     }
@@ -149,6 +155,10 @@ export interface LoadBalancerBackendAddressPoolArgs {
      * The name of the load balancer.
      */
     readonly loadBalancerName: pulumi.Input<string>;
+    /**
+     * The location of the backend address pool.
+     */
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */

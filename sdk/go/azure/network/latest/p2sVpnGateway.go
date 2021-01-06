@@ -12,7 +12,7 @@ import (
 )
 
 // P2SVpnGateway Resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type P2sVpnGateway struct {
 	pulumi.CustomResourceState
 
@@ -111,6 +111,9 @@ func NewP2sVpnGateway(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:P2sVpnGateway"),
 		},
 	})
 	opts = append(opts, aliases)

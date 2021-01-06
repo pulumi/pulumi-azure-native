@@ -12,7 +12,7 @@ import (
 )
 
 // Route table resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type RouteTable struct {
 	pulumi.CustomResourceState
 
@@ -26,6 +26,8 @@ type RouteTable struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the route table resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The resource GUID property of the route table.
+	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
 	// Collection of routes contained within a route table.
 	Routes RouteResponseArrayOutput `pulumi:"routes"`
 	// A collection of references to subnets.
@@ -152,6 +154,9 @@ func NewRouteTable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:RouteTable"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:RouteTable"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RouteTable
@@ -186,6 +191,8 @@ type routeTableState struct {
 	Name *string `pulumi:"name"`
 	// The provisioning state of the route table resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the route table.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Collection of routes contained within a route table.
 	Routes []RouteResponse `pulumi:"routes"`
 	// A collection of references to subnets.
@@ -207,6 +214,8 @@ type RouteTableState struct {
 	Name pulumi.StringPtrInput
 	// The provisioning state of the route table resource.
 	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the route table.
+	ResourceGuid pulumi.StringPtrInput
 	// Collection of routes contained within a route table.
 	Routes RouteResponseArrayInput
 	// A collection of references to subnets.

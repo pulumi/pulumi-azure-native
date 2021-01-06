@@ -12,7 +12,7 @@ import (
 )
 
 // A common class for general resource information.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type LocalNetworkGateway struct {
 	pulumi.CustomResourceState
 
@@ -152,6 +152,9 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:LocalNetworkGateway"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -4,8 +4,10 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .addon import *
 from .authorization import *
 from .cluster import *
+from .get_addon import *
 from .get_authorization import *
 from .get_cluster import *
 from .get_global_reach_connection import *
@@ -42,7 +44,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-nextgen:avs/v20200717preview:Authorization":
+            if typ == "azure-nextgen:avs/v20200717preview:Addon":
+                return Addon(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:avs/v20200717preview:Authorization":
                 return Authorization(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:avs/v20200717preview:Cluster":
                 return Cluster(name, pulumi.ResourceOptions(urn=urn))

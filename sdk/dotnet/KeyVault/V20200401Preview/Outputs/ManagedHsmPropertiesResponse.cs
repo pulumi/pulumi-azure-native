@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Outputs
         /// <summary>
         /// The URI of the managed hsm pool for performing operations on keys.
         /// </summary>
-        public readonly string? HsmUri;
+        public readonly string HsmUri;
         /// <summary>
         /// Array of initial administrators object ids for this managed hsm pool.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Outputs
 
             bool? enableSoftDelete,
 
-            string? hsmUri,
+            string hsmUri,
 
             ImmutableArray<string> initialAdminObjectIds,
 

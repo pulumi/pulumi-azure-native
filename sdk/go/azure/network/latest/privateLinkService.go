@@ -12,7 +12,7 @@ import (
 )
 
 // Private link service resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type PrivateLinkService struct {
 	pulumi.CustomResourceState
 
@@ -24,6 +24,8 @@ type PrivateLinkService struct {
 	EnableProxyProtocol pulumi.BoolPtrOutput `pulumi:"enableProxyProtocol"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The extended location of the load balancer.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// The list of Fqdn.
 	Fqdns pulumi.StringArrayOutput `pulumi:"fqdns"`
 	// An array of private link service IP configurations.
@@ -98,6 +100,9 @@ func NewPrivateLinkService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:PrivateLinkService"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:PrivateLinkService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkService
@@ -130,6 +135,8 @@ type privateLinkServiceState struct {
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The extended location of the load balancer.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The list of Fqdn.
 	Fqdns []string `pulumi:"fqdns"`
 	// An array of private link service IP configurations.
@@ -163,6 +170,8 @@ type PrivateLinkServiceState struct {
 	EnableProxyProtocol pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The extended location of the load balancer.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// The list of Fqdn.
 	Fqdns pulumi.StringArrayInput
 	// An array of private link service IP configurations.
@@ -196,6 +205,8 @@ type privateLinkServiceArgs struct {
 	AutoApproval *PrivateLinkServicePropertiesAutoApproval `pulumi:"autoApproval"`
 	// Whether the private link service is enabled for proxy protocol or not.
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
+	// The extended location of the load balancer.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// The list of Fqdn.
 	Fqdns []string `pulumi:"fqdns"`
 	// Resource ID.
@@ -222,6 +233,8 @@ type PrivateLinkServiceArgs struct {
 	AutoApproval PrivateLinkServicePropertiesAutoApprovalPtrInput
 	// Whether the private link service is enabled for proxy protocol or not.
 	EnableProxyProtocol pulumi.BoolPtrInput
+	// The extended location of the load balancer.
+	ExtendedLocation ExtendedLocationPtrInput
 	// The list of Fqdn.
 	Fqdns pulumi.StringArrayInput
 	// Resource ID.

@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        /// </summary>
+        public readonly bool? HasBgpOverride;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -73,12 +77,18 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The provisioning state of the route resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetRouteResult(
             string? addressPrefix,
 
             string etag,
+
+            bool? hasBgpOverride,
 
             string? id,
 
@@ -88,15 +98,19 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string nextHopType,
 
-            string provisioningState)
+            string provisioningState,
+
+            string? type)
         {
             AddressPrefix = addressPrefix;
             Etag = etag;
+            HasBgpOverride = hasBgpOverride;
             Id = id;
             Name = name;
             NextHopIpAddress = nextHopIpAddress;
             NextHopType = nextHopType;
             ProvisioningState = provisioningState;
+            Type = type;
         }
     }
 }

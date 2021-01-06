@@ -1951,14 +1951,10 @@ type ResourceSku struct {
 	//     Free: 1
 	//     Standard: 1,2,5,10,20,50,100
 	Capacity *int `pulumi:"capacity"`
-	// Optional string. For future use.
-	Family *string `pulumi:"family"`
 	// The name of the SKU. Required.
 	//
 	// Allowed values: Standard_S1, Free_F1
 	Name string `pulumi:"name"`
-	// Optional string. For future use.
-	Size *string `pulumi:"size"`
 	// Optional tier of this particular SKU. 'Standard' or 'Free'.
 	//
 	// `Basic` is deprecated, use `Standard` instead.
@@ -1984,14 +1980,10 @@ type ResourceSkuArgs struct {
 	//     Free: 1
 	//     Standard: 1,2,5,10,20,50,100
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Optional string. For future use.
-	Family pulumi.StringPtrInput `pulumi:"family"`
 	// The name of the SKU. Required.
 	//
 	// Allowed values: Standard_S1, Free_F1
 	Name pulumi.StringInput `pulumi:"name"`
-	// Optional string. For future use.
-	Size pulumi.StringPtrInput `pulumi:"size"`
 	// Optional tier of this particular SKU. 'Standard' or 'Free'.
 	//
 	// `Basic` is deprecated, use `Standard` instead.
@@ -2085,21 +2077,11 @@ func (o ResourceSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Optional string. For future use.
-func (o ResourceSkuOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *string { return v.Family }).(pulumi.StringPtrOutput)
-}
-
 // The name of the SKU. Required.
 //
 // Allowed values: Standard_S1, Free_F1
 func (o ResourceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Optional string. For future use.
-func (o ResourceSkuOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
 // Optional tier of this particular SKU. 'Standard' or 'Free'.
@@ -2141,16 +2123,6 @@ func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Optional string. For future use.
-func (o ResourceSkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
 // The name of the SKU. Required.
 //
 // Allowed values: Standard_S1, Free_F1
@@ -2160,16 +2132,6 @@ func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Optional string. For future use.
-func (o ResourceSkuPtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2193,14 +2155,14 @@ type ResourceSkuResponse struct {
 	//     Free: 1
 	//     Standard: 1,2,5,10,20,50,100
 	Capacity *int `pulumi:"capacity"`
-	// Optional string. For future use.
-	Family *string `pulumi:"family"`
+	// Not used. Retained for future use.
+	Family string `pulumi:"family"`
 	// The name of the SKU. Required.
 	//
 	// Allowed values: Standard_S1, Free_F1
 	Name string `pulumi:"name"`
-	// Optional string. For future use.
-	Size *string `pulumi:"size"`
+	// Not used. Retained for future use.
+	Size string `pulumi:"size"`
 	// Optional tier of this particular SKU. 'Standard' or 'Free'.
 	//
 	// `Basic` is deprecated, use `Standard` instead.
@@ -2226,14 +2188,14 @@ type ResourceSkuResponseArgs struct {
 	//     Free: 1
 	//     Standard: 1,2,5,10,20,50,100
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Optional string. For future use.
-	Family pulumi.StringPtrInput `pulumi:"family"`
+	// Not used. Retained for future use.
+	Family pulumi.StringInput `pulumi:"family"`
 	// The name of the SKU. Required.
 	//
 	// Allowed values: Standard_S1, Free_F1
 	Name pulumi.StringInput `pulumi:"name"`
-	// Optional string. For future use.
-	Size pulumi.StringPtrInput `pulumi:"size"`
+	// Not used. Retained for future use.
+	Size pulumi.StringInput `pulumi:"size"`
 	// Optional tier of this particular SKU. 'Standard' or 'Free'.
 	//
 	// `Basic` is deprecated, use `Standard` instead.
@@ -2327,9 +2289,9 @@ func (o ResourceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Optional string. For future use.
-func (o ResourceSkuResponseOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+// Not used. Retained for future use.
+func (o ResourceSkuResponseOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Family }).(pulumi.StringOutput)
 }
 
 // The name of the SKU. Required.
@@ -2339,9 +2301,9 @@ func (o ResourceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Optional string. For future use.
-func (o ResourceSkuResponseOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+// Not used. Retained for future use.
+func (o ResourceSkuResponseOutput) Size() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Size }).(pulumi.StringOutput)
 }
 
 // Optional tier of this particular SKU. 'Standard' or 'Free'.
@@ -2383,13 +2345,13 @@ func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Optional string. For future use.
+// Not used. Retained for future use.
 func (o ResourceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Family
+		return &v.Family
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2405,13 +2367,13 @@ func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional string. For future use.
+// Not used. Retained for future use.
 func (o ResourceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Size
+		return &v.Size
 	}).(pulumi.StringPtrOutput)
 }
 

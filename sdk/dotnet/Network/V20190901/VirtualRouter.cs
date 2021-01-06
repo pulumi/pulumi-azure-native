@@ -116,6 +116,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualRouter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

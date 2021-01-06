@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Service Endpoint policy definitions.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180701:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20180801:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20181001:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20181101:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20181201:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190201:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190401:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190601:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190701:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190801:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190901:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20191101:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20191201:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200301:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200401:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200501:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200601:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200701:ServiceEndpointPolicyDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180701:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20180801:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20181001:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20181101:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20181201:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190201:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190401:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190601:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190701:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190801:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190901:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20191101:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20191201:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200301:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200401:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200501:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200601:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200701:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200801:ServiceEndpointPolicyDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceEndpointPolicyDefinition.__pulumiType, name, inputs, opts);
     }

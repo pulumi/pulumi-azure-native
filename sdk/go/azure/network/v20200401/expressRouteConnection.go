@@ -105,6 +105,9 @@ func NewExpressRouteConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteConnection"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ExpressRouteConnection

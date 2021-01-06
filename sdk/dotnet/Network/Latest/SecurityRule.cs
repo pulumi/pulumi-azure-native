@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Network security rule.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:SecurityRule")]
     public partial class SecurityRule : Pulumi.CustomResource
@@ -124,6 +124,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         [Output("sourcePortRanges")]
         public Output<ImmutableArray<string>> SourcePortRanges { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SecurityRule resource with the given unique name, arguments, and options.
@@ -183,6 +189,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:SecurityRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -361,6 +368,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
             get => _sourcePortRanges ?? (_sourcePortRanges = new InputList<string>());
             set => _sourcePortRanges = value;
         }
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public SecurityRuleArgs()
         {

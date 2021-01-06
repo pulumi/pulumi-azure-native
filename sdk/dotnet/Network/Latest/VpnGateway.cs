@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// VpnGateway Resource.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:VpnGateway")]
     public partial class VpnGateway : Pulumi.CustomResource
@@ -57,6 +57,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// List of all the nat Rules associated with the gateway.
+        /// </summary>
+        [Output("natRules")]
+        public Output<ImmutableArray<Outputs.VpnGatewayNatRuleResponse>> NatRules { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the VPN gateway resource.
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VpnGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VpnGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VpnGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -197,6 +204,18 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        [Input("natRules")]
+        private InputList<Inputs.VpnGatewayNatRuleArgs>? _natRules;
+
+        /// <summary>
+        /// List of all the nat Rules associated with the gateway.
+        /// </summary>
+        public InputList<Inputs.VpnGatewayNatRuleArgs> NatRules
+        {
+            get => _natRules ?? (_natRules = new InputList<Inputs.VpnGatewayNatRuleArgs>());
+            set => _natRules = value;
+        }
 
         /// <summary>
         /// The resource group name of the VpnGateway.

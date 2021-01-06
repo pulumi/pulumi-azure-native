@@ -12,7 +12,7 @@ import (
 )
 
 // Private endpoint resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type PrivateEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type PrivateEndpoint struct {
 	CustomDnsConfigs CustomDnsConfigPropertiesFormatResponseArrayOutput `pulumi:"customDnsConfigs"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The extended location of the load balancer.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
@@ -90,6 +92,9 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:PrivateEndpoint"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:PrivateEndpoint"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpoint
@@ -118,6 +123,8 @@ type privateEndpointState struct {
 	CustomDnsConfigs []CustomDnsConfigPropertiesFormatResponse `pulumi:"customDnsConfigs"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The extended location of the load balancer.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
@@ -143,6 +150,8 @@ type PrivateEndpointState struct {
 	CustomDnsConfigs CustomDnsConfigPropertiesFormatResponseArrayInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The extended location of the load balancer.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
@@ -170,6 +179,8 @@ func (PrivateEndpointState) ElementType() reflect.Type {
 type privateEndpointArgs struct {
 	// An array of custom dns configurations.
 	CustomDnsConfigs []CustomDnsConfigPropertiesFormat `pulumi:"customDnsConfigs"`
+	// The extended location of the load balancer.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -192,6 +203,8 @@ type privateEndpointArgs struct {
 type PrivateEndpointArgs struct {
 	// An array of custom dns configurations.
 	CustomDnsConfigs CustomDnsConfigPropertiesFormatArrayInput
+	// The extended location of the load balancer.
+	ExtendedLocation ExtendedLocationPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

@@ -38,6 +38,10 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The resource GUID property of the route table.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
         /// Collection of routes contained within a route table.
         /// </summary>
         public readonly ImmutableArray<Outputs.RouteResponse> Routes;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             string provisioningState,
 
+            string resourceGuid,
+
             ImmutableArray<Outputs.RouteResponse> routes,
 
             ImmutableArray<Outputs.SubnetResponse> subnets,
@@ -82,6 +88,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Routes = routes;
             Subnets = subnets;
             Tags = tags;

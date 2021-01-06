@@ -12,7 +12,7 @@ import (
 )
 
 // Public IP prefix resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type PublicIPPrefix struct {
 	pulumi.CustomResourceState
 
@@ -119,6 +119,9 @@ func NewPublicIPPrefix(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:PublicIPPrefix"),
 		},
 	})
 	opts = append(opts, aliases)

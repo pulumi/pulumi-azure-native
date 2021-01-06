@@ -12,7 +12,7 @@ import (
 )
 
 // Application gateway resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type ApplicationGateway struct {
 	pulumi.CustomResourceState
 
@@ -207,6 +207,9 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:ApplicationGateway"),
 		},
 	})
 	opts = append(opts, aliases)

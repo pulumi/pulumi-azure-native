@@ -12,7 +12,7 @@ import (
 )
 
 // Network security rule.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type SecurityRule struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +52,8 @@ type SecurityRule struct {
 	SourcePortRange pulumi.StringPtrOutput `pulumi:"sourcePortRange"`
 	// The source port ranges.
 	SourcePortRanges pulumi.StringArrayOutput `pulumi:"sourcePortRanges"`
+	// The type of the resource.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewSecurityRule registers a new resource with the given unique name, arguments, and options.
@@ -182,6 +184,9 @@ func NewSecurityRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:SecurityRule"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:SecurityRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SecurityRule
@@ -242,6 +247,8 @@ type securityRuleState struct {
 	SourcePortRange *string `pulumi:"sourcePortRange"`
 	// The source port ranges.
 	SourcePortRanges []string `pulumi:"sourcePortRanges"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type SecurityRuleState struct {
@@ -281,6 +288,8 @@ type SecurityRuleState struct {
 	SourcePortRange pulumi.StringPtrInput
 	// The source port ranges.
 	SourcePortRanges pulumi.StringArrayInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (SecurityRuleState) ElementType() reflect.Type {
@@ -328,6 +337,8 @@ type securityRuleArgs struct {
 	SourcePortRange *string `pulumi:"sourcePortRange"`
 	// The source port ranges.
 	SourcePortRanges []string `pulumi:"sourcePortRanges"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SecurityRule resource.
@@ -372,6 +383,8 @@ type SecurityRuleArgs struct {
 	SourcePortRange pulumi.StringPtrInput
 	// The source port ranges.
 	SourcePortRanges pulumi.StringArrayInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (SecurityRuleArgs) ElementType() reflect.Type {

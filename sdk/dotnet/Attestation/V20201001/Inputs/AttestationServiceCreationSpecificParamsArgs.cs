@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001.Inputs
 {
 
     /// <summary>
-    /// Client supplied parameters used to create a new attestation service instance.
+    /// Client supplied parameters used to create a new attestation provider.
     /// </summary>
     public sealed class AttestationServiceCreationSpecificParamsArgs : Pulumi.ResourceArgs
     {

@@ -12,7 +12,7 @@ import (
 )
 
 // Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type ExpressRouteCircuitConnection struct {
 	pulumi.CustomResourceState
 
@@ -120,6 +120,9 @@ func NewExpressRouteCircuitConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteCircuitConnection"),
 		},
 	})
 	opts = append(opts, aliases)

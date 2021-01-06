@@ -532,28 +532,24 @@ class QueryFilterResponse(dict):
     """
     def __init__(__self__, *,
                  and_: Optional[Sequence['outputs.QueryFilterResponse']] = None,
-                 dimension: Optional['outputs.QueryComparisonExpressionResponse'] = None,
-                 not_: Optional['outputs.QueryFilterResponse'] = None,
+                 dimensions: Optional['outputs.QueryComparisonExpressionResponse'] = None,
                  or_: Optional[Sequence['outputs.QueryFilterResponse']] = None,
-                 tag: Optional['outputs.QueryComparisonExpressionResponse'] = None):
+                 tags: Optional['outputs.QueryComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the export.
         :param Sequence['QueryFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
-        :param 'QueryComparisonExpressionResponseArgs' dimension: Has comparison expression for a dimension
-        :param 'QueryFilterResponseArgs' not_: The logical "NOT" expression.
+        :param 'QueryComparisonExpressionResponseArgs' dimensions: Has comparison expression for a dimension
         :param Sequence['QueryFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
-        :param 'QueryComparisonExpressionResponseArgs' tag: Has comparison expression for a tag
+        :param 'QueryComparisonExpressionResponseArgs' tags: Has comparison expression for a tag
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
-        if dimension is not None:
-            pulumi.set(__self__, "dimension", dimension)
-        if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
         if or_ is not None:
             pulumi.set(__self__, "or_", or_)
-        if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="and")
@@ -565,19 +561,11 @@ class QueryFilterResponse(dict):
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional['outputs.QueryComparisonExpressionResponse']:
+    def dimensions(self) -> Optional['outputs.QueryComparisonExpressionResponse']:
         """
         Has comparison expression for a dimension
         """
-        return pulumi.get(self, "dimension")
-
-    @property
-    @pulumi.getter(name="not")
-    def not_(self) -> Optional['outputs.QueryFilterResponse']:
-        """
-        The logical "NOT" expression.
-        """
-        return pulumi.get(self, "not_")
+        return pulumi.get(self, "dimensions")
 
     @property
     @pulumi.getter(name="or")
@@ -589,11 +577,11 @@ class QueryFilterResponse(dict):
 
     @property
     @pulumi.getter
-    def tag(self) -> Optional['outputs.QueryComparisonExpressionResponse']:
+    def tags(self) -> Optional['outputs.QueryComparisonExpressionResponse']:
         """
         Has comparison expression for a tag
         """
-        return pulumi.get(self, "tag")
+        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -874,14 +862,12 @@ class ReportConfigFilterResponse(dict):
     def __init__(__self__, *,
                  and_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
                  dimension: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
-                 not_: Optional['outputs.ReportConfigFilterResponse'] = None,
                  or_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
                  tag: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
         :param Sequence['ReportConfigFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponseArgs' dimension: Has comparison expression for a dimension
-        :param 'ReportConfigFilterResponseArgs' not_: The logical "NOT" expression.
         :param Sequence['ReportConfigFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponseArgs' tag: Has comparison expression for a tag
         """
@@ -889,8 +875,6 @@ class ReportConfigFilterResponse(dict):
             pulumi.set(__self__, "and_", and_)
         if dimension is not None:
             pulumi.set(__self__, "dimension", dimension)
-        if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
         if or_ is not None:
             pulumi.set(__self__, "or_", or_)
         if tag is not None:
@@ -911,14 +895,6 @@ class ReportConfigFilterResponse(dict):
         Has comparison expression for a dimension
         """
         return pulumi.get(self, "dimension")
-
-    @property
-    @pulumi.getter(name="not")
-    def not_(self) -> Optional['outputs.ReportConfigFilterResponse']:
-        """
-        The logical "NOT" expression.
-        """
-        return pulumi.get(self, "not_")
 
     @property
     @pulumi.getter(name="or")

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * IpAllocation resource.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class IpAllocation extends pulumi.CustomResource {
     /**
@@ -137,7 +137,7 @@ export class IpAllocation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200301:IpAllocation" }, { type: "azure-nextgen:network/v20200401:IpAllocation" }, { type: "azure-nextgen:network/v20200501:IpAllocation" }, { type: "azure-nextgen:network/v20200601:IpAllocation" }, { type: "azure-nextgen:network/v20200701:IpAllocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200301:IpAllocation" }, { type: "azure-nextgen:network/v20200401:IpAllocation" }, { type: "azure-nextgen:network/v20200501:IpAllocation" }, { type: "azure-nextgen:network/v20200601:IpAllocation" }, { type: "azure-nextgen:network/v20200701:IpAllocation" }, { type: "azure-nextgen:network/v20200801:IpAllocation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpAllocation.__pulumiType, name, inputs, opts);
     }

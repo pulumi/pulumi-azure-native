@@ -199,6 +199,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

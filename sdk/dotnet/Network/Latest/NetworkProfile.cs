@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Network profile resource.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:NetworkProfile")]
     public partial class NetworkProfile : Pulumi.CustomResource
@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NetworkProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

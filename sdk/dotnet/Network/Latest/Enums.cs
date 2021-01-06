@@ -4507,6 +4507,100 @@ namespace Pulumi.AzureNextGen.Network.Latest
     }
 
     /// <summary>
+    /// Vpn link connection mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnLinkConnectionMode : IEquatable<VpnLinkConnectionMode>
+    {
+        private readonly string _value;
+
+        private VpnLinkConnectionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnLinkConnectionMode Default { get; } = new VpnLinkConnectionMode("Default");
+        public static VpnLinkConnectionMode ResponderOnly { get; } = new VpnLinkConnectionMode("ResponderOnly");
+        public static VpnLinkConnectionMode InitiatorOnly { get; } = new VpnLinkConnectionMode("InitiatorOnly");
+
+        public static bool operator ==(VpnLinkConnectionMode left, VpnLinkConnectionMode right) => left.Equals(right);
+        public static bool operator !=(VpnLinkConnectionMode left, VpnLinkConnectionMode right) => !left.Equals(right);
+
+        public static explicit operator string(VpnLinkConnectionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnLinkConnectionMode other && Equals(other);
+        public bool Equals(VpnLinkConnectionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Source NAT direction of a VPN NAT.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnNatRuleMode : IEquatable<VpnNatRuleMode>
+    {
+        private readonly string _value;
+
+        private VpnNatRuleMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnNatRuleMode EgressSnat { get; } = new VpnNatRuleMode("EgressSnat");
+        public static VpnNatRuleMode IngressSnat { get; } = new VpnNatRuleMode("IngressSnat");
+
+        public static bool operator ==(VpnNatRuleMode left, VpnNatRuleMode right) => left.Equals(right);
+        public static bool operator !=(VpnNatRuleMode left, VpnNatRuleMode right) => !left.Equals(right);
+
+        public static explicit operator string(VpnNatRuleMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnNatRuleMode other && Equals(other);
+        public bool Equals(VpnNatRuleMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of NAT rule for VPN NAT.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnNatRuleType : IEquatable<VpnNatRuleType>
+    {
+        private readonly string _value;
+
+        private VpnNatRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnNatRuleType Static { get; } = new VpnNatRuleType("Static");
+        public static VpnNatRuleType Dynamic { get; } = new VpnNatRuleType("Dynamic");
+
+        public static bool operator ==(VpnNatRuleType left, VpnNatRuleType right) => left.Equals(right);
+        public static bool operator !=(VpnNatRuleType left, VpnNatRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(VpnNatRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnNatRuleType other && Equals(other);
+        public bool Equals(VpnNatRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of this virtual network gateway.
     /// </summary>
     [EnumType]

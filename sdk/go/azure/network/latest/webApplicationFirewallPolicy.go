@@ -12,7 +12,7 @@ import (
 )
 
 // Defines web application firewall policy.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type WebApplicationFirewallPolicy struct {
 	pulumi.CustomResourceState
 
@@ -102,6 +102,9 @@ func NewWebApplicationFirewallPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:WebApplicationFirewallPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

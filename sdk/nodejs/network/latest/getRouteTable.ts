@@ -64,6 +64,10 @@ export interface GetRouteTableResult {
      */
     readonly provisioningState: string;
     /**
+     * The resource GUID property of the route table.
+     */
+    readonly resourceGuid: string;
+    /**
      * Collection of routes contained within a route table.
      */
     readonly routes?: outputs.network.latest.RouteResponse[];

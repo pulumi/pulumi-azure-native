@@ -26,24 +26,12 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200501.Inputs
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// Optional string. For future use.
-        /// </summary>
-        [Input("family")]
-        public Input<string>? Family { get; set; }
-
-        /// <summary>
         /// The name of the SKU. Required.
         /// 
         /// Allowed values: Standard_S1, Free_F1
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Optional string. For future use.
-        /// </summary>
-        [Input("size")]
-        public Input<string>? Size { get; set; }
 
         /// <summary>
         /// Optional tier of this particular SKU. 'Standard' or 'Free'. 

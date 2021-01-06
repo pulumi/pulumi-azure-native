@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Public IP address resource.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:PublicIPAddress")]
     public partial class PublicIPAddress : Pulumi.CustomResource
@@ -189,6 +189,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:PublicIPAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PublicIPAddress"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

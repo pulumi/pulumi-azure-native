@@ -27,7 +27,7 @@ class IpGroup(pulumi.CustomResource):
                  __opts__=None):
         """
         The IpGroups resource information.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -71,7 +71,7 @@ class IpGroup(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190901:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191101:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191201:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:IpGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190901:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191101:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191201:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200801:IpGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IpGroup, __self__).__init__(
             'azure-nextgen:network/latest:IpGroup',

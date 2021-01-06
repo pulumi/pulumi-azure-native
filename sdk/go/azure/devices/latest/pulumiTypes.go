@@ -3412,6 +3412,8 @@ type IotHubProperties struct {
 	MessagingEndpoints map[string]MessagingEndpointProperties `pulumi:"messagingEndpoints"`
 	// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	// Network Rule Set Properties of IotHub
+	NetworkRuleSets *NetworkRuleSetProperties `pulumi:"networkRuleSets"`
 	// Private endpoint connections created on this IotHub
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// Whether requests from Public Network are allowed
@@ -3453,6 +3455,8 @@ type IotHubPropertiesArgs struct {
 	MessagingEndpoints MessagingEndpointPropertiesMapInput `pulumi:"messagingEndpoints"`
 	// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	// Network Rule Set Properties of IotHub
+	NetworkRuleSets NetworkRuleSetPropertiesPtrInput `pulumi:"networkRuleSets"`
 	// Private endpoint connections created on this IotHub
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput `pulumi:"privateEndpointConnections"`
 	// Whether requests from Public Network are allowed
@@ -3586,6 +3590,11 @@ func (o IotHubPropertiesOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
+// Network Rule Set Properties of IotHub
+func (o IotHubPropertiesOutput) NetworkRuleSets() NetworkRuleSetPropertiesPtrOutput {
+	return o.ApplyT(func(v IotHubProperties) *NetworkRuleSetProperties { return v.NetworkRuleSets }).(NetworkRuleSetPropertiesPtrOutput)
+}
+
 // Private endpoint connections created on this IotHub
 func (o IotHubPropertiesOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
 	return o.ApplyT(func(v IotHubProperties) []PrivateEndpointConnectionType { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionTypeArrayOutput)
@@ -3714,6 +3723,16 @@ func (o IotHubPropertiesPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Network Rule Set Properties of IotHub
+func (o IotHubPropertiesPtrOutput) NetworkRuleSets() NetworkRuleSetPropertiesPtrOutput {
+	return o.ApplyT(func(v *IotHubProperties) *NetworkRuleSetProperties {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkRuleSets
+	}).(NetworkRuleSetPropertiesPtrOutput)
+}
+
 // Private endpoint connections created on this IotHub
 func (o IotHubPropertiesPtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
 	return o.ApplyT(func(v *IotHubProperties) []PrivateEndpointConnectionType {
@@ -3778,6 +3797,8 @@ type IotHubPropertiesResponse struct {
 	MessagingEndpoints map[string]MessagingEndpointPropertiesResponse `pulumi:"messagingEndpoints"`
 	// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	// Network Rule Set Properties of IotHub
+	NetworkRuleSets *NetworkRuleSetPropertiesResponse `pulumi:"networkRuleSets"`
 	// Private endpoint connections created on this IotHub
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state.
@@ -3827,6 +3848,8 @@ type IotHubPropertiesResponseArgs struct {
 	MessagingEndpoints MessagingEndpointPropertiesResponseMapInput `pulumi:"messagingEndpoints"`
 	// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	// Network Rule Set Properties of IotHub
+	NetworkRuleSets NetworkRuleSetPropertiesResponsePtrInput `pulumi:"networkRuleSets"`
 	// Private endpoint connections created on this IotHub
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
 	// The provisioning state.
@@ -3976,6 +3999,11 @@ func (o IotHubPropertiesResponseOutput) MessagingEndpoints() MessagingEndpointPr
 // Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
 func (o IotHubPropertiesResponseOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// Network Rule Set Properties of IotHub
+func (o IotHubPropertiesResponseOutput) NetworkRuleSets() NetworkRuleSetPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v IotHubPropertiesResponse) *NetworkRuleSetPropertiesResponse { return v.NetworkRuleSets }).(NetworkRuleSetPropertiesResponsePtrOutput)
 }
 
 // Private endpoint connections created on this IotHub
@@ -4138,6 +4166,16 @@ func (o IotHubPropertiesResponsePtrOutput) MinTlsVersion() pulumi.StringPtrOutpu
 		}
 		return v.MinTlsVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// Network Rule Set Properties of IotHub
+func (o IotHubPropertiesResponsePtrOutput) NetworkRuleSets() NetworkRuleSetPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *IotHubPropertiesResponse) *NetworkRuleSetPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkRuleSets
+	}).(NetworkRuleSetPropertiesResponsePtrOutput)
 }
 
 // Private endpoint connections created on this IotHub
@@ -4995,6 +5033,586 @@ func (o MessagingEndpointPropertiesResponseMapOutput) MapIndex(k pulumi.StringIn
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MessagingEndpointPropertiesResponse {
 		return vs[0].(map[string]MessagingEndpointPropertiesResponse)[vs[1].(string)]
 	}).(MessagingEndpointPropertiesResponseOutput)
+}
+
+// IP Rule to be applied as part of Network Rule Set
+type NetworkRuleSetIpRule struct {
+	// IP Filter Action
+	Action *string `pulumi:"action"`
+	// Name of the IP filter rule.
+	FilterName string `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask string `pulumi:"ipMask"`
+}
+
+// NetworkRuleSetIpRuleInput is an input type that accepts NetworkRuleSetIpRuleArgs and NetworkRuleSetIpRuleOutput values.
+// You can construct a concrete instance of `NetworkRuleSetIpRuleInput` via:
+//
+//          NetworkRuleSetIpRuleArgs{...}
+type NetworkRuleSetIpRuleInput interface {
+	pulumi.Input
+
+	ToNetworkRuleSetIpRuleOutput() NetworkRuleSetIpRuleOutput
+	ToNetworkRuleSetIpRuleOutputWithContext(context.Context) NetworkRuleSetIpRuleOutput
+}
+
+// IP Rule to be applied as part of Network Rule Set
+type NetworkRuleSetIpRuleArgs struct {
+	// IP Filter Action
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Name of the IP filter rule.
+	FilterName pulumi.StringInput `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+}
+
+func (NetworkRuleSetIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (i NetworkRuleSetIpRuleArgs) ToNetworkRuleSetIpRuleOutput() NetworkRuleSetIpRuleOutput {
+	return i.ToNetworkRuleSetIpRuleOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleSetIpRuleArgs) ToNetworkRuleSetIpRuleOutputWithContext(ctx context.Context) NetworkRuleSetIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetIpRuleOutput)
+}
+
+// NetworkRuleSetIpRuleArrayInput is an input type that accepts NetworkRuleSetIpRuleArray and NetworkRuleSetIpRuleArrayOutput values.
+// You can construct a concrete instance of `NetworkRuleSetIpRuleArrayInput` via:
+//
+//          NetworkRuleSetIpRuleArray{ NetworkRuleSetIpRuleArgs{...} }
+type NetworkRuleSetIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToNetworkRuleSetIpRuleArrayOutput() NetworkRuleSetIpRuleArrayOutput
+	ToNetworkRuleSetIpRuleArrayOutputWithContext(context.Context) NetworkRuleSetIpRuleArrayOutput
+}
+
+type NetworkRuleSetIpRuleArray []NetworkRuleSetIpRuleInput
+
+func (NetworkRuleSetIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (i NetworkRuleSetIpRuleArray) ToNetworkRuleSetIpRuleArrayOutput() NetworkRuleSetIpRuleArrayOutput {
+	return i.ToNetworkRuleSetIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleSetIpRuleArray) ToNetworkRuleSetIpRuleArrayOutputWithContext(ctx context.Context) NetworkRuleSetIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetIpRuleArrayOutput)
+}
+
+// IP Rule to be applied as part of Network Rule Set
+type NetworkRuleSetIpRuleOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleSetIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (o NetworkRuleSetIpRuleOutput) ToNetworkRuleSetIpRuleOutput() NetworkRuleSetIpRuleOutput {
+	return o
+}
+
+func (o NetworkRuleSetIpRuleOutput) ToNetworkRuleSetIpRuleOutputWithContext(ctx context.Context) NetworkRuleSetIpRuleOutput {
+	return o
+}
+
+// IP Filter Action
+func (o NetworkRuleSetIpRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRuleSetIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// Name of the IP filter rule.
+func (o NetworkRuleSetIpRuleOutput) FilterName() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkRuleSetIpRule) string { return v.FilterName }).(pulumi.StringOutput)
+}
+
+// A string that contains the IP address range in CIDR notation for the rule.
+func (o NetworkRuleSetIpRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkRuleSetIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+type NetworkRuleSetIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleSetIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (o NetworkRuleSetIpRuleArrayOutput) ToNetworkRuleSetIpRuleArrayOutput() NetworkRuleSetIpRuleArrayOutput {
+	return o
+}
+
+func (o NetworkRuleSetIpRuleArrayOutput) ToNetworkRuleSetIpRuleArrayOutputWithContext(ctx context.Context) NetworkRuleSetIpRuleArrayOutput {
+	return o
+}
+
+func (o NetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) NetworkRuleSetIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkRuleSetIpRule {
+		return vs[0].([]NetworkRuleSetIpRule)[vs[1].(int)]
+	}).(NetworkRuleSetIpRuleOutput)
+}
+
+// IP Rule to be applied as part of Network Rule Set
+type NetworkRuleSetIpRuleResponse struct {
+	// IP Filter Action
+	Action *string `pulumi:"action"`
+	// Name of the IP filter rule.
+	FilterName string `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask string `pulumi:"ipMask"`
+}
+
+// NetworkRuleSetIpRuleResponseInput is an input type that accepts NetworkRuleSetIpRuleResponseArgs and NetworkRuleSetIpRuleResponseOutput values.
+// You can construct a concrete instance of `NetworkRuleSetIpRuleResponseInput` via:
+//
+//          NetworkRuleSetIpRuleResponseArgs{...}
+type NetworkRuleSetIpRuleResponseInput interface {
+	pulumi.Input
+
+	ToNetworkRuleSetIpRuleResponseOutput() NetworkRuleSetIpRuleResponseOutput
+	ToNetworkRuleSetIpRuleResponseOutputWithContext(context.Context) NetworkRuleSetIpRuleResponseOutput
+}
+
+// IP Rule to be applied as part of Network Rule Set
+type NetworkRuleSetIpRuleResponseArgs struct {
+	// IP Filter Action
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Name of the IP filter rule.
+	FilterName pulumi.StringInput `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+}
+
+func (NetworkRuleSetIpRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetIpRuleResponse)(nil)).Elem()
+}
+
+func (i NetworkRuleSetIpRuleResponseArgs) ToNetworkRuleSetIpRuleResponseOutput() NetworkRuleSetIpRuleResponseOutput {
+	return i.ToNetworkRuleSetIpRuleResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleSetIpRuleResponseArgs) ToNetworkRuleSetIpRuleResponseOutputWithContext(ctx context.Context) NetworkRuleSetIpRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetIpRuleResponseOutput)
+}
+
+// NetworkRuleSetIpRuleResponseArrayInput is an input type that accepts NetworkRuleSetIpRuleResponseArray and NetworkRuleSetIpRuleResponseArrayOutput values.
+// You can construct a concrete instance of `NetworkRuleSetIpRuleResponseArrayInput` via:
+//
+//          NetworkRuleSetIpRuleResponseArray{ NetworkRuleSetIpRuleResponseArgs{...} }
+type NetworkRuleSetIpRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToNetworkRuleSetIpRuleResponseArrayOutput() NetworkRuleSetIpRuleResponseArrayOutput
+	ToNetworkRuleSetIpRuleResponseArrayOutputWithContext(context.Context) NetworkRuleSetIpRuleResponseArrayOutput
+}
+
+type NetworkRuleSetIpRuleResponseArray []NetworkRuleSetIpRuleResponseInput
+
+func (NetworkRuleSetIpRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkRuleSetIpRuleResponse)(nil)).Elem()
+}
+
+func (i NetworkRuleSetIpRuleResponseArray) ToNetworkRuleSetIpRuleResponseArrayOutput() NetworkRuleSetIpRuleResponseArrayOutput {
+	return i.ToNetworkRuleSetIpRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleSetIpRuleResponseArray) ToNetworkRuleSetIpRuleResponseArrayOutputWithContext(ctx context.Context) NetworkRuleSetIpRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetIpRuleResponseArrayOutput)
+}
+
+// IP Rule to be applied as part of Network Rule Set
+type NetworkRuleSetIpRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleSetIpRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetIpRuleResponse)(nil)).Elem()
+}
+
+func (o NetworkRuleSetIpRuleResponseOutput) ToNetworkRuleSetIpRuleResponseOutput() NetworkRuleSetIpRuleResponseOutput {
+	return o
+}
+
+func (o NetworkRuleSetIpRuleResponseOutput) ToNetworkRuleSetIpRuleResponseOutputWithContext(ctx context.Context) NetworkRuleSetIpRuleResponseOutput {
+	return o
+}
+
+// IP Filter Action
+func (o NetworkRuleSetIpRuleResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRuleSetIpRuleResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// Name of the IP filter rule.
+func (o NetworkRuleSetIpRuleResponseOutput) FilterName() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkRuleSetIpRuleResponse) string { return v.FilterName }).(pulumi.StringOutput)
+}
+
+// A string that contains the IP address range in CIDR notation for the rule.
+func (o NetworkRuleSetIpRuleResponseOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkRuleSetIpRuleResponse) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+type NetworkRuleSetIpRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleSetIpRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkRuleSetIpRuleResponse)(nil)).Elem()
+}
+
+func (o NetworkRuleSetIpRuleResponseArrayOutput) ToNetworkRuleSetIpRuleResponseArrayOutput() NetworkRuleSetIpRuleResponseArrayOutput {
+	return o
+}
+
+func (o NetworkRuleSetIpRuleResponseArrayOutput) ToNetworkRuleSetIpRuleResponseArrayOutputWithContext(ctx context.Context) NetworkRuleSetIpRuleResponseArrayOutput {
+	return o
+}
+
+func (o NetworkRuleSetIpRuleResponseArrayOutput) Index(i pulumi.IntInput) NetworkRuleSetIpRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkRuleSetIpRuleResponse {
+		return vs[0].([]NetworkRuleSetIpRuleResponse)[vs[1].(int)]
+	}).(NetworkRuleSetIpRuleResponseOutput)
+}
+
+// Network Rule Set Properties of IotHub
+type NetworkRuleSetProperties struct {
+	// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+	ApplyToBuiltInEventHubEndpoint bool `pulumi:"applyToBuiltInEventHubEndpoint"`
+	// Default Action for Network Rule Set
+	DefaultAction *string `pulumi:"defaultAction"`
+	// List of IP Rules
+	IpRules []NetworkRuleSetIpRule `pulumi:"ipRules"`
+}
+
+// NetworkRuleSetPropertiesInput is an input type that accepts NetworkRuleSetPropertiesArgs and NetworkRuleSetPropertiesOutput values.
+// You can construct a concrete instance of `NetworkRuleSetPropertiesInput` via:
+//
+//          NetworkRuleSetPropertiesArgs{...}
+type NetworkRuleSetPropertiesInput interface {
+	pulumi.Input
+
+	ToNetworkRuleSetPropertiesOutput() NetworkRuleSetPropertiesOutput
+	ToNetworkRuleSetPropertiesOutputWithContext(context.Context) NetworkRuleSetPropertiesOutput
+}
+
+// Network Rule Set Properties of IotHub
+type NetworkRuleSetPropertiesArgs struct {
+	// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+	ApplyToBuiltInEventHubEndpoint pulumi.BoolInput `pulumi:"applyToBuiltInEventHubEndpoint"`
+	// Default Action for Network Rule Set
+	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
+	// List of IP Rules
+	IpRules NetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
+}
+
+func (NetworkRuleSetPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetProperties)(nil)).Elem()
+}
+
+func (i NetworkRuleSetPropertiesArgs) ToNetworkRuleSetPropertiesOutput() NetworkRuleSetPropertiesOutput {
+	return i.ToNetworkRuleSetPropertiesOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleSetPropertiesArgs) ToNetworkRuleSetPropertiesOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPropertiesOutput)
+}
+
+func (i NetworkRuleSetPropertiesArgs) ToNetworkRuleSetPropertiesPtrOutput() NetworkRuleSetPropertiesPtrOutput {
+	return i.ToNetworkRuleSetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleSetPropertiesArgs) ToNetworkRuleSetPropertiesPtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPropertiesOutput).ToNetworkRuleSetPropertiesPtrOutputWithContext(ctx)
+}
+
+// NetworkRuleSetPropertiesPtrInput is an input type that accepts NetworkRuleSetPropertiesArgs, NetworkRuleSetPropertiesPtr and NetworkRuleSetPropertiesPtrOutput values.
+// You can construct a concrete instance of `NetworkRuleSetPropertiesPtrInput` via:
+//
+//          NetworkRuleSetPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkRuleSetPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToNetworkRuleSetPropertiesPtrOutput() NetworkRuleSetPropertiesPtrOutput
+	ToNetworkRuleSetPropertiesPtrOutputWithContext(context.Context) NetworkRuleSetPropertiesPtrOutput
+}
+
+type networkRuleSetPropertiesPtrType NetworkRuleSetPropertiesArgs
+
+func NetworkRuleSetPropertiesPtr(v *NetworkRuleSetPropertiesArgs) NetworkRuleSetPropertiesPtrInput {
+	return (*networkRuleSetPropertiesPtrType)(v)
+}
+
+func (*networkRuleSetPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkRuleSetProperties)(nil)).Elem()
+}
+
+func (i *networkRuleSetPropertiesPtrType) ToNetworkRuleSetPropertiesPtrOutput() NetworkRuleSetPropertiesPtrOutput {
+	return i.ToNetworkRuleSetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *networkRuleSetPropertiesPtrType) ToNetworkRuleSetPropertiesPtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPropertiesPtrOutput)
+}
+
+// Network Rule Set Properties of IotHub
+type NetworkRuleSetPropertiesOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleSetPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetProperties)(nil)).Elem()
+}
+
+func (o NetworkRuleSetPropertiesOutput) ToNetworkRuleSetPropertiesOutput() NetworkRuleSetPropertiesOutput {
+	return o
+}
+
+func (o NetworkRuleSetPropertiesOutput) ToNetworkRuleSetPropertiesOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesOutput {
+	return o
+}
+
+func (o NetworkRuleSetPropertiesOutput) ToNetworkRuleSetPropertiesPtrOutput() NetworkRuleSetPropertiesPtrOutput {
+	return o.ToNetworkRuleSetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkRuleSetPropertiesOutput) ToNetworkRuleSetPropertiesPtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesPtrOutput {
+	return o.ApplyT(func(v NetworkRuleSetProperties) *NetworkRuleSetProperties {
+		return &v
+	}).(NetworkRuleSetPropertiesPtrOutput)
+}
+
+// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+func (o NetworkRuleSetPropertiesOutput) ApplyToBuiltInEventHubEndpoint() pulumi.BoolOutput {
+	return o.ApplyT(func(v NetworkRuleSetProperties) bool { return v.ApplyToBuiltInEventHubEndpoint }).(pulumi.BoolOutput)
+}
+
+// Default Action for Network Rule Set
+func (o NetworkRuleSetPropertiesOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRuleSetProperties) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// List of IP Rules
+func (o NetworkRuleSetPropertiesOutput) IpRules() NetworkRuleSetIpRuleArrayOutput {
+	return o.ApplyT(func(v NetworkRuleSetProperties) []NetworkRuleSetIpRule { return v.IpRules }).(NetworkRuleSetIpRuleArrayOutput)
+}
+
+type NetworkRuleSetPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleSetPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkRuleSetProperties)(nil)).Elem()
+}
+
+func (o NetworkRuleSetPropertiesPtrOutput) ToNetworkRuleSetPropertiesPtrOutput() NetworkRuleSetPropertiesPtrOutput {
+	return o
+}
+
+func (o NetworkRuleSetPropertiesPtrOutput) ToNetworkRuleSetPropertiesPtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesPtrOutput {
+	return o
+}
+
+func (o NetworkRuleSetPropertiesPtrOutput) Elem() NetworkRuleSetPropertiesOutput {
+	return o.ApplyT(func(v *NetworkRuleSetProperties) NetworkRuleSetProperties { return *v }).(NetworkRuleSetPropertiesOutput)
+}
+
+// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+func (o NetworkRuleSetPropertiesPtrOutput) ApplyToBuiltInEventHubEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkRuleSetProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplyToBuiltInEventHubEndpoint
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Default Action for Network Rule Set
+func (o NetworkRuleSetPropertiesPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkRuleSetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of IP Rules
+func (o NetworkRuleSetPropertiesPtrOutput) IpRules() NetworkRuleSetIpRuleArrayOutput {
+	return o.ApplyT(func(v *NetworkRuleSetProperties) []NetworkRuleSetIpRule {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(NetworkRuleSetIpRuleArrayOutput)
+}
+
+// Network Rule Set Properties of IotHub
+type NetworkRuleSetPropertiesResponse struct {
+	// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+	ApplyToBuiltInEventHubEndpoint bool `pulumi:"applyToBuiltInEventHubEndpoint"`
+	// Default Action for Network Rule Set
+	DefaultAction *string `pulumi:"defaultAction"`
+	// List of IP Rules
+	IpRules []NetworkRuleSetIpRuleResponse `pulumi:"ipRules"`
+}
+
+// NetworkRuleSetPropertiesResponseInput is an input type that accepts NetworkRuleSetPropertiesResponseArgs and NetworkRuleSetPropertiesResponseOutput values.
+// You can construct a concrete instance of `NetworkRuleSetPropertiesResponseInput` via:
+//
+//          NetworkRuleSetPropertiesResponseArgs{...}
+type NetworkRuleSetPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToNetworkRuleSetPropertiesResponseOutput() NetworkRuleSetPropertiesResponseOutput
+	ToNetworkRuleSetPropertiesResponseOutputWithContext(context.Context) NetworkRuleSetPropertiesResponseOutput
+}
+
+// Network Rule Set Properties of IotHub
+type NetworkRuleSetPropertiesResponseArgs struct {
+	// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+	ApplyToBuiltInEventHubEndpoint pulumi.BoolInput `pulumi:"applyToBuiltInEventHubEndpoint"`
+	// Default Action for Network Rule Set
+	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
+	// List of IP Rules
+	IpRules NetworkRuleSetIpRuleResponseArrayInput `pulumi:"ipRules"`
+}
+
+func (NetworkRuleSetPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetPropertiesResponse)(nil)).Elem()
+}
+
+func (i NetworkRuleSetPropertiesResponseArgs) ToNetworkRuleSetPropertiesResponseOutput() NetworkRuleSetPropertiesResponseOutput {
+	return i.ToNetworkRuleSetPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleSetPropertiesResponseArgs) ToNetworkRuleSetPropertiesResponseOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPropertiesResponseOutput)
+}
+
+func (i NetworkRuleSetPropertiesResponseArgs) ToNetworkRuleSetPropertiesResponsePtrOutput() NetworkRuleSetPropertiesResponsePtrOutput {
+	return i.ToNetworkRuleSetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleSetPropertiesResponseArgs) ToNetworkRuleSetPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPropertiesResponseOutput).ToNetworkRuleSetPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// NetworkRuleSetPropertiesResponsePtrInput is an input type that accepts NetworkRuleSetPropertiesResponseArgs, NetworkRuleSetPropertiesResponsePtr and NetworkRuleSetPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `NetworkRuleSetPropertiesResponsePtrInput` via:
+//
+//          NetworkRuleSetPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkRuleSetPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToNetworkRuleSetPropertiesResponsePtrOutput() NetworkRuleSetPropertiesResponsePtrOutput
+	ToNetworkRuleSetPropertiesResponsePtrOutputWithContext(context.Context) NetworkRuleSetPropertiesResponsePtrOutput
+}
+
+type networkRuleSetPropertiesResponsePtrType NetworkRuleSetPropertiesResponseArgs
+
+func NetworkRuleSetPropertiesResponsePtr(v *NetworkRuleSetPropertiesResponseArgs) NetworkRuleSetPropertiesResponsePtrInput {
+	return (*networkRuleSetPropertiesResponsePtrType)(v)
+}
+
+func (*networkRuleSetPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkRuleSetPropertiesResponse)(nil)).Elem()
+}
+
+func (i *networkRuleSetPropertiesResponsePtrType) ToNetworkRuleSetPropertiesResponsePtrOutput() NetworkRuleSetPropertiesResponsePtrOutput {
+	return i.ToNetworkRuleSetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *networkRuleSetPropertiesResponsePtrType) ToNetworkRuleSetPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPropertiesResponsePtrOutput)
+}
+
+// Network Rule Set Properties of IotHub
+type NetworkRuleSetPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleSetPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetPropertiesResponse)(nil)).Elem()
+}
+
+func (o NetworkRuleSetPropertiesResponseOutput) ToNetworkRuleSetPropertiesResponseOutput() NetworkRuleSetPropertiesResponseOutput {
+	return o
+}
+
+func (o NetworkRuleSetPropertiesResponseOutput) ToNetworkRuleSetPropertiesResponseOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesResponseOutput {
+	return o
+}
+
+func (o NetworkRuleSetPropertiesResponseOutput) ToNetworkRuleSetPropertiesResponsePtrOutput() NetworkRuleSetPropertiesResponsePtrOutput {
+	return o.ToNetworkRuleSetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkRuleSetPropertiesResponseOutput) ToNetworkRuleSetPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v NetworkRuleSetPropertiesResponse) *NetworkRuleSetPropertiesResponse {
+		return &v
+	}).(NetworkRuleSetPropertiesResponsePtrOutput)
+}
+
+// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+func (o NetworkRuleSetPropertiesResponseOutput) ApplyToBuiltInEventHubEndpoint() pulumi.BoolOutput {
+	return o.ApplyT(func(v NetworkRuleSetPropertiesResponse) bool { return v.ApplyToBuiltInEventHubEndpoint }).(pulumi.BoolOutput)
+}
+
+// Default Action for Network Rule Set
+func (o NetworkRuleSetPropertiesResponseOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRuleSetPropertiesResponse) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// List of IP Rules
+func (o NetworkRuleSetPropertiesResponseOutput) IpRules() NetworkRuleSetIpRuleResponseArrayOutput {
+	return o.ApplyT(func(v NetworkRuleSetPropertiesResponse) []NetworkRuleSetIpRuleResponse { return v.IpRules }).(NetworkRuleSetIpRuleResponseArrayOutput)
+}
+
+type NetworkRuleSetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleSetPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkRuleSetPropertiesResponse)(nil)).Elem()
+}
+
+func (o NetworkRuleSetPropertiesResponsePtrOutput) ToNetworkRuleSetPropertiesResponsePtrOutput() NetworkRuleSetPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o NetworkRuleSetPropertiesResponsePtrOutput) ToNetworkRuleSetPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o NetworkRuleSetPropertiesResponsePtrOutput) Elem() NetworkRuleSetPropertiesResponseOutput {
+	return o.ApplyT(func(v *NetworkRuleSetPropertiesResponse) NetworkRuleSetPropertiesResponse { return *v }).(NetworkRuleSetPropertiesResponseOutput)
+}
+
+// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+func (o NetworkRuleSetPropertiesResponsePtrOutput) ApplyToBuiltInEventHubEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkRuleSetPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplyToBuiltInEventHubEndpoint
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Default Action for Network Rule Set
+func (o NetworkRuleSetPropertiesResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkRuleSetPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of IP Rules
+func (o NetworkRuleSetPropertiesResponsePtrOutput) IpRules() NetworkRuleSetIpRuleResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkRuleSetPropertiesResponse) []NetworkRuleSetIpRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(NetworkRuleSetIpRuleResponseArrayOutput)
 }
 
 // The private endpoint connection of an IotHub
@@ -9240,6 +9858,14 @@ func init() {
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesMapOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesResponseMapOutput{})
+	pulumi.RegisterOutputType(NetworkRuleSetIpRuleOutput{})
+	pulumi.RegisterOutputType(NetworkRuleSetIpRuleArrayOutput{})
+	pulumi.RegisterOutputType(NetworkRuleSetIpRuleResponseOutput{})
+	pulumi.RegisterOutputType(NetworkRuleSetIpRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(NetworkRuleSetPropertiesOutput{})
+	pulumi.RegisterOutputType(NetworkRuleSetPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(NetworkRuleSetPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(NetworkRuleSetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})

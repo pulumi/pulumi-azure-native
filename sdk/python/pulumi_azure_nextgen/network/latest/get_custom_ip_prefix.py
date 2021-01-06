@@ -20,7 +20,7 @@ class GetCustomIPPrefixResult:
     """
     Custom IP prefix resource.
     """
-    def __init__(__self__, cidr=None, commissioned_state=None, etag=None, id=None, location=None, name=None, provisioning_state=None, public_ip_prefixes=None, resource_guid=None, tags=None, type=None, zones=None):
+    def __init__(__self__, cidr=None, commissioned_state=None, etag=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, public_ip_prefixes=None, resource_guid=None, tags=None, type=None, zones=None):
         if cidr and not isinstance(cidr, str):
             raise TypeError("Expected argument 'cidr' to be a str")
         pulumi.set(__self__, "cidr", cidr)
@@ -30,6 +30,9 @@ class GetCustomIPPrefixResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -81,6 +84,14 @@ class GetCustomIPPrefixResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the custom IP prefix.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter
@@ -164,6 +175,7 @@ class AwaitableGetCustomIPPrefixResult(GetCustomIPPrefixResult):
             cidr=self.cidr,
             commissioned_state=self.commissioned_state,
             etag=self.etag,
+            extended_location=self.extended_location,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -200,6 +212,7 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
         cidr=__ret__.cidr,
         commissioned_state=__ret__.commissioned_state,
         etag=__ret__.etag,
+        extended_location=__ret__.extended_location,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

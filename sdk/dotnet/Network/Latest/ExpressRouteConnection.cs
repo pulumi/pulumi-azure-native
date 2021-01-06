@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// ExpressRouteConnection resource.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:ExpressRouteConnection")]
     public partial class ExpressRouteConnection : Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Output("expressRouteCircuitPeering")]
         public Output<Outputs.ExpressRouteCircuitPeeringIdResponse> ExpressRouteCircuitPeering { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable FastPath to vWan Firewall hub.
+        /// </summary>
+        [Output("expressRouteGatewayBypass")]
+        public Output<bool?> ExpressRouteGatewayBypass { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ExpressRouteConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ExpressRouteConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ExpressRouteConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,6 +153,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("expressRouteCircuitPeering", required: true)]
         public Input<Inputs.ExpressRouteCircuitPeeringIdArgs> ExpressRouteCircuitPeering { get; set; } = null!;
+
+        /// <summary>
+        /// Enable FastPath to vWan Firewall hub.
+        /// </summary>
+        [Input("expressRouteGatewayBypass")]
+        public Input<bool>? ExpressRouteGatewayBypass { get; set; }
 
         /// <summary>
         /// The name of the ExpressRoute gateway.

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Rule Collection Group resource.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200501:FirewallPolicyRuleCollectionGroup" }, { type: "azure-nextgen:network/v20200601:FirewallPolicyRuleCollectionGroup" }, { type: "azure-nextgen:network/v20200701:FirewallPolicyRuleCollectionGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200501:FirewallPolicyRuleCollectionGroup" }, { type: "azure-nextgen:network/v20200601:FirewallPolicyRuleCollectionGroup" }, { type: "azure-nextgen:network/v20200701:FirewallPolicyRuleCollectionGroup" }, { type: "azure-nextgen:network/v20200801:FirewallPolicyRuleCollectionGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallPolicyRuleCollectionGroup.__pulumiType, name, inputs, opts);
     }

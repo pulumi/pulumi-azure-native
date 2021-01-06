@@ -35,6 +35,12 @@ namespace Pulumi.AzureNextGen.Attestation.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// List of private endpoint connections associated with the attestation provider.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// Status of attestation service.
         /// </summary>
         [Output("status")]
@@ -53,7 +59,7 @@ namespace Pulumi.AzureNextGen.Attestation.Latest
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Trust model for the attestation service instance.
+        /// Trust model for the attestation provider.
         /// </summary>
         [Output("trustModel")]
         public Output<string?> TrustModel { get; private set; } = null!;
@@ -115,19 +121,19 @@ namespace Pulumi.AzureNextGen.Attestation.Latest
     public sealed class AttestationProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The supported Azure location where the attestation service instance should be created.
+        /// The supported Azure location where the attestation provider should be created.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the attestation service instance
+        /// Properties of the attestation provider
         /// </summary>
         [Input("properties", required: true)]
         public Input<Inputs.AttestationServiceCreationSpecificParamsArgs> Properties { get; set; } = null!;
 
         /// <summary>
-        /// Name of the attestation service instance.
+        /// Name of the attestation provider.
         /// </summary>
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;
@@ -142,7 +148,7 @@ namespace Pulumi.AzureNextGen.Attestation.Latest
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags that will be assigned to the attestation service instance.
+        /// The tags that will be assigned to the attestation provider.
         /// </summary>
         public InputMap<string> Tags
         {

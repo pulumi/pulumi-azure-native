@@ -180,6 +180,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VpnConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

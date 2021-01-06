@@ -31,7 +31,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
                  __opts__=None):
         """
         Virtual Network Tap resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -79,7 +79,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualNetworkTap")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualNetworkTap")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkTap, __self__).__init__(
             'azure-nextgen:network/latest:VirtualNetworkTap',

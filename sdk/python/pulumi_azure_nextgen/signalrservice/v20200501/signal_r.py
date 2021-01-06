@@ -20,7 +20,6 @@ class SignalR(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cors: Optional[pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignalRFeatureArgs']]]]] = None,
-                 host_name_prefix: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']]] = None,
@@ -44,8 +43,6 @@ class SignalR(pulumi.CustomResource):
                And the response will only include featureFlags that are explicitly set. 
                When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
                But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        :param pulumi.Input[str] host_name_prefix: Prefix for the hostName of the SignalR service. Retained for future use.
-               The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
         :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         :param pulumi.Input[str] location: The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
         :param pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']] network_acls: Network ACLs
@@ -74,7 +71,6 @@ class SignalR(pulumi.CustomResource):
 
             __props__['cors'] = cors
             __props__['features'] = features
-            __props__['host_name_prefix'] = host_name_prefix
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['network_acls'] = network_acls
@@ -89,6 +85,7 @@ class SignalR(pulumi.CustomResource):
             __props__['upstream'] = upstream
             __props__['external_ip'] = None
             __props__['host_name'] = None
+            __props__['host_name_prefix'] = None
             __props__['name'] = None
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
@@ -161,7 +158,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNamePrefix")
-    def host_name_prefix(self) -> pulumi.Output[Optional[str]]:
+    def host_name_prefix(self) -> pulumi.Output[str]:
         """
         Prefix for the hostName of the SignalR service. Retained for future use.
         The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.

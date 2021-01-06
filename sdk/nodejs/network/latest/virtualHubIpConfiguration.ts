@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * IpConfigurations.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class VirtualHubIpConfiguration extends pulumi.CustomResource {
     /**
@@ -117,7 +117,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200701:VirtualHubIpConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200701:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200801:VirtualHubIpConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualHubIpConfiguration.__pulumiType, name, inputs, opts);
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Route resource.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:Route")]
     public partial class Route : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        /// </summary>
+        [Output("hasBgpOverride")]
+        public Output<bool?> HasBgpOverride { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -51,6 +57,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -111,6 +123,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:Route"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:Route"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:Route"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -139,6 +152,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("addressPrefix")]
         public Input<string>? AddressPrefix { get; set; }
+
+        /// <summary>
+        /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        /// </summary>
+        [Input("hasBgpOverride")]
+        public Input<bool>? HasBgpOverride { get; set; }
 
         /// <summary>
         /// Resource ID.
@@ -181,6 +200,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("routeTableName", required: true)]
         public Input<string> RouteTableName { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public RouteArgs()
         {

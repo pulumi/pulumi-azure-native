@@ -12,7 +12,7 @@ import (
 )
 
 // IpConfigurations.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type VirtualHubIpConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +59,9 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHubIpConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualHubIpConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -12,7 +12,7 @@ import (
 )
 
 // VirtualHubRouteTableV2 Resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type VirtualHubRouteTableV2 struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +68,9 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHubRouteTableV2"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualHubRouteTableV2"),
 		},
 	})
 	opts = append(opts, aliases)

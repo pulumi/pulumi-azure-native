@@ -20,7 +20,7 @@ class GetLoadBalancerBackendAddressPoolResult:
     """
     Pool of backend IP addresses.
     """
-    def __init__(__self__, backend_ip_configurations=None, etag=None, id=None, load_balancer_backend_addresses=None, load_balancing_rules=None, name=None, outbound_rule=None, outbound_rules=None, provisioning_state=None, type=None):
+    def __init__(__self__, backend_ip_configurations=None, etag=None, id=None, load_balancer_backend_addresses=None, load_balancing_rules=None, location=None, name=None, outbound_rule=None, outbound_rules=None, provisioning_state=None, type=None):
         if backend_ip_configurations and not isinstance(backend_ip_configurations, list):
             raise TypeError("Expected argument 'backend_ip_configurations' to be a list")
         pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
@@ -36,6 +36,9 @@ class GetLoadBalancerBackendAddressPoolResult:
         if load_balancing_rules and not isinstance(load_balancing_rules, list):
             raise TypeError("Expected argument 'load_balancing_rules' to be a list")
         pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -94,6 +97,14 @@ class GetLoadBalancerBackendAddressPoolResult:
 
     @property
     @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the backend address pool.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
@@ -144,6 +155,7 @@ class AwaitableGetLoadBalancerBackendAddressPoolResult(GetLoadBalancerBackendAdd
             id=self.id,
             load_balancer_backend_addresses=self.load_balancer_backend_addresses,
             load_balancing_rules=self.load_balancing_rules,
+            location=self.location,
             name=self.name,
             outbound_rule=self.outbound_rule,
             outbound_rules=self.outbound_rules,
@@ -178,6 +190,7 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
         id=__ret__.id,
         load_balancer_backend_addresses=__ret__.load_balancer_backend_addresses,
         load_balancing_rules=__ret__.load_balancing_rules,
+        location=__ret__.location,
         name=__ret__.name,
         outbound_rule=__ret__.outbound_rule,
         outbound_rules=__ret__.outbound_rules,

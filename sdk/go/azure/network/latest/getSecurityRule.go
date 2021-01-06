@@ -65,4 +65,6 @@ type LookupSecurityRuleResult struct {
 	SourcePortRange *string `pulumi:"sourcePortRange"`
 	// The source port ranges.
 	SourcePortRanges []string `pulumi:"sourcePortRanges"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }

@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The extended location of the custom IP prefix.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string? id,
 
             string? location,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             Cidr = cidr;
             CommissionedState = commissionedState;
             Etag = etag;
+            ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;
             Name = name;

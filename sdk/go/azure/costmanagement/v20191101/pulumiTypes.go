@@ -3363,13 +3363,11 @@ type QueryFilter struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And []QueryFilter `pulumi:"and"`
 	// Has comparison expression for a dimension
-	Dimension *QueryComparisonExpression `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *QueryFilter `pulumi:"not"`
+	Dimensions *QueryComparisonExpression `pulumi:"dimensions"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or []QueryFilter `pulumi:"or"`
 	// Has comparison expression for a tag
-	Tag *QueryComparisonExpression `pulumi:"tag"`
+	Tags *QueryComparisonExpression `pulumi:"tags"`
 }
 
 // QueryFilterInput is an input type that accepts QueryFilterArgs and QueryFilterOutput values.
@@ -3388,13 +3386,11 @@ type QueryFilterArgs struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And QueryFilterArrayInput `pulumi:"and"`
 	// Has comparison expression for a dimension
-	Dimension QueryComparisonExpressionPtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not QueryFilterPtrInput `pulumi:"not"`
+	Dimensions QueryComparisonExpressionPtrInput `pulumi:"dimensions"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or QueryFilterArrayInput `pulumi:"or"`
 	// Has comparison expression for a tag
-	Tag QueryComparisonExpressionPtrInput `pulumi:"tag"`
+	Tags QueryComparisonExpressionPtrInput `pulumi:"tags"`
 }
 
 func (QueryFilterArgs) ElementType() reflect.Type {
@@ -3506,13 +3502,8 @@ func (o QueryFilterOutput) And() QueryFilterArrayOutput {
 }
 
 // Has comparison expression for a dimension
-func (o QueryFilterOutput) Dimension() QueryComparisonExpressionPtrOutput {
-	return o.ApplyT(func(v QueryFilter) *QueryComparisonExpression { return v.Dimension }).(QueryComparisonExpressionPtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o QueryFilterOutput) Not() QueryFilterPtrOutput {
-	return o.ApplyT(func(v QueryFilter) *QueryFilter { return v.Not }).(QueryFilterPtrOutput)
+func (o QueryFilterOutput) Dimensions() QueryComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v QueryFilter) *QueryComparisonExpression { return v.Dimensions }).(QueryComparisonExpressionPtrOutput)
 }
 
 // The logical "OR" expression. Must have at least 2 items.
@@ -3521,8 +3512,8 @@ func (o QueryFilterOutput) Or() QueryFilterArrayOutput {
 }
 
 // Has comparison expression for a tag
-func (o QueryFilterOutput) Tag() QueryComparisonExpressionPtrOutput {
-	return o.ApplyT(func(v QueryFilter) *QueryComparisonExpression { return v.Tag }).(QueryComparisonExpressionPtrOutput)
+func (o QueryFilterOutput) Tags() QueryComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v QueryFilter) *QueryComparisonExpression { return v.Tags }).(QueryComparisonExpressionPtrOutput)
 }
 
 type QueryFilterPtrOutput struct{ *pulumi.OutputState }
@@ -3554,23 +3545,13 @@ func (o QueryFilterPtrOutput) And() QueryFilterArrayOutput {
 }
 
 // Has comparison expression for a dimension
-func (o QueryFilterPtrOutput) Dimension() QueryComparisonExpressionPtrOutput {
+func (o QueryFilterPtrOutput) Dimensions() QueryComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *QueryFilter) *QueryComparisonExpression {
 		if v == nil {
 			return nil
 		}
-		return v.Dimension
+		return v.Dimensions
 	}).(QueryComparisonExpressionPtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o QueryFilterPtrOutput) Not() QueryFilterPtrOutput {
-	return o.ApplyT(func(v *QueryFilter) *QueryFilter {
-		if v == nil {
-			return nil
-		}
-		return v.Not
-	}).(QueryFilterPtrOutput)
 }
 
 // The logical "OR" expression. Must have at least 2 items.
@@ -3584,12 +3565,12 @@ func (o QueryFilterPtrOutput) Or() QueryFilterArrayOutput {
 }
 
 // Has comparison expression for a tag
-func (o QueryFilterPtrOutput) Tag() QueryComparisonExpressionPtrOutput {
+func (o QueryFilterPtrOutput) Tags() QueryComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *QueryFilter) *QueryComparisonExpression {
 		if v == nil {
 			return nil
 		}
-		return v.Tag
+		return v.Tags
 	}).(QueryComparisonExpressionPtrOutput)
 }
 
@@ -3618,13 +3599,11 @@ type QueryFilterResponse struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And []QueryFilterResponse `pulumi:"and"`
 	// Has comparison expression for a dimension
-	Dimension *QueryComparisonExpressionResponse `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *QueryFilterResponse `pulumi:"not"`
+	Dimensions *QueryComparisonExpressionResponse `pulumi:"dimensions"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or []QueryFilterResponse `pulumi:"or"`
 	// Has comparison expression for a tag
-	Tag *QueryComparisonExpressionResponse `pulumi:"tag"`
+	Tags *QueryComparisonExpressionResponse `pulumi:"tags"`
 }
 
 // QueryFilterResponseInput is an input type that accepts QueryFilterResponseArgs and QueryFilterResponseOutput values.
@@ -3643,13 +3622,11 @@ type QueryFilterResponseArgs struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And QueryFilterResponseArrayInput `pulumi:"and"`
 	// Has comparison expression for a dimension
-	Dimension QueryComparisonExpressionResponsePtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not QueryFilterResponsePtrInput `pulumi:"not"`
+	Dimensions QueryComparisonExpressionResponsePtrInput `pulumi:"dimensions"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or QueryFilterResponseArrayInput `pulumi:"or"`
 	// Has comparison expression for a tag
-	Tag QueryComparisonExpressionResponsePtrInput `pulumi:"tag"`
+	Tags QueryComparisonExpressionResponsePtrInput `pulumi:"tags"`
 }
 
 func (QueryFilterResponseArgs) ElementType() reflect.Type {
@@ -3761,13 +3738,8 @@ func (o QueryFilterResponseOutput) And() QueryFilterResponseArrayOutput {
 }
 
 // Has comparison expression for a dimension
-func (o QueryFilterResponseOutput) Dimension() QueryComparisonExpressionResponsePtrOutput {
-	return o.ApplyT(func(v QueryFilterResponse) *QueryComparisonExpressionResponse { return v.Dimension }).(QueryComparisonExpressionResponsePtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o QueryFilterResponseOutput) Not() QueryFilterResponsePtrOutput {
-	return o.ApplyT(func(v QueryFilterResponse) *QueryFilterResponse { return v.Not }).(QueryFilterResponsePtrOutput)
+func (o QueryFilterResponseOutput) Dimensions() QueryComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v QueryFilterResponse) *QueryComparisonExpressionResponse { return v.Dimensions }).(QueryComparisonExpressionResponsePtrOutput)
 }
 
 // The logical "OR" expression. Must have at least 2 items.
@@ -3776,8 +3748,8 @@ func (o QueryFilterResponseOutput) Or() QueryFilterResponseArrayOutput {
 }
 
 // Has comparison expression for a tag
-func (o QueryFilterResponseOutput) Tag() QueryComparisonExpressionResponsePtrOutput {
-	return o.ApplyT(func(v QueryFilterResponse) *QueryComparisonExpressionResponse { return v.Tag }).(QueryComparisonExpressionResponsePtrOutput)
+func (o QueryFilterResponseOutput) Tags() QueryComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v QueryFilterResponse) *QueryComparisonExpressionResponse { return v.Tags }).(QueryComparisonExpressionResponsePtrOutput)
 }
 
 type QueryFilterResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3809,23 +3781,13 @@ func (o QueryFilterResponsePtrOutput) And() QueryFilterResponseArrayOutput {
 }
 
 // Has comparison expression for a dimension
-func (o QueryFilterResponsePtrOutput) Dimension() QueryComparisonExpressionResponsePtrOutput {
+func (o QueryFilterResponsePtrOutput) Dimensions() QueryComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *QueryFilterResponse) *QueryComparisonExpressionResponse {
 		if v == nil {
 			return nil
 		}
-		return v.Dimension
+		return v.Dimensions
 	}).(QueryComparisonExpressionResponsePtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o QueryFilterResponsePtrOutput) Not() QueryFilterResponsePtrOutput {
-	return o.ApplyT(func(v *QueryFilterResponse) *QueryFilterResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Not
-	}).(QueryFilterResponsePtrOutput)
 }
 
 // The logical "OR" expression. Must have at least 2 items.
@@ -3839,12 +3801,12 @@ func (o QueryFilterResponsePtrOutput) Or() QueryFilterResponseArrayOutput {
 }
 
 // Has comparison expression for a tag
-func (o QueryFilterResponsePtrOutput) Tag() QueryComparisonExpressionResponsePtrOutput {
+func (o QueryFilterResponsePtrOutput) Tags() QueryComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *QueryFilterResponse) *QueryComparisonExpressionResponse {
 		if v == nil {
 			return nil
 		}
-		return v.Tag
+		return v.Tags
 	}).(QueryComparisonExpressionResponsePtrOutput)
 }
 
@@ -5686,8 +5648,6 @@ type ReportConfigFilter struct {
 	And []ReportConfigFilter `pulumi:"and"`
 	// Has comparison expression for a dimension
 	Dimension *ReportConfigComparisonExpression `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *ReportConfigFilter `pulumi:"not"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or []ReportConfigFilter `pulumi:"or"`
 	// Has comparison expression for a tag
@@ -5711,8 +5671,6 @@ type ReportConfigFilterArgs struct {
 	And ReportConfigFilterArrayInput `pulumi:"and"`
 	// Has comparison expression for a dimension
 	Dimension ReportConfigComparisonExpressionPtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not ReportConfigFilterPtrInput `pulumi:"not"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or ReportConfigFilterArrayInput `pulumi:"or"`
 	// Has comparison expression for a tag
@@ -5832,11 +5790,6 @@ func (o ReportConfigFilterOutput) Dimension() ReportConfigComparisonExpressionPt
 	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigComparisonExpression { return v.Dimension }).(ReportConfigComparisonExpressionPtrOutput)
 }
 
-// The logical "NOT" expression.
-func (o ReportConfigFilterOutput) Not() ReportConfigFilterPtrOutput {
-	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigFilter { return v.Not }).(ReportConfigFilterPtrOutput)
-}
-
 // The logical "OR" expression. Must have at least 2 items.
 func (o ReportConfigFilterOutput) Or() ReportConfigFilterArrayOutput {
 	return o.ApplyT(func(v ReportConfigFilter) []ReportConfigFilter { return v.Or }).(ReportConfigFilterArrayOutput)
@@ -5885,16 +5838,6 @@ func (o ReportConfigFilterPtrOutput) Dimension() ReportConfigComparisonExpressio
 	}).(ReportConfigComparisonExpressionPtrOutput)
 }
 
-// The logical "NOT" expression.
-func (o ReportConfigFilterPtrOutput) Not() ReportConfigFilterPtrOutput {
-	return o.ApplyT(func(v *ReportConfigFilter) *ReportConfigFilter {
-		if v == nil {
-			return nil
-		}
-		return v.Not
-	}).(ReportConfigFilterPtrOutput)
-}
-
 // The logical "OR" expression. Must have at least 2 items.
 func (o ReportConfigFilterPtrOutput) Or() ReportConfigFilterArrayOutput {
 	return o.ApplyT(func(v *ReportConfigFilter) []ReportConfigFilter {
@@ -5941,8 +5884,6 @@ type ReportConfigFilterResponse struct {
 	And []ReportConfigFilterResponse `pulumi:"and"`
 	// Has comparison expression for a dimension
 	Dimension *ReportConfigComparisonExpressionResponse `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *ReportConfigFilterResponse `pulumi:"not"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or []ReportConfigFilterResponse `pulumi:"or"`
 	// Has comparison expression for a tag
@@ -5966,8 +5907,6 @@ type ReportConfigFilterResponseArgs struct {
 	And ReportConfigFilterResponseArrayInput `pulumi:"and"`
 	// Has comparison expression for a dimension
 	Dimension ReportConfigComparisonExpressionResponsePtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not ReportConfigFilterResponsePtrInput `pulumi:"not"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or ReportConfigFilterResponseArrayInput `pulumi:"or"`
 	// Has comparison expression for a tag
@@ -6087,11 +6026,6 @@ func (o ReportConfigFilterResponseOutput) Dimension() ReportConfigComparisonExpr
 	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse { return v.Dimension }).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
 
-// The logical "NOT" expression.
-func (o ReportConfigFilterResponseOutput) Not() ReportConfigFilterResponsePtrOutput {
-	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigFilterResponse { return v.Not }).(ReportConfigFilterResponsePtrOutput)
-}
-
 // The logical "OR" expression. Must have at least 2 items.
 func (o ReportConfigFilterResponseOutput) Or() ReportConfigFilterResponseArrayOutput {
 	return o.ApplyT(func(v ReportConfigFilterResponse) []ReportConfigFilterResponse { return v.Or }).(ReportConfigFilterResponseArrayOutput)
@@ -6138,16 +6072,6 @@ func (o ReportConfigFilterResponsePtrOutput) Dimension() ReportConfigComparisonE
 		}
 		return v.Dimension
 	}).(ReportConfigComparisonExpressionResponsePtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o ReportConfigFilterResponsePtrOutput) Not() ReportConfigFilterResponsePtrOutput {
-	return o.ApplyT(func(v *ReportConfigFilterResponse) *ReportConfigFilterResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Not
-	}).(ReportConfigFilterResponsePtrOutput)
 }
 
 // The logical "OR" expression. Must have at least 2 items.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Private link service resource.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:PrivateLinkService")]
     public partial class PrivateLinkService : Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The extended location of the load balancer.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The list of Fqdn.
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PrivateLinkService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -177,6 +184,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("enableProxyProtocol")]
         public Input<bool>? EnableProxyProtocol { get; set; }
+
+        /// <summary>
+        /// The extended location of the load balancer.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         [Input("fqdns")]
         private InputList<string>? _fqdns;

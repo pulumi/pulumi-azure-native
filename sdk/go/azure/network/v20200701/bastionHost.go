@@ -83,6 +83,9 @@ func NewBastionHost(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:BastionHost"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:BastionHost"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BastionHost

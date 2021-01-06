@@ -143,6 +143,9 @@ __all__ = [
     'VpnClientProtocol',
     'VpnGatewayGeneration',
     'VpnGatewayTunnelingProtocol',
+    'VpnLinkConnectionMode',
+    'VpnNatRuleMode',
+    'VpnNatRuleType',
     'VpnType',
     'WebApplicationFirewallAction',
     'WebApplicationFirewallEnabledState',
@@ -1478,6 +1481,31 @@ class VpnGatewayTunnelingProtocol(str, Enum):
     """
     IKE_V2 = "IkeV2"
     OPEN_VPN = "OpenVPN"
+
+
+class VpnLinkConnectionMode(str, Enum):
+    """
+    Vpn link connection mode.
+    """
+    DEFAULT = "Default"
+    RESPONDER_ONLY = "ResponderOnly"
+    INITIATOR_ONLY = "InitiatorOnly"
+
+
+class VpnNatRuleMode(str, Enum):
+    """
+    The Source NAT direction of a VPN NAT.
+    """
+    EGRESS_SNAT = "EgressSnat"
+    INGRESS_SNAT = "IngressSnat"
+
+
+class VpnNatRuleType(str, Enum):
+    """
+    The type of NAT rule for VPN NAT.
+    """
+    STATIC = "Static"
+    DYNAMIC = "Dynamic"
 
 
 class VpnType(str, Enum):

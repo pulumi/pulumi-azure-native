@@ -118,7 +118,7 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200301:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200401:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200501:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200701:SecurityPartnerProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200301:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200401:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200501:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200701:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200801:SecurityPartnerProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SecurityPartnerProvider.__pulumiType, name, inputs, opts);
     }

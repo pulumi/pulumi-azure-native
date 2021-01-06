@@ -20,11 +20,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101.Outputs
         /// <summary>
         /// Has comparison expression for a dimension
         /// </summary>
-        public readonly Outputs.QueryComparisonExpressionResponse? Dimension;
-        /// <summary>
-        /// The logical "NOT" expression.
-        /// </summary>
-        public readonly Outputs.QueryFilterResponse? Not;
+        public readonly Outputs.QueryComparisonExpressionResponse? Dimensions;
         /// <summary>
         /// The logical "OR" expression. Must have at least 2 items.
         /// </summary>
@@ -32,25 +28,22 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101.Outputs
         /// <summary>
         /// Has comparison expression for a tag
         /// </summary>
-        public readonly Outputs.QueryComparisonExpressionResponse? Tag;
+        public readonly Outputs.QueryComparisonExpressionResponse? Tags;
 
         [OutputConstructor]
         private QueryFilterResponse(
             ImmutableArray<Outputs.QueryFilterResponse> and,
 
-            Outputs.QueryComparisonExpressionResponse? dimension,
-
-            Outputs.QueryFilterResponse? not,
+            Outputs.QueryComparisonExpressionResponse? dimensions,
 
             ImmutableArray<Outputs.QueryFilterResponse> or,
 
-            Outputs.QueryComparisonExpressionResponse? tag)
+            Outputs.QueryComparisonExpressionResponse? tags)
         {
             And = and;
-            Dimension = dimension;
-            Not = not;
+            Dimensions = dimensions;
             Or = or;
-            Tag = tag;
+            Tags = tags;
         }
     }
 }

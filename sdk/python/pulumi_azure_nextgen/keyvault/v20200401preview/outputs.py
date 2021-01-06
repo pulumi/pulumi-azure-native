@@ -117,27 +117,28 @@ class ManagedHsmPropertiesResponse(dict):
     Properties of the managed HSM Pool
     """
     def __init__(__self__, *,
+                 hsm_uri: str,
                  provisioning_state: str,
                  status_message: str,
                  create_mode: Optional[str] = None,
                  enable_purge_protection: Optional[bool] = None,
                  enable_soft_delete: Optional[bool] = None,
-                 hsm_uri: Optional[str] = None,
                  initial_admin_object_ids: Optional[Sequence[str]] = None,
                  soft_delete_retention_in_days: Optional[int] = None,
                  tenant_id: Optional[str] = None):
         """
         Properties of the managed HSM Pool
+        :param str hsm_uri: The URI of the managed hsm pool for performing operations on keys.
         :param str provisioning_state: Provisioning state.
         :param str status_message: Resource Status Message.
         :param str create_mode: The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
-        :param str hsm_uri: The URI of the managed hsm pool for performing operations on keys.
         :param Sequence[str] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
         """
+        pulumi.set(__self__, "hsm_uri", hsm_uri)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "status_message", status_message)
         if create_mode is not None:
@@ -146,14 +147,20 @@ class ManagedHsmPropertiesResponse(dict):
             pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
         if enable_soft_delete is not None:
             pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
-        if hsm_uri is not None:
-            pulumi.set(__self__, "hsm_uri", hsm_uri)
         if initial_admin_object_ids is not None:
             pulumi.set(__self__, "initial_admin_object_ids", initial_admin_object_ids)
         if soft_delete_retention_in_days is not None:
             pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="hsmUri")
+    def hsm_uri(self) -> str:
+        """
+        The URI of the managed hsm pool for performing operations on keys.
+        """
+        return pulumi.get(self, "hsm_uri")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -194,14 +201,6 @@ class ManagedHsmPropertiesResponse(dict):
         Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
         """
         return pulumi.get(self, "enable_soft_delete")
-
-    @property
-    @pulumi.getter(name="hsmUri")
-    def hsm_uri(self) -> Optional[str]:
-        """
-        The URI of the managed hsm pool for performing operations on keys.
-        """
-        return pulumi.get(self, "hsm_uri")
 
     @property
     @pulumi.getter(name="initialAdminObjectIds")

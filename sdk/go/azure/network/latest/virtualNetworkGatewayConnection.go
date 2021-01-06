@@ -12,7 +12,7 @@ import (
 )
 
 // A common class for general resource information.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type VirtualNetworkGatewayConnection struct {
 	pulumi.CustomResourceState
 
@@ -192,6 +192,9 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualNetworkGatewayConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualNetworkGatewayConnection"),
 		},
 	})
 	opts = append(opts, aliases)

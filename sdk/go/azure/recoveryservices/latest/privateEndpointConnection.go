@@ -12,7 +12,7 @@ import (
 )
 
 // Private Endpoint Connection Response Properties
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +52,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

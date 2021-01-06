@@ -20,7 +20,7 @@ class GetRouteTableResult:
     """
     Route table resource.
     """
-    def __init__(__self__, disable_bgp_route_propagation=None, etag=None, id=None, location=None, name=None, provisioning_state=None, routes=None, subnets=None, tags=None, type=None):
+    def __init__(__self__, disable_bgp_route_propagation=None, etag=None, id=None, location=None, name=None, provisioning_state=None, resource_guid=None, routes=None, subnets=None, tags=None, type=None):
         if disable_bgp_route_propagation and not isinstance(disable_bgp_route_propagation, bool):
             raise TypeError("Expected argument 'disable_bgp_route_propagation' to be a bool")
         pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
@@ -39,6 +39,9 @@ class GetRouteTableResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if routes and not isinstance(routes, list):
             raise TypeError("Expected argument 'routes' to be a list")
         pulumi.set(__self__, "routes", routes)
@@ -101,6 +104,14 @@ class GetRouteTableResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the route table.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
     @pulumi.getter
     def routes(self) -> Optional[Sequence['outputs.RouteResponse']]:
         """
@@ -145,6 +156,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             routes=self.routes,
             subnets=self.subnets,
             tags=self.tags,
@@ -179,6 +191,7 @@ def get_route_table(expand: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
         routes=__ret__.routes,
         subnets=__ret__.subnets,
         tags=__ret__.tags,

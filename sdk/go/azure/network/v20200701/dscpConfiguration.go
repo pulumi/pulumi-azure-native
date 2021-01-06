@@ -67,6 +67,9 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:DscpConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:DscpConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DscpConfiguration

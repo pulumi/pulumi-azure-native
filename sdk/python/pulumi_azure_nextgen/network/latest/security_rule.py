@@ -38,12 +38,13 @@ class SecurityRule(pulumi.CustomResource):
                  source_application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]]] = None,
                  source_port_range: Optional[pulumi.Input[str]] = None,
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         Network security rule.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -67,6 +68,7 @@ class SecurityRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]] source_application_security_groups: The application security group specified as source.
         :param pulumi.Input[str] source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: The source port ranges.
+        :param pulumi.Input[str] type: The type of the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,9 +119,10 @@ class SecurityRule(pulumi.CustomResource):
             __props__['source_application_security_groups'] = source_application_security_groups
             __props__['source_port_range'] = source_port_range
             __props__['source_port_ranges'] = source_port_ranges
+            __props__['type'] = type
             __props__['etag'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20150615:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20160330:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20160601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20160901:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20161201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170301:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170801:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170901:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20171001:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20171101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180401:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180701:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180801:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20181001:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20181101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20181201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190401:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190701:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190801:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190901:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20191101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20191201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200301:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200401:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200501:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200701:SecurityRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20150615:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20160330:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20160601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20160901:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20161201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170301:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170801:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170901:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20171001:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20171101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180401:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180701:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180801:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20181001:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20181101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20181201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190401:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190701:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190801:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190901:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20191101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20191201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200301:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200401:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200501:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200701:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200801:SecurityRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityRule, __self__).__init__(
             'azure-nextgen:network/latest:SecurityRule',
@@ -288,6 +291,14 @@ class SecurityRule(pulumi.CustomResource):
         The source port ranges.
         """
         return pulumi.get(self, "source_port_ranges")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

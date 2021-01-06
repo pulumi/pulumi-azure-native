@@ -12,7 +12,7 @@ import (
 )
 
 // An application security group in a resource group.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type ApplicationSecurityGroup struct {
 	pulumi.CustomResourceState
 
@@ -120,6 +120,9 @@ func NewApplicationSecurityGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:ApplicationSecurityGroup"),
 		},
 	})
 	opts = append(opts, aliases)

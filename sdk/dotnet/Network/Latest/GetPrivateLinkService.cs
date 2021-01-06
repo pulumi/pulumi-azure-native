@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The extended location of the load balancer.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// The list of Fqdn.
         /// </summary>
         public readonly ImmutableArray<string> Fqdns;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             ImmutableArray<string> fqdns,
 
             string? id,
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             AutoApproval = autoApproval;
             EnableProxyProtocol = enableProxyProtocol;
             Etag = etag;
+            ExtendedLocation = extendedLocation;
             Fqdns = fqdns;
             Id = id;
             IpConfigurations = ipConfigurations;

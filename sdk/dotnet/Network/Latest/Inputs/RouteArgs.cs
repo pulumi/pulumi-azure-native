@@ -22,6 +22,12 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         public Input<string>? AddressPrefix { get; set; }
 
         /// <summary>
+        /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        /// </summary>
+        [Input("hasBgpOverride")]
+        public Input<bool>? HasBgpOverride { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// </summary>
         [Input("nextHopType", required: true)]
         public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.RouteNextHopType> NextHopType { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public RouteArgs()
         {

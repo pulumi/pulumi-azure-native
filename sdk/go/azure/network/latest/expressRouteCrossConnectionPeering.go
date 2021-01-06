@@ -12,7 +12,7 @@ import (
 )
 
 // Peering in an ExpressRoute Cross Connection resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type ExpressRouteCrossConnectionPeering struct {
 	pulumi.CustomResourceState
 
@@ -131,6 +131,9 @@ func NewExpressRouteCrossConnectionPeering(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteCrossConnectionPeering"),
 		},
 	})
 	opts = append(opts, aliases)

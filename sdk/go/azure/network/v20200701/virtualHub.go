@@ -140,6 +140,9 @@ func NewVirtualHub(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHub"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualHub"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualHub
