@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines web application firewall policy.
- * Latest API Version: 2020-04-01.
+ * Latest API Version: 2020-11-01.
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -74,6 +74,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public /*out*/ readonly routingRuleLinks!: pulumi.Output<outputs.network.latest.RoutingRuleLinkResponse[]>;
     /**
+     * The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+     */
+    public readonly sku!: pulumi.Output<outputs.network.latest.SkuResponse | undefined>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -105,6 +109,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["policyName"] = args ? args.policyName : undefined;
             inputs["policySettings"] = args ? args.policySettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["frontendEndpointLinks"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -123,6 +128,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["routingRuleLinks"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -133,7 +139,7 @@ export class Policy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:Policy" }, { type: "azure-nextgen:network/v20190301:Policy" }, { type: "azure-nextgen:network/v20191001:Policy" }, { type: "azure-nextgen:network/v20200401:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:Policy" }, { type: "azure-nextgen:network/v20190301:Policy" }, { type: "azure-nextgen:network/v20191001:Policy" }, { type: "azure-nextgen:network/v20200401:Policy" }, { type: "azure-nextgen:network/v20201101:Policy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Policy.__pulumiType, name, inputs, opts);
     }
@@ -171,6 +177,10 @@ export interface PolicyArgs {
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+     */
+    readonly sku?: pulumi.Input<inputs.network.latest.Sku>;
     /**
      * Resource tags.
      */

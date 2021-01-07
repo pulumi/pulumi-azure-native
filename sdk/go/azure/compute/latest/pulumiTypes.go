@@ -34794,6 +34794,8 @@ type VirtualMachineScaleSetNetworkConfiguration struct {
 	DnsSettings *VirtualMachineScaleSetNetworkConfigurationDnsSettings `pulumi:"dnsSettings"`
 	// Specifies whether the network interface is accelerated networking-enabled.
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
+	// Specifies whether the network interface is FPGA networking-enabled.
+	EnableFpga *bool `pulumi:"enableFpga"`
 	// Whether IP forwarding enabled on this NIC.
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
 	// Resource Id
@@ -34825,6 +34827,8 @@ type VirtualMachineScaleSetNetworkConfigurationArgs struct {
 	DnsSettings VirtualMachineScaleSetNetworkConfigurationDnsSettingsPtrInput `pulumi:"dnsSettings"`
 	// Specifies whether the network interface is accelerated networking-enabled.
 	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
+	// Specifies whether the network interface is FPGA networking-enabled.
+	EnableFpga pulumi.BoolPtrInput `pulumi:"enableFpga"`
 	// Whether IP forwarding enabled on this NIC.
 	EnableIPForwarding pulumi.BoolPtrInput `pulumi:"enableIPForwarding"`
 	// Resource Id
@@ -34901,6 +34905,11 @@ func (o VirtualMachineScaleSetNetworkConfigurationOutput) DnsSettings() VirtualM
 // Specifies whether the network interface is accelerated networking-enabled.
 func (o VirtualMachineScaleSetNetworkConfigurationOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfiguration) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether the network interface is FPGA networking-enabled.
+func (o VirtualMachineScaleSetNetworkConfigurationOutput) EnableFpga() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfiguration) *bool { return v.EnableFpga }).(pulumi.BoolPtrOutput)
 }
 
 // Whether IP forwarding enabled on this NIC.
@@ -35233,6 +35242,8 @@ type VirtualMachineScaleSetNetworkConfigurationResponse struct {
 	DnsSettings *VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse `pulumi:"dnsSettings"`
 	// Specifies whether the network interface is accelerated networking-enabled.
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
+	// Specifies whether the network interface is FPGA networking-enabled.
+	EnableFpga *bool `pulumi:"enableFpga"`
 	// Whether IP forwarding enabled on this NIC.
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
 	// Resource Id
@@ -35264,6 +35275,8 @@ type VirtualMachineScaleSetNetworkConfigurationResponseArgs struct {
 	DnsSettings VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrInput `pulumi:"dnsSettings"`
 	// Specifies whether the network interface is accelerated networking-enabled.
 	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
+	// Specifies whether the network interface is FPGA networking-enabled.
+	EnableFpga pulumi.BoolPtrInput `pulumi:"enableFpga"`
 	// Whether IP forwarding enabled on this NIC.
 	EnableIPForwarding pulumi.BoolPtrInput `pulumi:"enableIPForwarding"`
 	// Resource Id
@@ -35340,6 +35353,11 @@ func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) DnsSettings() 
 // Specifies whether the network interface is accelerated networking-enabled.
 func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationResponse) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether the network interface is FPGA networking-enabled.
+func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) EnableFpga() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationResponse) *bool { return v.EnableFpga }).(pulumi.BoolPtrOutput)
 }
 
 // Whether IP forwarding enabled on this NIC.

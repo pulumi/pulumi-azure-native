@@ -2845,6 +2845,38 @@ namespace Pulumi.AzureNextGen.Network.Latest
     }
 
     /// <summary>
+    /// Defines the action to take when a managed rule set score threshold is met.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedRuleSetActionType : IEquatable<ManagedRuleSetActionType>
+    {
+        private readonly string _value;
+
+        private ManagedRuleSetActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedRuleSetActionType Block { get; } = new ManagedRuleSetActionType("Block");
+        public static ManagedRuleSetActionType Log { get; } = new ManagedRuleSetActionType("Log");
+        public static ManagedRuleSetActionType Redirect { get; } = new ManagedRuleSetActionType("Redirect");
+
+        public static bool operator ==(ManagedRuleSetActionType left, ManagedRuleSetActionType right) => left.Equals(right);
+        public static bool operator !=(ManagedRuleSetActionType left, ManagedRuleSetActionType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedRuleSetActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedRuleSetActionType other && Equals(other);
+        public bool Equals(ManagedRuleSetActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
     /// </summary>
     [EnumType]
@@ -3199,6 +3231,37 @@ namespace Pulumi.AzureNextGen.Network.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PolicyMode other && Equals(other);
         public bool Equals(PolicyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes if policy managed rules will inspect the request body content.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyRequestBodyCheck : IEquatable<PolicyRequestBodyCheck>
+    {
+        private readonly string _value;
+
+        private PolicyRequestBodyCheck(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyRequestBodyCheck Disabled { get; } = new PolicyRequestBodyCheck("Disabled");
+        public static PolicyRequestBodyCheck Enabled { get; } = new PolicyRequestBodyCheck("Enabled");
+
+        public static bool operator ==(PolicyRequestBodyCheck left, PolicyRequestBodyCheck right) => left.Equals(right);
+        public static bool operator !=(PolicyRequestBodyCheck left, PolicyRequestBodyCheck right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyRequestBodyCheck value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyRequestBodyCheck other && Equals(other);
+        public bool Equals(PolicyRequestBodyCheck other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3921,6 +3984,38 @@ namespace Pulumi.AzureNextGen.Network.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SessionAffinityEnabledState other && Equals(other);
         public bool Equals(SessionAffinityEnabledState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of the pricing tier.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuName : IEquatable<SkuName>
+    {
+        private readonly string _value;
+
+        private SkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuName Classic_AzureFrontDoor { get; } = new SkuName("Classic_AzureFrontDoor");
+        public static SkuName Standard_AzureFrontDoor { get; } = new SkuName("Standard_AzureFrontDoor");
+        public static SkuName Premium_AzureFrontDoor { get; } = new SkuName("Premium_AzureFrontDoor");
+
+        public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
+        public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
+
+        public static explicit operator string(SkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
+        public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

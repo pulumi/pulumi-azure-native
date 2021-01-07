@@ -72976,6 +72976,274 @@ func (o ServiceEndpointPropertiesFormatResponseArrayOutput) Index(i pulumi.IntIn
 	}).(ServiceEndpointPropertiesFormatResponseOutput)
 }
 
+// The pricing tier of the web application firewall policy.
+type Sku struct {
+	// Name of the pricing tier.
+	Name *string `pulumi:"name"`
+}
+
+// SkuInput is an input type that accepts SkuArgs and SkuOutput values.
+// You can construct a concrete instance of `SkuInput` via:
+//
+//          SkuArgs{...}
+type SkuInput interface {
+	pulumi.Input
+
+	ToSkuOutput() SkuOutput
+	ToSkuOutputWithContext(context.Context) SkuOutput
+}
+
+// The pricing tier of the web application firewall policy.
+type SkuArgs struct {
+	// Name of the pricing tier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sku)(nil)).Elem()
+}
+
+func (i SkuArgs) ToSkuOutput() SkuOutput {
+	return i.ToSkuOutputWithContext(context.Background())
+}
+
+func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
+}
+
+func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
+	return i.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
+}
+
+// SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
+// You can construct a concrete instance of `SkuPtrInput` via:
+//
+//          SkuArgs{...}
+//
+//  or:
+//
+//          nil
+type SkuPtrInput interface {
+	pulumi.Input
+
+	ToSkuPtrOutput() SkuPtrOutput
+	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
+}
+
+type skuPtrType SkuArgs
+
+func SkuPtr(v *SkuArgs) SkuPtrInput {
+	return (*skuPtrType)(v)
+}
+
+func (*skuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Sku)(nil)).Elem()
+}
+
+func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
+	return i.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
+}
+
+// The pricing tier of the web application firewall policy.
+type SkuOutput struct{ *pulumi.OutputState }
+
+func (SkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sku)(nil)).Elem()
+}
+
+func (o SkuOutput) ToSkuOutput() SkuOutput {
+	return o
+}
+
+func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
+	return o
+}
+
+func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
+	return o.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return o.ApplyT(func(v Sku) *Sku {
+		return &v
+	}).(SkuPtrOutput)
+}
+
+// Name of the pricing tier.
+func (o SkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type SkuPtrOutput struct{ *pulumi.OutputState }
+
+func (SkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Sku)(nil)).Elem()
+}
+
+func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
+	return o
+}
+
+func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return o
+}
+
+func (o SkuPtrOutput) Elem() SkuOutput {
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+}
+
+// Name of the pricing tier.
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pricing tier of the web application firewall policy.
+type SkuResponse struct {
+	// Name of the pricing tier.
+	Name *string `pulumi:"name"`
+}
+
+// SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
+// You can construct a concrete instance of `SkuResponseInput` via:
+//
+//          SkuResponseArgs{...}
+type SkuResponseInput interface {
+	pulumi.Input
+
+	ToSkuResponseOutput() SkuResponseOutput
+	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
+}
+
+// The pricing tier of the web application firewall policy.
+type SkuResponseArgs struct {
+	// Name of the pricing tier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SkuResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
+}
+
+func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
+	return i.ToSkuResponseOutputWithContext(context.Background())
+}
+
+func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
+}
+
+func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return i.ToSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
+}
+
+// SkuResponsePtrInput is an input type that accepts SkuResponseArgs, SkuResponsePtr and SkuResponsePtrOutput values.
+// You can construct a concrete instance of `SkuResponsePtrInput` via:
+//
+//          SkuResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SkuResponsePtrInput interface {
+	pulumi.Input
+
+	ToSkuResponsePtrOutput() SkuResponsePtrOutput
+	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
+}
+
+type skuResponsePtrType SkuResponseArgs
+
+func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
+	return (*skuResponsePtrType)(v)
+}
+
+func (*skuResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
+}
+
+func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return i.ToSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
+}
+
+// The pricing tier of the web application firewall policy.
+type SkuResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
+}
+
+func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
+	return o
+}
+
+func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
+	return o
+}
+
+func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return o.ToSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+		return &v
+	}).(SkuResponsePtrOutput)
+}
+
+// Name of the pricing tier.
+func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type SkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
+}
+
+func (o SkuResponsePtrOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return o
+}
+
+func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return o
+}
+
+func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+}
+
+// Name of the pricing tier.
+func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 // An SOA record.
 type SoaRecord struct {
 	// The email contact for this SOA record.
@@ -87925,6 +88193,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEndpointPropertiesFormatArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointPropertiesFormatResponseOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointPropertiesFormatResponseArrayOutput{})
+	pulumi.RegisterOutputType(SkuOutput{})
+	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuResponseOutput{})
+	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SoaRecordOutput{})
 	pulumi.RegisterOutputType(SoaRecordPtrOutput{})
 	pulumi.RegisterOutputType(SoaRecordResponseOutput{})

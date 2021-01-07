@@ -76,6 +76,10 @@ export interface GetPolicyResult {
      */
     readonly routingRuleLinks: outputs.network.latest.RoutingRuleLinkResponse[];
     /**
+     * The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+     */
+    readonly sku?: outputs.network.latest.SkuResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

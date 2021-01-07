@@ -25,13 +25,14 @@ class Policy(pulumi.CustomResource):
                  policy_name: Optional[pulumi.Input[str]] = None,
                  policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicySettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         Defines web application firewall policy.
-        Latest API Version: 2020-04-01.
+        Latest API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -42,6 +43,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] policy_name: The name of the Web Application Firewall Policy.
         :param pulumi.Input[pulumi.InputType['PolicySettingsArgs']] policy_settings: Describes settings for the policy.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -72,6 +74,7 @@ class Policy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['frontend_endpoint_links'] = None
             __props__['name'] = None
@@ -79,7 +82,7 @@ class Policy(pulumi.CustomResource):
             __props__['resource_state'] = None
             __props__['routing_rule_links'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20190301:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20191001:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20190301:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20191001:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20201101:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-nextgen:network/latest:Policy',
@@ -181,6 +184,14 @@ class Policy(pulumi.CustomResource):
         Describes Routing Rules associated with this Web Application Firewall policy.
         """
         return pulumi.get(self, "routing_rule_links")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+        """
+        The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter

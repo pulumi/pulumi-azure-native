@@ -12,7 +12,7 @@ import (
 )
 
 // Defines web application firewall policy.
-// Latest API Version: 2020-04-01.
+// Latest API Version: 2020-11-01.
 type Policy struct {
 	pulumi.CustomResourceState
 
@@ -35,6 +35,8 @@ type Policy struct {
 	ResourceState     pulumi.StringOutput `pulumi:"resourceState"`
 	// Describes Routing Rules associated with this Web Application Firewall policy.
 	RoutingRuleLinks RoutingRuleLinkResponseArrayOutput `pulumi:"routingRuleLinks"`
+	// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -66,6 +68,9 @@ func NewPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:Policy"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -110,6 +115,8 @@ type policyState struct {
 	ResourceState     *string `pulumi:"resourceState"`
 	// Describes Routing Rules associated with this Web Application Firewall policy.
 	RoutingRuleLinks []RoutingRuleLinkResponse `pulumi:"routingRuleLinks"`
+	// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -136,6 +143,8 @@ type PolicyState struct {
 	ResourceState     pulumi.StringPtrInput
 	// Describes Routing Rules associated with this Web Application Firewall policy.
 	RoutingRuleLinks RoutingRuleLinkResponseArrayInput
+	// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+	Sku SkuResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
@@ -161,6 +170,8 @@ type policyArgs struct {
 	PolicySettings *PolicySettings `pulumi:"policySettings"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+	Sku *Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -181,6 +192,8 @@ type PolicyArgs struct {
 	PolicySettings PolicySettingsPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+	Sku SkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

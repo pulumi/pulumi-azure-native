@@ -102,6 +102,7 @@ import * as purview from "./purview";
 import * as recoveryservices from "./recoveryservices";
 import * as relay from "./relay";
 import * as resources from "./resources";
+import * as saas from "./saas";
 import * as scheduler from "./scheduler";
 import * as search from "./search";
 import * as security from "./security";
@@ -229,6 +230,7 @@ export {
     recoveryservices,
     relay,
     resources,
+    saas,
     scheduler,
     search,
     security,

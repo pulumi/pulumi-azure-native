@@ -2583,6 +2583,35 @@ func (e ManagedRuleExclusionSelectorMatchOperator) ToStringPtrOutputWithContext(
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Defines the action to take when a managed rule set score threshold is met.
+type ManagedRuleSetActionType pulumi.String
+
+const (
+	ManagedRuleSetActionTypeBlock    = ManagedRuleSetActionType("Block")
+	ManagedRuleSetActionTypeLog      = ManagedRuleSetActionType("Log")
+	ManagedRuleSetActionTypeRedirect = ManagedRuleSetActionType("Redirect")
+)
+
+func (ManagedRuleSetActionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ManagedRuleSetActionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ManagedRuleSetActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ManagedRuleSetActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ManagedRuleSetActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
 type MatchProcessingBehavior pulumi.String
 
@@ -2909,6 +2938,34 @@ func (e PolicyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e PolicyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Describes if policy managed rules will inspect the request body content.
+type PolicyRequestBodyCheck pulumi.String
+
+const (
+	PolicyRequestBodyCheckDisabled = PolicyRequestBodyCheck("Disabled")
+	PolicyRequestBodyCheckEnabled  = PolicyRequestBodyCheck("Enabled")
+)
+
+func (PolicyRequestBodyCheck) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e PolicyRequestBodyCheck) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyRequestBodyCheck) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyRequestBodyCheck) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyRequestBodyCheck) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -3565,6 +3622,35 @@ func (e SessionAffinityEnabledState) ToStringPtrOutput() pulumi.StringPtrOutput 
 }
 
 func (e SessionAffinityEnabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Name of the pricing tier.
+type SkuName pulumi.String
+
+const (
+	SkuName_Classic_AzureFrontDoor  = SkuName("Classic_AzureFrontDoor")
+	SkuName_Standard_AzureFrontDoor = SkuName("Standard_AzureFrontDoor")
+	SkuName_Premium_AzureFrontDoor  = SkuName("Premium_AzureFrontDoor")
+)
+
+func (SkuName) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SkuName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SkuName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SkuName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
