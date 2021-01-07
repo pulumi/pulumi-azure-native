@@ -25,6 +25,8 @@ __all__ = [
     'IotHubSkuInfoResponse',
     'IpFilterRuleResponse',
     'MessagingEndpointPropertiesResponse',
+    'NetworkRuleSetIpRuleResponse',
+    'NetworkRuleSetPropertiesResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -730,6 +732,7 @@ class IotHubPropertiesResponse(dict):
                  ip_filter_rules: Optional[Sequence['outputs.IpFilterRuleResponse']] = None,
                  messaging_endpoints: Optional[Mapping[str, 'outputs.MessagingEndpointPropertiesResponse']] = None,
                  min_tls_version: Optional[str] = None,
+                 network_rule_sets: Optional['outputs.NetworkRuleSetPropertiesResponse'] = None,
                  private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionResponse']] = None,
                  public_network_access: Optional[str] = None,
                  routing: Optional['outputs.RoutingPropertiesResponse'] = None,
@@ -749,6 +752,7 @@ class IotHubPropertiesResponse(dict):
         :param Sequence['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
         :param Mapping[str, 'MessagingEndpointPropertiesResponseArgs'] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
         :param str min_tls_version: Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
+        :param 'NetworkRuleSetPropertiesResponseArgs' network_rule_sets: Network Rule Set Properties of IotHub
         :param Sequence['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: Private endpoint connections created on this IotHub
         :param str public_network_access: Whether requests from Public Network are allowed
         :param 'RoutingPropertiesResponseArgs' routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
@@ -776,6 +780,8 @@ class IotHubPropertiesResponse(dict):
             pulumi.set(__self__, "messaging_endpoints", messaging_endpoints)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if network_rule_sets is not None:
+            pulumi.set(__self__, "network_rule_sets", network_rule_sets)
         if private_endpoint_connections is not None:
             pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
@@ -888,6 +894,14 @@ class IotHubPropertiesResponse(dict):
         Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
         """
         return pulumi.get(self, "min_tls_version")
+
+    @property
+    @pulumi.getter(name="networkRuleSets")
+    def network_rule_sets(self) -> Optional['outputs.NetworkRuleSetPropertiesResponse']:
+        """
+        Network Rule Set Properties of IotHub
+        """
+        return pulumi.get(self, "network_rule_sets")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
@@ -1065,6 +1079,102 @@ class MessagingEndpointPropertiesResponse(dict):
         The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
         """
         return pulumi.get(self, "ttl_as_iso8601")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetworkRuleSetIpRuleResponse(dict):
+    """
+    IP Rule to be applied as part of Network Rule Set
+    """
+    def __init__(__self__, *,
+                 filter_name: str,
+                 ip_mask: str,
+                 action: Optional[str] = None):
+        """
+        IP Rule to be applied as part of Network Rule Set
+        :param str filter_name: Name of the IP filter rule.
+        :param str ip_mask: A string that contains the IP address range in CIDR notation for the rule.
+        :param str action: IP Filter Action
+        """
+        pulumi.set(__self__, "filter_name", filter_name)
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="filterName")
+    def filter_name(self) -> str:
+        """
+        Name of the IP filter rule.
+        """
+        return pulumi.get(self, "filter_name")
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> str:
+        """
+        A string that contains the IP address range in CIDR notation for the rule.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        IP Filter Action
+        """
+        return pulumi.get(self, "action")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetworkRuleSetPropertiesResponse(dict):
+    """
+    Network Rule Set Properties of IotHub
+    """
+    def __init__(__self__, *,
+                 apply_to_built_in_event_hub_endpoint: bool,
+                 ip_rules: Sequence['outputs.NetworkRuleSetIpRuleResponse'],
+                 default_action: Optional[str] = None):
+        """
+        Network Rule Set Properties of IotHub
+        :param bool apply_to_built_in_event_hub_endpoint: If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+        :param Sequence['NetworkRuleSetIpRuleResponseArgs'] ip_rules: List of IP Rules
+        :param str default_action: Default Action for Network Rule Set
+        """
+        pulumi.set(__self__, "apply_to_built_in_event_hub_endpoint", apply_to_built_in_event_hub_endpoint)
+        pulumi.set(__self__, "ip_rules", ip_rules)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+
+    @property
+    @pulumi.getter(name="applyToBuiltInEventHubEndpoint")
+    def apply_to_built_in_event_hub_endpoint(self) -> bool:
+        """
+        If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+        """
+        return pulumi.get(self, "apply_to_built_in_event_hub_endpoint")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Sequence['outputs.NetworkRuleSetIpRuleResponse']:
+        """
+        List of IP Rules
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[str]:
+        """
+        Default Action for Network Rule Set
+        """
+        return pulumi.get(self, "default_action")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

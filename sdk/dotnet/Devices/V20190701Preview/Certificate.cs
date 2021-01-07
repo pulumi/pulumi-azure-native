@@ -77,6 +77,8 @@ namespace Pulumi.AzureNextGen.Devices.V20190701Preview
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200615:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200710preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200801:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

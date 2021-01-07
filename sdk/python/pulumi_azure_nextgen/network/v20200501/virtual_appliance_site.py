@@ -73,7 +73,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualApplianceSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualApplianceSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualApplianceSite, __self__).__init__(
             'azure-nextgen:network/v20200501:VirtualApplianceSite',

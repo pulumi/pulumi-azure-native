@@ -22,9 +22,9 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Outputs
         /// </summary>
         public readonly int? Capacity;
         /// <summary>
-        /// Optional string. For future use.
+        /// Not used. Retained for future use.
         /// </summary>
-        public readonly string? Family;
+        public readonly string Family;
         /// <summary>
         /// The name of the SKU. Required.
         /// 
@@ -32,9 +32,9 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Optional string. For future use.
+        /// Not used. Retained for future use.
         /// </summary>
-        public readonly string? Size;
+        public readonly string Size;
         /// <summary>
         /// Optional tier of this particular SKU. 'Standard' or 'Free'. 
         /// 
@@ -46,11 +46,11 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Outputs
         private ResourceSkuResponse(
             int? capacity,
 
-            string? family,
+            string family,
 
             string name,
 
-            string? size,
+            string size,
 
             string? tier)
         {

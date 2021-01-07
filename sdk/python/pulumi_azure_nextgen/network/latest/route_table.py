@@ -30,7 +30,7 @@ class RouteTable(pulumi.CustomResource):
                  __opts__=None):
         """
         Route table resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,9 +73,10 @@ class RouteTable(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['resource_guid'] = None
             __props__['subnets'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20150615:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20160330:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20160601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20160901:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20161201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170301:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170801:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170901:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20171001:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20171101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180401:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180701:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180801:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20181001:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20181101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20181201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190401:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190701:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190801:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190901:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20191101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20191201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200301:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200401:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200501:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200701:RouteTable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20150615:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20160330:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20160601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20160901:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20161201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170301:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170801:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170901:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20171001:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20171101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180401:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180701:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180801:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20181001:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20181101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20181201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190401:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190701:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190801:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190901:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20191101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20191201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200301:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200401:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200501:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200701:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200801:RouteTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RouteTable, __self__).__init__(
             'azure-nextgen:network/latest:RouteTable',
@@ -140,6 +141,14 @@ class RouteTable(pulumi.CustomResource):
         The provisioning state of the route table resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
+        """
+        The resource GUID property of the route table.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter

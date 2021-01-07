@@ -20,7 +20,7 @@ class GetVpnGatewayResult:
     """
     VpnGateway Resource.
     """
-    def __init__(__self__, bgp_settings=None, connections=None, etag=None, id=None, ip_configurations=None, is_routing_preference_internet=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_gateway_scale_unit=None):
+    def __init__(__self__, bgp_settings=None, connections=None, etag=None, id=None, ip_configurations=None, is_routing_preference_internet=None, location=None, name=None, nat_rules=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_gateway_scale_unit=None):
         if bgp_settings and not isinstance(bgp_settings, dict):
             raise TypeError("Expected argument 'bgp_settings' to be a dict")
         pulumi.set(__self__, "bgp_settings", bgp_settings)
@@ -45,6 +45,9 @@ class GetVpnGatewayResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if nat_rules and not isinstance(nat_rules, list):
+            raise TypeError("Expected argument 'nat_rules' to be a list")
+        pulumi.set(__self__, "nat_rules", nat_rules)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -126,6 +129,14 @@ class GetVpnGatewayResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="natRules")
+    def nat_rules(self) -> Optional[Sequence['outputs.VpnGatewayNatRuleResponse']]:
+        """
+        List of all the nat Rules associated with the gateway.
+        """
+        return pulumi.get(self, "nat_rules")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -180,6 +191,7 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
             is_routing_preference_internet=self.is_routing_preference_internet,
             location=self.location,
             name=self.name,
+            nat_rules=self.nat_rules,
             provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type,
@@ -214,6 +226,7 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
         is_routing_preference_internet=__ret__.is_routing_preference_internet,
         location=__ret__.location,
         name=__ret__.name,
+        nat_rules=__ret__.nat_rules,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type,

@@ -20,7 +20,7 @@ class GetAttestationProviderResult:
     """
     Attestation service response message.
     """
-    def __init__(__self__, attest_uri=None, id=None, location=None, name=None, status=None, system_data=None, tags=None, trust_model=None, type=None):
+    def __init__(__self__, attest_uri=None, id=None, location=None, name=None, private_endpoint_connections=None, status=None, system_data=None, tags=None, trust_model=None, type=None):
         if attest_uri and not isinstance(attest_uri, str):
             raise TypeError("Expected argument 'attest_uri' to be a str")
         pulumi.set(__self__, "attest_uri", attest_uri)
@@ -33,6 +33,9 @@ class GetAttestationProviderResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -82,6 +85,14 @@ class GetAttestationProviderResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connections associated with the attestation provider.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
@@ -109,7 +120,7 @@ class GetAttestationProviderResult:
     @pulumi.getter(name="trustModel")
     def trust_model(self) -> Optional[str]:
         """
-        Trust model for the attestation service instance.
+        Trust model for the attestation provider.
         """
         return pulumi.get(self, "trust_model")
 
@@ -132,6 +143,7 @@ class AwaitableGetAttestationProviderResult(GetAttestationProviderResult):
             id=self.id,
             location=self.location,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             status=self.status,
             system_data=self.system_data,
             tags=self.tags,
@@ -145,7 +157,7 @@ def get_attestation_provider(provider_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str provider_name: Name of the attestation service instance
+    :param str provider_name: Name of the attestation provider.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -162,6 +174,7 @@ def get_attestation_provider(provider_name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         status=__ret__.status,
         system_data=__ret__.system_data,
         tags=__ret__.tags,

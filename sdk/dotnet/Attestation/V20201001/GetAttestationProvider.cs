@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
     public sealed class GetAttestationProviderArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the attestation service instance
+        /// Name of the attestation provider.
         /// </summary>
         [Input("providerName", required: true)]
         public string ProviderName { get; set; } = null!;
@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// List of private endpoint connections associated with the attestation provider.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// Status of attestation service.
         /// </summary>
         public readonly string? Status;
@@ -68,7 +72,7 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Trust model for the attestation service instance.
+        /// Trust model for the attestation provider.
         /// </summary>
         public readonly string? TrustModel;
         /// <summary>
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
 
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string? status,
 
             Outputs.SystemDataResponse systemData,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
             Id = id;
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             Status = status;
             SystemData = systemData;
             Tags = tags;

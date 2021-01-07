@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:BastionHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:BastionHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:BastionHost"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

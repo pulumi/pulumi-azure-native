@@ -81,7 +81,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['etag'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:HubVirtualNetworkConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:HubVirtualNetworkConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HubVirtualNetworkConnection, __self__).__init__(
             'azure-nextgen:network/v20200701:HubVirtualNetworkConnection',

@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AddonType',
     'DhcpTypeEnum',
     'DnsServiceLogLevelEnum',
     'InternetEnum',
@@ -13,6 +14,14 @@ __all__ = [
     'SslEnum',
     'VcsaAdminRotateEnum',
 ]
+
+
+class AddonType(str, Enum):
+    """
+    The type of private cloud addon
+    """
+    SRM = "SRM"
+    VR = "VR"
 
 
 class DhcpTypeEnum(str, Enum):

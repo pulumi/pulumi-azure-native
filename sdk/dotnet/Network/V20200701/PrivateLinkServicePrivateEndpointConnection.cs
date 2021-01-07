@@ -90,6 +90,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PrivateLinkServicePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PrivateLinkServicePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PrivateLinkServicePrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -164,6 +164,9 @@ func NewLoadBalancer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:LoadBalancer"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:LoadBalancer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LoadBalancer

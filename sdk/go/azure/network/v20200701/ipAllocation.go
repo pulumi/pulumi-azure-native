@@ -70,6 +70,9 @@ func NewIpAllocation(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:IpAllocation"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:IpAllocation"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IpAllocation

@@ -17,6 +17,7 @@ class Route(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
+                 has_bgp_override: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  next_hop_ip_address: Optional[pulumi.Input[str]] = None,
@@ -24,16 +25,18 @@ class Route(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
                  route_table_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         Route resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies.
+        :param pulumi.Input[bool] has_bgp_override: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
@@ -41,6 +44,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] route_name: The name of the route.
         :param pulumi.Input[str] route_table_name: The name of the route table.
+        :param pulumi.Input[str] type: The type of the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,6 +64,7 @@ class Route(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['address_prefix'] = address_prefix
+            __props__['has_bgp_override'] = has_bgp_override
             __props__['id'] = id
             __props__['name'] = name
             __props__['next_hop_ip_address'] = next_hop_ip_address
@@ -75,9 +80,10 @@ class Route(pulumi.CustomResource):
             if route_table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_name'")
             __props__['route_table_name'] = route_table_name
+            __props__['type'] = type
             __props__['etag'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:Route"), pulumi.Alias(type_="azure-nextgen:network/v20150615:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160330:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20161201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171001:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181001:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200501:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200701:Route")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:Route"), pulumi.Alias(type_="azure-nextgen:network/v20150615:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160330:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20161201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171001:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181001:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200501:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200801:Route")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Route, __self__).__init__(
             'azure-nextgen:network/latest:Route',
@@ -120,6 +126,14 @@ class Route(pulumi.CustomResource):
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="hasBgpOverride")
+    def has_bgp_override(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        """
+        return pulumi.get(self, "has_bgp_override")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
@@ -150,6 +164,14 @@ class Route(pulumi.CustomResource):
         The provisioning state of the route resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

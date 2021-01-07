@@ -12,7 +12,7 @@ import (
 )
 
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 type ProtectionContainer struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +55,9 @@ func NewProtectionContainer(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:ProtectionContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:ProtectionContainer"),
 		},
 	})
 	opts = append(opts, aliases)

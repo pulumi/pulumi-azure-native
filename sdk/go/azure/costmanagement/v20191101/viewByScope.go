@@ -24,13 +24,15 @@ type ViewByScope struct {
 	// Selected currency.
 	Currency pulumi.StringOutput `pulumi:"currency"`
 	// Has definition for data in this report config.
-	Dataset ReportConfigDatasetResponsePtrOutput `pulumi:"dataset"`
+	DataSet ReportConfigDatasetResponsePtrOutput `pulumi:"dataSet"`
 	// Selected date range for viewing cost in.
 	DateRange pulumi.StringOutput `pulumi:"dateRange"`
 	// User input name of the view. Required.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
+	// Include monetary commitment
+	IncludeMonetaryCommitment pulumi.BoolOutput `pulumi:"includeMonetaryCommitment"`
 	// List of KPIs to show in Cost Analysis UI.
 	Kpis KpiPropertiesResponseArrayOutput `pulumi:"kpis"`
 	// Metric to use when displaying costs.
@@ -113,13 +115,15 @@ type viewByScopeState struct {
 	// Selected currency.
 	Currency *string `pulumi:"currency"`
 	// Has definition for data in this report config.
-	Dataset *ReportConfigDatasetResponse `pulumi:"dataset"`
+	DataSet *ReportConfigDatasetResponse `pulumi:"dataSet"`
 	// Selected date range for viewing cost in.
 	DateRange *string `pulumi:"dateRange"`
 	// User input name of the view. Required.
 	DisplayName *string `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
+	// Include monetary commitment
+	IncludeMonetaryCommitment *bool `pulumi:"includeMonetaryCommitment"`
 	// List of KPIs to show in Cost Analysis UI.
 	Kpis []KpiPropertiesResponse `pulumi:"kpis"`
 	// Metric to use when displaying costs.
@@ -150,13 +154,15 @@ type ViewByScopeState struct {
 	// Selected currency.
 	Currency pulumi.StringPtrInput
 	// Has definition for data in this report config.
-	Dataset ReportConfigDatasetResponsePtrInput
+	DataSet ReportConfigDatasetResponsePtrInput
 	// Selected date range for viewing cost in.
 	DateRange pulumi.StringPtrInput
 	// User input name of the view. Required.
 	DisplayName pulumi.StringPtrInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
+	// Include monetary commitment
+	IncludeMonetaryCommitment pulumi.BoolPtrInput
 	// List of KPIs to show in Cost Analysis UI.
 	Kpis KpiPropertiesResponseArrayInput
 	// Metric to use when displaying costs.
@@ -187,7 +193,7 @@ type viewByScopeArgs struct {
 	// Chart type of the main view in Cost Analysis. Required.
 	Chart *string `pulumi:"chart"`
 	// Has definition for data in this report config.
-	Dataset *ReportConfigDataset `pulumi:"dataset"`
+	DataSet *ReportConfigDataset `pulumi:"dataSet"`
 	// User input name of the view. Required.
 	DisplayName *string `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -217,7 +223,7 @@ type ViewByScopeArgs struct {
 	// Chart type of the main view in Cost Analysis. Required.
 	Chart pulumi.StringPtrInput
 	// Has definition for data in this report config.
-	Dataset ReportConfigDatasetPtrInput
+	DataSet ReportConfigDatasetPtrInput
 	// User input name of the view. Required.
 	DisplayName pulumi.StringPtrInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.

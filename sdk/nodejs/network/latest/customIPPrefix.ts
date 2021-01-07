@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Custom IP prefix resource.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class CustomIPPrefix extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The extended location of the custom IP prefix.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.network.latest.ExtendedLocationResponse | undefined>;
     /**
      * Resource location.
      */
@@ -100,6 +104,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
             inputs["cidr"] = args ? args.cidr : undefined;
             inputs["commissionedState"] = args ? args.commissionedState : undefined;
             inputs["customIpPrefixName"] = args ? args.customIpPrefixName : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -115,6 +120,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
             inputs["cidr"] = undefined /*out*/;
             inputs["commissionedState"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -131,7 +137,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200601:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200701:CustomIPPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200601:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200701:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200801:CustomIPPrefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomIPPrefix.__pulumiType, name, inputs, opts);
     }
@@ -153,6 +159,10 @@ export interface CustomIPPrefixArgs {
      * The name of the custom IP prefix.
      */
     readonly customIpPrefixName: pulumi.Input<string>;
+    /**
+     * The extended location of the custom IP prefix.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.network.latest.ExtendedLocation>;
     /**
      * Resource ID.
      */

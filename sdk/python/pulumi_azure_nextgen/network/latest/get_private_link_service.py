@@ -20,7 +20,7 @@ class GetPrivateLinkServiceResult:
     """
     Private link service resource.
     """
-    def __init__(__self__, alias=None, auto_approval=None, enable_proxy_protocol=None, etag=None, fqdns=None, id=None, ip_configurations=None, load_balancer_frontend_ip_configurations=None, location=None, name=None, network_interfaces=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None, visibility=None):
+    def __init__(__self__, alias=None, auto_approval=None, enable_proxy_protocol=None, etag=None, extended_location=None, fqdns=None, id=None, ip_configurations=None, load_balancer_frontend_ip_configurations=None, location=None, name=None, network_interfaces=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None, visibility=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -33,6 +33,9 @@ class GetPrivateLinkServiceResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if fqdns and not isinstance(fqdns, list):
             raise TypeError("Expected argument 'fqdns' to be a list")
         pulumi.set(__self__, "fqdns", fqdns)
@@ -101,6 +104,14 @@ class GetPrivateLinkServiceResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the load balancer.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter
@@ -209,6 +220,7 @@ class AwaitableGetPrivateLinkServiceResult(GetPrivateLinkServiceResult):
             auto_approval=self.auto_approval,
             enable_proxy_protocol=self.enable_proxy_protocol,
             etag=self.etag,
+            extended_location=self.extended_location,
             fqdns=self.fqdns,
             id=self.id,
             ip_configurations=self.ip_configurations,
@@ -249,6 +261,7 @@ def get_private_link_service(expand: Optional[str] = None,
         auto_approval=__ret__.auto_approval,
         enable_proxy_protocol=__ret__.enable_proxy_protocol,
         etag=__ret__.etag,
+        extended_location=__ret__.extended_location,
         fqdns=__ret__.fqdns,
         id=__ret__.id,
         ip_configurations=__ret__.ip_configurations,

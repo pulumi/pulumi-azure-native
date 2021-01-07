@@ -194,6 +194,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:Subnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:Subnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:Subnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

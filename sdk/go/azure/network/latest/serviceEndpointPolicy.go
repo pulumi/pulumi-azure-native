@@ -12,7 +12,7 @@ import (
 )
 
 // Service End point policy resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type ServiceEndpointPolicy struct {
 	pulumi.CustomResourceState
 
@@ -103,6 +103,9 @@ func NewServiceEndpointPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:ServiceEndpointPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -21,13 +21,15 @@ type AttestationProvider struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of private endpoint connections associated with the attestation provider.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Status of attestation service.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The system metadata relating to this resource
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Trust model for the attestation service instance.
+	// Trust model for the attestation provider.
 	TrustModel pulumi.StringPtrOutput `pulumi:"trustModel"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -89,13 +91,15 @@ type attestationProviderState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// List of private endpoint connections associated with the attestation provider.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Status of attestation service.
 	Status *string `pulumi:"status"`
 	// The system metadata relating to this resource
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Trust model for the attestation service instance.
+	// Trust model for the attestation provider.
 	TrustModel *string `pulumi:"trustModel"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
@@ -108,13 +112,15 @@ type AttestationProviderState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// List of private endpoint connections associated with the attestation provider.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Status of attestation service.
 	Status pulumi.StringPtrInput
 	// The system metadata relating to this resource
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// Trust model for the attestation service instance.
+	// Trust model for the attestation provider.
 	TrustModel pulumi.StringPtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
@@ -125,29 +131,29 @@ func (AttestationProviderState) ElementType() reflect.Type {
 }
 
 type attestationProviderArgs struct {
-	// The supported Azure location where the attestation service instance should be created.
+	// The supported Azure location where the attestation provider should be created.
 	Location string `pulumi:"location"`
-	// Properties of the attestation service instance
+	// Properties of the attestation provider
 	Properties AttestationServiceCreationSpecificParams `pulumi:"properties"`
-	// Name of the attestation service instance.
+	// Name of the attestation provider.
 	ProviderName string `pulumi:"providerName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags that will be assigned to the attestation service instance.
+	// The tags that will be assigned to the attestation provider.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AttestationProvider resource.
 type AttestationProviderArgs struct {
-	// The supported Azure location where the attestation service instance should be created.
+	// The supported Azure location where the attestation provider should be created.
 	Location pulumi.StringInput
-	// Properties of the attestation service instance
+	// Properties of the attestation provider
 	Properties AttestationServiceCreationSpecificParamsInput
-	// Name of the attestation service instance.
+	// Name of the attestation provider.
 	ProviderName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The tags that will be assigned to the attestation service instance.
+	// The tags that will be assigned to the attestation provider.
 	Tags pulumi.StringMapInput
 }
 

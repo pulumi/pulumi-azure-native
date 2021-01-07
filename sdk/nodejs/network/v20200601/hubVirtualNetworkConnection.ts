@@ -116,7 +116,7 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200701:HubVirtualNetworkConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200701:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200801:HubVirtualNetworkConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HubVirtualNetworkConnection.__pulumiType, name, inputs, opts);
     }

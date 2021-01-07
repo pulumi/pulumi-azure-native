@@ -48,6 +48,10 @@ export interface GetPrivateEndpointResult {
      */
     readonly etag: string;
     /**
+     * The extended location of the load balancer.
+     */
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    /**
      * Resource ID.
      */
     readonly id?: string;

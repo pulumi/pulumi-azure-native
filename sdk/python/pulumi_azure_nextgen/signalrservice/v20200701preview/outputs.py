@@ -372,36 +372,42 @@ class ResourceSkuResponse(dict):
     The billing information of the SignalR resource.
     """
     def __init__(__self__, *,
+                 family: str,
                  name: str,
+                 size: str,
                  capacity: Optional[int] = None,
-                 family: Optional[str] = None,
-                 size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         The billing information of the SignalR resource.
+        :param str family: Not used. Retained for future use.
         :param str name: The name of the SKU. Required.
                
                Allowed values: Standard_S1, Free_F1
+        :param str size: Not used. Retained for future use.
         :param int capacity: Optional, integer. The unit count of SignalR resource. 1 by default.
                
                If present, following values are allowed:
                    Free: 1
                    Standard: 1,2,5,10,20,50,100
-        :param str family: Optional string. For future use.
-        :param str size: Optional string. For future use.
         :param str tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
                
                `Basic` is deprecated, use `Standard` instead.
         """
+        pulumi.set(__self__, "family", family)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "size", size)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def family(self) -> str:
+        """
+        Not used. Retained for future use.
+        """
+        return pulumi.get(self, "family")
 
     @property
     @pulumi.getter
@@ -415,6 +421,14 @@ class ResourceSkuResponse(dict):
 
     @property
     @pulumi.getter
+    def size(self) -> str:
+        """
+        Not used. Retained for future use.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
     def capacity(self) -> Optional[int]:
         """
         Optional, integer. The unit count of SignalR resource. 1 by default.
@@ -424,22 +438,6 @@ class ResourceSkuResponse(dict):
             Standard: 1,2,5,10,20,50,100
         """
         return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[str]:
-        """
-        Optional string. For future use.
-        """
-        return pulumi.get(self, "family")
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[str]:
-        """
-        Optional string. For future use.
-        """
-        return pulumi.get(self, "size")
 
     @property
     @pulumi.getter

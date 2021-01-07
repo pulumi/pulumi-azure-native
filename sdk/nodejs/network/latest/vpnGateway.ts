@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnGateway Resource.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class VpnGateway extends pulumi.CustomResource {
     /**
@@ -65,6 +65,10 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * List of all the nat Rules associated with the gateway.
+     */
+    public readonly natRules!: pulumi.Output<outputs.network.latest.VpnGatewayNatRuleResponse[] | undefined>;
+    /**
      * The provisioning state of the VPN gateway resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["isRoutingPreferenceInternet"] = args ? args.isRoutingPreferenceInternet : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["natRules"] = args ? args.natRules : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualHub"] = args ? args.virtualHub : undefined;
@@ -127,6 +132,7 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["isRoutingPreferenceInternet"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["natRules"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -140,7 +146,7 @@ export class VpnGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180401:VpnGateway" }, { type: "azure-nextgen:network/v20180601:VpnGateway" }, { type: "azure-nextgen:network/v20180701:VpnGateway" }, { type: "azure-nextgen:network/v20180801:VpnGateway" }, { type: "azure-nextgen:network/v20181001:VpnGateway" }, { type: "azure-nextgen:network/v20181101:VpnGateway" }, { type: "azure-nextgen:network/v20181201:VpnGateway" }, { type: "azure-nextgen:network/v20190201:VpnGateway" }, { type: "azure-nextgen:network/v20190401:VpnGateway" }, { type: "azure-nextgen:network/v20190601:VpnGateway" }, { type: "azure-nextgen:network/v20190701:VpnGateway" }, { type: "azure-nextgen:network/v20190801:VpnGateway" }, { type: "azure-nextgen:network/v20190901:VpnGateway" }, { type: "azure-nextgen:network/v20191101:VpnGateway" }, { type: "azure-nextgen:network/v20191201:VpnGateway" }, { type: "azure-nextgen:network/v20200301:VpnGateway" }, { type: "azure-nextgen:network/v20200401:VpnGateway" }, { type: "azure-nextgen:network/v20200501:VpnGateway" }, { type: "azure-nextgen:network/v20200601:VpnGateway" }, { type: "azure-nextgen:network/v20200701:VpnGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180401:VpnGateway" }, { type: "azure-nextgen:network/v20180601:VpnGateway" }, { type: "azure-nextgen:network/v20180701:VpnGateway" }, { type: "azure-nextgen:network/v20180801:VpnGateway" }, { type: "azure-nextgen:network/v20181001:VpnGateway" }, { type: "azure-nextgen:network/v20181101:VpnGateway" }, { type: "azure-nextgen:network/v20181201:VpnGateway" }, { type: "azure-nextgen:network/v20190201:VpnGateway" }, { type: "azure-nextgen:network/v20190401:VpnGateway" }, { type: "azure-nextgen:network/v20190601:VpnGateway" }, { type: "azure-nextgen:network/v20190701:VpnGateway" }, { type: "azure-nextgen:network/v20190801:VpnGateway" }, { type: "azure-nextgen:network/v20190901:VpnGateway" }, { type: "azure-nextgen:network/v20191101:VpnGateway" }, { type: "azure-nextgen:network/v20191201:VpnGateway" }, { type: "azure-nextgen:network/v20200301:VpnGateway" }, { type: "azure-nextgen:network/v20200401:VpnGateway" }, { type: "azure-nextgen:network/v20200501:VpnGateway" }, { type: "azure-nextgen:network/v20200601:VpnGateway" }, { type: "azure-nextgen:network/v20200701:VpnGateway" }, { type: "azure-nextgen:network/v20200801:VpnGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VpnGateway.__pulumiType, name, inputs, opts);
     }
@@ -174,6 +180,10 @@ export interface VpnGatewayArgs {
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * List of all the nat Rules associated with the gateway.
+     */
+    readonly natRules?: pulumi.Input<pulumi.Input<inputs.network.latest.VpnGatewayNatRule>[]>;
     /**
      * The resource group name of the VpnGateway.
      */

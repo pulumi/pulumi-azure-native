@@ -12,7 +12,7 @@ import (
 )
 
 // Virtual Network Tap resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type VirtualNetworkTap struct {
 	pulumi.CustomResourceState
 
@@ -104,6 +104,9 @@ func NewVirtualNetworkTap(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualNetworkTap"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualNetworkTap"),
 		},
 	})
 	opts = append(opts, aliases)

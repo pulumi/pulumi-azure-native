@@ -266,6 +266,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ApplicationGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

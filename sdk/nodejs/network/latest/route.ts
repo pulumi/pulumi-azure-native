@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Route resource.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class Route extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class Route extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+     */
+    public readonly hasBgpOverride!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
@@ -60,6 +64,10 @@ export class Route extends pulumi.CustomResource {
      * The provisioning state of the route resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The type of the resource.
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -84,6 +92,7 @@ export class Route extends pulumi.CustomResource {
                 throw new Error("Missing required property 'routeTableName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            inputs["hasBgpOverride"] = args ? args.hasBgpOverride : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["nextHopIpAddress"] = args ? args.nextHopIpAddress : undefined;
@@ -91,15 +100,18 @@ export class Route extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeName"] = args ? args.routeName : undefined;
             inputs["routeTableName"] = args ? args.routeTableName : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         } else {
             inputs["addressPrefix"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["hasBgpOverride"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["nextHopIpAddress"] = undefined /*out*/;
             inputs["nextHopType"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -108,7 +120,7 @@ export class Route extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150501preview:Route" }, { type: "azure-nextgen:network/v20150615:Route" }, { type: "azure-nextgen:network/v20160330:Route" }, { type: "azure-nextgen:network/v20160601:Route" }, { type: "azure-nextgen:network/v20160901:Route" }, { type: "azure-nextgen:network/v20161201:Route" }, { type: "azure-nextgen:network/v20170301:Route" }, { type: "azure-nextgen:network/v20170601:Route" }, { type: "azure-nextgen:network/v20170801:Route" }, { type: "azure-nextgen:network/v20170901:Route" }, { type: "azure-nextgen:network/v20171001:Route" }, { type: "azure-nextgen:network/v20171101:Route" }, { type: "azure-nextgen:network/v20180101:Route" }, { type: "azure-nextgen:network/v20180201:Route" }, { type: "azure-nextgen:network/v20180401:Route" }, { type: "azure-nextgen:network/v20180601:Route" }, { type: "azure-nextgen:network/v20180701:Route" }, { type: "azure-nextgen:network/v20180801:Route" }, { type: "azure-nextgen:network/v20181001:Route" }, { type: "azure-nextgen:network/v20181101:Route" }, { type: "azure-nextgen:network/v20181201:Route" }, { type: "azure-nextgen:network/v20190201:Route" }, { type: "azure-nextgen:network/v20190401:Route" }, { type: "azure-nextgen:network/v20190601:Route" }, { type: "azure-nextgen:network/v20190701:Route" }, { type: "azure-nextgen:network/v20190801:Route" }, { type: "azure-nextgen:network/v20190901:Route" }, { type: "azure-nextgen:network/v20191101:Route" }, { type: "azure-nextgen:network/v20191201:Route" }, { type: "azure-nextgen:network/v20200301:Route" }, { type: "azure-nextgen:network/v20200401:Route" }, { type: "azure-nextgen:network/v20200501:Route" }, { type: "azure-nextgen:network/v20200601:Route" }, { type: "azure-nextgen:network/v20200701:Route" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150501preview:Route" }, { type: "azure-nextgen:network/v20150615:Route" }, { type: "azure-nextgen:network/v20160330:Route" }, { type: "azure-nextgen:network/v20160601:Route" }, { type: "azure-nextgen:network/v20160901:Route" }, { type: "azure-nextgen:network/v20161201:Route" }, { type: "azure-nextgen:network/v20170301:Route" }, { type: "azure-nextgen:network/v20170601:Route" }, { type: "azure-nextgen:network/v20170801:Route" }, { type: "azure-nextgen:network/v20170901:Route" }, { type: "azure-nextgen:network/v20171001:Route" }, { type: "azure-nextgen:network/v20171101:Route" }, { type: "azure-nextgen:network/v20180101:Route" }, { type: "azure-nextgen:network/v20180201:Route" }, { type: "azure-nextgen:network/v20180401:Route" }, { type: "azure-nextgen:network/v20180601:Route" }, { type: "azure-nextgen:network/v20180701:Route" }, { type: "azure-nextgen:network/v20180801:Route" }, { type: "azure-nextgen:network/v20181001:Route" }, { type: "azure-nextgen:network/v20181101:Route" }, { type: "azure-nextgen:network/v20181201:Route" }, { type: "azure-nextgen:network/v20190201:Route" }, { type: "azure-nextgen:network/v20190401:Route" }, { type: "azure-nextgen:network/v20190601:Route" }, { type: "azure-nextgen:network/v20190701:Route" }, { type: "azure-nextgen:network/v20190801:Route" }, { type: "azure-nextgen:network/v20190901:Route" }, { type: "azure-nextgen:network/v20191101:Route" }, { type: "azure-nextgen:network/v20191201:Route" }, { type: "azure-nextgen:network/v20200301:Route" }, { type: "azure-nextgen:network/v20200401:Route" }, { type: "azure-nextgen:network/v20200501:Route" }, { type: "azure-nextgen:network/v20200601:Route" }, { type: "azure-nextgen:network/v20200701:Route" }, { type: "azure-nextgen:network/v20200801:Route" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Route.__pulumiType, name, inputs, opts);
     }
@@ -122,6 +134,10 @@ export interface RouteArgs {
      * The destination CIDR to which the route applies.
      */
     readonly addressPrefix?: pulumi.Input<string>;
+    /**
+     * A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+     */
+    readonly hasBgpOverride?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */
@@ -150,4 +166,8 @@ export interface RouteArgs {
      * The name of the route table.
      */
     readonly routeTableName: pulumi.Input<string>;
+    /**
+     * The type of the resource.
+     */
+    readonly type?: pulumi.Input<string>;
 }

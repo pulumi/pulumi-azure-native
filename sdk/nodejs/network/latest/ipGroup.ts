@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The IpGroups resource information.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class IpGroup extends pulumi.CustomResource {
     /**
@@ -119,7 +119,7 @@ export class IpGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190901:IpGroup" }, { type: "azure-nextgen:network/v20191101:IpGroup" }, { type: "azure-nextgen:network/v20191201:IpGroup" }, { type: "azure-nextgen:network/v20200301:IpGroup" }, { type: "azure-nextgen:network/v20200401:IpGroup" }, { type: "azure-nextgen:network/v20200501:IpGroup" }, { type: "azure-nextgen:network/v20200601:IpGroup" }, { type: "azure-nextgen:network/v20200701:IpGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190901:IpGroup" }, { type: "azure-nextgen:network/v20191101:IpGroup" }, { type: "azure-nextgen:network/v20191201:IpGroup" }, { type: "azure-nextgen:network/v20200301:IpGroup" }, { type: "azure-nextgen:network/v20200401:IpGroup" }, { type: "azure-nextgen:network/v20200501:IpGroup" }, { type: "azure-nextgen:network/v20200601:IpGroup" }, { type: "azure-nextgen:network/v20200701:IpGroup" }, { type: "azure-nextgen:network/v20200801:IpGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpGroup.__pulumiType, name, inputs, opts);
     }

@@ -69,6 +69,7 @@ export * from "./getLoadBalancer";
 export * from "./getLoadBalancerBackendAddressPool";
 export * from "./getLocalNetworkGateway";
 export * from "./getNatGateway";
+export * from "./getNatRule";
 export * from "./getNetworkExperimentProfile";
 export * from "./getNetworkInterface";
 export * from "./getNetworkInterfaceTapConfiguration";
@@ -137,6 +138,7 @@ export * from "./loadBalancer";
 export * from "./loadBalancerBackendAddressPool";
 export * from "./localNetworkGateway";
 export * from "./natGateway";
+export * from "./natRule";
 export * from "./networkExperimentProfile";
 export * from "./networkInterface";
 export * from "./networkInterfaceTapConfiguration";
@@ -228,6 +230,7 @@ import { LoadBalancer } from "./loadBalancer";
 import { LoadBalancerBackendAddressPool } from "./loadBalancerBackendAddressPool";
 import { LocalNetworkGateway } from "./localNetworkGateway";
 import { NatGateway } from "./natGateway";
+import { NatRule } from "./natRule";
 import { NetworkExperimentProfile } from "./networkExperimentProfile";
 import { NetworkInterface } from "./networkInterface";
 import { NetworkInterfaceTapConfiguration } from "./networkInterfaceTapConfiguration";
@@ -354,6 +357,8 @@ const _module = {
                 return new LocalNetworkGateway(name, <any>undefined, { urn })
             case "azure-nextgen:network/latest:NatGateway":
                 return new NatGateway(name, <any>undefined, { urn })
+            case "azure-nextgen:network/latest:NatRule":
+                return new NatRule(name, <any>undefined, { urn })
             case "azure-nextgen:network/latest:NetworkExperimentProfile":
                 return new NetworkExperimentProfile(name, <any>undefined, { urn })
             case "azure-nextgen:network/latest:NetworkInterface":

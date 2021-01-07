@@ -36,7 +36,7 @@ class VpnSite(pulumi.CustomResource):
                  __opts__=None):
         """
         VpnSite Resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -96,7 +96,7 @@ class VpnSite(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VpnSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VpnSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VpnSite, __self__).__init__(
             'azure-nextgen:network/latest:VpnSite',

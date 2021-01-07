@@ -21,7 +21,7 @@ export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: 
 
 export interface GetAttestationProviderArgs {
     /**
-     * Name of the attestation service instance
+     * Name of the attestation provider.
      */
     readonly providerName: string;
     /**
@@ -51,6 +51,10 @@ export interface GetAttestationProviderResult {
      */
     readonly name: string;
     /**
+     * List of private endpoint connections associated with the attestation provider.
+     */
+    readonly privateEndpointConnections: outputs.attestation.v20201001.PrivateEndpointConnectionResponse[];
+    /**
      * Status of attestation service.
      */
     readonly status?: string;
@@ -63,7 +67,7 @@ export interface GetAttestationProviderResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Trust model for the attestation service instance.
+     * Trust model for the attestation provider.
      */
     readonly trustModel?: string;
     /**

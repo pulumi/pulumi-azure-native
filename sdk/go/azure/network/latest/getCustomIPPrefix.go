@@ -33,6 +33,8 @@ type LookupCustomIPPrefixResult struct {
 	CommissionedState *string `pulumi:"commissionedState"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// The extended location of the custom IP prefix.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.

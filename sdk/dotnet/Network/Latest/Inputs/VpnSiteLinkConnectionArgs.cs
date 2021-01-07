@@ -21,6 +21,18 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         [Input("connectionBandwidth")]
         public Input<int>? ConnectionBandwidth { get; set; }
 
+        [Input("egressNatRules")]
+        private InputList<Inputs.SubResourceArgs>? _egressNatRules;
+
+        /// <summary>
+        /// List of egress NatRules.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> EgressNatRules
+        {
+            get => _egressNatRules ?? (_egressNatRules = new InputList<Inputs.SubResourceArgs>());
+            set => _egressNatRules = value;
+        }
+
         /// <summary>
         /// EnableBgp flag.
         /// </summary>
@@ -38,6 +50,18 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ingressNatRules")]
+        private InputList<Inputs.SubResourceArgs>? _ingressNatRules;
+
+        /// <summary>
+        /// List of ingress NatRules.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> IngressNatRules
+        {
+            get => _ingressNatRules ?? (_ingressNatRules = new InputList<Inputs.SubResourceArgs>());
+            set => _ingressNatRules = value;
+        }
 
         [Input("ipsecPolicies")]
         private InputList<Inputs.IpsecPolicyArgs>? _ipsecPolicies;
@@ -86,6 +110,12 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// </summary>
         [Input("vpnConnectionProtocolType")]
         public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VirtualNetworkGatewayConnectionProtocol>? VpnConnectionProtocolType { get; set; }
+
+        /// <summary>
+        /// Vpn link connection mode.
+        /// </summary>
+        [Input("vpnLinkConnectionMode")]
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VpnLinkConnectionMode>? VpnLinkConnectionMode { get; set; }
 
         /// <summary>
         /// Id of the connected vpn site link.

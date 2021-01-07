@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Route table resource.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:RouteTable")]
     public partial class RouteTable : Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the route table.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// Collection of routes contained within a route table.
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:RouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:RouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:RouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

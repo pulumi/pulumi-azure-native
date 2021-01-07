@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A flow log resource.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class FlowLog extends pulumi.CustomResource {
     /**
@@ -153,7 +153,7 @@ export class FlowLog extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20191101:FlowLog" }, { type: "azure-nextgen:network/v20191201:FlowLog" }, { type: "azure-nextgen:network/v20200301:FlowLog" }, { type: "azure-nextgen:network/v20200401:FlowLog" }, { type: "azure-nextgen:network/v20200501:FlowLog" }, { type: "azure-nextgen:network/v20200601:FlowLog" }, { type: "azure-nextgen:network/v20200701:FlowLog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20191101:FlowLog" }, { type: "azure-nextgen:network/v20191201:FlowLog" }, { type: "azure-nextgen:network/v20200301:FlowLog" }, { type: "azure-nextgen:network/v20200401:FlowLog" }, { type: "azure-nextgen:network/v20200501:FlowLog" }, { type: "azure-nextgen:network/v20200601:FlowLog" }, { type: "azure-nextgen:network/v20200701:FlowLog" }, { type: "azure-nextgen:network/v20200801:FlowLog" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FlowLog.__pulumiType, name, inputs, opts);
     }

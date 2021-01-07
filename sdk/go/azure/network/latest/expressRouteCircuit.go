@@ -12,7 +12,7 @@ import (
 )
 
 // ExpressRouteCircuit resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type ExpressRouteCircuit struct {
 	pulumi.CustomResourceState
 
@@ -173,6 +173,9 @@ func NewExpressRouteCircuit(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteCircuit"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteCircuit"),
 		},
 	})
 	opts = append(opts, aliases)

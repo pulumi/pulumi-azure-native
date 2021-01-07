@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * ExpressRoutePort resource definition.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class ExpressRoutePort extends pulumi.CustomResource {
     /**
@@ -167,7 +167,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:ExpressRoutePort" }, { type: "azure-nextgen:network/v20181001:ExpressRoutePort" }, { type: "azure-nextgen:network/v20181101:ExpressRoutePort" }, { type: "azure-nextgen:network/v20181201:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190201:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190401:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190601:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190701:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190801:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190901:ExpressRoutePort" }, { type: "azure-nextgen:network/v20191101:ExpressRoutePort" }, { type: "azure-nextgen:network/v20191201:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200301:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200401:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200501:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200601:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200701:ExpressRoutePort" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:ExpressRoutePort" }, { type: "azure-nextgen:network/v20181001:ExpressRoutePort" }, { type: "azure-nextgen:network/v20181101:ExpressRoutePort" }, { type: "azure-nextgen:network/v20181201:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190201:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190401:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190601:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190701:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190801:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190901:ExpressRoutePort" }, { type: "azure-nextgen:network/v20191101:ExpressRoutePort" }, { type: "azure-nextgen:network/v20191201:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200301:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200401:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200501:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200601:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200701:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200801:ExpressRoutePort" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ExpressRoutePort.__pulumiType, name, inputs, opts);
     }

@@ -12,7 +12,7 @@ import (
 )
 
 // A DDoS custom policy in a resource group.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type DdosCustomPolicy struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +94,9 @@ func NewDdosCustomPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:DdosCustomPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

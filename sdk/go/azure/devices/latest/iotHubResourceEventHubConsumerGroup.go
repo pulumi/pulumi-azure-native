@@ -12,7 +12,7 @@ import (
 )
 
 // The properties of the EventHubConsumerGroupInfo object.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-08-31.
 type IotHubResourceEventHubConsumerGroup struct {
 	pulumi.CustomResourceState
 
@@ -90,6 +90,12 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200801:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devices/v20200831:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devices/v20200831preview:IotHubResourceEventHubConsumerGroup"),
 		},
 	})
 	opts = append(opts, aliases)

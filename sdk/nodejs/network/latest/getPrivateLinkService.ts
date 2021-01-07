@@ -56,6 +56,10 @@ export interface GetPrivateLinkServiceResult {
      */
     readonly etag: string;
     /**
+     * The extended location of the load balancer.
+     */
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    /**
      * The list of Fqdn.
      */
     readonly fqdns?: string[];

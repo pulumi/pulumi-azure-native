@@ -19,6 +19,7 @@ class PrivateEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
@@ -32,11 +33,12 @@ class PrivateEndpoint(pulumi.CustomResource):
                  __opts__=None):
         """
         Private endpoint resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]] custom_dns_configs: An array of custom dns configurations.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the load balancer.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
@@ -64,6 +66,7 @@ class PrivateEndpoint(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['custom_dns_configs'] = custom_dns_configs
+            __props__['extended_location'] = extended_location
             __props__['id'] = id
             __props__['location'] = location
             __props__['manual_private_link_service_connections'] = manual_private_link_service_connections
@@ -81,7 +84,7 @@ class PrivateEndpoint(pulumi.CustomResource):
             __props__['network_interfaces'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190401:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190401:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PrivateEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpoint, __self__).__init__(
             'azure-nextgen:network/latest:PrivateEndpoint',
@@ -122,6 +125,14 @@ class PrivateEndpoint(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location of the load balancer.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter

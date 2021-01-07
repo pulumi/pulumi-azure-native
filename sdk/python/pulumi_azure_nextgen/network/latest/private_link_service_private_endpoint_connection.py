@@ -28,7 +28,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         PrivateEndpointConnection resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +73,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190901:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateLinkServicePrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190901:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PrivateLinkServicePrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkServicePrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:network/latest:PrivateLinkServicePrivateEndpointConnection',

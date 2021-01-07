@@ -129,6 +129,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:FirewallPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

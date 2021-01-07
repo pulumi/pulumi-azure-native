@@ -109,7 +109,7 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualHubBgpConnection" }, { type: "azure-nextgen:network/v20200501:VirtualHubBgpConnection" }, { type: "azure-nextgen:network/v20200701:VirtualHubBgpConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualHubBgpConnection" }, { type: "azure-nextgen:network/v20200501:VirtualHubBgpConnection" }, { type: "azure-nextgen:network/v20200701:VirtualHubBgpConnection" }, { type: "azure-nextgen:network/v20200801:VirtualHubBgpConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualHubBgpConnection.__pulumiType, name, inputs, opts);
     }

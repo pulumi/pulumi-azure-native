@@ -107,6 +107,9 @@ func NewP2sVpnGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:P2sVpnGateway"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:P2sVpnGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource P2sVpnGateway

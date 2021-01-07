@@ -110,6 +110,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:Route"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:Route"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:Route"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

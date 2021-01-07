@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// IpAllocation resource.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:IpAllocation")]
     public partial class IpAllocation : Pulumi.CustomResource
@@ -118,6 +118,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:IpAllocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

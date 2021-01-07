@@ -12,7 +12,7 @@ import (
 )
 
 // Inbound NAT rule of the load balancer.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type InboundNatRule struct {
 	pulumi.CustomResourceState
 
@@ -139,6 +139,9 @@ func NewInboundNatRule(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:InboundNatRule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:InboundNatRule"),
 		},
 	})
 	opts = append(opts, aliases)

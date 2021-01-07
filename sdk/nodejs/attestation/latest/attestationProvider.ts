@@ -49,6 +49,10 @@ export class AttestationProvider extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * List of private endpoint connections associated with the attestation provider.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.attestation.latest.PrivateEndpointConnectionResponse[]>;
+    /**
      * Status of attestation service.
      */
     public /*out*/ readonly status!: pulumi.Output<string | undefined>;
@@ -61,7 +65,7 @@ export class AttestationProvider extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Trust model for the attestation service instance.
+     * Trust model for the attestation provider.
      */
     public /*out*/ readonly trustModel!: pulumi.Output<string | undefined>;
     /**
@@ -98,6 +102,7 @@ export class AttestationProvider extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["attestUri"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["trustModel"] = undefined /*out*/;
@@ -106,6 +111,7 @@ export class AttestationProvider extends pulumi.CustomResource {
             inputs["attestUri"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -130,15 +136,15 @@ export class AttestationProvider extends pulumi.CustomResource {
  */
 export interface AttestationProviderArgs {
     /**
-     * The supported Azure location where the attestation service instance should be created.
+     * The supported Azure location where the attestation provider should be created.
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Properties of the attestation service instance
+     * Properties of the attestation provider
      */
     readonly properties: pulumi.Input<inputs.attestation.latest.AttestationServiceCreationSpecificParams>;
     /**
-     * Name of the attestation service instance.
+     * Name of the attestation provider.
      */
     readonly providerName: pulumi.Input<string>;
     /**
@@ -146,7 +152,7 @@ export interface AttestationProviderArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The tags that will be assigned to the attestation service instance.
+     * The tags that will be assigned to the attestation provider.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

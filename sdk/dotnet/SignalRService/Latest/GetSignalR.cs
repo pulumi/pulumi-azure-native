@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest
         /// Prefix for the hostName of the SignalR service. Retained for future use.
         /// The hostname will be of format: &amp;lt;hostNamePrefix&amp;gt;.service.signalr.net.
         /// </summary>
-        public readonly string? HostNamePrefix;
+        public readonly string HostNamePrefix;
         /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest
 
             string hostName,
 
-            string? hostNamePrefix,
+            string hostNamePrefix,
 
             string id,
 

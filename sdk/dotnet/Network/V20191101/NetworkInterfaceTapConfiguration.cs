@@ -87,6 +87,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NetworkInterfaceTapConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

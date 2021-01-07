@@ -70,6 +70,16 @@ export const Capabilities = {
  */
 export type Capabilities = (typeof Capabilities)[keyof typeof Capabilities];
 
+export const DefaultAction = {
+    Deny: "Deny",
+    Allow: "Allow",
+} as const;
+
+/**
+ * Default Action for Network Rule Set
+ */
+export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
+
 export const IotDpsSku = {
     S1: "S1",
 } as const;
@@ -114,6 +124,15 @@ export const IpFilterTargetType = {
  * Target for requests captured by this rule.
  */
 export type IpFilterTargetType = (typeof IpFilterTargetType)[keyof typeof IpFilterTargetType];
+
+export const NetworkRuleIPAction = {
+    Allow: "Allow",
+} as const;
+
+/**
+ * IP Filter Action
+ */
+export type NetworkRuleIPAction = (typeof NetworkRuleIPAction)[keyof typeof NetworkRuleIPAction];
 
 export const PrivateLinkServiceConnectionStatus = {
     Pending: "Pending",

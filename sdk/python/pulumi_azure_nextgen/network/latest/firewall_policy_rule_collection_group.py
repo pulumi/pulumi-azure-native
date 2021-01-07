@@ -30,7 +30,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                  __opts__=None):
         """
         Rule Collection Group resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -75,7 +75,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FirewallPolicyRuleCollectionGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200801:FirewallPolicyRuleCollectionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicyRuleCollectionGroup, __self__).__init__(
             'azure-nextgen:network/latest:FirewallPolicyRuleCollectionGroup',

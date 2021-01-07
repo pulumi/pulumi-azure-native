@@ -12,7 +12,7 @@ import (
 )
 
 // Public IP address resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type PublicIPAddress struct {
 	pulumi.CustomResourceState
 
@@ -171,6 +171,9 @@ func NewPublicIPAddress(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:PublicIPAddress"),
 		},
 	})
 	opts = append(opts, aliases)

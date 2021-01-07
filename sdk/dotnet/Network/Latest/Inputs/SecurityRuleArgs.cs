@@ -153,6 +153,12 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
             set => _sourcePortRanges = value;
         }
 
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         public SecurityRuleArgs()
         {
         }

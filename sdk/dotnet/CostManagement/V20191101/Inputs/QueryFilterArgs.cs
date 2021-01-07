@@ -30,14 +30,8 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101.Inputs
         /// <summary>
         /// Has comparison expression for a dimension
         /// </summary>
-        [Input("dimension")]
-        public Input<Inputs.QueryComparisonExpressionArgs>? Dimension { get; set; }
-
-        /// <summary>
-        /// The logical "NOT" expression.
-        /// </summary>
-        [Input("not")]
-        public Input<Inputs.QueryFilterArgs>? Not { get; set; }
+        [Input("dimensions")]
+        public Input<Inputs.QueryComparisonExpressionArgs>? Dimensions { get; set; }
 
         [Input("or")]
         private InputList<Inputs.QueryFilterArgs>? _or;
@@ -54,8 +48,8 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101.Inputs
         /// <summary>
         /// Has comparison expression for a tag
         /// </summary>
-        [Input("tag")]
-        public Input<Inputs.QueryComparisonExpressionArgs>? Tag { get; set; }
+        [Input("tags")]
+        public Input<Inputs.QueryComparisonExpressionArgs>? Tags { get; set; }
 
         public QueryFilterArgs()
         {

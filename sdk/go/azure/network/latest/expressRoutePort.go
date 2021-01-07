@@ -12,7 +12,7 @@ import (
 )
 
 // ExpressRoutePort resource definition.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type ExpressRoutePort struct {
 	pulumi.CustomResourceState
 
@@ -116,6 +116,9 @@ func NewExpressRoutePort(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRoutePort"),
 		},
 	})
 	opts = append(opts, aliases)

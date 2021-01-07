@@ -67,6 +67,10 @@ export interface GetVpnGatewayResult {
      */
     readonly name: string;
     /**
+     * List of all the nat Rules associated with the gateway.
+     */
+    readonly natRules?: outputs.network.latest.VpnGatewayNatRuleResponse[];
+    /**
      * The provisioning state of the VPN gateway resource.
      */
     readonly provisioningState: string;

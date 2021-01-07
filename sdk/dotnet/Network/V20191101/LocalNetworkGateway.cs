@@ -133,6 +133,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:LocalNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

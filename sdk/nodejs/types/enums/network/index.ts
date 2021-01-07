@@ -45,6 +45,7 @@ import * as v20200401 from "./v20200401";
 import * as v20200501 from "./v20200501";
 import * as v20200601 from "./v20200601";
 import * as v20200701 from "./v20200701";
+import * as v20200801 from "./v20200801";
 
 export {
     latest,
@@ -90,4 +91,5 @@ export {
     v20200501,
     v20200601,
     v20200701,
+    v20200801,
 };

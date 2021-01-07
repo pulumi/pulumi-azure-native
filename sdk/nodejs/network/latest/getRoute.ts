@@ -48,6 +48,10 @@ export interface GetRouteResult {
      */
     readonly etag: string;
     /**
+     * A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+     */
+    readonly hasBgpOverride?: boolean;
+    /**
      * Resource ID.
      */
     readonly id?: string;
@@ -67,4 +71,8 @@ export interface GetRouteResult {
      * The provisioning state of the route resource.
      */
     readonly provisioningState: string;
+    /**
+     * The type of the resource.
+     */
+    readonly type?: string;
 }

@@ -41,6 +41,8 @@ type LookupVpnGatewayResult struct {
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// List of all the nat Rules associated with the gateway.
+	NatRules []VpnGatewayNatRuleResponse `pulumi:"natRules"`
 	// The provisioning state of the VPN gateway resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.

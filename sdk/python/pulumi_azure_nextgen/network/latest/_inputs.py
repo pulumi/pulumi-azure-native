@@ -250,8 +250,10 @@ __all__ = [
     'VpnClientRevokedCertificateArgs',
     'VpnClientRootCertificateArgs',
     'VpnConnectionArgs',
+    'VpnGatewayNatRuleArgs',
     'VpnLinkBgpSettingsArgs',
     'VpnLinkProviderPropertiesArgs',
+    'VpnNatRuleMappingArgs',
     'VpnServerConfigRadiusClientRootCertificateArgs',
     'VpnServerConfigRadiusServerRootCertificateArgs',
     'VpnServerConfigVpnClientRevokedCertificateArgs',
@@ -4937,17 +4939,21 @@ class BackendAddressPoolArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Pool of backend IP addresses.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]] load_balancer_backend_addresses: An array of backend addresses.
+        :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if load_balancer_backend_addresses is not None:
             pulumi.set(__self__, "load_balancer_backend_addresses", load_balancer_backend_addresses)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -4974,6 +4980,18 @@ class BackendAddressPoolArgs:
     @load_balancer_backend_addresses.setter
     def load_balancer_backend_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]]):
         pulumi.set(self, "load_balancer_backend_addresses", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the backend address pool.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
@@ -15025,26 +15043,34 @@ class RouteArgs:
     def __init__(__self__, *,
                  next_hop_type: pulumi.Input[Union[str, 'RouteNextHopType']],
                  address_prefix: Optional[pulumi.Input[str]] = None,
+                 has_bgp_override: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 next_hop_ip_address: Optional[pulumi.Input[str]] = None):
+                 next_hop_ip_address: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         """
         Route resource.
         :param pulumi.Input[Union[str, 'RouteNextHopType']] next_hop_type: The type of Azure hop the packet should be sent to.
         :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies.
+        :param pulumi.Input[bool] has_bgp_override: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        :param pulumi.Input[str] type: The type of the resource.
         """
         pulumi.set(__self__, "next_hop_type", next_hop_type)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
+        if has_bgp_override is not None:
+            pulumi.set(__self__, "has_bgp_override", has_bgp_override)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if next_hop_ip_address is not None:
             pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="nextHopType")
@@ -15069,6 +15095,18 @@ class RouteArgs:
     @address_prefix.setter
     def address_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="hasBgpOverride")
+    def has_bgp_override(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        """
+        return pulumi.get(self, "has_bgp_override")
+
+    @has_bgp_override.setter
+    def has_bgp_override(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "has_bgp_override", value)
 
     @property
     @pulumi.getter
@@ -15105,6 +15143,18 @@ class RouteArgs:
     @next_hop_ip_address.setter
     def next_hop_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "next_hop_ip_address", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -15789,7 +15839,8 @@ class SecurityRuleArgs:
                  source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]]] = None,
                  source_port_range: Optional[pulumi.Input[str]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         """
         Network security rule.
         :param pulumi.Input[Union[str, 'SecurityRuleAccess']] access: The network traffic is allowed or denied.
@@ -15809,6 +15860,7 @@ class SecurityRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]] source_application_security_groups: The application security group specified as source.
         :param pulumi.Input[str] source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: The source port ranges.
+        :param pulumi.Input[str] type: The type of the resource.
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "direction", direction)
@@ -15841,6 +15893,8 @@ class SecurityRuleArgs:
             pulumi.set(__self__, "source_port_range", source_port_range)
         if source_port_ranges is not None:
             pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -16045,6 +16099,18 @@ class SecurityRuleArgs:
     @source_port_ranges.setter
     def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "source_port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -18556,6 +18622,126 @@ class VpnConnectionArgs:
 
 
 @pulumi.input_type
+class VpnGatewayNatRuleArgs:
+    def __init__(__self__, *,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]] = None,
+                 ip_configuration_id: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'VpnNatRuleMode']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'VpnNatRuleType']]] = None):
+        """
+        VpnGatewayNatRule Resource.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]] external_mappings: The private IP address external mapping for NAT.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]] internal_mappings: The private IP address internal mapping for NAT.
+        :param pulumi.Input[str] ip_configuration_id: The IP Configuration ID this NAT rule applies to.
+        :param pulumi.Input[Union[str, 'VpnNatRuleMode']] mode: The Source NAT direction of a VPN NAT.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[Union[str, 'VpnNatRuleType']] type: The type of NAT rule for VPN NAT.
+        """
+        if external_mappings is not None:
+            pulumi.set(__self__, "external_mappings", external_mappings)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if internal_mappings is not None:
+            pulumi.set(__self__, "internal_mappings", internal_mappings)
+        if ip_configuration_id is not None:
+            pulumi.set(__self__, "ip_configuration_id", ip_configuration_id)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="externalMappings")
+    def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]:
+        """
+        The private IP address external mapping for NAT.
+        """
+        return pulumi.get(self, "external_mappings")
+
+    @external_mappings.setter
+    def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]):
+        pulumi.set(self, "external_mappings", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="internalMappings")
+    def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]:
+        """
+        The private IP address internal mapping for NAT.
+        """
+        return pulumi.get(self, "internal_mappings")
+
+    @internal_mappings.setter
+    def internal_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]]):
+        pulumi.set(self, "internal_mappings", value)
+
+    @property
+    @pulumi.getter(name="ipConfigurationId")
+    def ip_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP Configuration ID this NAT rule applies to.
+        """
+        return pulumi.get(self, "ip_configuration_id")
+
+    @ip_configuration_id.setter
+    def ip_configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_configuration_id", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'VpnNatRuleMode']]]:
+        """
+        The Source NAT direction of a VPN NAT.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'VpnNatRuleMode']]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'VpnNatRuleType']]]:
+        """
+        The type of NAT rule for VPN NAT.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'VpnNatRuleType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class VpnLinkBgpSettingsArgs:
     def __init__(__self__, *,
                  asn: Optional[pulumi.Input[float]] = None,
@@ -18633,6 +18819,30 @@ class VpnLinkProviderPropertiesArgs:
     @link_speed_in_mbps.setter
     def link_speed_in_mbps(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "link_speed_in_mbps", value)
+
+
+@pulumi.input_type
+class VpnNatRuleMappingArgs:
+    def __init__(__self__, *,
+                 address_space: Optional[pulumi.Input[str]] = None):
+        """
+        Vpn NatRule mapping.
+        :param pulumi.Input[str] address_space: Address space for Vpn NatRule mapping.
+        """
+        if address_space is not None:
+            pulumi.set(__self__, "address_space", address_space)
+
+    @property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address space for Vpn NatRule mapping.
+        """
+        return pulumi.get(self, "address_space")
+
+    @address_space.setter
+    def address_space(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_space", value)
 
 
 @pulumi.input_type
@@ -18903,9 +19113,11 @@ class VpnSiteLinkArgs:
 class VpnSiteLinkConnectionArgs:
     def __init__(__self__, *,
                  connection_bandwidth: Optional[pulumi.Input[int]] = None,
+                 egress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  enable_rate_limiting: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ingress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
@@ -18913,13 +19125,16 @@ class VpnSiteLinkConnectionArgs:
                  use_local_azure_ip_address: Optional[pulumi.Input[bool]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
                  vpn_connection_protocol_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
+                 vpn_link_connection_mode: Optional[pulumi.Input[Union[str, 'VpnLinkConnectionMode']]] = None,
                  vpn_site_link: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         VpnSiteLinkConnection Resource.
         :param pulumi.Input[int] connection_bandwidth: Expected bandwidth in MBPS.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] egress_nat_rules: List of egress NatRules.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[bool] enable_rate_limiting: EnableBgp flag.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ingress_nat_rules: List of ingress NatRules.
         :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[int] routing_weight: Routing weight for vpn connection.
@@ -18927,16 +19142,21 @@ class VpnSiteLinkConnectionArgs:
         :param pulumi.Input[bool] use_local_azure_ip_address: Use local azure ip to initiate connection.
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']] vpn_connection_protocol_type: Connection protocol used for this connection.
+        :param pulumi.Input[Union[str, 'VpnLinkConnectionMode']] vpn_link_connection_mode: Vpn link connection mode.
         :param pulumi.Input['SubResourceArgs'] vpn_site_link: Id of the connected vpn site link.
         """
         if connection_bandwidth is not None:
             pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
+        if egress_nat_rules is not None:
+            pulumi.set(__self__, "egress_nat_rules", egress_nat_rules)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if enable_rate_limiting is not None:
             pulumi.set(__self__, "enable_rate_limiting", enable_rate_limiting)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ingress_nat_rules is not None:
+            pulumi.set(__self__, "ingress_nat_rules", ingress_nat_rules)
         if ipsec_policies is not None:
             pulumi.set(__self__, "ipsec_policies", ipsec_policies)
         if name is not None:
@@ -18951,6 +19171,8 @@ class VpnSiteLinkConnectionArgs:
             pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
         if vpn_connection_protocol_type is not None:
             pulumi.set(__self__, "vpn_connection_protocol_type", vpn_connection_protocol_type)
+        if vpn_link_connection_mode is not None:
+            pulumi.set(__self__, "vpn_link_connection_mode", vpn_link_connection_mode)
         if vpn_site_link is not None:
             pulumi.set(__self__, "vpn_site_link", vpn_site_link)
 
@@ -18965,6 +19187,18 @@ class VpnSiteLinkConnectionArgs:
     @connection_bandwidth.setter
     def connection_bandwidth(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "connection_bandwidth", value)
+
+    @property
+    @pulumi.getter(name="egressNatRules")
+    def egress_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        List of egress NatRules.
+        """
+        return pulumi.get(self, "egress_nat_rules")
+
+    @egress_nat_rules.setter
+    def egress_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "egress_nat_rules", value)
 
     @property
     @pulumi.getter(name="enableBgp")
@@ -19001,6 +19235,18 @@ class VpnSiteLinkConnectionArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ingressNatRules")
+    def ingress_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        List of ingress NatRules.
+        """
+        return pulumi.get(self, "ingress_nat_rules")
+
+    @ingress_nat_rules.setter
+    def ingress_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "ingress_nat_rules", value)
 
     @property
     @pulumi.getter(name="ipsecPolicies")
@@ -19085,6 +19331,18 @@ class VpnSiteLinkConnectionArgs:
     @vpn_connection_protocol_type.setter
     def vpn_connection_protocol_type(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]]):
         pulumi.set(self, "vpn_connection_protocol_type", value)
+
+    @property
+    @pulumi.getter(name="vpnLinkConnectionMode")
+    def vpn_link_connection_mode(self) -> Optional[pulumi.Input[Union[str, 'VpnLinkConnectionMode']]]:
+        """
+        Vpn link connection mode.
+        """
+        return pulumi.get(self, "vpn_link_connection_mode")
+
+    @vpn_link_connection_mode.setter
+    def vpn_link_connection_mode(self, value: Optional[pulumi.Input[Union[str, 'VpnLinkConnectionMode']]]):
+        pulumi.set(self, "vpn_link_connection_mode", value)
 
     @property
     @pulumi.getter(name="vpnSiteLink")

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Pool of backend IP addresses.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:LoadBalancerBackendAddressPool")]
     public partial class LoadBalancerBackendAddressPool : Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Output("loadBalancingRules")]
         public Output<ImmutableArray<Outputs.SubResourceResponse>> LoadBalancingRules { get; private set; } = null!;
+
+        /// <summary>
+        /// The location of the backend address pool.
+        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,6 +158,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("loadBalancerName", required: true)]
         public Input<string> LoadBalancerName { get; set; } = null!;
+
+        /// <summary>
+        /// The location of the backend address pool.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.

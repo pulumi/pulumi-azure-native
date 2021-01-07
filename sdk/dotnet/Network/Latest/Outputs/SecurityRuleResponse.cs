@@ -89,6 +89,10 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// The source port ranges.
         /// </summary>
         public readonly ImmutableArray<string> SourcePortRanges;
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
         private SecurityRuleResponse(
@@ -128,7 +132,9 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             string? sourcePortRange,
 
-            ImmutableArray<string> sourcePortRanges)
+            ImmutableArray<string> sourcePortRanges,
+
+            string? type)
         {
             Access = access;
             Description = description;
@@ -149,6 +155,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
             SourceApplicationSecurityGroups = sourceApplicationSecurityGroups;
             SourcePortRange = sourcePortRange;
             SourcePortRanges = sourcePortRanges;
+            Type = type;
         }
     }
 }

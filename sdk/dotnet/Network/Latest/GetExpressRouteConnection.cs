@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly Outputs.ExpressRouteCircuitPeeringIdResponse ExpressRouteCircuitPeering;
         /// <summary>
+        /// Enable FastPath to vWan Firewall hub.
+        /// </summary>
+        public readonly bool? ExpressRouteGatewayBypass;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             Outputs.ExpressRouteCircuitPeeringIdResponse expressRouteCircuitPeering,
 
+            bool? expressRouteGatewayBypass,
+
             string? id,
 
             string name,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             AuthorizationKey = authorizationKey;
             EnableInternetSecurity = enableInternetSecurity;
             ExpressRouteCircuitPeering = expressRouteCircuitPeering;
+            ExpressRouteGatewayBypass = expressRouteGatewayBypass;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

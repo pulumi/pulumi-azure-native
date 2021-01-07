@@ -151,6 +151,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VpnServerConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

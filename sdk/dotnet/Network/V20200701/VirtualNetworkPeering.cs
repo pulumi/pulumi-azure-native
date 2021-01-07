@@ -137,6 +137,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualNetworkPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

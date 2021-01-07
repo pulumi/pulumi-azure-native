@@ -104,6 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ExpressRouteCircuitAuthorization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Private link service resource.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class PrivateLinkService extends pulumi.CustomResource {
     /**
@@ -52,6 +52,10 @@ export class PrivateLinkService extends pulumi.CustomResource {
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The extended location of the load balancer.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.network.latest.ExtendedLocationResponse | undefined>;
     /**
      * The list of Fqdn.
      */
@@ -115,6 +119,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
             }
             inputs["autoApproval"] = args ? args.autoApproval : undefined;
             inputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["fqdns"] = args ? args.fqdns : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
@@ -136,6 +141,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
             inputs["autoApproval"] = undefined /*out*/;
             inputs["enableProxyProtocol"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["fqdns"] = undefined /*out*/;
             inputs["ipConfigurations"] = undefined /*out*/;
             inputs["loadBalancerFrontendIpConfigurations"] = undefined /*out*/;
@@ -155,7 +161,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190401:PrivateLinkService" }, { type: "azure-nextgen:network/v20190601:PrivateLinkService" }, { type: "azure-nextgen:network/v20190701:PrivateLinkService" }, { type: "azure-nextgen:network/v20190801:PrivateLinkService" }, { type: "azure-nextgen:network/v20190901:PrivateLinkService" }, { type: "azure-nextgen:network/v20191101:PrivateLinkService" }, { type: "azure-nextgen:network/v20191201:PrivateLinkService" }, { type: "azure-nextgen:network/v20200301:PrivateLinkService" }, { type: "azure-nextgen:network/v20200401:PrivateLinkService" }, { type: "azure-nextgen:network/v20200501:PrivateLinkService" }, { type: "azure-nextgen:network/v20200601:PrivateLinkService" }, { type: "azure-nextgen:network/v20200701:PrivateLinkService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190401:PrivateLinkService" }, { type: "azure-nextgen:network/v20190601:PrivateLinkService" }, { type: "azure-nextgen:network/v20190701:PrivateLinkService" }, { type: "azure-nextgen:network/v20190801:PrivateLinkService" }, { type: "azure-nextgen:network/v20190901:PrivateLinkService" }, { type: "azure-nextgen:network/v20191101:PrivateLinkService" }, { type: "azure-nextgen:network/v20191201:PrivateLinkService" }, { type: "azure-nextgen:network/v20200301:PrivateLinkService" }, { type: "azure-nextgen:network/v20200401:PrivateLinkService" }, { type: "azure-nextgen:network/v20200501:PrivateLinkService" }, { type: "azure-nextgen:network/v20200601:PrivateLinkService" }, { type: "azure-nextgen:network/v20200701:PrivateLinkService" }, { type: "azure-nextgen:network/v20200801:PrivateLinkService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateLinkService.__pulumiType, name, inputs, opts);
     }
@@ -173,6 +179,10 @@ export interface PrivateLinkServiceArgs {
      * Whether the private link service is enabled for proxy protocol or not.
      */
     readonly enableProxyProtocol?: pulumi.Input<boolean>;
+    /**
+     * The extended location of the load balancer.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.network.latest.ExtendedLocation>;
     /**
      * The list of Fqdn.
      */

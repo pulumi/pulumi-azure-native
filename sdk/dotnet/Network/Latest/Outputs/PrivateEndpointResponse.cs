@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The extended location of the load balancer.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             string etag,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string? id,
 
             string? location,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         {
             CustomDnsConfigs = customDnsConfigs;
             Etag = etag;
+            ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;
             ManualPrivateLinkServiceConnections = manualPrivateLinkServiceConnections;

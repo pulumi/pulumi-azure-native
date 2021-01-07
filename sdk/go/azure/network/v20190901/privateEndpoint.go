@@ -87,6 +87,9 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:PrivateEndpoint"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:PrivateEndpoint"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpoint

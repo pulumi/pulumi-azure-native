@@ -33,12 +33,6 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
         [Input("enableSoftDelete")]
         public Input<bool>? EnableSoftDelete { get; set; }
 
-        /// <summary>
-        /// The URI of the managed hsm pool for performing operations on keys.
-        /// </summary>
-        [Input("hsmUri")]
-        public Input<string>? HsmUri { get; set; }
-
         [Input("initialAdminObjectIds")]
         private InputList<string>? _initialAdminObjectIds;
 

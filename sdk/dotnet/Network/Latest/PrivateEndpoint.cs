@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Private endpoint resource.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:PrivateEndpoint")]
     public partial class PrivateEndpoint : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The extended location of the load balancer.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,6 +160,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
             get => _customDnsConfigs ?? (_customDnsConfigs = new InputList<Inputs.CustomDnsConfigPropertiesFormatArgs>());
             set => _customDnsConfigs = value;
         }
+
+        /// <summary>
+        /// The extended location of the load balancer.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// Resource ID.

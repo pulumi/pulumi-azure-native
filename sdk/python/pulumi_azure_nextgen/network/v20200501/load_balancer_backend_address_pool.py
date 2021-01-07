@@ -74,7 +74,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
             __props__['outbound_rules'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancerBackendAddressPool, __self__).__init__(
             'azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool',

@@ -17,7 +17,7 @@ func LookupAttestationProvider(ctx *pulumi.Context, args *LookupAttestationProvi
 }
 
 type LookupAttestationProviderArgs struct {
-	// Name of the attestation service instance
+	// Name of the attestation provider.
 	ProviderName string `pulumi:"providerName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -33,13 +33,15 @@ type LookupAttestationProviderResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// List of private endpoint connections associated with the attestation provider.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Status of attestation service.
 	Status *string `pulumi:"status"`
 	// The system metadata relating to this resource
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Trust model for the attestation service instance.
+	// Trust model for the attestation provider.
 	TrustModel *string `pulumi:"trustModel"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`

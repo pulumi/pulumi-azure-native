@@ -12,7 +12,7 @@ import (
 )
 
 // Security Partner Provider resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type SecurityPartnerProvider struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +64,9 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:SecurityPartnerProvider"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:SecurityPartnerProvider"),
 		},
 	})
 	opts = append(opts, aliases)

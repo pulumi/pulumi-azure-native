@@ -289,8 +289,10 @@ __all__ = [
     'VpnClientRootCertificateResponse',
     'VpnConnectionResponse',
     'VpnGatewayIpConfigurationResponse',
+    'VpnGatewayNatRuleResponse',
     'VpnLinkBgpSettingsResponse',
     'VpnLinkProviderPropertiesResponse',
+    'VpnNatRuleMappingResponse',
     'VpnServerConfigRadiusClientRootCertificateResponse',
     'VpnServerConfigRadiusServerRootCertificateResponse',
     'VpnServerConfigVpnClientRevokedCertificateResponse',
@@ -5600,6 +5602,7 @@ class BackendAddressPoolResponse(dict):
                  type: str,
                  id: Optional[str] = None,
                  load_balancer_backend_addresses: Optional[Sequence['outputs.LoadBalancerBackendAddressResponse']] = None,
+                 location: Optional[str] = None,
                  name: Optional[str] = None):
         """
         Pool of backend IP addresses.
@@ -5612,6 +5615,7 @@ class BackendAddressPoolResponse(dict):
         :param str type: Type of the resource.
         :param str id: Resource ID.
         :param Sequence['LoadBalancerBackendAddressResponseArgs'] load_balancer_backend_addresses: An array of backend addresses.
+        :param str location: The location of the backend address pool.
         :param str name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         """
         pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
@@ -5625,6 +5629,8 @@ class BackendAddressPoolResponse(dict):
             pulumi.set(__self__, "id", id)
         if load_balancer_backend_addresses is not None:
             pulumi.set(__self__, "load_balancer_backend_addresses", load_balancer_backend_addresses)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -5699,6 +5705,14 @@ class BackendAddressPoolResponse(dict):
         An array of backend addresses.
         """
         return pulumi.get(self, "load_balancer_backend_addresses")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the backend address pool.
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -9392,6 +9406,7 @@ class ExpressRouteConnectionResponse(dict):
                  provisioning_state: str,
                  authorization_key: Optional[str] = None,
                  enable_internet_security: Optional[bool] = None,
+                 express_route_gateway_bypass: Optional[bool] = None,
                  id: Optional[str] = None,
                  routing_configuration: Optional['outputs.RoutingConfigurationResponse'] = None,
                  routing_weight: Optional[int] = None):
@@ -9402,6 +9417,7 @@ class ExpressRouteConnectionResponse(dict):
         :param str provisioning_state: The provisioning state of the express route connection resource.
         :param str authorization_key: Authorization key to establish the connection.
         :param bool enable_internet_security: Enable internet security.
+        :param bool express_route_gateway_bypass: Enable FastPath to vWan Firewall hub.
         :param str id: Resource ID.
         :param 'RoutingConfigurationResponseArgs' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param int routing_weight: The routing weight associated to the connection.
@@ -9413,6 +9429,8 @@ class ExpressRouteConnectionResponse(dict):
             pulumi.set(__self__, "authorization_key", authorization_key)
         if enable_internet_security is not None:
             pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+        if express_route_gateway_bypass is not None:
+            pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if routing_configuration is not None:
@@ -9459,6 +9477,14 @@ class ExpressRouteConnectionResponse(dict):
         Enable internet security.
         """
         return pulumi.get(self, "enable_internet_security")
+
+    @property
+    @pulumi.getter(name="expressRouteGatewayBypass")
+    def express_route_gateway_bypass(self) -> Optional[bool]:
+        """
+        Enable FastPath to vWan Firewall hub.
+        """
+        return pulumi.get(self, "express_route_gateway_bypass")
 
     @property
     @pulumi.getter
@@ -16521,6 +16547,7 @@ class PrivateEndpointResponse(dict):
                  provisioning_state: str,
                  type: str,
                  custom_dns_configs: Optional[Sequence['outputs.CustomDnsConfigPropertiesFormatResponse']] = None,
+                 extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
                  id: Optional[str] = None,
                  location: Optional[str] = None,
                  manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
@@ -16535,6 +16562,7 @@ class PrivateEndpointResponse(dict):
         :param str provisioning_state: The provisioning state of the private endpoint resource.
         :param str type: Resource type.
         :param Sequence['CustomDnsConfigPropertiesFormatResponseArgs'] custom_dns_configs: An array of custom dns configurations.
+        :param 'ExtendedLocationResponseArgs' extended_location: The extended location of the load balancer.
         :param str id: Resource ID.
         :param str location: Resource location.
         :param Sequence['PrivateLinkServiceConnectionResponseArgs'] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
@@ -16549,6 +16577,8 @@ class PrivateEndpointResponse(dict):
         pulumi.set(__self__, "type", type)
         if custom_dns_configs is not None:
             pulumi.set(__self__, "custom_dns_configs", custom_dns_configs)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -16609,6 +16639,14 @@ class PrivateEndpointResponse(dict):
         An array of custom dns configurations.
         """
         return pulumi.get(self, "custom_dns_configs")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the load balancer.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter
@@ -18236,30 +18274,38 @@ class RouteResponse(dict):
                  next_hop_type: str,
                  provisioning_state: str,
                  address_prefix: Optional[str] = None,
+                 has_bgp_override: Optional[bool] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 next_hop_ip_address: Optional[str] = None):
+                 next_hop_ip_address: Optional[str] = None,
+                 type: Optional[str] = None):
         """
         Route resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str next_hop_type: The type of Azure hop the packet should be sent to.
         :param str provisioning_state: The provisioning state of the route resource.
         :param str address_prefix: The destination CIDR to which the route applies.
+        :param bool has_bgp_override: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        :param str type: The type of the resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "next_hop_type", next_hop_type)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
+        if has_bgp_override is not None:
+            pulumi.set(__self__, "has_bgp_override", has_bgp_override)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if next_hop_ip_address is not None:
             pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -18294,6 +18340,14 @@ class RouteResponse(dict):
         return pulumi.get(self, "address_prefix")
 
     @property
+    @pulumi.getter(name="hasBgpOverride")
+    def has_bgp_override(self) -> Optional[bool]:
+        """
+        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        """
+        return pulumi.get(self, "has_bgp_override")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
@@ -18317,6 +18371,14 @@ class RouteResponse(dict):
         """
         return pulumi.get(self, "next_hop_ip_address")
 
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -18330,6 +18392,7 @@ class RouteTableResponse(dict):
                  etag: str,
                  name: str,
                  provisioning_state: str,
+                 resource_guid: str,
                  subnets: Sequence['outputs.SubnetResponse'],
                  type: str,
                  disable_bgp_route_propagation: Optional[bool] = None,
@@ -18342,6 +18405,7 @@ class RouteTableResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str name: Resource name.
         :param str provisioning_state: The provisioning state of the route table resource.
+        :param str resource_guid: The resource GUID property of the route table.
         :param Sequence['SubnetResponseArgs'] subnets: A collection of references to subnets.
         :param str type: Resource type.
         :param bool disable_bgp_route_propagation: Whether to disable the routes learned by BGP on that route table. True means disable.
@@ -18353,6 +18417,7 @@ class RouteTableResponse(dict):
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
         pulumi.set(__self__, "subnets", subnets)
         pulumi.set(__self__, "type", type)
         if disable_bgp_route_propagation is not None:
@@ -18389,6 +18454,14 @@ class RouteTableResponse(dict):
         The provisioning state of the route table resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the route table.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter
@@ -18994,7 +19067,8 @@ class SecurityRuleResponse(dict):
                  source_address_prefixes: Optional[Sequence[str]] = None,
                  source_application_security_groups: Optional[Sequence['outputs.ApplicationSecurityGroupResponse']] = None,
                  source_port_range: Optional[str] = None,
-                 source_port_ranges: Optional[Sequence[str]] = None):
+                 source_port_ranges: Optional[Sequence[str]] = None,
+                 type: Optional[str] = None):
         """
         Network security rule.
         :param str access: The network traffic is allowed or denied.
@@ -19016,6 +19090,7 @@ class SecurityRuleResponse(dict):
         :param Sequence['ApplicationSecurityGroupResponseArgs'] source_application_security_groups: The application security group specified as source.
         :param str source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param Sequence[str] source_port_ranges: The source port ranges.
+        :param str type: The type of the resource.
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "direction", direction)
@@ -19050,6 +19125,8 @@ class SecurityRuleResponse(dict):
             pulumi.set(__self__, "source_port_range", source_port_range)
         if source_port_ranges is not None:
             pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -19202,6 +19279,14 @@ class SecurityRuleResponse(dict):
         The source port ranges.
         """
         return pulumi.get(self, "source_port_ranges")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -22352,6 +22437,147 @@ class VpnGatewayIpConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class VpnGatewayNatRuleResponse(dict):
+    """
+    VpnGatewayNatRule Resource.
+    """
+    def __init__(__self__, *,
+                 egress_vpn_site_link_connections: Sequence['outputs.SubResourceResponse'],
+                 etag: str,
+                 ingress_vpn_site_link_connections: Sequence['outputs.SubResourceResponse'],
+                 provisioning_state: str,
+                 type: str,
+                 external_mappings: Optional[Sequence['outputs.VpnNatRuleMappingResponse']] = None,
+                 id: Optional[str] = None,
+                 internal_mappings: Optional[Sequence['outputs.VpnNatRuleMappingResponse']] = None,
+                 ip_configuration_id: Optional[str] = None,
+                 mode: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        VpnGatewayNatRule Resource.
+        :param Sequence['SubResourceResponseArgs'] egress_vpn_site_link_connections: List of egress VpnSiteLinkConnections.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param Sequence['SubResourceResponseArgs'] ingress_vpn_site_link_connections: List of ingress VpnSiteLinkConnections.
+        :param str provisioning_state: The provisioning state of the NAT Rule resource.
+        :param str type: Resource type.
+        :param Sequence['VpnNatRuleMappingResponseArgs'] external_mappings: The private IP address external mapping for NAT.
+        :param str id: Resource ID.
+        :param Sequence['VpnNatRuleMappingResponseArgs'] internal_mappings: The private IP address internal mapping for NAT.
+        :param str ip_configuration_id: The IP Configuration ID this NAT rule applies to.
+        :param str mode: The Source NAT direction of a VPN NAT.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "egress_vpn_site_link_connections", egress_vpn_site_link_connections)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "ingress_vpn_site_link_connections", ingress_vpn_site_link_connections)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if external_mappings is not None:
+            pulumi.set(__self__, "external_mappings", external_mappings)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if internal_mappings is not None:
+            pulumi.set(__self__, "internal_mappings", internal_mappings)
+        if ip_configuration_id is not None:
+            pulumi.set(__self__, "ip_configuration_id", ip_configuration_id)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="egressVpnSiteLinkConnections")
+    def egress_vpn_site_link_connections(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        List of egress VpnSiteLinkConnections.
+        """
+        return pulumi.get(self, "egress_vpn_site_link_connections")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ingressVpnSiteLinkConnections")
+    def ingress_vpn_site_link_connections(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        List of ingress VpnSiteLinkConnections.
+        """
+        return pulumi.get(self, "ingress_vpn_site_link_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the NAT Rule resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="externalMappings")
+    def external_mappings(self) -> Optional[Sequence['outputs.VpnNatRuleMappingResponse']]:
+        """
+        The private IP address external mapping for NAT.
+        """
+        return pulumi.get(self, "external_mappings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="internalMappings")
+    def internal_mappings(self) -> Optional[Sequence['outputs.VpnNatRuleMappingResponse']]:
+        """
+        The private IP address internal mapping for NAT.
+        """
+        return pulumi.get(self, "internal_mappings")
+
+    @property
+    @pulumi.getter(name="ipConfigurationId")
+    def ip_configuration_id(self) -> Optional[str]:
+        """
+        The IP Configuration ID this NAT rule applies to.
+        """
+        return pulumi.get(self, "ip_configuration_id")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        The Source NAT direction of a VPN NAT.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class VpnLinkBgpSettingsResponse(dict):
     """
     BGP settings details for a link.
@@ -22422,6 +22648,32 @@ class VpnLinkProviderPropertiesResponse(dict):
         Link speed.
         """
         return pulumi.get(self, "link_speed_in_mbps")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VpnNatRuleMappingResponse(dict):
+    """
+    Vpn NatRule mapping.
+    """
+    def __init__(__self__, *,
+                 address_space: Optional[str] = None):
+        """
+        Vpn NatRule mapping.
+        :param str address_space: Address space for Vpn NatRule mapping.
+        """
+        if address_space is not None:
+            pulumi.set(__self__, "address_space", address_space)
+
+    @property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> Optional[str]:
+        """
+        Address space for Vpn NatRule mapping.
+        """
+        return pulumi.get(self, "address_space")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -22592,9 +22844,11 @@ class VpnSiteLinkConnectionResponse(dict):
                  provisioning_state: str,
                  type: str,
                  connection_bandwidth: Optional[int] = None,
+                 egress_nat_rules: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  enable_bgp: Optional[bool] = None,
                  enable_rate_limiting: Optional[bool] = None,
                  id: Optional[str] = None,
+                 ingress_nat_rules: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  ipsec_policies: Optional[Sequence['outputs.IpsecPolicyResponse']] = None,
                  name: Optional[str] = None,
                  routing_weight: Optional[int] = None,
@@ -22602,6 +22856,7 @@ class VpnSiteLinkConnectionResponse(dict):
                  use_local_azure_ip_address: Optional[bool] = None,
                  use_policy_based_traffic_selectors: Optional[bool] = None,
                  vpn_connection_protocol_type: Optional[str] = None,
+                 vpn_link_connection_mode: Optional[str] = None,
                  vpn_site_link: Optional['outputs.SubResourceResponse'] = None):
         """
         VpnSiteLinkConnection Resource.
@@ -22612,9 +22867,11 @@ class VpnSiteLinkConnectionResponse(dict):
         :param str provisioning_state: The provisioning state of the VPN site link connection resource.
         :param str type: Resource type.
         :param int connection_bandwidth: Expected bandwidth in MBPS.
+        :param Sequence['SubResourceResponseArgs'] egress_nat_rules: List of egress NatRules.
         :param bool enable_bgp: EnableBgp flag.
         :param bool enable_rate_limiting: EnableBgp flag.
         :param str id: Resource ID.
+        :param Sequence['SubResourceResponseArgs'] ingress_nat_rules: List of ingress NatRules.
         :param Sequence['IpsecPolicyResponseArgs'] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param int routing_weight: Routing weight for vpn connection.
@@ -22622,6 +22879,7 @@ class VpnSiteLinkConnectionResponse(dict):
         :param bool use_local_azure_ip_address: Use local azure ip to initiate connection.
         :param bool use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
         :param str vpn_connection_protocol_type: Connection protocol used for this connection.
+        :param str vpn_link_connection_mode: Vpn link connection mode.
         :param 'SubResourceResponseArgs' vpn_site_link: Id of the connected vpn site link.
         """
         pulumi.set(__self__, "connection_status", connection_status)
@@ -22632,12 +22890,16 @@ class VpnSiteLinkConnectionResponse(dict):
         pulumi.set(__self__, "type", type)
         if connection_bandwidth is not None:
             pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
+        if egress_nat_rules is not None:
+            pulumi.set(__self__, "egress_nat_rules", egress_nat_rules)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if enable_rate_limiting is not None:
             pulumi.set(__self__, "enable_rate_limiting", enable_rate_limiting)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ingress_nat_rules is not None:
+            pulumi.set(__self__, "ingress_nat_rules", ingress_nat_rules)
         if ipsec_policies is not None:
             pulumi.set(__self__, "ipsec_policies", ipsec_policies)
         if name is not None:
@@ -22652,6 +22914,8 @@ class VpnSiteLinkConnectionResponse(dict):
             pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
         if vpn_connection_protocol_type is not None:
             pulumi.set(__self__, "vpn_connection_protocol_type", vpn_connection_protocol_type)
+        if vpn_link_connection_mode is not None:
+            pulumi.set(__self__, "vpn_link_connection_mode", vpn_link_connection_mode)
         if vpn_site_link is not None:
             pulumi.set(__self__, "vpn_site_link", vpn_site_link)
 
@@ -22712,6 +22976,14 @@ class VpnSiteLinkConnectionResponse(dict):
         return pulumi.get(self, "connection_bandwidth")
 
     @property
+    @pulumi.getter(name="egressNatRules")
+    def egress_nat_rules(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        List of egress NatRules.
+        """
+        return pulumi.get(self, "egress_nat_rules")
+
+    @property
     @pulumi.getter(name="enableBgp")
     def enable_bgp(self) -> Optional[bool]:
         """
@@ -22734,6 +23006,14 @@ class VpnSiteLinkConnectionResponse(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ingressNatRules")
+    def ingress_nat_rules(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        List of ingress NatRules.
+        """
+        return pulumi.get(self, "ingress_nat_rules")
 
     @property
     @pulumi.getter(name="ipsecPolicies")
@@ -22790,6 +23070,14 @@ class VpnSiteLinkConnectionResponse(dict):
         Connection protocol used for this connection.
         """
         return pulumi.get(self, "vpn_connection_protocol_type")
+
+    @property
+    @pulumi.getter(name="vpnLinkConnectionMode")
+    def vpn_link_connection_mode(self) -> Optional[str]:
+        """
+        Vpn link connection mode.
+        """
+        return pulumi.get(self, "vpn_link_connection_mode")
 
     @property
     @pulumi.getter(name="vpnSiteLink")

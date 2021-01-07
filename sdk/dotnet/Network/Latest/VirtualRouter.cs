@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// VirtualRouter Resource.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:VirtualRouter")]
     public partial class VirtualRouter : Pulumi.CustomResource
@@ -117,6 +117,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualRouter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -104,7 +104,7 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualApplianceSite" }, { type: "azure-nextgen:network/v20200501:VirtualApplianceSite" }, { type: "azure-nextgen:network/v20200601:VirtualApplianceSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualApplianceSite" }, { type: "azure-nextgen:network/v20200501:VirtualApplianceSite" }, { type: "azure-nextgen:network/v20200601:VirtualApplianceSite" }, { type: "azure-nextgen:network/v20200801:VirtualApplianceSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualApplianceSite.__pulumiType, name, inputs, opts);
     }

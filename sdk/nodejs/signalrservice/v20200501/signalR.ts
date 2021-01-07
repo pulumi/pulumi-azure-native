@@ -60,7 +60,7 @@ export class SignalR extends pulumi.CustomResource {
      * Prefix for the hostName of the SignalR service. Retained for future use.
      * The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
      */
-    public readonly hostNamePrefix!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly hostNamePrefix!: pulumi.Output<string>;
     /**
      * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
      */
@@ -132,7 +132,6 @@ export class SignalR extends pulumi.CustomResource {
             }
             inputs["cors"] = args ? args.cors : undefined;
             inputs["features"] = args ? args.features : undefined;
-            inputs["hostNamePrefix"] = args ? args.hostNamePrefix : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["networkACLs"] = args ? args.networkACLs : undefined;
@@ -143,6 +142,7 @@ export class SignalR extends pulumi.CustomResource {
             inputs["upstream"] = args ? args.upstream : undefined;
             inputs["externalIP"] = undefined /*out*/;
             inputs["hostName"] = undefined /*out*/;
+            inputs["hostNamePrefix"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -200,11 +200,6 @@ export interface SignalRArgs {
      * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
      */
     readonly features?: pulumi.Input<pulumi.Input<inputs.signalrservice.v20200501.SignalRFeature>[]>;
-    /**
-     * Prefix for the hostName of the SignalR service. Retained for future use.
-     * The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-     */
-    readonly hostNamePrefix?: pulumi.Input<string>;
     /**
      * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
      */

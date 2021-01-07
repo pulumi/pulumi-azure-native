@@ -19,7 +19,7 @@ class AttestationServiceCreationSpecificParamsArgs:
     def __init__(__self__, *,
                  policy_signing_certificates: Optional[pulumi.Input['JSONWebKeySetArgs']] = None):
         """
-        Client supplied parameters used to create a new attestation service instance.
+        Client supplied parameters used to create a new attestation provider.
         :param pulumi.Input['JSONWebKeySetArgs'] policy_signing_certificates: JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
         """
         if policy_signing_certificates is not None:

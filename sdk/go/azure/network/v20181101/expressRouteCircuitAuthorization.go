@@ -146,6 +146,9 @@ func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteCircuitAuthorization"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteCircuitAuthorization"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ExpressRouteCircuitAuthorization

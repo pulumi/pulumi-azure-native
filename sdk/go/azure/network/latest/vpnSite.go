@@ -12,7 +12,7 @@ import (
 )
 
 // VpnSite Resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type VpnSite struct {
 	pulumi.CustomResourceState
 
@@ -124,6 +124,9 @@ func NewVpnSite(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:VpnSite"),
 		},
 	})
 	opts = append(opts, aliases)

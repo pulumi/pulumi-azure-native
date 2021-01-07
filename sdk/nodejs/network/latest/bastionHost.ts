@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Bastion Host resource.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class BastionHost extends pulumi.CustomResource {
     /**
@@ -113,7 +113,7 @@ export class BastionHost extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190401:BastionHost" }, { type: "azure-nextgen:network/v20190601:BastionHost" }, { type: "azure-nextgen:network/v20190701:BastionHost" }, { type: "azure-nextgen:network/v20190801:BastionHost" }, { type: "azure-nextgen:network/v20190901:BastionHost" }, { type: "azure-nextgen:network/v20191101:BastionHost" }, { type: "azure-nextgen:network/v20191201:BastionHost" }, { type: "azure-nextgen:network/v20200301:BastionHost" }, { type: "azure-nextgen:network/v20200401:BastionHost" }, { type: "azure-nextgen:network/v20200501:BastionHost" }, { type: "azure-nextgen:network/v20200601:BastionHost" }, { type: "azure-nextgen:network/v20200701:BastionHost" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190401:BastionHost" }, { type: "azure-nextgen:network/v20190601:BastionHost" }, { type: "azure-nextgen:network/v20190701:BastionHost" }, { type: "azure-nextgen:network/v20190801:BastionHost" }, { type: "azure-nextgen:network/v20190901:BastionHost" }, { type: "azure-nextgen:network/v20191101:BastionHost" }, { type: "azure-nextgen:network/v20191201:BastionHost" }, { type: "azure-nextgen:network/v20200301:BastionHost" }, { type: "azure-nextgen:network/v20200401:BastionHost" }, { type: "azure-nextgen:network/v20200501:BastionHost" }, { type: "azure-nextgen:network/v20200601:BastionHost" }, { type: "azure-nextgen:network/v20200701:BastionHost" }, { type: "azure-nextgen:network/v20200801:BastionHost" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BastionHost.__pulumiType, name, inputs, opts);
     }

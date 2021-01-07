@@ -35,6 +35,8 @@ type LookupPrivateLinkServiceResult struct {
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// The extended location of the load balancer.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The list of Fqdn.
 	Fqdns []string `pulumi:"fqdns"`
 	// Resource ID.

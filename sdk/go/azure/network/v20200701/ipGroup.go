@@ -73,6 +73,9 @@ func NewIpGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:IpGroup"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:IpGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IpGroup

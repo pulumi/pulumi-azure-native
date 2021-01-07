@@ -34,7 +34,7 @@ type LookupViewByScopeResult struct {
 	// Selected currency.
 	Currency string `pulumi:"currency"`
 	// Has definition for data in this report config.
-	Dataset *ReportConfigDatasetResponse `pulumi:"dataset"`
+	DataSet *ReportConfigDatasetResponse `pulumi:"dataSet"`
 	// Selected date range for viewing cost in.
 	DateRange string `pulumi:"dateRange"`
 	// User input name of the view. Required.
@@ -43,6 +43,8 @@ type LookupViewByScopeResult struct {
 	ETag *string `pulumi:"eTag"`
 	// Resource Id.
 	Id string `pulumi:"id"`
+	// Include monetary commitment
+	IncludeMonetaryCommitment bool `pulumi:"includeMonetaryCommitment"`
 	// List of KPIs to show in Cost Analysis UI.
 	Kpis []KpiPropertiesResponse `pulumi:"kpis"`
 	// Metric to use when displaying costs.

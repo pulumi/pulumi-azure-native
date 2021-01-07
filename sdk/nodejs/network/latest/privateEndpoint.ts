@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Private endpoint resource.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class PrivateEndpoint extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class PrivateEndpoint extends pulumi.CustomResource {
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The extended location of the load balancer.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.network.latest.ExtendedLocationResponse | undefined>;
     /**
      * Resource location.
      */
@@ -98,6 +102,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["customDnsConfigs"] = args ? args.customDnsConfigs : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["manualPrivateLinkServiceConnections"] = args ? args.manualPrivateLinkServiceConnections : undefined;
@@ -114,6 +119,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
         } else {
             inputs["customDnsConfigs"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["manualPrivateLinkServiceConnections"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -131,7 +137,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190401:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190601:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190701:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190801:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190901:PrivateEndpoint" }, { type: "azure-nextgen:network/v20191101:PrivateEndpoint" }, { type: "azure-nextgen:network/v20191201:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200301:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200401:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200501:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200601:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200701:PrivateEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190401:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190601:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190701:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190801:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190901:PrivateEndpoint" }, { type: "azure-nextgen:network/v20191101:PrivateEndpoint" }, { type: "azure-nextgen:network/v20191201:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200301:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200401:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200501:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200601:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200701:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200801:PrivateEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpoint.__pulumiType, name, inputs, opts);
     }
@@ -145,6 +151,10 @@ export interface PrivateEndpointArgs {
      * An array of custom dns configurations.
      */
     readonly customDnsConfigs?: pulumi.Input<pulumi.Input<inputs.network.latest.CustomDnsConfigPropertiesFormat>[]>;
+    /**
+     * The extended location of the load balancer.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.network.latest.ExtendedLocation>;
     /**
      * Resource ID.
      */

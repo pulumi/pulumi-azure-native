@@ -5,8 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./addon";
 export * from "./authorization";
 export * from "./cluster";
+export * from "./getAddon";
 export * from "./getAuthorization";
 export * from "./getCluster";
 export * from "./getGlobalReachConnection";
@@ -33,6 +35,7 @@ export * from "./workloadNetworkVMGroup";
 export * from "../../types/enums/avs/v20200717preview";
 
 // Import resources to register:
+import { Addon } from "./addon";
 import { Authorization } from "./authorization";
 import { Cluster } from "./cluster";
 import { GlobalReachConnection } from "./globalReachConnection";
@@ -49,6 +52,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:avs/v20200717preview:Addon":
+                return new Addon(name, <any>undefined, { urn })
             case "azure-nextgen:avs/v20200717preview:Authorization":
                 return new Authorization(name, <any>undefined, { urn })
             case "azure-nextgen:avs/v20200717preview:Cluster":

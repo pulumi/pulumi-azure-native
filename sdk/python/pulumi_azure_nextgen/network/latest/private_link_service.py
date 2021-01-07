@@ -20,6 +20,7 @@ class PrivateLinkService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesAutoApprovalArgs']]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceIpConfigurationArgs']]]]] = None,
@@ -34,12 +35,13 @@ class PrivateLinkService(pulumi.CustomResource):
                  __opts__=None):
         """
         Private link service resource.
-        Latest API Version: 2020-07-01.
+        Latest API Version: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesAutoApprovalArgs']] auto_approval: The auto-approval list of the private link service.
         :param pulumi.Input[bool] enable_proxy_protocol: Whether the private link service is enabled for proxy protocol or not.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: The list of Fqdn.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceIpConfigurationArgs']]]] ip_configurations: An array of private link service IP configurations.
@@ -69,6 +71,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
             __props__['auto_approval'] = auto_approval
             __props__['enable_proxy_protocol'] = enable_proxy_protocol
+            __props__['extended_location'] = extended_location
             __props__['fqdns'] = fqdns
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
@@ -89,7 +92,7 @@ class PrivateLinkService(pulumi.CustomResource):
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190401:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateLinkService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190401:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PrivateLinkService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkService, __self__).__init__(
             'azure-nextgen:network/latest:PrivateLinkService',
@@ -146,6 +149,14 @@ class PrivateLinkService(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location of the load balancer.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter

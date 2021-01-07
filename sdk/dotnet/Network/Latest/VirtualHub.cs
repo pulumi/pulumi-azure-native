@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// VirtualHub Resource.
-    /// Latest API Version: 2020-07-01.
+    /// Latest API Version: 2020-08-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:VirtualHub")]
     public partial class VirtualHub : Pulumi.CustomResource
@@ -199,6 +199,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

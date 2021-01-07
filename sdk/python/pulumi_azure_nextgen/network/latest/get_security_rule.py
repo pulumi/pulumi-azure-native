@@ -20,7 +20,7 @@ class GetSecurityRuleResult:
     """
     Network security rule.
     """
-    def __init__(__self__, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_groups=None, destination_port_range=None, destination_port_ranges=None, direction=None, etag=None, id=None, name=None, priority=None, protocol=None, provisioning_state=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_groups=None, source_port_range=None, source_port_ranges=None):
+    def __init__(__self__, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_groups=None, destination_port_range=None, destination_port_ranges=None, direction=None, etag=None, id=None, name=None, priority=None, protocol=None, provisioning_state=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_groups=None, source_port_range=None, source_port_ranges=None, type=None):
         if access and not isinstance(access, str):
             raise TypeError("Expected argument 'access' to be a str")
         pulumi.set(__self__, "access", access)
@@ -78,6 +78,9 @@ class GetSecurityRuleResult:
         if source_port_ranges and not isinstance(source_port_ranges, list):
             raise TypeError("Expected argument 'source_port_ranges' to be a list")
         pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -231,6 +234,14 @@ class GetSecurityRuleResult:
         """
         return pulumi.get(self, "source_port_ranges")
 
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
 
 class AwaitableGetSecurityRuleResult(GetSecurityRuleResult):
     # pylint: disable=using-constant-test
@@ -256,7 +267,8 @@ class AwaitableGetSecurityRuleResult(GetSecurityRuleResult):
             source_address_prefixes=self.source_address_prefixes,
             source_application_security_groups=self.source_application_security_groups,
             source_port_range=self.source_port_range,
-            source_port_ranges=self.source_port_ranges)
+            source_port_ranges=self.source_port_ranges,
+            type=self.type)
 
 
 def get_security_rule(network_security_group_name: Optional[str] = None,
@@ -299,4 +311,5 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
         source_address_prefixes=__ret__.source_address_prefixes,
         source_application_security_groups=__ret__.source_application_security_groups,
         source_port_range=__ret__.source_port_range,
-        source_port_ranges=__ret__.source_port_ranges)
+        source_port_ranges=__ret__.source_port_ranges,
+        type=__ret__.type)

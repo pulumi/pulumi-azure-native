@@ -31,6 +31,8 @@ type LookupRouteResult struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+	HasBgpOverride *bool `pulumi:"hasBgpOverride"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -41,4 +43,6 @@ type LookupRouteResult struct {
 	NextHopType string `pulumi:"nextHopType"`
 	// The provisioning state of the route resource.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }

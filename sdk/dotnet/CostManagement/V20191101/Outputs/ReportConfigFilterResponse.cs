@@ -22,10 +22,6 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101.Outputs
         /// </summary>
         public readonly Outputs.ReportConfigComparisonExpressionResponse? Dimension;
         /// <summary>
-        /// The logical "NOT" expression.
-        /// </summary>
-        public readonly Outputs.ReportConfigFilterResponse? Not;
-        /// <summary>
         /// The logical "OR" expression. Must have at least 2 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReportConfigFilterResponse> Or;
@@ -40,15 +36,12 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101.Outputs
 
             Outputs.ReportConfigComparisonExpressionResponse? dimension,
 
-            Outputs.ReportConfigFilterResponse? not,
-
             ImmutableArray<Outputs.ReportConfigFilterResponse> or,
 
             Outputs.ReportConfigComparisonExpressionResponse? tag)
         {
             And = and;
             Dimension = dimension;
-            Not = not;
             Or = or;
             Tag = tag;
         }

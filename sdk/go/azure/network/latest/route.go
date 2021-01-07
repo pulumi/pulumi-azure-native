@@ -12,7 +12,7 @@ import (
 )
 
 // Route resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type Route struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type Route struct {
 	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+	HasBgpOverride pulumi.BoolPtrOutput `pulumi:"hasBgpOverride"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
@@ -28,6 +30,8 @@ type Route struct {
 	NextHopType pulumi.StringOutput `pulumi:"nextHopType"`
 	// The provisioning state of the route resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The type of the resource.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
@@ -152,6 +156,9 @@ func NewRoute(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:Route"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:Route"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Route
@@ -180,6 +187,8 @@ type routeState struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+	HasBgpOverride *bool `pulumi:"hasBgpOverride"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
@@ -188,6 +197,8 @@ type routeState struct {
 	NextHopType *string `pulumi:"nextHopType"`
 	// The provisioning state of the route resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type RouteState struct {
@@ -195,6 +206,8 @@ type RouteState struct {
 	AddressPrefix pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+	HasBgpOverride pulumi.BoolPtrInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
 	// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
@@ -203,6 +216,8 @@ type RouteState struct {
 	NextHopType pulumi.StringPtrInput
 	// The provisioning state of the route resource.
 	ProvisioningState pulumi.StringPtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (RouteState) ElementType() reflect.Type {
@@ -212,6 +227,8 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// The destination CIDR to which the route applies.
 	AddressPrefix *string `pulumi:"addressPrefix"`
+	// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+	HasBgpOverride *bool `pulumi:"hasBgpOverride"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -226,12 +243,16 @@ type routeArgs struct {
 	RouteName string `pulumi:"routeName"`
 	// The name of the route table.
 	RouteTableName string `pulumi:"routeTableName"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
 	// The destination CIDR to which the route applies.
 	AddressPrefix pulumi.StringPtrInput
+	// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+	HasBgpOverride pulumi.BoolPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -246,6 +267,8 @@ type RouteArgs struct {
 	RouteName pulumi.StringInput
 	// The name of the route table.
 	RouteTableName pulumi.StringInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (RouteArgs) ElementType() reflect.Type {

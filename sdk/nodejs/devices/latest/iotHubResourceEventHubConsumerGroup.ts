@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of the EventHubConsumerGroupInfo object.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-08-31.
  */
 export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/v20160203:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20170119:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20170701:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20180122:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20180401:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20181201preview:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20190322:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20190322preview:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20190701preview:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20191104:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200301:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200401:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200615:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200710preview:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200801:IotHubResourceEventHubConsumerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/v20160203:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20170119:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20170701:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20180122:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20180401:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20181201preview:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20190322:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20190322preview:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20190701preview:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20191104:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200301:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200401:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200615:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200710preview:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200801:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200831:IotHubResourceEventHubConsumerGroup" }, { type: "azure-nextgen:devices/v20200831preview:IotHubResourceEventHubConsumerGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotHubResourceEventHubConsumerGroup.__pulumiType, name, inputs, opts);
     }

@@ -151,6 +151,9 @@ func NewRouteTable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:RouteTable"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:RouteTable"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RouteTable

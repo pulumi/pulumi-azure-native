@@ -98,6 +98,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

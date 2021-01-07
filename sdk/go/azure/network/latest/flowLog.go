@@ -12,7 +12,7 @@ import (
 )
 
 // A flow log resource.
-// Latest API Version: 2020-07-01.
+// Latest API Version: 2020-08-01.
 type FlowLog struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +87,9 @@ func NewFlowLog(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:FlowLog"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:FlowLog"),
 		},
 	})
 	opts = append(opts, aliases)

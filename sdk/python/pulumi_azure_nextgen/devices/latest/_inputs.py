@@ -24,6 +24,8 @@ __all__ = [
     'IotHubSkuInfoArgs',
     'IpFilterRuleArgs',
     'MessagingEndpointPropertiesArgs',
+    'NetworkRuleSetIpRuleArgs',
+    'NetworkRuleSetPropertiesArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateEndpointConnectionPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
@@ -635,6 +637,7 @@ class IotHubPropertiesArgs:
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
                  messaging_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
+                 network_rule_sets: Optional[pulumi.Input['NetworkRuleSetPropertiesArgs']] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  routing: Optional[pulumi.Input['RoutingPropertiesArgs']] = None,
@@ -650,6 +653,7 @@ class IotHubPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
         :param pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
+        :param pulumi.Input['NetworkRuleSetPropertiesArgs'] network_rule_sets: Network Rule Set Properties of IotHub
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: Private endpoint connections created on this IotHub
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input['RoutingPropertiesArgs'] routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
@@ -673,6 +677,8 @@ class IotHubPropertiesArgs:
             pulumi.set(__self__, "messaging_endpoints", messaging_endpoints)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if network_rule_sets is not None:
+            pulumi.set(__self__, "network_rule_sets", network_rule_sets)
         if private_endpoint_connections is not None:
             pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
@@ -789,6 +795,18 @@ class IotHubPropertiesArgs:
     @min_tls_version.setter
     def min_tls_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "min_tls_version", value)
+
+    @property
+    @pulumi.getter(name="networkRuleSets")
+    def network_rule_sets(self) -> Optional[pulumi.Input['NetworkRuleSetPropertiesArgs']]:
+        """
+        Network Rule Set Properties of IotHub
+        """
+        return pulumi.get(self, "network_rule_sets")
+
+    @network_rule_sets.setter
+    def network_rule_sets(self, value: Optional[pulumi.Input['NetworkRuleSetPropertiesArgs']]):
+        pulumi.set(self, "network_rule_sets", value)
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
@@ -985,6 +1003,114 @@ class MessagingEndpointPropertiesArgs:
     @ttl_as_iso8601.setter
     def ttl_as_iso8601(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ttl_as_iso8601", value)
+
+
+@pulumi.input_type
+class NetworkRuleSetIpRuleArgs:
+    def __init__(__self__, *,
+                 filter_name: pulumi.Input[str],
+                 ip_mask: pulumi.Input[str],
+                 action: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]] = None):
+        """
+        IP Rule to be applied as part of Network Rule Set
+        :param pulumi.Input[str] filter_name: Name of the IP filter rule.
+        :param pulumi.Input[str] ip_mask: A string that contains the IP address range in CIDR notation for the rule.
+        :param pulumi.Input[Union[str, 'NetworkRuleIPAction']] action: IP Filter Action
+        """
+        pulumi.set(__self__, "filter_name", filter_name)
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="filterName")
+    def filter_name(self) -> pulumi.Input[str]:
+        """
+        Name of the IP filter rule.
+        """
+        return pulumi.get(self, "filter_name")
+
+    @filter_name.setter
+    def filter_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter_name", value)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> pulumi.Input[str]:
+        """
+        A string that contains the IP address range in CIDR notation for the rule.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_mask", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]]:
+        """
+        IP Filter Action
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]]):
+        pulumi.set(self, "action", value)
+
+
+@pulumi.input_type
+class NetworkRuleSetPropertiesArgs:
+    def __init__(__self__, *,
+                 apply_to_built_in_event_hub_endpoint: pulumi.Input[bool],
+                 ip_rules: pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]],
+                 default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None):
+        """
+        Network Rule Set Properties of IotHub
+        :param pulumi.Input[bool] apply_to_built_in_event_hub_endpoint: If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]] ip_rules: List of IP Rules
+        :param pulumi.Input[Union[str, 'DefaultAction']] default_action: Default Action for Network Rule Set
+        """
+        pulumi.set(__self__, "apply_to_built_in_event_hub_endpoint", apply_to_built_in_event_hub_endpoint)
+        pulumi.set(__self__, "ip_rules", ip_rules)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+
+    @property
+    @pulumi.getter(name="applyToBuiltInEventHubEndpoint")
+    def apply_to_built_in_event_hub_endpoint(self) -> pulumi.Input[bool]:
+        """
+        If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+        """
+        return pulumi.get(self, "apply_to_built_in_event_hub_endpoint")
+
+    @apply_to_built_in_event_hub_endpoint.setter
+    def apply_to_built_in_event_hub_endpoint(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "apply_to_built_in_event_hub_endpoint", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]:
+        """
+        List of IP Rules
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]):
+        pulumi.set(self, "ip_rules", value)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[pulumi.Input[Union[str, 'DefaultAction']]]:
+        """
+        Default Action for Network Rule Set
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: Optional[pulumi.Input[Union[str, 'DefaultAction']]]):
+        pulumi.set(self, "default_action", value)
 
 
 @pulumi.input_type

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Nat Gateway resource.
- * Latest API Version: 2020-07-01.
+ * Latest API Version: 2020-08-01.
  */
 export class NatGateway extends pulumi.CustomResource {
     /**
@@ -143,7 +143,7 @@ export class NatGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190201:NatGateway" }, { type: "azure-nextgen:network/v20190401:NatGateway" }, { type: "azure-nextgen:network/v20190601:NatGateway" }, { type: "azure-nextgen:network/v20190701:NatGateway" }, { type: "azure-nextgen:network/v20190801:NatGateway" }, { type: "azure-nextgen:network/v20190901:NatGateway" }, { type: "azure-nextgen:network/v20191101:NatGateway" }, { type: "azure-nextgen:network/v20191201:NatGateway" }, { type: "azure-nextgen:network/v20200301:NatGateway" }, { type: "azure-nextgen:network/v20200401:NatGateway" }, { type: "azure-nextgen:network/v20200501:NatGateway" }, { type: "azure-nextgen:network/v20200601:NatGateway" }, { type: "azure-nextgen:network/v20200701:NatGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190201:NatGateway" }, { type: "azure-nextgen:network/v20190401:NatGateway" }, { type: "azure-nextgen:network/v20190601:NatGateway" }, { type: "azure-nextgen:network/v20190701:NatGateway" }, { type: "azure-nextgen:network/v20190801:NatGateway" }, { type: "azure-nextgen:network/v20190901:NatGateway" }, { type: "azure-nextgen:network/v20191101:NatGateway" }, { type: "azure-nextgen:network/v20191201:NatGateway" }, { type: "azure-nextgen:network/v20200301:NatGateway" }, { type: "azure-nextgen:network/v20200401:NatGateway" }, { type: "azure-nextgen:network/v20200501:NatGateway" }, { type: "azure-nextgen:network/v20200601:NatGateway" }, { type: "azure-nextgen:network/v20200701:NatGateway" }, { type: "azure-nextgen:network/v20200801:NatGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NatGateway.__pulumiType, name, inputs, opts);
     }

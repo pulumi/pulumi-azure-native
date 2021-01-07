@@ -79,6 +79,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:FirewallPolicyRuleCollectionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:FirewallPolicyRuleCollectionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:FirewallPolicyRuleCollectionGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:FirewallPolicyRuleCollectionGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

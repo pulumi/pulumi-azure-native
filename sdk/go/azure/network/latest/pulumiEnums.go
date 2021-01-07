@@ -4095,6 +4095,91 @@ func (e VpnGatewayTunnelingProtocol) ToStringPtrOutputWithContext(ctx context.Co
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Vpn link connection mode.
+type VpnLinkConnectionMode pulumi.String
+
+const (
+	VpnLinkConnectionModeDefault       = VpnLinkConnectionMode("Default")
+	VpnLinkConnectionModeResponderOnly = VpnLinkConnectionMode("ResponderOnly")
+	VpnLinkConnectionModeInitiatorOnly = VpnLinkConnectionMode("InitiatorOnly")
+)
+
+func (VpnLinkConnectionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e VpnLinkConnectionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnLinkConnectionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnLinkConnectionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnLinkConnectionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The Source NAT direction of a VPN NAT.
+type VpnNatRuleMode pulumi.String
+
+const (
+	VpnNatRuleModeEgressSnat  = VpnNatRuleMode("EgressSnat")
+	VpnNatRuleModeIngressSnat = VpnNatRuleMode("IngressSnat")
+)
+
+func (VpnNatRuleMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e VpnNatRuleMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnNatRuleMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnNatRuleMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnNatRuleMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of NAT rule for VPN NAT.
+type VpnNatRuleType pulumi.String
+
+const (
+	VpnNatRuleTypeStatic  = VpnNatRuleType("Static")
+	VpnNatRuleTypeDynamic = VpnNatRuleType("Dynamic")
+)
+
+func (VpnNatRuleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e VpnNatRuleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnNatRuleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnNatRuleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnNatRuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of this virtual network gateway.
 type VpnType pulumi.String
 
