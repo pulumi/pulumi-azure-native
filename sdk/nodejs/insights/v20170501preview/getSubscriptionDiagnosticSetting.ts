@@ -15,7 +15,6 @@ export function getSubscriptionDiagnosticSetting(args: GetSubscriptionDiagnostic
     }
     return pulumi.runtime.invoke("azure-nextgen:insights/v20170501preview:getSubscriptionDiagnosticSetting", {
         "name": args.name,
-        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -24,10 +23,6 @@ export interface GetSubscriptionDiagnosticSettingArgs {
      * The name of the diagnostic setting.
      */
     readonly name: string;
-    /**
-     * The subscription id.
-     */
-    readonly subscriptionId?: string;
 }
 
 /**

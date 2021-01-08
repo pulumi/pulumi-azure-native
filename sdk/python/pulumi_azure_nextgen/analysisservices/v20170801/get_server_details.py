@@ -20,7 +20,7 @@ class GetServerDetailsResult:
     """
     Represents an instance of an Analysis Services resource.
     """
-    def __init__(__self__, as_administrators=None, backup_blob_container_uri=None, gateway_details=None, id=None, ip_v4_firewall_settings=None, location=None, managed_mode=None, name=None, provisioning_state=None, querypool_connection_mode=None, server_full_name=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, as_administrators=None, backup_blob_container_uri=None, gateway_details=None, id=None, ip_v4_firewall_settings=None, location=None, managed_mode=None, name=None, provisioning_state=None, querypool_connection_mode=None, server_full_name=None, server_monitor_mode=None, sku=None, state=None, tags=None, type=None):
         if as_administrators and not isinstance(as_administrators, dict):
             raise TypeError("Expected argument 'as_administrators' to be a dict")
         pulumi.set(__self__, "as_administrators", as_administrators)
@@ -54,6 +54,9 @@ class GetServerDetailsResult:
         if server_full_name and not isinstance(server_full_name, str):
             raise TypeError("Expected argument 'server_full_name' to be a str")
         pulumi.set(__self__, "server_full_name", server_full_name)
+        if server_monitor_mode and not isinstance(server_monitor_mode, int):
+            raise TypeError("Expected argument 'server_monitor_mode' to be a int")
+        pulumi.set(__self__, "server_monitor_mode", server_monitor_mode)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -156,6 +159,14 @@ class GetServerDetailsResult:
         return pulumi.get(self, "server_full_name")
 
     @property
+    @pulumi.getter(name="serverMonitorMode")
+    def server_monitor_mode(self) -> Optional[int]:
+        """
+        The server monitor mode for AS server
+        """
+        return pulumi.get(self, "server_monitor_mode")
+
+    @property
     @pulumi.getter
     def sku(self) -> 'outputs.ResourceSkuResponse':
         """
@@ -205,6 +216,7 @@ class AwaitableGetServerDetailsResult(GetServerDetailsResult):
             provisioning_state=self.provisioning_state,
             querypool_connection_mode=self.querypool_connection_mode,
             server_full_name=self.server_full_name,
+            server_monitor_mode=self.server_monitor_mode,
             sku=self.sku,
             state=self.state,
             tags=self.tags,
@@ -241,6 +253,7 @@ def get_server_details(resource_group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         querypool_connection_mode=__ret__.querypool_connection_mode,
         server_full_name=__ret__.server_full_name,
+        server_monitor_mode=__ret__.server_monitor_mode,
         sku=__ret__.sku,
         state=__ret__.state,
         tags=__ret__.tags,

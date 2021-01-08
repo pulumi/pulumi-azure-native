@@ -76,6 +76,10 @@ export class ServerDetails extends pulumi.CustomResource {
      */
     public /*out*/ readonly serverFullName!: pulumi.Output<string>;
     /**
+     * The server monitor mode for AS server
+     */
+    public readonly serverMonitorMode!: pulumi.Output<number | undefined>;
+    /**
      * The SKU of the Analysis Services resource.
      */
     public readonly sku!: pulumi.Output<outputs.analysisservices.v20170801.ResourceSkuResponse>;
@@ -122,6 +126,7 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["managedMode"] = args ? args.managedMode : undefined;
             inputs["querypoolConnectionMode"] = args ? args.querypoolConnectionMode : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverMonitorMode"] = args ? args.serverMonitorMode : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -141,6 +146,7 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["querypoolConnectionMode"] = undefined /*out*/;
             inputs["serverFullName"] = undefined /*out*/;
+            inputs["serverMonitorMode"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -195,6 +201,10 @@ export interface ServerDetailsArgs {
      * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The server monitor mode for AS server
+     */
+    readonly serverMonitorMode?: pulumi.Input<enums.analysisservices.v20170801.ServerMonitorMode>;
     /**
      * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
      */
