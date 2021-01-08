@@ -223,6 +223,7 @@ __all__ = [
     'ServiceEndpointPolicyArgs',
     'ServiceEndpointPolicyDefinitionArgs',
     'ServiceEndpointPropertiesFormatArgs',
+    'SkuArgs',
     'SoaRecordArgs',
     'SrvRecordArgs',
     'StaticRouteArgs',
@@ -16311,6 +16312,30 @@ class ServiceEndpointPropertiesFormatArgs:
     @service.setter
     def service(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service", value)
+
+
+@pulumi.input_type
+class SkuArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None):
+        """
+        The pricing tier of the web application firewall policy.
+        :param pulumi.Input[Union[str, 'SkuName']] name: Name of the pricing tier.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[Union[str, 'SkuName']]]:
+        """
+        Name of the pricing tier.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[Union[str, 'SkuName']]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         public Input<bool>? EnableAcceleratedNetworking { get; set; }
 
         /// <summary>
+        /// Specifies whether the network interface is FPGA networking-enabled.
+        /// </summary>
+        [Input("enableFpga")]
+        public Input<bool>? EnableFpga { get; set; }
+
+        /// <summary>
         /// Whether IP forwarding enabled on this NIC.
         /// </summary>
         [Input("enableIPForwarding")]

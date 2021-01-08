@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Defines web application firewall policy.
-    /// Latest API Version: 2020-04-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/latest:Policy")]
     public partial class Policy : Pulumi.CustomResource
@@ -74,6 +74,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<ImmutableArray<Outputs.RoutingRuleLinkResponse>> RoutingRuleLinks { get; private set; } = null!;
 
         /// <summary>
+        /// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190301:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191001:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:Policy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,6 +185,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

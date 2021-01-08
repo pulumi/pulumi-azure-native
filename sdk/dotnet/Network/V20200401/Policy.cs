@@ -113,6 +113,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190301:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191001:Policy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// </summary>
         public readonly bool? EnableAcceleratedNetworking;
         /// <summary>
+        /// Specifies whether the network interface is FPGA networking-enabled.
+        /// </summary>
+        public readonly bool? EnableFpga;
+        /// <summary>
         /// Whether IP forwarding enabled on this NIC.
         /// </summary>
         public readonly bool? EnableIPForwarding;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
 
             bool? enableAcceleratedNetworking,
 
+            bool? enableFpga,
+
             bool? enableIPForwarding,
 
             string? id,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         {
             DnsSettings = dnsSettings;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
+            EnableFpga = enableFpga;
             EnableIPForwarding = enableIPForwarding;
             Id = id;
             IpConfigurations = ipConfigurations;

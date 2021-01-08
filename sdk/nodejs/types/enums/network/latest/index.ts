@@ -991,6 +991,17 @@ export const ManagedRuleExclusionSelectorMatchOperator = {
  */
 export type ManagedRuleExclusionSelectorMatchOperator = (typeof ManagedRuleExclusionSelectorMatchOperator)[keyof typeof ManagedRuleExclusionSelectorMatchOperator];
 
+export const ManagedRuleSetActionType = {
+    Block: "Block",
+    Log: "Log",
+    Redirect: "Redirect",
+} as const;
+
+/**
+ * Defines the action to take when a managed rule set score threshold is met.
+ */
+export type ManagedRuleSetActionType = (typeof ManagedRuleSetActionType)[keyof typeof ManagedRuleSetActionType];
+
 export const MatchProcessingBehavior = {
     Continue: "Continue",
     Stop: "Stop",
@@ -1121,6 +1132,16 @@ export const PolicyMode = {
  * Describes if it is in detection mode or prevention mode at policy level.
  */
 export type PolicyMode = (typeof PolicyMode)[keyof typeof PolicyMode];
+
+export const PolicyRequestBodyCheck = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Describes if policy managed rules will inspect the request body content.
+ */
+export type PolicyRequestBodyCheck = (typeof PolicyRequestBodyCheck)[keyof typeof PolicyRequestBodyCheck];
 
 export const PreferredIPVersion = {
     IPv4: "IPv4",
@@ -1381,6 +1402,17 @@ export const SessionAffinityEnabledState = {
  * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
  */
 export type SessionAffinityEnabledState = (typeof SessionAffinityEnabledState)[keyof typeof SessionAffinityEnabledState];
+
+export const SkuName = {
+    Classic_AzureFrontDoor: "Classic_AzureFrontDoor",
+    Standard_AzureFrontDoor: "Standard_AzureFrontDoor",
+    Premium_AzureFrontDoor: "Premium_AzureFrontDoor",
+} as const;
+
+/**
+ * Name of the pricing tier.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const State = {
     Enabled: "Enabled",

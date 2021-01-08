@@ -3291,6 +3291,7 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
                  name: pulumi.Input[str],
                  dns_settings: Optional[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs']] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
+                 enable_fpga: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input['SubResourceArgs']] = None,
@@ -3301,6 +3302,7 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
         :param pulumi.Input[str] name: The network configuration name.
         :param pulumi.Input['VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs'] dns_settings: The dns settings to be applied on the network interfaces.
         :param pulumi.Input[bool] enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
+        :param pulumi.Input[bool] enable_fpga: Specifies whether the network interface is FPGA networking-enabled.
         :param pulumi.Input[bool] enable_ip_forwarding: Whether IP forwarding enabled on this NIC.
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input['SubResourceArgs'] network_security_group: The network security group.
@@ -3312,6 +3314,8 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
             pulumi.set(__self__, "dns_settings", dns_settings)
         if enable_accelerated_networking is not None:
             pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+        if enable_fpga is not None:
+            pulumi.set(__self__, "enable_fpga", enable_fpga)
         if enable_ip_forwarding is not None:
             pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
         if id is not None:
@@ -3368,6 +3372,18 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
     @enable_accelerated_networking.setter
     def enable_accelerated_networking(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_accelerated_networking", value)
+
+    @property
+    @pulumi.getter(name="enableFpga")
+    def enable_fpga(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the network interface is FPGA networking-enabled.
+        """
+        return pulumi.get(self, "enable_fpga")
+
+    @enable_fpga.setter
+    def enable_fpga(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_fpga", value)
 
     @property
     @pulumi.getter(name="enableIPForwarding")

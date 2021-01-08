@@ -46,6 +46,8 @@ type LookupPolicyResult struct {
 	ResourceState     string `pulumi:"resourceState"`
 	// Describes Routing Rules associated with this Web Application Firewall policy.
 	RoutingRuleLinks []RoutingRuleLinkResponse `pulumi:"routingRuleLinks"`
+	// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -257,6 +257,7 @@ __all__ = [
     'ServiceEndpointPolicyDefinitionResponse',
     'ServiceEndpointPolicyResponse',
     'ServiceEndpointPropertiesFormatResponse',
+    'SkuResponse',
     'SoaRecordResponse',
     'SrvRecordResponse',
     'StaticRouteResponse',
@@ -19679,6 +19680,32 @@ class ServiceEndpointPropertiesFormatResponse(dict):
         The type of the endpoint service.
         """
         return pulumi.get(self, "service")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SkuResponse(dict):
+    """
+    The pricing tier of the web application firewall policy.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        The pricing tier of the web application firewall policy.
+        :param str name: Name of the pricing tier.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the pricing tier.
+        """
+        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
