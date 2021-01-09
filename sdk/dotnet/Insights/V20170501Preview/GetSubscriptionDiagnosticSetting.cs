@@ -24,12 +24,6 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// The subscription id.
-        /// </summary>
-        [Input("subscriptionId")]
-        public string? SubscriptionId { get; set; }
-
         public GetSubscriptionDiagnosticSettingArgs()
         {
         }

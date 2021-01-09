@@ -40,12 +40,12 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
     public sealed class ListServerGatewayStatusResult
     {
         /// <summary>
-        /// Live message of list gateway.
+        /// Live message of list gateway. Status: 0 - Live
         /// </summary>
-        public readonly string? Status;
+        public readonly int? Status;
 
         [OutputConstructor]
-        private ListServerGatewayStatusResult(string? status)
+        private ListServerGatewayStatusResult(int? status)
         {
             Status = status;
         }

@@ -22,6 +22,16 @@ export const ManagedMode = {
  */
 export type ManagedMode = (typeof ManagedMode)[keyof typeof ManagedMode];
 
+export const ServerMonitorMode = {
+    Zero: "0",
+    One: "1",
+} as const;
+
+/**
+ * The server monitor mode for AS server
+ */
+export type ServerMonitorMode = (typeof ServerMonitorMode)[keyof typeof ServerMonitorMode];
+
 export const SkuTier = {
     Development: "Development",
     Basic: "Basic",
