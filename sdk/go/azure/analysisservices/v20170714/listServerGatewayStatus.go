@@ -25,6 +25,6 @@ type ListServerGatewayStatusArgs struct {
 
 // Status of gateway is live
 type ListServerGatewayStatusResult struct {
-	// Live message of list gateway.
-	Status *string `pulumi:"status"`
+	// Live message of list gateway. Status: 0 - Live
+	Status *int `pulumi:"status"`
 }

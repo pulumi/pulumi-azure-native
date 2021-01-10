@@ -79,6 +79,10 @@ export interface GetServerDetailsResult {
      */
     readonly serverFullName: string;
     /**
+     * The server monitor mode for AS server
+     */
+    readonly serverMonitorMode?: number;
+    /**
      * The SKU of the Analysis Services resource.
      */
     readonly sku: outputs.analysisservices.v20170801.ResourceSkuResponse;

@@ -76,6 +76,12 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801
         public Output<string> ServerFullName { get; private set; } = null!;
 
         /// <summary>
+        /// The server monitor mode for AS server
+        /// </summary>
+        [Output("serverMonitorMode")]
+        public Output<int?> ServerMonitorMode { get; private set; } = null!;
+
+        /// <summary>
         /// The SKU of the Analysis Services resource.
         /// </summary>
         [Output("sku")]
@@ -198,6 +204,12 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The server monitor mode for AS server
+        /// </summary>
+        [Input("serverMonitorMode")]
+        public Input<Pulumi.AzureNextGen.AnalysisServices.V20170801.ServerMonitorMode>? ServerMonitorMode { get; set; }
 
         /// <summary>
         /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.

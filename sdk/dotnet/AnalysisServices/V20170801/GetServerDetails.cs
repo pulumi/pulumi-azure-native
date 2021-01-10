@@ -84,6 +84,10 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801
         /// </summary>
         public readonly string ServerFullName;
         /// <summary>
+        /// The server monitor mode for AS server
+        /// </summary>
+        public readonly int? ServerMonitorMode;
+        /// <summary>
         /// The SKU of the Analysis Services resource.
         /// </summary>
         public readonly Outputs.ResourceSkuResponse Sku;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801
 
             string serverFullName,
 
+            int? serverMonitorMode,
+
             Outputs.ResourceSkuResponse sku,
 
             string state,
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801
             ProvisioningState = provisioningState;
             QuerypoolConnectionMode = querypoolConnectionMode;
             ServerFullName = serverFullName;
+            ServerMonitorMode = serverMonitorMode;
             Sku = sku;
             State = state;
             Tags = tags;
