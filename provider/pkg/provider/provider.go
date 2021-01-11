@@ -8,6 +8,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/Azure/go-autorest/autorest/adal"
 	"io/ioutil"
 	"log"
 	"math"
@@ -182,6 +183,20 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 			"subscriptionId": auth.SubscriptionID,
 			"tenantId":       auth.TenantID,
 		}
+	case "azure-nextgen:authorization/latest:getClientToken":
+		auth, err := k.getAuthConfig()
+		if err != nil {
+			return nil, fmt.Errorf("getting auth config: %w", err)
+		}
+		endpoint := k.environment.ResourceManagerEndpoint
+		if endpointArg := args["endpoint"]; endpointArg.HasValue() && endpointArg.IsString() {
+			endpoint = endpointArg.StringValue()
+		}
+		token, err := k.getOAuthToken(ctx, auth, endpoint)
+		if err != nil {
+			return nil, err
+		}
+		outputs = map[string]interface{}{"token": token}
 	case "azure-nextgen:armtemplate:decode":
 		var text string
 		if textArg := args["text"]; textArg.HasValue() && textArg.IsString() {
@@ -1360,6 +1375,34 @@ func (k *azureNextGenProvider) getAuthorizers(authConfig *authentication.Config)
 
 	bearerAuth = authConfig.BearerAuthorizerCallback(buildSender, oauthConfig)
 	return tokenAuth, bearerAuth, nil
+}
+
+func (k *azureNextGenProvider) getOAuthToken(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
+	buildSender := sender.BuildSender("AzureNextGen")
+	oauthConfig, err := auth.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
+	authorizer, err := auth.GetAuthorizationToken(buildSender, oauthConfig, endpoint)
+	if err != nil {
+		return "", fmt.Errorf("getting authorization token: %w", err)
+	}
+	ba, ok := authorizer.(*autorest.BearerAuthorizer)
+	if !ok {
+		return "", fmt.Errorf("converting %T to a BearerAuthorizer", authorizer)
+	}
+	tokenProvider := ba.TokenProvider()
+	// the ordering is important here, prefer RefresherWithContext if available
+	if refresher, ok := tokenProvider.(adal.RefresherWithContext); ok {
+		err = refresher.EnsureFreshWithContext(ctx)
+	} else if refresher, ok := tokenProvider.(adal.Refresher); ok {
+		err = refresher.EnsureFresh()
+	}
+	if err != nil {
+		return "", fmt.Errorf("error refreshing token from %T", tokenProvider)
+	}
+	token := tokenProvider.OAuthToken()
+	if token == "" {
+		return "", fmt.Errorf("empty token from %T", tokenProvider)
+	}
+	return token, nil
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.

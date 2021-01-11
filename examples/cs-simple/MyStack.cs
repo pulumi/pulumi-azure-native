@@ -1,5 +1,9 @@
 using System.Threading.Tasks;
+using Microsoft.Azure.Management.Storage;
+using EncryptionScope = Microsoft.Azure.Management.Storage.Models.EncryptionScope;
+using Microsoft.Rest;
 using Pulumi;
+using Pulumi.AzureNextGen.Authorization.Latest;
 using Pulumi.AzureNextGen.Resources.Latest;
 using Pulumi.AzureNextGen.Storage.Latest;
 using Pulumi.AzureNextGen.Storage.Latest.Inputs;
@@ -36,10 +40,16 @@ class MyStack : Stack
 
         this.PrimaryStorageKey = Output.Tuple(resourceGroup.Name, storageAccount.Name).Apply(names =>
             Output.CreateSecret(GetStorageAccountPrimaryKey(names.Item1, names.Item2)));
+        this.EncryptionScopeState = Output.Tuple(resourceGroup.Name, storageAccount.Name).Apply(names =>
+            CreateEncryptionScope(names.Item1, names.Item2, "test"));
     }
 
     [Output]
     public Output<string> PrimaryStorageKey { get; set; }
+    
+    [Output]
+    public Output<string> EncryptionScopeState { get; set; }
+
 
     private static async Task<string> GetStorageAccountPrimaryKey(string resourceGroupName, string accountName)
     {
@@ -49,5 +59,20 @@ class MyStack : Stack
             AccountName = accountName
         });
         return accountKeys.Keys[0].Value;
+    }
+    
+    private static async Task<string> CreateEncryptionScope(string resourceGroupName, string accountName, string scopeName)
+    {
+        // Example of using the Azure SDK in Pulumi programs
+        var config = await GetClientConfig.InvokeAsync();
+        var token = await GetClientToken.InvokeAsync();
+        var client = new StorageManagementClient(new TokenCredentials(new StringTokenProvider(token.Token, "Bearer")))
+        {
+            SubscriptionId = config.SubscriptionId
+        };
+
+        var scope = await client.EncryptionScopes.PutAsync(
+            resourceGroupName, accountName, scopeName, new EncryptionScope());
+        return scope.State;
     }
 }

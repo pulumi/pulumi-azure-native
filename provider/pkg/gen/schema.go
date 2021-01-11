@@ -349,15 +349,19 @@ func genMixins(pkg *pschema.PackageSpec) error {
 			Description: "Configuration values returned by getClientConfig.",
 			Properties: map[string]schema.PropertySpec{
 				"clientId": {
+					Description: "Azure Client ID (Application Object ID).",
 					TypeSpec: schema.TypeSpec{Type: "string"},
 				},
 				"objectId": {
+					Description: "Azure Object ID of the current user or service principal.",
 					TypeSpec: schema.TypeSpec{Type: "string"},
 				},
 				"subscriptionId": {
+					Description: "Azure Subscription ID",
 					TypeSpec: schema.TypeSpec{Type: "string"},
 				},
 				"tenantId": {
+					Description: "Azure Tenant ID",
 					TypeSpec: schema.TypeSpec{Type: "string"},
 				},
 			},
@@ -365,6 +369,35 @@ func genMixins(pkg *pschema.PackageSpec) error {
 			Required: []string{"clientId", "objectId", "subscriptionId", "tenantId"},
 		},
 	}
+
+	// Mixin 'getClientToken' to obtain an Azure auth token.
+	if _, has := pkg.Functions["azure-nextgen:authorization/latest:getClientToken"]; has {
+		return errors.New("Invoke 'azure-nextgen:authorization/latest:getClientToken' is already defined")
+	}
+	pkg.Functions["azure-nextgen:authorization/latest:getClientToken"] = schema.FunctionSpec{
+		Description: "Use this function to get an Azure authentication token for the current login context.",
+		Inputs: &schema.ObjectTypeSpec{
+			Properties: map[string]schema.PropertySpec{
+				"endpoint": {
+					Description: "Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.",
+					TypeSpec: schema.TypeSpec{Type: "string"},
+				},
+			},
+			Type: "object",
+		},
+		Outputs: &schema.ObjectTypeSpec{
+			Description: "Configuration values returned by getClientToken.",
+			Properties: map[string]schema.PropertySpec{
+				"token": {
+					Description: "OAuth token for Azure Management API and SDK authentication.",
+					TypeSpec: schema.TypeSpec{Type: "string"},
+				},
+			},
+			Type: "object",
+			Required: []string{"token"},
+		},
+	}
+
 	return nil
 }
 

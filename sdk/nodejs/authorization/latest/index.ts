@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./getClientConfig";
+export * from "./getClientToken";
 export * from "./getManagementLockAtResourceGroupLevel";
 export * from "./getManagementLockAtResourceLevel";
 export * from "./getManagementLockAtSubscriptionLevel";

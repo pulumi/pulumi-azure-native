@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from ._enums import *
 from .get_client_config import *
+from .get_client_token import *
 from .get_management_lock_at_resource_group_level import *
 from .get_management_lock_at_resource_level import *
 from .get_management_lock_at_subscription_level import *

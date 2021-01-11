@@ -22,9 +22,21 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
     [OutputType]
     public sealed class GetClientConfigResult
     {
+        /// <summary>
+        /// Azure Client ID (Application Object ID).
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// Azure Object ID of the current user or service principal.
+        /// </summary>
         public readonly string ObjectId;
+        /// <summary>
+        /// Azure Subscription ID
+        /// </summary>
         public readonly string SubscriptionId;
+        /// <summary>
+        /// Azure Tenant ID
+        /// </summary>
         public readonly string TenantId;
 
         [OutputConstructor]
