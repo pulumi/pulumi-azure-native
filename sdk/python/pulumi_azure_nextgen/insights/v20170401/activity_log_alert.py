@@ -71,6 +71,8 @@ class ActivityLogAlert(pulumi.CustomResource):
                 raise TypeError("Missing required property 'condition'")
             __props__['condition'] = condition
             __props__['description'] = description
+            if enabled is None:
+                enabled = True
             __props__['enabled'] = enabled
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")

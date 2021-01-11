@@ -62,6 +62,8 @@ class AdditionalLocationArgs:
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "sku", sku)
+        if disable_gateway is None:
+            disable_gateway = False
         if disable_gateway is not None:
             pulumi.set(__self__, "disable_gateway", disable_gateway)
         if virtual_network_configuration is not None:
@@ -692,8 +694,12 @@ class BackendTlsPropertiesArgs:
         :param pulumi.Input[bool] validate_certificate_chain: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
         :param pulumi.Input[bool] validate_certificate_name: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
         """
+        if validate_certificate_chain is None:
+            validate_certificate_chain = True
         if validate_certificate_chain is not None:
             pulumi.set(__self__, "validate_certificate_chain", validate_certificate_chain)
+        if validate_certificate_name is None:
+            validate_certificate_name = True
         if validate_certificate_name is not None:
             pulumi.set(__self__, "validate_certificate_name", validate_certificate_name)
 
@@ -954,12 +960,16 @@ class HostnameConfigurationArgs:
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if default_ssl_binding is None:
+            default_ssl_binding = False
         if default_ssl_binding is not None:
             pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
         if encoded_certificate is not None:
             pulumi.set(__self__, "encoded_certificate", encoded_certificate)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if negotiate_client_certificate is None:
+            negotiate_client_certificate = False
         if negotiate_client_certificate is not None:
             pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
 

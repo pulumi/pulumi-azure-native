@@ -79,7 +79,11 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__['bgp_communities'] = bgp_communities
             __props__['ddos_protection_plan'] = ddos_protection_plan
             __props__['dhcp_options'] = dhcp_options
+            if enable_ddos_protection is None:
+                enable_ddos_protection = False
             __props__['enable_ddos_protection'] = enable_ddos_protection
+            if enable_vm_protection is None:
+                enable_vm_protection = False
             __props__['enable_vm_protection'] = enable_vm_protection
             __props__['extended_location'] = extended_location
             __props__['id'] = id

@@ -151,6 +151,8 @@ class BaseImageTriggerArgs:
         """
         pulumi.set(__self__, "base_image_trigger_type", base_image_trigger_type)
         pulumi.set(__self__, "name", name)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -597,6 +599,8 @@ class SourceTriggerArgs:
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source_repository", source_repository)
         pulumi.set(__self__, "source_trigger_events", source_trigger_events)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -703,6 +707,8 @@ class TimerTriggerArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 

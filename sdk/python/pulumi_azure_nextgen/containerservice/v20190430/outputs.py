@@ -38,6 +38,8 @@ class NetworkProfileResponse(dict):
         """
         if peer_vnet_id is not None:
             pulumi.set(__self__, "peer_vnet_id", peer_vnet_id)
+        if vnet_cidr is None:
+            vnet_cidr = '10.0.0.0/8'
         if vnet_cidr is not None:
             pulumi.set(__self__, "vnet_cidr", vnet_cidr)
         if vnet_id is not None:
@@ -174,6 +176,8 @@ class OpenShiftManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "os_type", os_type)
         if role is not None:
             pulumi.set(__self__, "role", role)
+        if subnet_cidr is None:
+            subnet_cidr = '10.0.0.0/24'
         if subnet_cidr is not None:
             pulumi.set(__self__, "subnet_cidr", subnet_cidr)
 

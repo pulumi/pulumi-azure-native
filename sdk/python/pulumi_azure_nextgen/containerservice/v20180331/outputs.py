@@ -79,16 +79,26 @@ class ContainerServiceNetworkProfileResponse(dict):
         :param str pod_cidr: A CIDR notation IP range from which to assign pod IPs when kubenet is used.
         :param str service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         """
+        if dns_service_ip is None:
+            dns_service_ip = '10.0.0.10'
         if dns_service_ip is not None:
             pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+        if docker_bridge_cidr is None:
+            docker_bridge_cidr = '172.17.0.1/16'
         if docker_bridge_cidr is not None:
             pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+        if network_plugin is None:
+            network_plugin = 'kubenet'
         if network_plugin is not None:
             pulumi.set(__self__, "network_plugin", network_plugin)
         if network_policy is not None:
             pulumi.set(__self__, "network_policy", network_policy)
+        if pod_cidr is None:
+            pod_cidr = '10.244.0.0/16'
         if pod_cidr is not None:
             pulumi.set(__self__, "pod_cidr", pod_cidr)
+        if service_cidr is None:
+            service_cidr = '10.0.0.0/16'
         if service_cidr is not None:
             pulumi.set(__self__, "service_cidr", service_cidr)
 
@@ -352,6 +362,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "storage_profile", storage_profile)
         pulumi.set(__self__, "vm_size", vm_size)
+        if count is None:
+            count = 1
         if count is not None:
             pulumi.set(__self__, "count", count)
         if max_pods is not None:

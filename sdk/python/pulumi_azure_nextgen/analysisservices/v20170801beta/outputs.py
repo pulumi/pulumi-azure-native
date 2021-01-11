@@ -170,6 +170,8 @@ class ResourceSkuResponse(dict):
         :param str tier: The name of the Azure pricing tier to which the SKU applies.
         """
         pulumi.set(__self__, "name", name)
+        if capacity is None:
+            capacity = 1
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
         if tier is not None:

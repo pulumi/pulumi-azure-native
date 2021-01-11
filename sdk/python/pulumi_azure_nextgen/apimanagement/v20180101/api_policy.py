@@ -57,6 +57,8 @@ class ApiPolicy(pulumi.CustomResource):
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
+            if content_format is None:
+                content_format = 'xml'
             __props__['content_format'] = content_format
             if policy_content is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_content'")

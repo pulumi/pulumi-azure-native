@@ -416,6 +416,8 @@ class AmlComputePropertiesArgs:
         :param pulumi.Input[Union[str, 'VmPriority']] vm_priority: Virtual Machine priority
         :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
+        if remote_login_port_public_access is None:
+            remote_login_port_public_access = 'NotSpecified'
         if remote_login_port_public_access is not None:
             pulumi.set(__self__, "remote_login_port_public_access", remote_login_port_public_access)
         if scale_settings is not None:
@@ -1065,6 +1067,8 @@ class DatasetCreateRequestParametersArgs:
         """
         if header is not None:
             pulumi.set(__self__, "header", header)
+        if include_path is None:
+            include_path = False
         if include_path is not None:
             pulumi.set(__self__, "include_path", include_path)
         if partition_format is not None:
@@ -2796,6 +2800,8 @@ class ScaleSettingsArgs:
         :param pulumi.Input[str] node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
+        if min_node_count is None:
+            min_node_count = 0
         if min_node_count is not None:
             pulumi.set(__self__, "min_node_count", min_node_count)
         if node_idle_time_before_scale_down is not None:

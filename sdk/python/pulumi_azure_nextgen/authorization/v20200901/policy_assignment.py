@@ -70,6 +70,8 @@ class PolicyAssignment(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['display_name'] = display_name
+            if enforcement_mode is None:
+                enforcement_mode = 'Default'
             __props__['enforcement_mode'] = enforcement_mode
             __props__['identity'] = identity
             __props__['location'] = location

@@ -9297,6 +9297,8 @@ class PacketCaptureFilterResponse(dict):
             pulumi.set(__self__, "local_ip_address", local_ip_address)
         if local_port is not None:
             pulumi.set(__self__, "local_port", local_port)
+        if protocol is None:
+            protocol = 'Any'
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if remote_ip_address is not None:

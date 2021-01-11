@@ -74,6 +74,8 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['enable_disk_encryption'] = enable_disk_encryption
+            if enable_streaming_ingest is None:
+                enable_streaming_ingest = False
             __props__['enable_streaming_ingest'] = enable_streaming_ingest
             __props__['identity'] = identity
             __props__['key_vault_properties'] = key_vault_properties

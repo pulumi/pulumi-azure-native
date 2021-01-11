@@ -1105,6 +1105,8 @@ class DiskEncryptionPropertiesResponse(dict):
         """
         if encryption_algorithm is not None:
             pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host is None:
+            encryption_at_host = False
         if encryption_at_host is not None:
             pulumi.set(__self__, "encryption_at_host", encryption_at_host)
         if key_name is not None:
@@ -1179,6 +1181,8 @@ class EncryptionInTransitPropertiesResponse(dict):
         The encryption-in-transit properties.
         :param bool is_encryption_in_transit_enabled: Indicates whether or not inter cluster node communication is encrypted in transit.
         """
+        if is_encryption_in_transit_enabled is None:
+            is_encryption_in_transit_enabled = False
         if is_encryption_in_transit_enabled is not None:
             pulumi.set(__self__, "is_encryption_in_transit_enabled", is_encryption_in_transit_enabled)
 

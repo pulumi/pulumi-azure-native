@@ -405,6 +405,8 @@ class AmlComputePropertiesArgs:
         :param pulumi.Input[Union[str, 'VmPriority']] vm_priority: Virtual Machine priority
         :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
+        if remote_login_port_public_access is None:
+            remote_login_port_public_access = 'NotSpecified'
         if remote_login_port_public_access is not None:
             pulumi.set(__self__, "remote_login_port_public_access", remote_login_port_public_access)
         if scale_settings is not None:
@@ -1141,6 +1143,8 @@ class ScaleSettingsArgs:
         :param pulumi.Input[str] node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
+        if min_node_count is None:
+            min_node_count = 0
         if min_node_count is not None:
             pulumi.set(__self__, "min_node_count", min_node_count)
         if node_idle_time_before_scale_down is not None:
@@ -1336,6 +1340,8 @@ class SslConfigurationArgs:
             pulumi.set(__self__, "key", key)
         if leaf_domain_label is not None:
             pulumi.set(__self__, "leaf_domain_label", leaf_domain_label)
+        if overwrite_existing_domain is None:
+            overwrite_existing_domain = False
         if overwrite_existing_domain is not None:
             pulumi.set(__self__, "overwrite_existing_domain", overwrite_existing_domain)
         if status is not None:

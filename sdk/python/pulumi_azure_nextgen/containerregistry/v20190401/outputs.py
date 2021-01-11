@@ -76,6 +76,8 @@ class ArgumentResponse(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
+        if is_secret is None:
+            is_secret = False
         if is_secret is not None:
             pulumi.set(__self__, "is_secret", is_secret)
 
@@ -270,6 +272,8 @@ class BaseImageTriggerResponse(dict):
         """
         pulumi.set(__self__, "base_image_trigger_type", base_image_trigger_type)
         pulumi.set(__self__, "name", name)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -444,8 +448,12 @@ class DockerBuildStepResponse(dict):
             pulumi.set(__self__, "context_path", context_path)
         if image_names is not None:
             pulumi.set(__self__, "image_names", image_names)
+        if is_push_enabled is None:
+            is_push_enabled = True
         if is_push_enabled is not None:
             pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if no_cache is None:
+            no_cache = False
         if no_cache is not None:
             pulumi.set(__self__, "no_cache", no_cache)
         if target is not None:
@@ -908,6 +916,8 @@ class SetValueResponse(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
+        if is_secret is None:
+            is_secret = False
         if is_secret is not None:
             pulumi.set(__self__, "is_secret", is_secret)
 
@@ -1051,6 +1061,8 @@ class SourceTriggerResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source_repository", source_repository)
         pulumi.set(__self__, "source_trigger_events", source_trigger_events)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -1107,6 +1119,8 @@ class TimerTriggerResponse(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 

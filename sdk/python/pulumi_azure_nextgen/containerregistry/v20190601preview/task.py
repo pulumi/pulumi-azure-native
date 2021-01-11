@@ -81,6 +81,8 @@ class Task(pulumi.CustomResource):
             __props__['agent_pool_name'] = agent_pool_name
             __props__['credentials'] = credentials
             __props__['identity'] = identity
+            if is_system_task is None:
+                is_system_task = False
             __props__['is_system_task'] = is_system_task
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
@@ -99,6 +101,8 @@ class Task(pulumi.CustomResource):
             if task_name is None and not opts.urn:
                 raise TypeError("Missing required property 'task_name'")
             __props__['task_name'] = task_name
+            if timeout is None:
+                timeout = 3600
             __props__['timeout'] = timeout
             __props__['trigger'] = trigger
             __props__['creation_date'] = None

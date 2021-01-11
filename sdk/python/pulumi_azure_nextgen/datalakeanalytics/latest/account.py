@@ -95,11 +95,17 @@ class Account(pulumi.CustomResource):
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            if max_degree_of_parallelism is None:
+                max_degree_of_parallelism = 30
             __props__['max_degree_of_parallelism'] = max_degree_of_parallelism
             __props__['max_degree_of_parallelism_per_job'] = max_degree_of_parallelism_per_job
+            if max_job_count is None:
+                max_job_count = 3
             __props__['max_job_count'] = max_job_count
             __props__['min_priority_per_job'] = min_priority_per_job
             __props__['new_tier'] = new_tier
+            if query_store_retention is None:
+                query_store_retention = 30
             __props__['query_store_retention'] = query_store_retention
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

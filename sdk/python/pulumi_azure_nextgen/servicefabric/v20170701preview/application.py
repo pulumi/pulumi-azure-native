@@ -75,6 +75,8 @@ class Application(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['location'] = location
+            if maximum_nodes is None:
+                maximum_nodes = 0
             __props__['maximum_nodes'] = maximum_nodes
             __props__['metrics'] = metrics
             __props__['minimum_nodes'] = minimum_nodes

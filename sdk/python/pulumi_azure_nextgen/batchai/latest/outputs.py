@@ -124,6 +124,8 @@ class AutoScaleSettingsResponse(dict):
         """
         pulumi.set(__self__, "maximum_node_count", maximum_node_count)
         pulumi.set(__self__, "minimum_node_count", minimum_node_count)
+        if initial_node_count is None:
+            initial_node_count = 0
         if initial_node_count is not None:
             pulumi.set(__self__, "initial_node_count", initial_node_count)
 
@@ -250,8 +252,12 @@ class AzureFileShareReferenceResponse(dict):
         pulumi.set(__self__, "azure_file_url", azure_file_url)
         pulumi.set(__self__, "credentials", credentials)
         pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        if directory_mode is None:
+            directory_mode = '0777'
         if directory_mode is not None:
             pulumi.set(__self__, "directory_mode", directory_mode)
+        if file_mode is None:
+            file_mode = '0777'
         if file_mode is not None:
             pulumi.set(__self__, "file_mode", file_mode)
 
@@ -782,6 +788,8 @@ class DataDisksResponse(dict):
         pulumi.set(__self__, "disk_count", disk_count)
         pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
         pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if caching_type is None:
+            caching_type = 'none'
         if caching_type is not None:
             pulumi.set(__self__, "caching_type", caching_type)
 
@@ -1285,6 +1293,8 @@ class JobPropertiesResponseConstraints(dict):
         Constraints associated with the Job.
         :param str max_wall_clock_time: Max time the job can run. Default value: 1 week.
         """
+        if max_wall_clock_time is None:
+            max_wall_clock_time = '7.00:00:00'
         if max_wall_clock_time is not None:
             pulumi.set(__self__, "max_wall_clock_time", max_wall_clock_time)
 
@@ -1407,7 +1417,11 @@ class ManualScaleSettingsResponse(dict):
         :param int target_node_count: The desired number of compute nodes in the Cluster. Default is 0.
         :param str node_deallocation_option: An action to be performed when the cluster size is decreasing. The default value is requeue.
         """
+        if target_node_count is None:
+            target_node_count = 0
         pulumi.set(__self__, "target_node_count", target_node_count)
+        if node_deallocation_option is None:
+            node_deallocation_option = 'requeue'
         if node_deallocation_option is not None:
             pulumi.set(__self__, "node_deallocation_option", node_deallocation_option)
 

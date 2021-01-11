@@ -96,6 +96,8 @@ class ApiManagementService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            if vpn_type is None:
+                vpn_type = 'None'
             __props__['vpn_type'] = vpn_type
             __props__['vpnconfiguration'] = vpnconfiguration
             __props__['created_at_utc'] = None

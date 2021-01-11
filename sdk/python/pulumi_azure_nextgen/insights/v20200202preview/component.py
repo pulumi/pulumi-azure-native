@@ -75,13 +75,19 @@ class Component(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if application_type is None:
+                application_type = 'web'
             if application_type is None and not opts.urn:
                 raise TypeError("Missing required property 'application_type'")
             __props__['application_type'] = application_type
             __props__['disable_ip_masking'] = disable_ip_masking
+            if flow_type is None:
+                flow_type = 'Bluefield'
             __props__['flow_type'] = flow_type
             __props__['hockey_app_id'] = hockey_app_id
             __props__['immediate_purge_data_on30_days'] = immediate_purge_data_on30_days
+            if ingestion_mode is None:
+                ingestion_mode = 'LogAnalytics'
             __props__['ingestion_mode'] = ingestion_mode
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -91,6 +97,8 @@ class Component(pulumi.CustomResource):
             __props__['location'] = location
             __props__['public_network_access_for_ingestion'] = public_network_access_for_ingestion
             __props__['public_network_access_for_query'] = public_network_access_for_query
+            if request_source is None:
+                request_source = 'rest'
             __props__['request_source'] = request_source
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

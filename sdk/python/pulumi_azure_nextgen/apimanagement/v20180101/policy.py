@@ -52,6 +52,8 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if content_format is None:
+                content_format = 'xml'
             __props__['content_format'] = content_format
             if policy_content is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_content'")

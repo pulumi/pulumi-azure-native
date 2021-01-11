@@ -33,14 +33,24 @@ class DomainSecuritySettingsArgs:
         :param pulumi.Input[Union[str, 'SyncOnPremPasswords']] sync_on_prem_passwords: A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
         :param pulumi.Input[Union[str, 'TlsV1']] tls_v1: A flag to determine whether or not TlsV1 is enabled or disabled.
         """
+        if ntlm_v1 is None:
+            ntlm_v1 = 'Enabled'
         if ntlm_v1 is not None:
             pulumi.set(__self__, "ntlm_v1", ntlm_v1)
+        if sync_kerberos_passwords is None:
+            sync_kerberos_passwords = 'Enabled'
         if sync_kerberos_passwords is not None:
             pulumi.set(__self__, "sync_kerberos_passwords", sync_kerberos_passwords)
+        if sync_ntlm_passwords is None:
+            sync_ntlm_passwords = 'Enabled'
         if sync_ntlm_passwords is not None:
             pulumi.set(__self__, "sync_ntlm_passwords", sync_ntlm_passwords)
+        if sync_on_prem_passwords is None:
+            sync_on_prem_passwords = 'Enabled'
         if sync_on_prem_passwords is not None:
             pulumi.set(__self__, "sync_on_prem_passwords", sync_on_prem_passwords)
+        if tls_v1 is None:
+            tls_v1 = 'Enabled'
         if tls_v1 is not None:
             pulumi.set(__self__, "tls_v1", tls_v1)
 
@@ -207,8 +217,12 @@ class LdapsSettingsArgs:
         :param pulumi.Input[str] pfx_certificate: The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
         :param pulumi.Input[str] pfx_certificate_password: The password to decrypt the provided Secure LDAP certificate pfx file.
         """
+        if external_access is None:
+            external_access = 'Disabled'
         if external_access is not None:
             pulumi.set(__self__, "external_access", external_access)
+        if ldaps is None:
+            ldaps = 'Disabled'
         if ldaps is not None:
             pulumi.set(__self__, "ldaps", ldaps)
         if pfx_certificate is not None:

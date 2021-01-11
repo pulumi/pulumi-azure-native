@@ -110,6 +110,8 @@ class AutoScaleSettingsArgs:
         """
         pulumi.set(__self__, "maximum_node_count", maximum_node_count)
         pulumi.set(__self__, "minimum_node_count", minimum_node_count)
+        if initial_node_count is None:
+            initial_node_count = 0
         if initial_node_count is not None:
             pulumi.set(__self__, "initial_node_count", initial_node_count)
 
@@ -233,8 +235,12 @@ class AzureFileShareReferenceArgs:
         pulumi.set(__self__, "azure_file_url", azure_file_url)
         pulumi.set(__self__, "credentials", credentials)
         pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        if directory_mode is None:
+            directory_mode = '0777'
         if directory_mode is not None:
             pulumi.set(__self__, "directory_mode", directory_mode)
+        if file_mode is None:
+            file_mode = '0777'
         if file_mode is not None:
             pulumi.set(__self__, "file_mode", file_mode)
 
@@ -687,6 +693,8 @@ class DataDisksArgs:
         pulumi.set(__self__, "disk_count", disk_count)
         pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
         pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if caching_type is None:
+            caching_type = 'none'
         if caching_type is not None:
             pulumi.set(__self__, "caching_type", caching_type)
 
@@ -1028,6 +1036,8 @@ class JobBasePropertiesConstraintsArgs:
         Constraints associated with the Job.
         :param pulumi.Input[str] max_wall_clock_time: Default Value = 1 week.
         """
+        if max_wall_clock_time is None:
+            max_wall_clock_time = '7.00:00:00'
         if max_wall_clock_time is not None:
             pulumi.set(__self__, "max_wall_clock_time", max_wall_clock_time)
 
@@ -1111,7 +1121,11 @@ class ManualScaleSettingsArgs:
         :param pulumi.Input[int] target_node_count: Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
         :param pulumi.Input['DeallocationOption'] node_deallocation_option: The default value is requeue.
         """
+        if target_node_count is None:
+            target_node_count = 0
         pulumi.set(__self__, "target_node_count", target_node_count)
+        if node_deallocation_option is None:
+            node_deallocation_option = 'requeue'
         if node_deallocation_option is not None:
             pulumi.set(__self__, "node_deallocation_option", node_deallocation_option)
 
@@ -1278,10 +1292,14 @@ class OutputDirectoryArgs:
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "path_prefix", path_prefix)
+        if create_new is None:
+            create_new = True
         if create_new is not None:
             pulumi.set(__self__, "create_new", create_new)
         if path_suffix is not None:
             pulumi.set(__self__, "path_suffix", path_suffix)
+        if type is None:
+            type = 'custom'
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -1576,6 +1594,8 @@ class SetupTaskArgs:
         pulumi.set(__self__, "std_out_err_path_prefix", std_out_err_path_prefix)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if run_elevated is None:
+            run_elevated = False
         if run_elevated is not None:
             pulumi.set(__self__, "run_elevated", run_elevated)
         if secrets is not None:

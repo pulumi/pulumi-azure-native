@@ -368,10 +368,16 @@ class ConfigurationSettingResponse(dict):
             pulumi.set(__self__, "allow_module_overwrite", allow_module_overwrite)
         if configuration_mode is not None:
             pulumi.set(__self__, "configuration_mode", configuration_mode)
+        if configuration_mode_frequency_mins is None:
+            configuration_mode_frequency_mins = 15
         if configuration_mode_frequency_mins is not None:
             pulumi.set(__self__, "configuration_mode_frequency_mins", configuration_mode_frequency_mins)
+        if reboot_if_needed is None:
+            reboot_if_needed = 'False'
         if reboot_if_needed is not None:
             pulumi.set(__self__, "reboot_if_needed", reboot_if_needed)
+        if refresh_frequency_mins is None:
+            refresh_frequency_mins = 30
         if refresh_frequency_mins is not None:
             pulumi.set(__self__, "refresh_frequency_mins", refresh_frequency_mins)
 

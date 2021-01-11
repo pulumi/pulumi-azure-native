@@ -115,6 +115,8 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'node_count'")
             __props__['node_count'] = node_count
             __props__['output_directories'] = output_directories
+            if priority is None:
+                priority = 0
             __props__['priority'] = priority
             __props__['py_torch_settings'] = py_torch_settings
             if resource_group_name is None and not opts.urn:

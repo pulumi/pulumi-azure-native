@@ -582,10 +582,18 @@ class BackupScheduleResponseResult(dict):
         :param int retention_period_in_days: After how many days backups should be deleted.
         :param str start_time: When the schedule should start working.
         """
+        if frequency_interval is None:
+            frequency_interval = 7
         pulumi.set(__self__, "frequency_interval", frequency_interval)
+        if frequency_unit is None:
+            frequency_unit = 'Day'
         pulumi.set(__self__, "frequency_unit", frequency_unit)
+        if keep_at_least_one_backup is None:
+            keep_at_least_one_backup = True
         pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
         pulumi.set(__self__, "last_execution_time", last_execution_time)
+        if retention_period_in_days is None:
+            retention_period_in_days = 30
         pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
@@ -1090,6 +1098,8 @@ class FileSystemApplicationLogsConfigResponse(dict):
         Application logs to file system configuration.
         :param str level: Log level.
         """
+        if level is None:
+            level = 'Off'
         if level is not None:
             pulumi.set(__self__, "level", level)
 
@@ -2228,6 +2238,8 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "ftps_state", ftps_state)
         if handler_mappings is not None:
             pulumi.set(__self__, "handler_mappings", handler_mappings)
+        if http20_enabled is None:
+            http20_enabled = True
         if http20_enabled is not None:
             pulumi.set(__self__, "http20_enabled", http20_enabled)
         if http_logging_enabled is not None:
@@ -2246,6 +2258,8 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "linux_fx_version", linux_fx_version)
         if load_balancing is not None:
             pulumi.set(__self__, "load_balancing", load_balancing)
+        if local_my_sql_enabled is None:
+            local_my_sql_enabled = False
         if local_my_sql_enabled is not None:
             pulumi.set(__self__, "local_my_sql_enabled", local_my_sql_enabled)
         if logs_directory_size_limit is not None:
@@ -2256,6 +2270,8 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "managed_service_identity_id", managed_service_identity_id)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if net_framework_version is None:
+            net_framework_version = 'v4.6'
         if net_framework_version is not None:
             pulumi.set(__self__, "net_framework_version", net_framework_version)
         if node_version is not None:

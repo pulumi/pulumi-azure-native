@@ -128,8 +128,12 @@ class MachineLearningDatastore(pulumi.CustomResource):
             __props__['datastore_name'] = datastore_name
             __props__['description'] = description
             __props__['endpoint'] = endpoint
+            if enforce_ssl is None:
+                enforce_ssl = True
             __props__['enforce_ssl'] = enforce_ssl
             __props__['file_system'] = file_system
+            if include_secret is None:
+                include_secret = True
             __props__['include_secret'] = include_secret
             __props__['name'] = name
             __props__['password'] = password

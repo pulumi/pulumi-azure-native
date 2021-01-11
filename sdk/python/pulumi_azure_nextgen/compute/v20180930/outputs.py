@@ -108,6 +108,8 @@ class DiskSkuResponse(dict):
         :param str tier: The sku tier.
         :param str name: The sku name.
         """
+        if tier is None:
+            tier = 'Standard'
         pulumi.set(__self__, "tier", tier)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -329,6 +331,8 @@ class SnapshotSkuResponse(dict):
         :param str tier: The sku tier.
         :param str name: The sku name.
         """
+        if tier is None:
+            tier = 'Standard'
         pulumi.set(__self__, "tier", tier)
         if name is not None:
             pulumi.set(__self__, "name", name)

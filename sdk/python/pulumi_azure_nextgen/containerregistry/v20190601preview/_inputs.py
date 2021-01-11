@@ -74,6 +74,8 @@ class ArgumentArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
+        if is_secret is None:
+            is_secret = False
         if is_secret is not None:
             pulumi.set(__self__, "is_secret", is_secret)
 
@@ -218,6 +220,8 @@ class BaseImageTriggerArgs:
         """
         pulumi.set(__self__, "base_image_trigger_type", base_image_trigger_type)
         pulumi.set(__self__, "name", name)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
         if update_trigger_endpoint is not None:
@@ -447,18 +451,26 @@ class DockerBuildRequestArgs:
             pulumi.set(__self__, "credentials", credentials)
         if image_names is not None:
             pulumi.set(__self__, "image_names", image_names)
+        if is_archive_enabled is None:
+            is_archive_enabled = False
         if is_archive_enabled is not None:
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if is_push_enabled is None:
+            is_push_enabled = True
         if is_push_enabled is not None:
             pulumi.set(__self__, "is_push_enabled", is_push_enabled)
         if log_template is not None:
             pulumi.set(__self__, "log_template", log_template)
+        if no_cache is None:
+            no_cache = False
         if no_cache is not None:
             pulumi.set(__self__, "no_cache", no_cache)
         if source_location is not None:
             pulumi.set(__self__, "source_location", source_location)
         if target is not None:
             pulumi.set(__self__, "target", target)
+        if timeout is None:
+            timeout = 3600
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -680,8 +692,12 @@ class DockerBuildStepArgs:
             pulumi.set(__self__, "context_path", context_path)
         if image_names is not None:
             pulumi.set(__self__, "image_names", image_names)
+        if is_push_enabled is None:
+            is_push_enabled = True
         if is_push_enabled is not None:
             pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if no_cache is None:
+            no_cache = False
         if no_cache is not None:
             pulumi.set(__self__, "no_cache", no_cache)
         if target is not None:
@@ -840,12 +856,16 @@ class EncodedTaskRunRequestArgs:
             pulumi.set(__self__, "credentials", credentials)
         if encoded_values_content is not None:
             pulumi.set(__self__, "encoded_values_content", encoded_values_content)
+        if is_archive_enabled is None:
+            is_archive_enabled = False
         if is_archive_enabled is not None:
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if log_template is not None:
             pulumi.set(__self__, "log_template", log_template)
         if source_location is not None:
             pulumi.set(__self__, "source_location", source_location)
+        if timeout is None:
+            timeout = 3600
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if values is not None:
@@ -1143,12 +1163,16 @@ class FileTaskRunRequestArgs:
             pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if is_archive_enabled is None:
+            is_archive_enabled = False
         if is_archive_enabled is not None:
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if log_template is not None:
             pulumi.set(__self__, "log_template", log_template)
         if source_location is not None:
             pulumi.set(__self__, "source_location", source_location)
+        if timeout is None:
+            timeout = 3600
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if values is not None:
@@ -1705,6 +1729,8 @@ class SetValueArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
+        if is_secret is None:
+            is_secret = False
         if is_secret is not None:
             pulumi.set(__self__, "is_secret", is_secret)
 
@@ -1862,6 +1888,8 @@ class SourceTriggerArgs:
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source_repository", source_repository)
         pulumi.set(__self__, "source_trigger_events", source_trigger_events)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -1937,6 +1965,8 @@ class TaskRunRequestArgs:
         pulumi.set(__self__, "type", 'TaskRunRequest')
         if agent_pool_name is not None:
             pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if is_archive_enabled is None:
+            is_archive_enabled = False
         if is_archive_enabled is not None:
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if log_template is not None:
@@ -2032,6 +2062,8 @@ class TimerTriggerArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 

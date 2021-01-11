@@ -62,6 +62,8 @@ class DatabaseAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['identity'] = identity
+            if kind is None:
+                kind = 'GlobalDocumentDB'
             __props__['kind'] = kind
             __props__['location'] = location
             if properties is None and not opts.urn:

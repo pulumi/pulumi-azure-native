@@ -16376,6 +16376,8 @@ class VMNicDetailsResponse(dict):
             pulumi.set(__self__, "replica_nic_id", replica_nic_id)
         if replica_nic_static_ip_address is not None:
             pulumi.set(__self__, "replica_nic_static_ip_address", replica_nic_static_ip_address)
+        if reuse_existing_nic is None:
+            reuse_existing_nic = False
         if reuse_existing_nic is not None:
             pulumi.set(__self__, "reuse_existing_nic", reuse_existing_nic)
         if selection_type is not None:
@@ -16390,6 +16392,8 @@ class VMNicDetailsResponse(dict):
             pulumi.set(__self__, "tfo_recovery_nic_name", tfo_recovery_nic_name)
         if tfo_recovery_nic_resource_group_name is not None:
             pulumi.set(__self__, "tfo_recovery_nic_resource_group_name", tfo_recovery_nic_resource_group_name)
+        if tfo_reuse_existing_nic is None:
+            tfo_reuse_existing_nic = False
         if tfo_reuse_existing_nic is not None:
             pulumi.set(__self__, "tfo_reuse_existing_nic", tfo_reuse_existing_nic)
         if tfo_vm_network_id is not None:

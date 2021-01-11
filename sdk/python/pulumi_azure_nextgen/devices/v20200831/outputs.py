@@ -846,6 +846,8 @@ class NetworkRuleSetIpRuleResponse(dict):
         """
         pulumi.set(__self__, "filter_name", filter_name)
         pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
 
@@ -894,6 +896,8 @@ class NetworkRuleSetPropertiesResponse(dict):
         """
         pulumi.set(__self__, "apply_to_built_in_event_hub_endpoint", apply_to_built_in_event_hub_endpoint)
         pulumi.set(__self__, "ip_rules", ip_rules)
+        if default_action is None:
+            default_action = 'Deny'
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
 

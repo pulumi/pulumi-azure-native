@@ -139,6 +139,8 @@ class RecommendationConfigurationPropertiesArgs:
         :param pulumi.Input[Union[str, 'RecommendationConfigStatus']] status: Recommendation status. The recommendation is not generated when the status is disabled
         """
         pulumi.set(__self__, "recommendation_type", recommendation_type)
+        if status is None:
+            status = 'Enabled'
         pulumi.set(__self__, "status", status)
 
     @property

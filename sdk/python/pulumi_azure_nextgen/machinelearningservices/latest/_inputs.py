@@ -397,6 +397,8 @@ class AmlComputePropertiesArgs:
         :param pulumi.Input[Union[str, 'VmPriority']] vm_priority: Virtual Machine priority
         :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
+        if remote_login_port_public_access is None:
+            remote_login_port_public_access = 'NotSpecified'
         if remote_login_port_public_access is not None:
             pulumi.set(__self__, "remote_login_port_public_access", remote_login_port_public_access)
         if scale_settings is not None:
@@ -586,6 +588,8 @@ class ComputeInstancePropertiesArgs:
         :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
+        if application_sharing_policy is None:
+            application_sharing_policy = 'Shared'
         if application_sharing_policy is not None:
             pulumi.set(__self__, "application_sharing_policy", application_sharing_policy)
         if ssh_settings is not None:
@@ -656,6 +660,8 @@ class ComputeInstanceSshSettingsArgs:
         """
         if admin_public_key is not None:
             pulumi.set(__self__, "admin_public_key", admin_public_key)
+        if ssh_public_access is None:
+            ssh_public_access = 'Disabled'
         if ssh_public_access is not None:
             pulumi.set(__self__, "ssh_public_access", ssh_public_access)
 
@@ -1374,6 +1380,8 @@ class ScaleSettingsArgs:
         :param pulumi.Input[str] node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
+        if min_node_count is None:
+            min_node_count = 0
         if min_node_count is not None:
             pulumi.set(__self__, "min_node_count", min_node_count)
         if node_idle_time_before_scale_down is not None:

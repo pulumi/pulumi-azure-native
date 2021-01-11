@@ -87,6 +87,8 @@ class BuildTask(pulumi.CustomResource):
             __props__['source_repository'] = source_repository
             __props__['status'] = status
             __props__['tags'] = tags
+            if timeout is None:
+                timeout = 3600
             __props__['timeout'] = timeout
             __props__['creation_date'] = None
             __props__['name'] = None

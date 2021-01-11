@@ -69,6 +69,8 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if auto_renew is None:
+                auto_renew = True
             __props__['auto_renew'] = auto_renew
             if certificate_order_name is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_order_name'")
@@ -76,6 +78,8 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             __props__['certificates'] = certificates
             __props__['csr'] = csr
             __props__['distinguished_name'] = distinguished_name
+            if key_size is None:
+                key_size = 2048
             __props__['key_size'] = key_size
             __props__['kind'] = kind
             if location is None and not opts.urn:
@@ -88,6 +92,8 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            if validity_in_years is None:
+                validity_in_years = 1
             __props__['validity_in_years'] = validity_in_years
             __props__['app_service_certificate_not_renewable_reasons'] = None
             __props__['domain_verification_token'] = None

@@ -450,6 +450,8 @@ class EncryptionArgs:
         :param pulumi.Input[bool] require_infrastructure_encryption: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
         :param pulumi.Input['EncryptionServicesArgs'] services: List of services which support encryption.
         """
+        if key_source is None:
+            key_source = 'Microsoft.Storage'
         pulumi.set(__self__, "key_source", key_source)
         if key_vault_properties is not None:
             pulumi.set(__self__, "key_vault_properties", key_vault_properties)
@@ -630,6 +632,8 @@ class IPRuleArgs:
         :param pulumi.Input['Action'] action: The action of IP ACL rule.
         """
         pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
 
@@ -1057,7 +1061,11 @@ class NetworkRuleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: Sets the IP ACL rules
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: Sets the virtual network rules
         """
+        if default_action is None:
+            default_action = 'Allow'
         pulumi.set(__self__, "default_action", default_action)
+        if bypass is None:
+            bypass = 'AzureServices'
         if bypass is not None:
             pulumi.set(__self__, "bypass", bypass)
         if ip_rules is not None:
@@ -1464,6 +1472,8 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input['State'] state: Gets the state of virtual network rule.
         """
         pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
         if state is not None:

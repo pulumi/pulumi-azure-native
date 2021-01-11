@@ -157,6 +157,8 @@ class SourceRepositoryPropertiesArgs:
         """
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "source_control_type", source_control_type)
+        if is_commit_trigger_enabled is None:
+            is_commit_trigger_enabled = False
         if is_commit_trigger_enabled is not None:
             pulumi.set(__self__, "is_commit_trigger_enabled", is_commit_trigger_enabled)
         if source_control_auth_properties is not None:

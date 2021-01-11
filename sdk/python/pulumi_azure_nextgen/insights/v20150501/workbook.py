@@ -85,6 +85,8 @@ class Workbook(pulumi.CustomResource):
             if serialized_data is None and not opts.urn:
                 raise TypeError("Missing required property 'serialized_data'")
             __props__['serialized_data'] = serialized_data
+            if shared_type_kind is None:
+                shared_type_kind = 'shared'
             if shared_type_kind is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_type_kind'")
             __props__['shared_type_kind'] = shared_type_kind

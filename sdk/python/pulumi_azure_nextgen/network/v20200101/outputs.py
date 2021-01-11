@@ -201,6 +201,8 @@ class BackendPoolsSettingsResponse(dict):
         :param str enforce_certificate_name_check: Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
         :param int send_recv_timeout_seconds: Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
         """
+        if enforce_certificate_name_check is None:
+            enforce_certificate_name_check = 'Enabled'
         if enforce_certificate_name_check is not None:
             pulumi.set(__self__, "enforce_certificate_name_check", enforce_certificate_name_check)
         if send_recv_timeout_seconds is not None:
@@ -863,6 +865,8 @@ class HealthProbeSettingsModelResponse(dict):
         pulumi.set(__self__, "type", type)
         if enabled_state is not None:
             pulumi.set(__self__, "enabled_state", enabled_state)
+        if health_probe_method is None:
+            health_probe_method = 'HEAD'
         if health_probe_method is not None:
             pulumi.set(__self__, "health_probe_method", health_probe_method)
         if id is not None:

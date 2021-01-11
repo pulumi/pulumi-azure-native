@@ -680,8 +680,12 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
         pulumi.set(__self__, "source_connection_info", source_connection_info)
         if check_permissions_group is not None:
             pulumi.set(__self__, "check_permissions_group", check_permissions_group)
+        if collect_agent_jobs is None:
+            collect_agent_jobs = False
         if collect_agent_jobs is not None:
             pulumi.set(__self__, "collect_agent_jobs", collect_agent_jobs)
+        if collect_logins is None:
+            collect_logins = False
         if collect_logins is not None:
             pulumi.set(__self__, "collect_logins", collect_logins)
 
@@ -9371,12 +9375,16 @@ class SqlConnectionInfoResponse(dict):
             pulumi.set(__self__, "additional_settings", additional_settings)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
+        if encrypt_connection is None:
+            encrypt_connection = True
         if encrypt_connection is not None:
             pulumi.set(__self__, "encrypt_connection", encrypt_connection)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if platform is not None:
             pulumi.set(__self__, "platform", platform)
+        if trust_server_certificate is None:
+            trust_server_certificate = False
         if trust_server_certificate is not None:
             pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:
@@ -10273,6 +10281,8 @@ class WaitStatisticsResponse(dict):
         :param str wait_type: Type of the Wait
         """
         pulumi.set(__self__, "wait_count", wait_count)
+        if wait_time_ms is None:
+            wait_time_ms = 0
         pulumi.set(__self__, "wait_time_ms", wait_time_ms)
         pulumi.set(__self__, "wait_type", wait_type)
 

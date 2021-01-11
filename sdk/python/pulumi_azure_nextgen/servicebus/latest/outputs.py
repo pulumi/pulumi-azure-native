@@ -38,6 +38,8 @@ class ActionResponse(dict):
         """
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if requires_preprocessing is None:
+            requires_preprocessing = True
         if requires_preprocessing is not None:
             pulumi.set(__self__, "requires_preprocessing", requires_preprocessing)
         if sql_expression is not None:
@@ -114,6 +116,8 @@ class CorrelationFilterResponse(dict):
             pulumi.set(__self__, "reply_to", reply_to)
         if reply_to_session_id is not None:
             pulumi.set(__self__, "reply_to_session_id", reply_to_session_id)
+        if requires_preprocessing is None:
+            requires_preprocessing = True
         if requires_preprocessing is not None:
             pulumi.set(__self__, "requires_preprocessing", requires_preprocessing)
         if session_id is not None:
@@ -287,6 +291,8 @@ class NWRuleSetIpRulesResponse(dict):
         :param str action: The IP Filter Action
         :param str ip_mask: IP Mask
         """
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
         if ip_mask is not None:
@@ -414,8 +420,12 @@ class SqlFilterResponse(dict):
         :param bool requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param str sql_expression: The SQL expression. e.g. MyProperty='ABC'
         """
+        if compatibility_level is None:
+            compatibility_level = 20
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if requires_preprocessing is None:
+            requires_preprocessing = True
         if requires_preprocessing is not None:
             pulumi.set(__self__, "requires_preprocessing", requires_preprocessing)
         if sql_expression is not None:

@@ -98,6 +98,8 @@ class ContainerServiceAgentPoolProfileArgs:
         :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
         :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
         """
+        if count is None:
+            count = 1
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "dns_prefix", dns_prefix)
         pulumi.set(__self__, "name", name)
@@ -246,6 +248,8 @@ class ContainerServiceMasterProfileArgs:
         :param pulumi.Input[int] count: Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
         """
         pulumi.set(__self__, "dns_prefix", dns_prefix)
+        if count is None:
+            count = 1
         if count is not None:
             pulumi.set(__self__, "count", count)
 
@@ -300,8 +304,12 @@ class ContainerServiceNetworkProfileArgs:
         :param pulumi.Input[str] pod_cidr: A CIDR notation IP range from which to assign pod IPs when kubenet is used.
         :param pulumi.Input[str] service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         """
+        if dns_service_ip is None:
+            dns_service_ip = '10.0.0.10'
         if dns_service_ip is not None:
             pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+        if docker_bridge_cidr is None:
+            docker_bridge_cidr = '172.17.0.1/16'
         if docker_bridge_cidr is not None:
             pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
         if load_balancer_profile is not None:
@@ -310,14 +318,22 @@ class ContainerServiceNetworkProfileArgs:
             pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
         if network_mode is not None:
             pulumi.set(__self__, "network_mode", network_mode)
+        if network_plugin is None:
+            network_plugin = 'kubenet'
         if network_plugin is not None:
             pulumi.set(__self__, "network_plugin", network_plugin)
         if network_policy is not None:
             pulumi.set(__self__, "network_policy", network_policy)
+        if outbound_type is None:
+            outbound_type = 'loadBalancer'
         if outbound_type is not None:
             pulumi.set(__self__, "outbound_type", outbound_type)
+        if pod_cidr is None:
+            pod_cidr = '10.244.0.0/16'
         if pod_cidr is not None:
             pulumi.set(__self__, "pod_cidr", pod_cidr)
+        if service_cidr is None:
+            service_cidr = '10.0.0.0/16'
         if service_cidr is not None:
             pulumi.set(__self__, "service_cidr", service_cidr)
 
@@ -1634,10 +1650,14 @@ class ManagedClusterLoadBalancerProfileArgs:
         :param pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs'] outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
         :param pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs'] outbound_ips: Desired outbound IP resources for the cluster load balancer.
         """
+        if allocated_outbound_ports is None:
+            allocated_outbound_ports = 0
         if allocated_outbound_ports is not None:
             pulumi.set(__self__, "allocated_outbound_ports", allocated_outbound_ports)
         if effective_outbound_ips is not None:
             pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
+        if idle_timeout_in_minutes is None:
+            idle_timeout_in_minutes = 30
         if idle_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if managed_outbound_ips is not None:
@@ -1728,6 +1748,8 @@ class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs:
         Desired managed outbound IPs for the cluster load balancer.
         :param pulumi.Input[int] count: Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
+        if count is None:
+            count = 1
         if count is not None:
             pulumi.set(__self__, "count", count)
 
@@ -2365,6 +2387,8 @@ class NetworkProfileArgs:
         """
         if peer_vnet_id is not None:
             pulumi.set(__self__, "peer_vnet_id", peer_vnet_id)
+        if vnet_cidr is None:
+            vnet_cidr = '10.0.0.0/8'
         if vnet_cidr is not None:
             pulumi.set(__self__, "vnet_cidr", vnet_cidr)
         if vnet_id is not None:
@@ -2521,6 +2545,8 @@ class OpenShiftManagedClusterAgentPoolProfileArgs:
             pulumi.set(__self__, "os_type", os_type)
         if role is not None:
             pulumi.set(__self__, "role", role)
+        if subnet_cidr is None:
+            subnet_cidr = '10.0.0.0/24'
         if subnet_cidr is not None:
             pulumi.set(__self__, "subnet_cidr", subnet_cidr)
 

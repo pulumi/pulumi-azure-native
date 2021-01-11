@@ -77,6 +77,8 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'user_account_settings'")
             __props__['user_account_settings'] = user_account_settings
             __props__['virtual_machine_configuration'] = virtual_machine_configuration
+            if vm_priority is None:
+                vm_priority = 'dedicated'
             __props__['vm_priority'] = vm_priority
             if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")

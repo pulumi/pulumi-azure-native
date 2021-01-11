@@ -100,6 +100,8 @@ class ApiManagementService(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['virtual_network_configuration'] = virtual_network_configuration
+            if virtual_network_type is None:
+                virtual_network_type = 'None'
             __props__['virtual_network_type'] = virtual_network_type
             __props__['created_at_utc'] = None
             __props__['etag'] = None

@@ -90,6 +90,8 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__['enable_multiple_write_locations'] = enable_multiple_write_locations
             __props__['ip_range_filter'] = ip_range_filter
             __props__['is_virtual_network_filter_enabled'] = is_virtual_network_filter_enabled
+            if kind is None:
+                kind = 'GlobalDocumentDB'
             __props__['kind'] = kind
             __props__['location'] = location
             if locations is None and not opts.urn:

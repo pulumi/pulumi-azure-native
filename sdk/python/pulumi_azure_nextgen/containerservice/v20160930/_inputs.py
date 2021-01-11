@@ -37,6 +37,8 @@ class ContainerServiceAgentPoolProfileArgs:
         :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
         :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
         """
+        if count is None:
+            count = 1
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "dns_prefix", dns_prefix)
         pulumi.set(__self__, "name", name)
@@ -185,6 +187,8 @@ class ContainerServiceMasterProfileArgs:
         :param pulumi.Input[int] count: Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
         """
         pulumi.set(__self__, "dns_prefix", dns_prefix)
+        if count is None:
+            count = 1
         if count is not None:
             pulumi.set(__self__, "count", count)
 

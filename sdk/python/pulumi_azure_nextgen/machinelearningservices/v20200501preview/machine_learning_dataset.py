@@ -72,6 +72,8 @@ class MachineLearningDataset(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if skip_validation is None:
+                skip_validation = False
             __props__['skip_validation'] = skip_validation
             __props__['time_series'] = time_series
             if workspace_name is None and not opts.urn:

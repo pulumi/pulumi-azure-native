@@ -113,6 +113,8 @@ class BuildArgumentResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
+        if is_secret is None:
+            is_secret = False
         if is_secret is not None:
             pulumi.set(__self__, "is_secret", is_secret)
 
@@ -199,8 +201,12 @@ class DockerBuildStepResponse(dict):
             pulumi.set(__self__, "docker_file_path", docker_file_path)
         if image_names is not None:
             pulumi.set(__self__, "image_names", image_names)
+        if is_push_enabled is None:
+            is_push_enabled = True
         if is_push_enabled is not None:
             pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if no_cache is None:
+            no_cache = False
         if no_cache is not None:
             pulumi.set(__self__, "no_cache", no_cache)
 
@@ -426,6 +432,8 @@ class SourceRepositoryPropertiesResponse(dict):
         """
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "source_control_type", source_control_type)
+        if is_commit_trigger_enabled is None:
+            is_commit_trigger_enabled = False
         if is_commit_trigger_enabled is not None:
             pulumi.set(__self__, "is_commit_trigger_enabled", is_commit_trigger_enabled)
         if source_control_auth_properties is not None:

@@ -66,12 +66,18 @@ class JobScheduleResponse(dict):
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if end_time is None:
+            end_time = '9999-12-31T11:59:59Z'
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
+        if start_time is None:
+            start_time = '0001-01-01T00:00:00Z'
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
+        if type is None:
+            type = 'Once'
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -135,8 +141,12 @@ class JobStepActionResponse(dict):
         :param str type: Type of action being executed by the job step.
         """
         pulumi.set(__self__, "value", value)
+        if source is None:
+            source = 'Inline'
         if source is not None:
             pulumi.set(__self__, "source", source)
+        if type is None:
+            type = 'TSql'
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -187,14 +197,24 @@ class JobStepExecutionOptionsResponse(dict):
         :param float retry_interval_backoff_multiplier: The backoff multiplier for the time between retries.
         :param int timeout_seconds: Execution timeout for the job step.
         """
+        if initial_retry_interval_seconds is None:
+            initial_retry_interval_seconds = 1
         if initial_retry_interval_seconds is not None:
             pulumi.set(__self__, "initial_retry_interval_seconds", initial_retry_interval_seconds)
+        if maximum_retry_interval_seconds is None:
+            maximum_retry_interval_seconds = 120
         if maximum_retry_interval_seconds is not None:
             pulumi.set(__self__, "maximum_retry_interval_seconds", maximum_retry_interval_seconds)
+        if retry_attempts is None:
+            retry_attempts = 10
         if retry_attempts is not None:
             pulumi.set(__self__, "retry_attempts", retry_attempts)
+        if retry_interval_backoff_multiplier is None:
+            retry_interval_backoff_multiplier = 2
         if retry_interval_backoff_multiplier is not None:
             pulumi.set(__self__, "retry_interval_backoff_multiplier", retry_interval_backoff_multiplier)
+        if timeout_seconds is None:
+            timeout_seconds = 43200
         if timeout_seconds is not None:
             pulumi.set(__self__, "timeout_seconds", timeout_seconds)
 
@@ -273,10 +293,14 @@ class JobStepOutputResponse(dict):
         pulumi.set(__self__, "table_name", table_name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if schema_name is None:
+            schema_name = 'dbo'
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
+        if type is None:
+            type = 'SqlDatabase'
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -376,6 +400,8 @@ class JobTargetResponse(dict):
             pulumi.set(__self__, "database_name", database_name)
         if elastic_pool_name is not None:
             pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
+        if membership_type is None:
+            membership_type = 'Include'
         if membership_type is not None:
             pulumi.set(__self__, "membership_type", membership_type)
         if refresh_credential is not None:
@@ -533,6 +559,8 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
         :param Sequence[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param bool is_enabled: Recurring scans state.
         """
+        if email_subscription_admins is None:
+            email_subscription_admins = True
         if email_subscription_admins is not None:
             pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
         if emails is not None:

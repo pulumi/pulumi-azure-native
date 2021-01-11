@@ -118,6 +118,8 @@ class ArgumentResponse(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
+        if is_secret is None:
+            is_secret = False
         if is_secret is not None:
             pulumi.set(__self__, "is_secret", is_secret)
 
@@ -312,6 +314,8 @@ class BaseImageTriggerResponse(dict):
         """
         pulumi.set(__self__, "base_image_trigger_type", base_image_trigger_type)
         pulumi.set(__self__, "name", name)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -486,8 +490,12 @@ class DockerBuildStepResponse(dict):
             pulumi.set(__self__, "context_path", context_path)
         if image_names is not None:
             pulumi.set(__self__, "image_names", image_names)
+        if is_push_enabled is None:
+            is_push_enabled = True
         if is_push_enabled is not None:
             pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if no_cache is None:
+            no_cache = False
         if no_cache is not None:
             pulumi.set(__self__, "no_cache", no_cache)
         if target is not None:
@@ -1070,6 +1078,8 @@ class IPRuleResponse(dict):
         :param str action: The action of IP ACL rule.
         """
         pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
 
@@ -1176,6 +1186,8 @@ class NetworkRuleSetResponse(dict):
         :param Sequence['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
         :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
         """
+        if default_action is None:
+            default_action = 'Allow'
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
@@ -1320,6 +1332,8 @@ class QuarantinePolicyResponse(dict):
         The quarantine policy for a container registry.
         :param str status: The value that indicates whether the policy is enabled or not.
         """
+        if status is None:
+            status = 'disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -1457,8 +1471,12 @@ class RetentionPolicyResponse(dict):
         :param str status: The value that indicates whether the policy is enabled or not.
         """
         pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if days is None:
+            days = 7
         if days is not None:
             pulumi.set(__self__, "days", days)
+        if status is None:
+            status = 'disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -1551,6 +1569,8 @@ class SetValueResponse(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
+        if is_secret is None:
+            is_secret = False
         if is_secret is not None:
             pulumi.set(__self__, "is_secret", is_secret)
 
@@ -1765,6 +1785,8 @@ class SourceTriggerResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source_repository", source_repository)
         pulumi.set(__self__, "source_trigger_events", source_trigger_events)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -2012,6 +2034,8 @@ class TimerTriggerResponse(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -2106,8 +2130,12 @@ class TrustPolicyResponse(dict):
         :param str status: The value that indicates whether the policy is enabled or not.
         :param str type: The type of trust policy.
         """
+        if status is None:
+            status = 'disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if type is None:
+            type = 'Notary'
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -2179,6 +2207,8 @@ class VirtualNetworkRuleResponse(dict):
         :param str action: The action of virtual network rule.
         """
         pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
 

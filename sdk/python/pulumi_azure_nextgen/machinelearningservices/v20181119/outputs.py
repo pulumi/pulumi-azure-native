@@ -1541,6 +1541,8 @@ class ScaleSettingsResponse(dict):
         :param str node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
+        if min_node_count is None:
+            min_node_count = 0
         if min_node_count is not None:
             pulumi.set(__self__, "min_node_count", min_node_count)
         if node_idle_time_before_scale_down is not None:

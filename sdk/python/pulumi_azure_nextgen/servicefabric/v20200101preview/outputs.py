@@ -250,8 +250,12 @@ class ClusterHealthPolicyResponse(dict):
         """
         if application_health_policies is not None:
             pulumi.set(__self__, "application_health_policies", application_health_policies)
+        if max_percent_unhealthy_applications is None:
+            max_percent_unhealthy_applications = 0
         if max_percent_unhealthy_applications is not None:
             pulumi.set(__self__, "max_percent_unhealthy_applications", max_percent_unhealthy_applications)
+        if max_percent_unhealthy_nodes is None:
+            max_percent_unhealthy_nodes = 0
         if max_percent_unhealthy_nodes is not None:
             pulumi.set(__self__, "max_percent_unhealthy_nodes", max_percent_unhealthy_nodes)
 
@@ -601,6 +605,8 @@ class ServiceTypeDeltaHealthPolicyResponse(dict):
                The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
         """
+        if max_percent_delta_unhealthy_services is None:
+            max_percent_delta_unhealthy_services = 0
         if max_percent_delta_unhealthy_services is not None:
             pulumi.set(__self__, "max_percent_delta_unhealthy_services", max_percent_delta_unhealthy_services)
 
@@ -630,6 +636,8 @@ class ServiceTypeHealthPolicyResponse(dict):
 
         :param int max_percent_unhealthy_services: The maximum percentage of services allowed to be unhealthy before your application is considered in error.
         """
+        if max_percent_unhealthy_services is None:
+            max_percent_unhealthy_services = 0
         if max_percent_unhealthy_services is not None:
             pulumi.set(__self__, "max_percent_unhealthy_services", max_percent_unhealthy_services)
 

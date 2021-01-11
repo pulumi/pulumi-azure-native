@@ -63,6 +63,8 @@ class PolicyDefinition(pulumi.CustomResource):
             __props__['description'] = description
             __props__['display_name'] = display_name
             __props__['metadata'] = metadata
+            if mode is None:
+                mode = 'Indexed'
             __props__['mode'] = mode
             __props__['parameters'] = parameters
             if policy_definition_name is None and not opts.urn:

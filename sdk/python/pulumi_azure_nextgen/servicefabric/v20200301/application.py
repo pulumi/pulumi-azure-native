@@ -83,6 +83,8 @@ class Application(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['location'] = location
             __props__['managed_identities'] = managed_identities
+            if maximum_nodes is None:
+                maximum_nodes = 0
             __props__['maximum_nodes'] = maximum_nodes
             __props__['metrics'] = metrics
             __props__['minimum_nodes'] = minimum_nodes

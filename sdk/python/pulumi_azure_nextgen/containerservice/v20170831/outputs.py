@@ -51,6 +51,8 @@ class ContainerServiceAgentPoolProfileResponse(dict):
         pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vm_size", vm_size)
+        if count is None:
+            count = 1
         if count is not None:
             pulumi.set(__self__, "count", count)
         if dns_prefix is not None:

@@ -82,8 +82,12 @@ class SourceControlConfiguration(pulumi.CustomResource):
             __props__['enable_helm_operator'] = enable_helm_operator
             __props__['helm_operator_properties'] = helm_operator_properties
             __props__['operator_instance_name'] = operator_instance_name
+            if operator_namespace is None:
+                operator_namespace = 'default'
             __props__['operator_namespace'] = operator_namespace
             __props__['operator_params'] = operator_params
+            if operator_scope is None:
+                operator_scope = 'cluster'
             __props__['operator_scope'] = operator_scope
             __props__['operator_type'] = operator_type
             __props__['repository_url'] = repository_url

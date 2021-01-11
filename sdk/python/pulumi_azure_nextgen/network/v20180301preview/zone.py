@@ -73,6 +73,8 @@ class Zone(pulumi.CustomResource):
             if zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
+            if zone_type is None:
+                zone_type = 'Public'
             __props__['zone_type'] = zone_type
             __props__['max_number_of_record_sets'] = None
             __props__['max_number_of_records_per_record_set'] = None

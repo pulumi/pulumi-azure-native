@@ -292,6 +292,8 @@ class EncryptionArgs:
         :param pulumi.Input[Union[str, 'KeySource']] key_source: Enumerates the possible value of keySource for Encryption
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties of KeyVault
         """
+        if key_source is None:
+            key_source = 'Microsoft.KeyVault'
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
         if key_vault_properties is not None:

@@ -57,6 +57,8 @@ class Replication(pulumi.CustomResource):
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            if region_endpoint_enabled is None:
+                region_endpoint_enabled = True
             __props__['region_endpoint_enabled'] = region_endpoint_enabled
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")

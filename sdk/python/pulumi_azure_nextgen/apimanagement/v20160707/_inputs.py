@@ -33,6 +33,8 @@ class AdditionalRegionArgs:
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "sku_type", sku_type)
+        if sku_unit_count is None:
+            sku_unit_count = 1
         if sku_unit_count is not None:
             pulumi.set(__self__, "sku_unit_count", sku_unit_count)
         if vpnconfiguration is not None:
@@ -98,6 +100,8 @@ class ApiManagementServiceSkuPropertiesArgs:
         :param pulumi.Input[int] capacity: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """
         pulumi.set(__self__, "name", name)
+        if capacity is None:
+            capacity = 1
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
 

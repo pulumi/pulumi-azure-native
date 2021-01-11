@@ -646,8 +646,12 @@ class VaultPropertiesArgs:
             pulumi.set(__self__, "create_mode", create_mode)
         if enable_purge_protection is not None:
             pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
+        if enable_rbac_authorization is None:
+            enable_rbac_authorization = False
         if enable_rbac_authorization is not None:
             pulumi.set(__self__, "enable_rbac_authorization", enable_rbac_authorization)
+        if enable_soft_delete is None:
+            enable_soft_delete = True
         if enable_soft_delete is not None:
             pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
         if enabled_for_deployment is not None:
@@ -658,6 +662,8 @@ class VaultPropertiesArgs:
             pulumi.set(__self__, "enabled_for_template_deployment", enabled_for_template_deployment)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
+        if soft_delete_retention_in_days is None:
+            soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
             pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
         if vault_uri is not None:

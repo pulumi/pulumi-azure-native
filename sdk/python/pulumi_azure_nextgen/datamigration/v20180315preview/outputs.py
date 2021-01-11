@@ -2951,10 +2951,14 @@ class SqlConnectionInfoResponse(dict):
             pulumi.set(__self__, "additional_settings", additional_settings)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
+        if encrypt_connection is None:
+            encrypt_connection = True
         if encrypt_connection is not None:
             pulumi.set(__self__, "encrypt_connection", encrypt_connection)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if trust_server_certificate is None:
+            trust_server_certificate = False
         if trust_server_certificate is not None:
             pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:

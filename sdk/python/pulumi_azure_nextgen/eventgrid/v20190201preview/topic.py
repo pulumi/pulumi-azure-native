@@ -56,6 +56,8 @@ class Topic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if input_schema is None:
+                input_schema = 'EventGridSchema'
             __props__['input_schema'] = input_schema
             __props__['input_schema_mapping'] = input_schema_mapping
             if location is None and not opts.urn:

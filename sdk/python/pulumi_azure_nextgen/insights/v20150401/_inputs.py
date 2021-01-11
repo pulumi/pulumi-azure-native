@@ -503,6 +503,8 @@ class ScaleActionArgs:
         pulumi.set(__self__, "cooldown", cooldown)
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "type", type)
+        if value is None:
+            value = '1'
         if value is not None:
             pulumi.set(__self__, "value", value)
 
