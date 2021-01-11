@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest.Inputs
 
         public NWRuleSetIpRulesArgs()
         {
+            Action = "Allow";
         }
     }
 }

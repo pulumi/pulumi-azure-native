@@ -361,12 +361,16 @@ class DeploymentSettingsArgs:
         :param pulumi.Input[str] net_core_main_entry_path: The path to the .NET executable relative to zip root
         :param pulumi.Input[Union[str, 'RuntimeVersion']] runtime_version: Runtime version
         """
+        if cpu is None:
+            cpu = 1
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if jvm_options is not None:
             pulumi.set(__self__, "jvm_options", jvm_options)
+        if memory_in_gb is None:
+            memory_in_gb = 1
         if memory_in_gb is not None:
             pulumi.set(__self__, "memory_in_gb", memory_in_gb)
         if net_core_main_entry_path is not None:

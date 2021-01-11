@@ -102,7 +102,7 @@ export class Topic extends pulumi.CustomResource {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            inputs["inputSchema"] = args ? args.inputSchema : undefined;
+            inputs["inputSchema"] = (args ? args.inputSchema : undefined) || "EventGridSchema";
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;

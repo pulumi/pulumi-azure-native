@@ -60,6 +60,9 @@ func NewRegistry(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.AdminUserEnabled == nil {
+		args.AdminUserEnabled = pulumi.BoolPtr(false)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/latest:Registry"),

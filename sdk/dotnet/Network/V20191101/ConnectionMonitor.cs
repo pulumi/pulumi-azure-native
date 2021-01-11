@@ -312,6 +312,8 @@ namespace Pulumi.AzureNextGen.Network.V20191101
 
         public ConnectionMonitorArgs()
         {
+            AutoStart = true;
+            MonitoringIntervalInSeconds = 60;
         }
     }
 }

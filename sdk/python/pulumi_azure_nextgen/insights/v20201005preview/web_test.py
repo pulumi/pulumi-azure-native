@@ -89,8 +89,12 @@ class WebTest(pulumi.CustomResource):
             __props__['description'] = description
             __props__['enabled'] = enabled
             __props__['expected_http_status_code'] = expected_http_status_code
+            if frequency is None:
+                frequency = 300
             __props__['frequency'] = frequency
             __props__['ignore_https_status_code'] = ignore_https_status_code
+            if kind is None:
+                kind = 'ping'
             __props__['kind'] = kind
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
@@ -109,7 +113,11 @@ class WebTest(pulumi.CustomResource):
                 raise TypeError("Missing required property 'synthetic_monitor_id'")
             __props__['synthetic_monitor_id'] = synthetic_monitor_id
             __props__['tags'] = tags
+            if timeout is None:
+                timeout = 30
             __props__['timeout'] = timeout
+            if web_test_kind is None:
+                web_test_kind = 'ping'
             if web_test_kind is None and not opts.urn:
                 raise TypeError("Missing required property 'web_test_kind'")
             __props__['web_test_kind'] = web_test_kind

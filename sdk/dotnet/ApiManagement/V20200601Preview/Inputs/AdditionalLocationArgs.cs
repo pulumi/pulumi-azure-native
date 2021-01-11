@@ -53,6 +53,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview.Inputs
 
         public AdditionalLocationArgs()
         {
+            DisableGateway = false;
         }
     }
 }

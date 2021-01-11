@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801.Inputs
 
         public EncryptionKeyDetailsArgs()
         {
+            KekType = "MicrosoftManaged";
         }
     }
 }

@@ -68,6 +68,8 @@ class Domain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
             __props__['inbound_ip_rules'] = inbound_ip_rules
+            if input_schema is None:
+                input_schema = 'EventGridSchema'
             __props__['input_schema'] = input_schema
             __props__['input_schema_mapping'] = input_schema_mapping
             if location is None and not opts.urn:

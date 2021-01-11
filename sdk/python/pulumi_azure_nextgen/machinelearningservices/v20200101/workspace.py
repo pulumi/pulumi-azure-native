@@ -80,6 +80,8 @@ class Workspace(pulumi.CustomResource):
             __props__['discovery_url'] = discovery_url
             __props__['encryption'] = encryption
             __props__['friendly_name'] = friendly_name
+            if hbi_workspace is None:
+                hbi_workspace = False
             __props__['hbi_workspace'] = hbi_workspace
             __props__['identity'] = identity
             __props__['key_vault'] = key_vault

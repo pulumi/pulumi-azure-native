@@ -29,6 +29,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
 
         public TrustPolicyArgs()
         {
+            Status = "disabled";
+            Type = "Notary";
         }
     }
 }

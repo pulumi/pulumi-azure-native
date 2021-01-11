@@ -68,14 +68,30 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
 
             __props__['access_recheck_offline_timeout'] = access_recheck_offline_timeout
             __props__['access_recheck_online_timeout'] = access_recheck_online_timeout
+            if app_sharing_from_level is None:
+                app_sharing_from_level = 'none'
             __props__['app_sharing_from_level'] = app_sharing_from_level
+            if app_sharing_to_level is None:
+                app_sharing_to_level = 'none'
             __props__['app_sharing_to_level'] = app_sharing_to_level
+            if authentication is None:
+                authentication = 'required'
             __props__['authentication'] = authentication
+            if clipboard_sharing_level is None:
+                clipboard_sharing_level = 'blocked'
             __props__['clipboard_sharing_level'] = clipboard_sharing_level
+            if data_backup is None:
+                data_backup = 'allow'
             __props__['data_backup'] = data_backup
             __props__['description'] = description
+            if device_compliance is None:
+                device_compliance = 'enable'
             __props__['device_compliance'] = device_compliance
+            if file_encryption is None:
+                file_encryption = 'required'
             __props__['file_encryption'] = file_encryption
+            if file_sharing_save_as is None:
+                file_sharing_save_as = 'allow'
             __props__['file_sharing_save_as'] = file_sharing_save_as
             if friendly_name is None and not opts.urn:
                 raise TypeError("Missing required property 'friendly_name'")
@@ -84,13 +100,19 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
                 raise TypeError("Missing required property 'host_name'")
             __props__['host_name'] = host_name
             __props__['location'] = location
+            if managed_browser is None:
+                managed_browser = 'required'
             __props__['managed_browser'] = managed_browser
             __props__['offline_wipe_timeout'] = offline_wipe_timeout
+            if pin is None:
+                pin = 'required'
             __props__['pin'] = pin
             __props__['pin_num_retry'] = pin_num_retry
             if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__['policy_name'] = policy_name
+            if screen_capture is None:
+                screen_capture = 'allow'
             __props__['screen_capture'] = screen_capture
             __props__['tags'] = tags
             __props__['group_status'] = None

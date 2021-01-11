@@ -198,6 +198,8 @@ class RecommendationConfigurationPropertiesResponse(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "recommendation_type", recommendation_type)
+        if status is None:
+            status = 'Enabled'
         pulumi.set(__self__, "status", status)
 
     @property

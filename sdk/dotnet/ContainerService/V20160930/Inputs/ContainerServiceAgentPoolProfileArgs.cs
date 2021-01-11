@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20160930.Inputs
 
         public ContainerServiceAgentPoolProfileArgs()
         {
+            Count = 1;
         }
     }
 }

@@ -74,6 +74,8 @@ class Registry(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if admin_user_enabled is None:
+                admin_user_enabled = False
             __props__['admin_user_enabled'] = admin_user_enabled
             __props__['data_endpoint_enabled'] = data_endpoint_enabled
             __props__['encryption'] = encryption
@@ -81,9 +83,13 @@ class Registry(pulumi.CustomResource):
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            if network_rule_bypass_options is None:
+                network_rule_bypass_options = 'AzureServices'
             __props__['network_rule_bypass_options'] = network_rule_bypass_options
             __props__['network_rule_set'] = network_rule_set
             __props__['policies'] = policies
+            if public_network_access is None:
+                public_network_access = 'Enabled'
             __props__['public_network_access'] = public_network_access
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
@@ -96,6 +102,8 @@ class Registry(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['storage_account'] = storage_account
             __props__['tags'] = tags
+            if zone_redundancy is None:
+                zone_redundancy = 'Disabled'
             __props__['zone_redundancy'] = zone_redundancy
             __props__['creation_date'] = None
             __props__['data_endpoint_host_names'] = None

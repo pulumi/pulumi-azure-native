@@ -105,8 +105,12 @@ class WebApp(pulumi.CustomResource):
             __props__['host_names_disabled'] = host_names_disabled
             __props__['hosting_environment_profile'] = hosting_environment_profile
             __props__['https_only'] = https_only
+            if hyper_v is None:
+                hyper_v = False
             __props__['hyper_v'] = hyper_v
             __props__['identity'] = identity
+            if is_xenon is None:
+                is_xenon = False
             __props__['is_xenon'] = is_xenon
             __props__['kind'] = kind
             if location is None and not opts.urn:
@@ -116,10 +120,14 @@ class WebApp(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['redundancy_mode'] = redundancy_mode
+            if reserved is None:
+                reserved = False
             __props__['reserved'] = reserved
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if scm_site_also_stopped is None:
+                scm_site_also_stopped = False
             __props__['scm_site_also_stopped'] = scm_site_also_stopped
             __props__['server_farm_id'] = server_farm_id
             __props__['site_config'] = site_config

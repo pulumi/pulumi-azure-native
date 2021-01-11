@@ -53,6 +53,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190430.Inputs
 
         public OpenShiftManagedClusterAgentPoolProfileArgs()
         {
+            SubnetCidr = "10.0.0.0/24";
         }
     }
 }

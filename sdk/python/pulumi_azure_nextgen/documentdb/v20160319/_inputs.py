@@ -318,6 +318,8 @@ class ConflictResolutionPolicyArgs:
             pulumi.set(__self__, "conflict_resolution_path", conflict_resolution_path)
         if conflict_resolution_procedure is not None:
             pulumi.set(__self__, "conflict_resolution_procedure", conflict_resolution_procedure)
+        if mode is None:
+            mode = 'LastWriterWins'
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
 
@@ -423,6 +425,8 @@ class ContainerPartitionKeyArgs:
         :param pulumi.Input[Union[str, 'PartitionKind']] kind: Indicates the kind of algorithm used for partitioning
         :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: List of paths using which data within the container can be partitioned
         """
+        if kind is None:
+            kind = 'Hash'
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if paths is not None:
@@ -654,8 +658,12 @@ class IndexesArgs:
         :param pulumi.Input[Union[str, 'IndexKind']] kind: Indicates the type of index.
         :param pulumi.Input[int] precision: The precision of the index. -1 is maximum precision.
         """
+        if data_type is None:
+            data_type = 'String'
         if data_type is not None:
             pulumi.set(__self__, "data_type", data_type)
+        if kind is None:
+            kind = 'Hash'
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if precision is not None:
@@ -718,6 +726,8 @@ class IndexingPolicyArgs:
             pulumi.set(__self__, "excluded_paths", excluded_paths)
         if included_paths is not None:
             pulumi.set(__self__, "included_paths", included_paths)
+        if indexing_mode is None:
+            indexing_mode = 'Consistent'
         if indexing_mode is not None:
             pulumi.set(__self__, "indexing_mode", indexing_mode)
 

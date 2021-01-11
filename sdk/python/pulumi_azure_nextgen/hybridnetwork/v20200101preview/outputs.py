@@ -673,6 +673,8 @@ class OsProfileResponse(dict):
             pulumi.set(__self__, "admin_username", admin_username)
         if custom_data is not None:
             pulumi.set(__self__, "custom_data", custom_data)
+        if custom_data_required is None:
+            custom_data_required = True
         if custom_data_required is not None:
             pulumi.set(__self__, "custom_data_required", custom_data_required)
         if linux_configuration is not None:

@@ -107,7 +107,7 @@ export class MultipleActivationKey extends pulumi.CustomResource {
             inputs["multipleActivationKeyName"] = args ? args.multipleActivationKeyName : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["supportType"] = args ? args.supportType : undefined;
+            inputs["supportType"] = (args ? args.supportType : undefined) || "SupplementalServicing";
             inputs["tags"] = args ? args.tags : undefined;
             inputs["expirationDate"] = undefined /*out*/;
             inputs["multipleActivationKey"] = undefined /*out*/;

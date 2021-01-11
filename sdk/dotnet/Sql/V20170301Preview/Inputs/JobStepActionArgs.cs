@@ -35,6 +35,8 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview.Inputs
 
         public JobStepActionArgs()
         {
+            Source = "Inline";
+            Type = "TSql";
         }
     }
 }

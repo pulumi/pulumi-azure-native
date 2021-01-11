@@ -298,6 +298,9 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20180201
 
         public AppServiceCertificateOrderArgs()
         {
+            AutoRenew = true;
+            KeySize = 2048;
+            ValidityInYears = 1;
         }
     }
 }

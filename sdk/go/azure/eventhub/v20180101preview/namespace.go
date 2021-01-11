@@ -71,6 +71,12 @@ func NewNamespace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.KeySource == nil {
+		args.KeySource = KeySource("Microsoft.KeyVault")
+	}
+	if args.Type == nil {
+		args.Type = IdentityType("SystemAssigned")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/latest:Namespace"),

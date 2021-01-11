@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200901.Inputs
 
         public ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs()
         {
+            Count = 1;
         }
     }
 }

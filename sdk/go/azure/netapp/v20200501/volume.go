@@ -90,6 +90,15 @@ func NewVolume(ctx *pulumi.Context,
 	if args.VolumeName == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeName'")
 	}
+	if args.KerberosEnabled == nil {
+		args.KerberosEnabled = pulumi.BoolPtr(false)
+	}
+	if args.ServiceLevel == nil {
+		args.ServiceLevel = pulumi.StringPtr("Premium")
+	}
+	if args.UsageThreshold == nil {
+		args.UsageThreshold = pulumi.Float64(107374182400)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:netapp/latest:Volume"),

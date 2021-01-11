@@ -495,6 +495,8 @@ class IPRuleResponse(dict):
         :param str action: The action of IP ACL rule.
         """
         pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
 
@@ -604,6 +606,8 @@ class ImportPipelineSourcePropertiesResponse(dict):
                When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
         """
         pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if type is None:
+            type = 'AzureStorageBlobContainer'
         if type is not None:
             pulumi.set(__self__, "type", type)
         if uri is not None:
@@ -719,8 +723,12 @@ class LoggingPropertiesResponse(dict):
         :param str audit_log_status: Indicates whether audit logs are enabled on the connected registry.
         :param str log_level: The verbosity of logs persisted on the connected registry.
         """
+        if audit_log_status is None:
+            audit_log_status = 'Disabled'
         if audit_log_status is not None:
             pulumi.set(__self__, "audit_log_status", audit_log_status)
+        if log_level is None:
+            log_level = 'Information'
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
 
@@ -795,6 +803,8 @@ class NetworkRuleSetResponse(dict):
         :param Sequence['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
         :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
         """
+        if default_action is None:
+            default_action = 'Allow'
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
@@ -1091,6 +1101,8 @@ class PipelineRunSourcePropertiesResponse(dict):
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if type is None:
+            type = 'AzureStorageBlob'
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -1125,6 +1137,8 @@ class PipelineRunTargetPropertiesResponse(dict):
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if type is None:
+            type = 'AzureStorageBlob'
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -1177,6 +1191,8 @@ class PipelineSourceTriggerPropertiesResponse(dict):
         """
         :param str status: The current status of the source trigger.
         """
+        if status is None:
+            status = 'Enabled'
         pulumi.set(__self__, "status", status)
 
     @property
@@ -1487,6 +1503,8 @@ class QuarantinePolicyResponse(dict):
         The quarantine policy for a container registry.
         :param str status: The value that indicates whether the policy is enabled or not.
         """
+        if status is None:
+            status = 'disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -1624,8 +1642,12 @@ class RetentionPolicyResponse(dict):
         :param str status: The value that indicates whether the policy is enabled or not.
         """
         pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if days is None:
+            days = 7
         if days is not None:
             pulumi.set(__self__, "days", days)
+        if status is None:
+            status = 'disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -2390,8 +2412,12 @@ class TrustPolicyResponse(dict):
         :param str status: The value that indicates whether the policy is enabled or not.
         :param str type: The type of trust policy.
         """
+        if status is None:
+            status = 'disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if type is None:
+            type = 'Notary'
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -2463,6 +2489,8 @@ class VirtualNetworkRuleResponse(dict):
         :param str action: The action of virtual network rule.
         """
         pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
 

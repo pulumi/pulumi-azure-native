@@ -385,6 +385,11 @@ namespace Pulumi.AzureNextGen.NetApp.V20200901
 
         public VolumeArgs()
         {
+            KerberosEnabled = false;
+            ServiceLevel = "Premium";
+            SmbContinuouslyAvailable = false;
+            SmbEncryption = false;
+            UsageThreshold = 107374182400;
         }
     }
 }

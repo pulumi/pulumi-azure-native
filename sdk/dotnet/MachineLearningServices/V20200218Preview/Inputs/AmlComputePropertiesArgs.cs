@@ -65,6 +65,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200218Preview.Inputs
 
         public AmlComputePropertiesArgs()
         {
+            OsType = "Linux";
+            RemoteLoginPortPublicAccess = "NotSpecified";
         }
     }
 }

@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701.Inputs
 
         public FlowLogFormatParametersArgs()
         {
+            Version = 0;
         }
     }
 }

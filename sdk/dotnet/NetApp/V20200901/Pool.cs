@@ -199,6 +199,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20200901
 
         public PoolArgs()
         {
+            QosType = "Auto";
+            ServiceLevel = "Premium";
         }
     }
 }

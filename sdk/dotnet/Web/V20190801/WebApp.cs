@@ -486,6 +486,10 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 
         public WebAppArgs()
         {
+            HyperV = false;
+            IsXenon = false;
+            Reserved = false;
+            ScmSiteAlsoStopped = false;
         }
     }
 }

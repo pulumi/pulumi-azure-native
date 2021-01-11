@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20161010.Inputs
 
         public AdditionalRegionArgs()
         {
+            SkuUnitCount = 1;
         }
     }
 }

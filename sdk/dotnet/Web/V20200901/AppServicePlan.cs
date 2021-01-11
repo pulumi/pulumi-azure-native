@@ -343,6 +343,10 @@ namespace Pulumi.AzureNextGen.Web.V20200901
 
         public AppServicePlanArgs()
         {
+            HyperV = false;
+            IsXenon = false;
+            PerSiteScaling = false;
+            Reserved = false;
         }
     }
 }

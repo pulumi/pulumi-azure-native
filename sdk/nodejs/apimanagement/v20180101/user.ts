@@ -113,7 +113,7 @@ export class User extends pulumi.CustomResource {
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["state"] = args ? args.state : undefined;
+            inputs["state"] = (args ? args.state : undefined) || "active";
             inputs["uid"] = args ? args.uid : undefined;
             inputs["groups"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;

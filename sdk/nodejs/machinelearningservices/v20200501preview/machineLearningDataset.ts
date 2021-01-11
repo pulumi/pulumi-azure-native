@@ -97,7 +97,7 @@ export class MachineLearningDataset extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["registration"] = args ? args.registration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skipValidation"] = args ? args.skipValidation : undefined;
+            inputs["skipValidation"] = (args ? args.skipValidation : undefined) || false;
             inputs["timeSeries"] = args ? args.timeSeries : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["identity"] = undefined /*out*/;

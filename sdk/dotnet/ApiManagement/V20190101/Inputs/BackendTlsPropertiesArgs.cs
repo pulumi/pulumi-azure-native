@@ -29,6 +29,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101.Inputs
 
         public BackendTlsPropertiesArgs()
         {
+            ValidateCertificateChain = true;
+            ValidateCertificateName = true;
         }
     }
 }

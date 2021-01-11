@@ -194,6 +194,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
 
         public BuildTaskArgs()
         {
+            Timeout = 3600;
         }
     }
 }

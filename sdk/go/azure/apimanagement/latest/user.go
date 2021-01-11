@@ -63,6 +63,9 @@ func NewUser(ctx *pulumi.Context,
 	if args.UserId == nil {
 		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
+	if args.State == nil {
+		args.State = pulumi.StringPtr("active")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:User"),

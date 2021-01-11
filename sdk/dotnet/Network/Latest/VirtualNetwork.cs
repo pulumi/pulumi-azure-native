@@ -317,6 +317,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
         public VirtualNetworkArgs()
         {
+            EnableDdosProtection = false;
+            EnableVmProtection = false;
         }
     }
 }

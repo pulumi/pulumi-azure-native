@@ -175,6 +175,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20191101
 
         public PoolArgs()
         {
+            ServiceLevel = "Premium";
         }
     }
 }

@@ -92,7 +92,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoscaleSettingName"] = args ? args.autoscaleSettingName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["enabled"] = (args ? args.enabled : undefined) || true;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notifications"] = args ? args.notifications : undefined;

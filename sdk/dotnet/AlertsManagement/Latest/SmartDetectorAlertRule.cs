@@ -224,6 +224,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
 
         public SmartDetectorAlertRuleArgs()
         {
+            Location = "global";
         }
     }
 }

@@ -65,6 +65,9 @@ func NewApplication(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.MaximumNodes == nil {
+		args.MaximumNodes = pulumi.Float64Ptr(0)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/latest:Application"),

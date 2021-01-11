@@ -73,6 +73,9 @@ func NewCluster(ctx *pulumi.Context,
 	if args.VmSize == nil {
 		return nil, errors.New("invalid value for required argument 'VmSize'")
 	}
+	if args.VmPriority == nil {
+		args.VmPriority = VmPriority("dedicated")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:batchai/v20170901preview:Cluster"),

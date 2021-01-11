@@ -37,6 +37,8 @@ class AdditionalWorkspacesPropertiesResponse(dict):
         """
         if data_types is not None:
             pulumi.set(__self__, "data_types", data_types)
+        if type is None:
+            type = 'Sentinel'
         if type is not None:
             pulumi.set(__self__, "type", type)
         if workspace is not None:
@@ -250,6 +252,8 @@ class RecommendationConfigurationPropertiesResponse(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "recommendation_type", recommendation_type)
+        if status is None:
+            status = 'Enabled'
         pulumi.set(__self__, "status", status)
 
     @property

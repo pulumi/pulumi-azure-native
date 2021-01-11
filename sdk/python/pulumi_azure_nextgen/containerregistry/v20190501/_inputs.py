@@ -32,6 +32,8 @@ class IPRuleArgs:
         :param pulumi.Input[Union[str, 'Action']] action: The action of IP ACL rule.
         """
         pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
 
@@ -72,6 +74,8 @@ class NetworkRuleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: The IP ACL rules.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The virtual network rules.
         """
+        if default_action is None:
+            default_action = 'Allow'
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
@@ -179,6 +183,8 @@ class QuarantinePolicyArgs:
         The quarantine policy for a container registry.
         :param pulumi.Input[Union[str, 'PolicyStatus']] status: The value that indicates whether the policy is enabled or not.
         """
+        if status is None:
+            status = 'disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -205,8 +211,12 @@ class RetentionPolicyArgs:
         :param pulumi.Input[int] days: The number of days to retain an untagged manifest after which it gets purged.
         :param pulumi.Input[Union[str, 'PolicyStatus']] status: The value that indicates whether the policy is enabled or not.
         """
+        if days is None:
+            days = 7
         if days is not None:
             pulumi.set(__self__, "days", days)
+        if status is None:
+            status = 'disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -291,8 +301,12 @@ class TrustPolicyArgs:
         :param pulumi.Input[Union[str, 'PolicyStatus']] status: The value that indicates whether the policy is enabled or not.
         :param pulumi.Input[Union[str, 'TrustPolicyType']] type: The type of trust policy.
         """
+        if status is None:
+            status = 'disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if type is None:
+            type = 'Notary'
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -332,6 +346,8 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[Union[str, 'Action']] action: The action of virtual network rule.
         """
         pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
 

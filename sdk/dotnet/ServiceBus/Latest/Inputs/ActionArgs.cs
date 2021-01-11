@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest.Inputs
 
         public ActionArgs()
         {
+            RequiresPreprocessing = true;
         }
     }
 }

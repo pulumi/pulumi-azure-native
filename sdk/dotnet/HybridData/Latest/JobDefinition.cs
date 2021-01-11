@@ -224,6 +224,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
 
         public JobDefinitionArgs()
         {
+            UserConfirmation = Pulumi.AzureNextGen.HybridData.Latest.UserConfirmation.NotRequired;
         }
     }
 }

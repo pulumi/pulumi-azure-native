@@ -343,6 +343,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
 
         public ManagedClusterArgs()
         {
+            ClientConnectionPort = 19000;
+            HttpGatewayConnectionPort = 19080;
         }
     }
 }

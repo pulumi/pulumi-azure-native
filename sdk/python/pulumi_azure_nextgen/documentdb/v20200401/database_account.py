@@ -108,6 +108,8 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__['ip_rules'] = ip_rules
             __props__['is_virtual_network_filter_enabled'] = is_virtual_network_filter_enabled
             __props__['key_vault_key_uri'] = key_vault_key_uri
+            if kind is None:
+                kind = 'GlobalDocumentDB'
             __props__['kind'] = kind
             __props__['location'] = location
             if locations is None and not opts.urn:

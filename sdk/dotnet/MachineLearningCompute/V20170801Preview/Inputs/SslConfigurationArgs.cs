@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
 
         public SslConfigurationArgs()
         {
+            Status = "Enabled";
         }
     }
 }

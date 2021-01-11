@@ -58,6 +58,15 @@ func NewService(ctx *pulumi.Context,
 	if args.SearchServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'SearchServiceName'")
 	}
+	if args.HostingMode == nil {
+		args.HostingMode = HostingMode("default")
+	}
+	if args.PartitionCount == nil {
+		args.PartitionCount = pulumi.IntPtr(1)
+	}
+	if args.ReplicaCount == nil {
+		args.ReplicaCount = pulumi.IntPtr(1)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:search/latest:Service"),

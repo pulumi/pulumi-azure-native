@@ -52,6 +52,8 @@ class NetworkWatcher(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if etag is None:
+                etag = 'A unique read-only string that changes whenever the resource is updated.'
             __props__['etag'] = etag
             __props__['id'] = id
             if location is None and not opts.urn:

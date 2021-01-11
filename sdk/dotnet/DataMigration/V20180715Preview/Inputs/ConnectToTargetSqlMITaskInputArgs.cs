@@ -41,6 +41,9 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
 
         public ConnectToTargetSqlMITaskInputArgs()
         {
+            CollectAgentJobs = true;
+            CollectLogins = true;
+            ValidateSsisCatalogOnly = false;
         }
     }
 }

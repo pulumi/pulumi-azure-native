@@ -118,7 +118,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
             if ((!args || args.vmName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmName'");
             }
-            inputs["asyncExecution"] = args ? args.asyncExecution : undefined;
+            inputs["asyncExecution"] = (args ? args.asyncExecution : undefined) || false;
             inputs["errorBlobUri"] = args ? args.errorBlobUri : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["outputBlobUri"] = args ? args.outputBlobUri : undefined;

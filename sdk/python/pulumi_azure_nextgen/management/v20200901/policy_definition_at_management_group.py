@@ -68,6 +68,8 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'management_group_id'")
             __props__['management_group_id'] = management_group_id
             __props__['metadata'] = metadata
+            if mode is None:
+                mode = 'Indexed'
             __props__['mode'] = mode
             __props__['parameters'] = parameters
             if policy_definition_name is None and not opts.urn:

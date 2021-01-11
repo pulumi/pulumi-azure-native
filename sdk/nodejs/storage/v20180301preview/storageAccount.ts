@@ -152,10 +152,10 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["accessTier"] = args ? args.accessTier : undefined;
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["customDomain"] = args ? args.customDomain : undefined;
-            inputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
+            inputs["enableHttpsTrafficOnly"] = (args ? args.enableHttpsTrafficOnly : undefined) || false;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
-            inputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
+            inputs["isHnsEnabled"] = (args ? args.isHnsEnabled : undefined) || false;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;

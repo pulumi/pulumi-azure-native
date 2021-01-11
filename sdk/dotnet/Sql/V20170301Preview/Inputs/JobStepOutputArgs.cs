@@ -65,6 +65,8 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview.Inputs
 
         public JobStepOutputArgs()
         {
+            SchemaName = "dbo";
+            Type = "SqlDatabase";
         }
     }
 }

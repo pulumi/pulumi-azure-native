@@ -50,6 +50,9 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	if args.EventDeliverySchema == nil {
+		args.EventDeliverySchema = pulumi.StringPtr("InputEventSchema")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/latest:EventSubscription"),

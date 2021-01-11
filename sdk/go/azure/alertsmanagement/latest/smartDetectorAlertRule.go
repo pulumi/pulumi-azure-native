@@ -73,6 +73,9 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 	if args.State == nil {
 		return nil, errors.New("invalid value for required argument 'State'")
 	}
+	if args.Location == nil {
+		args.Location = pulumi.StringPtr("global")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule"),

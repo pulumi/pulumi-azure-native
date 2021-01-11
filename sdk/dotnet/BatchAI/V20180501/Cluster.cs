@@ -228,6 +228,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
 
         public ClusterArgs()
         {
+            VmPriority = Pulumi.AzureNextGen.BatchAI.V20180501.VmPriority.Dedicated;
         }
     }
 }

@@ -53,6 +53,8 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest.Inputs
 
         public AzureFileShareReferenceArgs()
         {
+            DirectoryMode = "0777";
+            FileMode = "0777";
         }
     }
 }

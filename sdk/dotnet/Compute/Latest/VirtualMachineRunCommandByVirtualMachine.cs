@@ -259,6 +259,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
         public VirtualMachineRunCommandByVirtualMachineArgs()
         {
+            AsyncExecution = false;
         }
     }
 }

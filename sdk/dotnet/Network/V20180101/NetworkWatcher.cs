@@ -168,6 +168,7 @@ namespace Pulumi.AzureNextGen.Network.V20180101
 
         public NetworkWatcherArgs()
         {
+            Etag = "A unique read-only string that changes whenever the resource is updated.";
         }
     }
 }

@@ -327,6 +327,8 @@ class CacheNetworkSettingsResponse(dict):
         :param int mtu: The IPv4 maximum transmission unit configured for the subnet.
         """
         pulumi.set(__self__, "utility_addresses", utility_addresses)
+        if mtu is None:
+            mtu = 1500
         if mtu is not None:
             pulumi.set(__self__, "mtu", mtu)
 
@@ -525,6 +527,8 @@ class CacheUsernameDownloadSettingsResponse(dict):
             pulumi.set(__self__, "require_valid_certificate", require_valid_certificate)
         if user_file_uri is not None:
             pulumi.set(__self__, "user_file_uri", user_file_uri)
+        if username_source is None:
+            username_source = 'None'
         if username_source is not None:
             pulumi.set(__self__, "username_source", username_source)
 
@@ -917,8 +921,12 @@ class NfsAccessRuleResponse(dict):
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "scope", scope)
+        if anonymous_gid is None:
+            anonymous_gid = '-2'
         if anonymous_gid is not None:
             pulumi.set(__self__, "anonymous_gid", anonymous_gid)
+        if anonymous_uid is None:
+            anonymous_uid = '-2'
         if anonymous_uid is not None:
             pulumi.set(__self__, "anonymous_uid", anonymous_uid)
         if filter is not None:

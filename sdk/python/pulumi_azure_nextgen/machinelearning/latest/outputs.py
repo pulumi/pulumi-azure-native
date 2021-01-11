@@ -623,6 +623,8 @@ class InputPortResponse(dict):
         Asset input port
         :param str type: Port data type.
         """
+        if type is None:
+            type = 'Dataset'
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -762,6 +764,8 @@ class OutputPortResponse(dict):
         Asset output port
         :param str type: Port data type.
         """
+        if type is None:
+            type = 'Dataset'
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -821,6 +825,8 @@ class ServiceInputOutputSpecificationResponse(dict):
         :param str title: The title of your Swagger schema.
         """
         pulumi.set(__self__, "properties", properties)
+        if type is None:
+            type = 'object'
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -958,6 +964,8 @@ class TableSpecificationResponse(dict):
         :param Mapping[str, 'ColumnSpecificationResponseArgs'] properties: The set of columns within the data table.
         :param str title: Swagger schema title.
         """
+        if type is None:
+            type = 'object'
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)

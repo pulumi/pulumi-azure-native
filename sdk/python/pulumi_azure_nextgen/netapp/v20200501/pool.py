@@ -68,6 +68,8 @@ class Pool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if service_level is None:
+                service_level = 'Premium'
             if service_level is None and not opts.urn:
                 raise TypeError("Missing required property 'service_level'")
             __props__['service_level'] = service_level

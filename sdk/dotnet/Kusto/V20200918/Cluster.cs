@@ -320,6 +320,9 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
 
         public ClusterArgs()
         {
+            EnableDoubleEncryption = false;
+            EnablePurge = false;
+            EnableStreamingIngest = false;
         }
     }
 }

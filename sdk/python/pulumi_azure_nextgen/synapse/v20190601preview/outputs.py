@@ -3071,6 +3071,8 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
         :param Sequence[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param bool is_enabled: Recurring scans state.
         """
+        if email_subscription_admins is None:
+            email_subscription_admins = True
         if email_subscription_admins is not None:
             pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
         if emails is not None:

@@ -47,6 +47,10 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
 
         public BackupScheduleArgs()
         {
+            FrequencyInterval = 7;
+            FrequencyUnit = Pulumi.AzureNextGen.Web.Latest.FrequencyUnit.Day;
+            KeepAtLeastOneBackup = true;
+            RetentionPeriodInDays = 30;
         }
     }
 }

@@ -73,6 +73,8 @@ class IpAllocation(pulumi.CustomResource):
             __props__['ipam_allocation_id'] = ipam_allocation_id
             __props__['location'] = location
             __props__['prefix'] = prefix
+            if prefix_length is None:
+                prefix_length = 0
             __props__['prefix_length'] = prefix_length
             __props__['prefix_type'] = prefix_type
             if resource_group_name is None and not opts.urn:

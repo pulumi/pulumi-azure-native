@@ -88,7 +88,11 @@ class ApiManagementService(pulumi.CustomResource):
             __props__['api_version_constraint'] = api_version_constraint
             __props__['certificates'] = certificates
             __props__['custom_properties'] = custom_properties
+            if disable_gateway is None:
+                disable_gateway = False
             __props__['disable_gateway'] = disable_gateway
+            if enable_client_certificate is None:
+                enable_client_certificate = False
             __props__['enable_client_certificate'] = enable_client_certificate
             __props__['hostname_configurations'] = hostname_configurations
             __props__['identity'] = identity
@@ -105,6 +109,8 @@ class ApiManagementService(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if restore is None:
+                restore = False
             __props__['restore'] = restore
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
@@ -114,6 +120,8 @@ class ApiManagementService(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['virtual_network_configuration'] = virtual_network_configuration
+            if virtual_network_type is None:
+                virtual_network_type = 'None'
             __props__['virtual_network_type'] = virtual_network_type
             __props__['zones'] = zones
             __props__['created_at_utc'] = None

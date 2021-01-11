@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20170131.Inputs
 
         public ContainerServiceMasterProfileArgs()
         {
+            Count = 1;
         }
     }
 }

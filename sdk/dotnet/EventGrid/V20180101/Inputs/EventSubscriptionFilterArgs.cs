@@ -52,6 +52,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180101.Inputs
 
         public EventSubscriptionFilterArgs()
         {
+            IsSubjectCaseSensitive = false;
         }
     }
 }

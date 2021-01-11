@@ -46,6 +46,9 @@ func NewJob(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
+	if args.Description == nil {
+		args.Description = pulumi.StringPtr("")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:Job"),

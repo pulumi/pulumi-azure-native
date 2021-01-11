@@ -180,6 +180,8 @@ class NWRuleSetIpRulesResponse(dict):
         :param str action: The IP Filter Action
         :param str ip_mask: IP Mask
         """
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
         if ip_mask is not None:

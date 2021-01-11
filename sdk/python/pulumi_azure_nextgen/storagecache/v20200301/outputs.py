@@ -153,6 +153,8 @@ class CacheNetworkSettingsResponse(dict):
         :param int mtu: The IPv4 maximum transmission unit configured for the subnet.
         """
         pulumi.set(__self__, "utility_addresses", utility_addresses)
+        if mtu is None:
+            mtu = 1500
         if mtu is not None:
             pulumi.set(__self__, "mtu", mtu)
 

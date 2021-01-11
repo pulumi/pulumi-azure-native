@@ -124,6 +124,8 @@ class Job(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if scheduling_priority is None:
+                scheduling_priority = 'normal'
             __props__['scheduling_priority'] = scheduling_priority
             __props__['secrets'] = secrets
             if std_out_err_path_prefix is None and not opts.urn:

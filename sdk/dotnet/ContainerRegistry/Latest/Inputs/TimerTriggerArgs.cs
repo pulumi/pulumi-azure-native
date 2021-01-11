@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
 
         public TimerTriggerArgs()
         {
+            Status = "Enabled";
         }
     }
 }

@@ -71,6 +71,8 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if async_execution is None:
+                async_execution = False
             __props__['async_execution'] = async_execution
             __props__['error_blob_uri'] = error_blob_uri
             if location is None and not opts.urn:

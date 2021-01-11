@@ -4432,6 +4432,8 @@ class BackendPoolsSettingsResponse(dict):
         Settings that apply to all backend pools.
         :param str enforce_certificate_name_check: Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
         """
+        if enforce_certificate_name_check is None:
+            enforce_certificate_name_check = 'Enabled'
         if enforce_certificate_name_check is not None:
             pulumi.set(__self__, "enforce_certificate_name_check", enforce_certificate_name_check)
 
@@ -10103,6 +10105,8 @@ class PacketCaptureFilterResponse(dict):
             pulumi.set(__self__, "local_ip_address", local_ip_address)
         if local_port is not None:
             pulumi.set(__self__, "local_port", local_port)
+        if protocol is None:
+            protocol = 'Any'
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if remote_ip_address is not None:

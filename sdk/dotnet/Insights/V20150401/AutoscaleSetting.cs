@@ -186,6 +186,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150401
 
         public AutoscaleSettingArgs()
         {
+            Enabled = true;
         }
     }
 }

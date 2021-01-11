@@ -82,6 +82,8 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             if frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'frequency'")
             __props__['frequency'] = frequency
+            if location is None:
+                location = 'global'
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

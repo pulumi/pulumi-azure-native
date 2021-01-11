@@ -29,6 +29,8 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
 
         public RetentionPolicyParametersArgs()
         {
+            Days = 0;
+            Enabled = false;
         }
     }
 }

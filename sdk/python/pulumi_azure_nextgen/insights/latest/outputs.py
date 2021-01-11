@@ -2513,6 +2513,8 @@ class ScaleActionResponse(dict):
         pulumi.set(__self__, "cooldown", cooldown)
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "type", type)
+        if value is None:
+            value = '1'
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -3223,6 +3225,8 @@ class WebhookReceiverResponse(dict):
             pulumi.set(__self__, "object_id", object_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_aad_auth is None:
+            use_aad_auth = False
         if use_aad_auth is not None:
             pulumi.set(__self__, "use_aad_auth", use_aad_auth)
 

@@ -9182,6 +9182,8 @@ class FlowLogFormatParametersResponse(dict):
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if version is None:
+            version = 0
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -13216,6 +13218,8 @@ class PacketCaptureFilterResponse(dict):
             pulumi.set(__self__, "local_ip_address", local_ip_address)
         if local_port is not None:
             pulumi.set(__self__, "local_port", local_port)
+        if protocol is None:
+            protocol = 'Any'
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if remote_ip_address is not None:
@@ -15149,8 +15153,12 @@ class RetentionPolicyParametersResponse(dict):
         :param int days: Number of days to retain flow log records.
         :param bool enabled: Flag to enable/disable retention.
         """
+        if days is None:
+            days = 0
         if days is not None:
             pulumi.set(__self__, "days", days)
+        if enabled is None:
+            enabled = False
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 

@@ -119,9 +119,9 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
             inputs["enableHelmOperator"] = args ? args.enableHelmOperator : undefined;
             inputs["helmOperatorProperties"] = args ? args.helmOperatorProperties : undefined;
             inputs["operatorInstanceName"] = args ? args.operatorInstanceName : undefined;
-            inputs["operatorNamespace"] = args ? args.operatorNamespace : undefined;
+            inputs["operatorNamespace"] = (args ? args.operatorNamespace : undefined) || "default";
             inputs["operatorParams"] = args ? args.operatorParams : undefined;
-            inputs["operatorScope"] = args ? args.operatorScope : undefined;
+            inputs["operatorScope"] = (args ? args.operatorScope : undefined) || "cluster";
             inputs["operatorType"] = args ? args.operatorType : undefined;
             inputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;

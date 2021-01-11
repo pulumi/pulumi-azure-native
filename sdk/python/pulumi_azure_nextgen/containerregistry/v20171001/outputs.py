@@ -349,6 +349,8 @@ class IPRuleResponse(dict):
         :param str action: The action of IP ACL rule.
         """
         pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
 
@@ -387,6 +389,8 @@ class NetworkRuleSetResponse(dict):
         :param Sequence['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
         :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
         """
+        if default_action is None:
+            default_action = 'Allow'
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
@@ -803,6 +807,8 @@ class VirtualNetworkRuleResponse(dict):
         :param str action: The action of virtual network rule.
         """
         pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
 

@@ -430,6 +430,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200901
 
         public DatabaseAccountArgs()
         {
+            Kind = "GlobalDocumentDB";
         }
     }
 }

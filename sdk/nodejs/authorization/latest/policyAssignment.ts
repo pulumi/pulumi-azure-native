@@ -107,7 +107,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["enforcementMode"] = args ? args.enforcementMode : undefined;
+            inputs["enforcementMode"] = (args ? args.enforcementMode : undefined) || "Default";
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;

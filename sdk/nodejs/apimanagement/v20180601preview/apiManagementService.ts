@@ -182,7 +182,7 @@ export class ApiManagementService extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
-            inputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
+            inputs["virtualNetworkType"] = (args ? args.virtualNetworkType : undefined) || "None";
             inputs["createdAtUtc"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["gatewayRegionalUrl"] = undefined /*out*/;

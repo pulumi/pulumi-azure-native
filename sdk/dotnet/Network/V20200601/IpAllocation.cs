@@ -221,6 +221,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 
         public IpAllocationArgs()
         {
+            PrefixLength = 0;
         }
     }
 }

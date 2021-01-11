@@ -44,6 +44,9 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Etag == nil {
+		args.Etag = pulumi.StringPtr("A unique read-only string that changes whenever the resource is updated.")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:NetworkWatcher"),

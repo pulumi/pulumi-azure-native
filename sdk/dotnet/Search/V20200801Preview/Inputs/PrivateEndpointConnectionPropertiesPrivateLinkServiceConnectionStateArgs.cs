@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801Preview.Inputs
 
         public PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs()
         {
+            ActionsRequired = "None";
         }
     }
 }

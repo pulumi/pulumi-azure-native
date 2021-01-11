@@ -56,6 +56,9 @@ func NewMachineLearningDataset(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	if args.SkipValidation == nil {
+		args.SkipValidation = pulumi.BoolPtr(false)
+	}
 	var resource MachineLearningDataset
 	err := ctx.RegisterResource("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset", name, args, &resource, opts...)
 	if err != nil {

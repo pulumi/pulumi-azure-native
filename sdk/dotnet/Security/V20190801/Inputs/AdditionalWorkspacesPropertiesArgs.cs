@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801.Inputs
 
         public AdditionalWorkspacesPropertiesArgs()
         {
+            Type = "Sentinel";
         }
     }
 }

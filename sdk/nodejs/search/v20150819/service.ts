@@ -100,11 +100,11 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.searchServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'searchServiceName'");
             }
-            inputs["hostingMode"] = args ? args.hostingMode : undefined;
+            inputs["hostingMode"] = (args ? args.hostingMode : undefined) || "default";
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["partitionCount"] = args ? args.partitionCount : undefined;
-            inputs["replicaCount"] = args ? args.replicaCount : undefined;
+            inputs["partitionCount"] = (args ? args.partitionCount : undefined) || 1;
+            inputs["replicaCount"] = (args ? args.replicaCount : undefined) || 1;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["searchServiceName"] = args ? args.searchServiceName : undefined;
             inputs["sku"] = args ? args.sku : undefined;

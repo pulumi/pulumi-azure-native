@@ -73,6 +73,8 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['custom_domain'] = custom_domain
+            if enable_https_traffic_only is None:
+                enable_https_traffic_only = False
             __props__['enable_https_traffic_only'] = enable_https_traffic_only
             __props__['encryption'] = encryption
             __props__['identity'] = identity

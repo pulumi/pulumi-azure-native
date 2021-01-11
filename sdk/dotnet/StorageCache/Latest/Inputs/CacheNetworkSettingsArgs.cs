@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
 
         public CacheNetworkSettingsArgs()
         {
+            Mtu = 1500;
         }
     }
 }

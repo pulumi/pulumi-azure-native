@@ -141,7 +141,7 @@ export class PrivateCloud extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["identitySources"] = args ? args.identitySources : undefined;
-            inputs["internet"] = args ? args.internet : undefined;
+            inputs["internet"] = (args ? args.internet : undefined) || "Disabled";
             inputs["location"] = args ? args.location : undefined;
             inputs["managementCluster"] = args ? args.managementCluster : undefined;
             inputs["networkBlock"] = args ? args.networkBlock : undefined;

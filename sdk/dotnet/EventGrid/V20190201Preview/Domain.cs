@@ -161,6 +161,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190201Preview
 
         public DomainArgs()
         {
+            InputSchema = "EventGridSchema";
         }
     }
 }

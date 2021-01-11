@@ -53,6 +53,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20180201.Inputs
 
         public ClusterHealthPolicyArgs()
         {
+            MaxPercentUnhealthyApplications = 0;
+            MaxPercentUnhealthyNodes = 0;
         }
     }
 }

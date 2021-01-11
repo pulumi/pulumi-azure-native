@@ -85,6 +85,8 @@ class User(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            if state is None:
+                state = 'active'
             __props__['state'] = state
             if uid is None and not opts.urn:
                 raise TypeError("Missing required property 'uid'")

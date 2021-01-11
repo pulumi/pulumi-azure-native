@@ -105,7 +105,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             inputs["activityLogAlertName"] = args ? args.activityLogAlertName : undefined;
             inputs["condition"] = args ? args.condition : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["enabled"] = (args ? args.enabled : undefined) || true;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scopes"] = args ? args.scopes : undefined;

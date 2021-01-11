@@ -102,6 +102,9 @@ func NewJob(ctx *pulumi.Context,
 	if args.StdOutErrPathPrefix == nil {
 		return nil, errors.New("invalid value for required argument 'StdOutErrPathPrefix'")
 	}
+	if args.Priority == nil {
+		args.Priority = pulumi.IntPtr(0)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:batchai/v20170901preview:Job"),

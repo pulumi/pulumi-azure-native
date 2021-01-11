@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest.Inputs
 
         public ResourceSkuArgs()
         {
+            Capacity = 1;
         }
     }
 }

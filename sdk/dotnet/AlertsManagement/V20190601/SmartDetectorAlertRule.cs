@@ -223,6 +223,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190601
 
         public SmartDetectorAlertRuleArgs()
         {
+            Location = "global";
         }
     }
 }

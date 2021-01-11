@@ -96,6 +96,8 @@ class JobDefinition(pulumi.CustomResource):
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
+            if user_confirmation is None:
+                user_confirmation = 'NotRequired'
             __props__['user_confirmation'] = user_confirmation
             __props__['name'] = None
             __props__['type'] = None

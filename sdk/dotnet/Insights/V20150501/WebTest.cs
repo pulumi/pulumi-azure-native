@@ -259,6 +259,10 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
 
         public WebTestArgs()
         {
+            Frequency = 300;
+            Kind = Pulumi.AzureNextGen.Insights.V20150501.WebTestKind.Ping;
+            Timeout = 30;
+            WebTestKind = Pulumi.AzureNextGen.Insights.V20150501.WebTestKind.Ping;
         }
     }
 }

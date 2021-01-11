@@ -62,10 +62,16 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if hosting_mode is None:
+                hosting_mode = 'default'
             __props__['hosting_mode'] = hosting_mode
             __props__['identity'] = identity
             __props__['location'] = location
+            if partition_count is None:
+                partition_count = 1
             __props__['partition_count'] = partition_count
+            if replica_count is None:
+                replica_count = 1
             __props__['replica_count'] = replica_count
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

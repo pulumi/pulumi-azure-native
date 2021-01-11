@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20170101.Inputs
 
         public ServiceInputOutputSpecificationArgs()
         {
+            Type = "object";
         }
     }
 }

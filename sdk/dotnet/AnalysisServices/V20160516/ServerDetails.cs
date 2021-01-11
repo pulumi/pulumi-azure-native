@@ -161,7 +161,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
         /// The managed mode of the server (0 = not managed, 1 = managed).
         /// </summary>
         [Input("managedMode")]
-        public Input<Pulumi.AzureNextGen.AnalysisServices.V20160516.ManagedMode>? ManagedMode { get; set; }
+        public Input<int>? ManagedMode { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -173,7 +173,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
         /// The server monitor mode for AS server
         /// </summary>
         [Input("serverMonitorMode")]
-        public Input<Pulumi.AzureNextGen.AnalysisServices.V20160516.ServerMonitorMode>? ServerMonitorMode { get; set; }
+        public Input<int>? ServerMonitorMode { get; set; }
 
         /// <summary>
         /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
@@ -201,6 +201,8 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
 
         public ServerDetailsArgs()
         {
+            ManagedMode = 1;
+            ServerMonitorMode = 1;
         }
     }
 }

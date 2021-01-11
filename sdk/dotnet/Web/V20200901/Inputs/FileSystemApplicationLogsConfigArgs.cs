@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901.Inputs
 
         public FileSystemApplicationLogsConfigArgs()
         {
+            Level = Pulumi.AzureNextGen.Web.V20200901.LogLevel.Off;
         }
     }
 }

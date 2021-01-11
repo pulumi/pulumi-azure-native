@@ -25,6 +25,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190601Preview.Inputs
 
         public ServiceTypeDeltaHealthPolicyArgs()
         {
+            MaxPercentDeltaUnhealthyServices = 0;
         }
     }
 }

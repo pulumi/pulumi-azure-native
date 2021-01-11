@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview.Inputs
 
         public NWRuleSetIpRulesArgs()
         {
+            Action = "Allow";
         }
     }
 }

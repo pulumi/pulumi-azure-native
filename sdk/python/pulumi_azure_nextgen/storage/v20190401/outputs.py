@@ -425,6 +425,8 @@ class EncryptionResponse(dict):
         :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Properties provided by key vault.
         :param 'EncryptionServicesResponseArgs' services: List of services which support encryption.
         """
+        if key_source is None:
+            key_source = 'Microsoft.Storage'
         pulumi.set(__self__, "key_source", key_source)
         if key_vault_properties is not None:
             pulumi.set(__self__, "key_vault_properties", key_vault_properties)
@@ -697,6 +699,8 @@ class IPRuleResponse(dict):
         :param str action: The action of IP ACL rule.
         """
         pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
 
@@ -1201,7 +1205,11 @@ class NetworkRuleSetResponse(dict):
         :param Sequence['IPRuleResponseArgs'] ip_rules: Sets the IP ACL rules
         :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: Sets the virtual network rules
         """
+        if default_action is None:
+            default_action = 'Allow'
         pulumi.set(__self__, "default_action", default_action)
+        if bypass is None:
+            bypass = 'AzureServices'
         if bypass is not None:
             pulumi.set(__self__, "bypass", bypass)
         if ip_rules is not None:
@@ -1630,6 +1638,8 @@ class VirtualNetworkRuleResponse(dict):
         :param str state: Gets the state of virtual network rule.
         """
         pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
         if state is not None:

@@ -166,6 +166,8 @@ class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The description for the private link service connection state.
         :param pulumi.Input['PrivateLinkServiceConnectionStatus'] status: Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
         """
+        if actions_required is None:
+            actions_required = 'None'
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:

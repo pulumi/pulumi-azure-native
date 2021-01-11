@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Storage.V20181101.Inputs
 
         public VirtualNetworkRuleArgs()
         {
+            Action = Pulumi.AzureNextGen.Storage.V20181101.Action.Allow;
         }
     }
 }

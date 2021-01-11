@@ -172,17 +172,17 @@ export class Component extends pulumi.CustomResource {
             if ((!args || args.workspaceResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceResourceId'");
             }
-            inputs["applicationType"] = args ? args.applicationType : undefined;
+            inputs["applicationType"] = (args ? args.applicationType : undefined) || "web";
             inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
-            inputs["flowType"] = args ? args.flowType : undefined;
+            inputs["flowType"] = (args ? args.flowType : undefined) || "Bluefield";
             inputs["hockeyAppId"] = args ? args.hockeyAppId : undefined;
             inputs["immediatePurgeDataOn30Days"] = args ? args.immediatePurgeDataOn30Days : undefined;
-            inputs["ingestionMode"] = args ? args.ingestionMode : undefined;
+            inputs["ingestionMode"] = (args ? args.ingestionMode : undefined) || "LogAnalytics";
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
             inputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
-            inputs["requestSource"] = args ? args.requestSource : undefined;
+            inputs["requestSource"] = (args ? args.requestSource : undefined) || "rest";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;

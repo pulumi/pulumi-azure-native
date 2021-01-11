@@ -146,21 +146,21 @@ export class Registry extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["adminUserEnabled"] = args ? args.adminUserEnabled : undefined;
+            inputs["adminUserEnabled"] = (args ? args.adminUserEnabled : undefined) || false;
             inputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["networkRuleBypassOptions"] = args ? args.networkRuleBypassOptions : undefined;
+            inputs["networkRuleBypassOptions"] = (args ? args.networkRuleBypassOptions : undefined) || "AzureServices";
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["policies"] = args ? args.policies : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) || "Enabled";
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneRedundancy"] = args ? args.zoneRedundancy : undefined;
+            inputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) || "Disabled";
             inputs["creationDate"] = undefined /*out*/;
             inputs["dataEndpointHostNames"] = undefined /*out*/;
             inputs["loginServer"] = undefined /*out*/;

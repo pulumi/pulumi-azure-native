@@ -101,6 +101,9 @@ func NewDomain(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.AutoRenew == nil {
+		args.AutoRenew = pulumi.BoolPtr(true)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20150401:Domain"),

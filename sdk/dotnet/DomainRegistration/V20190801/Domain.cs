@@ -318,6 +318,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20190801
 
         public DomainArgs()
         {
+            AutoRenew = true;
         }
     }
 }

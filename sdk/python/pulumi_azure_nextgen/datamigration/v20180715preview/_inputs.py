@@ -470,14 +470,24 @@ class ConnectToSourceSqlServerTaskInputArgs:
         pulumi.set(__self__, "source_connection_info", source_connection_info)
         if check_permissions_group is not None:
             pulumi.set(__self__, "check_permissions_group", check_permissions_group)
+        if collect_agent_jobs is None:
+            collect_agent_jobs = False
         if collect_agent_jobs is not None:
             pulumi.set(__self__, "collect_agent_jobs", collect_agent_jobs)
+        if collect_databases is None:
+            collect_databases = True
         if collect_databases is not None:
             pulumi.set(__self__, "collect_databases", collect_databases)
+        if collect_logins is None:
+            collect_logins = False
         if collect_logins is not None:
             pulumi.set(__self__, "collect_logins", collect_logins)
+        if collect_tde_certificate_info is None:
+            collect_tde_certificate_info = False
         if collect_tde_certificate_info is not None:
             pulumi.set(__self__, "collect_tde_certificate_info", collect_tde_certificate_info)
+        if validate_ssis_catalog_only is None:
+            validate_ssis_catalog_only = False
         if validate_ssis_catalog_only is not None:
             pulumi.set(__self__, "validate_ssis_catalog_only", validate_ssis_catalog_only)
 
@@ -1083,10 +1093,16 @@ class ConnectToTargetSqlMITaskInputArgs:
         :param pulumi.Input[bool] validate_ssis_catalog_only: Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
         """
         pulumi.set(__self__, "target_connection_info", target_connection_info)
+        if collect_agent_jobs is None:
+            collect_agent_jobs = True
         if collect_agent_jobs is not None:
             pulumi.set(__self__, "collect_agent_jobs", collect_agent_jobs)
+        if collect_logins is None:
+            collect_logins = True
         if collect_logins is not None:
             pulumi.set(__self__, "collect_logins", collect_logins)
+        if validate_ssis_catalog_only is None:
+            validate_ssis_catalog_only = False
         if validate_ssis_catalog_only is not None:
             pulumi.set(__self__, "validate_ssis_catalog_only", validate_ssis_catalog_only)
 
@@ -4364,10 +4380,14 @@ class PostgreSqlConnectionInfoArgs:
         pulumi.set(__self__, "type", 'PostgreSqlConnectionInfo')
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if encrypt_connection is None:
+            encrypt_connection = True
         if encrypt_connection is not None:
             pulumi.set(__self__, "encrypt_connection", encrypt_connection)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if trust_server_certificate is None:
+            trust_server_certificate = False
         if trust_server_certificate is not None:
             pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:
@@ -4684,12 +4704,16 @@ class SqlConnectionInfoArgs:
             pulumi.set(__self__, "additional_settings", additional_settings)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
+        if encrypt_connection is None:
+            encrypt_connection = True
         if encrypt_connection is not None:
             pulumi.set(__self__, "encrypt_connection", encrypt_connection)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if platform is not None:
             pulumi.set(__self__, "platform", platform)
+        if trust_server_certificate is None:
+            trust_server_certificate = False
         if trust_server_certificate is not None:
             pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:

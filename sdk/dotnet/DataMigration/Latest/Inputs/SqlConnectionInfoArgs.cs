@@ -72,6 +72,8 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Inputs
 
         public SqlConnectionInfoArgs()
         {
+            EncryptConnection = true;
+            TrustServerCertificate = false;
         }
     }
 }

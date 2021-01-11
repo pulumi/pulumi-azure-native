@@ -426,6 +426,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
 
         public JobArgs()
         {
+            SchedulingPriority = "normal";
         }
     }
 }

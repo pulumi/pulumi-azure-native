@@ -188,6 +188,7 @@ namespace Pulumi.AzureNextGen.Management.Latest
 
         public PolicyDefinitionAtManagementGroupArgs()
         {
+            Mode = "Indexed";
         }
     }
 }

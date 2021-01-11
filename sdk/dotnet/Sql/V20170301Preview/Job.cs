@@ -133,6 +133,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
 
         public JobArgs()
         {
+            Description = "";
         }
     }
 }

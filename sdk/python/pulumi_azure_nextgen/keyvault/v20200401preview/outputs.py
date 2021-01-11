@@ -143,12 +143,18 @@ class ManagedHsmPropertiesResponse(dict):
         pulumi.set(__self__, "status_message", status_message)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
+        if enable_purge_protection is None:
+            enable_purge_protection = True
         if enable_purge_protection is not None:
             pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
+        if enable_soft_delete is None:
+            enable_soft_delete = True
         if enable_soft_delete is not None:
             pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
         if initial_admin_object_ids is not None:
             pulumi.set(__self__, "initial_admin_object_ids", initial_admin_object_ids)
+        if soft_delete_retention_in_days is None:
+            soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
             pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
         if tenant_id is not None:
@@ -740,8 +746,12 @@ class VaultPropertiesResponse(dict):
             pulumi.set(__self__, "create_mode", create_mode)
         if enable_purge_protection is not None:
             pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
+        if enable_rbac_authorization is None:
+            enable_rbac_authorization = False
         if enable_rbac_authorization is not None:
             pulumi.set(__self__, "enable_rbac_authorization", enable_rbac_authorization)
+        if enable_soft_delete is None:
+            enable_soft_delete = True
         if enable_soft_delete is not None:
             pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
         if enabled_for_deployment is not None:
@@ -752,6 +762,8 @@ class VaultPropertiesResponse(dict):
             pulumi.set(__self__, "enabled_for_template_deployment", enabled_for_template_deployment)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
+        if soft_delete_retention_in_days is None:
+            soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
             pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
         if vault_uri is not None:

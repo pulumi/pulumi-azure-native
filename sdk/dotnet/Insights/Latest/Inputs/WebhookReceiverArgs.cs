@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
 
         public WebhookReceiverArgs()
         {
+            UseAadAuth = false;
         }
     }
 }

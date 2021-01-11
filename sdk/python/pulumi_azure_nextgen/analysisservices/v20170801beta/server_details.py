@@ -23,10 +23,10 @@ class ServerDetails(pulumi.CustomResource):
                  gateway_details: Optional[pulumi.Input[pulumi.InputType['GatewayDetailsArgs']]] = None,
                  ip_v4_firewall_settings: Optional[pulumi.Input[pulumi.InputType['IPv4FirewallSettingsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_mode: Optional[pulumi.Input['ManagedMode']] = None,
+                 managed_mode: Optional[pulumi.Input[int]] = None,
                  querypool_connection_mode: Optional[pulumi.Input['ConnectionMode']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 server_monitor_mode: Optional[pulumi.Input['ServerMonitorMode']] = None,
+                 server_monitor_mode: Optional[pulumi.Input[int]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -43,10 +43,10 @@ class ServerDetails(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GatewayDetailsArgs']] gateway_details: The gateway details configured for the AS server.
         :param pulumi.Input[pulumi.InputType['IPv4FirewallSettingsArgs']] ip_v4_firewall_settings: The firewall settings for the AS server.
         :param pulumi.Input[str] location: Location of the Analysis Services resource.
-        :param pulumi.Input['ManagedMode'] managed_mode: The managed mode of the server (0 = not managed, 1 = managed).
+        :param pulumi.Input[int] managed_mode: The managed mode of the server (0 = not managed, 1 = managed).
         :param pulumi.Input['ConnectionMode'] querypool_connection_mode: How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
         :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
-        :param pulumi.Input['ServerMonitorMode'] server_monitor_mode: The server monitor mode for AS server
+        :param pulumi.Input[int] server_monitor_mode: The server monitor mode for AS server
         :param pulumi.Input[str] server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The SKU of the Analysis Services resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
@@ -75,11 +75,17 @@ class ServerDetails(pulumi.CustomResource):
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            if managed_mode is None:
+                managed_mode = 1
             __props__['managed_mode'] = managed_mode
+            if querypool_connection_mode is None:
+                querypool_connection_mode = 'All'
             __props__['querypool_connection_mode'] = querypool_connection_mode
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if server_monitor_mode is None:
+                server_monitor_mode = 1
             __props__['server_monitor_mode'] = server_monitor_mode
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")

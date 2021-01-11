@@ -111,7 +111,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
-            inputs["zoneType"] = args ? args.zoneType : undefined;
+            inputs["zoneType"] = (args ? args.zoneType : undefined) || "Public";
             inputs["maxNumberOfRecordSets"] = undefined /*out*/;
             inputs["maxNumberOfRecordsPerRecordSet"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;

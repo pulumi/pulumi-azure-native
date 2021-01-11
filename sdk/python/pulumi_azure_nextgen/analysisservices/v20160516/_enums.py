@@ -5,26 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'ManagedMode',
-    'ServerMonitorMode',
     'SkuTier',
 ]
-
-
-class ManagedMode(str, Enum):
-    """
-    The managed mode of the server (0 = not managed, 1 = managed).
-    """
-    ZERO = "0"
-    ONE = "1"
-
-
-class ServerMonitorMode(str, Enum):
-    """
-    The server monitor mode for AS server
-    """
-    ZERO = "0"
-    ONE = "1"
 
 
 class SkuTier(str, Enum):

@@ -101,6 +101,9 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest.Inputs
 
         public VaultPropertiesArgs()
         {
+            EnableRbacAuthorization = false;
+            EnableSoftDelete = true;
+            SoftDeleteRetentionInDays = 90;
         }
     }
 }

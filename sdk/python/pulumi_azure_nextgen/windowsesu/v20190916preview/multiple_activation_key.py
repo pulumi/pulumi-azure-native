@@ -73,6 +73,8 @@ class MultipleActivationKey(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if support_type is None:
+                support_type = 'SupplementalServicing'
             __props__['support_type'] = support_type
             __props__['tags'] = tags
             __props__['expiration_date'] = None

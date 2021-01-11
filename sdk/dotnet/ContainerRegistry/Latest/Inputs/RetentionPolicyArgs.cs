@@ -29,6 +29,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
 
         public RetentionPolicyArgs()
         {
+            Days = 7;
+            Status = "disabled";
         }
     }
 }

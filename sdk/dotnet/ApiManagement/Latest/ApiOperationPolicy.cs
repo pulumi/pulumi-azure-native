@@ -139,6 +139,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 
         public ApiOperationPolicyArgs()
         {
+            Format = "xml";
         }
     }
 }

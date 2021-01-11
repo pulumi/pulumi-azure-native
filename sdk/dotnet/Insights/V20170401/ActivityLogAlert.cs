@@ -186,6 +186,7 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
 
         public ActivityLogAlertArgs()
         {
+            Enabled = true;
         }
     }
 }

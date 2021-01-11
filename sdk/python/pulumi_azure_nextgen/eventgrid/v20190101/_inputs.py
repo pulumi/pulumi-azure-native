@@ -81,6 +81,8 @@ class EventSubscriptionFilterArgs:
         """
         if included_event_types is not None:
             pulumi.set(__self__, "included_event_types", included_event_types)
+        if is_subject_case_sensitive is None:
+            is_subject_case_sensitive = False
         if is_subject_case_sensitive is not None:
             pulumi.set(__self__, "is_subject_case_sensitive", is_subject_case_sensitive)
         if subject_begins_with is not None:

@@ -176,7 +176,7 @@ func (k *SdkShapeConverter) ResponseToSdkInputs(parameters []AzureAPIParameter,
 					// contain a lot of default values, e.g. empty arrays when no values were specified, empty
 					// strings, or false booleans. The decision to remove them is somewhat arbitrary but it
 					// seems to make the practical import experience smoother.
-					result[k] = removeDefaultValues(v)
+					result[k] = removeEmptyCollections(v)
 				}
 			}
 		}
@@ -321,14 +321,13 @@ func ParseResourceID(id, path string) (map[string]string, error) {
 	return result, nil
 }
 
-// removeDefaultValues returns nil if the given value is a default for its type (e.g. `false`, or an
-// empty string). It also applies this recursively for values in arrays and maps.
-func removeDefaultValues(value interface{}) interface{} {
+// removeEmptyCollections returns nil if the given value is a default map or array with no values.
+func removeEmptyCollections(value interface{}) interface{} {
 	switch value := value.(type) {
 	case map[string]interface{}:
 		result := map[string]interface{}{}
 		for k, v := range value {
-			resultValue := removeDefaultValues(v)
+			resultValue := removeEmptyCollections(v)
 			if resultValue != nil {
 				result[k] = resultValue
 			}
@@ -340,7 +339,7 @@ func removeDefaultValues(value interface{}) interface{} {
 	case []interface{}:
 		var result []interface{}
 		for _, v := range value {
-			resultValue := removeDefaultValues(v)
+			resultValue := removeEmptyCollections(v)
 			if resultValue != nil {
 				result = append(result, resultValue)
 			}
@@ -349,14 +348,6 @@ func removeDefaultValues(value interface{}) interface{} {
 			return nil
 		}
 		return result
-	case bool:
-		if !value {
-			return nil
-		}
-	case string:
-		if len(value) == 0 {
-			return nil
-		}
 	}
 	return value
 }

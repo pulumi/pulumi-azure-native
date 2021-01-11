@@ -65,6 +65,12 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 	if args.VirtualNetworkName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkName'")
 	}
+	if args.EnableDdosProtection == nil {
+		args.EnableDdosProtection = pulumi.BoolPtr(false)
+	}
+	if args.EnableVmProtection == nil {
+		args.EnableVmProtection = pulumi.BoolPtr(false)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150501preview:VirtualNetwork"),

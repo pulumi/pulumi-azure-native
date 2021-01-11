@@ -264,6 +264,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
 
         public VirtualMachineScaleSetVMRunCommandArgs()
         {
+            AsyncExecution = false;
         }
     }
 }

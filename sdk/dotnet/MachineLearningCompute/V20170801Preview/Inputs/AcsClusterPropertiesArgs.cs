@@ -59,6 +59,9 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
 
         public AcsClusterPropertiesArgs()
         {
+            AgentCount = 2;
+            AgentVmSize = "Standard_D3_v2";
+            MasterCount = 1;
         }
     }
 }

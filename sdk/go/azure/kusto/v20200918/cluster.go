@@ -80,6 +80,15 @@ func NewCluster(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.EnableDoubleEncryption == nil {
+		args.EnableDoubleEncryption = pulumi.BoolPtr(false)
+	}
+	if args.EnablePurge == nil {
+		args.EnablePurge = pulumi.BoolPtr(false)
+	}
+	if args.EnableStreamingIngest == nil {
+		args.EnableStreamingIngest = pulumi.BoolPtr(false)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:kusto/latest:Cluster"),

@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
 
         public VirtualNetworkRuleArgs()
         {
+            Action = "Allow";
         }
     }
 }

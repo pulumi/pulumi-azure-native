@@ -209,6 +209,7 @@ namespace Pulumi.AzureNextGen.Network.V20180501
 
         public ZoneArgs()
         {
+            ZoneType = Pulumi.AzureNextGen.Network.V20180501.ZoneType.Public;
         }
     }
 }

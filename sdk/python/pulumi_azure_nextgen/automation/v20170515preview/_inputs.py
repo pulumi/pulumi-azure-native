@@ -376,6 +376,8 @@ class SchedulePropertiesArgs:
             pulumi.set(__self__, "frequency", frequency)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
+        if is_enabled is None:
+            is_enabled = False
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if last_modified_time is not None:

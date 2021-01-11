@@ -41,6 +41,8 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Inputs
 
         public ConnectToSourceSqlServerTaskInputArgs()
         {
+            CollectAgentJobs = false;
+            CollectLogins = false;
         }
     }
 }

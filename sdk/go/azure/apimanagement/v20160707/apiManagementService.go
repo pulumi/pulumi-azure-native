@@ -86,6 +86,9 @@ func NewApiManagementService(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.VpnType == nil {
+		args.VpnType = VirtualNetworkType("None")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiManagementService"),

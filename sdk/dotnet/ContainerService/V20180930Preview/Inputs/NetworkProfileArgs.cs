@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180930Preview.Inputs
 
         public NetworkProfileArgs()
         {
+            VnetCidr = "10.0.0.0/8";
         }
     }
 }

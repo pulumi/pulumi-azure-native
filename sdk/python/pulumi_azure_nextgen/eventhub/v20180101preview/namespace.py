@@ -77,6 +77,8 @@ class Namespace(pulumi.CustomResource):
             __props__['cluster_arm_id'] = cluster_arm_id
             __props__['is_auto_inflate_enabled'] = is_auto_inflate_enabled
             __props__['kafka_enabled'] = kafka_enabled
+            if key_source is None:
+                key_source = 'Microsoft.KeyVault'
             __props__['key_source'] = key_source
             __props__['key_vault_properties'] = key_vault_properties
             if location is None and not opts.urn:
@@ -93,6 +95,8 @@ class Namespace(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['tenant_id'] = tenant_id
+            if type is None:
+                type = 'SystemAssigned'
             __props__['type'] = type
             __props__['zone_redundant'] = zone_redundant
             __props__['created_at'] = None

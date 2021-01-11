@@ -53,6 +53,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
 
         public DiskEncryptionPropertiesArgs()
         {
+            EncryptionAtHost = false;
         }
     }
 }

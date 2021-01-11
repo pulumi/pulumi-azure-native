@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707.Inputs
 
         public ApiManagementServiceSkuPropertiesArgs()
         {
+            Capacity = 1;
         }
     }
 }

@@ -1264,12 +1264,16 @@ class AmlComputeResponseProperties(dict):
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "node_state_counts", node_state_counts)
         pulumi.set(__self__, "target_node_count", target_node_count)
+        if enable_node_public_ip is None:
+            enable_node_public_ip = True
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if isolated_network is not None:
             pulumi.set(__self__, "isolated_network", isolated_network)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if remote_login_port_public_access is None:
+            remote_login_port_public_access = 'NotSpecified'
         if remote_login_port_public_access is not None:
             pulumi.set(__self__, "remote_login_port_public_access", remote_login_port_public_access)
         if scale_settings is not None:
@@ -1793,8 +1797,12 @@ class ComputeInstanceResponseProperties(dict):
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "last_operation", last_operation)
         pulumi.set(__self__, "state", state)
+        if application_sharing_policy is None:
+            application_sharing_policy = 'Shared'
         if application_sharing_policy is not None:
             pulumi.set(__self__, "application_sharing_policy", application_sharing_policy)
+        if compute_instance_authorization_type is None:
+            compute_instance_authorization_type = 'personal'
         if compute_instance_authorization_type is not None:
             pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
         if personal_compute_instance_settings is not None:
@@ -1927,6 +1935,8 @@ class ComputeInstanceSshSettingsResponse(dict):
         pulumi.set(__self__, "ssh_port", ssh_port)
         if admin_public_key is not None:
             pulumi.set(__self__, "admin_public_key", admin_public_key)
+        if ssh_public_access is None:
+            ssh_public_access = 'Disabled'
         if ssh_public_access is not None:
             pulumi.set(__self__, "ssh_public_access", ssh_public_access)
 
@@ -4175,6 +4185,8 @@ class ScaleSettingsResponse(dict):
         :param str node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
+        if min_node_count is None:
+            min_node_count = 0
         if min_node_count is not None:
             pulumi.set(__self__, "min_node_count", min_node_count)
         if node_idle_time_before_scale_down is not None:

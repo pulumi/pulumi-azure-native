@@ -94,6 +94,8 @@ class Volume(pulumi.CustomResource):
             __props__['data_protection'] = data_protection
             __props__['export_policy'] = export_policy
             __props__['is_restoring'] = is_restoring
+            if kerberos_enabled is None:
+                kerberos_enabled = False
             __props__['kerberos_enabled'] = kerberos_enabled
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
@@ -106,6 +108,8 @@ class Volume(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if service_level is None:
+                service_level = 'Premium'
             __props__['service_level'] = service_level
             __props__['snapshot_directory_visible'] = snapshot_directory_visible
             __props__['snapshot_id'] = snapshot_id
@@ -113,6 +117,8 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
+            if usage_threshold is None:
+                usage_threshold = 107374182400
             if usage_threshold is None and not opts.urn:
                 raise TypeError("Missing required property 'usage_threshold'")
             __props__['usage_threshold'] = usage_threshold

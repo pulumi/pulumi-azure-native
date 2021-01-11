@@ -73,6 +73,12 @@ func NewTask(ctx *pulumi.Context,
 	if args.TaskName == nil {
 		return nil, errors.New("invalid value for required argument 'TaskName'")
 	}
+	if args.IsSystemTask == nil {
+		args.IsSystemTask = pulumi.BoolPtr(false)
+	}
+	if args.Timeout == nil {
+		args.Timeout = pulumi.IntPtr(3600)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/latest:Task"),

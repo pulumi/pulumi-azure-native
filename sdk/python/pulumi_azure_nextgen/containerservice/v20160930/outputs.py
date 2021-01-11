@@ -43,6 +43,8 @@ class ContainerServiceAgentPoolProfileResponse(dict):
         :param str name: Unique name of the agent pool profile in the context of the subscription and resource group.
         :param str vm_size: Size of agent VMs.
         """
+        if count is None:
+            count = 1
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "dns_prefix", dns_prefix)
         pulumi.set(__self__, "fqdn", fqdn)
@@ -192,6 +194,8 @@ class ContainerServiceMasterProfileResponse(dict):
         """
         pulumi.set(__self__, "dns_prefix", dns_prefix)
         pulumi.set(__self__, "fqdn", fqdn)
+        if count is None:
+            count = 1
         if count is not None:
             pulumi.set(__self__, "count", count)
 

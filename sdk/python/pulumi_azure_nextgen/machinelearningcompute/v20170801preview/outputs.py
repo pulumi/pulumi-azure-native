@@ -56,10 +56,16 @@ class AcsClusterPropertiesResponse(dict):
         """
         pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
         pulumi.set(__self__, "orchestrator_type", orchestrator_type)
+        if agent_count is None:
+            agent_count = 2
         if agent_count is not None:
             pulumi.set(__self__, "agent_count", agent_count)
+        if agent_vm_size is None:
+            agent_vm_size = 'Standard_D3_v2'
         if agent_vm_size is not None:
             pulumi.set(__self__, "agent_vm_size", agent_vm_size)
+        if master_count is None:
+            master_count = 1
         if master_count is not None:
             pulumi.set(__self__, "master_count", master_count)
         if orchestrator_properties is not None:
@@ -207,12 +213,18 @@ class AutoScaleConfigurationResponse(dict):
         :param str status: If auto-scale is enabled for all services. Each service can turn it off individually.
         :param float target_utilization: The target utilization.
         """
+        if max_replicas is None:
+            max_replicas = 100
         if max_replicas is not None:
             pulumi.set(__self__, "max_replicas", max_replicas)
+        if min_replicas is None:
+            min_replicas = 1
         if min_replicas is not None:
             pulumi.set(__self__, "min_replicas", min_replicas)
         if refresh_period_in_seconds is not None:
             pulumi.set(__self__, "refresh_period_in_seconds", refresh_period_in_seconds)
+        if status is None:
+            status = 'Disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
         if target_utilization is not None:
@@ -680,6 +692,8 @@ class SslConfigurationResponse(dict):
             pulumi.set(__self__, "cname", cname)
         if key is not None:
             pulumi.set(__self__, "key", key)
+        if status is None:
+            status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
 

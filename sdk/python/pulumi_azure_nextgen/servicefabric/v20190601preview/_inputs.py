@@ -345,10 +345,14 @@ class ArmApplicationHealthPolicyArgs:
                The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
         :param pulumi.Input[Mapping[str, pulumi.Input['ArmServiceTypeHealthPolicyArgs']]] service_type_health_policy_map: The map with service type health policy per service type name. The map is empty by default.
         """
+        if consider_warning_as_error is None:
+            consider_warning_as_error = False
         if consider_warning_as_error is not None:
             pulumi.set(__self__, "consider_warning_as_error", consider_warning_as_error)
         if default_service_type_health_policy is not None:
             pulumi.set(__self__, "default_service_type_health_policy", default_service_type_health_policy)
+        if max_percent_unhealthy_deployed_applications is None:
+            max_percent_unhealthy_deployed_applications = 0
         if max_percent_unhealthy_deployed_applications is not None:
             pulumi.set(__self__, "max_percent_unhealthy_deployed_applications", max_percent_unhealthy_deployed_applications)
         if service_type_health_policy_map is not None:
@@ -523,10 +527,16 @@ class ArmServiceTypeHealthPolicyArgs:
         :param pulumi.Input[int] max_percent_unhealthy_replicas_per_partition: The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
         :param pulumi.Input[int] max_percent_unhealthy_services: The maximum percentage of services allowed to be unhealthy before your application is considered in error.
         """
+        if max_percent_unhealthy_partitions_per_service is None:
+            max_percent_unhealthy_partitions_per_service = 0
         if max_percent_unhealthy_partitions_per_service is not None:
             pulumi.set(__self__, "max_percent_unhealthy_partitions_per_service", max_percent_unhealthy_partitions_per_service)
+        if max_percent_unhealthy_replicas_per_partition is None:
+            max_percent_unhealthy_replicas_per_partition = 0
         if max_percent_unhealthy_replicas_per_partition is not None:
             pulumi.set(__self__, "max_percent_unhealthy_replicas_per_partition", max_percent_unhealthy_replicas_per_partition)
+        if max_percent_unhealthy_services is None:
+            max_percent_unhealthy_services = 0
         if max_percent_unhealthy_services is not None:
             pulumi.set(__self__, "max_percent_unhealthy_services", max_percent_unhealthy_services)
 
@@ -796,8 +806,12 @@ class ClusterHealthPolicyArgs:
         """
         if application_health_policies is not None:
             pulumi.set(__self__, "application_health_policies", application_health_policies)
+        if max_percent_unhealthy_applications is None:
+            max_percent_unhealthy_applications = 0
         if max_percent_unhealthy_applications is not None:
             pulumi.set(__self__, "max_percent_unhealthy_applications", max_percent_unhealthy_applications)
+        if max_percent_unhealthy_nodes is None:
+            max_percent_unhealthy_nodes = 0
         if max_percent_unhealthy_nodes is not None:
             pulumi.set(__self__, "max_percent_unhealthy_nodes", max_percent_unhealthy_nodes)
 
@@ -1734,6 +1748,8 @@ class ServiceTypeDeltaHealthPolicyArgs:
                The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
         """
+        if max_percent_delta_unhealthy_services is None:
+            max_percent_delta_unhealthy_services = 0
         if max_percent_delta_unhealthy_services is not None:
             pulumi.set(__self__, "max_percent_delta_unhealthy_services", max_percent_delta_unhealthy_services)
 
@@ -1761,6 +1777,8 @@ class ServiceTypeHealthPolicyArgs:
 
         :param pulumi.Input[int] max_percent_unhealthy_services: The maximum percentage of services allowed to be unhealthy before your application is considered in error.
         """
+        if max_percent_unhealthy_services is None:
+            max_percent_unhealthy_services = 0
         if max_percent_unhealthy_services is not None:
             pulumi.set(__self__, "max_percent_unhealthy_services", max_percent_unhealthy_services)
 

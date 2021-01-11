@@ -29,6 +29,8 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest.Inputs
 
         public ManualScaleSettingsArgs()
         {
+            NodeDeallocationOption = "requeue";
+            TargetNodeCount = 0;
         }
     }
 }

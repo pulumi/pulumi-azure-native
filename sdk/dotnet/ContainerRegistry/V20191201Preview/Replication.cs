@@ -160,6 +160,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
         public ReplicationArgs()
         {
+            RegionEndpointEnabled = true;
         }
     }
 }

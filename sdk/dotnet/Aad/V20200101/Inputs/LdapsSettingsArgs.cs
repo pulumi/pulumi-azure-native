@@ -41,6 +41,8 @@ namespace Pulumi.AzureNextGen.Aad.V20200101.Inputs
 
         public LdapsSettingsArgs()
         {
+            ExternalAccess = "Disabled";
+            Ldaps = "Disabled";
         }
     }
 }

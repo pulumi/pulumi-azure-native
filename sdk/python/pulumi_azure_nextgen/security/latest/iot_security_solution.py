@@ -90,8 +90,12 @@ class IotSecuritySolution(pulumi.CustomResource):
             if solution_name is None and not opts.urn:
                 raise TypeError("Missing required property 'solution_name'")
             __props__['solution_name'] = solution_name
+            if status is None:
+                status = 'Enabled'
             __props__['status'] = status
             __props__['tags'] = tags
+            if unmasked_ip_logging_status is None:
+                unmasked_ip_logging_status = 'Disabled'
             __props__['unmasked_ip_logging_status'] = unmasked_ip_logging_status
             __props__['user_defined_resources'] = user_defined_resources
             __props__['workspace'] = workspace

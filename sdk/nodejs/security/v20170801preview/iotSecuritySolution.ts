@@ -121,7 +121,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
             inputs["recommendationsConfiguration"] = args ? args.recommendationsConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["solutionName"] = args ? args.solutionName : undefined;
-            inputs["status"] = args ? args.status : undefined;
+            inputs["status"] = (args ? args.status : undefined) || "Enabled";
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userDefinedResources"] = args ? args.userDefinedResources : undefined;
             inputs["workspace"] = args ? args.workspace : undefined;

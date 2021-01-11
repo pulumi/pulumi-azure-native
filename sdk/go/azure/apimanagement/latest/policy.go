@@ -45,6 +45,9 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	if args.Format == nil {
+		args.Format = pulumi.StringPtr("xml")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Policy"),

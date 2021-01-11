@@ -301,6 +301,8 @@ namespace Pulumi.AzureNextGen.Web.V20160901
 
         public AppServicePlanArgs()
         {
+            PerSiteScaling = false;
+            Reserved = false;
         }
     }
 }

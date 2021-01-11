@@ -90,7 +90,7 @@ export class Registry extends pulumi.CustomResource {
             if ((!args || args.storageAccount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccount'");
             }
-            inputs["adminUserEnabled"] = args ? args.adminUserEnabled : undefined;
+            inputs["adminUserEnabled"] = (args ? args.adminUserEnabled : undefined) || false;
             inputs["location"] = args ? args.location : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;

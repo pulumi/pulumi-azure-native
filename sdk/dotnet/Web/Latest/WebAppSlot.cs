@@ -529,6 +529,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
         public WebAppSlotArgs()
         {
+            HyperV = false;
+            IsXenon = false;
+            Reserved = false;
+            ScmSiteAlsoStopped = false;
         }
     }
 }

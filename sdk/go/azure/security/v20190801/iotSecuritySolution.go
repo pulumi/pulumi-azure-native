@@ -68,6 +68,12 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 	if args.SolutionName == nil {
 		return nil, errors.New("invalid value for required argument 'SolutionName'")
 	}
+	if args.Status == nil {
+		args.Status = pulumi.StringPtr("Enabled")
+	}
+	if args.UnmaskedIpLoggingStatus == nil {
+		args.UnmaskedIpLoggingStatus = pulumi.StringPtr("Disabled")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:security/latest:IotSecuritySolution"),

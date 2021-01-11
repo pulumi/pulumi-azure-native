@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408.Inputs
 
         public ContainerPartitionKeyArgs()
         {
+            Kind = "Hash";
         }
     }
 }

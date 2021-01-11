@@ -71,6 +71,9 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 	if args.SourceControlConfigurationName == nil {
 		return nil, errors.New("invalid value for required argument 'SourceControlConfigurationName'")
 	}
+	if args.OperatorNamespace == nil {
+		args.OperatorNamespace = pulumi.StringPtr("default")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"),

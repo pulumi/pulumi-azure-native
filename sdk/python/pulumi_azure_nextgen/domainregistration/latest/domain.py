@@ -77,6 +77,8 @@ class Domain(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auth_code'] = auth_code
+            if auto_renew is None:
+                auto_renew = True
             __props__['auto_renew'] = auto_renew
             if consent is None and not opts.urn:
                 raise TypeError("Missing required property 'consent'")

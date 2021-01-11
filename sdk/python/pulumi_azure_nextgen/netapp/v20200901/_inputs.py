@@ -383,18 +383,32 @@ class ExportPolicyRuleArgs:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
         if cifs is not None:
             pulumi.set(__self__, "cifs", cifs)
+        if has_root_access is None:
+            has_root_access = True
         if has_root_access is not None:
             pulumi.set(__self__, "has_root_access", has_root_access)
+        if kerberos5_read_only is None:
+            kerberos5_read_only = False
         if kerberos5_read_only is not None:
             pulumi.set(__self__, "kerberos5_read_only", kerberos5_read_only)
+        if kerberos5_read_write is None:
+            kerberos5_read_write = False
         if kerberos5_read_write is not None:
             pulumi.set(__self__, "kerberos5_read_write", kerberos5_read_write)
+        if kerberos5i_read_only is None:
+            kerberos5i_read_only = False
         if kerberos5i_read_only is not None:
             pulumi.set(__self__, "kerberos5i_read_only", kerberos5i_read_only)
+        if kerberos5i_read_write is None:
+            kerberos5i_read_write = False
         if kerberos5i_read_write is not None:
             pulumi.set(__self__, "kerberos5i_read_write", kerberos5i_read_write)
+        if kerberos5p_read_only is None:
+            kerberos5p_read_only = False
         if kerberos5p_read_only is not None:
             pulumi.set(__self__, "kerberos5p_read_only", kerberos5p_read_only)
+        if kerberos5p_read_write is None:
+            kerberos5p_read_write = False
         if kerberos5p_read_write is not None:
             pulumi.set(__self__, "kerberos5p_read_write", kerberos5p_read_write)
         if nfsv3 is not None:

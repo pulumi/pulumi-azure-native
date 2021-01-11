@@ -117,10 +117,10 @@ export class Volume extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
+            inputs["serviceLevel"] = (args ? args.serviceLevel : undefined) || "Premium";
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["usageThreshold"] = args ? args.usageThreshold : undefined;
+            inputs["usageThreshold"] = (args ? args.usageThreshold : undefined) || 107374182400;
             inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["fileSystemId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;

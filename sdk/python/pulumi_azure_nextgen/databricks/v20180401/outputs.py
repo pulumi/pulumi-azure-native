@@ -117,6 +117,8 @@ class EncryptionResponse(dict):
         """
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
+        if key_source is None:
+            key_source = 'Default'
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
         if key_vault_uri is not None:

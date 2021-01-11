@@ -166,6 +166,8 @@ class ContainerServiceMasterProfileResponse(dict):
         """
         pulumi.set(__self__, "dns_prefix", dns_prefix)
         pulumi.set(__self__, "fqdn", fqdn)
+        if count is None:
+            count = 1
         if count is not None:
             pulumi.set(__self__, "count", count)
 

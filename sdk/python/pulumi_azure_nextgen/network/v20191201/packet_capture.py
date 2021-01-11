@@ -62,6 +62,8 @@ class PacketCapture(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if bytes_to_capture_per_packet is None:
+                bytes_to_capture_per_packet = 0
             __props__['bytes_to_capture_per_packet'] = bytes_to_capture_per_packet
             __props__['filters'] = filters
             if network_watcher_name is None and not opts.urn:
@@ -79,7 +81,11 @@ class PacketCapture(pulumi.CustomResource):
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__['target'] = target
+            if time_limit_in_seconds is None:
+                time_limit_in_seconds = 18000
             __props__['time_limit_in_seconds'] = time_limit_in_seconds
+            if total_bytes_per_session is None:
+                total_bytes_per_session = 1073741824
             __props__['total_bytes_per_session'] = total_bytes_per_session
             __props__['etag'] = None
             __props__['name'] = None

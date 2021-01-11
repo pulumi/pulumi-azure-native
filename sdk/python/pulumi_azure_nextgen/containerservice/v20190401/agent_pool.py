@@ -76,6 +76,8 @@ class AgentPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'agent_pool_name'")
             __props__['agent_pool_name'] = agent_pool_name
             __props__['availability_zones'] = availability_zones
+            if count is None:
+                count = 1
             if count is None and not opts.urn:
                 raise TypeError("Missing required property 'count'")
             __props__['count'] = count

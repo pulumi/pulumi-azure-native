@@ -59,6 +59,9 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
 
         public ManagedHsmPropertiesArgs()
         {
+            EnablePurgeProtection = true;
+            EnableSoftDelete = true;
+            SoftDeleteRetentionInDays = 90;
         }
     }
 }

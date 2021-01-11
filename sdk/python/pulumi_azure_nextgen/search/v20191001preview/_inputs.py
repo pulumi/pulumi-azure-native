@@ -76,6 +76,8 @@ class NetworkRuleSetArgs:
         :param pulumi.Input['EndpointAccess'] endpoint_access: The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
         :param pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]] ip_rules: A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
         """
+        if endpoint_access is None:
+            endpoint_access = 'Public'
         if endpoint_access is not None:
             pulumi.set(__self__, "endpoint_access", endpoint_access)
         if ip_rules is not None:
@@ -182,6 +184,8 @@ class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The description for the private link service connection state.
         :param pulumi.Input['PrivateLinkServiceConnectionStatus'] status: Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
         """
+        if actions_required is None:
+            actions_required = 'None'
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:

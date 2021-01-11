@@ -292,6 +292,8 @@ class EncryptionKeyDetailsResponse(dict):
         :param str kek_url: Specifies the url for kek encryption key. 
         :param str kek_vault_resource_id: Specifies the keyvault resource id for kek encryption key. 
         """
+        if kek_type is None:
+            kek_type = 'MicrosoftManaged'
         if kek_type is not None:
             pulumi.set(__self__, "kek_type", kek_type)
         if kek_url is not None:
@@ -394,6 +396,8 @@ class IdentityDetailsResponse(dict):
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is None:
+            type = 'None'
         if type is not None:
             pulumi.set(__self__, "type", type)
 

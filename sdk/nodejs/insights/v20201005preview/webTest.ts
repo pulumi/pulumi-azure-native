@@ -157,9 +157,9 @@ export class WebTest extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["expectedHttpStatusCode"] = args ? args.expectedHttpStatusCode : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
+            inputs["frequency"] = (args ? args.frequency : undefined) || 300;
             inputs["ignoreHttpsStatusCode"] = args ? args.ignoreHttpsStatusCode : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
+            inputs["kind"] = (args ? args.kind : undefined) || "ping";
             inputs["location"] = args ? args.location : undefined;
             inputs["locations"] = args ? args.locations : undefined;
             inputs["request"] = args ? args.request : undefined;
@@ -169,8 +169,8 @@ export class WebTest extends pulumi.CustomResource {
             inputs["sSLCheck"] = args ? args.sSLCheck : undefined;
             inputs["syntheticMonitorId"] = args ? args.syntheticMonitorId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["webTestKind"] = args ? args.webTestKind : undefined;
+            inputs["timeout"] = (args ? args.timeout : undefined) || 30;
+            inputs["webTestKind"] = (args ? args.webTestKind : undefined) || "ping";
             inputs["webTestName"] = args ? args.webTestName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;

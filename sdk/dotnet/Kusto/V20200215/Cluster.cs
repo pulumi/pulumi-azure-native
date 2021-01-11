@@ -302,6 +302,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20200215
 
         public ClusterArgs()
         {
+            EnablePurge = false;
+            EnableStreamingIngest = false;
         }
     }
 }

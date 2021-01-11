@@ -124,7 +124,7 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["runLocation"] = args ? args.runLocation : undefined;
             inputs["schedules"] = args ? args.schedules : undefined;
             inputs["state"] = args ? args.state : undefined;
-            inputs["userConfirmation"] = args ? args.userConfirmation : undefined;
+            inputs["userConfirmation"] = (args ? args.userConfirmation : undefined) || "NotRequired";
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {

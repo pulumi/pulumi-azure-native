@@ -919,14 +919,20 @@ class DeploymentSettingsResponse(dict):
         :param str net_core_main_entry_path: The path to the .NET executable relative to zip root
         :param str runtime_version: Runtime version
         """
+        if cpu is None:
+            cpu = 1
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if instance_count is None:
+            instance_count = 1
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
         if jvm_options is not None:
             pulumi.set(__self__, "jvm_options", jvm_options)
+        if memory_in_gb is None:
+            memory_in_gb = 1
         if memory_in_gb is not None:
             pulumi.set(__self__, "memory_in_gb", memory_in_gb)
         if net_core_main_entry_path is not None:

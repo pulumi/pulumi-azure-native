@@ -475,6 +475,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
         public WebAppSlotArgs()
         {
+            Reserved = false;
+            ScmSiteAlsoStopped = false;
         }
     }
 }

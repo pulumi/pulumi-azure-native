@@ -206,6 +206,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
 
         public UserArgs()
         {
+            State = "active";
         }
     }
 }

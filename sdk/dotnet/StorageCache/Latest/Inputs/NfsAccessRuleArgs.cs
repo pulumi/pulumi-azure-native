@@ -65,6 +65,8 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
 
         public NfsAccessRuleArgs()
         {
+            AnonymousGID = "-2";
+            AnonymousUID = "-2";
         }
     }
 }

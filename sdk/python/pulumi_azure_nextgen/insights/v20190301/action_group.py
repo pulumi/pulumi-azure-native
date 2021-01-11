@@ -83,6 +83,8 @@ class ActionGroup(pulumi.CustomResource):
             __props__['azure_app_push_receivers'] = azure_app_push_receivers
             __props__['azure_function_receivers'] = azure_function_receivers
             __props__['email_receivers'] = email_receivers
+            if enabled is None:
+                enabled = True
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled

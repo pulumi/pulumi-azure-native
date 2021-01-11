@@ -137,7 +137,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["userAccountSettings"] = args ? args.userAccountSettings : undefined;
             inputs["virtualMachineConfiguration"] = args ? args.virtualMachineConfiguration : undefined;
-            inputs["vmPriority"] = args ? args.vmPriority : undefined;
+            inputs["vmPriority"] = (args ? args.vmPriority : undefined) || "dedicated";
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["allocationState"] = undefined /*out*/;

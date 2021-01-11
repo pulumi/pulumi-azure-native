@@ -185,6 +185,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
 
         public PolicyDefinitionArgs()
         {
+            Mode = "Indexed";
         }
     }
 }

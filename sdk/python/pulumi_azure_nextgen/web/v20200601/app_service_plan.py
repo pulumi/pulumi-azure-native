@@ -82,8 +82,12 @@ class AppServicePlan(pulumi.CustomResource):
 
             __props__['free_offer_expiration_time'] = free_offer_expiration_time
             __props__['hosting_environment_profile'] = hosting_environment_profile
+            if hyper_v is None:
+                hyper_v = False
             __props__['hyper_v'] = hyper_v
             __props__['is_spot'] = is_spot
+            if is_xenon is None:
+                is_xenon = False
             __props__['is_xenon'] = is_xenon
             __props__['kind'] = kind
             if location is None and not opts.urn:
@@ -93,7 +97,11 @@ class AppServicePlan(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if per_site_scaling is None:
+                per_site_scaling = False
             __props__['per_site_scaling'] = per_site_scaling
+            if reserved is None:
+                reserved = False
             __props__['reserved'] = reserved
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

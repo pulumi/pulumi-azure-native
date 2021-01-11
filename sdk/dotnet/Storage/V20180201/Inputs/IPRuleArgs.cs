@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180201.Inputs
 
         public IPRuleArgs()
         {
+            Action = Pulumi.AzureNextGen.Storage.V20180201.Action.Allow;
         }
     }
 }

@@ -70,6 +70,9 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 	if args.VmScaleSetName == nil {
 		return nil, errors.New("invalid value for required argument 'VmScaleSetName'")
 	}
+	if args.AsyncExecution == nil {
+		args.AsyncExecution = pulumi.BoolPtr(false)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand"),

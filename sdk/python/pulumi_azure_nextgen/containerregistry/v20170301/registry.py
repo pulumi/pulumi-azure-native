@@ -57,6 +57,8 @@ class Registry(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if admin_user_enabled is None:
+                admin_user_enabled = False
             __props__['admin_user_enabled'] = admin_user_enabled
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")

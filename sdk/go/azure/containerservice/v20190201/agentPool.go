@@ -67,6 +67,9 @@ func NewAgentPool(ctx *pulumi.Context,
 	if args.VmSize == nil {
 		return nil, errors.New("invalid value for required argument 'VmSize'")
 	}
+	if args.Count == nil {
+		args.Count = pulumi.Int(1)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/latest:AgentPool"),

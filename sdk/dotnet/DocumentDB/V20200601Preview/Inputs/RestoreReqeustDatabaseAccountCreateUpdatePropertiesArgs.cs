@@ -168,6 +168,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
 
         public RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs()
         {
+            CreateMode = "Default";
         }
     }
 }

@@ -86,6 +86,8 @@ class ManagedCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'admin_user_name'")
             __props__['admin_user_name'] = admin_user_name
             __props__['azure_active_directory'] = azure_active_directory
+            if client_connection_port is None:
+                client_connection_port = 19000
             __props__['client_connection_port'] = client_connection_port
             __props__['clients'] = clients
             __props__['cluster_code_version'] = cluster_code_version
@@ -98,6 +100,8 @@ class ManagedCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dns_name'")
             __props__['dns_name'] = dns_name
             __props__['fabric_settings'] = fabric_settings
+            if http_gateway_connection_port is None:
+                http_gateway_connection_port = 19080
             __props__['http_gateway_connection_port'] = http_gateway_connection_port
             __props__['load_balancing_rules'] = load_balancing_rules
             if location is None and not opts.urn:

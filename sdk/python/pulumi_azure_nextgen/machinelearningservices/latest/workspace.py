@@ -81,6 +81,8 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if allow_public_access_when_behind_vnet is None:
+                allow_public_access_when_behind_vnet = False
             __props__['allow_public_access_when_behind_vnet'] = allow_public_access_when_behind_vnet
             __props__['application_insights'] = application_insights
             __props__['container_registry'] = container_registry
@@ -88,6 +90,8 @@ class Workspace(pulumi.CustomResource):
             __props__['discovery_url'] = discovery_url
             __props__['encryption'] = encryption
             __props__['friendly_name'] = friendly_name
+            if hbi_workspace is None:
+                hbi_workspace = False
             __props__['hbi_workspace'] = hbi_workspace
             __props__['identity'] = identity
             __props__['image_build_compute'] = image_build_compute

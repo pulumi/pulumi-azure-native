@@ -95,12 +95,12 @@ export class Replication extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
-            inputs["regionEndpointEnabled"] = args ? args.regionEndpointEnabled : undefined;
+            inputs["regionEndpointEnabled"] = (args ? args.regionEndpointEnabled : undefined) || true;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["replicationName"] = args ? args.replicationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneRedundancy"] = args ? args.zoneRedundancy : undefined;
+            inputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) || "Disabled";
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;

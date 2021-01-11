@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301.Inputs
 
         public JobBasePropertiesConstraintsArgs()
         {
+            MaxWallClockTime = "7.00:00:00";
         }
     }
 }
