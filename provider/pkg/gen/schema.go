@@ -1136,6 +1136,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 
 	propertySpec := pschema.PropertySpec{
 		Description: description,
+		Default:     schema.Default,
 		TypeSpec:    *typeSpec,
 	}
 
@@ -1162,9 +1163,9 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 	// If this is an enum and it's an input type, generate the enum type definition.
 	enumExtension, isEnum := resolvedSchema.Extensions[extensionEnum].(map[string]interface{})
 	if !isOutput && isEnum && resolvedSchema.Enum != nil &&
-		// There are some boolean- and number- based definitions but they aren't allowed by the Azure specs.
+		// There are some boolean-, integer-, and number- based definitions but they aren't allowed by the Azure specs.
 		// Ignore both to preserve over-the-wire format even if they say it's an enum to be modelled as a string.
-		primitiveTypeName != "boolean" && primitiveTypeName != "number" {
+		primitiveTypeName != "boolean" && primitiveTypeName != "integer" && primitiveTypeName != "number" {
 		return m.genEnumType(schema, context, enumExtension)
 	}
 
