@@ -47,6 +47,9 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.Inputs
 
         public AutoScaleConfigurationArgs()
         {
+            MaxReplicas = 100;
+            MinReplicas = 1;
+            Status = "Disabled";
         }
     }
 }

@@ -231,6 +231,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 
         public NamespaceArgs()
         {
+            KeySource = Pulumi.AzureNextGen.ServiceBus.V20180101Preview.KeySource.Microsoft_KeyVault;
+            Type = Pulumi.AzureNextGen.ServiceBus.V20180101Preview.IdentityType.SystemAssigned;
         }
     }
 }

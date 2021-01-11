@@ -47,6 +47,11 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview.Inputs
 
         public JobStepExecutionOptionsArgs()
         {
+            InitialRetryIntervalSeconds = 1;
+            MaximumRetryIntervalSeconds = 120;
+            RetryAttempts = 10;
+            RetryIntervalBackoffMultiplier = 2;
+            TimeoutSeconds = 43200;
         }
     }
 }

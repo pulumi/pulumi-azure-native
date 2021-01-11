@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001.Inputs
 
         public PacketCaptureFilterArgs()
         {
+            Protocol = "Any";
         }
     }
 }

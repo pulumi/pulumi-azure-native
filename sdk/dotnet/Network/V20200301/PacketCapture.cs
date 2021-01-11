@@ -210,6 +210,9 @@ namespace Pulumi.AzureNextGen.Network.V20200301
 
         public PacketCaptureArgs()
         {
+            BytesToCapturePerPacket = 0;
+            TimeLimitInSeconds = 18000;
+            TotalBytesPerSession = 1073741824;
         }
     }
 }

@@ -169,6 +169,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20170815
 
         public PoolArgs()
         {
+            ServiceLevel = "Premium";
+            Size = 4398046511104;
         }
     }
 }

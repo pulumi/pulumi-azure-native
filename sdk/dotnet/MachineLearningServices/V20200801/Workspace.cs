@@ -349,6 +349,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801
 
         public WorkspaceArgs()
         {
+            AllowPublicAccessWhenBehindVnet = false;
+            HbiWorkspace = false;
         }
     }
 }

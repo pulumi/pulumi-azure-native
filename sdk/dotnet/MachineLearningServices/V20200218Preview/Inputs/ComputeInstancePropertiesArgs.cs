@@ -53,6 +53,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200218Preview.Inputs
 
         public ComputeInstancePropertiesArgs()
         {
+            ApplicationSharingPolicy = "Shared";
+            ComputeInstanceAuthorizationType = "personal";
         }
     }
 }

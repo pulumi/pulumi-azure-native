@@ -8,68 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
 {
     /// <summary>
-    /// The managed mode of the server (0 = not managed, 1 = managed).
-    /// </summary>
-    [EnumType]
-    public readonly struct ManagedMode : IEquatable<ManagedMode>
-    {
-        private readonly string _value;
-
-        private ManagedMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ManagedMode Zero { get; } = new ManagedMode("0");
-        public static ManagedMode One { get; } = new ManagedMode("1");
-
-        public static bool operator ==(ManagedMode left, ManagedMode right) => left.Equals(right);
-        public static bool operator !=(ManagedMode left, ManagedMode right) => !left.Equals(right);
-
-        public static explicit operator string(ManagedMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ManagedMode other && Equals(other);
-        public bool Equals(ManagedMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The server monitor mode for AS server
-    /// </summary>
-    [EnumType]
-    public readonly struct ServerMonitorMode : IEquatable<ServerMonitorMode>
-    {
-        private readonly string _value;
-
-        private ServerMonitorMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ServerMonitorMode Zero { get; } = new ServerMonitorMode("0");
-        public static ServerMonitorMode One { get; } = new ServerMonitorMode("1");
-
-        public static bool operator ==(ServerMonitorMode left, ServerMonitorMode right) => left.Equals(right);
-        public static bool operator !=(ServerMonitorMode left, ServerMonitorMode right) => !left.Equals(right);
-
-        public static explicit operator string(ServerMonitorMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerMonitorMode other && Equals(other);
-        public bool Equals(ServerMonitorMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The name of the Azure pricing tier to which the SKU applies.
     /// </summary>
     [EnumType]

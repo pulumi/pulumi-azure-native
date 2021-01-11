@@ -53,6 +53,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview.Inputs
 
         public TableSpecificationArgs()
         {
+            Type = "object";
         }
     }
 }

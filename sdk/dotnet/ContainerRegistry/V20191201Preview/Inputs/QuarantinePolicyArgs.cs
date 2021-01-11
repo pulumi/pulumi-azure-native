@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Inputs
 
         public QuarantinePolicyArgs()
         {
+            Status = "disabled";
         }
     }
 }

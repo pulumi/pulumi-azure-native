@@ -258,6 +258,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview
 
         public SourceControlConfigurationArgs()
         {
+            OperatorNamespace = "default";
         }
     }
 }

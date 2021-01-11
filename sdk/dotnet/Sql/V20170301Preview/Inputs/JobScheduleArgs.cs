@@ -47,6 +47,9 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview.Inputs
 
         public JobScheduleArgs()
         {
+            EndTime = "9999-12-31T11:59:59Z";
+            StartTime = "0001-01-01T00:00:00Z";
+            Type = Pulumi.AzureNextGen.Sql.V20170301Preview.JobScheduleType.Once;
         }
     }
 }

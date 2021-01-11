@@ -53,6 +53,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20191101.Inputs
 
         public AmlComputePropertiesArgs()
         {
+            RemoteLoginPortPublicAccess = "NotSpecified";
         }
     }
 }

@@ -59,6 +59,11 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190401.Inputs
 
         public ContainerServiceNetworkProfileArgs()
         {
+            DnsServiceIP = "10.0.0.10";
+            DockerBridgeCidr = "172.17.0.1/16";
+            NetworkPlugin = "kubenet";
+            PodCidr = "10.244.0.0/16";
+            ServiceCidr = "10.0.0.0/16";
         }
     }
 }

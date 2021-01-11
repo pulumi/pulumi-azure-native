@@ -172,6 +172,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
         public ReplicationArgs()
         {
+            RegionEndpointEnabled = true;
+            ZoneRedundancy = "Disabled";
         }
     }
 }

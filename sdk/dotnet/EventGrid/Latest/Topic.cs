@@ -216,6 +216,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
 
         public TopicArgs()
         {
+            InputSchema = "EventGridSchema";
         }
     }
 }

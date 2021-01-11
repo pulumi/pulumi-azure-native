@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200218Preview.Inputs
 
         public ComputeInstanceSshSettingsArgs()
         {
+            SshPublicAccess = "Disabled";
         }
     }
 }

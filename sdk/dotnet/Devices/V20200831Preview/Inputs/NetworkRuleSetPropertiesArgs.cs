@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200831Preview.Inputs
 
         public NetworkRuleSetPropertiesArgs()
         {
+            DefaultAction = "Deny";
         }
     }
 }

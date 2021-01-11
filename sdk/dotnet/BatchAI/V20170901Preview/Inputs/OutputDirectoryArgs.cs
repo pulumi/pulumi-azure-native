@@ -47,6 +47,8 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Inputs
 
         public OutputDirectoryArgs()
         {
+            CreateNew = true;
+            Type = "custom";
         }
     }
 }

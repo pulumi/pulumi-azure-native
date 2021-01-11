@@ -26,6 +26,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
 
         public PipelineRunSourcePropertiesArgs()
         {
+            Type = "AzureStorageBlob";
         }
     }
 }

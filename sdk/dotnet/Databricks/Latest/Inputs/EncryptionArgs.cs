@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest.Inputs
 
         public EncryptionArgs()
         {
+            KeySource = "Default";
         }
     }
 }

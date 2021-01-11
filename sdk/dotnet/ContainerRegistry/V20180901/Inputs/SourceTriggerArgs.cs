@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901.Inputs
 
         public SourceTriggerArgs()
         {
+            Status = "Enabled";
         }
     }
 }

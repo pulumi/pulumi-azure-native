@@ -276,6 +276,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
         public RegistryArgs()
         {
+            AdminUserEnabled = false;
+            PublicNetworkAccess = "Enabled";
         }
     }
 }

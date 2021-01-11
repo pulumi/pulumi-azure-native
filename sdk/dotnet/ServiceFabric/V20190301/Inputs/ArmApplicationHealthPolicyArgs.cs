@@ -50,6 +50,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301.Inputs
 
         public ArmApplicationHealthPolicyArgs()
         {
+            ConsiderWarningAsError = false;
+            MaxPercentUnhealthyDeployedApplications = 0;
         }
     }
 }

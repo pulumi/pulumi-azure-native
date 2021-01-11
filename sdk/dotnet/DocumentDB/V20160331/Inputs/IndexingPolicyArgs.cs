@@ -53,6 +53,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160331.Inputs
 
         public IndexingPolicyArgs()
         {
+            IndexingMode = "Consistent";
         }
     }
 }

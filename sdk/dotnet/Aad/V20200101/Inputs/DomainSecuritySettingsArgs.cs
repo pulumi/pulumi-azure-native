@@ -47,6 +47,11 @@ namespace Pulumi.AzureNextGen.Aad.V20200101.Inputs
 
         public DomainSecuritySettingsArgs()
         {
+            NtlmV1 = "Enabled";
+            SyncKerberosPasswords = "Enabled";
+            SyncNtlmPasswords = "Enabled";
+            SyncOnPremPasswords = "Enabled";
+            TlsV1 = "Enabled";
         }
     }
 }

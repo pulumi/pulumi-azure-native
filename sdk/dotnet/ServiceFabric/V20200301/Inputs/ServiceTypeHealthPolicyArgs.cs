@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200301.Inputs
 
         public ServiceTypeHealthPolicyArgs()
         {
+            MaxPercentUnhealthyServices = 0;
         }
     }
 }

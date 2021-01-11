@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501.Inputs
 
         public DataDisksArgs()
         {
+            CachingType = Pulumi.AzureNextGen.BatchAI.V20180501.CachingType.None;
         }
     }
 }

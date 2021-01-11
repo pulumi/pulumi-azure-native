@@ -308,6 +308,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
 
         public MachineLearningDatastoreArgs()
         {
+            EnforceSSL = true;
+            IncludeSecret = true;
         }
     }
 }

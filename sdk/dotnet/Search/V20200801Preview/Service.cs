@@ -238,6 +238,10 @@ namespace Pulumi.AzureNextGen.Search.V20200801Preview
 
         public ServiceArgs()
         {
+            HostingMode = Pulumi.AzureNextGen.Search.V20200801Preview.HostingMode.@Default;
+            PartitionCount = 1;
+            PublicNetworkAccess = Pulumi.AzureNextGen.Search.V20200801Preview.PublicNetworkAccess.Enabled;
+            ReplicaCount = 1;
         }
     }
 }

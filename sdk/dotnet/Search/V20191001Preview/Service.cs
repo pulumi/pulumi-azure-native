@@ -220,6 +220,9 @@ namespace Pulumi.AzureNextGen.Search.V20191001Preview
 
         public ServiceArgs()
         {
+            HostingMode = Pulumi.AzureNextGen.Search.V20191001Preview.HostingMode.@Default;
+            PartitionCount = 1;
+            ReplicaCount = 1;
         }
     }
 }

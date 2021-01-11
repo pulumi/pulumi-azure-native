@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
 
         public BackendPoolsSettingsArgs()
         {
+            EnforceCertificateNameCheck = "Enabled";
         }
     }
 }

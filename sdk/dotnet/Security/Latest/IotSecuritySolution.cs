@@ -284,6 +284,8 @@ namespace Pulumi.AzureNextGen.Security.Latest
 
         public IotSecuritySolutionArgs()
         {
+            Status = "Enabled";
+            UnmaskedIpLoggingStatus = "Disabled";
         }
     }
 }

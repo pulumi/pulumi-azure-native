@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801.Inputs
 
         public ScaleSettingsArgs()
         {
+            MinNodeCount = 0;
         }
     }
 }

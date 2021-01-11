@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401.Inputs
 
         public CorrelationFilterArgs()
         {
+            RequiresPreprocessing = true;
         }
     }
 }

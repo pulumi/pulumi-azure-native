@@ -295,6 +295,8 @@ namespace Pulumi.AzureNextGen.Storage.V20180301Preview
 
         public StorageAccountArgs()
         {
+            EnableHttpsTrafficOnly = false;
+            IsHnsEnabled = false;
         }
     }
 }

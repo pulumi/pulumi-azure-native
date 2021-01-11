@@ -59,6 +59,8 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
 
         public ManagedClusterLoadBalancerProfileArgs()
         {
+            AllocatedOutboundPorts = 0;
+            IdleTimeoutInMinutes = 30;
         }
     }
 }

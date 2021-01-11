@@ -314,6 +314,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20161010
 
         public ApiManagementServiceArgs()
         {
+            VpnType = Pulumi.AzureNextGen.ApiManagement.V20161010.VirtualNetworkType.None;
         }
     }
 }

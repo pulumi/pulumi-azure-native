@@ -54,6 +54,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Inputs
 
         public TaskRunRequestArgs()
         {
+            IsArchiveEnabled = false;
         }
     }
 }

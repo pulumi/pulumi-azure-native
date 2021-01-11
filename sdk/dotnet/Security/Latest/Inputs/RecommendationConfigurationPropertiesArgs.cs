@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.Security.Latest.Inputs
 
         public RecommendationConfigurationPropertiesArgs()
         {
+            Status = "Enabled";
         }
     }
 }

@@ -35,6 +35,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest.Inputs
 
         public SqlFilterArgs()
         {
+            CompatibilityLevel = 20;
+            RequiresPreprocessing = true;
         }
     }
 }

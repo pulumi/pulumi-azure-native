@@ -35,6 +35,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160319.Inputs
 
         public IndexesArgs()
         {
+            DataType = "String";
+            Kind = "Hash";
         }
     }
 }

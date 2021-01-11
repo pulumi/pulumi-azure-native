@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview.Inputs
 
         public JobTargetArgs()
         {
+            MembershipType = Pulumi.AzureNextGen.Sql.V20170301Preview.JobTargetGroupMembershipType.Include;
         }
     }
 }

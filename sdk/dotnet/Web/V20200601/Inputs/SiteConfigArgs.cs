@@ -402,6 +402,9 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
 
         public SiteConfigArgs()
         {
+            Http20Enabled = true;
+            LocalMySqlEnabled = false;
+            NetFrameworkVersion = "v4.6";
         }
     }
 }

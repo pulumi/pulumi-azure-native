@@ -355,6 +355,9 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 
         public AccountArgs()
         {
+            MaxDegreeOfParallelism = 30;
+            MaxJobCount = 3;
+            QueryStoreRetention = 30;
         }
     }
 }

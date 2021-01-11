@@ -300,6 +300,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
         public RegistryArgs()
         {
+            AdminUserEnabled = false;
+            NetworkRuleBypassOptions = "AzureServices";
+            PublicNetworkAccess = "Enabled";
+            ZoneRedundancy = "Disabled";
         }
     }
 }

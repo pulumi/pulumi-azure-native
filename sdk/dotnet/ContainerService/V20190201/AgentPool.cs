@@ -260,6 +260,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190201
 
         public AgentPoolArgs()
         {
+            Count = 1;
         }
     }
 }

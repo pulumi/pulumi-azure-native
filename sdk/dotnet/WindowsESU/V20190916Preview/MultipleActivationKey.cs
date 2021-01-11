@@ -191,6 +191,7 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
 
         public MultipleActivationKeyArgs()
         {
+            SupportType = "SupplementalServicing";
         }
     }
 }

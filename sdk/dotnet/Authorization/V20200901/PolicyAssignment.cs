@@ -245,6 +245,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200901
 
         public PolicyAssignmentArgs()
         {
+            EnforcementMode = "Default";
         }
     }
 }

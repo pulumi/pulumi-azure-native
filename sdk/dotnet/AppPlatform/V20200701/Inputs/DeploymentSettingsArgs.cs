@@ -59,6 +59,8 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701.Inputs
 
         public DeploymentSettingsArgs()
         {
+            Cpu = 1;
+            MemoryInGB = 1;
         }
     }
 }

@@ -231,6 +231,17 @@ namespace Pulumi.AzureNextGen.Intune.V20150114PrivatePreview
 
         public IoMAMPolicyByNameArgs()
         {
+            AppSharingFromLevel = "none";
+            AppSharingToLevel = "none";
+            Authentication = "required";
+            ClipboardSharingLevel = "blocked";
+            DataBackup = "allow";
+            DeviceCompliance = "enable";
+            FileEncryptionLevel = "deviceLocked";
+            FileSharingSaveAs = "allow";
+            ManagedBrowser = "required";
+            Pin = "required";
+            TouchId = "enable";
         }
     }
 }

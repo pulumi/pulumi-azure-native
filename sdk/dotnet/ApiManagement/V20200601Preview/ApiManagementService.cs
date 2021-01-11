@@ -422,6 +422,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 
         public ApiManagementServiceArgs()
         {
+            DisableGateway = false;
+            EnableClientCertificate = false;
+            Restore = false;
+            VirtualNetworkType = "None";
         }
     }
 }

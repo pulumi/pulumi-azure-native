@@ -180,6 +180,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170301
 
         public RegistryArgs()
         {
+            AdminUserEnabled = false;
         }
     }
 }

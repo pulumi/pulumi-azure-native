@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview.Inputs
 
         public SchedulePropertiesArgs()
         {
+            IsEnabled = false;
         }
     }
 }

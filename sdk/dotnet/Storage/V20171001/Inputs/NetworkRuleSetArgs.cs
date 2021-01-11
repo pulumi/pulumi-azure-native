@@ -53,6 +53,8 @@ namespace Pulumi.AzureNextGen.Storage.V20171001.Inputs
 
         public NetworkRuleSetArgs()
         {
+            Bypass = "AzureServices";
+            DefaultAction = Pulumi.AzureNextGen.Storage.V20171001.DefaultAction.Allow;
         }
     }
 }

@@ -35,6 +35,9 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301Preview.Inputs
 
         public ArmServiceTypeHealthPolicyArgs()
         {
+            MaxPercentUnhealthyPartitionsPerService = 0;
+            MaxPercentUnhealthyReplicasPerPartition = 0;
+            MaxPercentUnhealthyServices = 0;
         }
     }
 }

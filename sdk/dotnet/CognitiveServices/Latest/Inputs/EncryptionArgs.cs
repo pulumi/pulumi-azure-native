@@ -29,6 +29,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest.Inputs
 
         public EncryptionArgs()
         {
+            KeySource = "Microsoft.KeyVault";
         }
     }
 }

@@ -97,6 +97,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Inputs
 
         public FileTaskRunRequestArgs()
         {
+            IsArchiveEnabled = false;
+            Timeout = 3600;
         }
     }
 }

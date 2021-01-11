@@ -84,6 +84,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Inputs
 
         public DockerBuildStepArgs()
         {
+            IsPushEnabled = true;
+            NoCache = false;
         }
     }
 }

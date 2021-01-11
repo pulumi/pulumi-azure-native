@@ -29,6 +29,8 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview.Inputs
 
         public ConditionFailingPeriodsArgs()
         {
+            MinFailingPeriodsToAlert = 1;
+            NumberOfEvaluationPeriods = 1;
         }
     }
 }

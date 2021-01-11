@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
 
         public EncryptionInTransitPropertiesArgs()
         {
+            IsEncryptionInTransitEnabled = false;
         }
     }
 }

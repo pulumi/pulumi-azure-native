@@ -230,6 +230,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
 
         public WorkbookArgs()
         {
+            SharedTypeKind = "shared";
         }
     }
 }

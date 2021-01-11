@@ -412,6 +412,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301
 
         public JobArgs()
         {
+            Priority = 0;
         }
     }
 }

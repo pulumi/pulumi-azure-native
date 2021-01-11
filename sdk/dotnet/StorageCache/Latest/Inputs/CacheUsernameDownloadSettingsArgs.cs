@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
 
         public CacheUsernameDownloadSettingsArgs()
         {
+            UsernameSource = "None";
         }
     }
 }

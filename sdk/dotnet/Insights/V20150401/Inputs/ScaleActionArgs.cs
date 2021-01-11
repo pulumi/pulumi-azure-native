@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150401.Inputs
 
         public ScaleActionArgs()
         {
+            Value = "1";
         }
     }
 }

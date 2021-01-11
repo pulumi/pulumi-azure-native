@@ -328,6 +328,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180901
 
         public ActionGroupArgs()
         {
+            Enabled = true;
         }
     }
 }

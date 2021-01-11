@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview.Inputs
 
         public SourceRepositoryPropertiesArgs()
         {
+            IsCommitTriggerEnabled = false;
         }
     }
 }

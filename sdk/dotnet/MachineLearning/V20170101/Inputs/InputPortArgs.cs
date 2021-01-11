@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20170101.Inputs
 
         public InputPortArgs()
         {
+            Type = "Dataset";
         }
     }
 }

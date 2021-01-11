@@ -190,6 +190,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180501Preview
 
         public EventSubscriptionArgs()
         {
+            EventDeliverySchema = "InputEventSchema";
         }
     }
 }

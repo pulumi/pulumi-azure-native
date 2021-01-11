@@ -444,6 +444,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
         public WebAppArgs()
         {
+            Reserved = false;
+            ScmSiteAlsoStopped = false;
         }
     }
 }

@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview.Inputs
 
         public ManagedClusterAgentPoolProfileArgs()
         {
+            Count = 1;
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212.Inputs
 
         public ConflictResolutionPolicyArgs()
         {
+            Mode = "LastWriterWins";
         }
     }
 }

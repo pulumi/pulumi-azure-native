@@ -222,6 +222,8 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20191101Preview
 
         public SourceControlConfigurationArgs()
         {
+            OperatorNamespace = "default";
+            OperatorScope = "cluster";
         }
     }
 }

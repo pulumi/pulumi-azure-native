@@ -281,6 +281,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200301
 
         public ApplicationArgs()
         {
+            MaximumNodes = 0;
         }
     }
 }

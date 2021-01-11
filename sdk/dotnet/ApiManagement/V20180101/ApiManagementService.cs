@@ -350,6 +350,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
 
         public ApiManagementServiceArgs()
         {
+            VirtualNetworkType = "None";
         }
     }
 }

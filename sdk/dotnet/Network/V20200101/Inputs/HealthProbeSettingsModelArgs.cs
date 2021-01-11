@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.Network.V20200101.Inputs
 
         public HealthProbeSettingsModelArgs()
         {
+            HealthProbeMethod = "HEAD";
         }
     }
 }

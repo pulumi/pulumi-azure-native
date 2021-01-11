@@ -320,6 +320,11 @@ namespace Pulumi.AzureNextGen.Insights.V20180501Preview
 
         public ComponentArgs()
         {
+            ApplicationType = "web";
+            FlowType = "Bluefield";
+            IngestionMode = "ApplicationInsights";
+            RequestSource = "rest";
+            RetentionInDays = 90;
         }
     }
 }

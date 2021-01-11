@@ -53,6 +53,9 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
 
         public ConfigurationSettingArgs()
         {
+            ConfigurationModeFrequencyMins = 15;
+            RebootIfNeeded = "False";
+            RefreshFrequencyMins = 30;
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest.Inputs
 
         public NetworkRuleSetIpRuleArgs()
         {
+            Action = "Allow";
         }
     }
 }

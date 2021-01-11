@@ -47,6 +47,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501.Inputs
 
         public NetworkRuleSetArgs()
         {
+            DefaultAction = "Allow";
         }
     }
 }

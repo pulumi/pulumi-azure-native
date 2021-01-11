@@ -20,6 +20,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
 
         public PipelineSourceTriggerPropertiesArgs()
         {
+            Status = "Enabled";
         }
     }
 }

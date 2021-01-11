@@ -364,6 +364,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
 
         public JobArgs()
         {
+            Priority = 0;
         }
     }
 }

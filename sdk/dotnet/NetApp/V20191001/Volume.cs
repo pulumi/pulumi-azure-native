@@ -307,6 +307,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
 
         public VolumeArgs()
         {
+            ServiceLevel = "Premium";
+            UsageThreshold = 107374182400;
         }
     }
 }

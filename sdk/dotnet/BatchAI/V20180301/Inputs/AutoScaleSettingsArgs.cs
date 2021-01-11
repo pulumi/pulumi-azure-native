@@ -26,6 +26,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301.Inputs
 
         public AutoScaleSettingsArgs()
         {
+            InitialNodeCount = 0;
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.Search.V20191001Preview.Inputs
 
         public NetworkRuleSetArgs()
         {
+            EndpointAccess = Pulumi.AzureNextGen.Search.V20191001Preview.EndpointAccess.Public;
         }
     }
 }

@@ -259,6 +259,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
 
         public PrivateCloudArgs()
         {
+            Internet = "Disabled";
         }
     }
 }

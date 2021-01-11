@@ -285,6 +285,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 
         public NamespaceArgs()
         {
+            KeySource = Pulumi.AzureNextGen.EventHub.V20180101Preview.KeySource.Microsoft_KeyVault;
+            Type = Pulumi.AzureNextGen.EventHub.V20180101Preview.IdentityType.SystemAssigned;
         }
     }
 }

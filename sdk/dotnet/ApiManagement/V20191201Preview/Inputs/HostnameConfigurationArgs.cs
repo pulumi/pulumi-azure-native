@@ -65,6 +65,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview.Inputs
 
         public HostnameConfigurationArgs()
         {
+            DefaultSslBinding = false;
+            NegotiateClientCertificate = false;
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401.Inputs
 
         public BaseImageTriggerArgs()
         {
+            Status = "Enabled";
         }
     }
 }

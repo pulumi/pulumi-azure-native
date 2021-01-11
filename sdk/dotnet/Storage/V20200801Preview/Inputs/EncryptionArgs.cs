@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
 
         public EncryptionArgs()
         {
+            KeySource = "Microsoft.Storage";
         }
     }
 }

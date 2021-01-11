@@ -37,6 +37,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Inputs
 
         public SetupTaskArgs()
         {
+            RunElevated = false;
         }
     }
 }

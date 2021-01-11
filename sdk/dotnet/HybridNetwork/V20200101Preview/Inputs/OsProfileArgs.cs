@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Inputs
 
         public OsProfileArgs()
         {
+            CustomDataRequired = true;
         }
     }
 }
