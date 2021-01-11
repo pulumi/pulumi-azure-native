@@ -89,6 +89,21 @@ func NewComponent(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	if args.ApplicationType == nil {
+		args.ApplicationType = pulumi.String("web")
+	}
+	if args.FlowType == nil {
+		args.FlowType = pulumi.StringPtr("Bluefield")
+	}
+	if args.IngestionMode == nil {
+		args.IngestionMode = pulumi.StringPtr("ApplicationInsights")
+	}
+	if args.RequestSource == nil {
+		args.RequestSource = pulumi.StringPtr("rest")
+	}
+	if args.RetentionInDays == nil {
+		args.RetentionInDays = pulumi.IntPtr(90)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:insights/latest:Component"),

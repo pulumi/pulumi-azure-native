@@ -99,6 +99,12 @@ func NewManagedCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.ClientConnectionPort == nil {
+		args.ClientConnectionPort = pulumi.IntPtr(19000)
+	}
+	if args.HttpGatewayConnectionPort == nil {
+		args.HttpGatewayConnectionPort = pulumi.IntPtr(19080)
+	}
 	var resource ManagedCluster
 	err := ctx.RegisterResource("azure-nextgen:servicefabric/v20200101preview:ManagedCluster", name, args, &resource, opts...)
 	if err != nil {

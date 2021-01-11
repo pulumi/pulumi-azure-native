@@ -61,6 +61,39 @@ func NewAndroidMAMPolicyByName(ctx *pulumi.Context,
 	if args.PolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyName'")
 	}
+	if args.AppSharingFromLevel == nil {
+		args.AppSharingFromLevel = pulumi.StringPtr("none")
+	}
+	if args.AppSharingToLevel == nil {
+		args.AppSharingToLevel = pulumi.StringPtr("none")
+	}
+	if args.Authentication == nil {
+		args.Authentication = pulumi.StringPtr("required")
+	}
+	if args.ClipboardSharingLevel == nil {
+		args.ClipboardSharingLevel = pulumi.StringPtr("blocked")
+	}
+	if args.DataBackup == nil {
+		args.DataBackup = pulumi.StringPtr("allow")
+	}
+	if args.DeviceCompliance == nil {
+		args.DeviceCompliance = pulumi.StringPtr("enable")
+	}
+	if args.FileEncryption == nil {
+		args.FileEncryption = pulumi.StringPtr("required")
+	}
+	if args.FileSharingSaveAs == nil {
+		args.FileSharingSaveAs = pulumi.StringPtr("allow")
+	}
+	if args.ManagedBrowser == nil {
+		args.ManagedBrowser = pulumi.StringPtr("required")
+	}
+	if args.Pin == nil {
+		args.Pin = pulumi.StringPtr("required")
+	}
+	if args.ScreenCapture == nil {
+		args.ScreenCapture = pulumi.StringPtr("allow")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName"),

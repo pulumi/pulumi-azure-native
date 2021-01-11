@@ -58,6 +58,9 @@ func NewPool(ctx *pulumi.Context,
 	if args.Size == nil {
 		return nil, errors.New("invalid value for required argument 'Size'")
 	}
+	if args.ServiceLevel == nil {
+		args.ServiceLevel = pulumi.String("Premium")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:netapp/latest:Pool"),

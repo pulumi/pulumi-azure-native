@@ -74,6 +74,9 @@ func NewWorkbook(ctx *pulumi.Context,
 	if args.WorkbookId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkbookId'")
 	}
+	if args.SharedTypeKind == nil {
+		args.SharedTypeKind = pulumi.String("shared")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:insights/latest:Workbook"),

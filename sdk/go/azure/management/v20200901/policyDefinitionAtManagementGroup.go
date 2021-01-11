@@ -48,6 +48,9 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 	if args.PolicyDefinitionName == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDefinitionName'")
 	}
+	if args.Mode == nil {
+		args.Mode = pulumi.StringPtr("Indexed")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:management/latest:PolicyDefinitionAtManagementGroup"),

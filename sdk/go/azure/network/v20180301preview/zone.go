@@ -57,6 +57,9 @@ func NewZone(ctx *pulumi.Context,
 	if args.ZoneName == nil {
 		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
+	if args.ZoneType == nil {
+		args.ZoneType = ZoneType("Public")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:Zone"),

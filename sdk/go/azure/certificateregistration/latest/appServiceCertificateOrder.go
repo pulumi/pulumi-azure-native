@@ -84,6 +84,15 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.AutoRenew == nil {
+		args.AutoRenew = pulumi.BoolPtr(true)
+	}
+	if args.KeySize == nil {
+		args.KeySize = pulumi.IntPtr(2048)
+	}
+	if args.ValidityInYears == nil {
+		args.ValidityInYears = pulumi.IntPtr(1)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder"),

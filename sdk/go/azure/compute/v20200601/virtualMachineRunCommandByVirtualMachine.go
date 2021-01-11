@@ -66,6 +66,9 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 	if args.VmName == nil {
 		return nil, errors.New("invalid value for required argument 'VmName'")
 	}
+	if args.AsyncExecution == nil {
+		args.AsyncExecution = pulumi.BoolPtr(false)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine"),

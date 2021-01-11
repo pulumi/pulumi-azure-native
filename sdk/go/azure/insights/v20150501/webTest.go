@@ -71,6 +71,18 @@ func NewWebTest(ctx *pulumi.Context,
 	if args.WebTestName == nil {
 		return nil, errors.New("invalid value for required argument 'WebTestName'")
 	}
+	if args.Frequency == nil {
+		args.Frequency = pulumi.IntPtr(300)
+	}
+	if args.Kind == nil {
+		args.Kind = WebTestKind("ping")
+	}
+	if args.Timeout == nil {
+		args.Timeout = pulumi.IntPtr(30)
+	}
+	if args.WebTestKind == nil {
+		args.WebTestKind = WebTestKind("ping")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:insights/latest:WebTest"),

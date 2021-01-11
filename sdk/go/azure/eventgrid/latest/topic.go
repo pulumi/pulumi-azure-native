@@ -58,6 +58,9 @@ func NewTopic(ctx *pulumi.Context,
 	if args.TopicName == nil {
 		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
+	if args.InputSchema == nil {
+		args.InputSchema = pulumi.StringPtr("EventGridSchema")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20170615preview:Topic"),

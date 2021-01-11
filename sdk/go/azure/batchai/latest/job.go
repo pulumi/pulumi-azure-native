@@ -108,6 +108,9 @@ func NewJob(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	if args.SchedulingPriority == nil {
+		args.SchedulingPriority = pulumi.StringPtr("normal")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:batchai/v20180501:Job"),

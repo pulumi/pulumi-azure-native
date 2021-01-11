@@ -65,6 +65,9 @@ func NewJobDefinition(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.UserConfirmation == nil {
+		args.UserConfirmation = UserConfirmation("NotRequired")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:hybriddata/v20160601:JobDefinition"),

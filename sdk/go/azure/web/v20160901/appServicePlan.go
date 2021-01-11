@@ -78,6 +78,12 @@ func NewAppServicePlan(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.PerSiteScaling == nil {
+		args.PerSiteScaling = pulumi.BoolPtr(false)
+	}
+	if args.Reserved == nil {
+		args.Reserved = pulumi.BoolPtr(false)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:AppServicePlan"),

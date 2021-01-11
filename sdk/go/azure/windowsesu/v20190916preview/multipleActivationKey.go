@@ -56,6 +56,9 @@ func NewMultipleActivationKey(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.SupportType == nil {
+		args.SupportType = pulumi.StringPtr("SupplementalServicing")
+	}
 	var resource MultipleActivationKey
 	err := ctx.RegisterResource("azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey", name, args, &resource, opts...)
 	if err != nil {

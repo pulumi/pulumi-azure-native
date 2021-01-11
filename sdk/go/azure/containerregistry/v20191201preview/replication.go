@@ -52,6 +52,9 @@ func NewReplication(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.RegionEndpointEnabled == nil {
+		args.RegionEndpointEnabled = pulumi.BoolPtr(true)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/latest:Replication"),

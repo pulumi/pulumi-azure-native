@@ -92,6 +92,9 @@ func NewApiManagementService(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.VirtualNetworkType == nil {
+		args.VirtualNetworkType = pulumi.StringPtr("None")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiManagementService"),

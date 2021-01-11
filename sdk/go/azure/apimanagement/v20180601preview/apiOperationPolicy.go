@@ -50,6 +50,9 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	if args.ContentFormat == nil {
+		args.ContentFormat = pulumi.StringPtr("xml")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiOperationPolicy"),

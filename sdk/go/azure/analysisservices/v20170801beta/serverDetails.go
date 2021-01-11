@@ -66,6 +66,15 @@ func NewServerDetails(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.ManagedMode == nil {
+		args.ManagedMode = pulumi.IntPtr(1)
+	}
+	if args.QuerypoolConnectionMode == nil {
+		args.QuerypoolConnectionMode = ConnectionMode("All")
+	}
+	if args.ServerMonitorMode == nil {
+		args.ServerMonitorMode = pulumi.IntPtr(1)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:analysisservices/latest:ServerDetails"),
@@ -184,13 +193,13 @@ type serverDetailsArgs struct {
 	// Location of the Analysis Services resource.
 	Location string `pulumi:"location"`
 	// The managed mode of the server (0 = not managed, 1 = managed).
-	ManagedMode *string `pulumi:"managedMode"`
+	ManagedMode *int `pulumi:"managedMode"`
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The server monitor mode for AS server
-	ServerMonitorMode *string `pulumi:"serverMonitorMode"`
+	ServerMonitorMode *int `pulumi:"serverMonitorMode"`
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
 	ServerName string `pulumi:"serverName"`
 	// The SKU of the Analysis Services resource.
@@ -212,13 +221,13 @@ type ServerDetailsArgs struct {
 	// Location of the Analysis Services resource.
 	Location pulumi.StringInput
 	// The managed mode of the server (0 = not managed, 1 = managed).
-	ManagedMode ManagedMode
+	ManagedMode pulumi.IntPtrInput
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
 	QuerypoolConnectionMode ConnectionMode
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
 	// The server monitor mode for AS server
-	ServerMonitorMode ServerMonitorMode
+	ServerMonitorMode pulumi.IntPtrInput
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
 	ServerName pulumi.StringInput
 	// The SKU of the Analysis Services resource.

@@ -80,6 +80,12 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	if args.AllowPublicAccessWhenBehindVnet == nil {
+		args.AllowPublicAccessWhenBehindVnet = pulumi.BoolPtr(false)
+	}
+	if args.HbiWorkspace == nil {
+		args.HbiWorkspace = pulumi.BoolPtr(false)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/latest:Workspace"),

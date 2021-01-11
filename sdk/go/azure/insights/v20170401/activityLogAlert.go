@@ -60,6 +60,9 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	if args.Scopes == nil {
 		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
+	if args.Enabled == nil {
+		args.Enabled = pulumi.BoolPtr(true)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:insights/latest:ActivityLogAlert"),

@@ -58,6 +58,15 @@ func NewPacketCapture(ctx *pulumi.Context,
 	if args.Target == nil {
 		return nil, errors.New("invalid value for required argument 'Target'")
 	}
+	if args.BytesToCapturePerPacket == nil {
+		args.BytesToCapturePerPacket = pulumi.Float64Ptr(0)
+	}
+	if args.TimeLimitInSeconds == nil {
+		args.TimeLimitInSeconds = pulumi.IntPtr(18000)
+	}
+	if args.TotalBytesPerSession == nil {
+		args.TotalBytesPerSession = pulumi.Float64Ptr(1073741824)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network/v20160901:PacketCapture"),

@@ -67,6 +67,9 @@ func NewBuildTask(ctx *pulumi.Context,
 	if args.SourceRepository == nil {
 		return nil, errors.New("invalid value for required argument 'SourceRepository'")
 	}
+	if args.Timeout == nil {
+		args.Timeout = pulumi.IntPtr(3600)
+	}
 	var resource BuildTask
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20180201preview:BuildTask", name, args, &resource, opts...)
 	if err != nil {

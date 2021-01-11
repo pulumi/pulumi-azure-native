@@ -50,6 +50,12 @@ func NewMachineLearningDatastore(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	if args.EnforceSSL == nil {
+		args.EnforceSSL = pulumi.BoolPtr(true)
+	}
+	if args.IncludeSecret == nil {
+		args.IncludeSecret = pulumi.BoolPtr(true)
+	}
 	var resource MachineLearningDatastore
 	err := ctx.RegisterResource("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDatastore", name, args, &resource, opts...)
 	if err != nil {

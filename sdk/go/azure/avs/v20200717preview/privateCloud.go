@@ -80,6 +80,9 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.Internet == nil {
+		args.Internet = pulumi.StringPtr("Disabled")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:avs/latest:PrivateCloud"),

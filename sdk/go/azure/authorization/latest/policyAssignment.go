@@ -57,6 +57,9 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	if args.EnforcementMode == nil {
+		args.EnforcementMode = pulumi.StringPtr("Default")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20151001preview:PolicyAssignment"),

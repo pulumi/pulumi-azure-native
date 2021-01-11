@@ -74,6 +74,9 @@ func NewStorageAccount(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.EnableHttpsTrafficOnly == nil {
+		args.EnableHttpsTrafficOnly = pulumi.BoolPtr(false)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storage/latest:StorageAccount"),

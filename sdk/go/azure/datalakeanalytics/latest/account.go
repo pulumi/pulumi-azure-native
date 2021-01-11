@@ -92,6 +92,15 @@ func NewAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.MaxDegreeOfParallelism == nil {
+		args.MaxDegreeOfParallelism = pulumi.IntPtr(30)
+	}
+	if args.MaxJobCount == nil {
+		args.MaxJobCount = pulumi.IntPtr(3)
+	}
+	if args.QueryStoreRetention == nil {
+		args.QueryStoreRetention = pulumi.IntPtr(30)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20161101:Account"),

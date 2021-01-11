@@ -96,6 +96,18 @@ func NewComponent(ctx *pulumi.Context,
 	if args.WorkspaceResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceResourceId'")
 	}
+	if args.ApplicationType == nil {
+		args.ApplicationType = pulumi.String("web")
+	}
+	if args.FlowType == nil {
+		args.FlowType = pulumi.StringPtr("Bluefield")
+	}
+	if args.IngestionMode == nil {
+		args.IngestionMode = pulumi.StringPtr("LogAnalytics")
+	}
+	if args.RequestSource == nil {
+		args.RequestSource = pulumi.StringPtr("rest")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:insights/latest:Component"),

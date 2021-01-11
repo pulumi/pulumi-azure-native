@@ -91,6 +91,9 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Kind == nil {
+		args.Kind = pulumi.StringPtr("GlobalDocumentDB")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccount"),
