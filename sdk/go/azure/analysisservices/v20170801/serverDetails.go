@@ -35,6 +35,8 @@ type ServerDetails struct {
 	QuerypoolConnectionMode pulumi.StringPtrOutput `pulumi:"querypoolConnectionMode"`
 	// The full name of the Analysis Services resource.
 	ServerFullName pulumi.StringOutput `pulumi:"serverFullName"`
+	// The server monitor mode for AS server
+	ServerMonitorMode pulumi.IntPtrOutput `pulumi:"serverMonitorMode"`
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuResponseOutput `pulumi:"sku"`
 	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
@@ -121,6 +123,8 @@ type serverDetailsState struct {
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
 	// The full name of the Analysis Services resource.
 	ServerFullName *string `pulumi:"serverFullName"`
+	// The server monitor mode for AS server
+	ServerMonitorMode *int `pulumi:"serverMonitorMode"`
 	// The SKU of the Analysis Services resource.
 	Sku *ResourceSkuResponse `pulumi:"sku"`
 	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
@@ -152,6 +156,8 @@ type ServerDetailsState struct {
 	QuerypoolConnectionMode pulumi.StringPtrInput
 	// The full name of the Analysis Services resource.
 	ServerFullName pulumi.StringPtrInput
+	// The server monitor mode for AS server
+	ServerMonitorMode pulumi.IntPtrInput
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuResponsePtrInput
 	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
@@ -183,6 +189,8 @@ type serverDetailsArgs struct {
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The server monitor mode for AS server
+	ServerMonitorMode *string `pulumi:"serverMonitorMode"`
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
 	ServerName string `pulumi:"serverName"`
 	// The SKU of the Analysis Services resource.
@@ -209,6 +217,8 @@ type ServerDetailsArgs struct {
 	QuerypoolConnectionMode ConnectionMode
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
+	// The server monitor mode for AS server
+	ServerMonitorMode ServerMonitorMode
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
 	ServerName pulumi.StringInput
 	// The SKU of the Analysis Services resource.

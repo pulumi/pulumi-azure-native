@@ -20,15 +20,15 @@ class ListServerGatewayStatusResult:
     Status of gateway is live.
     """
     def __init__(__self__, status=None):
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
+        if status and not isinstance(status, int):
+            raise TypeError("Expected argument 'status' to be a int")
         pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> Optional[int]:
         """
-        Live message of list gateway.
+        Live message of list gateway. Status: 0 - Live
         """
         return pulumi.get(self, "status")
 

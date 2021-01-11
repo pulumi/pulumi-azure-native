@@ -47,6 +47,8 @@ type LookupServerDetailsResult struct {
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
 	// The full name of the Analysis Services resource.
 	ServerFullName string `pulumi:"serverFullName"`
+	// The server monitor mode for AS server
+	ServerMonitorMode *int `pulumi:"serverMonitorMode"`
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuResponse `pulumi:"sku"`
 	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
