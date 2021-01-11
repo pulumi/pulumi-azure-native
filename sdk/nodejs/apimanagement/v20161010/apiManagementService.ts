@@ -164,7 +164,7 @@ export class ApiManagementService extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpnType"] = args ? args.vpnType : undefined;
+            inputs["vpnType"] = (args ? args.vpnType : undefined) || "None";
             inputs["vpnconfiguration"] = args ? args.vpnconfiguration : undefined;
             inputs["createdAtUtc"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;

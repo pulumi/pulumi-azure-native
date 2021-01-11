@@ -129,7 +129,7 @@ export class Workbook extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["serializedData"] = args ? args.serializedData : undefined;
-            inputs["sharedTypeKind"] = args ? args.sharedTypeKind : undefined;
+            inputs["sharedTypeKind"] = (args ? args.sharedTypeKind : undefined) || "shared";
             inputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userId"] = args ? args.userId : undefined;

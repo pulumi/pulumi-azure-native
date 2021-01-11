@@ -122,7 +122,7 @@ export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
             if ((!args || args.vmScaleSetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-            inputs["asyncExecution"] = args ? args.asyncExecution : undefined;
+            inputs["asyncExecution"] = (args ? args.asyncExecution : undefined) || false;
             inputs["errorBlobUri"] = args ? args.errorBlobUri : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
             inputs["location"] = args ? args.location : undefined;

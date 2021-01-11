@@ -179,7 +179,7 @@ export class ApiManagementService extends pulumi.CustomResource {
             inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
             inputs["certificates"] = args ? args.certificates : undefined;
             inputs["customProperties"] = args ? args.customProperties : undefined;
-            inputs["enableClientCertificate"] = args ? args.enableClientCertificate : undefined;
+            inputs["enableClientCertificate"] = (args ? args.enableClientCertificate : undefined) || false;
             inputs["hostnameConfigurations"] = args ? args.hostnameConfigurations : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -191,7 +191,7 @@ export class ApiManagementService extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
-            inputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
+            inputs["virtualNetworkType"] = (args ? args.virtualNetworkType : undefined) || "None";
             inputs["createdAtUtc"] = undefined /*out*/;
             inputs["developerPortalUrl"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;

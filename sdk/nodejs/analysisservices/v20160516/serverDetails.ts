@@ -109,9 +109,9 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["asAdministrators"] = args ? args.asAdministrators : undefined;
             inputs["backupBlobContainerUri"] = args ? args.backupBlobContainerUri : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["managedMode"] = args ? args.managedMode : undefined;
+            inputs["managedMode"] = (args ? args.managedMode : undefined) || 1;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverMonitorMode"] = args ? args.serverMonitorMode : undefined;
+            inputs["serverMonitorMode"] = (args ? args.serverMonitorMode : undefined) || 1;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -166,7 +166,7 @@ export interface ServerDetailsArgs {
     /**
      * The managed mode of the server (0 = not managed, 1 = managed).
      */
-    readonly managedMode?: pulumi.Input<enums.analysisservices.v20160516.ManagedMode>;
+    readonly managedMode?: pulumi.Input<number>;
     /**
      * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
      */
@@ -174,7 +174,7 @@ export interface ServerDetailsArgs {
     /**
      * The server monitor mode for AS server
      */
-    readonly serverMonitorMode?: pulumi.Input<enums.analysisservices.v20160516.ServerMonitorMode>;
+    readonly serverMonitorMode?: pulumi.Input<number>;
     /**
      * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
      */

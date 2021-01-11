@@ -170,7 +170,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["adminPassword"] = args ? args.adminPassword : undefined;
             inputs["adminUserName"] = args ? args.adminUserName : undefined;
             inputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
-            inputs["clientConnectionPort"] = args ? args.clientConnectionPort : undefined;
+            inputs["clientConnectionPort"] = (args ? args.clientConnectionPort : undefined) || 19000;
             inputs["clients"] = args ? args.clients : undefined;
             inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -178,7 +178,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["clusterUpgradeMode"] = args ? args.clusterUpgradeMode : undefined;
             inputs["dnsName"] = args ? args.dnsName : undefined;
             inputs["fabricSettings"] = args ? args.fabricSettings : undefined;
-            inputs["httpGatewayConnectionPort"] = args ? args.httpGatewayConnectionPort : undefined;
+            inputs["httpGatewayConnectionPort"] = (args ? args.httpGatewayConnectionPort : undefined) || 19080;
             inputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;

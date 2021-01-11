@@ -125,7 +125,7 @@ export class Application extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedIdentities"] = args ? args.managedIdentities : undefined;
-            inputs["maximumNodes"] = args ? args.maximumNodes : undefined;
+            inputs["maximumNodes"] = (args ? args.maximumNodes : undefined) || 0;
             inputs["metrics"] = args ? args.metrics : undefined;
             inputs["minimumNodes"] = args ? args.minimumNodes : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;

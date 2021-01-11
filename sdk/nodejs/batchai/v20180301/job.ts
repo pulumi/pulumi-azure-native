@@ -199,7 +199,7 @@ export class Job extends pulumi.CustomResource {
             inputs["mountVolumes"] = args ? args.mountVolumes : undefined;
             inputs["nodeCount"] = args ? args.nodeCount : undefined;
             inputs["outputDirectories"] = args ? args.outputDirectories : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
+            inputs["priority"] = (args ? args.priority : undefined) || 0;
             inputs["pyTorchSettings"] = args ? args.pyTorchSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["secrets"] = args ? args.secrets : undefined;

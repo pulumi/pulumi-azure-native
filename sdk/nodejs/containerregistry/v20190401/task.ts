@@ -132,7 +132,7 @@ export class Task extends pulumi.CustomResource {
             inputs["step"] = args ? args.step : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["taskName"] = args ? args.taskName : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
+            inputs["timeout"] = (args ? args.timeout : undefined) || 3600;
             inputs["trigger"] = args ? args.trigger : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;

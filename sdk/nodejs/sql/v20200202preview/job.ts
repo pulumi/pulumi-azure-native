@@ -78,7 +78,7 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) || "";
             inputs["jobAgentName"] = args ? args.jobAgentName : undefined;
             inputs["jobName"] = args ? args.jobName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;

@@ -94,8 +94,8 @@ export class Pool extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
-            inputs["size"] = args ? args.size : undefined;
+            inputs["serviceLevel"] = (args ? args.serviceLevel : undefined) || "Premium";
+            inputs["size"] = (args ? args.size : undefined) || 4398046511104;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["poolId"] = undefined /*out*/;

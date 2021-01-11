@@ -106,7 +106,7 @@ export class Domain extends pulumi.CustomResource {
             }
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            inputs["inputSchema"] = args ? args.inputSchema : undefined;
+            inputs["inputSchema"] = (args ? args.inputSchema : undefined) || "EventGridSchema";
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;

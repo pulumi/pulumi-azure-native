@@ -159,18 +159,18 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoRenew"] = args ? args.autoRenew : undefined;
+            inputs["autoRenew"] = (args ? args.autoRenew : undefined) || true;
             inputs["certificateOrderName"] = args ? args.certificateOrderName : undefined;
             inputs["certificates"] = args ? args.certificates : undefined;
             inputs["csr"] = args ? args.csr : undefined;
             inputs["distinguishedName"] = args ? args.distinguishedName : undefined;
-            inputs["keySize"] = args ? args.keySize : undefined;
+            inputs["keySize"] = (args ? args.keySize : undefined) || 2048;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["productType"] = args ? args.productType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["validityInYears"] = args ? args.validityInYears : undefined;
+            inputs["validityInYears"] = (args ? args.validityInYears : undefined) || 1;
             inputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
             inputs["domainVerificationToken"] = undefined /*out*/;
             inputs["expirationTime"] = undefined /*out*/;

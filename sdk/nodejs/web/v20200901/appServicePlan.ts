@@ -162,15 +162,15 @@ export class AppServicePlan extends pulumi.CustomResource {
             }
             inputs["freeOfferExpirationTime"] = args ? args.freeOfferExpirationTime : undefined;
             inputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
-            inputs["hyperV"] = args ? args.hyperV : undefined;
+            inputs["hyperV"] = (args ? args.hyperV : undefined) || false;
             inputs["isSpot"] = args ? args.isSpot : undefined;
-            inputs["isXenon"] = args ? args.isXenon : undefined;
+            inputs["isXenon"] = (args ? args.isXenon : undefined) || false;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["perSiteScaling"] = args ? args.perSiteScaling : undefined;
-            inputs["reserved"] = args ? args.reserved : undefined;
+            inputs["perSiteScaling"] = (args ? args.perSiteScaling : undefined) || false;
+            inputs["reserved"] = (args ? args.reserved : undefined) || false;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["spotExpirationTime"] = args ? args.spotExpirationTime : undefined;

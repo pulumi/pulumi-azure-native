@@ -229,9 +229,9 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["reserved"] = args ? args.reserved : undefined;
+            inputs["reserved"] = (args ? args.reserved : undefined) || false;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scmSiteAlsoStopped"] = args ? args.scmSiteAlsoStopped : undefined;
+            inputs["scmSiteAlsoStopped"] = (args ? args.scmSiteAlsoStopped : undefined) || false;
             inputs["serverFarmId"] = args ? args.serverFarmId : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
             inputs["skipCustomDomainVerification"] = args ? args.skipCustomDomainVerification : undefined;

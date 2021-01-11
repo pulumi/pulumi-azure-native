@@ -115,7 +115,7 @@ export class Namespace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["keySource"] = args ? args.keySource : undefined;
+            inputs["keySource"] = (args ? args.keySource : undefined) || "Microsoft.KeyVault";
             inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -124,7 +124,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs["type"] = (args ? args.type : undefined) || "SystemAssigned";
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["createdAt"] = undefined /*out*/;
             inputs["metricId"] = undefined /*out*/;

@@ -123,10 +123,10 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["gatewayDetails"] = args ? args.gatewayDetails : undefined;
             inputs["ipV4FirewallSettings"] = args ? args.ipV4FirewallSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["managedMode"] = args ? args.managedMode : undefined;
-            inputs["querypoolConnectionMode"] = args ? args.querypoolConnectionMode : undefined;
+            inputs["managedMode"] = (args ? args.managedMode : undefined) || 1;
+            inputs["querypoolConnectionMode"] = (args ? args.querypoolConnectionMode : undefined) || "All";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverMonitorMode"] = args ? args.serverMonitorMode : undefined;
+            inputs["serverMonitorMode"] = (args ? args.serverMonitorMode : undefined) || 1;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -192,7 +192,7 @@ export interface ServerDetailsArgs {
     /**
      * The managed mode of the server (0 = not managed, 1 = managed).
      */
-    readonly managedMode?: pulumi.Input<enums.analysisservices.v20170801beta.ManagedMode>;
+    readonly managedMode?: pulumi.Input<number>;
     /**
      * How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
      */
@@ -204,7 +204,7 @@ export interface ServerDetailsArgs {
     /**
      * The server monitor mode for AS server
      */
-    readonly serverMonitorMode?: pulumi.Input<enums.analysisservices.v20170801beta.ServerMonitorMode>;
+    readonly serverMonitorMode?: pulumi.Input<number>;
     /**
      * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
      */

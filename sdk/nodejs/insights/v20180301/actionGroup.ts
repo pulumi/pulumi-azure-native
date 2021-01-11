@@ -126,7 +126,7 @@ export class ActionGroup extends pulumi.CustomResource {
             inputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
             inputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
             inputs["emailReceivers"] = args ? args.emailReceivers : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["enabled"] = (args ? args.enabled : undefined) || true;
             inputs["groupShortName"] = args ? args.groupShortName : undefined;
             inputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
             inputs["location"] = args ? args.location : undefined;

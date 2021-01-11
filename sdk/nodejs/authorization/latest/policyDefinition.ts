@@ -89,7 +89,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
+            inputs["mode"] = (args ? args.mode : undefined) || "Indexed";
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["policyDefinitionName"] = args ? args.policyDefinitionName : undefined;
             inputs["policyRule"] = args ? args.policyRule : undefined;

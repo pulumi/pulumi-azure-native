@@ -173,7 +173,7 @@ export class Domain extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authCode"] = args ? args.authCode : undefined;
-            inputs["autoRenew"] = args ? args.autoRenew : undefined;
+            inputs["autoRenew"] = (args ? args.autoRenew : undefined) || true;
             inputs["consent"] = args ? args.consent : undefined;
             inputs["contactAdmin"] = args ? args.contactAdmin : undefined;
             inputs["contactBilling"] = args ? args.contactBilling : undefined;

@@ -119,7 +119,7 @@ export class AgentPool extends pulumi.CustomResource {
             }
             inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["count"] = args ? args.count : undefined;
+            inputs["count"] = (args ? args.count : undefined) || 1;
             inputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
             inputs["maxCount"] = args ? args.maxCount : undefined;
             inputs["maxPods"] = args ? args.maxPods : undefined;

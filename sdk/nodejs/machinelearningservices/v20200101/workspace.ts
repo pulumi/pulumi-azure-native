@@ -134,7 +134,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["discoveryUrl"] = args ? args.discoveryUrl : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["hbiWorkspace"] = args ? args.hbiWorkspace : undefined;
+            inputs["hbiWorkspace"] = (args ? args.hbiWorkspace : undefined) || false;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["keyVault"] = args ? args.keyVault : undefined;
             inputs["location"] = args ? args.location : undefined;

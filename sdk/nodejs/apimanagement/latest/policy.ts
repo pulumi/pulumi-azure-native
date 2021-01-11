@@ -75,7 +75,7 @@ export class Policy extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["format"] = args ? args.format : undefined;
+            inputs["format"] = (args ? args.format : undefined) || "xml";
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;

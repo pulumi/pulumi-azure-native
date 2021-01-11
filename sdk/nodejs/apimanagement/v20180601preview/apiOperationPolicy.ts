@@ -81,7 +81,7 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["contentFormat"] = args ? args.contentFormat : undefined;
+            inputs["contentFormat"] = (args ? args.contentFormat : undefined) || "xml";
             inputs["operationId"] = args ? args.operationId : undefined;
             inputs["policyContent"] = args ? args.policyContent : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;

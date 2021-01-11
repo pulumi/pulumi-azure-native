@@ -140,8 +140,8 @@ export class Cluster extends pulumi.CustomResource {
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
-            inputs["enablePurge"] = args ? args.enablePurge : undefined;
-            inputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
+            inputs["enablePurge"] = (args ? args.enablePurge : undefined) || false;
+            inputs["enableStreamingIngest"] = (args ? args.enableStreamingIngest : undefined) || false;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
             inputs["languageExtensions"] = args ? args.languageExtensions : undefined;

@@ -120,7 +120,7 @@ export class Cluster extends pulumi.CustomResource {
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
-            inputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
+            inputs["enableStreamingIngest"] = (args ? args.enableStreamingIngest : undefined) || false;
             inputs["location"] = args ? args.location : undefined;
             inputs["optimizedAutoscale"] = args ? args.optimizedAutoscale : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;

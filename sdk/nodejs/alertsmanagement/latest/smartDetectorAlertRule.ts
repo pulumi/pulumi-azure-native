@@ -124,7 +124,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["detector"] = args ? args.detector : undefined;
             inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["location"] = args ? args.location : undefined;
+            inputs["location"] = (args ? args.location : undefined) || "global";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["severity"] = args ? args.severity : undefined;

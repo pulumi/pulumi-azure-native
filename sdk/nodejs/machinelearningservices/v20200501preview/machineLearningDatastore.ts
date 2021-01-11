@@ -99,9 +99,9 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
             inputs["datastoreName"] = args ? args.datastoreName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["endpoint"] = args ? args.endpoint : undefined;
-            inputs["enforceSSL"] = args ? args.enforceSSL : undefined;
+            inputs["enforceSSL"] = (args ? args.enforceSSL : undefined) || true;
             inputs["fileSystem"] = args ? args.fileSystem : undefined;
-            inputs["includeSecret"] = args ? args.includeSecret : undefined;
+            inputs["includeSecret"] = (args ? args.includeSecret : undefined) || true;
             inputs["name"] = args ? args.name : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["port"] = args ? args.port : undefined;

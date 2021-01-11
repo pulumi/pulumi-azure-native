@@ -153,18 +153,18 @@ export class Component extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["applicationType"] = args ? args.applicationType : undefined;
+            inputs["applicationType"] = (args ? args.applicationType : undefined) || "web";
             inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
-            inputs["flowType"] = args ? args.flowType : undefined;
+            inputs["flowType"] = (args ? args.flowType : undefined) || "Bluefield";
             inputs["hockeyAppId"] = args ? args.hockeyAppId : undefined;
             inputs["immediatePurgeDataOn30Days"] = args ? args.immediatePurgeDataOn30Days : undefined;
-            inputs["ingestionMode"] = args ? args.ingestionMode : undefined;
+            inputs["ingestionMode"] = (args ? args.ingestionMode : undefined) || "ApplicationInsights";
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["requestSource"] = args ? args.requestSource : undefined;
+            inputs["requestSource"] = (args ? args.requestSource : undefined) || "rest";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            inputs["retentionInDays"] = (args ? args.retentionInDays : undefined) || 90;
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["appId"] = undefined /*out*/;

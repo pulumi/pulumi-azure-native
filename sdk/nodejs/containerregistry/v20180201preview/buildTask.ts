@@ -120,7 +120,7 @@ export class BuildTask extends pulumi.CustomResource {
             inputs["sourceRepository"] = args ? args.sourceRepository : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
+            inputs["timeout"] = (args ? args.timeout : undefined) || 3600;
             inputs["creationDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
