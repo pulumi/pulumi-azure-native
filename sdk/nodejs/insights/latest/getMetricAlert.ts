@@ -49,7 +49,7 @@ export interface GetMetricAlertResult {
     /**
      * the description of the metric alert that will be included in the alert email.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * the flag that indicates whether the metric alert is enabled.
      */

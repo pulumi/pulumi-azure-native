@@ -55,6 +55,9 @@ func NewComputePolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/latest:ComputePolicy"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ComputePolicy

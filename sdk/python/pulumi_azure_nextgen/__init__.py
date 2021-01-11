@@ -134,6 +134,7 @@ from . import (
     search,
     security,
     securityinsights,
+    serialconsole,
     servicebus,
     servicefabric,
     servicefabricmesh,

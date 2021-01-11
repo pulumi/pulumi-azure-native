@@ -99,7 +99,7 @@ class GetMetricAlertResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         the description of the metric alert that will be included in the alert email.
         """

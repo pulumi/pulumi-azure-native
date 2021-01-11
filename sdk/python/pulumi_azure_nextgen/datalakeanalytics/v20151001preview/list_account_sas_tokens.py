@@ -32,13 +32,16 @@ class ListAccountSasTokensResult:
     @pulumi.getter(name="nextLink")
     def next_link(self) -> str:
         """
-        the link (url) to the next page of results.
+        The link (url) to the next page of results.
         """
         return pulumi.get(self, "next_link")
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.SasTokenInfoResponseResult']:
+    def value(self) -> Sequence['outputs.SasTokenInformationResponseResult']:
+        """
+        The results of the list operation.
+        """
         return pulumi.get(self, "value")
 
 
@@ -60,9 +63,9 @@ def list_account_sas_tokens(account_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str account_name: The name of the Data Lake Analytics account from which an Azure Storage account's SAS token is being requested.
+    :param str account_name: The name of the Data Lake Analytics account.
     :param str container_name: The name of the Azure storage container for which the SAS token is being requested.
-    :param str resource_group_name: The name of the Azure resource group that contains the Data Lake Analytics account.
+    :param str resource_group_name: The name of the Azure resource group.
     :param str storage_account_name: The name of the Azure storage account for which the SAS token is being requested.
     """
     __args__ = dict()

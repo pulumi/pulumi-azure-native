@@ -25,6 +25,8 @@ type Account struct {
 	CurrentTier pulumi.StringOutput `pulumi:"currentTier"`
 	// The list of Data Lake Store accounts associated with this account.
 	DataLakeStoreAccounts DataLakeStoreAccountInformationResponseArrayOutput `pulumi:"dataLakeStoreAccounts"`
+	// The current state of the DebugDataAccessLevel for this account.
+	DebugDataAccessLevel pulumi.StringOutput `pulumi:"debugDataAccessLevel"`
 	// The default Data Lake Store account associated with this account.
 	DefaultDataLakeStoreAccount pulumi.StringOutput `pulumi:"defaultDataLakeStoreAccount"`
 	// The full CName endpoint for this account.
@@ -35,16 +37,18 @@ type Account struct {
 	FirewallRules FirewallRuleResponseArrayOutput `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState pulumi.StringOutput `pulumi:"firewallState"`
+	// The list of hiveMetastores associated with this account.
+	HiveMetastores HiveMetastoreResponseArrayOutput `pulumi:"hiveMetastores"`
 	// The account last modified time.
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// The resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The maximum supported degree of parallelism for this account.
-	MaxDegreeOfParallelism pulumi.IntOutput `pulumi:"maxDegreeOfParallelism"`
+	MaxDegreeOfParallelism pulumi.IntPtrOutput `pulumi:"maxDegreeOfParallelism"`
 	// The maximum supported degree of parallelism per job for this account.
 	MaxDegreeOfParallelismPerJob pulumi.IntOutput `pulumi:"maxDegreeOfParallelismPerJob"`
 	// The maximum supported jobs running under the account at the same time.
-	MaxJobCount pulumi.IntOutput `pulumi:"maxJobCount"`
+	MaxJobCount pulumi.IntPtrOutput `pulumi:"maxJobCount"`
 	// The minimum supported priority per job for this account.
 	MinPriorityPerJob pulumi.IntOutput `pulumi:"minPriorityPerJob"`
 	// The resource name.
@@ -54,7 +58,7 @@ type Account struct {
 	// The provisioning status of the Data Lake Analytics account.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The number of days that job metadata is retained.
-	QueryStoreRetention pulumi.IntOutput `pulumi:"queryStoreRetention"`
+	QueryStoreRetention pulumi.IntPtrOutput `pulumi:"queryStoreRetention"`
 	// The state of the Data Lake Analytics account.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The list of Azure Blob Storage accounts associated with this account.
@@ -67,6 +71,8 @@ type Account struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The list of virtualNetwork rules associated with this account.
+	VirtualNetworkRules VirtualNetworkRuleResponseArrayOutput `pulumi:"virtualNetworkRules"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -104,6 +110,9 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/latest:Account"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20151001preview:Account"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Account
@@ -138,6 +147,8 @@ type accountState struct {
 	CurrentTier *string `pulumi:"currentTier"`
 	// The list of Data Lake Store accounts associated with this account.
 	DataLakeStoreAccounts []DataLakeStoreAccountInformationResponse `pulumi:"dataLakeStoreAccounts"`
+	// The current state of the DebugDataAccessLevel for this account.
+	DebugDataAccessLevel *string `pulumi:"debugDataAccessLevel"`
 	// The default Data Lake Store account associated with this account.
 	DefaultDataLakeStoreAccount *string `pulumi:"defaultDataLakeStoreAccount"`
 	// The full CName endpoint for this account.
@@ -148,6 +159,8 @@ type accountState struct {
 	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState *string `pulumi:"firewallState"`
+	// The list of hiveMetastores associated with this account.
+	HiveMetastores []HiveMetastoreResponse `pulumi:"hiveMetastores"`
 	// The account last modified time.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The resource location.
@@ -180,6 +193,8 @@ type accountState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type *string `pulumi:"type"`
+	// The list of virtualNetwork rules associated with this account.
+	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
 }
 
 type AccountState struct {
@@ -193,6 +208,8 @@ type AccountState struct {
 	CurrentTier pulumi.StringPtrInput
 	// The list of Data Lake Store accounts associated with this account.
 	DataLakeStoreAccounts DataLakeStoreAccountInformationResponseArrayInput
+	// The current state of the DebugDataAccessLevel for this account.
+	DebugDataAccessLevel pulumi.StringPtrInput
 	// The default Data Lake Store account associated with this account.
 	DefaultDataLakeStoreAccount pulumi.StringPtrInput
 	// The full CName endpoint for this account.
@@ -203,6 +220,8 @@ type AccountState struct {
 	FirewallRules FirewallRuleResponseArrayInput
 	// The current state of the IP address firewall for this account.
 	FirewallState pulumi.StringPtrInput
+	// The list of hiveMetastores associated with this account.
+	HiveMetastores HiveMetastoreResponseArrayInput
 	// The account last modified time.
 	LastModifiedTime pulumi.StringPtrInput
 	// The resource location.
@@ -235,6 +254,8 @@ type AccountState struct {
 	Tags pulumi.StringMapInput
 	// The resource type.
 	Type pulumi.StringPtrInput
+	// The list of virtualNetwork rules associated with this account.
+	VirtualNetworkRules VirtualNetworkRuleResponseArrayInput
 }
 
 func (AccountState) ElementType() reflect.Type {

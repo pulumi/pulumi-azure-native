@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     public sealed class VaultPropertiesResponse
     {
         /// <summary>
+        /// Customer Managed Key details of the resource.
+        /// </summary>
+        public readonly Outputs.VaultPropertiesResponseEncryption? Encryption;
+        /// <summary>
         /// List of private endpoint connection.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionVaultPropertiesResponse> PrivateEndpointConnections;
@@ -36,6 +40,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
         [OutputConstructor]
         private VaultPropertiesResponse(
+            Outputs.VaultPropertiesResponseEncryption? encryption,
+
             ImmutableArray<Outputs.PrivateEndpointConnectionVaultPropertiesResponse> privateEndpointConnections,
 
             string privateEndpointStateForBackup,
@@ -46,6 +52,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             Outputs.UpgradeDetailsResponse? upgradeDetails)
         {
+            Encryption = encryption;
             PrivateEndpointConnections = privateEndpointConnections;
             PrivateEndpointStateForBackup = privateEndpointStateForBackup;
             PrivateEndpointStateForSiteRecovery = privateEndpointStateForSiteRecovery;

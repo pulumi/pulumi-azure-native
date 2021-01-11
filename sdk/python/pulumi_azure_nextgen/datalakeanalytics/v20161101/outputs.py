@@ -13,8 +13,10 @@ __all__ = [
     'ComputePolicyResponse',
     'DataLakeStoreAccountInformationResponse',
     'FirewallRuleResponse',
+    'HiveMetastoreResponse',
     'SasTokenInformationResponseResult',
     'StorageAccountInformationResponse',
+    'VirtualNetworkRuleResponse',
 ]
 
 @pulumi.output_type
@@ -236,6 +238,115 @@ class FirewallRuleResponse(dict):
 
 
 @pulumi.output_type
+class HiveMetastoreResponse(dict):
+    def __init__(__self__, *,
+                 database_name: str,
+                 id: str,
+                 name: str,
+                 nested_resource_provisioning_state: str,
+                 password: str,
+                 runtime_version: str,
+                 server_uri: str,
+                 type: str,
+                 user_name: str):
+        """
+        :param str database_name: The databaseName for the Hive MetaStore
+        :param str id: The resource identifier.
+        :param str name: The resource name.
+        :param str nested_resource_provisioning_state: The current state of the NestedResource
+        :param str password: The password for the Hive MetaStore
+        :param str runtime_version: The runtimeVersion for the Hive MetaStore
+        :param str server_uri: The serverUri for the Hive MetaStore
+        :param str type: The resource type.
+        :param str user_name: The userName for the Hive MetaStore
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "nested_resource_provisioning_state", nested_resource_provisioning_state)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+        pulumi.set(__self__, "server_uri", server_uri)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The databaseName for the Hive MetaStore
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nestedResourceProvisioningState")
+    def nested_resource_provisioning_state(self) -> str:
+        """
+        The current state of the NestedResource
+        """
+        return pulumi.get(self, "nested_resource_provisioning_state")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password for the Hive MetaStore
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> str:
+        """
+        The runtimeVersion for the Hive MetaStore
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @property
+    @pulumi.getter(name="serverUri")
+    def server_uri(self) -> str:
+        """
+        The serverUri for the Hive MetaStore
+        """
+        return pulumi.get(self, "server_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        The userName for the Hive MetaStore
+        """
+        return pulumi.get(self, "user_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class SasTokenInformationResponseResult(dict):
     """
     SAS token information.
@@ -310,6 +421,75 @@ class StorageAccountInformationResponse(dict):
         The resource type.
         """
         return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkRuleResponse(dict):
+    """
+    Data Lake Analytics  VirtualNetwork Rule information.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 subnet_id: str,
+                 type: str,
+                 virtual_network_rule_state: str):
+        """
+        Data Lake Analytics  VirtualNetwork Rule information.
+        :param str id: The resource identifier.
+        :param str name: The resource name.
+        :param str subnet_id: The resource identifier for the subnet
+        :param str type: The resource type.
+        :param str virtual_network_rule_state: The current state of the VirtualNetwork Rule
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "virtual_network_rule_state", virtual_network_rule_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The resource identifier for the subnet
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetworkRuleState")
+    def virtual_network_rule_state(self) -> str:
+        """
+        The current state of the VirtualNetwork Rule
+        """
+        return pulumi.get(self, "virtual_network_rule_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

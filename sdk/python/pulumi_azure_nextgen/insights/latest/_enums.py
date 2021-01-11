@@ -5,7 +5,7 @@
 from enum import Enum
 
 __all__ = [
-    'AggregationType',
+    'AggregationTypeEnum',
     'AlertSeverity',
     'ApplicationType',
     'ComparisonOperationType',
@@ -38,7 +38,7 @@ __all__ = [
 ]
 
 
-class AggregationType(str, Enum):
+class AggregationTypeEnum(str, Enum):
     """
     the criteria time aggregation types.
     """

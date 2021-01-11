@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview.Outputs
+namespace Pulumi.AzureNextGen.RecoveryServices.V20200202.Outputs
 {
 
     [OutputType]
-    public sealed class SasTokenInfoResponseResult
+    public sealed class SkuResponse
     {
         /// <summary>
-        /// the access token for the associated Azure Storage Container.
+        /// The Sku name.
         /// </summary>
-        public readonly string AccessToken;
+        public readonly string Name;
 
         [OutputConstructor]
-        private SasTokenInfoResponseResult(string accessToken)
+        private SkuResponse(string name)
         {
-            AccessToken = accessToken;
+            Name = name;
         }
     }
 }

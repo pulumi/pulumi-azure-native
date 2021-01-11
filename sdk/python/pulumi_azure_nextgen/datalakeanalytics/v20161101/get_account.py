@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     """
-    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, id=None, last_modified_time=None, location=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None):
+    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, debug_data_access_level=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, hive_metastores=None, id=None, last_modified_time=None, location=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None, virtual_network_rules=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -36,6 +36,9 @@ class GetAccountResult:
         if data_lake_store_accounts and not isinstance(data_lake_store_accounts, list):
             raise TypeError("Expected argument 'data_lake_store_accounts' to be a list")
         pulumi.set(__self__, "data_lake_store_accounts", data_lake_store_accounts)
+        if debug_data_access_level and not isinstance(debug_data_access_level, str):
+            raise TypeError("Expected argument 'debug_data_access_level' to be a str")
+        pulumi.set(__self__, "debug_data_access_level", debug_data_access_level)
         if default_data_lake_store_account and not isinstance(default_data_lake_store_account, str):
             raise TypeError("Expected argument 'default_data_lake_store_account' to be a str")
         pulumi.set(__self__, "default_data_lake_store_account", default_data_lake_store_account)
@@ -51,6 +54,9 @@ class GetAccountResult:
         if firewall_state and not isinstance(firewall_state, str):
             raise TypeError("Expected argument 'firewall_state' to be a str")
         pulumi.set(__self__, "firewall_state", firewall_state)
+        if hive_metastores and not isinstance(hive_metastores, list):
+            raise TypeError("Expected argument 'hive_metastores' to be a list")
+        pulumi.set(__self__, "hive_metastores", hive_metastores)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -102,6 +108,9 @@ class GetAccountResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if virtual_network_rules and not isinstance(virtual_network_rules, list):
+            raise TypeError("Expected argument 'virtual_network_rules' to be a list")
+        pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="accountId")
@@ -144,6 +153,14 @@ class GetAccountResult:
         return pulumi.get(self, "data_lake_store_accounts")
 
     @property
+    @pulumi.getter(name="debugDataAccessLevel")
+    def debug_data_access_level(self) -> str:
+        """
+        The current state of the DebugDataAccessLevel for this account.
+        """
+        return pulumi.get(self, "debug_data_access_level")
+
+    @property
     @pulumi.getter(name="defaultDataLakeStoreAccount")
     def default_data_lake_store_account(self) -> str:
         """
@@ -184,6 +201,14 @@ class GetAccountResult:
         return pulumi.get(self, "firewall_state")
 
     @property
+    @pulumi.getter(name="hiveMetastores")
+    def hive_metastores(self) -> Sequence['outputs.HiveMetastoreResponse']:
+        """
+        The list of hiveMetastores associated with this account.
+        """
+        return pulumi.get(self, "hive_metastores")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -209,7 +234,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelism")
-    def max_degree_of_parallelism(self) -> int:
+    def max_degree_of_parallelism(self) -> Optional[int]:
         """
         The maximum supported degree of parallelism for this account.
         """
@@ -225,7 +250,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="maxJobCount")
-    def max_job_count(self) -> int:
+    def max_job_count(self) -> Optional[int]:
         """
         The maximum supported jobs running under the account at the same time.
         """
@@ -265,7 +290,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="queryStoreRetention")
-    def query_store_retention(self) -> int:
+    def query_store_retention(self) -> Optional[int]:
         """
         The number of days that job metadata is retained.
         """
@@ -319,6 +344,14 @@ class GetAccountResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Sequence['outputs.VirtualNetworkRuleResponse']:
+        """
+        The list of virtualNetwork rules associated with this account.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
 
 class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
@@ -331,11 +364,13 @@ class AwaitableGetAccountResult(GetAccountResult):
             creation_time=self.creation_time,
             current_tier=self.current_tier,
             data_lake_store_accounts=self.data_lake_store_accounts,
+            debug_data_access_level=self.debug_data_access_level,
             default_data_lake_store_account=self.default_data_lake_store_account,
             endpoint=self.endpoint,
             firewall_allow_azure_ips=self.firewall_allow_azure_ips,
             firewall_rules=self.firewall_rules,
             firewall_state=self.firewall_state,
+            hive_metastores=self.hive_metastores,
             id=self.id,
             last_modified_time=self.last_modified_time,
             location=self.location,
@@ -352,7 +387,8 @@ class AwaitableGetAccountResult(GetAccountResult):
             system_max_degree_of_parallelism=self.system_max_degree_of_parallelism,
             system_max_job_count=self.system_max_job_count,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_network_rules=self.virtual_network_rules)
 
 
 def get_account(account_name: Optional[str] = None,
@@ -379,11 +415,13 @@ def get_account(account_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         current_tier=__ret__.current_tier,
         data_lake_store_accounts=__ret__.data_lake_store_accounts,
+        debug_data_access_level=__ret__.debug_data_access_level,
         default_data_lake_store_account=__ret__.default_data_lake_store_account,
         endpoint=__ret__.endpoint,
         firewall_allow_azure_ips=__ret__.firewall_allow_azure_ips,
         firewall_rules=__ret__.firewall_rules,
         firewall_state=__ret__.firewall_state,
+        hive_metastores=__ret__.hive_metastores,
         id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
         location=__ret__.location,
@@ -400,4 +438,5 @@ def get_account(account_name: Optional[str] = None,
         system_max_degree_of_parallelism=__ret__.system_max_degree_of_parallelism,
         system_max_job_count=__ret__.system_max_job_count,
         tags=__ret__.tags,
-        type=__ret__.type)
+        type=__ret__.type,
+        virtual_network_rules=__ret__.virtual_network_rules)

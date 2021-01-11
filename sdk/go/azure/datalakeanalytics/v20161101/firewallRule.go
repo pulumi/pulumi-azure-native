@@ -51,6 +51,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/latest:FirewallRule"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20151001preview:FirewallRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
     /// <summary>
     /// Resource information, as returned by the resource provider.
-    /// Latest API Version: 2016-06-01.
+    /// Latest API Version: 2020-02-02.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:recoveryservices/latest:Vault")]
     public partial class Vault : Pulumi.CustomResource
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160601:Vault"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20200202:Vault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,6 +131,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Properties of the vault.
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.VaultPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

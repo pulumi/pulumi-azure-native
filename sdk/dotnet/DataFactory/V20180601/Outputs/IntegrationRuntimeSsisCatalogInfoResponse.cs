@@ -29,6 +29,10 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// The catalog database server URL.
         /// </summary>
         public readonly string? CatalogServerEndpoint;
+        /// <summary>
+        /// The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+        /// </summary>
+        public readonly string? DualStandbyPairName;
 
         [OutputConstructor]
         private IntegrationRuntimeSsisCatalogInfoResponse(
@@ -38,12 +42,15 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             string? catalogPricingTier,
 
-            string? catalogServerEndpoint)
+            string? catalogServerEndpoint,
+
+            string? dualStandbyPairName)
         {
             CatalogAdminPassword = catalogAdminPassword;
             CatalogAdminUserName = catalogAdminUserName;
             CatalogPricingTier = catalogPricingTier;
             CatalogServerEndpoint = catalogServerEndpoint;
+            DualStandbyPairName = dualStandbyPairName;
         }
     }
 }

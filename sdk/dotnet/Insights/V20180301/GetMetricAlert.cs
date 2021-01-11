@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301
         /// <summary>
         /// the description of the metric alert that will be included in the alert email.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// the flag that indicates whether the metric alert is enabled.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301
 
             object criteria,
 
-            string description,
+            string? description,
 
             bool enabled,
 

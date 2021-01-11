@@ -57,6 +57,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly dataLakeStoreAccounts!: pulumi.Output<outputs.datalakeanalytics.latest.DataLakeStoreAccountInformationResponse[]>;
     /**
+     * The current state of the DebugDataAccessLevel for this account.
+     */
+    public /*out*/ readonly debugDataAccessLevel!: pulumi.Output<string>;
+    /**
      * The default Data Lake Store account associated with this account.
      */
     public readonly defaultDataLakeStoreAccount!: pulumi.Output<string>;
@@ -77,6 +81,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly firewallState!: pulumi.Output<string>;
     /**
+     * The list of hiveMetastores associated with this account.
+     */
+    public /*out*/ readonly hiveMetastores!: pulumi.Output<outputs.datalakeanalytics.latest.HiveMetastoreResponse[]>;
+    /**
      * The account last modified time.
      */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
@@ -87,7 +95,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The maximum supported degree of parallelism for this account.
      */
-    public readonly maxDegreeOfParallelism!: pulumi.Output<number>;
+    public readonly maxDegreeOfParallelism!: pulumi.Output<number | undefined>;
     /**
      * The maximum supported degree of parallelism per job for this account.
      */
@@ -95,7 +103,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The maximum supported jobs running under the account at the same time.
      */
-    public readonly maxJobCount!: pulumi.Output<number>;
+    public readonly maxJobCount!: pulumi.Output<number | undefined>;
     /**
      * The minimum supported priority per job for this account.
      */
@@ -115,7 +123,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The number of days that job metadata is retained.
      */
-    public readonly queryStoreRetention!: pulumi.Output<number>;
+    public readonly queryStoreRetention!: pulumi.Output<number | undefined>;
     /**
      * The state of the Data Lake Analytics account.
      */
@@ -140,6 +148,10 @@ export class Account extends pulumi.CustomResource {
      * The resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The list of virtualNetwork rules associated with this account.
+     */
+    public /*out*/ readonly virtualNetworkRules!: pulumi.Output<outputs.datalakeanalytics.latest.VirtualNetworkRuleResponse[]>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -186,7 +198,9 @@ export class Account extends pulumi.CustomResource {
             inputs["accountId"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["currentTier"] = undefined /*out*/;
+            inputs["debugDataAccessLevel"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["hiveMetastores"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -194,17 +208,20 @@ export class Account extends pulumi.CustomResource {
             inputs["systemMaxDegreeOfParallelism"] = undefined /*out*/;
             inputs["systemMaxJobCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualNetworkRules"] = undefined /*out*/;
         } else {
             inputs["accountId"] = undefined /*out*/;
             inputs["computePolicies"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["currentTier"] = undefined /*out*/;
             inputs["dataLakeStoreAccounts"] = undefined /*out*/;
+            inputs["debugDataAccessLevel"] = undefined /*out*/;
             inputs["defaultDataLakeStoreAccount"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["firewallAllowAzureIps"] = undefined /*out*/;
             inputs["firewallRules"] = undefined /*out*/;
             inputs["firewallState"] = undefined /*out*/;
+            inputs["hiveMetastores"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["maxDegreeOfParallelism"] = undefined /*out*/;
@@ -221,6 +238,7 @@ export class Account extends pulumi.CustomResource {
             inputs["systemMaxJobCount"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualNetworkRules"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -229,7 +247,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics/v20161101:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics/v20151001preview:Account" }, { type: "azure-nextgen:datalakeanalytics/v20161101:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Managed Virtual Network reference.
+        /// </summary>
+        public readonly Outputs.ManagedVirtualNetworkReferenceResponse? ManagedVirtualNetwork;
+        /// <summary>
         /// SSIS properties for managed integration runtime.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeSsisPropertiesResponse? SsisProperties;
@@ -41,6 +45,8 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             string? description,
 
+            Outputs.ManagedVirtualNetworkReferenceResponse? managedVirtualNetwork,
+
             Outputs.IntegrationRuntimeSsisPropertiesResponse? ssisProperties,
 
             string state,
@@ -49,6 +55,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         {
             ComputeProperties = computeProperties;
             Description = description;
+            ManagedVirtualNetwork = managedVirtualNetwork;
             SsisProperties = ssisProperties;
             State = state;
             Type = type;

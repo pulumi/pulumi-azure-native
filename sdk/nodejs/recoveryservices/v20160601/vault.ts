@@ -114,7 +114,7 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:Vault" }, { type: "azure-nextgen:recoveryservices/v20200202:Vault" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Vault.__pulumiType, name, inputs, opts);
     }

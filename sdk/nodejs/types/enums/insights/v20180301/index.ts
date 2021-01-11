@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AggregationType = {
+export const AggregationTypeEnum = {
     Average: "Average",
     Count: "Count",
     Minimum: "Minimum",
@@ -13,7 +13,7 @@ export const AggregationType = {
 /**
  * the criteria time aggregation types.
  */
-export type AggregationType = (typeof AggregationType)[keyof typeof AggregationType];
+export type AggregationTypeEnum = (typeof AggregationTypeEnum)[keyof typeof AggregationTypeEnum];
 
 export const CriterionType = {
     StaticThresholdCriterion: "StaticThresholdCriterion",

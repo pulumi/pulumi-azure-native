@@ -114,7 +114,9 @@ class Account(pulumi.CustomResource):
             __props__['account_id'] = None
             __props__['creation_time'] = None
             __props__['current_tier'] = None
+            __props__['debug_data_access_level'] = None
             __props__['endpoint'] = None
+            __props__['hive_metastores'] = None
             __props__['last_modified_time'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
@@ -122,7 +124,8 @@ class Account(pulumi.CustomResource):
             __props__['system_max_degree_of_parallelism'] = None
             __props__['system_max_job_count'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakeanalytics/latest:Account")])
+            __props__['virtual_network_rules'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakeanalytics/latest:Account"), pulumi.Alias(type_="azure-nextgen:datalakeanalytics/v20151001preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-nextgen:datalakeanalytics/v20161101:Account',
@@ -189,6 +192,14 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "data_lake_store_accounts")
 
     @property
+    @pulumi.getter(name="debugDataAccessLevel")
+    def debug_data_access_level(self) -> pulumi.Output[str]:
+        """
+        The current state of the DebugDataAccessLevel for this account.
+        """
+        return pulumi.get(self, "debug_data_access_level")
+
+    @property
     @pulumi.getter(name="defaultDataLakeStoreAccount")
     def default_data_lake_store_account(self) -> pulumi.Output[str]:
         """
@@ -229,6 +240,14 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "firewall_state")
 
     @property
+    @pulumi.getter(name="hiveMetastores")
+    def hive_metastores(self) -> pulumi.Output[Sequence['outputs.HiveMetastoreResponse']]:
+        """
+        The list of hiveMetastores associated with this account.
+        """
+        return pulumi.get(self, "hive_metastores")
+
+    @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
         """
@@ -246,7 +265,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelism")
-    def max_degree_of_parallelism(self) -> pulumi.Output[int]:
+    def max_degree_of_parallelism(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum supported degree of parallelism for this account.
         """
@@ -262,7 +281,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxJobCount")
-    def max_job_count(self) -> pulumi.Output[int]:
+    def max_job_count(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum supported jobs running under the account at the same time.
         """
@@ -302,7 +321,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryStoreRetention")
-    def query_store_retention(self) -> pulumi.Output[int]:
+    def query_store_retention(self) -> pulumi.Output[Optional[int]]:
         """
         The number of days that job metadata is retained.
         """
@@ -355,6 +374,14 @@ class Account(pulumi.CustomResource):
         The resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> pulumi.Output[Sequence['outputs.VirtualNetworkRuleResponse']]:
+        """
+        The list of virtualNetwork rules associated with this account.
+        """
+        return pulumi.get(self, "virtual_network_rules")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

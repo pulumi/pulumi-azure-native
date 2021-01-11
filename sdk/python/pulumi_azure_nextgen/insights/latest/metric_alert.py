@@ -80,8 +80,6 @@ class MetricAlert(pulumi.CustomResource):
             if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__['criteria'] = criteria
-            if description is None and not opts.urn:
-                raise TypeError("Missing required property 'description'")
             __props__['description'] = description
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
@@ -163,7 +161,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         the description of the metric alert that will be included in the alert email.
         """

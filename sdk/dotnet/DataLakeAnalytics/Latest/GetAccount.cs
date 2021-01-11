@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.DataLakeStoreAccountInformationResponse> DataLakeStoreAccounts;
         /// <summary>
+        /// The current state of the DebugDataAccessLevel for this account.
+        /// </summary>
+        public readonly string DebugDataAccessLevel;
+        /// <summary>
         /// The default Data Lake Store account associated with this account.
         /// </summary>
         public readonly string DefaultDataLakeStoreAccount;
@@ -80,6 +84,10 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// </summary>
         public readonly string FirewallState;
         /// <summary>
+        /// The list of hiveMetastores associated with this account.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HiveMetastoreResponse> HiveMetastores;
+        /// <summary>
         /// The resource identifer.
         /// </summary>
         public readonly string Id;
@@ -94,7 +102,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// <summary>
         /// The maximum supported degree of parallelism for this account.
         /// </summary>
-        public readonly int MaxDegreeOfParallelism;
+        public readonly int? MaxDegreeOfParallelism;
         /// <summary>
         /// The maximum supported degree of parallelism per job for this account.
         /// </summary>
@@ -102,7 +110,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// <summary>
         /// The maximum supported jobs running under the account at the same time.
         /// </summary>
-        public readonly int MaxJobCount;
+        public readonly int? MaxJobCount;
         /// <summary>
         /// The minimum supported priority per job for this account.
         /// </summary>
@@ -122,7 +130,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// <summary>
         /// The number of days that job metadata is retained.
         /// </summary>
-        public readonly int QueryStoreRetention;
+        public readonly int? QueryStoreRetention;
         /// <summary>
         /// The state of the Data Lake Analytics account.
         /// </summary>
@@ -147,6 +155,10 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// The resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The list of virtualNetwork rules associated with this account.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkRuleResponse> VirtualNetworkRules;
 
         [OutputConstructor]
         private GetAccountResult(
@@ -160,6 +172,8 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 
             ImmutableArray<Outputs.DataLakeStoreAccountInformationResponse> dataLakeStoreAccounts,
 
+            string debugDataAccessLevel,
+
             string defaultDataLakeStoreAccount,
 
             string endpoint,
@@ -170,17 +184,19 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 
             string firewallState,
 
+            ImmutableArray<Outputs.HiveMetastoreResponse> hiveMetastores,
+
             string id,
 
             string lastModifiedTime,
 
             string location,
 
-            int maxDegreeOfParallelism,
+            int? maxDegreeOfParallelism,
 
             int maxDegreeOfParallelismPerJob,
 
-            int maxJobCount,
+            int? maxJobCount,
 
             int minPriorityPerJob,
 
@@ -190,7 +206,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 
             string provisioningState,
 
-            int queryStoreRetention,
+            int? queryStoreRetention,
 
             string state,
 
@@ -202,18 +218,22 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 
             ImmutableDictionary<string, string> tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.VirtualNetworkRuleResponse> virtualNetworkRules)
         {
             AccountId = accountId;
             ComputePolicies = computePolicies;
             CreationTime = creationTime;
             CurrentTier = currentTier;
             DataLakeStoreAccounts = dataLakeStoreAccounts;
+            DebugDataAccessLevel = debugDataAccessLevel;
             DefaultDataLakeStoreAccount = defaultDataLakeStoreAccount;
             Endpoint = endpoint;
             FirewallAllowAzureIps = firewallAllowAzureIps;
             FirewallRules = firewallRules;
             FirewallState = firewallState;
+            HiveMetastores = hiveMetastores;
             Id = id;
             LastModifiedTime = lastModifiedTime;
             Location = location;
@@ -231,6 +251,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
             SystemMaxJobCount = systemMaxJobCount;
             Tags = tags;
             Type = type;
+            VirtualNetworkRules = virtualNetworkRules;
         }
     }
 }

@@ -35,6 +35,8 @@ type LookupAccountResult struct {
 	CurrentTier string `pulumi:"currentTier"`
 	// The list of Data Lake Store accounts associated with this account.
 	DataLakeStoreAccounts []DataLakeStoreAccountInformationResponse `pulumi:"dataLakeStoreAccounts"`
+	// The current state of the DebugDataAccessLevel for this account.
+	DebugDataAccessLevel string `pulumi:"debugDataAccessLevel"`
 	// The default Data Lake Store account associated with this account.
 	DefaultDataLakeStoreAccount string `pulumi:"defaultDataLakeStoreAccount"`
 	// The full CName endpoint for this account.
@@ -45,6 +47,8 @@ type LookupAccountResult struct {
 	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState string `pulumi:"firewallState"`
+	// The list of hiveMetastores associated with this account.
+	HiveMetastores []HiveMetastoreResponse `pulumi:"hiveMetastores"`
 	// The resource identifer.
 	Id string `pulumi:"id"`
 	// The account last modified time.
@@ -52,11 +56,11 @@ type LookupAccountResult struct {
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The maximum supported degree of parallelism for this account.
-	MaxDegreeOfParallelism int `pulumi:"maxDegreeOfParallelism"`
+	MaxDegreeOfParallelism *int `pulumi:"maxDegreeOfParallelism"`
 	// The maximum supported degree of parallelism per job for this account.
 	MaxDegreeOfParallelismPerJob int `pulumi:"maxDegreeOfParallelismPerJob"`
 	// The maximum supported jobs running under the account at the same time.
-	MaxJobCount int `pulumi:"maxJobCount"`
+	MaxJobCount *int `pulumi:"maxJobCount"`
 	// The minimum supported priority per job for this account.
 	MinPriorityPerJob int `pulumi:"minPriorityPerJob"`
 	// The resource name.
@@ -66,7 +70,7 @@ type LookupAccountResult struct {
 	// The provisioning status of the Data Lake Analytics account.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The number of days that job metadata is retained.
-	QueryStoreRetention int `pulumi:"queryStoreRetention"`
+	QueryStoreRetention *int `pulumi:"queryStoreRetention"`
 	// The state of the Data Lake Analytics account.
 	State string `pulumi:"state"`
 	// The list of Azure Blob Storage accounts associated with this account.
@@ -79,4 +83,6 @@ type LookupAccountResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type string `pulumi:"type"`
+	// The list of virtualNetwork rules associated with this account.
+	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
 }
