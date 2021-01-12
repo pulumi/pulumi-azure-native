@@ -34,14 +34,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         public Input<object>? Delay { get; set; }
 
         [Input("dependsOn")]
-        private InputList<Union<Inputs.SelfDependencyTumblingWindowTriggerReferenceArgs, Inputs.TriggerDependencyReferenceArgs>>? _dependsOn;
+        private InputList<object>? _dependsOn;
 
         /// <summary>
         /// Triggers that this trigger depends on. Only tumbling window triggers are supported.
         /// </summary>
-        public InputList<Union<Inputs.SelfDependencyTumblingWindowTriggerReferenceArgs, Inputs.TriggerDependencyReferenceArgs>> DependsOn
+        public InputList<object> DependsOn
         {
-            get => _dependsOn ?? (_dependsOn = new InputList<Union<Inputs.SelfDependencyTumblingWindowTriggerReferenceArgs, Inputs.TriggerDependencyReferenceArgs>>());
+            get => _dependsOn ?? (_dependsOn = new InputList<object>());
             set => _dependsOn = value;
         }
 

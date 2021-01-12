@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Triggers that this trigger depends on. Only tumbling window triggers are supported.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.SelfDependencyTumblingWindowTriggerReferenceResponse, Outputs.TriggerDependencyReferenceResponse>> DependsOn;
+        public readonly ImmutableArray<object> DependsOn;
         /// <summary>
         /// Trigger description.
         /// </summary>
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             object? delay,
 
-            ImmutableArray<Union<Outputs.SelfDependencyTumblingWindowTriggerReferenceResponse, Outputs.TriggerDependencyReferenceResponse>> dependsOn,
+            ImmutableArray<object> dependsOn,
 
             string? description,
 

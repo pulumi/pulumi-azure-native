@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// <summary>
         /// Details of the resource that was assessed
         /// </summary>
-        public readonly Union<Outputs.AzureResourceDetailsResponse, Outputs.OnPremiseResourceDetailsResponse> ResourceDetails;
+        public readonly object ResourceDetails;
         /// <summary>
         /// The result of the assessment
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
 
             Outputs.SecurityAssessmentPartnerDataResponse? partnersData,
 
-            Union<Outputs.AzureResourceDetailsResponse, Outputs.OnPremiseResourceDetailsResponse> resourceDetails,
+            object resourceDetails,
 
             Outputs.AssessmentStatusResponse status,
 

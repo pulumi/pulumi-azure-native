@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// List of activities in pipeline.
         /// </summary>
         [Output("activities")]
-        public Output<ImmutableArray<Union<Outputs.ControlActivityResponse, Outputs.ExecutionActivityResponse>>> Activities { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Activities { get; private set; } = null!;
 
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
@@ -132,14 +132,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
     public sealed class PipelineArgs : Pulumi.ResourceArgs
     {
         [Input("activities")]
-        private InputList<Union<Inputs.ControlActivityArgs, Inputs.ExecutionActivityArgs>>? _activities;
+        private InputList<object>? _activities;
 
         /// <summary>
         /// List of activities in pipeline.
         /// </summary>
-        public InputList<Union<Inputs.ControlActivityArgs, Inputs.ExecutionActivityArgs>> Activities
+        public InputList<object> Activities
         {
-            get => _activities ?? (_activities = new InputList<Union<Inputs.ControlActivityArgs, Inputs.ExecutionActivityArgs>>());
+            get => _activities ?? (_activities = new InputList<object>());
             set => _activities = value;
         }
 

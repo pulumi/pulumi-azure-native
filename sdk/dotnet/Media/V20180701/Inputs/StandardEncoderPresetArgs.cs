@@ -34,14 +34,14 @@ namespace Pulumi.AzureNextGen.Media.V20180701.Inputs
         public Input<Inputs.FiltersArgs>? Filters { get; set; }
 
         [Input("formats", required: true)]
-        private InputList<Union<Inputs.ImageFormatArgs, Inputs.MultiBitrateFormatArgs>>? _formats;
+        private InputList<object>? _formats;
 
         /// <summary>
         /// The list of outputs to be produced by the encoder.
         /// </summary>
-        public InputList<Union<Inputs.ImageFormatArgs, Inputs.MultiBitrateFormatArgs>> Formats
+        public InputList<object> Formats
         {
-            get => _formats ?? (_formats = new InputList<Union<Inputs.ImageFormatArgs, Inputs.MultiBitrateFormatArgs>>());
+            get => _formats ?? (_formats = new InputList<object>());
             set => _formats = value;
         }
 

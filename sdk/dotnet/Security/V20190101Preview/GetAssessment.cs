@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// <summary>
         /// Details of the resource that was assessed
         /// </summary>
-        public readonly Union<Outputs.AzureResourceDetailsResponse, Outputs.OnPremiseResourceDetailsResponse> ResourceDetails;
+        public readonly object ResourceDetails;
         /// <summary>
         /// The result of the assessment
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
 
             string name,
 
-            Union<Outputs.AzureResourceDetailsResponse, Outputs.OnPremiseResourceDetailsResponse> resourceDetails,
+            object resourceDetails,
 
             Outputs.AssessmentStatusResponse status,
 
