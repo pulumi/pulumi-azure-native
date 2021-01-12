@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
         /// the criteria time aggregation types.
         /// </summary>
         [Input("timeAggregation", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.Latest.AggregationType> TimeAggregation { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.Latest.AggregationTypeEnum> TimeAggregation { get; set; } = null!;
 
         public MetricCriteriaArgs()
         {

@@ -42,6 +42,8 @@ __all__ = [
     'AzureVmWorkloadProtectionPolicyResponse',
     'AzureWorkloadContainerExtendedInfoResponse',
     'AzureWorkloadContainerResponse',
+    'CmkKekIdentityResponse',
+    'CmkKeyVaultPropertiesResponse',
     'ContainerIdentityInfoResponse',
     'CurrentJobDetailsResponse',
     'CurrentScenarioDetailsResponse',
@@ -153,6 +155,7 @@ __all__ = [
     'StorageClassificationMappingPropertiesResponse',
     'SubProtectionPolicyResponse',
     'UpgradeDetailsResponse',
+    'UserIdentityResponse',
     'VCenterPropertiesResponse',
     'VMNicDetailsResponse',
     'VMwareCbtMigrationDetailsResponse',
@@ -162,6 +165,7 @@ __all__ = [
     'VMwareDetailsResponse',
     'VMwareV2FabricSpecificDetailsResponse',
     'VaultPropertiesResponse',
+    'VaultPropertiesResponseEncryption',
     'VersionDetailsResponse',
     'VmmDetailsResponse',
     'VmmToAzureNetworkMappingSettingsResponse',
@@ -4209,6 +4213,70 @@ class AzureWorkloadContainerResponse(dict):
 
 
 @pulumi.output_type
+class CmkKekIdentityResponse(dict):
+    """
+    The details of the identity used for CMK
+    """
+    def __init__(__self__, *,
+                 use_system_assigned_identity: Optional[bool] = None,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        The details of the identity used for CMK
+        :param bool use_system_assigned_identity: Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+        :param str user_assigned_identity: The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+        """
+        if use_system_assigned_identity is not None:
+            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="useSystemAssignedIdentity")
+    def use_system_assigned_identity(self) -> Optional[bool]:
+        """
+        Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+        """
+        return pulumi.get(self, "use_system_assigned_identity")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CmkKeyVaultPropertiesResponse(dict):
+    """
+    The properties of the Key Vault which hosts CMK
+    """
+    def __init__(__self__, *,
+                 key_uri: Optional[str] = None):
+        """
+        The properties of the Key Vault which hosts CMK
+        :param str key_uri: The key uri of the Customer Managed Key
+        """
+        if key_uri is not None:
+            pulumi.set(__self__, "key_uri", key_uri)
+
+    @property
+    @pulumi.getter(name="keyUri")
+    def key_uri(self) -> Optional[str]:
+        """
+        The key uri of the Customer Managed Key
+        """
+        return pulumi.get(self, "key_uri")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ContainerIdentityInfoResponse(dict):
     """
     Container identity information
@@ -7728,16 +7796,20 @@ class IdentityDataResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: str):
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
         """
         Identity for the resource.
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
-        :param str type: The identity type.
+        :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+        :param Mapping[str, 'UserIdentityResponseArgs'] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -7759,9 +7831,17 @@ class IdentityDataResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The identity type.
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityResponse']]:
+        """
+        The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -16138,6 +16218,42 @@ class UpgradeDetailsResponse(dict):
 
 
 @pulumi.output_type
+class UserIdentityResponse(dict):
+    """
+    A resource identity that is managed by the user of the service.
+    """
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        A resource identity that is managed by the user of the service.
+        :param str client_id: The client ID of the user-assigned identity.
+        :param str principal_id: The principal ID of the user-assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the user-assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the user-assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class VCenterPropertiesResponse(dict):
     """
     vCenter properties.
@@ -17665,6 +17781,7 @@ class VaultPropertiesResponse(dict):
                  private_endpoint_state_for_backup: str,
                  private_endpoint_state_for_site_recovery: str,
                  provisioning_state: str,
+                 encryption: Optional['outputs.VaultPropertiesResponseEncryption'] = None,
                  upgrade_details: Optional['outputs.UpgradeDetailsResponse'] = None):
         """
         Properties of the vault.
@@ -17672,12 +17789,15 @@ class VaultPropertiesResponse(dict):
         :param str private_endpoint_state_for_backup: Private endpoint state for backup.
         :param str private_endpoint_state_for_site_recovery: Private endpoint state for site recovery.
         :param str provisioning_state: Provisioning State.
+        :param 'VaultPropertiesResponseEncryptionArgs' encryption: Customer Managed Key details of the resource.
         :param 'UpgradeDetailsResponseArgs' upgrade_details: Details for upgrading vault.
         """
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "private_endpoint_state_for_backup", private_endpoint_state_for_backup)
         pulumi.set(__self__, "private_endpoint_state_for_site_recovery", private_endpoint_state_for_site_recovery)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if upgrade_details is not None:
             pulumi.set(__self__, "upgrade_details", upgrade_details)
 
@@ -17714,12 +17834,70 @@ class VaultPropertiesResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.VaultPropertiesResponseEncryption']:
+        """
+        Customer Managed Key details of the resource.
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
     @pulumi.getter(name="upgradeDetails")
     def upgrade_details(self) -> Optional['outputs.UpgradeDetailsResponse']:
         """
         Details for upgrading vault.
         """
         return pulumi.get(self, "upgrade_details")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VaultPropertiesResponseEncryption(dict):
+    """
+    Customer Managed Key details of the resource.
+    """
+    def __init__(__self__, *,
+                 infrastructure_encryption: Optional[str] = None,
+                 kek_identity: Optional['outputs.CmkKekIdentityResponse'] = None,
+                 key_vault_properties: Optional['outputs.CmkKeyVaultPropertiesResponse'] = None):
+        """
+        Customer Managed Key details of the resource.
+        :param str infrastructure_encryption: Enabling/Disabling the Double Encryption state
+        :param 'CmkKekIdentityResponseArgs' kek_identity: The details of the identity used for CMK
+        :param 'CmkKeyVaultPropertiesResponseArgs' key_vault_properties: The properties of the Key Vault which hosts CMK
+        """
+        if infrastructure_encryption is not None:
+            pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)
+        if kek_identity is not None:
+            pulumi.set(__self__, "kek_identity", kek_identity)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter(name="infrastructureEncryption")
+    def infrastructure_encryption(self) -> Optional[str]:
+        """
+        Enabling/Disabling the Double Encryption state
+        """
+        return pulumi.get(self, "infrastructure_encryption")
+
+    @property
+    @pulumi.getter(name="kekIdentity")
+    def kek_identity(self) -> Optional['outputs.CmkKekIdentityResponse']:
+        """
+        The details of the identity used for CMK
+        """
+        return pulumi.get(self, "kek_identity")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.CmkKeyVaultPropertiesResponse']:
+        """
+        The properties of the Key Vault which hosts CMK
+        """
+        return pulumi.get(self, "key_vault_properties")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -47,6 +47,12 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         public Output<ImmutableArray<Outputs.DataLakeStoreAccountInformationResponse>> DataLakeStoreAccounts { get; private set; } = null!;
 
         /// <summary>
+        /// The current state of the DebugDataAccessLevel for this account.
+        /// </summary>
+        [Output("debugDataAccessLevel")]
+        public Output<string> DebugDataAccessLevel { get; private set; } = null!;
+
+        /// <summary>
         /// The default Data Lake Store account associated with this account.
         /// </summary>
         [Output("defaultDataLakeStoreAccount")]
@@ -77,6 +83,12 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         public Output<string> FirewallState { get; private set; } = null!;
 
         /// <summary>
+        /// The list of hiveMetastores associated with this account.
+        /// </summary>
+        [Output("hiveMetastores")]
+        public Output<ImmutableArray<Outputs.HiveMetastoreResponse>> HiveMetastores { get; private set; } = null!;
+
+        /// <summary>
         /// The account last modified time.
         /// </summary>
         [Output("lastModifiedTime")]
@@ -92,7 +104,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// The maximum supported degree of parallelism for this account.
         /// </summary>
         [Output("maxDegreeOfParallelism")]
-        public Output<int> MaxDegreeOfParallelism { get; private set; } = null!;
+        public Output<int?> MaxDegreeOfParallelism { get; private set; } = null!;
 
         /// <summary>
         /// The maximum supported degree of parallelism per job for this account.
@@ -104,7 +116,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// The maximum supported jobs running under the account at the same time.
         /// </summary>
         [Output("maxJobCount")]
-        public Output<int> MaxJobCount { get; private set; } = null!;
+        public Output<int?> MaxJobCount { get; private set; } = null!;
 
         /// <summary>
         /// The minimum supported priority per job for this account.
@@ -134,7 +146,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// The number of days that job metadata is retained.
         /// </summary>
         [Output("queryStoreRetention")]
-        public Output<int> QueryStoreRetention { get; private set; } = null!;
+        public Output<int?> QueryStoreRetention { get; private set; } = null!;
 
         /// <summary>
         /// The state of the Data Lake Analytics account.
@@ -172,6 +184,12 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of virtualNetwork rules associated with this account.
+        /// </summary>
+        [Output("virtualNetworkRules")]
+        public Output<ImmutableArray<Outputs.VirtualNetworkRuleResponse>> VirtualNetworkRules { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Account resource with the given unique name, arguments, and options.
@@ -197,6 +215,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20151001preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20161101:Account"},
                 },
             };

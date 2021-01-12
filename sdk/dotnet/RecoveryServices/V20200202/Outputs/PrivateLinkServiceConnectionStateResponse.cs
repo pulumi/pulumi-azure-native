@@ -14,27 +14,27 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20200202.Outputs
     public sealed class PrivateLinkServiceConnectionStateResponse
     {
         /// <summary>
-        /// Gets or sets actions required
+        /// Gets or sets actions required.
         /// </summary>
-        public readonly string? ActionRequired;
+        public readonly string ActionsRequired;
         /// <summary>
-        /// Gets or sets description
+        /// Gets or sets description.
         /// </summary>
-        public readonly string? Description;
+        public readonly string Description;
         /// <summary>
-        /// Gets or sets the status
+        /// Gets or sets the status.
         /// </summary>
-        public readonly string? Status;
+        public readonly string Status;
 
         [OutputConstructor]
         private PrivateLinkServiceConnectionStateResponse(
-            string? actionRequired,
+            string actionsRequired,
 
-            string? description,
+            string description,
 
-            string? status)
+            string status)
         {
-            ActionRequired = actionRequired;
+            ActionsRequired = actionsRequired;
             Description = description;
             Status = status;
         }

@@ -32,7 +32,7 @@ type LookupMetricAlertResult struct {
 	// defines the specific alert criteria information.
 	Criteria interface{} `pulumi:"criteria"`
 	// the description of the metric alert that will be included in the alert email.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// the flag that indicates whether the metric alert is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.

@@ -21,6 +21,7 @@ class Vault(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityDataArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VaultPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -30,13 +31,14 @@ class Vault(pulumi.CustomResource):
                  __opts__=None):
         """
         Resource information, as returned by the resource provider.
-        Latest API Version: 2016-06-01.
+        Latest API Version: 2020-02-02.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[pulumi.InputType['IdentityDataArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[pulumi.InputType['VaultPropertiesArgs']] properties: Properties of the vault.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Identifies the unique system identifier for each Azure resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -64,6 +66,7 @@ class Vault(pulumi.CustomResource):
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -73,9 +76,8 @@ class Vault(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
             __props__['name'] = None
-            __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160601:Vault")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160601:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20200202:Vault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Vault, __self__).__init__(
             'azure-nextgen:recoveryservices/latest:Vault',

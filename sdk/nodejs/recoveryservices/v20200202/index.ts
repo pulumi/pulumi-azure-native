@@ -6,13 +6,16 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./getPrivateEndpointConnection";
+export * from "./getVault";
 export * from "./privateEndpointConnection";
+export * from "./vault";
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20200202";
 
 // Import resources to register:
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
+import { Vault } from "./vault";
 
 const _module = {
     version: utilities.getVersion(),
@@ -20,6 +23,8 @@ const _module = {
         switch (type) {
             case "azure-nextgen:recoveryservices/v20200202:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-nextgen:recoveryservices/v20200202:Vault":
+                return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

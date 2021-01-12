@@ -172,6 +172,7 @@ __all__ = [
     'ManagedIntegrationRuntimeResponse',
     'ManagedIntegrationRuntimeStatusResponseResult',
     'ManagedPrivateEndpointResponse',
+    'ManagedVirtualNetworkReferenceResponse',
     'MappingDataFlowResponse',
     'MariaDBLinkedServiceResponse',
     'MariaDBTableDatasetResponse',
@@ -17453,13 +17454,15 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
                  catalog_admin_password: Optional['outputs.SecureStringResponse'] = None,
                  catalog_admin_user_name: Optional[str] = None,
                  catalog_pricing_tier: Optional[str] = None,
-                 catalog_server_endpoint: Optional[str] = None):
+                 catalog_server_endpoint: Optional[str] = None,
+                 dual_standby_pair_name: Optional[str] = None):
         """
         Catalog information for managed dedicated integration runtime.
         :param 'SecureStringResponseArgs' catalog_admin_password: The password of the administrator user account of the catalog database.
         :param str catalog_admin_user_name: The administrator user name of catalog database.
         :param str catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         :param str catalog_server_endpoint: The catalog database server URL.
+        :param str dual_standby_pair_name: The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
         """
         if catalog_admin_password is not None:
             pulumi.set(__self__, "catalog_admin_password", catalog_admin_password)
@@ -17469,6 +17472,8 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
             pulumi.set(__self__, "catalog_pricing_tier", catalog_pricing_tier)
         if catalog_server_endpoint is not None:
             pulumi.set(__self__, "catalog_server_endpoint", catalog_server_endpoint)
+        if dual_standby_pair_name is not None:
+            pulumi.set(__self__, "dual_standby_pair_name", dual_standby_pair_name)
 
     @property
     @pulumi.getter(name="catalogAdminPassword")
@@ -17501,6 +17506,14 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
         The catalog database server URL.
         """
         return pulumi.get(self, "catalog_server_endpoint")
+
+    @property
+    @pulumi.getter(name="dualStandbyPairName")
+    def dual_standby_pair_name(self) -> Optional[str]:
+        """
+        The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+        """
+        return pulumi.get(self, "dual_standby_pair_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -18846,6 +18859,7 @@ class ManagedIntegrationRuntimeResponse(dict):
                  type: str,
                  compute_properties: Optional['outputs.IntegrationRuntimeComputePropertiesResponse'] = None,
                  description: Optional[str] = None,
+                 managed_virtual_network: Optional['outputs.ManagedVirtualNetworkReferenceResponse'] = None,
                  ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesResponse'] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
@@ -18854,6 +18868,7 @@ class ManagedIntegrationRuntimeResponse(dict):
                Expected value is 'Managed'.
         :param 'IntegrationRuntimeComputePropertiesResponseArgs' compute_properties: The compute resource for managed integration runtime.
         :param str description: Integration runtime description.
+        :param 'ManagedVirtualNetworkReferenceResponseArgs' managed_virtual_network: Managed Virtual Network reference.
         :param 'IntegrationRuntimeSsisPropertiesResponseArgs' ssis_properties: SSIS properties for managed integration runtime.
         """
         pulumi.set(__self__, "state", state)
@@ -18862,6 +18877,8 @@ class ManagedIntegrationRuntimeResponse(dict):
             pulumi.set(__self__, "compute_properties", compute_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if managed_virtual_network is not None:
+            pulumi.set(__self__, "managed_virtual_network", managed_virtual_network)
         if ssis_properties is not None:
             pulumi.set(__self__, "ssis_properties", ssis_properties)
 
@@ -18897,6 +18914,14 @@ class ManagedIntegrationRuntimeResponse(dict):
         Integration runtime description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="managedVirtualNetwork")
+    def managed_virtual_network(self) -> Optional['outputs.ManagedVirtualNetworkReferenceResponse']:
+        """
+        Managed Virtual Network reference.
+        """
+        return pulumi.get(self, "managed_virtual_network")
 
     @property
     @pulumi.getter(name="ssisProperties")
@@ -19079,6 +19104,42 @@ class ManagedPrivateEndpointResponse(dict):
         The ARM resource ID of the resource to which the managed private endpoint is created
         """
         return pulumi.get(self, "private_link_resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedVirtualNetworkReferenceResponse(dict):
+    """
+    Managed Virtual Network reference type.
+    """
+    def __init__(__self__, *,
+                 reference_name: str,
+                 type: str):
+        """
+        Managed Virtual Network reference type.
+        :param str reference_name: Reference ManagedVirtualNetwork name.
+        :param str type: Managed Virtual Network reference type.
+        """
+        pulumi.set(__self__, "reference_name", reference_name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> str:
+        """
+        Reference ManagedVirtualNetwork name.
+        """
+        return pulumi.get(self, "reference_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Managed Virtual Network reference type.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

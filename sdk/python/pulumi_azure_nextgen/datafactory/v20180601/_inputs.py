@@ -165,6 +165,7 @@ __all__ = [
     'MagentoObjectDatasetArgs',
     'ManagedIntegrationRuntimeArgs',
     'ManagedPrivateEndpointArgs',
+    'ManagedVirtualNetworkReferenceArgs',
     'MappingDataFlowArgs',
     'MariaDBLinkedServiceArgs',
     'MariaDBTableDatasetArgs',
@@ -21555,13 +21556,15 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
                  catalog_admin_password: Optional[pulumi.Input['SecureStringArgs']] = None,
                  catalog_admin_user_name: Optional[pulumi.Input[str]] = None,
                  catalog_pricing_tier: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']]] = None,
-                 catalog_server_endpoint: Optional[pulumi.Input[str]] = None):
+                 catalog_server_endpoint: Optional[pulumi.Input[str]] = None,
+                 dual_standby_pair_name: Optional[pulumi.Input[str]] = None):
         """
         Catalog information for managed dedicated integration runtime.
         :param pulumi.Input['SecureStringArgs'] catalog_admin_password: The password of the administrator user account of the catalog database.
         :param pulumi.Input[str] catalog_admin_user_name: The administrator user name of catalog database.
         :param pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']] catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         :param pulumi.Input[str] catalog_server_endpoint: The catalog database server URL.
+        :param pulumi.Input[str] dual_standby_pair_name: The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
         """
         if catalog_admin_password is not None:
             pulumi.set(__self__, "catalog_admin_password", catalog_admin_password)
@@ -21571,6 +21574,8 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
             pulumi.set(__self__, "catalog_pricing_tier", catalog_pricing_tier)
         if catalog_server_endpoint is not None:
             pulumi.set(__self__, "catalog_server_endpoint", catalog_server_endpoint)
+        if dual_standby_pair_name is not None:
+            pulumi.set(__self__, "dual_standby_pair_name", dual_standby_pair_name)
 
     @property
     @pulumi.getter(name="catalogAdminPassword")
@@ -21619,6 +21624,18 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
     @catalog_server_endpoint.setter
     def catalog_server_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "catalog_server_endpoint", value)
+
+    @property
+    @pulumi.getter(name="dualStandbyPairName")
+    def dual_standby_pair_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+        """
+        return pulumi.get(self, "dual_standby_pair_name")
+
+    @dual_standby_pair_name.setter
+    def dual_standby_pair_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dual_standby_pair_name", value)
 
 
 @pulumi.input_type
@@ -22960,6 +22977,7 @@ class ManagedIntegrationRuntimeArgs:
                  type: pulumi.Input[str],
                  compute_properties: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 managed_virtual_network: Optional[pulumi.Input['ManagedVirtualNetworkReferenceArgs']] = None,
                  ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
@@ -22967,6 +22985,7 @@ class ManagedIntegrationRuntimeArgs:
                Expected value is 'Managed'.
         :param pulumi.Input['IntegrationRuntimeComputePropertiesArgs'] compute_properties: The compute resource for managed integration runtime.
         :param pulumi.Input[str] description: Integration runtime description.
+        :param pulumi.Input['ManagedVirtualNetworkReferenceArgs'] managed_virtual_network: Managed Virtual Network reference.
         :param pulumi.Input['IntegrationRuntimeSsisPropertiesArgs'] ssis_properties: SSIS properties for managed integration runtime.
         """
         pulumi.set(__self__, "type", 'Managed')
@@ -22974,6 +22993,8 @@ class ManagedIntegrationRuntimeArgs:
             pulumi.set(__self__, "compute_properties", compute_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if managed_virtual_network is not None:
+            pulumi.set(__self__, "managed_virtual_network", managed_virtual_network)
         if ssis_properties is not None:
             pulumi.set(__self__, "ssis_properties", ssis_properties)
 
@@ -23013,6 +23034,18 @@ class ManagedIntegrationRuntimeArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="managedVirtualNetwork")
+    def managed_virtual_network(self) -> Optional[pulumi.Input['ManagedVirtualNetworkReferenceArgs']]:
+        """
+        Managed Virtual Network reference.
+        """
+        return pulumi.get(self, "managed_virtual_network")
+
+    @managed_virtual_network.setter
+    def managed_virtual_network(self, value: Optional[pulumi.Input['ManagedVirtualNetworkReferenceArgs']]):
+        pulumi.set(self, "managed_virtual_network", value)
 
     @property
     @pulumi.getter(name="ssisProperties")
@@ -23081,6 +23114,44 @@ class ManagedPrivateEndpointArgs:
     @private_link_resource_id.setter
     def private_link_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_link_resource_id", value)
+
+
+@pulumi.input_type
+class ManagedVirtualNetworkReferenceArgs:
+    def __init__(__self__, *,
+                 reference_name: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        Managed Virtual Network reference type.
+        :param pulumi.Input[str] reference_name: Reference ManagedVirtualNetwork name.
+        :param pulumi.Input[str] type: Managed Virtual Network reference type.
+        """
+        pulumi.set(__self__, "reference_name", reference_name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> pulumi.Input[str]:
+        """
+        Reference ManagedVirtualNetwork name.
+        """
+        return pulumi.get(self, "reference_name")
+
+    @reference_name.setter
+    def reference_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "reference_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Managed Virtual Network reference type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

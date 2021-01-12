@@ -908,6 +908,175 @@ func (o FirewallRuleResponseArrayOutput) Index(i pulumi.IntInput) FirewallRuleRe
 	}).(FirewallRuleResponseOutput)
 }
 
+type HiveMetastoreResponse struct {
+	// The databaseName for the Hive MetaStore
+	DatabaseName string `pulumi:"databaseName"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The current state of the NestedResource
+	NestedResourceProvisioningState string `pulumi:"nestedResourceProvisioningState"`
+	// The password for the Hive MetaStore
+	Password string `pulumi:"password"`
+	// The runtimeVersion for the Hive MetaStore
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+	// The serverUri for the Hive MetaStore
+	ServerUri string `pulumi:"serverUri"`
+	// The resource type.
+	Type string `pulumi:"type"`
+	// The userName for the Hive MetaStore
+	UserName string `pulumi:"userName"`
+}
+
+// HiveMetastoreResponseInput is an input type that accepts HiveMetastoreResponseArgs and HiveMetastoreResponseOutput values.
+// You can construct a concrete instance of `HiveMetastoreResponseInput` via:
+//
+//          HiveMetastoreResponseArgs{...}
+type HiveMetastoreResponseInput interface {
+	pulumi.Input
+
+	ToHiveMetastoreResponseOutput() HiveMetastoreResponseOutput
+	ToHiveMetastoreResponseOutputWithContext(context.Context) HiveMetastoreResponseOutput
+}
+
+type HiveMetastoreResponseArgs struct {
+	// The databaseName for the Hive MetaStore
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The current state of the NestedResource
+	NestedResourceProvisioningState pulumi.StringInput `pulumi:"nestedResourceProvisioningState"`
+	// The password for the Hive MetaStore
+	Password pulumi.StringInput `pulumi:"password"`
+	// The runtimeVersion for the Hive MetaStore
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+	// The serverUri for the Hive MetaStore
+	ServerUri pulumi.StringInput `pulumi:"serverUri"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The userName for the Hive MetaStore
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (HiveMetastoreResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HiveMetastoreResponse)(nil)).Elem()
+}
+
+func (i HiveMetastoreResponseArgs) ToHiveMetastoreResponseOutput() HiveMetastoreResponseOutput {
+	return i.ToHiveMetastoreResponseOutputWithContext(context.Background())
+}
+
+func (i HiveMetastoreResponseArgs) ToHiveMetastoreResponseOutputWithContext(ctx context.Context) HiveMetastoreResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HiveMetastoreResponseOutput)
+}
+
+// HiveMetastoreResponseArrayInput is an input type that accepts HiveMetastoreResponseArray and HiveMetastoreResponseArrayOutput values.
+// You can construct a concrete instance of `HiveMetastoreResponseArrayInput` via:
+//
+//          HiveMetastoreResponseArray{ HiveMetastoreResponseArgs{...} }
+type HiveMetastoreResponseArrayInput interface {
+	pulumi.Input
+
+	ToHiveMetastoreResponseArrayOutput() HiveMetastoreResponseArrayOutput
+	ToHiveMetastoreResponseArrayOutputWithContext(context.Context) HiveMetastoreResponseArrayOutput
+}
+
+type HiveMetastoreResponseArray []HiveMetastoreResponseInput
+
+func (HiveMetastoreResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HiveMetastoreResponse)(nil)).Elem()
+}
+
+func (i HiveMetastoreResponseArray) ToHiveMetastoreResponseArrayOutput() HiveMetastoreResponseArrayOutput {
+	return i.ToHiveMetastoreResponseArrayOutputWithContext(context.Background())
+}
+
+func (i HiveMetastoreResponseArray) ToHiveMetastoreResponseArrayOutputWithContext(ctx context.Context) HiveMetastoreResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HiveMetastoreResponseArrayOutput)
+}
+
+type HiveMetastoreResponseOutput struct{ *pulumi.OutputState }
+
+func (HiveMetastoreResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HiveMetastoreResponse)(nil)).Elem()
+}
+
+func (o HiveMetastoreResponseOutput) ToHiveMetastoreResponseOutput() HiveMetastoreResponseOutput {
+	return o
+}
+
+func (o HiveMetastoreResponseOutput) ToHiveMetastoreResponseOutputWithContext(ctx context.Context) HiveMetastoreResponseOutput {
+	return o
+}
+
+// The databaseName for the Hive MetaStore
+func (o HiveMetastoreResponseOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The resource identifier.
+func (o HiveMetastoreResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o HiveMetastoreResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current state of the NestedResource
+func (o HiveMetastoreResponseOutput) NestedResourceProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.NestedResourceProvisioningState }).(pulumi.StringOutput)
+}
+
+// The password for the Hive MetaStore
+func (o HiveMetastoreResponseOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The runtimeVersion for the Hive MetaStore
+func (o HiveMetastoreResponseOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+// The serverUri for the Hive MetaStore
+func (o HiveMetastoreResponseOutput) ServerUri() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.ServerUri }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o HiveMetastoreResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The userName for the Hive MetaStore
+func (o HiveMetastoreResponseOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreResponse) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type HiveMetastoreResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HiveMetastoreResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HiveMetastoreResponse)(nil)).Elem()
+}
+
+func (o HiveMetastoreResponseArrayOutput) ToHiveMetastoreResponseArrayOutput() HiveMetastoreResponseArrayOutput {
+	return o
+}
+
+func (o HiveMetastoreResponseArrayOutput) ToHiveMetastoreResponseArrayOutputWithContext(ctx context.Context) HiveMetastoreResponseArrayOutput {
+	return o
+}
+
+func (o HiveMetastoreResponseArrayOutput) Index(i pulumi.IntInput) HiveMetastoreResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HiveMetastoreResponse {
+		return vs[0].([]HiveMetastoreResponse)[vs[1].(int)]
+	}).(HiveMetastoreResponseOutput)
+}
+
 // SAS token information.
 type SasTokenInformationResponse struct {
 	// The access token for the associated Azure Storage Container.
@@ -1135,6 +1304,142 @@ func (o StorageAccountInformationResponseArrayOutput) Index(i pulumi.IntInput) S
 	}).(StorageAccountInformationResponseOutput)
 }
 
+// Data Lake Analytics  VirtualNetwork Rule information.
+type VirtualNetworkRuleResponse struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The resource identifier for the subnet
+	SubnetId string `pulumi:"subnetId"`
+	// The resource type.
+	Type string `pulumi:"type"`
+	// The current state of the VirtualNetwork Rule
+	VirtualNetworkRuleState string `pulumi:"virtualNetworkRuleState"`
+}
+
+// VirtualNetworkRuleResponseInput is an input type that accepts VirtualNetworkRuleResponseArgs and VirtualNetworkRuleResponseOutput values.
+// You can construct a concrete instance of `VirtualNetworkRuleResponseInput` via:
+//
+//          VirtualNetworkRuleResponseArgs{...}
+type VirtualNetworkRuleResponseInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleResponseOutput() VirtualNetworkRuleResponseOutput
+	ToVirtualNetworkRuleResponseOutputWithContext(context.Context) VirtualNetworkRuleResponseOutput
+}
+
+// Data Lake Analytics  VirtualNetwork Rule information.
+type VirtualNetworkRuleResponseArgs struct {
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource identifier for the subnet
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The current state of the VirtualNetwork Rule
+	VirtualNetworkRuleState pulumi.StringInput `pulumi:"virtualNetworkRuleState"`
+}
+
+func (VirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkRuleResponseArgs) ToVirtualNetworkRuleResponseOutput() VirtualNetworkRuleResponseOutput {
+	return i.ToVirtualNetworkRuleResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRuleResponseArgs) ToVirtualNetworkRuleResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseOutput)
+}
+
+// VirtualNetworkRuleResponseArrayInput is an input type that accepts VirtualNetworkRuleResponseArray and VirtualNetworkRuleResponseArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkRuleResponseArrayInput` via:
+//
+//          VirtualNetworkRuleResponseArray{ VirtualNetworkRuleResponseArgs{...} }
+type VirtualNetworkRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleResponseArrayOutput() VirtualNetworkRuleResponseArrayOutput
+	ToVirtualNetworkRuleResponseArrayOutputWithContext(context.Context) VirtualNetworkRuleResponseArrayOutput
+}
+
+type VirtualNetworkRuleResponseArray []VirtualNetworkRuleResponseInput
+
+func (VirtualNetworkRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkRuleResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutput() VirtualNetworkRuleResponseArrayOutput {
+	return i.ToVirtualNetworkRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseArrayOutput)
+}
+
+// Data Lake Analytics  VirtualNetwork Rule information.
+type VirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleResponseOutput) ToVirtualNetworkRuleResponseOutput() VirtualNetworkRuleResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleResponseOutput) ToVirtualNetworkRuleResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleResponseOutput {
+	return o
+}
+
+// The resource identifier.
+func (o VirtualNetworkRuleResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o VirtualNetworkRuleResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource identifier for the subnet
+func (o VirtualNetworkRuleResponseOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o VirtualNetworkRuleResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The current state of the VirtualNetwork Rule
+func (o VirtualNetworkRuleResponseOutput) VirtualNetworkRuleState() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.VirtualNetworkRuleState }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkRuleResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleResponseArrayOutput) ToVirtualNetworkRuleResponseArrayOutput() VirtualNetworkRuleResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleResponseArrayOutput) ToVirtualNetworkRuleResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkRuleResponse {
+		return vs[0].([]VirtualNetworkRuleResponse)[vs[1].(int)]
+	}).(VirtualNetworkRuleResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AddDataLakeStoreWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(AddDataLakeStoreWithAccountParametersArrayOutput{})
@@ -1150,8 +1455,12 @@ func init() {
 	pulumi.RegisterOutputType(DataLakeStoreAccountInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(HiveMetastoreResponseOutput{})
+	pulumi.RegisterOutputType(HiveMetastoreResponseArrayOutput{})
 	pulumi.RegisterOutputType(SasTokenInformationResponseOutput{})
 	pulumi.RegisterOutputType(SasTokenInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkRuleResponseArrayOutput{})
 }

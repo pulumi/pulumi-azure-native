@@ -14,25 +14,25 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20200202.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// Gets or sets private endpoint associated with the private endpoint connection
+        /// The Private Endpoint network resource that is linked to the Private Endpoint connection.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointResponse PrivateEndpoint;
         /// <summary>
-        /// Gets or sets private link service connection state
+        /// Gets or sets private link service connection state.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
-        /// Gets or sets provisioning state of the private endpoint connection
+        /// Gets or sets provisioning state of the private endpoint connection.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointResponse privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
-            string? provisioningState)
+            string provisioningState)
         {
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;

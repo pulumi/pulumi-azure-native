@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview
     public sealed class ListAccountSasTokensArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Data Lake Analytics account from which an Azure Storage account's SAS token is being requested.
+        /// The name of the Data Lake Analytics account.
         /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview
         public string ContainerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure resource group that contains the Data Lake Analytics account.
+        /// The name of the Azure resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -52,16 +52,19 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview
     public sealed class ListAccountSasTokensResult
     {
         /// <summary>
-        /// the link (url) to the next page of results.
+        /// The link (url) to the next page of results.
         /// </summary>
         public readonly string NextLink;
-        public readonly ImmutableArray<Outputs.SasTokenInfoResponseResult> Value;
+        /// <summary>
+        /// The results of the list operation.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SasTokenInformationResponseResult> Value;
 
         [OutputConstructor]
         private ListAccountSasTokensResult(
             string nextLink,
 
-            ImmutableArray<Outputs.SasTokenInfoResponseResult> value)
+            ImmutableArray<Outputs.SasTokenInformationResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

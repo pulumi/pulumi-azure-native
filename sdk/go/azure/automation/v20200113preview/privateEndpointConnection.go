@@ -21,7 +21,7 @@ type PrivateEndpointConnection struct {
 	PrivateEndpoint PrivateEndpointPropertyResponsePtrOutput `pulumi:"privateEndpoint"`
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -69,7 +69,7 @@ type privateEndpointConnectionState struct {
 	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
@@ -80,7 +80,7 @@ type PrivateEndpointConnectionState struct {
 	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The type of the resource.
 	Type pulumi.StringPtrInput
 }
 

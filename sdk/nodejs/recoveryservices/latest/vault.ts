@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource information, as returned by the resource provider.
- * Latest API Version: 2016-06-01.
+ * Latest API Version: 2020-02-02.
  */
 export class Vault extends pulumi.CustomResource {
     /**
@@ -55,7 +55,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Properties of the vault.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.recoveryservices.latest.VaultPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.recoveryservices.latest.VaultPropertiesResponse>;
     /**
      * Identifies the unique system identifier for each Azure resource.
      */
@@ -91,12 +91,12 @@ export class Vault extends pulumi.CustomResource {
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["eTag"] = undefined /*out*/;
@@ -115,7 +115,7 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160601:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160601:Vault" }, { type: "azure-nextgen:recoveryservices/v20200202:Vault" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Vault.__pulumiType, name, inputs, opts);
     }
@@ -137,6 +137,10 @@ export interface VaultArgs {
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Properties of the vault.
+     */
+    readonly properties?: pulumi.Input<inputs.recoveryservices.latest.VaultProperties>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

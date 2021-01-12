@@ -51,7 +51,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * the description of the metric alert that will be included in the alert email.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * the flag that indicates whether the metric alert is enabled.
      */
@@ -113,9 +113,6 @@ export class MetricAlert extends pulumi.CustomResource {
         if (!(opts && opts.id)) {
             if ((!args || args.criteria === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'criteria'");
-            }
-            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'description'");
             }
             if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enabled'");
@@ -206,7 +203,7 @@ export interface MetricAlertArgs {
     /**
      * the description of the metric alert that will be included in the alert email.
      */
-    readonly description: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * the flag that indicates whether the metric alert is enabled.
      */

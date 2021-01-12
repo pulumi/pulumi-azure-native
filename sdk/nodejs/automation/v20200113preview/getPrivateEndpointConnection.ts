@@ -40,7 +40,7 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource Id for the resource
      */
     readonly id: string;
     /**
@@ -56,7 +56,7 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly privateLinkServiceConnectionState?: outputs.automation.v20200113preview.PrivateLinkServiceConnectionStatePropertyResponse;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The type of the resource.
      */
     readonly type: string;
 }

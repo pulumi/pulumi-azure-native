@@ -39,6 +39,12 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("catalogServerEndpoint")]
         public Input<string>? CatalogServerEndpoint { get; set; }
 
+        /// <summary>
+        /// The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+        /// </summary>
+        [Input("dualStandbyPairName")]
+        public Input<string>? DualStandbyPairName { get; set; }
+
         public IntegrationRuntimeSsisCatalogInfoArgs()
         {
         }

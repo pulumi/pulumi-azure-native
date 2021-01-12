@@ -23,7 +23,7 @@ export function listAccountSasTokens(args: ListAccountSasTokensArgs, opts?: pulu
 
 export interface ListAccountSasTokensArgs {
     /**
-     * The name of the Data Lake Analytics account from which an Azure Storage account's SAS token is being requested.
+     * The name of the Data Lake Analytics account.
      */
     readonly accountName: string;
     /**
@@ -31,7 +31,7 @@ export interface ListAccountSasTokensArgs {
      */
     readonly containerName: string;
     /**
-     * The name of the Azure resource group that contains the Data Lake Analytics account.
+     * The name of the Azure resource group.
      */
     readonly resourceGroupName: string;
     /**
@@ -45,8 +45,11 @@ export interface ListAccountSasTokensArgs {
  */
 export interface ListAccountSasTokensResult {
     /**
-     * the link (url) to the next page of results.
+     * The link (url) to the next page of results.
      */
     readonly nextLink: string;
-    readonly value: outputs.datalakeanalytics.v20151001preview.SasTokenInfoResponse[];
+    /**
+     * The results of the list operation.
+     */
+    readonly value: outputs.datalakeanalytics.v20151001preview.SasTokenInformationResponse[];
 }

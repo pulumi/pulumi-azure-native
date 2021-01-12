@@ -5,7 +5,9 @@
 # Export this package's modules as members:
 from ._enums import *
 from .get_private_endpoint_connection import *
+from .get_vault import *
 from .private_endpoint_connection import *
+from .vault import *
 from ._inputs import *
 from . import outputs
 
@@ -23,6 +25,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-nextgen:recoveryservices/v20200202:PrivateEndpointConnection":
                 return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/v20200202:Vault":
+                return Vault(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

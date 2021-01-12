@@ -23,7 +23,7 @@ type MetricAlert struct {
 	// defines the specific alert criteria information.
 	Criteria pulumi.AnyOutput `pulumi:"criteria"`
 	// the description of the metric alert that will be included in the alert email.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// the flag that indicates whether the metric alert is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.
@@ -59,9 +59,6 @@ func NewMetricAlert(ctx *pulumi.Context,
 
 	if args.Criteria == nil {
 		return nil, errors.New("invalid value for required argument 'Criteria'")
-	}
-	if args.Description == nil {
-		return nil, errors.New("invalid value for required argument 'Description'")
 	}
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
@@ -193,7 +190,7 @@ type metricAlertArgs struct {
 	// defines the specific alert criteria information.
 	Criteria interface{} `pulumi:"criteria"`
 	// the description of the metric alert that will be included in the alert email.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// the flag that indicates whether the metric alert is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.
@@ -227,7 +224,7 @@ type MetricAlertArgs struct {
 	// defines the specific alert criteria information.
 	Criteria pulumi.Input
 	// the description of the metric alert that will be included in the alert email.
-	Description pulumi.StringInput
+	Description pulumi.StringPtrInput
 	// the flag that indicates whether the metric alert is enabled.
 	Enabled pulumi.BoolInput
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.

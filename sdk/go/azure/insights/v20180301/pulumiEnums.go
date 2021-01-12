@@ -11,33 +11,33 @@ import (
 )
 
 // the criteria time aggregation types.
-type AggregationType pulumi.String
+type AggregationTypeEnum pulumi.String
 
 const (
-	AggregationTypeAverage = AggregationType("Average")
-	AggregationTypeCount   = AggregationType("Count")
-	AggregationTypeMinimum = AggregationType("Minimum")
-	AggregationTypeMaximum = AggregationType("Maximum")
-	AggregationTypeTotal   = AggregationType("Total")
+	AggregationTypeEnumAverage = AggregationTypeEnum("Average")
+	AggregationTypeEnumCount   = AggregationTypeEnum("Count")
+	AggregationTypeEnumMinimum = AggregationTypeEnum("Minimum")
+	AggregationTypeEnumMaximum = AggregationTypeEnum("Maximum")
+	AggregationTypeEnumTotal   = AggregationTypeEnum("Total")
 )
 
-func (AggregationType) ElementType() reflect.Type {
+func (AggregationTypeEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e AggregationType) ToStringOutput() pulumi.StringOutput {
+func (e AggregationTypeEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e AggregationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e AggregationTypeEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e AggregationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e AggregationTypeEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e AggregationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e AggregationTypeEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

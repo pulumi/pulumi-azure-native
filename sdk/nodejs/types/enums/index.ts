@@ -107,6 +107,7 @@ import * as scheduler from "./scheduler";
 import * as search from "./search";
 import * as security from "./security";
 import * as securityinsights from "./securityinsights";
+import * as serialconsole from "./serialconsole";
 import * as servicebus from "./servicebus";
 import * as servicefabric from "./servicefabric";
 import * as servicefabricmesh from "./servicefabricmesh";
@@ -235,6 +236,7 @@ export {
     search,
     security,
     securityinsights,
+    serialconsole,
     servicebus,
     servicefabric,
     servicefabricmesh,

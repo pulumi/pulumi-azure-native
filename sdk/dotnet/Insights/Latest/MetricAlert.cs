@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// the description of the metric alert that will be included in the alert email.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// the flag that indicates whether the metric alert is enabled.
@@ -188,8 +188,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// <summary>
         /// the description of the metric alert that will be included in the alert email.
         /// </summary>
-        [Input("description", required: true)]
-        public Input<string> Description { get; set; } = null!;
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
         /// the flag that indicates whether the metric alert is enabled.

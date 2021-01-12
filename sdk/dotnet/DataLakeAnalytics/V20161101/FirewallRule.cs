@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20151001preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

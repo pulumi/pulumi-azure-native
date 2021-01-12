@@ -39909,6 +39909,8 @@ type IntegrationRuntimeSsisCatalogInfo struct {
 	CatalogPricingTier *string `pulumi:"catalogPricingTier"`
 	// The catalog database server URL.
 	CatalogServerEndpoint *string `pulumi:"catalogServerEndpoint"`
+	// The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+	DualStandbyPairName *string `pulumi:"dualStandbyPairName"`
 }
 
 // IntegrationRuntimeSsisCatalogInfoInput is an input type that accepts IntegrationRuntimeSsisCatalogInfoArgs and IntegrationRuntimeSsisCatalogInfoOutput values.
@@ -39932,6 +39934,8 @@ type IntegrationRuntimeSsisCatalogInfoArgs struct {
 	CatalogPricingTier pulumi.StringPtrInput `pulumi:"catalogPricingTier"`
 	// The catalog database server URL.
 	CatalogServerEndpoint pulumi.StringPtrInput `pulumi:"catalogServerEndpoint"`
+	// The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+	DualStandbyPairName pulumi.StringPtrInput `pulumi:"dualStandbyPairName"`
 }
 
 func (IntegrationRuntimeSsisCatalogInfoArgs) ElementType() reflect.Type {
@@ -40032,6 +40036,11 @@ func (o IntegrationRuntimeSsisCatalogInfoOutput) CatalogServerEndpoint() pulumi.
 	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *string { return v.CatalogServerEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+func (o IntegrationRuntimeSsisCatalogInfoOutput) DualStandbyPairName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *string { return v.DualStandbyPairName }).(pulumi.StringPtrOutput)
+}
+
 type IntegrationRuntimeSsisCatalogInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSsisCatalogInfoPtrOutput) ElementType() reflect.Type {
@@ -40090,6 +40099,16 @@ func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) CatalogServerEndpoint() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) DualStandbyPairName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DualStandbyPairName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Catalog information for managed dedicated integration runtime.
 type IntegrationRuntimeSsisCatalogInfoResponse struct {
 	// The password of the administrator user account of the catalog database.
@@ -40100,6 +40119,8 @@ type IntegrationRuntimeSsisCatalogInfoResponse struct {
 	CatalogPricingTier *string `pulumi:"catalogPricingTier"`
 	// The catalog database server URL.
 	CatalogServerEndpoint *string `pulumi:"catalogServerEndpoint"`
+	// The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+	DualStandbyPairName *string `pulumi:"dualStandbyPairName"`
 }
 
 // IntegrationRuntimeSsisCatalogInfoResponseInput is an input type that accepts IntegrationRuntimeSsisCatalogInfoResponseArgs and IntegrationRuntimeSsisCatalogInfoResponseOutput values.
@@ -40123,6 +40144,8 @@ type IntegrationRuntimeSsisCatalogInfoResponseArgs struct {
 	CatalogPricingTier pulumi.StringPtrInput `pulumi:"catalogPricingTier"`
 	// The catalog database server URL.
 	CatalogServerEndpoint pulumi.StringPtrInput `pulumi:"catalogServerEndpoint"`
+	// The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+	DualStandbyPairName pulumi.StringPtrInput `pulumi:"dualStandbyPairName"`
 }
 
 func (IntegrationRuntimeSsisCatalogInfoResponseArgs) ElementType() reflect.Type {
@@ -40223,6 +40246,11 @@ func (o IntegrationRuntimeSsisCatalogInfoResponseOutput) CatalogServerEndpoint()
 	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfoResponse) *string { return v.CatalogServerEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+func (o IntegrationRuntimeSsisCatalogInfoResponseOutput) DualStandbyPairName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfoResponse) *string { return v.DualStandbyPairName }).(pulumi.StringPtrOutput)
+}
+
 type IntegrationRuntimeSsisCatalogInfoResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSsisCatalogInfoResponsePtrOutput) ElementType() reflect.Type {
@@ -40280,6 +40308,16 @@ func (o IntegrationRuntimeSsisCatalogInfoResponsePtrOutput) CatalogServerEndpoin
 			return nil
 		}
 		return v.CatalogServerEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The dual standby pair name of Azure-SSIS Integration Runtimes to support SSISDB failover.
+func (o IntegrationRuntimeSsisCatalogInfoResponsePtrOutput) DualStandbyPairName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DualStandbyPairName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -43663,6 +43701,8 @@ type ManagedIntegrationRuntime struct {
 	ComputeProperties *IntegrationRuntimeComputeProperties `pulumi:"computeProperties"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
+	// Managed Virtual Network reference.
+	ManagedVirtualNetwork *ManagedVirtualNetworkReference `pulumi:"managedVirtualNetwork"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisProperties `pulumi:"ssisProperties"`
 	// Type of integration runtime.
@@ -43687,6 +43727,8 @@ type ManagedIntegrationRuntimeArgs struct {
 	ComputeProperties IntegrationRuntimeComputePropertiesPtrInput `pulumi:"computeProperties"`
 	// Integration runtime description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Managed Virtual Network reference.
+	ManagedVirtualNetwork ManagedVirtualNetworkReferencePtrInput `pulumi:"managedVirtualNetwork"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties IntegrationRuntimeSsisPropertiesPtrInput `pulumi:"ssisProperties"`
 	// Type of integration runtime.
@@ -43729,6 +43771,11 @@ func (o ManagedIntegrationRuntimeOutput) ComputeProperties() IntegrationRuntimeC
 // Integration runtime description.
 func (o ManagedIntegrationRuntimeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntime) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Managed Virtual Network reference.
+func (o ManagedIntegrationRuntimeOutput) ManagedVirtualNetwork() ManagedVirtualNetworkReferencePtrOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntime) *ManagedVirtualNetworkReference { return v.ManagedVirtualNetwork }).(ManagedVirtualNetworkReferencePtrOutput)
 }
 
 // SSIS properties for managed integration runtime.
@@ -44095,6 +44142,8 @@ type ManagedIntegrationRuntimeResponse struct {
 	ComputeProperties *IntegrationRuntimeComputePropertiesResponse `pulumi:"computeProperties"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
+	// Managed Virtual Network reference.
+	ManagedVirtualNetwork *ManagedVirtualNetworkReferenceResponse `pulumi:"managedVirtualNetwork"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisPropertiesResponse `pulumi:"ssisProperties"`
 	// Integration runtime state, only valid for managed dedicated integration runtime.
@@ -44121,6 +44170,8 @@ type ManagedIntegrationRuntimeResponseArgs struct {
 	ComputeProperties IntegrationRuntimeComputePropertiesResponsePtrInput `pulumi:"computeProperties"`
 	// Integration runtime description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Managed Virtual Network reference.
+	ManagedVirtualNetwork ManagedVirtualNetworkReferenceResponsePtrInput `pulumi:"managedVirtualNetwork"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties IntegrationRuntimeSsisPropertiesResponsePtrInput `pulumi:"ssisProperties"`
 	// Integration runtime state, only valid for managed dedicated integration runtime.
@@ -44167,6 +44218,13 @@ func (o ManagedIntegrationRuntimeResponseOutput) ComputeProperties() Integration
 // Integration runtime description.
 func (o ManagedIntegrationRuntimeResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Managed Virtual Network reference.
+func (o ManagedIntegrationRuntimeResponseOutput) ManagedVirtualNetwork() ManagedVirtualNetworkReferenceResponsePtrOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) *ManagedVirtualNetworkReferenceResponse {
+		return v.ManagedVirtualNetwork
+	}).(ManagedVirtualNetworkReferenceResponsePtrOutput)
 }
 
 // SSIS properties for managed integration runtime.
@@ -44703,6 +44761,312 @@ func (o ManagedPrivateEndpointResponsePtrOutput) ProvisioningState() pulumi.Stri
 			return nil
 		}
 		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed Virtual Network reference type.
+type ManagedVirtualNetworkReference struct {
+	// Reference ManagedVirtualNetwork name.
+	ReferenceName string `pulumi:"referenceName"`
+	// Managed Virtual Network reference type.
+	Type string `pulumi:"type"`
+}
+
+// ManagedVirtualNetworkReferenceInput is an input type that accepts ManagedVirtualNetworkReferenceArgs and ManagedVirtualNetworkReferenceOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkReferenceInput` via:
+//
+//          ManagedVirtualNetworkReferenceArgs{...}
+type ManagedVirtualNetworkReferenceInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkReferenceOutput() ManagedVirtualNetworkReferenceOutput
+	ToManagedVirtualNetworkReferenceOutputWithContext(context.Context) ManagedVirtualNetworkReferenceOutput
+}
+
+// Managed Virtual Network reference type.
+type ManagedVirtualNetworkReferenceArgs struct {
+	// Reference ManagedVirtualNetwork name.
+	ReferenceName pulumi.StringInput `pulumi:"referenceName"`
+	// Managed Virtual Network reference type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedVirtualNetworkReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkReference)(nil)).Elem()
+}
+
+func (i ManagedVirtualNetworkReferenceArgs) ToManagedVirtualNetworkReferenceOutput() ManagedVirtualNetworkReferenceOutput {
+	return i.ToManagedVirtualNetworkReferenceOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkReferenceArgs) ToManagedVirtualNetworkReferenceOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkReferenceOutput)
+}
+
+func (i ManagedVirtualNetworkReferenceArgs) ToManagedVirtualNetworkReferencePtrOutput() ManagedVirtualNetworkReferencePtrOutput {
+	return i.ToManagedVirtualNetworkReferencePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkReferenceArgs) ToManagedVirtualNetworkReferencePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkReferenceOutput).ToManagedVirtualNetworkReferencePtrOutputWithContext(ctx)
+}
+
+// ManagedVirtualNetworkReferencePtrInput is an input type that accepts ManagedVirtualNetworkReferenceArgs, ManagedVirtualNetworkReferencePtr and ManagedVirtualNetworkReferencePtrOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkReferencePtrInput` via:
+//
+//          ManagedVirtualNetworkReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedVirtualNetworkReferencePtrInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkReferencePtrOutput() ManagedVirtualNetworkReferencePtrOutput
+	ToManagedVirtualNetworkReferencePtrOutputWithContext(context.Context) ManagedVirtualNetworkReferencePtrOutput
+}
+
+type managedVirtualNetworkReferencePtrType ManagedVirtualNetworkReferenceArgs
+
+func ManagedVirtualNetworkReferencePtr(v *ManagedVirtualNetworkReferenceArgs) ManagedVirtualNetworkReferencePtrInput {
+	return (*managedVirtualNetworkReferencePtrType)(v)
+}
+
+func (*managedVirtualNetworkReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkReference)(nil)).Elem()
+}
+
+func (i *managedVirtualNetworkReferencePtrType) ToManagedVirtualNetworkReferencePtrOutput() ManagedVirtualNetworkReferencePtrOutput {
+	return i.ToManagedVirtualNetworkReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *managedVirtualNetworkReferencePtrType) ToManagedVirtualNetworkReferencePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkReferencePtrOutput)
+}
+
+// Managed Virtual Network reference type.
+type ManagedVirtualNetworkReferenceOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkReference)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkReferenceOutput) ToManagedVirtualNetworkReferenceOutput() ManagedVirtualNetworkReferenceOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkReferenceOutput) ToManagedVirtualNetworkReferenceOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferenceOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkReferenceOutput) ToManagedVirtualNetworkReferencePtrOutput() ManagedVirtualNetworkReferencePtrOutput {
+	return o.ToManagedVirtualNetworkReferencePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedVirtualNetworkReferenceOutput) ToManagedVirtualNetworkReferencePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferencePtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkReference) *ManagedVirtualNetworkReference {
+		return &v
+	}).(ManagedVirtualNetworkReferencePtrOutput)
+}
+
+// Reference ManagedVirtualNetwork name.
+func (o ManagedVirtualNetworkReferenceOutput) ReferenceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkReference) string { return v.ReferenceName }).(pulumi.StringOutput)
+}
+
+// Managed Virtual Network reference type.
+func (o ManagedVirtualNetworkReferenceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkReference) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ManagedVirtualNetworkReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkReference)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkReferencePtrOutput) ToManagedVirtualNetworkReferencePtrOutput() ManagedVirtualNetworkReferencePtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkReferencePtrOutput) ToManagedVirtualNetworkReferencePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferencePtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkReferencePtrOutput) Elem() ManagedVirtualNetworkReferenceOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkReference) ManagedVirtualNetworkReference { return *v }).(ManagedVirtualNetworkReferenceOutput)
+}
+
+// Reference ManagedVirtualNetwork name.
+func (o ManagedVirtualNetworkReferencePtrOutput) ReferenceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReferenceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed Virtual Network reference type.
+func (o ManagedVirtualNetworkReferencePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed Virtual Network reference type.
+type ManagedVirtualNetworkReferenceResponse struct {
+	// Reference ManagedVirtualNetwork name.
+	ReferenceName string `pulumi:"referenceName"`
+	// Managed Virtual Network reference type.
+	Type string `pulumi:"type"`
+}
+
+// ManagedVirtualNetworkReferenceResponseInput is an input type that accepts ManagedVirtualNetworkReferenceResponseArgs and ManagedVirtualNetworkReferenceResponseOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkReferenceResponseInput` via:
+//
+//          ManagedVirtualNetworkReferenceResponseArgs{...}
+type ManagedVirtualNetworkReferenceResponseInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkReferenceResponseOutput() ManagedVirtualNetworkReferenceResponseOutput
+	ToManagedVirtualNetworkReferenceResponseOutputWithContext(context.Context) ManagedVirtualNetworkReferenceResponseOutput
+}
+
+// Managed Virtual Network reference type.
+type ManagedVirtualNetworkReferenceResponseArgs struct {
+	// Reference ManagedVirtualNetwork name.
+	ReferenceName pulumi.StringInput `pulumi:"referenceName"`
+	// Managed Virtual Network reference type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedVirtualNetworkReferenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkReferenceResponse)(nil)).Elem()
+}
+
+func (i ManagedVirtualNetworkReferenceResponseArgs) ToManagedVirtualNetworkReferenceResponseOutput() ManagedVirtualNetworkReferenceResponseOutput {
+	return i.ToManagedVirtualNetworkReferenceResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkReferenceResponseArgs) ToManagedVirtualNetworkReferenceResponseOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkReferenceResponseOutput)
+}
+
+func (i ManagedVirtualNetworkReferenceResponseArgs) ToManagedVirtualNetworkReferenceResponsePtrOutput() ManagedVirtualNetworkReferenceResponsePtrOutput {
+	return i.ToManagedVirtualNetworkReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkReferenceResponseArgs) ToManagedVirtualNetworkReferenceResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkReferenceResponseOutput).ToManagedVirtualNetworkReferenceResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedVirtualNetworkReferenceResponsePtrInput is an input type that accepts ManagedVirtualNetworkReferenceResponseArgs, ManagedVirtualNetworkReferenceResponsePtr and ManagedVirtualNetworkReferenceResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkReferenceResponsePtrInput` via:
+//
+//          ManagedVirtualNetworkReferenceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedVirtualNetworkReferenceResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkReferenceResponsePtrOutput() ManagedVirtualNetworkReferenceResponsePtrOutput
+	ToManagedVirtualNetworkReferenceResponsePtrOutputWithContext(context.Context) ManagedVirtualNetworkReferenceResponsePtrOutput
+}
+
+type managedVirtualNetworkReferenceResponsePtrType ManagedVirtualNetworkReferenceResponseArgs
+
+func ManagedVirtualNetworkReferenceResponsePtr(v *ManagedVirtualNetworkReferenceResponseArgs) ManagedVirtualNetworkReferenceResponsePtrInput {
+	return (*managedVirtualNetworkReferenceResponsePtrType)(v)
+}
+
+func (*managedVirtualNetworkReferenceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkReferenceResponse)(nil)).Elem()
+}
+
+func (i *managedVirtualNetworkReferenceResponsePtrType) ToManagedVirtualNetworkReferenceResponsePtrOutput() ManagedVirtualNetworkReferenceResponsePtrOutput {
+	return i.ToManagedVirtualNetworkReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedVirtualNetworkReferenceResponsePtrType) ToManagedVirtualNetworkReferenceResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkReferenceResponsePtrOutput)
+}
+
+// Managed Virtual Network reference type.
+type ManagedVirtualNetworkReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkReferenceResponse)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkReferenceResponseOutput) ToManagedVirtualNetworkReferenceResponseOutput() ManagedVirtualNetworkReferenceResponseOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkReferenceResponseOutput) ToManagedVirtualNetworkReferenceResponseOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferenceResponseOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkReferenceResponseOutput) ToManagedVirtualNetworkReferenceResponsePtrOutput() ManagedVirtualNetworkReferenceResponsePtrOutput {
+	return o.ToManagedVirtualNetworkReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedVirtualNetworkReferenceResponseOutput) ToManagedVirtualNetworkReferenceResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferenceResponsePtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkReferenceResponse) *ManagedVirtualNetworkReferenceResponse {
+		return &v
+	}).(ManagedVirtualNetworkReferenceResponsePtrOutput)
+}
+
+// Reference ManagedVirtualNetwork name.
+func (o ManagedVirtualNetworkReferenceResponseOutput) ReferenceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkReferenceResponse) string { return v.ReferenceName }).(pulumi.StringOutput)
+}
+
+// Managed Virtual Network reference type.
+func (o ManagedVirtualNetworkReferenceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkReferenceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ManagedVirtualNetworkReferenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkReferenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkReferenceResponse)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkReferenceResponsePtrOutput) ToManagedVirtualNetworkReferenceResponsePtrOutput() ManagedVirtualNetworkReferenceResponsePtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkReferenceResponsePtrOutput) ToManagedVirtualNetworkReferenceResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkReferenceResponsePtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkReferenceResponsePtrOutput) Elem() ManagedVirtualNetworkReferenceResponseOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkReferenceResponse) ManagedVirtualNetworkReferenceResponse { return *v }).(ManagedVirtualNetworkReferenceResponseOutput)
+}
+
+// Reference ManagedVirtualNetwork name.
+func (o ManagedVirtualNetworkReferenceResponsePtrOutput) ReferenceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReferenceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed Virtual Network reference type.
+func (o ManagedVirtualNetworkReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -78286,6 +78650,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagedPrivateEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(ManagedPrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(ManagedPrivateEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkReferenceOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkReferencePtrOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkReferenceResponseOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(MappingDataFlowOutput{})
 	pulumi.RegisterOutputType(MappingDataFlowPtrOutput{})
 	pulumi.RegisterOutputType(MappingDataFlowResponseOutput{})

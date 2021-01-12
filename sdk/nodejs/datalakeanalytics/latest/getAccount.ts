@@ -55,6 +55,10 @@ export interface GetAccountResult {
      */
     readonly dataLakeStoreAccounts: outputs.datalakeanalytics.latest.DataLakeStoreAccountInformationResponse[];
     /**
+     * The current state of the DebugDataAccessLevel for this account.
+     */
+    readonly debugDataAccessLevel: string;
+    /**
      * The default Data Lake Store account associated with this account.
      */
     readonly defaultDataLakeStoreAccount: string;
@@ -75,6 +79,10 @@ export interface GetAccountResult {
      */
     readonly firewallState: string;
     /**
+     * The list of hiveMetastores associated with this account.
+     */
+    readonly hiveMetastores: outputs.datalakeanalytics.latest.HiveMetastoreResponse[];
+    /**
      * The resource identifer.
      */
     readonly id: string;
@@ -89,7 +97,7 @@ export interface GetAccountResult {
     /**
      * The maximum supported degree of parallelism for this account.
      */
-    readonly maxDegreeOfParallelism: number;
+    readonly maxDegreeOfParallelism?: number;
     /**
      * The maximum supported degree of parallelism per job for this account.
      */
@@ -97,7 +105,7 @@ export interface GetAccountResult {
     /**
      * The maximum supported jobs running under the account at the same time.
      */
-    readonly maxJobCount: number;
+    readonly maxJobCount?: number;
     /**
      * The minimum supported priority per job for this account.
      */
@@ -117,7 +125,7 @@ export interface GetAccountResult {
     /**
      * The number of days that job metadata is retained.
      */
-    readonly queryStoreRetention: number;
+    readonly queryStoreRetention?: number;
     /**
      * The state of the Data Lake Analytics account.
      */
@@ -142,4 +150,8 @@ export interface GetAccountResult {
      * The resource type.
      */
     readonly type: string;
+    /**
+     * The list of virtualNetwork rules associated with this account.
+     */
+    readonly virtualNetworkRules: outputs.datalakeanalytics.latest.VirtualNetworkRuleResponse[];
 }

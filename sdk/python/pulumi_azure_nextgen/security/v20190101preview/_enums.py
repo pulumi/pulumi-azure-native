@@ -67,8 +67,11 @@ class EventSource(str, Enum):
     SUB_ASSESSMENTS = "SubAssessments"
     ALERTS = "Alerts"
     SECURE_SCORES = "SecureScores"
+    SECURE_SCORES_SNAPSHOT = "SecureScoresSnapshot"
     SECURE_SCORE_CONTROLS = "SecureScoreControls"
+    SECURE_SCORE_CONTROLS_SNAPSHOT = "SecureScoreControlsSnapshot"
     REGULATORY_COMPLIANCE_ASSESSMENT = "RegulatoryComplianceAssessment"
+    REGULATORY_COMPLIANCE_ASSESSMENT_SNAPSHOT = "RegulatoryComplianceAssessmentSnapshot"
 
 
 class ImplementationEffort(str, Enum):

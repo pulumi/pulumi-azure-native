@@ -12,7 +12,7 @@ import (
 )
 
 // Resource information, as returned by the resource provider.
-// Latest API Version: 2016-06-01.
+// Latest API Version: 2020-02-02.
 type Vault struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +53,9 @@ func NewVault(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160601:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20200202:Vault"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -126,6 +129,8 @@ type vaultArgs struct {
 	Identity *IdentityData `pulumi:"identity"`
 	// Resource location.
 	Location string `pulumi:"location"`
+	// Properties of the vault.
+	Properties *VaultProperties `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Identifies the unique system identifier for each Azure resource.
@@ -144,6 +149,8 @@ type VaultArgs struct {
 	Identity IdentityDataPtrInput
 	// Resource location.
 	Location pulumi.StringInput
+	// Properties of the vault.
+	Properties VaultPropertiesPtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// Identifies the unique system identifier for each Azure resource.

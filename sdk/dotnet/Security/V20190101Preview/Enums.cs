@@ -172,8 +172,11 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         public static EventSource SubAssessments { get; } = new EventSource("SubAssessments");
         public static EventSource Alerts { get; } = new EventSource("Alerts");
         public static EventSource SecureScores { get; } = new EventSource("SecureScores");
+        public static EventSource SecureScoresSnapshot { get; } = new EventSource("SecureScoresSnapshot");
         public static EventSource SecureScoreControls { get; } = new EventSource("SecureScoreControls");
+        public static EventSource SecureScoreControlsSnapshot { get; } = new EventSource("SecureScoreControlsSnapshot");
         public static EventSource RegulatoryComplianceAssessment { get; } = new EventSource("RegulatoryComplianceAssessment");
+        public static EventSource RegulatoryComplianceAssessmentSnapshot { get; } = new EventSource("RegulatoryComplianceAssessmentSnapshot");
 
         public static bool operator ==(EventSource left, EventSource right) => left.Equals(right);
         public static bool operator !=(EventSource left, EventSource right) => !left.Equals(right);

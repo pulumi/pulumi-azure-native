@@ -17,11 +17,11 @@ func ListAccountSasTokens(ctx *pulumi.Context, args *ListAccountSasTokensArgs, o
 }
 
 type ListAccountSasTokensArgs struct {
-	// The name of the Data Lake Analytics account from which an Azure Storage account's SAS token is being requested.
+	// The name of the Data Lake Analytics account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the Azure storage container for which the SAS token is being requested.
 	ContainerName string `pulumi:"containerName"`
-	// The name of the Azure resource group that contains the Data Lake Analytics account.
+	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Azure storage account for which the SAS token is being requested.
 	StorageAccountName string `pulumi:"storageAccountName"`
@@ -29,7 +29,8 @@ type ListAccountSasTokensArgs struct {
 
 // The SAS response that contains the storage account, container and associated SAS token for connection use.
 type ListAccountSasTokensResult struct {
-	// the link (url) to the next page of results.
-	NextLink string                 `pulumi:"nextLink"`
-	Value    []SasTokenInfoResponse `pulumi:"value"`
+	// The link (url) to the next page of results.
+	NextLink string `pulumi:"nextLink"`
+	// The results of the list operation.
+	Value []SasTokenInformationResponse `pulumi:"value"`
 }
