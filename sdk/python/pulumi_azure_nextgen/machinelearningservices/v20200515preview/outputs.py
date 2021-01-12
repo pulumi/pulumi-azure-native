@@ -16,8 +16,15 @@ __all__ = [
     'ACIServiceResponseResponseEncryptionProperties',
     'ACIServiceResponseResponseEnvironmentImageRequest',
     'ACIServiceResponseResponseVnetConfiguration',
+    'AKSReplicaStatusResponseError',
     'AKSResponse',
     'AKSResponseProperties',
+    'AKSServiceResponseResponse',
+    'AKSServiceResponseResponseAutoScaler',
+    'AKSServiceResponseResponseDataCollection',
+    'AKSServiceResponseResponseDeploymentStatus',
+    'AKSServiceResponseResponseEnvironmentImageRequest',
+    'AKSServiceResponseResponseLivenessProbeRequirements',
     'AKSVariantResponseResponse',
     'AksNetworkingConfigurationResponse',
     'AmlComputeNodeInformationResponseResult',
@@ -592,6 +599,53 @@ class ACIServiceResponseResponseVnetConfiguration(dict):
 
 
 @pulumi.output_type
+class AKSReplicaStatusResponseError(dict):
+    """
+    The error details.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: str):
+        """
+        The error details.
+        :param str code: Error code.
+        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param str message: Error message.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        An array of error detail objects.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Error message.
+        """
+        return pulumi.get(self, "message")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class AKSResponse(dict):
     """
     A Machine Learning compute based on AKS.
@@ -801,6 +855,697 @@ class AKSResponseProperties(dict):
         SSL configuration
         """
         return pulumi.get(self, "ssl_configuration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AKSServiceResponseResponse(dict):
+    """
+    The response for an AKS service.
+    """
+    def __init__(__self__, *,
+                 compute_type: str,
+                 deployment_status: 'outputs.AKSServiceResponseResponseDeploymentStatus',
+                 error: 'outputs.ServiceResponseBaseResponseError',
+                 model_config_map: Mapping[str, Any],
+                 scoring_uri: str,
+                 state: str,
+                 swagger_uri: str,
+                 aad_auth_enabled: Optional[bool] = None,
+                 app_insights_enabled: Optional[bool] = None,
+                 auth_enabled: Optional[bool] = None,
+                 auto_scaler: Optional['outputs.AKSServiceResponseResponseAutoScaler'] = None,
+                 compute_name: Optional[str] = None,
+                 container_resource_requirements: Optional['outputs.ContainerResourceRequirementsResponse'] = None,
+                 data_collection: Optional['outputs.AKSServiceResponseResponseDataCollection'] = None,
+                 deployment_type: Optional[str] = None,
+                 description: Optional[str] = None,
+                 environment_image_request: Optional['outputs.AKSServiceResponseResponseEnvironmentImageRequest'] = None,
+                 is_default: Optional[bool] = None,
+                 kv_tags: Optional[Mapping[str, str]] = None,
+                 liveness_probe_requirements: Optional['outputs.AKSServiceResponseResponseLivenessProbeRequirements'] = None,
+                 max_concurrent_requests_per_container: Optional[int] = None,
+                 max_queue_wait_ms: Optional[int] = None,
+                 models: Optional[Sequence['outputs.ModelResponse']] = None,
+                 namespace: Optional[str] = None,
+                 num_replicas: Optional[int] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 scoring_timeout_ms: Optional[int] = None,
+                 traffic_percentile: Optional[float] = None,
+                 type: Optional[str] = None):
+        """
+        The response for an AKS service.
+        :param str compute_type: The compute environment type for the service.
+               Expected value is 'Custom'.
+        :param 'AKSServiceResponseResponseDeploymentStatusArgs' deployment_status: The deployment status.
+        :param 'ServiceResponseBaseResponseErrorArgs' error: The error details.
+        :param Mapping[str, Any] model_config_map: Details on the models and configurations.
+        :param str scoring_uri: The Uri for sending scoring requests.
+        :param str state: The current state of the service.
+        :param str swagger_uri: The Uri for sending swagger requests.
+        :param bool aad_auth_enabled: Whether or not AAD authentication is enabled.
+        :param bool app_insights_enabled: Whether or not Application Insights is enabled.
+        :param bool auth_enabled: Whether or not authentication is enabled.
+        :param 'AKSServiceResponseResponseAutoScalerArgs' auto_scaler: The auto scaler properties.
+        :param str compute_name: The name of the compute resource.
+        :param 'ContainerResourceRequirementsResponseArgs' container_resource_requirements: The container resource requirements.
+        :param 'AKSServiceResponseResponseDataCollectionArgs' data_collection: Details of the data collection options specified.
+        :param str deployment_type: The deployment type for the service.
+        :param str description: The service description.
+        :param 'AKSServiceResponseResponseEnvironmentImageRequestArgs' environment_image_request: The Environment, models and assets used for inferencing.
+        :param bool is_default: Is this the default variant.
+        :param Mapping[str, str] kv_tags: The service tag dictionary. Tags are mutable.
+        :param 'AKSServiceResponseResponseLivenessProbeRequirementsArgs' liveness_probe_requirements: The liveness probe requirements.
+        :param int max_concurrent_requests_per_container: The maximum number of concurrent requests per container.
+        :param int max_queue_wait_ms: Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
+        :param Sequence['ModelResponseArgs'] models: The list of models.
+        :param str namespace: The Kubernetes namespace of the deployment.
+        :param int num_replicas: The number of replicas on the cluster.
+        :param Mapping[str, str] properties: The service property dictionary. Properties are immutable.
+        :param int scoring_timeout_ms: The scoring timeout in milliseconds.
+        :param float traffic_percentile: The amount of traffic variant receives.
+        :param str type: The type of the variant.
+        """
+        pulumi.set(__self__, "compute_type", 'Custom')
+        pulumi.set(__self__, "deployment_status", deployment_status)
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "model_config_map", model_config_map)
+        pulumi.set(__self__, "scoring_uri", scoring_uri)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "swagger_uri", swagger_uri)
+        if aad_auth_enabled is not None:
+            pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
+        if app_insights_enabled is not None:
+            pulumi.set(__self__, "app_insights_enabled", app_insights_enabled)
+        if auth_enabled is not None:
+            pulumi.set(__self__, "auth_enabled", auth_enabled)
+        if auto_scaler is not None:
+            pulumi.set(__self__, "auto_scaler", auto_scaler)
+        if compute_name is not None:
+            pulumi.set(__self__, "compute_name", compute_name)
+        if container_resource_requirements is not None:
+            pulumi.set(__self__, "container_resource_requirements", container_resource_requirements)
+        if data_collection is not None:
+            pulumi.set(__self__, "data_collection", data_collection)
+        if deployment_type is not None:
+            pulumi.set(__self__, "deployment_type", deployment_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if environment_image_request is not None:
+            pulumi.set(__self__, "environment_image_request", environment_image_request)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if kv_tags is not None:
+            pulumi.set(__self__, "kv_tags", kv_tags)
+        if liveness_probe_requirements is not None:
+            pulumi.set(__self__, "liveness_probe_requirements", liveness_probe_requirements)
+        if max_concurrent_requests_per_container is not None:
+            pulumi.set(__self__, "max_concurrent_requests_per_container", max_concurrent_requests_per_container)
+        if max_queue_wait_ms is not None:
+            pulumi.set(__self__, "max_queue_wait_ms", max_queue_wait_ms)
+        if models is not None:
+            pulumi.set(__self__, "models", models)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if num_replicas is not None:
+            pulumi.set(__self__, "num_replicas", num_replicas)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if scoring_timeout_ms is not None:
+            pulumi.set(__self__, "scoring_timeout_ms", scoring_timeout_ms)
+        if traffic_percentile is not None:
+            pulumi.set(__self__, "traffic_percentile", traffic_percentile)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
+        """
+        The compute environment type for the service.
+        Expected value is 'Custom'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="deploymentStatus")
+    def deployment_status(self) -> 'outputs.AKSServiceResponseResponseDeploymentStatus':
+        """
+        The deployment status.
+        """
+        return pulumi.get(self, "deployment_status")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ServiceResponseBaseResponseError':
+        """
+        The error details.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="modelConfigMap")
+    def model_config_map(self) -> Mapping[str, Any]:
+        """
+        Details on the models and configurations.
+        """
+        return pulumi.get(self, "model_config_map")
+
+    @property
+    @pulumi.getter(name="scoringUri")
+    def scoring_uri(self) -> str:
+        """
+        The Uri for sending scoring requests.
+        """
+        return pulumi.get(self, "scoring_uri")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The current state of the service.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="swaggerUri")
+    def swagger_uri(self) -> str:
+        """
+        The Uri for sending swagger requests.
+        """
+        return pulumi.get(self, "swagger_uri")
+
+    @property
+    @pulumi.getter(name="aadAuthEnabled")
+    def aad_auth_enabled(self) -> Optional[bool]:
+        """
+        Whether or not AAD authentication is enabled.
+        """
+        return pulumi.get(self, "aad_auth_enabled")
+
+    @property
+    @pulumi.getter(name="appInsightsEnabled")
+    def app_insights_enabled(self) -> Optional[bool]:
+        """
+        Whether or not Application Insights is enabled.
+        """
+        return pulumi.get(self, "app_insights_enabled")
+
+    @property
+    @pulumi.getter(name="authEnabled")
+    def auth_enabled(self) -> Optional[bool]:
+        """
+        Whether or not authentication is enabled.
+        """
+        return pulumi.get(self, "auth_enabled")
+
+    @property
+    @pulumi.getter(name="autoScaler")
+    def auto_scaler(self) -> Optional['outputs.AKSServiceResponseResponseAutoScaler']:
+        """
+        The auto scaler properties.
+        """
+        return pulumi.get(self, "auto_scaler")
+
+    @property
+    @pulumi.getter(name="computeName")
+    def compute_name(self) -> Optional[str]:
+        """
+        The name of the compute resource.
+        """
+        return pulumi.get(self, "compute_name")
+
+    @property
+    @pulumi.getter(name="containerResourceRequirements")
+    def container_resource_requirements(self) -> Optional['outputs.ContainerResourceRequirementsResponse']:
+        """
+        The container resource requirements.
+        """
+        return pulumi.get(self, "container_resource_requirements")
+
+    @property
+    @pulumi.getter(name="dataCollection")
+    def data_collection(self) -> Optional['outputs.AKSServiceResponseResponseDataCollection']:
+        """
+        Details of the data collection options specified.
+        """
+        return pulumi.get(self, "data_collection")
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> Optional[str]:
+        """
+        The deployment type for the service.
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="environmentImageRequest")
+    def environment_image_request(self) -> Optional['outputs.AKSServiceResponseResponseEnvironmentImageRequest']:
+        """
+        The Environment, models and assets used for inferencing.
+        """
+        return pulumi.get(self, "environment_image_request")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[bool]:
+        """
+        Is this the default variant.
+        """
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter(name="kvTags")
+    def kv_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The service tag dictionary. Tags are mutable.
+        """
+        return pulumi.get(self, "kv_tags")
+
+    @property
+    @pulumi.getter(name="livenessProbeRequirements")
+    def liveness_probe_requirements(self) -> Optional['outputs.AKSServiceResponseResponseLivenessProbeRequirements']:
+        """
+        The liveness probe requirements.
+        """
+        return pulumi.get(self, "liveness_probe_requirements")
+
+    @property
+    @pulumi.getter(name="maxConcurrentRequestsPerContainer")
+    def max_concurrent_requests_per_container(self) -> Optional[int]:
+        """
+        The maximum number of concurrent requests per container.
+        """
+        return pulumi.get(self, "max_concurrent_requests_per_container")
+
+    @property
+    @pulumi.getter(name="maxQueueWaitMs")
+    def max_queue_wait_ms(self) -> Optional[int]:
+        """
+        Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
+        """
+        return pulumi.get(self, "max_queue_wait_ms")
+
+    @property
+    @pulumi.getter
+    def models(self) -> Optional[Sequence['outputs.ModelResponse']]:
+        """
+        The list of models.
+        """
+        return pulumi.get(self, "models")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        The Kubernetes namespace of the deployment.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="numReplicas")
+    def num_replicas(self) -> Optional[int]:
+        """
+        The number of replicas on the cluster.
+        """
+        return pulumi.get(self, "num_replicas")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The service property dictionary. Properties are immutable.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="scoringTimeoutMs")
+    def scoring_timeout_ms(self) -> Optional[int]:
+        """
+        The scoring timeout in milliseconds.
+        """
+        return pulumi.get(self, "scoring_timeout_ms")
+
+    @property
+    @pulumi.getter(name="trafficPercentile")
+    def traffic_percentile(self) -> Optional[float]:
+        """
+        The amount of traffic variant receives.
+        """
+        return pulumi.get(self, "traffic_percentile")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the variant.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AKSServiceResponseResponseAutoScaler(dict):
+    """
+    The auto scaler properties.
+    """
+    def __init__(__self__, *,
+                 autoscale_enabled: Optional[bool] = None,
+                 max_replicas: Optional[int] = None,
+                 min_replicas: Optional[int] = None,
+                 refresh_period_in_seconds: Optional[int] = None,
+                 target_utilization: Optional[int] = None):
+        """
+        The auto scaler properties.
+        :param bool autoscale_enabled: Option to enable/disable auto scaling.
+        :param int max_replicas: The maximum number of replicas in the cluster.
+        :param int min_replicas: The minimum number of replicas to scale down to.
+        :param int refresh_period_in_seconds: The amount of seconds to wait between auto scale updates.
+        :param int target_utilization: The target utilization percentage to use for determining whether to scale the cluster.
+        """
+        if autoscale_enabled is not None:
+            pulumi.set(__self__, "autoscale_enabled", autoscale_enabled)
+        if max_replicas is not None:
+            pulumi.set(__self__, "max_replicas", max_replicas)
+        if min_replicas is not None:
+            pulumi.set(__self__, "min_replicas", min_replicas)
+        if refresh_period_in_seconds is not None:
+            pulumi.set(__self__, "refresh_period_in_seconds", refresh_period_in_seconds)
+        if target_utilization is not None:
+            pulumi.set(__self__, "target_utilization", target_utilization)
+
+    @property
+    @pulumi.getter(name="autoscaleEnabled")
+    def autoscale_enabled(self) -> Optional[bool]:
+        """
+        Option to enable/disable auto scaling.
+        """
+        return pulumi.get(self, "autoscale_enabled")
+
+    @property
+    @pulumi.getter(name="maxReplicas")
+    def max_replicas(self) -> Optional[int]:
+        """
+        The maximum number of replicas in the cluster.
+        """
+        return pulumi.get(self, "max_replicas")
+
+    @property
+    @pulumi.getter(name="minReplicas")
+    def min_replicas(self) -> Optional[int]:
+        """
+        The minimum number of replicas to scale down to.
+        """
+        return pulumi.get(self, "min_replicas")
+
+    @property
+    @pulumi.getter(name="refreshPeriodInSeconds")
+    def refresh_period_in_seconds(self) -> Optional[int]:
+        """
+        The amount of seconds to wait between auto scale updates.
+        """
+        return pulumi.get(self, "refresh_period_in_seconds")
+
+    @property
+    @pulumi.getter(name="targetUtilization")
+    def target_utilization(self) -> Optional[int]:
+        """
+        The target utilization percentage to use for determining whether to scale the cluster.
+        """
+        return pulumi.get(self, "target_utilization")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AKSServiceResponseResponseDataCollection(dict):
+    """
+    Details of the data collection options specified.
+    """
+    def __init__(__self__, *,
+                 event_hub_enabled: Optional[bool] = None,
+                 storage_enabled: Optional[bool] = None):
+        """
+        Details of the data collection options specified.
+        :param bool event_hub_enabled: Option for enabling/disabling Event Hub.
+        :param bool storage_enabled: Option for enabling/disabling storage.
+        """
+        if event_hub_enabled is not None:
+            pulumi.set(__self__, "event_hub_enabled", event_hub_enabled)
+        if storage_enabled is not None:
+            pulumi.set(__self__, "storage_enabled", storage_enabled)
+
+    @property
+    @pulumi.getter(name="eventHubEnabled")
+    def event_hub_enabled(self) -> Optional[bool]:
+        """
+        Option for enabling/disabling Event Hub.
+        """
+        return pulumi.get(self, "event_hub_enabled")
+
+    @property
+    @pulumi.getter(name="storageEnabled")
+    def storage_enabled(self) -> Optional[bool]:
+        """
+        Option for enabling/disabling storage.
+        """
+        return pulumi.get(self, "storage_enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AKSServiceResponseResponseDeploymentStatus(dict):
+    """
+    The deployment status.
+    """
+    def __init__(__self__, *,
+                 available_replicas: Optional[int] = None,
+                 desired_replicas: Optional[int] = None,
+                 error: Optional['outputs.AKSReplicaStatusResponseError'] = None,
+                 updated_replicas: Optional[int] = None):
+        """
+        The deployment status.
+        :param int available_replicas: The number of available replicas.
+        :param int desired_replicas: The desired number of replicas.
+        :param 'AKSReplicaStatusResponseErrorArgs' error: The error details.
+        :param int updated_replicas: The number of updated replicas.
+        """
+        if available_replicas is not None:
+            pulumi.set(__self__, "available_replicas", available_replicas)
+        if desired_replicas is not None:
+            pulumi.set(__self__, "desired_replicas", desired_replicas)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if updated_replicas is not None:
+            pulumi.set(__self__, "updated_replicas", updated_replicas)
+
+    @property
+    @pulumi.getter(name="availableReplicas")
+    def available_replicas(self) -> Optional[int]:
+        """
+        The number of available replicas.
+        """
+        return pulumi.get(self, "available_replicas")
+
+    @property
+    @pulumi.getter(name="desiredReplicas")
+    def desired_replicas(self) -> Optional[int]:
+        """
+        The desired number of replicas.
+        """
+        return pulumi.get(self, "desired_replicas")
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.AKSReplicaStatusResponseError']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="updatedReplicas")
+    def updated_replicas(self) -> Optional[int]:
+        """
+        The number of updated replicas.
+        """
+        return pulumi.get(self, "updated_replicas")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AKSServiceResponseResponseEnvironmentImageRequest(dict):
+    """
+    The Environment, models and assets used for inferencing.
+    """
+    def __init__(__self__, *,
+                 assets: Optional[Sequence['outputs.ImageAssetResponse']] = None,
+                 driver_program: Optional[str] = None,
+                 environment: Optional['outputs.EnvironmentImageResponseResponseEnvironment'] = None,
+                 environment_reference: Optional['outputs.EnvironmentImageResponseResponseEnvironmentReference'] = None,
+                 model_ids: Optional[Sequence[str]] = None,
+                 models: Optional[Sequence['outputs.ModelResponse']] = None):
+        """
+        The Environment, models and assets used for inferencing.
+        :param Sequence['ImageAssetResponseArgs'] assets: The list of assets.
+        :param str driver_program: The name of the driver file.
+        :param 'EnvironmentImageResponseResponseEnvironmentArgs' environment: The details of the AZURE ML environment.
+        :param 'EnvironmentImageResponseResponseEnvironmentReferenceArgs' environment_reference: The unique identifying details of the AZURE ML environment.
+        :param Sequence[str] model_ids: The list of model Ids.
+        :param Sequence['ModelResponseArgs'] models: The list of models.
+        """
+        if assets is not None:
+            pulumi.set(__self__, "assets", assets)
+        if driver_program is not None:
+            pulumi.set(__self__, "driver_program", driver_program)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if environment_reference is not None:
+            pulumi.set(__self__, "environment_reference", environment_reference)
+        if model_ids is not None:
+            pulumi.set(__self__, "model_ids", model_ids)
+        if models is not None:
+            pulumi.set(__self__, "models", models)
+
+    @property
+    @pulumi.getter
+    def assets(self) -> Optional[Sequence['outputs.ImageAssetResponse']]:
+        """
+        The list of assets.
+        """
+        return pulumi.get(self, "assets")
+
+    @property
+    @pulumi.getter(name="driverProgram")
+    def driver_program(self) -> Optional[str]:
+        """
+        The name of the driver file.
+        """
+        return pulumi.get(self, "driver_program")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional['outputs.EnvironmentImageResponseResponseEnvironment']:
+        """
+        The details of the AZURE ML environment.
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="environmentReference")
+    def environment_reference(self) -> Optional['outputs.EnvironmentImageResponseResponseEnvironmentReference']:
+        """
+        The unique identifying details of the AZURE ML environment.
+        """
+        return pulumi.get(self, "environment_reference")
+
+    @property
+    @pulumi.getter(name="modelIds")
+    def model_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of model Ids.
+        """
+        return pulumi.get(self, "model_ids")
+
+    @property
+    @pulumi.getter
+    def models(self) -> Optional[Sequence['outputs.ModelResponse']]:
+        """
+        The list of models.
+        """
+        return pulumi.get(self, "models")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AKSServiceResponseResponseLivenessProbeRequirements(dict):
+    """
+    The liveness probe requirements.
+    """
+    def __init__(__self__, *,
+                 failure_threshold: Optional[int] = None,
+                 initial_delay_seconds: Optional[int] = None,
+                 period_seconds: Optional[int] = None,
+                 success_threshold: Optional[int] = None,
+                 timeout_seconds: Optional[int] = None):
+        """
+        The liveness probe requirements.
+        :param int failure_threshold: The number of failures to allow before returning an unhealthy status.
+        :param int initial_delay_seconds: The delay before the first probe in seconds.
+        :param int period_seconds: The length of time between probes in seconds.
+        :param int success_threshold: The number of successful probes before returning a healthy status.
+        :param int timeout_seconds: The probe timeout in seconds.
+        """
+        if failure_threshold is not None:
+            pulumi.set(__self__, "failure_threshold", failure_threshold)
+        if initial_delay_seconds is not None:
+            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+        if period_seconds is not None:
+            pulumi.set(__self__, "period_seconds", period_seconds)
+        if success_threshold is not None:
+            pulumi.set(__self__, "success_threshold", success_threshold)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> Optional[int]:
+        """
+        The number of failures to allow before returning an unhealthy status.
+        """
+        return pulumi.get(self, "failure_threshold")
+
+    @property
+    @pulumi.getter(name="initialDelaySeconds")
+    def initial_delay_seconds(self) -> Optional[int]:
+        """
+        The delay before the first probe in seconds.
+        """
+        return pulumi.get(self, "initial_delay_seconds")
+
+    @property
+    @pulumi.getter(name="periodSeconds")
+    def period_seconds(self) -> Optional[int]:
+        """
+        The length of time between probes in seconds.
+        """
+        return pulumi.get(self, "period_seconds")
+
+    @property
+    @pulumi.getter(name="successThreshold")
+    def success_threshold(self) -> Optional[int]:
+        """
+        The number of successful probes before returning a healthy status.
+        """
+        return pulumi.get(self, "success_threshold")
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[int]:
+        """
+        The probe timeout in seconds.
+        """
+        return pulumi.get(self, "timeout_seconds")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

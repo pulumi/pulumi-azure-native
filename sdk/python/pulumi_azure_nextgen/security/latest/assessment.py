@@ -22,7 +22,7 @@ class Assessment(pulumi.CustomResource):
                  assessment_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPropertiesArgs']]] = None,
                  partners_data: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentPartnerDataArgs']]] = None,
-                 resource_details: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceDetailsArgs'], pulumi.InputType['OnPremiseResourceDetailsArgs']]]] = None,
+                 resource_details: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceDetailsArgs'], pulumi.InputType['OnPremiseResourceDetailsArgs'], pulumi.InputType['OnPremiseSqlResourceDetailsArgs']]]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArgs']]] = None,
                  __props__=None,
@@ -38,7 +38,7 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.Input[str] assessment_name: The Assessment Key - Unique key for the assessment type
         :param pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPropertiesArgs']] metadata: Describes properties of an assessment metadata.
         :param pulumi.Input[pulumi.InputType['SecurityAssessmentPartnerDataArgs']] partners_data: Data regarding 3rd party partner integration
-        :param pulumi.Input[Union[pulumi.InputType['AzureResourceDetailsArgs'], pulumi.InputType['OnPremiseResourceDetailsArgs']]] resource_details: Details of the resource that was assessed
+        :param pulumi.Input[Union[pulumi.InputType['AzureResourceDetailsArgs'], pulumi.InputType['OnPremiseResourceDetailsArgs'], pulumi.InputType['OnPremiseSqlResourceDetailsArgs']]] resource_details: Details of the resource that was assessed
         :param pulumi.Input[str] resource_id: The identifier of the resource.
         :param pulumi.Input[pulumi.InputType['AssessmentStatusArgs']] status: The result of the assessment
         """

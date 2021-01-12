@@ -14,7 +14,9 @@ __all__ = [
     'ActivityPolicyArgs',
     'AmazonMWSLinkedServiceArgs',
     'AmazonMWSObjectDatasetArgs',
+    'AmazonMWSSourceArgs',
     'AmazonRedshiftLinkedServiceArgs',
+    'AmazonRedshiftSourceArgs',
     'AmazonS3DatasetArgs',
     'AmazonS3LinkedServiceArgs',
     'AvroFormatArgs',
@@ -23,15 +25,24 @@ __all__ = [
     'AzureDataLakeAnalyticsLinkedServiceArgs',
     'AzureDataLakeStoreDatasetArgs',
     'AzureDataLakeStoreLinkedServiceArgs',
+    'AzureDataLakeStoreSinkArgs',
+    'AzureDataLakeStoreSourceArgs',
     'AzureDatabricksLinkedServiceArgs',
     'AzureKeyVaultLinkedServiceArgs',
     'AzureKeyVaultSecretReferenceArgs',
+    'AzureMLBatchExecutionActivityArgs',
     'AzureMLLinkedServiceArgs',
+    'AzureMLUpdateResourceActivityArgs',
+    'AzureMLWebServiceFileArgs',
     'AzureMySqlLinkedServiceArgs',
+    'AzureMySqlSourceArgs',
     'AzureMySqlTableDatasetArgs',
     'AzurePostgreSqlLinkedServiceArgs',
+    'AzurePostgreSqlSourceArgs',
     'AzurePostgreSqlTableDatasetArgs',
+    'AzureQueueSinkArgs',
     'AzureSearchIndexDatasetArgs',
+    'AzureSearchIndexSinkArgs',
     'AzureSearchLinkedServiceArgs',
     'AzureSqlDWLinkedServiceArgs',
     'AzureSqlDWTableDatasetArgs',
@@ -39,52 +50,96 @@ __all__ = [
     'AzureSqlTableDatasetArgs',
     'AzureStorageLinkedServiceArgs',
     'AzureTableDatasetArgs',
+    'AzureTableSinkArgs',
+    'AzureTableSourceArgs',
+    'BlobEventsTriggerArgs',
+    'BlobSinkArgs',
+    'BlobSourceArgs',
+    'BlobTriggerArgs',
     'CassandraLinkedServiceArgs',
+    'CassandraSourceArgs',
     'CassandraTableDatasetArgs',
     'ConcurLinkedServiceArgs',
     'ConcurObjectDatasetArgs',
+    'ConcurSourceArgs',
     'ControlActivityArgs',
+    'CopyActivityArgs',
     'CosmosDbLinkedServiceArgs',
     'CouchbaseLinkedServiceArgs',
+    'CouchbaseSourceArgs',
     'CouchbaseTableDatasetArgs',
+    'CustomActivityArgs',
+    'CustomActivityReferenceObjectArgs',
     'CustomDataSourceLinkedServiceArgs',
     'CustomDatasetArgs',
+    'DataLakeAnalyticsUSQLActivityArgs',
+    'DatabricksNotebookActivityArgs',
     'DatasetBZip2CompressionArgs',
     'DatasetDeflateCompressionArgs',
     'DatasetGZipCompressionArgs',
+    'DatasetReferenceArgs',
     'DatasetZipDeflateCompressionArgs',
     'Db2LinkedServiceArgs',
+    'DistcpSettingsArgs',
     'DocumentDbCollectionDatasetArgs',
+    'DocumentDbCollectionSinkArgs',
+    'DocumentDbCollectionSourceArgs',
     'DrillLinkedServiceArgs',
+    'DrillSourceArgs',
     'DrillTableDatasetArgs',
     'DynamicsEntityDatasetArgs',
     'DynamicsLinkedServiceArgs',
+    'DynamicsSinkArgs',
+    'DynamicsSourceArgs',
     'EloquaLinkedServiceArgs',
     'EloquaObjectDatasetArgs',
+    'EloquaSourceArgs',
     'EntityReferenceArgs',
+    'ExecutePipelineActivityArgs',
+    'ExecuteSSISPackageActivityArgs',
     'ExecutionActivityArgs',
+    'ExpressionArgs',
     'FactoryIdentityArgs',
     'FactoryVSTSConfigurationArgs',
     'FileServerLinkedServiceArgs',
     'FileShareDatasetArgs',
+    'FileSystemSinkArgs',
+    'FileSystemSourceArgs',
+    'FilterActivityArgs',
+    'ForEachActivityArgs',
     'FtpServerLinkedServiceArgs',
+    'GetMetadataActivityArgs',
     'GoogleBigQueryLinkedServiceArgs',
     'GoogleBigQueryObjectDatasetArgs',
+    'GoogleBigQuerySourceArgs',
     'GreenplumLinkedServiceArgs',
+    'GreenplumSourceArgs',
     'GreenplumTableDatasetArgs',
     'HBaseLinkedServiceArgs',
     'HBaseObjectDatasetArgs',
+    'HBaseSourceArgs',
+    'HDInsightHiveActivityArgs',
     'HDInsightLinkedServiceArgs',
+    'HDInsightMapReduceActivityArgs',
     'HDInsightOnDemandLinkedServiceArgs',
+    'HDInsightPigActivityArgs',
+    'HDInsightSparkActivityArgs',
+    'HDInsightStreamingActivityArgs',
     'HdfsLinkedServiceArgs',
+    'HdfsSourceArgs',
     'HiveLinkedServiceArgs',
     'HiveObjectDatasetArgs',
+    'HiveSourceArgs',
     'HttpDatasetArgs',
     'HttpLinkedServiceArgs',
+    'HttpSourceArgs',
     'HubspotLinkedServiceArgs',
     'HubspotObjectDatasetArgs',
+    'HubspotSourceArgs',
+    'IfConditionActivityArgs',
     'ImpalaLinkedServiceArgs',
     'ImpalaObjectDatasetArgs',
+    'ImpalaSourceArgs',
     'IntegrationRuntimeComputePropertiesArgs',
     'IntegrationRuntimeCustomSetupScriptPropertiesArgs',
     'IntegrationRuntimeDataProxyPropertiesArgs',
@@ -94,84 +149,138 @@ __all__ = [
     'IntegrationRuntimeVNetPropertiesArgs',
     'JiraLinkedServiceArgs',
     'JiraObjectDatasetArgs',
+    'JiraSourceArgs',
     'JsonFormatArgs',
     'LinkedIntegrationRuntimeKeyArgs',
     'LinkedIntegrationRuntimeRbacArgs',
     'LinkedServiceReferenceArgs',
+    'LookupActivityArgs',
     'MagentoLinkedServiceArgs',
     'MagentoObjectDatasetArgs',
+    'MagentoSourceArgs',
     'ManagedIntegrationRuntimeArgs',
     'MariaDBLinkedServiceArgs',
+    'MariaDBSourceArgs',
     'MariaDBTableDatasetArgs',
     'MarketoLinkedServiceArgs',
     'MarketoObjectDatasetArgs',
+    'MarketoSourceArgs',
     'MongoDbCollectionDatasetArgs',
     'MongoDbLinkedServiceArgs',
+    'MongoDbSourceArgs',
     'MultiplePipelineTriggerArgs',
     'MySqlLinkedServiceArgs',
     'NetezzaLinkedServiceArgs',
+    'NetezzaSourceArgs',
     'NetezzaTableDatasetArgs',
     'ODataLinkedServiceArgs',
     'ODataResourceDatasetArgs',
     'OdbcLinkedServiceArgs',
+    'OdbcSinkArgs',
     'OracleLinkedServiceArgs',
+    'OracleSinkArgs',
+    'OracleSourceArgs',
     'OracleTableDatasetArgs',
     'OrcFormatArgs',
     'ParameterSpecificationArgs',
     'ParquetFormatArgs',
     'PaypalLinkedServiceArgs',
     'PaypalObjectDatasetArgs',
+    'PaypalSourceArgs',
     'PhoenixLinkedServiceArgs',
     'PhoenixObjectDatasetArgs',
+    'PhoenixSourceArgs',
     'PipelineReferenceArgs',
+    'PolybaseSettingsArgs',
     'PostgreSqlLinkedServiceArgs',
     'PrestoLinkedServiceArgs',
     'PrestoObjectDatasetArgs',
+    'PrestoSourceArgs',
     'QuickBooksLinkedServiceArgs',
     'QuickBooksObjectDatasetArgs',
+    'QuickBooksSourceArgs',
+    'RecurrenceScheduleArgs',
+    'RecurrenceScheduleOccurrenceArgs',
+    'RedirectIncompatibleRowSettingsArgs',
+    'RedshiftUnloadSettingsArgs',
+    'RelationalSourceArgs',
     'RelationalTableDatasetArgs',
     'ResponsysLinkedServiceArgs',
     'ResponsysObjectDatasetArgs',
+    'ResponsysSourceArgs',
     'RetryPolicyArgs',
+    'SSISAccessCredentialArgs',
+    'SSISExecutionCredentialArgs',
+    'SSISExecutionParameterArgs',
+    'SSISLogLocationArgs',
+    'SSISPackageLocationArgs',
+    'SSISPropertyOverrideArgs',
     'SalesforceLinkedServiceArgs',
     'SalesforceMarketingCloudLinkedServiceArgs',
     'SalesforceMarketingCloudObjectDatasetArgs',
+    'SalesforceMarketingCloudSourceArgs',
     'SalesforceObjectDatasetArgs',
+    'SalesforceSinkArgs',
+    'SalesforceSourceArgs',
     'SapBWLinkedServiceArgs',
     'SapCloudForCustomerLinkedServiceArgs',
     'SapCloudForCustomerResourceDatasetArgs',
+    'SapCloudForCustomerSinkArgs',
+    'SapCloudForCustomerSourceArgs',
     'SapEccLinkedServiceArgs',
     'SapEccResourceDatasetArgs',
+    'SapEccSourceArgs',
     'SapHanaLinkedServiceArgs',
+    'ScheduleTriggerArgs',
+    'ScheduleTriggerRecurrenceArgs',
     'SecureStringArgs',
     'SelfHostedIntegrationRuntimeArgs',
     'ServiceNowLinkedServiceArgs',
     'ServiceNowObjectDatasetArgs',
+    'ServiceNowSourceArgs',
     'SftpServerLinkedServiceArgs',
     'ShopifyLinkedServiceArgs',
     'ShopifyObjectDatasetArgs',
+    'ShopifySourceArgs',
     'SparkLinkedServiceArgs',
     'SparkObjectDatasetArgs',
+    'SparkSourceArgs',
+    'SqlDWSinkArgs',
+    'SqlDWSourceArgs',
     'SqlServerLinkedServiceArgs',
+    'SqlServerStoredProcedureActivityArgs',
     'SqlServerTableDatasetArgs',
+    'SqlSinkArgs',
+    'SqlSourceArgs',
     'SquareLinkedServiceArgs',
     'SquareObjectDatasetArgs',
+    'SquareSourceArgs',
+    'StagingSettingsArgs',
+    'StoredProcedureParameterArgs',
     'SybaseLinkedServiceArgs',
     'TeradataLinkedServiceArgs',
     'TextFormatArgs',
     'TriggerPipelineReferenceArgs',
     'TumblingWindowTriggerArgs',
+    'UntilActivityArgs',
     'VerticaLinkedServiceArgs',
+    'VerticaSourceArgs',
     'VerticaTableDatasetArgs',
+    'WaitActivityArgs',
+    'WebActivityArgs',
+    'WebActivityAuthenticationArgs',
     'WebAnonymousAuthenticationArgs',
     'WebBasicAuthenticationArgs',
     'WebClientCertificateAuthenticationArgs',
     'WebLinkedServiceArgs',
+    'WebSourceArgs',
     'WebTableDatasetArgs',
     'XeroLinkedServiceArgs',
     'XeroObjectDatasetArgs',
+    'XeroSourceArgs',
     'ZohoLinkedServiceArgs',
     'ZohoObjectDatasetArgs',
+    'ZohoSourceArgs',
 ]
 
 @pulumi.input_type
@@ -634,6 +743,79 @@ class AmazonMWSObjectDatasetArgs:
 
 
 @pulumi.input_type
+class AmazonMWSSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Amazon Marketplace Web Service source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'AmazonMWSSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'AmazonMWSSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'AmazonMWSSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class AmazonRedshiftLinkedServiceArgs:
     def __init__(__self__, *,
                  database: Any,
@@ -814,6 +996,95 @@ class AmazonRedshiftLinkedServiceArgs:
     @username.setter
     def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class AmazonRedshiftSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 redshift_unload_settings: Optional[pulumi.Input['RedshiftUnloadSettingsArgs']] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity source for Amazon Redshift Source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'AmazonRedshiftSource'.
+        :param Any query: Database query. Type: string (or Expression with resultType string).
+        :param pulumi.Input['RedshiftUnloadSettingsArgs'] redshift_unload_settings: The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'AmazonRedshiftSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if redshift_unload_settings is not None:
+            pulumi.set(__self__, "redshift_unload_settings", redshift_unload_settings)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'AmazonRedshiftSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        Database query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="redshiftUnloadSettings")
+    def redshift_unload_settings(self) -> Optional[pulumi.Input['RedshiftUnloadSettingsArgs']]:
+        """
+        The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
+        """
+        return pulumi.get(self, "redshift_unload_settings")
+
+    @redshift_unload_settings.setter
+    def redshift_unload_settings(self, value: Optional[pulumi.Input['RedshiftUnloadSettingsArgs']]):
+        pulumi.set(self, "redshift_unload_settings", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -2173,6 +2444,184 @@ class AzureDataLakeStoreLinkedServiceArgs:
 
 
 @pulumi.input_type
+class AzureDataLakeStoreSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 copy_behavior: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity Azure Data Lake Store sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'AzureDataLakeStoreSink'.
+        :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'AzureDataLakeStoreSink')
+        if copy_behavior is not None:
+            pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'AzureDataLakeStoreSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="copyBehavior")
+    def copy_behavior(self) -> Optional[Any]:
+        """
+        The type of copy behavior for copy sink.
+        """
+        return pulumi.get(self, "copy_behavior")
+
+    @copy_behavior.setter
+    def copy_behavior(self, value: Optional[Any]):
+        pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
+class AzureDataLakeStoreSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 recursive: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Azure Data Lake source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'AzureDataLakeStoreSource'.
+        :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'AzureDataLakeStoreSource')
+        if recursive is not None:
+            pulumi.set(__self__, "recursive", recursive)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'AzureDataLakeStoreSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def recursive(self) -> Optional[Any]:
+        """
+        If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "recursive")
+
+    @recursive.setter
+    def recursive(self, value: Optional[Any]):
+        pulumi.set(self, "recursive", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class AzureDatabricksLinkedServiceArgs:
     def __init__(__self__, *,
                  access_token: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
@@ -2563,6 +3012,158 @@ class AzureKeyVaultSecretReferenceArgs:
 
 
 @pulumi.input_type
+class AzureMLBatchExecutionActivityArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 global_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 web_service_inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureMLWebServiceFileArgs']]]] = None,
+                 web_service_outputs: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureMLWebServiceFileArgs']]]] = None):
+        """
+        Azure ML Batch Execution activity.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input[Mapping[str, Any]] global_parameters: Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input['AzureMLWebServiceFileArgs']]] web_service_inputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
+        :param pulumi.Input[Mapping[str, pulumi.Input['AzureMLWebServiceFileArgs']]] web_service_outputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Outputs to AzureMLWebServiceFile objects specifying the output Blob locations. This information will be passed in the WebServiceOutputs property of the Azure ML batch execution request.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Execution')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if global_parameters is not None:
+            pulumi.set(__self__, "global_parameters", global_parameters)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if web_service_inputs is not None:
+            pulumi.set(__self__, "web_service_inputs", web_service_inputs)
+        if web_service_outputs is not None:
+            pulumi.set(__self__, "web_service_outputs", web_service_outputs)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="globalParameters")
+    def global_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
+        """
+        return pulumi.get(self, "global_parameters")
+
+    @global_parameters.setter
+    def global_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "global_parameters", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="webServiceInputs")
+    def web_service_inputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureMLWebServiceFileArgs']]]]:
+        """
+        Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
+        """
+        return pulumi.get(self, "web_service_inputs")
+
+    @web_service_inputs.setter
+    def web_service_inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureMLWebServiceFileArgs']]]]):
+        pulumi.set(self, "web_service_inputs", value)
+
+    @property
+    @pulumi.getter(name="webServiceOutputs")
+    def web_service_outputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureMLWebServiceFileArgs']]]]:
+        """
+        Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Outputs to AzureMLWebServiceFile objects specifying the output Blob locations. This information will be passed in the WebServiceOutputs property of the Azure ML batch execution request.
+        """
+        return pulumi.get(self, "web_service_outputs")
+
+    @web_service_outputs.setter
+    def web_service_outputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureMLWebServiceFileArgs']]]]):
+        pulumi.set(self, "web_service_outputs", value)
+
+
+@pulumi.input_type
 class AzureMLLinkedServiceArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
@@ -2762,6 +3363,193 @@ class AzureMLLinkedServiceArgs:
 
 
 @pulumi.input_type
+class AzureMLUpdateResourceActivityArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 trained_model_file_path: Any,
+                 trained_model_linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
+                 trained_model_name: Any,
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None):
+        """
+        Azure ML Update Resource management activity.
+        :param pulumi.Input[str] name: Activity name.
+        :param Any trained_model_file_path: The relative file path in trainedModelLinkedService to represent the .ilearner file that will be uploaded by the update operation.  Type: string (or Expression with resultType string).
+        :param pulumi.Input['LinkedServiceReferenceArgs'] trained_model_linked_service_name: Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
+        :param Any trained_model_name: Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "trained_model_file_path", trained_model_file_path)
+        pulumi.set(__self__, "trained_model_linked_service_name", trained_model_linked_service_name)
+        pulumi.set(__self__, "trained_model_name", trained_model_name)
+        pulumi.set(__self__, "type", 'Execution')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="trainedModelFilePath")
+    def trained_model_file_path(self) -> Any:
+        """
+        The relative file path in trainedModelLinkedService to represent the .ilearner file that will be uploaded by the update operation.  Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "trained_model_file_path")
+
+    @trained_model_file_path.setter
+    def trained_model_file_path(self, value: Any):
+        pulumi.set(self, "trained_model_file_path", value)
+
+    @property
+    @pulumi.getter(name="trainedModelLinkedServiceName")
+    def trained_model_linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
+        """
+        return pulumi.get(self, "trained_model_linked_service_name")
+
+    @trained_model_linked_service_name.setter
+    def trained_model_linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "trained_model_linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="trainedModelName")
+    def trained_model_name(self) -> Any:
+        """
+        Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "trained_model_name")
+
+    @trained_model_name.setter
+    def trained_model_name(self, value: Any):
+        pulumi.set(self, "trained_model_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+
+@pulumi.input_type
+class AzureMLWebServiceFileArgs:
+    def __init__(__self__, *,
+                 file_path: Any,
+                 linked_service_name: pulumi.Input['LinkedServiceReferenceArgs']):
+        """
+        Azure ML WebService Input/Output file
+        :param Any file_path: The relative file path, including container name, in the Azure Blob Storage specified by the LinkedService. Type: string (or Expression with resultType string).
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Reference to an Azure Storage LinkedService, where Azure ML WebService Input/Output file located.
+        """
+        pulumi.set(__self__, "file_path", file_path)
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> Any:
+        """
+        The relative file path, including container name, in the Azure Blob Storage specified by the LinkedService. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "file_path")
+
+    @file_path.setter
+    def file_path(self, value: Any):
+        pulumi.set(self, "file_path", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        Reference to an Azure Storage LinkedService, where Azure ML WebService Input/Output file located.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "linked_service_name", value)
+
+
+@pulumi.input_type
 class AzureMySqlLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: Any,
@@ -2879,6 +3667,79 @@ class AzureMySqlLinkedServiceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class AzureMySqlSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Azure MySQL source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'AzureMySqlSource'.
+        :param Any query: Database query. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'AzureMySqlSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'AzureMySqlSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        Database query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -3123,6 +3984,79 @@ class AzurePostgreSqlLinkedServiceArgs:
 
 
 @pulumi.input_type
+class AzurePostgreSqlSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Azure PostgreSQL source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'AzurePostgreSqlSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'AzurePostgreSqlSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'AzurePostgreSqlSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class AzurePostgreSqlTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
@@ -3224,6 +4158,95 @@ class AzurePostgreSqlTableDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class AzureQueueSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity Azure Queue sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'AzureQueueSink'.
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'AzureQueueSink')
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'AzureQueueSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
 
 
 @pulumi.input_type
@@ -3343,6 +4366,111 @@ class AzureSearchIndexDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class AzureSearchIndexSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[pulumi.Input[Union[str, 'AzureSearchIndexWriteBehaviorType']]] = None):
+        """
+        A copy activity Azure Search Index sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'AzureSearchIndexSink'.
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param pulumi.Input[Union[str, 'AzureSearchIndexWriteBehaviorType']] write_behavior: Specify the write behavior when upserting documents into Azure Search Index.
+        """
+        pulumi.set(__self__, "type", 'AzureSearchIndexSink')
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'AzureSearchIndexSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[pulumi.Input[Union[str, 'AzureSearchIndexWriteBehaviorType']]]:
+        """
+        Specify the write behavior when upserting documents into Azure Search Index.
+        """
+        return pulumi.get(self, "write_behavior")
+
+    @write_behavior.setter
+    def write_behavior(self, value: Optional[pulumi.Input[Union[str, 'AzureSearchIndexWriteBehaviorType']]]):
+        pulumi.set(self, "write_behavior", value)
 
 
 @pulumi.input_type
@@ -4312,6 +5440,743 @@ class AzureTableDatasetArgs:
 
 
 @pulumi.input_type
+class AzureTableSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 azure_table_default_partition_key_value: Optional[Any] = None,
+                 azure_table_insert_type: Optional[Any] = None,
+                 azure_table_partition_key_name: Optional[Any] = None,
+                 azure_table_row_key_name: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity Azure Table sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'AzureTableSink'.
+        :param Any azure_table_default_partition_key_value: Azure Table default partition key value. Type: string (or Expression with resultType string).
+        :param Any azure_table_insert_type: Azure Table insert type. Type: string (or Expression with resultType string).
+        :param Any azure_table_partition_key_name: Azure Table partition key name. Type: string (or Expression with resultType string).
+        :param Any azure_table_row_key_name: Azure Table row key name. Type: string (or Expression with resultType string).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'AzureTableSink')
+        if azure_table_default_partition_key_value is not None:
+            pulumi.set(__self__, "azure_table_default_partition_key_value", azure_table_default_partition_key_value)
+        if azure_table_insert_type is not None:
+            pulumi.set(__self__, "azure_table_insert_type", azure_table_insert_type)
+        if azure_table_partition_key_name is not None:
+            pulumi.set(__self__, "azure_table_partition_key_name", azure_table_partition_key_name)
+        if azure_table_row_key_name is not None:
+            pulumi.set(__self__, "azure_table_row_key_name", azure_table_row_key_name)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'AzureTableSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="azureTableDefaultPartitionKeyValue")
+    def azure_table_default_partition_key_value(self) -> Optional[Any]:
+        """
+        Azure Table default partition key value. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "azure_table_default_partition_key_value")
+
+    @azure_table_default_partition_key_value.setter
+    def azure_table_default_partition_key_value(self, value: Optional[Any]):
+        pulumi.set(self, "azure_table_default_partition_key_value", value)
+
+    @property
+    @pulumi.getter(name="azureTableInsertType")
+    def azure_table_insert_type(self) -> Optional[Any]:
+        """
+        Azure Table insert type. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "azure_table_insert_type")
+
+    @azure_table_insert_type.setter
+    def azure_table_insert_type(self, value: Optional[Any]):
+        pulumi.set(self, "azure_table_insert_type", value)
+
+    @property
+    @pulumi.getter(name="azureTablePartitionKeyName")
+    def azure_table_partition_key_name(self) -> Optional[Any]:
+        """
+        Azure Table partition key name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "azure_table_partition_key_name")
+
+    @azure_table_partition_key_name.setter
+    def azure_table_partition_key_name(self, value: Optional[Any]):
+        pulumi.set(self, "azure_table_partition_key_name", value)
+
+    @property
+    @pulumi.getter(name="azureTableRowKeyName")
+    def azure_table_row_key_name(self) -> Optional[Any]:
+        """
+        Azure Table row key name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "azure_table_row_key_name")
+
+    @azure_table_row_key_name.setter
+    def azure_table_row_key_name(self, value: Optional[Any]):
+        pulumi.set(self, "azure_table_row_key_name", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
+class AzureTableSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 azure_table_source_ignore_table_not_found: Optional[Any] = None,
+                 azure_table_source_query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Azure Table source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'AzureTableSource'.
+        :param Any azure_table_source_ignore_table_not_found: Azure Table source ignore table not found. Type: boolean (or Expression with resultType boolean).
+        :param Any azure_table_source_query: Azure Table source query. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'AzureTableSource')
+        if azure_table_source_ignore_table_not_found is not None:
+            pulumi.set(__self__, "azure_table_source_ignore_table_not_found", azure_table_source_ignore_table_not_found)
+        if azure_table_source_query is not None:
+            pulumi.set(__self__, "azure_table_source_query", azure_table_source_query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'AzureTableSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="azureTableSourceIgnoreTableNotFound")
+    def azure_table_source_ignore_table_not_found(self) -> Optional[Any]:
+        """
+        Azure Table source ignore table not found. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "azure_table_source_ignore_table_not_found")
+
+    @azure_table_source_ignore_table_not_found.setter
+    def azure_table_source_ignore_table_not_found(self, value: Optional[Any]):
+        pulumi.set(self, "azure_table_source_ignore_table_not_found", value)
+
+    @property
+    @pulumi.getter(name="azureTableSourceQuery")
+    def azure_table_source_query(self) -> Optional[Any]:
+        """
+        Azure Table source query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "azure_table_source_query")
+
+    @azure_table_source_query.setter
+    def azure_table_source_query(self, value: Optional[Any]):
+        pulumi.set(self, "azure_table_source_query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
+class BlobEventsTriggerArgs:
+    def __init__(__self__, *,
+                 events: pulumi.Input[Sequence[pulumi.Input[Union[str, 'BlobEventTypes']]]],
+                 scope: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 blob_path_begins_with: Optional[pulumi.Input[str]] = None,
+                 blob_path_ends_with: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ignore_empty_blobs: Optional[pulumi.Input[bool]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]] = None):
+        """
+        Trigger that runs every time a Blob event occurs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'BlobEventTypes']]]] events: The type of events that cause this trigger to fire.
+        :param pulumi.Input[str] scope: The ARM resource ID of the Storage Account.
+        :param pulumi.Input[str] type: Trigger type.
+               Expected value is 'MultiplePipelineTrigger'.
+        :param pulumi.Input[str] blob_path_begins_with: The blob path must begin with the pattern provided for trigger to fire. For example, '/records/blobs/december/' will only fire the trigger for blobs in the december folder under the records container. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
+        :param pulumi.Input[str] blob_path_ends_with: The blob path must end with the pattern provided for trigger to fire. For example, 'december/boxes.csv' will only fire the trigger for blobs named boxes in a december folder. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
+        :param pulumi.Input[str] description: Trigger description.
+        :param pulumi.Input[bool] ignore_empty_blobs: If set to true, blobs with zero bytes will be ignored.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
+        """
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        if blob_path_begins_with is not None:
+            pulumi.set(__self__, "blob_path_begins_with", blob_path_begins_with)
+        if blob_path_ends_with is not None:
+            pulumi.set(__self__, "blob_path_ends_with", blob_path_ends_with)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ignore_empty_blobs is not None:
+            pulumi.set(__self__, "ignore_empty_blobs", ignore_empty_blobs)
+        if pipelines is not None:
+            pulumi.set(__self__, "pipelines", pipelines)
+
+    @property
+    @pulumi.getter
+    def events(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'BlobEventTypes']]]]:
+        """
+        The type of events that cause this trigger to fire.
+        """
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'BlobEventTypes']]]]):
+        pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The ARM resource ID of the Storage Account.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Trigger type.
+        Expected value is 'MultiplePipelineTrigger'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="blobPathBeginsWith")
+    def blob_path_begins_with(self) -> Optional[pulumi.Input[str]]:
+        """
+        The blob path must begin with the pattern provided for trigger to fire. For example, '/records/blobs/december/' will only fire the trigger for blobs in the december folder under the records container. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
+        """
+        return pulumi.get(self, "blob_path_begins_with")
+
+    @blob_path_begins_with.setter
+    def blob_path_begins_with(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_path_begins_with", value)
+
+    @property
+    @pulumi.getter(name="blobPathEndsWith")
+    def blob_path_ends_with(self) -> Optional[pulumi.Input[str]]:
+        """
+        The blob path must end with the pattern provided for trigger to fire. For example, 'december/boxes.csv' will only fire the trigger for blobs named boxes in a december folder. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
+        """
+        return pulumi.get(self, "blob_path_ends_with")
+
+    @blob_path_ends_with.setter
+    def blob_path_ends_with(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_path_ends_with", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Trigger description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ignoreEmptyBlobs")
+    def ignore_empty_blobs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, blobs with zero bytes will be ignored.
+        """
+        return pulumi.get(self, "ignore_empty_blobs")
+
+    @ignore_empty_blobs.setter
+    def ignore_empty_blobs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_empty_blobs", value)
+
+    @property
+    @pulumi.getter
+    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]:
+        """
+        Pipelines that need to be started.
+        """
+        return pulumi.get(self, "pipelines")
+
+    @pipelines.setter
+    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]):
+        pulumi.set(self, "pipelines", value)
+
+
+@pulumi.input_type
+class BlobSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 blob_writer_add_header: Optional[Any] = None,
+                 blob_writer_date_time_format: Optional[Any] = None,
+                 blob_writer_overwrite_files: Optional[Any] = None,
+                 copy_behavior: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity Azure Blob sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'BlobSink'.
+        :param Any blob_writer_add_header: Blob writer add header. Type: boolean (or Expression with resultType boolean).
+        :param Any blob_writer_date_time_format: Blob writer date time format. Type: string (or Expression with resultType string).
+        :param Any blob_writer_overwrite_files: Blob writer overwrite files. Type: boolean (or Expression with resultType boolean).
+        :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'BlobSink')
+        if blob_writer_add_header is not None:
+            pulumi.set(__self__, "blob_writer_add_header", blob_writer_add_header)
+        if blob_writer_date_time_format is not None:
+            pulumi.set(__self__, "blob_writer_date_time_format", blob_writer_date_time_format)
+        if blob_writer_overwrite_files is not None:
+            pulumi.set(__self__, "blob_writer_overwrite_files", blob_writer_overwrite_files)
+        if copy_behavior is not None:
+            pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'BlobSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="blobWriterAddHeader")
+    def blob_writer_add_header(self) -> Optional[Any]:
+        """
+        Blob writer add header. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "blob_writer_add_header")
+
+    @blob_writer_add_header.setter
+    def blob_writer_add_header(self, value: Optional[Any]):
+        pulumi.set(self, "blob_writer_add_header", value)
+
+    @property
+    @pulumi.getter(name="blobWriterDateTimeFormat")
+    def blob_writer_date_time_format(self) -> Optional[Any]:
+        """
+        Blob writer date time format. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "blob_writer_date_time_format")
+
+    @blob_writer_date_time_format.setter
+    def blob_writer_date_time_format(self, value: Optional[Any]):
+        pulumi.set(self, "blob_writer_date_time_format", value)
+
+    @property
+    @pulumi.getter(name="blobWriterOverwriteFiles")
+    def blob_writer_overwrite_files(self) -> Optional[Any]:
+        """
+        Blob writer overwrite files. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "blob_writer_overwrite_files")
+
+    @blob_writer_overwrite_files.setter
+    def blob_writer_overwrite_files(self, value: Optional[Any]):
+        pulumi.set(self, "blob_writer_overwrite_files", value)
+
+    @property
+    @pulumi.getter(name="copyBehavior")
+    def copy_behavior(self) -> Optional[Any]:
+        """
+        The type of copy behavior for copy sink.
+        """
+        return pulumi.get(self, "copy_behavior")
+
+    @copy_behavior.setter
+    def copy_behavior(self, value: Optional[Any]):
+        pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
+class BlobSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 recursive: Optional[Any] = None,
+                 skip_header_line_count: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None,
+                 treat_empty_as_null: Optional[Any] = None):
+        """
+        A copy activity Azure Blob source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'BlobSource'.
+        :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        :param Any skip_header_line_count: Number of header lines to skip from each blob. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any treat_empty_as_null: Treat empty as null. Type: boolean (or Expression with resultType boolean).
+        """
+        pulumi.set(__self__, "type", 'BlobSource')
+        if recursive is not None:
+            pulumi.set(__self__, "recursive", recursive)
+        if skip_header_line_count is not None:
+            pulumi.set(__self__, "skip_header_line_count", skip_header_line_count)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+        if treat_empty_as_null is not None:
+            pulumi.set(__self__, "treat_empty_as_null", treat_empty_as_null)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'BlobSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def recursive(self) -> Optional[Any]:
+        """
+        If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "recursive")
+
+    @recursive.setter
+    def recursive(self, value: Optional[Any]):
+        pulumi.set(self, "recursive", value)
+
+    @property
+    @pulumi.getter(name="skipHeaderLineCount")
+    def skip_header_line_count(self) -> Optional[Any]:
+        """
+        Number of header lines to skip from each blob. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "skip_header_line_count")
+
+    @skip_header_line_count.setter
+    def skip_header_line_count(self, value: Optional[Any]):
+        pulumi.set(self, "skip_header_line_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="treatEmptyAsNull")
+    def treat_empty_as_null(self) -> Optional[Any]:
+        """
+        Treat empty as null. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "treat_empty_as_null")
+
+    @treat_empty_as_null.setter
+    def treat_empty_as_null(self, value: Optional[Any]):
+        pulumi.set(self, "treat_empty_as_null", value)
+
+
+@pulumi.input_type
+class BlobTriggerArgs:
+    def __init__(__self__, *,
+                 folder_path: pulumi.Input[str],
+                 linked_service: pulumi.Input['LinkedServiceReferenceArgs'],
+                 max_concurrency: pulumi.Input[int],
+                 type: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]] = None):
+        """
+        Trigger that runs every time the selected Blob container changes.
+        :param pulumi.Input[str] folder_path: The path of the container/folder that will trigger the pipeline.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service: The Azure Storage linked service reference.
+        :param pulumi.Input[int] max_concurrency: The max number of parallel files to handle when it is triggered.
+        :param pulumi.Input[str] type: Trigger type.
+               Expected value is 'MultiplePipelineTrigger'.
+        :param pulumi.Input[str] description: Trigger description.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
+        """
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "linked_service", linked_service)
+        pulumi.set(__self__, "max_concurrency", max_concurrency)
+        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if pipelines is not None:
+            pulumi.set(__self__, "pipelines", pipelines)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> pulumi.Input[str]:
+        """
+        The path of the container/folder that will trigger the pipeline.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "folder_path", value)
+
+    @property
+    @pulumi.getter(name="linkedService")
+    def linked_service(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        The Azure Storage linked service reference.
+        """
+        return pulumi.get(self, "linked_service")
+
+    @linked_service.setter
+    def linked_service(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "linked_service", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> pulumi.Input[int]:
+        """
+        The max number of parallel files to handle when it is triggered.
+        """
+        return pulumi.get(self, "max_concurrency")
+
+    @max_concurrency.setter
+    def max_concurrency(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_concurrency", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Trigger type.
+        Expected value is 'MultiplePipelineTrigger'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Trigger description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]:
+        """
+        Pipelines that need to be started.
+        """
+        return pulumi.get(self, "pipelines")
+
+    @pipelines.setter
+    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]):
+        pulumi.set(self, "pipelines", value)
+
+
+@pulumi.input_type
 class CassandraLinkedServiceArgs:
     def __init__(__self__, *,
                  host: Any,
@@ -4493,6 +6358,95 @@ class CassandraLinkedServiceArgs:
     @username.setter
     def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class CassandraSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 consistency_level: Optional[pulumi.Input[Union[str, 'CassandraSourceReadConsistencyLevels']]] = None,
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity source for a Cassandra database.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'CassandraSource'.
+        :param pulumi.Input[Union[str, 'CassandraSourceReadConsistencyLevels']] consistency_level: The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
+        :param Any query: Database query. Should be a SQL-92 query expression or Cassandra Query Language (CQL) command. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'CassandraSource')
+        if consistency_level is not None:
+            pulumi.set(__self__, "consistency_level", consistency_level)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'CassandraSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="consistencyLevel")
+    def consistency_level(self) -> Optional[pulumi.Input[Union[str, 'CassandraSourceReadConsistencyLevels']]]:
+        """
+        The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
+        """
+        return pulumi.get(self, "consistency_level")
+
+    @consistency_level.setter
+    def consistency_level(self, value: Optional[pulumi.Input[Union[str, 'CassandraSourceReadConsistencyLevels']]]):
+        pulumi.set(self, "consistency_level", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        Database query. Should be a SQL-92 query expression or Cassandra Query Language (CQL) command. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -4935,6 +6889,79 @@ class ConcurObjectDatasetArgs:
 
 
 @pulumi.input_type
+class ConcurSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Concur Service source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'ConcurSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'ConcurSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'ConcurSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class ControlActivityArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -5004,6 +7031,284 @@ class ControlActivityArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class CopyActivityArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 sink: pulumi.Input[Union['AzureDataLakeStoreSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureTableSinkArgs', 'BlobSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SqlDWSinkArgs', 'SqlSinkArgs']],
+                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRedshiftSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureTableSourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'ConcurSourceArgs', 'CouchbaseSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'FileSystemSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'JiraSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MongoDbSourceArgs', 'NetezzaSourceArgs', 'OracleSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'ServiceNowSourceArgs', 'ShopifySourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'ZohoSourceArgs']],
+                 type: pulumi.Input[str],
+                 cloud_data_movement_units: Optional[Any] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enable_skip_incompatible_row: Optional[Any] = None,
+                 enable_staging: Optional[Any] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
+                 parallel_copies: Optional[Any] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 redirect_incompatible_row_settings: Optional[pulumi.Input['RedirectIncompatibleRowSettingsArgs']] = None,
+                 staging_settings: Optional[pulumi.Input['StagingSettingsArgs']] = None,
+                 translator: Optional[Any] = None):
+        """
+        Copy activity.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[Union['AzureDataLakeStoreSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureTableSinkArgs', 'BlobSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SqlDWSinkArgs', 'SqlSinkArgs']] sink: Copy activity sink.
+        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRedshiftSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureTableSourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'ConcurSourceArgs', 'CouchbaseSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'FileSystemSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'JiraSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MongoDbSourceArgs', 'NetezzaSourceArgs', 'OracleSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'ServiceNowSourceArgs', 'ShopifySourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'ZohoSourceArgs']] source: Copy activity source.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param Any cloud_data_movement_units: Maximum number of cloud data movement units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param Any enable_skip_incompatible_row: Whether to skip incompatible row. Default value is false. Type: boolean (or Expression with resultType boolean).
+        :param Any enable_staging: Specifies whether to copy data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] inputs: List of inputs for the activity.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] outputs: List of outputs for the activity.
+        :param Any parallel_copies: Maximum number of concurrent sessions opened on the source or sink to avoid overloading the data store. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param pulumi.Input['RedirectIncompatibleRowSettingsArgs'] redirect_incompatible_row_settings: Redirect incompatible row settings when EnableSkipIncompatibleRow is true.
+        :param pulumi.Input['StagingSettingsArgs'] staging_settings: Specifies interim staging settings when EnableStaging is true.
+        :param Any translator: Copy activity translator. If not specified, tabular translator is used.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sink", sink)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "type", 'Execution')
+        if cloud_data_movement_units is not None:
+            pulumi.set(__self__, "cloud_data_movement_units", cloud_data_movement_units)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enable_skip_incompatible_row is not None:
+            pulumi.set(__self__, "enable_skip_incompatible_row", enable_skip_incompatible_row)
+        if enable_staging is not None:
+            pulumi.set(__self__, "enable_staging", enable_staging)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+        if parallel_copies is not None:
+            pulumi.set(__self__, "parallel_copies", parallel_copies)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if redirect_incompatible_row_settings is not None:
+            pulumi.set(__self__, "redirect_incompatible_row_settings", redirect_incompatible_row_settings)
+        if staging_settings is not None:
+            pulumi.set(__self__, "staging_settings", staging_settings)
+        if translator is not None:
+            pulumi.set(__self__, "translator", translator)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def sink(self) -> pulumi.Input[Union['AzureDataLakeStoreSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureTableSinkArgs', 'BlobSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SqlDWSinkArgs', 'SqlSinkArgs']]:
+        """
+        Copy activity sink.
+        """
+        return pulumi.get(self, "sink")
+
+    @sink.setter
+    def sink(self, value: pulumi.Input[Union['AzureDataLakeStoreSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureTableSinkArgs', 'BlobSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SqlDWSinkArgs', 'SqlSinkArgs']]):
+        pulumi.set(self, "sink", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRedshiftSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureTableSourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'ConcurSourceArgs', 'CouchbaseSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'FileSystemSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'JiraSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MongoDbSourceArgs', 'NetezzaSourceArgs', 'OracleSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'ServiceNowSourceArgs', 'ShopifySourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'ZohoSourceArgs']]:
+        """
+        Copy activity source.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRedshiftSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureTableSourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'ConcurSourceArgs', 'CouchbaseSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'FileSystemSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'JiraSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MongoDbSourceArgs', 'NetezzaSourceArgs', 'OracleSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'ServiceNowSourceArgs', 'ShopifySourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'ZohoSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="cloudDataMovementUnits")
+    def cloud_data_movement_units(self) -> Optional[Any]:
+        """
+        Maximum number of cloud data movement units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "cloud_data_movement_units")
+
+    @cloud_data_movement_units.setter
+    def cloud_data_movement_units(self, value: Optional[Any]):
+        pulumi.set(self, "cloud_data_movement_units", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="enableSkipIncompatibleRow")
+    def enable_skip_incompatible_row(self) -> Optional[Any]:
+        """
+        Whether to skip incompatible row. Default value is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "enable_skip_incompatible_row")
+
+    @enable_skip_incompatible_row.setter
+    def enable_skip_incompatible_row(self, value: Optional[Any]):
+        pulumi.set(self, "enable_skip_incompatible_row", value)
+
+    @property
+    @pulumi.getter(name="enableStaging")
+    def enable_staging(self) -> Optional[Any]:
+        """
+        Specifies whether to copy data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "enable_staging")
+
+    @enable_staging.setter
+    def enable_staging(self, value: Optional[Any]):
+        pulumi.set(self, "enable_staging", value)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
+        """
+        List of inputs for the activity.
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
+        """
+        List of outputs for the activity.
+        """
+        return pulumi.get(self, "outputs")
+
+    @outputs.setter
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
+        pulumi.set(self, "outputs", value)
+
+    @property
+    @pulumi.getter(name="parallelCopies")
+    def parallel_copies(self) -> Optional[Any]:
+        """
+        Maximum number of concurrent sessions opened on the source or sink to avoid overloading the data store. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "parallel_copies")
+
+    @parallel_copies.setter
+    def parallel_copies(self, value: Optional[Any]):
+        pulumi.set(self, "parallel_copies", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="redirectIncompatibleRowSettings")
+    def redirect_incompatible_row_settings(self) -> Optional[pulumi.Input['RedirectIncompatibleRowSettingsArgs']]:
+        """
+        Redirect incompatible row settings when EnableSkipIncompatibleRow is true.
+        """
+        return pulumi.get(self, "redirect_incompatible_row_settings")
+
+    @redirect_incompatible_row_settings.setter
+    def redirect_incompatible_row_settings(self, value: Optional[pulumi.Input['RedirectIncompatibleRowSettingsArgs']]):
+        pulumi.set(self, "redirect_incompatible_row_settings", value)
+
+    @property
+    @pulumi.getter(name="stagingSettings")
+    def staging_settings(self) -> Optional[pulumi.Input['StagingSettingsArgs']]:
+        """
+        Specifies interim staging settings when EnableStaging is true.
+        """
+        return pulumi.get(self, "staging_settings")
+
+    @staging_settings.setter
+    def staging_settings(self, value: Optional[pulumi.Input['StagingSettingsArgs']]):
+        pulumi.set(self, "staging_settings", value)
+
+    @property
+    @pulumi.getter
+    def translator(self) -> Optional[Any]:
+        """
+        Copy activity translator. If not specified, tabular translator is used.
+        """
+        return pulumi.get(self, "translator")
+
+    @translator.setter
+    def translator(self, value: Optional[Any]):
+        pulumi.set(self, "translator", value)
 
 
 @pulumi.input_type
@@ -5248,6 +7553,79 @@ class CouchbaseLinkedServiceArgs:
 
 
 @pulumi.input_type
+class CouchbaseSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Couchbase server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'CouchbaseSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'CouchbaseSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'CouchbaseSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class CouchbaseTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
@@ -5349,6 +7727,229 @@ class CouchbaseTableDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class CustomActivityArgs:
+    def __init__(__self__, *,
+                 command: Any,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 extended_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 folder_path: Optional[Any] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 reference_objects: Optional[pulumi.Input['CustomActivityReferenceObjectArgs']] = None,
+                 resource_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None):
+        """
+        Custom activity type.
+        :param Any command: Command for custom activity Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input[Mapping[str, Any]] extended_properties: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
+        :param Any folder_path: Folder path for resource files Type: string (or Expression with resultType string).
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param pulumi.Input['CustomActivityReferenceObjectArgs'] reference_objects: Reference objects
+        :param pulumi.Input['LinkedServiceReferenceArgs'] resource_linked_service: Resource linked service reference.
+        """
+        pulumi.set(__self__, "command", command)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Execution')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if extended_properties is not None:
+            pulumi.set(__self__, "extended_properties", extended_properties)
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if reference_objects is not None:
+            pulumi.set(__self__, "reference_objects", reference_objects)
+        if resource_linked_service is not None:
+            pulumi.set(__self__, "resource_linked_service", resource_linked_service)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Any:
+        """
+        Command for custom activity Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: Any):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @extended_properties.setter
+    def extended_properties(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "extended_properties", value)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[Any]:
+        """
+        Folder path for resource files Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: Optional[Any]):
+        pulumi.set(self, "folder_path", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="referenceObjects")
+    def reference_objects(self) -> Optional[pulumi.Input['CustomActivityReferenceObjectArgs']]:
+        """
+        Reference objects
+        """
+        return pulumi.get(self, "reference_objects")
+
+    @reference_objects.setter
+    def reference_objects(self, value: Optional[pulumi.Input['CustomActivityReferenceObjectArgs']]):
+        pulumi.set(self, "reference_objects", value)
+
+    @property
+    @pulumi.getter(name="resourceLinkedService")
+    def resource_linked_service(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Resource linked service reference.
+        """
+        return pulumi.get(self, "resource_linked_service")
+
+    @resource_linked_service.setter
+    def resource_linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "resource_linked_service", value)
+
+
+@pulumi.input_type
+class CustomActivityReferenceObjectArgs:
+    def __init__(__self__, *,
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
+                 linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None):
+        """
+        Reference objects for custom activity
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] datasets: Dataset references.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] linked_services: Linked service references.
+        """
+        if datasets is not None:
+            pulumi.set(__self__, "datasets", datasets)
+        if linked_services is not None:
+            pulumi.set(__self__, "linked_services", linked_services)
+
+    @property
+    @pulumi.getter
+    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
+        """
+        Dataset references.
+        """
+        return pulumi.get(self, "datasets")
+
+    @datasets.setter
+    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
+        pulumi.set(self, "datasets", value)
+
+    @property
+    @pulumi.getter(name="linkedServices")
+    def linked_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]:
+        """
+        Linked service references.
+        """
+        return pulumi.get(self, "linked_services")
+
+    @linked_services.setter
+    def linked_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]):
+        pulumi.set(self, "linked_services", value)
 
 
 @pulumi.input_type
@@ -5545,6 +8146,355 @@ class CustomDatasetArgs:
 
 
 @pulumi.input_type
+class DataLakeAnalyticsUSQLActivityArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 script_linked_service: pulumi.Input['LinkedServiceReferenceArgs'],
+                 script_path: Any,
+                 type: pulumi.Input[str],
+                 compilation_mode: Optional[Any] = None,
+                 degree_of_parallelism: Optional[Any] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 priority: Optional[Any] = None,
+                 runtime_version: Optional[Any] = None):
+        """
+        Data Lake Analytics U-SQL activity.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] script_linked_service: Script linked service reference.
+        :param Any script_path: Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param Any compilation_mode: Compilation mode of U-SQL. Must be one of these values : Semantic, Full and SingleBox. Type: string (or Expression with resultType string).
+        :param Any degree_of_parallelism: The maximum number of nodes simultaneously used to run the job. Default value is 1. Type: integer (or Expression with resultType integer), minimum: 1.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input[Mapping[str, Any]] parameters: Parameters for U-SQL job request.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param Any priority: Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. Default value is 1000. Type: integer (or Expression with resultType integer), minimum: 1.
+        :param Any runtime_version: Runtime version of the U-SQL engine to use. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "script_linked_service", script_linked_service)
+        pulumi.set(__self__, "script_path", script_path)
+        pulumi.set(__self__, "type", 'Execution')
+        if compilation_mode is not None:
+            pulumi.set(__self__, "compilation_mode", compilation_mode)
+        if degree_of_parallelism is not None:
+            pulumi.set(__self__, "degree_of_parallelism", degree_of_parallelism)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="scriptLinkedService")
+    def script_linked_service(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        Script linked service reference.
+        """
+        return pulumi.get(self, "script_linked_service")
+
+    @script_linked_service.setter
+    def script_linked_service(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "script_linked_service", value)
+
+    @property
+    @pulumi.getter(name="scriptPath")
+    def script_path(self) -> Any:
+        """
+        Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "script_path")
+
+    @script_path.setter
+    def script_path(self, value: Any):
+        pulumi.set(self, "script_path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="compilationMode")
+    def compilation_mode(self) -> Optional[Any]:
+        """
+        Compilation mode of U-SQL. Must be one of these values : Semantic, Full and SingleBox. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "compilation_mode")
+
+    @compilation_mode.setter
+    def compilation_mode(self, value: Optional[Any]):
+        pulumi.set(self, "compilation_mode", value)
+
+    @property
+    @pulumi.getter(name="degreeOfParallelism")
+    def degree_of_parallelism(self) -> Optional[Any]:
+        """
+        The maximum number of nodes simultaneously used to run the job. Default value is 1. Type: integer (or Expression with resultType integer), minimum: 1.
+        """
+        return pulumi.get(self, "degree_of_parallelism")
+
+    @degree_of_parallelism.setter
+    def degree_of_parallelism(self, value: Optional[Any]):
+        pulumi.set(self, "degree_of_parallelism", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Parameters for U-SQL job request.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[Any]:
+        """
+        Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. Default value is 1000. Type: integer (or Expression with resultType integer), minimum: 1.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[Any]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[Any]:
+        """
+        Runtime version of the U-SQL engine to use. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[Any]):
+        pulumi.set(self, "runtime_version", value)
+
+
+@pulumi.input_type
+class DatabricksNotebookActivityArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 notebook_path: Any,
+                 type: pulumi.Input[str],
+                 base_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None):
+        """
+        DatabricksNotebook activity.
+        :param pulumi.Input[str] name: Activity name.
+        :param Any notebook_path: The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Mapping[str, Any]] base_parameters: Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "notebook_path", notebook_path)
+        pulumi.set(__self__, "type", 'Execution')
+        if base_parameters is not None:
+            pulumi.set(__self__, "base_parameters", base_parameters)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="notebookPath")
+    def notebook_path(self) -> Any:
+        """
+        The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "notebook_path")
+
+    @notebook_path.setter
+    def notebook_path(self, value: Any):
+        pulumi.set(self, "notebook_path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="baseParameters")
+    def base_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
+        """
+        return pulumi.get(self, "base_parameters")
+
+    @base_parameters.setter
+    def base_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "base_parameters", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+
+@pulumi.input_type
 class DatasetBZip2CompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
@@ -5649,6 +8599,60 @@ class DatasetGZipCompressionArgs:
     @level.setter
     def level(self, value: Optional[pulumi.Input[Union[str, 'DatasetCompressionLevel']]]):
         pulumi.set(self, "level", value)
+
+
+@pulumi.input_type
+class DatasetReferenceArgs:
+    def __init__(__self__, *,
+                 reference_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        Dataset reference type.
+        :param pulumi.Input[str] reference_name: Reference dataset name.
+        :param pulumi.Input[str] type: Dataset reference type.
+        :param pulumi.Input[Mapping[str, Any]] parameters: Arguments for dataset.
+        """
+        pulumi.set(__self__, "reference_name", reference_name)
+        pulumi.set(__self__, "type", type)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> pulumi.Input[str]:
+        """
+        Reference dataset name.
+        """
+        return pulumi.get(self, "reference_name")
+
+    @reference_name.setter
+    def reference_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "reference_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Dataset reference type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Arguments for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
@@ -5876,6 +8880,60 @@ class Db2LinkedServiceArgs:
 
 
 @pulumi.input_type
+class DistcpSettingsArgs:
+    def __init__(__self__, *,
+                 resource_manager_endpoint: Any,
+                 temp_script_path: Any,
+                 distcp_options: Optional[Any] = None):
+        """
+        Distcp settings.
+        :param Any resource_manager_endpoint: Specifies the Yarn ResourceManager endpoint. Type: string (or Expression with resultType string).
+        :param Any temp_script_path: Specifies an existing folder path which will be used to store temp Distcp command script. The script file is generated by ADF and will be removed after Copy job finished. Type: string (or Expression with resultType string).
+        :param Any distcp_options: Specifies the Distcp options. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "resource_manager_endpoint", resource_manager_endpoint)
+        pulumi.set(__self__, "temp_script_path", temp_script_path)
+        if distcp_options is not None:
+            pulumi.set(__self__, "distcp_options", distcp_options)
+
+    @property
+    @pulumi.getter(name="resourceManagerEndpoint")
+    def resource_manager_endpoint(self) -> Any:
+        """
+        Specifies the Yarn ResourceManager endpoint. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "resource_manager_endpoint")
+
+    @resource_manager_endpoint.setter
+    def resource_manager_endpoint(self, value: Any):
+        pulumi.set(self, "resource_manager_endpoint", value)
+
+    @property
+    @pulumi.getter(name="tempScriptPath")
+    def temp_script_path(self) -> Any:
+        """
+        Specifies an existing folder path which will be used to store temp Distcp command script. The script file is generated by ADF and will be removed after Copy job finished. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "temp_script_path")
+
+    @temp_script_path.setter
+    def temp_script_path(self, value: Any):
+        pulumi.set(self, "temp_script_path", value)
+
+    @property
+    @pulumi.getter(name="distcpOptions")
+    def distcp_options(self) -> Optional[Any]:
+        """
+        Specifies the Distcp options. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "distcp_options")
+
+    @distcp_options.setter
+    def distcp_options(self, value: Optional[Any]):
+        pulumi.set(self, "distcp_options", value)
+
+
+@pulumi.input_type
 class DocumentDbCollectionDatasetArgs:
     def __init__(__self__, *,
                  collection_name: Any,
@@ -5992,6 +9050,200 @@ class DocumentDbCollectionDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class DocumentDbCollectionSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 nesting_separator: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity Document Database Collection sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'DocumentDbCollectionSink'.
+        :param Any nesting_separator: Nested properties separator. Default is . (dot). Type: string (or Expression with resultType string).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'DocumentDbCollectionSink')
+        if nesting_separator is not None:
+            pulumi.set(__self__, "nesting_separator", nesting_separator)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'DocumentDbCollectionSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="nestingSeparator")
+    def nesting_separator(self) -> Optional[Any]:
+        """
+        Nested properties separator. Default is . (dot). Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "nesting_separator")
+
+    @nesting_separator.setter
+    def nesting_separator(self, value: Optional[Any]):
+        pulumi.set(self, "nesting_separator", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
+class DocumentDbCollectionSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 nesting_separator: Optional[Any] = None,
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Document Database Collection source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'DocumentDbCollectionSource'.
+        :param Any nesting_separator: Nested properties separator. Type: string (or Expression with resultType string).
+        :param Any query: Documents query. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'DocumentDbCollectionSource')
+        if nesting_separator is not None:
+            pulumi.set(__self__, "nesting_separator", nesting_separator)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'DocumentDbCollectionSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="nestingSeparator")
+    def nesting_separator(self) -> Optional[Any]:
+        """
+        Nested properties separator. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "nesting_separator")
+
+    @nesting_separator.setter
+    def nesting_separator(self, value: Optional[Any]):
+        pulumi.set(self, "nesting_separator", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        Documents query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -6113,6 +9365,79 @@ class DrillLinkedServiceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class DrillSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Drill server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'DrillSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'DrillSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'DrillSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -6570,6 +9895,199 @@ class DynamicsLinkedServiceArgs:
 
 
 @pulumi.input_type
+class DynamicsSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 write_behavior: pulumi.Input[Union[str, 'DynamicsSinkWriteBehavior']],
+                 ignore_null_values: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity Dynamics sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'DynamicsSink'.
+        :param pulumi.Input[Union[str, 'DynamicsSinkWriteBehavior']] write_behavior: The write behavior for the operation.
+        :param Any ignore_null_values: The flag indicating whether ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'DynamicsSink')
+        pulumi.set(__self__, "write_behavior", write_behavior)
+        if ignore_null_values is not None:
+            pulumi.set(__self__, "ignore_null_values", ignore_null_values)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'DynamicsSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> pulumi.Input[Union[str, 'DynamicsSinkWriteBehavior']]:
+        """
+        The write behavior for the operation.
+        """
+        return pulumi.get(self, "write_behavior")
+
+    @write_behavior.setter
+    def write_behavior(self, value: pulumi.Input[Union[str, 'DynamicsSinkWriteBehavior']]):
+        pulumi.set(self, "write_behavior", value)
+
+    @property
+    @pulumi.getter(name="ignoreNullValues")
+    def ignore_null_values(self) -> Optional[Any]:
+        """
+        The flag indicating whether ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "ignore_null_values")
+
+    @ignore_null_values.setter
+    def ignore_null_values(self, value: Optional[Any]):
+        pulumi.set(self, "ignore_null_values", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
+class DynamicsSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Dynamics source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'DynamicsSource'.
+        :param Any query: FetchXML is a proprietary query language that is used in Microsoft Dynamics (online & on-premises). Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'DynamicsSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'DynamicsSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        FetchXML is a proprietary query language that is used in Microsoft Dynamics (online & on-premises). Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class EloquaLinkedServiceArgs:
     def __init__(__self__, *,
                  endpoint: Any,
@@ -6873,6 +10391,79 @@ class EloquaObjectDatasetArgs:
 
 
 @pulumi.input_type
+class EloquaSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Eloqua server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'EloquaSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'EloquaSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'EloquaSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class EntityReferenceArgs:
     def __init__(__self__, *,
                  reference_name: Optional[pulumi.Input[str]] = None,
@@ -6910,6 +10501,419 @@ class EntityReferenceArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ExecutePipelineActivityArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 pipeline: pulumi.Input['PipelineReferenceArgs'],
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 wait_on_completion: Optional[pulumi.Input[bool]] = None):
+        """
+        Execute pipeline activity.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input['PipelineReferenceArgs'] pipeline: Pipeline reference.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Container'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input[Mapping[str, Any]] parameters: Pipeline parameters.
+        :param pulumi.Input[bool] wait_on_completion: Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pipeline", pipeline)
+        pulumi.set(__self__, "type", 'Container')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if wait_on_completion is not None:
+            pulumi.set(__self__, "wait_on_completion", wait_on_completion)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def pipeline(self) -> pulumi.Input['PipelineReferenceArgs']:
+        """
+        Pipeline reference.
+        """
+        return pulumi.get(self, "pipeline")
+
+    @pipeline.setter
+    def pipeline(self, value: pulumi.Input['PipelineReferenceArgs']):
+        pulumi.set(self, "pipeline", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Container'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Pipeline parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="waitOnCompletion")
+    def wait_on_completion(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
+        """
+        return pulumi.get(self, "wait_on_completion")
+
+    @wait_on_completion.setter
+    def wait_on_completion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "wait_on_completion", value)
+
+
+@pulumi.input_type
+class ExecuteSSISPackageActivityArgs:
+    def __init__(__self__, *,
+                 connect_via: pulumi.Input['IntegrationRuntimeReferenceArgs'],
+                 name: pulumi.Input[str],
+                 package_location: pulumi.Input['SSISPackageLocationArgs'],
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 environment_path: Optional[Any] = None,
+                 execution_credential: Optional[pulumi.Input['SSISExecutionCredentialArgs']] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 log_location: Optional[pulumi.Input['SSISLogLocationArgs']] = None,
+                 logging_level: Optional[Any] = None,
+                 package_connection_managers: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]]] = None,
+                 package_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 project_connection_managers: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]]] = None,
+                 project_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]] = None,
+                 property_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input['SSISPropertyOverrideArgs']]]] = None,
+                 runtime: Optional[Any] = None):
+        """
+        Execute SSIS package activity.
+        :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input['SSISPackageLocationArgs'] package_location: SSIS package location.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param Any environment_path: The environment path to execute the SSIS package. Type: string (or Expression with resultType string).
+        :param pulumi.Input['SSISExecutionCredentialArgs'] execution_credential: The package execution credential.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['SSISLogLocationArgs'] log_location: SSIS package execution log location.
+        :param Any logging_level: The logging level of SSIS package execution. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]] package_connection_managers: The package level connection managers to execute the SSIS package.
+        :param pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]] package_parameters: The package level parameters to execute the SSIS package.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]] project_connection_managers: The project level connection managers to execute the SSIS package.
+        :param pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]] project_parameters: The project level parameters to execute the SSIS package.
+        :param pulumi.Input[Mapping[str, pulumi.Input['SSISPropertyOverrideArgs']]] property_overrides: The property overrides to execute the SSIS package.
+        :param Any runtime: Specifies the runtime to execute SSIS package. The value should be "x86" or "x64". Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "connect_via", connect_via)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "package_location", package_location)
+        pulumi.set(__self__, "type", 'Execution')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if environment_path is not None:
+            pulumi.set(__self__, "environment_path", environment_path)
+        if execution_credential is not None:
+            pulumi.set(__self__, "execution_credential", execution_credential)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if log_location is not None:
+            pulumi.set(__self__, "log_location", log_location)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if package_connection_managers is not None:
+            pulumi.set(__self__, "package_connection_managers", package_connection_managers)
+        if package_parameters is not None:
+            pulumi.set(__self__, "package_parameters", package_parameters)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if project_connection_managers is not None:
+            pulumi.set(__self__, "project_connection_managers", project_connection_managers)
+        if project_parameters is not None:
+            pulumi.set(__self__, "project_parameters", project_parameters)
+        if property_overrides is not None:
+            pulumi.set(__self__, "property_overrides", property_overrides)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> pulumi.Input['IntegrationRuntimeReferenceArgs']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @connect_via.setter
+    def connect_via(self, value: pulumi.Input['IntegrationRuntimeReferenceArgs']):
+        pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="packageLocation")
+    def package_location(self) -> pulumi.Input['SSISPackageLocationArgs']:
+        """
+        SSIS package location.
+        """
+        return pulumi.get(self, "package_location")
+
+    @package_location.setter
+    def package_location(self, value: pulumi.Input['SSISPackageLocationArgs']):
+        pulumi.set(self, "package_location", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="environmentPath")
+    def environment_path(self) -> Optional[Any]:
+        """
+        The environment path to execute the SSIS package. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "environment_path")
+
+    @environment_path.setter
+    def environment_path(self, value: Optional[Any]):
+        pulumi.set(self, "environment_path", value)
+
+    @property
+    @pulumi.getter(name="executionCredential")
+    def execution_credential(self) -> Optional[pulumi.Input['SSISExecutionCredentialArgs']]:
+        """
+        The package execution credential.
+        """
+        return pulumi.get(self, "execution_credential")
+
+    @execution_credential.setter
+    def execution_credential(self, value: Optional[pulumi.Input['SSISExecutionCredentialArgs']]):
+        pulumi.set(self, "execution_credential", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="logLocation")
+    def log_location(self) -> Optional[pulumi.Input['SSISLogLocationArgs']]:
+        """
+        SSIS package execution log location.
+        """
+        return pulumi.get(self, "log_location")
+
+    @log_location.setter
+    def log_location(self, value: Optional[pulumi.Input['SSISLogLocationArgs']]):
+        pulumi.set(self, "log_location", value)
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[Any]:
+        """
+        The logging level of SSIS package execution. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "logging_level")
+
+    @logging_level.setter
+    def logging_level(self, value: Optional[Any]):
+        pulumi.set(self, "logging_level", value)
+
+    @property
+    @pulumi.getter(name="packageConnectionManagers")
+    def package_connection_managers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]]]:
+        """
+        The package level connection managers to execute the SSIS package.
+        """
+        return pulumi.get(self, "package_connection_managers")
+
+    @package_connection_managers.setter
+    def package_connection_managers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]]]):
+        pulumi.set(self, "package_connection_managers", value)
+
+    @property
+    @pulumi.getter(name="packageParameters")
+    def package_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]:
+        """
+        The package level parameters to execute the SSIS package.
+        """
+        return pulumi.get(self, "package_parameters")
+
+    @package_parameters.setter
+    def package_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]):
+        pulumi.set(self, "package_parameters", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="projectConnectionManagers")
+    def project_connection_managers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]]]:
+        """
+        The project level connection managers to execute the SSIS package.
+        """
+        return pulumi.get(self, "project_connection_managers")
+
+    @project_connection_managers.setter
+    def project_connection_managers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]]]):
+        pulumi.set(self, "project_connection_managers", value)
+
+    @property
+    @pulumi.getter(name="projectParameters")
+    def project_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]:
+        """
+        The project level parameters to execute the SSIS package.
+        """
+        return pulumi.get(self, "project_parameters")
+
+    @project_parameters.setter
+    def project_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['SSISExecutionParameterArgs']]]]):
+        pulumi.set(self, "project_parameters", value)
+
+    @property
+    @pulumi.getter(name="propertyOverrides")
+    def property_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['SSISPropertyOverrideArgs']]]]:
+        """
+        The property overrides to execute the SSIS package.
+        """
+        return pulumi.get(self, "property_overrides")
+
+    @property_overrides.setter
+    def property_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['SSISPropertyOverrideArgs']]]]):
+        pulumi.set(self, "property_overrides", value)
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[Any]:
+        """
+        Specifies the runtime to execute SSIS package. The value should be "x86" or "x64". Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[Any]):
+        pulumi.set(self, "runtime", value)
 
 
 @pulumi.input_type
@@ -7014,6 +11018,44 @@ class ExecutionActivityArgs:
     @policy.setter
     def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
         pulumi.set(self, "policy", value)
+
+
+@pulumi.input_type
+class ExpressionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Azure Data Factory expression definition.
+        :param pulumi.Input[str] type: Expression type.
+        :param pulumi.Input[str] value: Expression value.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Expression type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Expression value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -7496,6 +11538,420 @@ class FileShareDatasetArgs:
 
 
 @pulumi.input_type
+class FileSystemSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 copy_behavior: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity file system sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'FileSystemSink'.
+        :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'FileSystemSink')
+        if copy_behavior is not None:
+            pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'FileSystemSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="copyBehavior")
+    def copy_behavior(self) -> Optional[Any]:
+        """
+        The type of copy behavior for copy sink.
+        """
+        return pulumi.get(self, "copy_behavior")
+
+    @copy_behavior.setter
+    def copy_behavior(self, value: Optional[Any]):
+        pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
+class FileSystemSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 recursive: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity file system source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'FileSystemSource'.
+        :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'FileSystemSource')
+        if recursive is not None:
+            pulumi.set(__self__, "recursive", recursive)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'FileSystemSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def recursive(self) -> Optional[Any]:
+        """
+        If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "recursive")
+
+    @recursive.setter
+    def recursive(self, value: Optional[Any]):
+        pulumi.set(self, "recursive", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
+class FilterActivityArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input['ExpressionArgs'],
+                 items: pulumi.Input['ExpressionArgs'],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        Filter and return results from input array based on the conditions.
+        :param pulumi.Input['ExpressionArgs'] condition: Condition to be used for filtering the input.
+        :param pulumi.Input['ExpressionArgs'] items: Input array on which filter should be applied.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Container'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "items", items)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Container')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input['ExpressionArgs']:
+        """
+        Condition to be used for filtering the input.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input['ExpressionArgs']):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter
+    def items(self) -> pulumi.Input['ExpressionArgs']:
+        """
+        Input array on which filter should be applied.
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: pulumi.Input['ExpressionArgs']):
+        pulumi.set(self, "items", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Container'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class ForEachActivityArgs:
+    def __init__(__self__, *,
+                 activities: pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]],
+                 items: pulumi.Input['ExpressionArgs'],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_sequential: Optional[pulumi.Input[bool]] = None):
+        """
+        This activity is used for iterating over a collection and execute given activities.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]] activities: List of activities to execute .
+        :param pulumi.Input['ExpressionArgs'] items: Collection to iterate.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Container'.
+        :param pulumi.Input[int] batch_count: Batch count to be used for controlling the number of parallel execution (when isSequential is set to false).
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input[bool] is_sequential: Should the loop be executed in sequence or in parallel (max 50)
+        """
+        pulumi.set(__self__, "activities", activities)
+        pulumi.set(__self__, "items", items)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Container')
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_sequential is not None:
+            pulumi.set(__self__, "is_sequential", is_sequential)
+
+    @property
+    @pulumi.getter
+    def activities(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]]:
+        """
+        List of activities to execute .
+        """
+        return pulumi.get(self, "activities")
+
+    @activities.setter
+    def activities(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]]):
+        pulumi.set(self, "activities", value)
+
+    @property
+    @pulumi.getter
+    def items(self) -> pulumi.Input['ExpressionArgs']:
+        """
+        Collection to iterate.
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: pulumi.Input['ExpressionArgs']):
+        pulumi.set(self, "items", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Container'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Batch count to be used for controlling the number of parallel execution (when isSequential is set to false).
+        """
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isSequential")
+    def is_sequential(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the loop be executed in sequence or in parallel (max 50)
+        """
+        return pulumi.get(self, "is_sequential")
+
+    @is_sequential.setter
+    def is_sequential(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_sequential", value)
+
+
+@pulumi.input_type
 class FtpServerLinkedServiceArgs:
     def __init__(__self__, *,
                  host: Any,
@@ -7709,6 +12165,141 @@ class FtpServerLinkedServiceArgs:
     @user_name.setter
     def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
+class GetMetadataActivityArgs:
+    def __init__(__self__, *,
+                 dataset: pulumi.Input['DatasetReferenceArgs'],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 field_list: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None):
+        """
+        Activity to get metadata of dataset
+        :param pulumi.Input['DatasetReferenceArgs'] dataset: GetMetadata activity dataset reference.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input[Sequence[Any]] field_list: Fields of metadata to get from dataset.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        """
+        pulumi.set(__self__, "dataset", dataset)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Execution')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if field_list is not None:
+            pulumi.set(__self__, "field_list", field_list)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def dataset(self) -> pulumi.Input['DatasetReferenceArgs']:
+        """
+        GetMetadata activity dataset reference.
+        """
+        return pulumi.get(self, "dataset")
+
+    @dataset.setter
+    def dataset(self, value: pulumi.Input['DatasetReferenceArgs']):
+        pulumi.set(self, "dataset", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="fieldList")
+    def field_list(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        Fields of metadata to get from dataset.
+        """
+        return pulumi.get(self, "field_list")
+
+    @field_list.setter
+    def field_list(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "field_list", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
 
 
 @pulumi.input_type
@@ -8095,6 +12686,79 @@ class GoogleBigQueryObjectDatasetArgs:
 
 
 @pulumi.input_type
+class GoogleBigQuerySourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Google BigQuery service source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'GoogleBigQuerySource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'GoogleBigQuerySource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'GoogleBigQuerySource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class GreenplumLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -8213,6 +12877,79 @@ class GreenplumLinkedServiceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class GreenplumSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Greenplum Database source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'GreenplumSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'GreenplumSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'GreenplumSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -8687,6 +13424,279 @@ class HBaseObjectDatasetArgs:
 
 
 @pulumi.input_type
+class HBaseSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity HBase server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'HBaseSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'HBaseSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'HBaseSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
+class HDInsightHiveActivityArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 arguments: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 defines: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 get_debug_info: Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 script_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 script_path: Optional[Any] = None,
+                 storage_linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None):
+        """
+        HDInsight Hive activity type.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[Any]] arguments: User specified arguments to HDInsightActivity.
+        :param pulumi.Input[Mapping[str, Any]] defines: Allows user to specify defines for Hive job request.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']] get_debug_info: Debug info option.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] script_linked_service: Script linked service reference.
+        :param Any script_path: Script path. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] storage_linked_services: Storage linked service references.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Execution')
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if defines is not None:
+            pulumi.set(__self__, "defines", defines)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if get_debug_info is not None:
+            pulumi.set(__self__, "get_debug_info", get_debug_info)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if script_linked_service is not None:
+            pulumi.set(__self__, "script_linked_service", script_linked_service)
+        if script_path is not None:
+            pulumi.set(__self__, "script_path", script_path)
+        if storage_linked_services is not None:
+            pulumi.set(__self__, "storage_linked_services", storage_linked_services)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        User specified arguments to HDInsightActivity.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter
+    def defines(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Allows user to specify defines for Hive job request.
+        """
+        return pulumi.get(self, "defines")
+
+    @defines.setter
+    def defines(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "defines", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="getDebugInfo")
+    def get_debug_info(self) -> Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]]:
+        """
+        Debug info option.
+        """
+        return pulumi.get(self, "get_debug_info")
+
+    @get_debug_info.setter
+    def get_debug_info(self, value: Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]]):
+        pulumi.set(self, "get_debug_info", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="scriptLinkedService")
+    def script_linked_service(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Script linked service reference.
+        """
+        return pulumi.get(self, "script_linked_service")
+
+    @script_linked_service.setter
+    def script_linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "script_linked_service", value)
+
+    @property
+    @pulumi.getter(name="scriptPath")
+    def script_path(self) -> Optional[Any]:
+        """
+        Script path. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "script_path")
+
+    @script_path.setter
+    def script_path(self, value: Optional[Any]):
+        pulumi.set(self, "script_path", value)
+
+    @property
+    @pulumi.getter(name="storageLinkedServices")
+    def storage_linked_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]:
+        """
+        Storage linked service references.
+        """
+        return pulumi.get(self, "storage_linked_services")
+
+    @storage_linked_services.setter
+    def storage_linked_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]):
+        pulumi.set(self, "storage_linked_services", value)
+
+
+@pulumi.input_type
 class HDInsightLinkedServiceArgs:
     def __init__(__self__, *,
                  cluster_uri: Any,
@@ -8868,6 +13878,236 @@ class HDInsightLinkedServiceArgs:
     @user_name.setter
     def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
+class HDInsightMapReduceActivityArgs:
+    def __init__(__self__, *,
+                 class_name: Any,
+                 jar_file_path: Any,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 arguments: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 defines: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 get_debug_info: Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]] = None,
+                 jar_libs: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 jar_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 storage_linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None):
+        """
+        HDInsight MapReduce activity type.
+        :param Any class_name: Class name. Type: string (or Expression with resultType string).
+        :param Any jar_file_path: Jar path. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[Any]] arguments: User specified arguments to HDInsightActivity.
+        :param pulumi.Input[Mapping[str, Any]] defines: Allows user to specify defines for the MapReduce job request.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']] get_debug_info: Debug info option.
+        :param pulumi.Input[Sequence[Any]] jar_libs: Jar libs.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] jar_linked_service: Jar linked service reference.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] storage_linked_services: Storage linked service references.
+        """
+        pulumi.set(__self__, "class_name", class_name)
+        pulumi.set(__self__, "jar_file_path", jar_file_path)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Execution')
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if defines is not None:
+            pulumi.set(__self__, "defines", defines)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if get_debug_info is not None:
+            pulumi.set(__self__, "get_debug_info", get_debug_info)
+        if jar_libs is not None:
+            pulumi.set(__self__, "jar_libs", jar_libs)
+        if jar_linked_service is not None:
+            pulumi.set(__self__, "jar_linked_service", jar_linked_service)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if storage_linked_services is not None:
+            pulumi.set(__self__, "storage_linked_services", storage_linked_services)
+
+    @property
+    @pulumi.getter(name="className")
+    def class_name(self) -> Any:
+        """
+        Class name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "class_name")
+
+    @class_name.setter
+    def class_name(self, value: Any):
+        pulumi.set(self, "class_name", value)
+
+    @property
+    @pulumi.getter(name="jarFilePath")
+    def jar_file_path(self) -> Any:
+        """
+        Jar path. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "jar_file_path")
+
+    @jar_file_path.setter
+    def jar_file_path(self, value: Any):
+        pulumi.set(self, "jar_file_path", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        User specified arguments to HDInsightActivity.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter
+    def defines(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Allows user to specify defines for the MapReduce job request.
+        """
+        return pulumi.get(self, "defines")
+
+    @defines.setter
+    def defines(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "defines", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="getDebugInfo")
+    def get_debug_info(self) -> Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]]:
+        """
+        Debug info option.
+        """
+        return pulumi.get(self, "get_debug_info")
+
+    @get_debug_info.setter
+    def get_debug_info(self, value: Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]]):
+        pulumi.set(self, "get_debug_info", value)
+
+    @property
+    @pulumi.getter(name="jarLibs")
+    def jar_libs(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        Jar libs.
+        """
+        return pulumi.get(self, "jar_libs")
+
+    @jar_libs.setter
+    def jar_libs(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "jar_libs", value)
+
+    @property
+    @pulumi.getter(name="jarLinkedService")
+    def jar_linked_service(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Jar linked service reference.
+        """
+        return pulumi.get(self, "jar_linked_service")
+
+    @jar_linked_service.setter
+    def jar_linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "jar_linked_service", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="storageLinkedServices")
+    def storage_linked_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]:
+        """
+        Storage linked service references.
+        """
+        return pulumi.get(self, "storage_linked_services")
+
+    @storage_linked_services.setter
+    def storage_linked_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]):
+        pulumi.set(self, "storage_linked_services", value)
 
 
 @pulumi.input_type
@@ -9433,6 +14673,727 @@ class HDInsightOnDemandLinkedServiceArgs:
 
 
 @pulumi.input_type
+class HDInsightPigActivityArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 arguments: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 defines: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 get_debug_info: Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 script_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 script_path: Optional[Any] = None,
+                 storage_linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None):
+        """
+        HDInsight Pig activity type.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[Any]] arguments: User specified arguments to HDInsightActivity.
+        :param pulumi.Input[Mapping[str, Any]] defines: Allows user to specify defines for Pig job request.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']] get_debug_info: Debug info option.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] script_linked_service: Script linked service reference.
+        :param Any script_path: Script path. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] storage_linked_services: Storage linked service references.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Execution')
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if defines is not None:
+            pulumi.set(__self__, "defines", defines)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if get_debug_info is not None:
+            pulumi.set(__self__, "get_debug_info", get_debug_info)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if script_linked_service is not None:
+            pulumi.set(__self__, "script_linked_service", script_linked_service)
+        if script_path is not None:
+            pulumi.set(__self__, "script_path", script_path)
+        if storage_linked_services is not None:
+            pulumi.set(__self__, "storage_linked_services", storage_linked_services)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        User specified arguments to HDInsightActivity.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter
+    def defines(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Allows user to specify defines for Pig job request.
+        """
+        return pulumi.get(self, "defines")
+
+    @defines.setter
+    def defines(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "defines", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="getDebugInfo")
+    def get_debug_info(self) -> Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]]:
+        """
+        Debug info option.
+        """
+        return pulumi.get(self, "get_debug_info")
+
+    @get_debug_info.setter
+    def get_debug_info(self, value: Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]]):
+        pulumi.set(self, "get_debug_info", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="scriptLinkedService")
+    def script_linked_service(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Script linked service reference.
+        """
+        return pulumi.get(self, "script_linked_service")
+
+    @script_linked_service.setter
+    def script_linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "script_linked_service", value)
+
+    @property
+    @pulumi.getter(name="scriptPath")
+    def script_path(self) -> Optional[Any]:
+        """
+        Script path. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "script_path")
+
+    @script_path.setter
+    def script_path(self, value: Optional[Any]):
+        pulumi.set(self, "script_path", value)
+
+    @property
+    @pulumi.getter(name="storageLinkedServices")
+    def storage_linked_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]:
+        """
+        Storage linked service references.
+        """
+        return pulumi.get(self, "storage_linked_services")
+
+    @storage_linked_services.setter
+    def storage_linked_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]):
+        pulumi.set(self, "storage_linked_services", value)
+
+
+@pulumi.input_type
+class HDInsightSparkActivityArgs:
+    def __init__(__self__, *,
+                 entry_file_path: Any,
+                 name: pulumi.Input[str],
+                 root_path: Any,
+                 type: pulumi.Input[str],
+                 arguments: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 class_name: Optional[pulumi.Input[str]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 get_debug_info: Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 proxy_user: Optional[Any] = None,
+                 spark_config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 spark_job_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None):
+        """
+        HDInsight Spark activity.
+        :param Any entry_file_path: The relative path to the root folder of the code/package to be executed. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] name: Activity name.
+        :param Any root_path: The root path in 'sparkJobLinkedService' for all the job’s files. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[Any]] arguments: The user-specified arguments to HDInsightSparkActivity.
+        :param pulumi.Input[str] class_name: The application's Java/Spark main class.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']] get_debug_info: Debug info option.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param Any proxy_user: The user to impersonate that will execute the job. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, Any]] spark_config: Spark configuration property.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] spark_job_linked_service: The storage linked service for uploading the entry file and dependencies, and for receiving logs.
+        """
+        pulumi.set(__self__, "entry_file_path", entry_file_path)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "root_path", root_path)
+        pulumi.set(__self__, "type", 'Execution')
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if class_name is not None:
+            pulumi.set(__self__, "class_name", class_name)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if get_debug_info is not None:
+            pulumi.set(__self__, "get_debug_info", get_debug_info)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if proxy_user is not None:
+            pulumi.set(__self__, "proxy_user", proxy_user)
+        if spark_config is not None:
+            pulumi.set(__self__, "spark_config", spark_config)
+        if spark_job_linked_service is not None:
+            pulumi.set(__self__, "spark_job_linked_service", spark_job_linked_service)
+
+    @property
+    @pulumi.getter(name="entryFilePath")
+    def entry_file_path(self) -> Any:
+        """
+        The relative path to the root folder of the code/package to be executed. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "entry_file_path")
+
+    @entry_file_path.setter
+    def entry_file_path(self, value: Any):
+        pulumi.set(self, "entry_file_path", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="rootPath")
+    def root_path(self) -> Any:
+        """
+        The root path in 'sparkJobLinkedService' for all the job’s files. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "root_path")
+
+    @root_path.setter
+    def root_path(self, value: Any):
+        pulumi.set(self, "root_path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        The user-specified arguments to HDInsightSparkActivity.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter(name="className")
+    def class_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application's Java/Spark main class.
+        """
+        return pulumi.get(self, "class_name")
+
+    @class_name.setter
+    def class_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "class_name", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="getDebugInfo")
+    def get_debug_info(self) -> Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]]:
+        """
+        Debug info option.
+        """
+        return pulumi.get(self, "get_debug_info")
+
+    @get_debug_info.setter
+    def get_debug_info(self, value: Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]]):
+        pulumi.set(self, "get_debug_info", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="proxyUser")
+    def proxy_user(self) -> Optional[Any]:
+        """
+        The user to impersonate that will execute the job. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "proxy_user")
+
+    @proxy_user.setter
+    def proxy_user(self, value: Optional[Any]):
+        pulumi.set(self, "proxy_user", value)
+
+    @property
+    @pulumi.getter(name="sparkConfig")
+    def spark_config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Spark configuration property.
+        """
+        return pulumi.get(self, "spark_config")
+
+    @spark_config.setter
+    def spark_config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "spark_config", value)
+
+    @property
+    @pulumi.getter(name="sparkJobLinkedService")
+    def spark_job_linked_service(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        The storage linked service for uploading the entry file and dependencies, and for receiving logs.
+        """
+        return pulumi.get(self, "spark_job_linked_service")
+
+    @spark_job_linked_service.setter
+    def spark_job_linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "spark_job_linked_service", value)
+
+
+@pulumi.input_type
+class HDInsightStreamingActivityArgs:
+    def __init__(__self__, *,
+                 file_paths: pulumi.Input[Sequence[Any]],
+                 input: Any,
+                 mapper: Any,
+                 name: pulumi.Input[str],
+                 output: Any,
+                 reducer: Any,
+                 type: pulumi.Input[str],
+                 arguments: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 combiner: Optional[Any] = None,
+                 command_environment: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 defines: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 file_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 get_debug_info: Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 storage_linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None):
+        """
+        HDInsight streaming activity type.
+        :param pulumi.Input[Sequence[Any]] file_paths: Paths to streaming job files. Can be directories.
+        :param Any input: Input blob path. Type: string (or Expression with resultType string).
+        :param Any mapper: Mapper executable name. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] name: Activity name.
+        :param Any output: Output blob path. Type: string (or Expression with resultType string).
+        :param Any reducer: Reducer executable name. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[Any]] arguments: User specified arguments to HDInsightActivity.
+        :param Any combiner: Combiner executable name. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] command_environment: Command line environment values.
+        :param pulumi.Input[Mapping[str, Any]] defines: Allows user to specify defines for streaming job request.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] file_linked_service: Linked service reference where the files are located.
+        :param pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']] get_debug_info: Debug info option.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] storage_linked_services: Storage linked service references.
+        """
+        pulumi.set(__self__, "file_paths", file_paths)
+        pulumi.set(__self__, "input", input)
+        pulumi.set(__self__, "mapper", mapper)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "output", output)
+        pulumi.set(__self__, "reducer", reducer)
+        pulumi.set(__self__, "type", 'Execution')
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if combiner is not None:
+            pulumi.set(__self__, "combiner", combiner)
+        if command_environment is not None:
+            pulumi.set(__self__, "command_environment", command_environment)
+        if defines is not None:
+            pulumi.set(__self__, "defines", defines)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if file_linked_service is not None:
+            pulumi.set(__self__, "file_linked_service", file_linked_service)
+        if get_debug_info is not None:
+            pulumi.set(__self__, "get_debug_info", get_debug_info)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if storage_linked_services is not None:
+            pulumi.set(__self__, "storage_linked_services", storage_linked_services)
+
+    @property
+    @pulumi.getter(name="filePaths")
+    def file_paths(self) -> pulumi.Input[Sequence[Any]]:
+        """
+        Paths to streaming job files. Can be directories.
+        """
+        return pulumi.get(self, "file_paths")
+
+    @file_paths.setter
+    def file_paths(self, value: pulumi.Input[Sequence[Any]]):
+        pulumi.set(self, "file_paths", value)
+
+    @property
+    @pulumi.getter
+    def input(self) -> Any:
+        """
+        Input blob path. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "input")
+
+    @input.setter
+    def input(self, value: Any):
+        pulumi.set(self, "input", value)
+
+    @property
+    @pulumi.getter
+    def mapper(self) -> Any:
+        """
+        Mapper executable name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "mapper")
+
+    @mapper.setter
+    def mapper(self, value: Any):
+        pulumi.set(self, "mapper", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def output(self) -> Any:
+        """
+        Output blob path. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: Any):
+        pulumi.set(self, "output", value)
+
+    @property
+    @pulumi.getter
+    def reducer(self) -> Any:
+        """
+        Reducer executable name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "reducer")
+
+    @reducer.setter
+    def reducer(self, value: Any):
+        pulumi.set(self, "reducer", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        User specified arguments to HDInsightActivity.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter
+    def combiner(self) -> Optional[Any]:
+        """
+        Combiner executable name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "combiner")
+
+    @combiner.setter
+    def combiner(self, value: Optional[Any]):
+        pulumi.set(self, "combiner", value)
+
+    @property
+    @pulumi.getter(name="commandEnvironment")
+    def command_environment(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        Command line environment values.
+        """
+        return pulumi.get(self, "command_environment")
+
+    @command_environment.setter
+    def command_environment(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "command_environment", value)
+
+    @property
+    @pulumi.getter
+    def defines(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Allows user to specify defines for streaming job request.
+        """
+        return pulumi.get(self, "defines")
+
+    @defines.setter
+    def defines(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "defines", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="fileLinkedService")
+    def file_linked_service(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference where the files are located.
+        """
+        return pulumi.get(self, "file_linked_service")
+
+    @file_linked_service.setter
+    def file_linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "file_linked_service", value)
+
+    @property
+    @pulumi.getter(name="getDebugInfo")
+    def get_debug_info(self) -> Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]]:
+        """
+        Debug info option.
+        """
+        return pulumi.get(self, "get_debug_info")
+
+    @get_debug_info.setter
+    def get_debug_info(self, value: Optional[pulumi.Input[Union[str, 'HDInsightActivityDebugInfoOption']]]):
+        pulumi.set(self, "get_debug_info", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="storageLinkedServices")
+    def storage_linked_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]:
+        """
+        Storage linked service references.
+        """
+        return pulumi.get(self, "storage_linked_services")
+
+    @storage_linked_services.setter
+    def storage_linked_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]):
+        pulumi.set(self, "storage_linked_services", value)
+
+
+@pulumi.input_type
 class HdfsLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -9598,6 +15559,95 @@ class HdfsLinkedServiceArgs:
     @user_name.setter
     def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
+class HdfsSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 distcp_settings: Optional[pulumi.Input['DistcpSettingsArgs']] = None,
+                 recursive: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity HDFS source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'HdfsSource'.
+        :param pulumi.Input['DistcpSettingsArgs'] distcp_settings: Specifies Distcp-related settings.
+        :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'HdfsSource')
+        if distcp_settings is not None:
+            pulumi.set(__self__, "distcp_settings", distcp_settings)
+        if recursive is not None:
+            pulumi.set(__self__, "recursive", recursive)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'HdfsSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="distcpSettings")
+    def distcp_settings(self) -> Optional[pulumi.Input['DistcpSettingsArgs']]:
+        """
+        Specifies Distcp-related settings.
+        """
+        return pulumi.get(self, "distcp_settings")
+
+    @distcp_settings.setter
+    def distcp_settings(self, value: Optional[pulumi.Input['DistcpSettingsArgs']]):
+        pulumi.set(self, "distcp_settings", value)
+
+    @property
+    @pulumi.getter
+    def recursive(self) -> Optional[Any]:
+        """
+        If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "recursive")
+
+    @recursive.setter
+    def recursive(self, value: Optional[Any]):
+        pulumi.set(self, "recursive", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -10064,6 +16114,79 @@ class HiveObjectDatasetArgs:
 
 
 @pulumi.input_type
+class HiveSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Hive Server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'HiveSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'HiveSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'HiveSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class HttpDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
@@ -10484,6 +16607,79 @@ class HttpLinkedServiceArgs:
 
 
 @pulumi.input_type
+class HttpSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 http_request_timeout: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity source for an HTTP file.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'HttpSource'.
+        :param Any http_request_timeout: Specifies the timeout for a HTTP client to get HTTP response from HTTP server. The default value is equivalent to System.Net.HttpWebRequest.Timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'HttpSource')
+        if http_request_timeout is not None:
+            pulumi.set(__self__, "http_request_timeout", http_request_timeout)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'HttpSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="httpRequestTimeout")
+    def http_request_timeout(self) -> Optional[Any]:
+        """
+        Specifies the timeout for a HTTP client to get HTTP response from HTTP server. The default value is equivalent to System.Net.HttpWebRequest.Timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "http_request_timeout")
+
+    @http_request_timeout.setter
+    def http_request_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "http_request_timeout", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class HubspotLinkedServiceArgs:
     def __init__(__self__, *,
                  client_id: Any,
@@ -10801,6 +16997,198 @@ class HubspotObjectDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class HubspotSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Hubspot Service source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'HubspotSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'HubspotSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'HubspotSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
+class IfConditionActivityArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input['ExpressionArgs'],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 if_false_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]]] = None,
+                 if_true_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]]] = None):
+        """
+        This activity evaluates a boolean expression and executes either the activities under the ifTrueActivities property or the ifFalseActivities property depending on the result of the expression.
+        :param pulumi.Input['ExpressionArgs'] expression: An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Container'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Container')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if if_false_activities is not None:
+            pulumi.set(__self__, "if_false_activities", if_false_activities)
+        if if_true_activities is not None:
+            pulumi.set(__self__, "if_true_activities", if_true_activities)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input['ExpressionArgs']:
+        """
+        An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input['ExpressionArgs']):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Container'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ifFalseActivities")
+    def if_false_activities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]]]:
+        """
+        List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
+        """
+        return pulumi.get(self, "if_false_activities")
+
+    @if_false_activities.setter
+    def if_false_activities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]]]):
+        pulumi.set(self, "if_false_activities", value)
+
+    @property
+    @pulumi.getter(name="ifTrueActivities")
+    def if_true_activities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]]]:
+        """
+        List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
+        """
+        return pulumi.get(self, "if_true_activities")
+
+    @if_true_activities.setter
+    def if_true_activities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]]]):
+        pulumi.set(self, "if_true_activities", value)
 
 
 @pulumi.input_type
@@ -11168,6 +17556,79 @@ class ImpalaObjectDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class ImpalaSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Impala server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'ImpalaSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'ImpalaSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'ImpalaSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -11928,6 +18389,79 @@ class JiraObjectDatasetArgs:
 
 
 @pulumi.input_type
+class JiraSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Jira Service source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'JiraSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'JiraSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'JiraSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class JsonFormatArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -12196,6 +18730,156 @@ class LinkedServiceReferenceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class LookupActivityArgs:
+    def __init__(__self__, *,
+                 dataset: pulumi.Input['DatasetReferenceArgs'],
+                 name: pulumi.Input[str],
+                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRedshiftSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureTableSourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'ConcurSourceArgs', 'CouchbaseSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'FileSystemSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'JiraSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MongoDbSourceArgs', 'NetezzaSourceArgs', 'OracleSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'ServiceNowSourceArgs', 'ShopifySourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'ZohoSourceArgs']],
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 first_row_only: Optional[Any] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None):
+        """
+        Lookup activity.
+        :param pulumi.Input['DatasetReferenceArgs'] dataset: Lookup activity dataset reference.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRedshiftSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureTableSourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'ConcurSourceArgs', 'CouchbaseSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'FileSystemSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'JiraSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MongoDbSourceArgs', 'NetezzaSourceArgs', 'OracleSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'ServiceNowSourceArgs', 'ShopifySourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'ZohoSourceArgs']] source: Dataset-specific source properties, same as copy activity source.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param Any first_row_only: Whether to return first row or all rows. Default value is true. Type: boolean (or Expression with resultType boolean).
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        """
+        pulumi.set(__self__, "dataset", dataset)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "type", 'Execution')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if first_row_only is not None:
+            pulumi.set(__self__, "first_row_only", first_row_only)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def dataset(self) -> pulumi.Input['DatasetReferenceArgs']:
+        """
+        Lookup activity dataset reference.
+        """
+        return pulumi.get(self, "dataset")
+
+    @dataset.setter
+    def dataset(self, value: pulumi.Input['DatasetReferenceArgs']):
+        pulumi.set(self, "dataset", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRedshiftSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureTableSourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'ConcurSourceArgs', 'CouchbaseSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'FileSystemSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'JiraSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MongoDbSourceArgs', 'NetezzaSourceArgs', 'OracleSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'ServiceNowSourceArgs', 'ShopifySourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'ZohoSourceArgs']]:
+        """
+        Dataset-specific source properties, same as copy activity source.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRedshiftSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureTableSourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'ConcurSourceArgs', 'CouchbaseSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'FileSystemSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'JiraSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MongoDbSourceArgs', 'NetezzaSourceArgs', 'OracleSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'ServiceNowSourceArgs', 'ShopifySourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'ZohoSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="firstRowOnly")
+    def first_row_only(self) -> Optional[Any]:
+        """
+        Whether to return first row or all rows. Default value is true. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "first_row_only")
+
+    @first_row_only.setter
+    def first_row_only(self, value: Optional[Any]):
+        pulumi.set(self, "first_row_only", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
 
 
 @pulumi.input_type
@@ -12487,6 +19171,79 @@ class MagentoObjectDatasetArgs:
 
 
 @pulumi.input_type
+class MagentoSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Magento server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'MagentoSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'MagentoSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'MagentoSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class ManagedIntegrationRuntimeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -12678,6 +19435,79 @@ class MariaDBLinkedServiceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class MariaDBSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity MariaDB server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'MariaDBSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'MariaDBSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'MariaDBSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -13088,6 +19918,79 @@ class MarketoObjectDatasetArgs:
 
 
 @pulumi.input_type
+class MarketoSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Marketo server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'MarketoSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'MarketoSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'MarketoSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class MongoDbCollectionDatasetArgs:
     def __init__(__self__, *,
                  collection_name: Any,
@@ -13454,6 +20357,79 @@ class MongoDbLinkedServiceArgs:
 
 
 @pulumi.input_type
+class MongoDbSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity source for a MongoDB database.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'MongoDbSource'.
+        :param Any query: Database query. Should be a SQL-92 query expression. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'MongoDbSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'MongoDbSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        Database query. Should be a SQL-92 query expression. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class MultiplePipelineTriggerArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -13749,6 +20725,79 @@ class NetezzaLinkedServiceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class NetezzaSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Netezza source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'NetezzaSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'NetezzaSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'NetezzaSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -14328,6 +21377,111 @@ class OdbcLinkedServiceArgs:
 
 
 @pulumi.input_type
+class OdbcSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 pre_copy_script: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity ODBC sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'OdbcSink'.
+        :param Any pre_copy_script: A query to execute before starting the copy. Type: string (or Expression with resultType string).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'OdbcSink')
+        if pre_copy_script is not None:
+            pulumi.set(__self__, "pre_copy_script", pre_copy_script)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'OdbcSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="preCopyScript")
+    def pre_copy_script(self) -> Optional[Any]:
+        """
+        A query to execute before starting the copy. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "pre_copy_script")
+
+    @pre_copy_script.setter
+    def pre_copy_script(self, value: Optional[Any]):
+        pulumi.set(self, "pre_copy_script", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
 class OracleLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: Any,
@@ -14445,6 +21599,200 @@ class OracleLinkedServiceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class OracleSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 pre_copy_script: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity Oracle sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'OracleSink'.
+        :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'OracleSink')
+        if pre_copy_script is not None:
+            pulumi.set(__self__, "pre_copy_script", pre_copy_script)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'OracleSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="preCopyScript")
+    def pre_copy_script(self) -> Optional[Any]:
+        """
+        SQL pre-copy script. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "pre_copy_script")
+
+    @pre_copy_script.setter
+    def pre_copy_script(self, value: Optional[Any]):
+        pulumi.set(self, "pre_copy_script", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
+class OracleSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 oracle_reader_query: Optional[Any] = None,
+                 query_timeout: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Oracle source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'OracleSource'.
+        :param Any oracle_reader_query: Oracle reader query. Type: string (or Expression with resultType string).
+        :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'OracleSource')
+        if oracle_reader_query is not None:
+            pulumi.set(__self__, "oracle_reader_query", oracle_reader_query)
+        if query_timeout is not None:
+            pulumi.set(__self__, "query_timeout", query_timeout)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'OracleSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="oracleReaderQuery")
+    def oracle_reader_query(self) -> Optional[Any]:
+        """
+        Oracle reader query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "oracle_reader_query")
+
+    @oracle_reader_query.setter
+    def oracle_reader_query(self, value: Optional[Any]):
+        pulumi.set(self, "oracle_reader_query", value)
+
+    @property
+    @pulumi.getter(name="queryTimeout")
+    def query_timeout(self) -> Optional[Any]:
+        """
+        Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "query_timeout")
+
+    @query_timeout.setter
+    def query_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "query_timeout", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -15023,6 +22371,79 @@ class PaypalObjectDatasetArgs:
 
 
 @pulumi.input_type
+class PaypalSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Paypal Service source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'PaypalSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'PaypalSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'PaypalSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class PhoenixLinkedServiceArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[Union[str, 'PhoenixAuthenticationType']],
@@ -15406,6 +22827,79 @@ class PhoenixObjectDatasetArgs:
 
 
 @pulumi.input_type
+class PhoenixSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Phoenix server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'PhoenixSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'PhoenixSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'PhoenixSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class PipelineReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[str],
@@ -15457,6 +22951,78 @@ class PipelineReferenceArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class PolybaseSettingsArgs:
+    def __init__(__self__, *,
+                 reject_sample_value: Optional[Any] = None,
+                 reject_type: Optional[pulumi.Input[Union[str, 'PolybaseSettingsRejectType']]] = None,
+                 reject_value: Optional[Any] = None,
+                 use_type_default: Optional[Any] = None):
+        """
+        PolyBase settings.
+        :param Any reject_sample_value: Determines the number of rows to attempt to retrieve before the PolyBase recalculates the percentage of rejected rows. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param pulumi.Input[Union[str, 'PolybaseSettingsRejectType']] reject_type: Reject type.
+        :param Any reject_value: Specifies the value or the percentage of rows that can be rejected before the query fails. Type: number (or Expression with resultType number), minimum: 0.
+        :param Any use_type_default: Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file. Type: boolean (or Expression with resultType boolean).
+        """
+        if reject_sample_value is not None:
+            pulumi.set(__self__, "reject_sample_value", reject_sample_value)
+        if reject_type is not None:
+            pulumi.set(__self__, "reject_type", reject_type)
+        if reject_value is not None:
+            pulumi.set(__self__, "reject_value", reject_value)
+        if use_type_default is not None:
+            pulumi.set(__self__, "use_type_default", use_type_default)
+
+    @property
+    @pulumi.getter(name="rejectSampleValue")
+    def reject_sample_value(self) -> Optional[Any]:
+        """
+        Determines the number of rows to attempt to retrieve before the PolyBase recalculates the percentage of rejected rows. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "reject_sample_value")
+
+    @reject_sample_value.setter
+    def reject_sample_value(self, value: Optional[Any]):
+        pulumi.set(self, "reject_sample_value", value)
+
+    @property
+    @pulumi.getter(name="rejectType")
+    def reject_type(self) -> Optional[pulumi.Input[Union[str, 'PolybaseSettingsRejectType']]]:
+        """
+        Reject type.
+        """
+        return pulumi.get(self, "reject_type")
+
+    @reject_type.setter
+    def reject_type(self, value: Optional[pulumi.Input[Union[str, 'PolybaseSettingsRejectType']]]):
+        pulumi.set(self, "reject_type", value)
+
+    @property
+    @pulumi.getter(name="rejectValue")
+    def reject_value(self) -> Optional[Any]:
+        """
+        Specifies the value or the percentage of rows that can be rejected before the query fails. Type: number (or Expression with resultType number), minimum: 0.
+        """
+        return pulumi.get(self, "reject_value")
+
+    @reject_value.setter
+    def reject_value(self, value: Optional[Any]):
+        pulumi.set(self, "reject_value", value)
+
+    @property
+    @pulumi.getter(name="useTypeDefault")
+    def use_type_default(self) -> Optional[Any]:
+        """
+        Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "use_type_default")
+
+    @use_type_default.setter
+    def use_type_default(self, value: Optional[Any]):
+        pulumi.set(self, "use_type_default", value)
 
 
 @pulumi.input_type
@@ -15993,6 +23559,79 @@ class PrestoObjectDatasetArgs:
 
 
 @pulumi.input_type
+class PrestoSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Presto server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'PrestoSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'PrestoSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'PrestoSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class QuickBooksLinkedServiceArgs:
     def __init__(__self__, *,
                  access_token: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
@@ -16305,6 +23944,357 @@ class QuickBooksObjectDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class QuickBooksSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity QuickBooks server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'QuickBooksSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'QuickBooksSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'QuickBooksSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
+class RecurrenceScheduleArgs:
+    def __init__(__self__, *,
+                 hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 monthly_occurrences: Optional[pulumi.Input[Sequence[pulumi.Input['RecurrenceScheduleOccurrenceArgs']]]] = None,
+                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]] = None):
+        """
+        The recurrence schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] hours: The hours.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] minutes: The minutes.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] month_days: The month days.
+        :param pulumi.Input[Sequence[pulumi.Input['RecurrenceScheduleOccurrenceArgs']]] monthly_occurrences: The monthly occurrences.
+        :param pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]] week_days: The days of the week.
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if month_days is not None:
+            pulumi.set(__self__, "month_days", month_days)
+        if monthly_occurrences is not None:
+            pulumi.set(__self__, "monthly_occurrences", monthly_occurrences)
+        if week_days is not None:
+            pulumi.set(__self__, "week_days", week_days)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The hours.
+        """
+        return pulumi.get(self, "hours")
+
+    @hours.setter
+    def hours(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "hours", value)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The minutes.
+        """
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "minutes", value)
+
+    @property
+    @pulumi.getter(name="monthDays")
+    def month_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The month days.
+        """
+        return pulumi.get(self, "month_days")
+
+    @month_days.setter
+    def month_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "month_days", value)
+
+    @property
+    @pulumi.getter(name="monthlyOccurrences")
+    def monthly_occurrences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecurrenceScheduleOccurrenceArgs']]]]:
+        """
+        The monthly occurrences.
+        """
+        return pulumi.get(self, "monthly_occurrences")
+
+    @monthly_occurrences.setter
+    def monthly_occurrences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecurrenceScheduleOccurrenceArgs']]]]):
+        pulumi.set(self, "monthly_occurrences", value)
+
+    @property
+    @pulumi.getter(name="weekDays")
+    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]:
+        """
+        The days of the week.
+        """
+        return pulumi.get(self, "week_days")
+
+    @week_days.setter
+    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]):
+        pulumi.set(self, "week_days", value)
+
+
+@pulumi.input_type
+class RecurrenceScheduleOccurrenceArgs:
+    def __init__(__self__, *,
+                 day: Optional[pulumi.Input['DayOfWeek']] = None,
+                 occurrence: Optional[pulumi.Input[int]] = None):
+        """
+        The recurrence schedule occurrence.
+        :param pulumi.Input['DayOfWeek'] day: The day of the week.
+        :param pulumi.Input[int] occurrence: The occurrence.
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if occurrence is not None:
+            pulumi.set(__self__, "occurrence", occurrence)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[pulumi.Input['DayOfWeek']]:
+        """
+        The day of the week.
+        """
+        return pulumi.get(self, "day")
+
+    @day.setter
+    def day(self, value: Optional[pulumi.Input['DayOfWeek']]):
+        pulumi.set(self, "day", value)
+
+    @property
+    @pulumi.getter
+    def occurrence(self) -> Optional[pulumi.Input[int]]:
+        """
+        The occurrence.
+        """
+        return pulumi.get(self, "occurrence")
+
+    @occurrence.setter
+    def occurrence(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "occurrence", value)
+
+
+@pulumi.input_type
+class RedirectIncompatibleRowSettingsArgs:
+    def __init__(__self__, *,
+                 linked_service_name: Any,
+                 path: Optional[Any] = None):
+        """
+        Redirect incompatible row settings
+        :param Any linked_service_name: Name of the Azure Storage, Storage SAS, or Azure Data Lake Store linked service used for redirecting incompatible row. Must be specified if redirectIncompatibleRowSettings is specified. Type: string (or Expression with resultType string).
+        :param Any path: The path for storing the redirect incompatible row data. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Any:
+        """
+        Name of the Azure Storage, Storage SAS, or Azure Data Lake Store linked service used for redirecting incompatible row. Must be specified if redirectIncompatibleRowSettings is specified. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Any):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[Any]:
+        """
+        The path for storing the redirect incompatible row data. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[Any]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class RedshiftUnloadSettingsArgs:
+    def __init__(__self__, *,
+                 bucket_name: Any,
+                 s3_linked_service_name: pulumi.Input['LinkedServiceReferenceArgs']):
+        """
+        The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
+        :param Any bucket_name: The bucket of the interim Amazon S3 which will be used to store the unloaded data from Amazon Redshift source. The bucket must be in the same region as the Amazon Redshift source. Type: string (or Expression with resultType string).
+        :param pulumi.Input['LinkedServiceReferenceArgs'] s3_linked_service_name: The name of the Amazon S3 linked service which will be used for the unload operation when copying from the Amazon Redshift source.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "s3_linked_service_name", s3_linked_service_name)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Any:
+        """
+        The bucket of the interim Amazon S3 which will be used to store the unloaded data from Amazon Redshift source. The bucket must be in the same region as the Amazon Redshift source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: Any):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="s3LinkedServiceName")
+    def s3_linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        The name of the Amazon S3 linked service which will be used for the unload operation when copying from the Amazon Redshift source.
+        """
+        return pulumi.get(self, "s3_linked_service_name")
+
+    @s3_linked_service_name.setter
+    def s3_linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "s3_linked_service_name", value)
+
+
+@pulumi.input_type
+class RelationalSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity source for various relational databases.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'RelationalSource'.
+        :param Any query: Database query. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'RelationalSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'RelationalSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        Database query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -16731,6 +24721,79 @@ class ResponsysObjectDatasetArgs:
 
 
 @pulumi.input_type
+class ResponsysSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Responsys source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'ResponsysSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'ResponsysSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'ResponsysSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class RetryPolicyArgs:
     def __init__(__self__, *,
                  count: Optional[Any] = None,
@@ -16768,6 +24831,331 @@ class RetryPolicyArgs:
     @interval_in_seconds.setter
     def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval_in_seconds", value)
+
+
+@pulumi.input_type
+class SSISAccessCredentialArgs:
+    def __init__(__self__, *,
+                 domain: Any,
+                 password: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
+                 user_name: Any):
+        """
+        SSIS access credential.
+        :param Any domain: Domain for windows authentication.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for windows authentication.
+        :param Any user_name: UseName for windows authentication.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Any:
+        """
+        Domain for windows authentication.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Any):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]:
+        """
+        Password for windows authentication.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Any:
+        """
+        UseName for windows authentication.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Any):
+        pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
+class SSISExecutionCredentialArgs:
+    def __init__(__self__, *,
+                 domain: Any,
+                 password: pulumi.Input['SecureStringArgs'],
+                 user_name: Any):
+        """
+        SSIS package execution credential.
+        :param Any domain: Domain for windows authentication.
+        :param pulumi.Input['SecureStringArgs'] password: Password for windows authentication.
+        :param Any user_name: UseName for windows authentication.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Any:
+        """
+        Domain for windows authentication.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Any):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input['SecureStringArgs']:
+        """
+        Password for windows authentication.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input['SecureStringArgs']):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Any:
+        """
+        UseName for windows authentication.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Any):
+        pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
+class SSISExecutionParameterArgs:
+    def __init__(__self__, *,
+                 value: Any):
+        """
+        SSIS execution parameter.
+        :param Any value: SSIS package execution parameter value. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Any:
+        """
+        SSIS package execution parameter value. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Any):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SSISLogLocationArgs:
+    def __init__(__self__, *,
+                 log_path: Any,
+                 type: pulumi.Input[Union[str, 'SsisLogLocationType']],
+                 access_credential: Optional[pulumi.Input['SSISAccessCredentialArgs']] = None,
+                 log_refresh_interval: Optional[Any] = None):
+        """
+        SSIS package execution log location
+        :param Any log_path: The SSIS package execution log path. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'SsisLogLocationType']] type: The type of SSIS log location.
+        :param pulumi.Input['SSISAccessCredentialArgs'] access_credential: The package execution log access credential.
+        :param Any log_refresh_interval: Specifies the interval to refresh log. The default interval is 5 minutes. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "log_path", log_path)
+        pulumi.set(__self__, "type", type)
+        if access_credential is not None:
+            pulumi.set(__self__, "access_credential", access_credential)
+        if log_refresh_interval is not None:
+            pulumi.set(__self__, "log_refresh_interval", log_refresh_interval)
+
+    @property
+    @pulumi.getter(name="logPath")
+    def log_path(self) -> Any:
+        """
+        The SSIS package execution log path. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "log_path")
+
+    @log_path.setter
+    def log_path(self, value: Any):
+        pulumi.set(self, "log_path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'SsisLogLocationType']]:
+        """
+        The type of SSIS log location.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'SsisLogLocationType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="accessCredential")
+    def access_credential(self) -> Optional[pulumi.Input['SSISAccessCredentialArgs']]:
+        """
+        The package execution log access credential.
+        """
+        return pulumi.get(self, "access_credential")
+
+    @access_credential.setter
+    def access_credential(self, value: Optional[pulumi.Input['SSISAccessCredentialArgs']]):
+        pulumi.set(self, "access_credential", value)
+
+    @property
+    @pulumi.getter(name="logRefreshInterval")
+    def log_refresh_interval(self) -> Optional[Any]:
+        """
+        Specifies the interval to refresh log. The default interval is 5 minutes. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "log_refresh_interval")
+
+    @log_refresh_interval.setter
+    def log_refresh_interval(self, value: Optional[Any]):
+        pulumi.set(self, "log_refresh_interval", value)
+
+
+@pulumi.input_type
+class SSISPackageLocationArgs:
+    def __init__(__self__, *,
+                 package_path: Any,
+                 access_credential: Optional[pulumi.Input['SSISAccessCredentialArgs']] = None,
+                 configuration_path: Optional[Any] = None,
+                 package_password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'SsisPackageLocationType']]] = None):
+        """
+        SSIS package location.
+        :param Any package_path: The SSIS package path. Type: string (or Expression with resultType string).
+        :param pulumi.Input['SSISAccessCredentialArgs'] access_credential: The package access credential.
+        :param Any configuration_path: The configuration file of the package execution. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] package_password: Password of the package.
+        :param pulumi.Input[Union[str, 'SsisPackageLocationType']] type: The type of SSIS package location.
+        """
+        pulumi.set(__self__, "package_path", package_path)
+        if access_credential is not None:
+            pulumi.set(__self__, "access_credential", access_credential)
+        if configuration_path is not None:
+            pulumi.set(__self__, "configuration_path", configuration_path)
+        if package_password is not None:
+            pulumi.set(__self__, "package_password", package_password)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="packagePath")
+    def package_path(self) -> Any:
+        """
+        The SSIS package path. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "package_path")
+
+    @package_path.setter
+    def package_path(self, value: Any):
+        pulumi.set(self, "package_path", value)
+
+    @property
+    @pulumi.getter(name="accessCredential")
+    def access_credential(self) -> Optional[pulumi.Input['SSISAccessCredentialArgs']]:
+        """
+        The package access credential.
+        """
+        return pulumi.get(self, "access_credential")
+
+    @access_credential.setter
+    def access_credential(self, value: Optional[pulumi.Input['SSISAccessCredentialArgs']]):
+        pulumi.set(self, "access_credential", value)
+
+    @property
+    @pulumi.getter(name="configurationPath")
+    def configuration_path(self) -> Optional[Any]:
+        """
+        The configuration file of the package execution. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "configuration_path")
+
+    @configuration_path.setter
+    def configuration_path(self, value: Optional[Any]):
+        pulumi.set(self, "configuration_path", value)
+
+    @property
+    @pulumi.getter(name="packagePassword")
+    def package_password(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        Password of the package.
+        """
+        return pulumi.get(self, "package_password")
+
+    @package_password.setter
+    def package_password(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "package_password", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'SsisPackageLocationType']]]:
+        """
+        The type of SSIS package location.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'SsisPackageLocationType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class SSISPropertyOverrideArgs:
+    def __init__(__self__, *,
+                 value: Any,
+                 is_sensitive: Optional[pulumi.Input[bool]] = None):
+        """
+        SSIS property override.
+        :param Any value: SSIS package property override value. Type: string (or Expression with resultType string).
+        :param pulumi.Input[bool] is_sensitive: Whether SSIS package property override value is sensitive data. Value will be encrypted in SSISDB if it is true
+        """
+        pulumi.set(__self__, "value", value)
+        if is_sensitive is not None:
+            pulumi.set(__self__, "is_sensitive", is_sensitive)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Any:
+        """
+        SSIS package property override value. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Any):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="isSensitive")
+    def is_sensitive(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether SSIS package property override value is sensitive data. Value will be encrypted in SSISDB if it is true
+        """
+        return pulumi.get(self, "is_sensitive")
+
+    @is_sensitive.setter
+    def is_sensitive(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_sensitive", value)
 
 
 @pulumi.input_type
@@ -17228,6 +25616,79 @@ class SalesforceMarketingCloudObjectDatasetArgs:
 
 
 @pulumi.input_type
+class SalesforceMarketingCloudSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Salesforce Marketing Cloud source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'SalesforceMarketingCloudSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SalesforceMarketingCloudSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'SalesforceMarketingCloudSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class SalesforceObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
@@ -17345,6 +25806,232 @@ class SalesforceObjectDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class SalesforceSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 external_id_field_name: Optional[Any] = None,
+                 ignore_null_values: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[pulumi.Input[Union[str, 'SalesforceSinkWriteBehavior']]] = None):
+        """
+        A copy activity Salesforce sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'SalesforceSink'.
+        :param Any external_id_field_name: The name of the external ID field for upsert operation. Default value is 'Id' column. Type: string (or Expression with resultType string).
+        :param Any ignore_null_values: The flag indicating whether or not to ignore null values from input dataset (except key fields) during write operation. Default value is false. If set it to true, it means ADF will leave the data in the destination object unchanged when doing upsert/update operation and insert defined default value when doing insert operation, versus ADF will update the data in the destination object to NULL when doing upsert/update operation and insert NULL value when doing insert operation. Type: boolean (or Expression with resultType boolean).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param pulumi.Input[Union[str, 'SalesforceSinkWriteBehavior']] write_behavior: The write behavior for the operation. Default is Insert.
+        """
+        pulumi.set(__self__, "type", 'SalesforceSink')
+        if external_id_field_name is not None:
+            pulumi.set(__self__, "external_id_field_name", external_id_field_name)
+        if ignore_null_values is not None:
+            pulumi.set(__self__, "ignore_null_values", ignore_null_values)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'SalesforceSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="externalIdFieldName")
+    def external_id_field_name(self) -> Optional[Any]:
+        """
+        The name of the external ID field for upsert operation. Default value is 'Id' column. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "external_id_field_name")
+
+    @external_id_field_name.setter
+    def external_id_field_name(self, value: Optional[Any]):
+        pulumi.set(self, "external_id_field_name", value)
+
+    @property
+    @pulumi.getter(name="ignoreNullValues")
+    def ignore_null_values(self) -> Optional[Any]:
+        """
+        The flag indicating whether or not to ignore null values from input dataset (except key fields) during write operation. Default value is false. If set it to true, it means ADF will leave the data in the destination object unchanged when doing upsert/update operation and insert defined default value when doing insert operation, versus ADF will update the data in the destination object to NULL when doing upsert/update operation and insert NULL value when doing insert operation. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "ignore_null_values")
+
+    @ignore_null_values.setter
+    def ignore_null_values(self, value: Optional[Any]):
+        pulumi.set(self, "ignore_null_values", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[pulumi.Input[Union[str, 'SalesforceSinkWriteBehavior']]]:
+        """
+        The write behavior for the operation. Default is Insert.
+        """
+        return pulumi.get(self, "write_behavior")
+
+    @write_behavior.setter
+    def write_behavior(self, value: Optional[pulumi.Input[Union[str, 'SalesforceSinkWriteBehavior']]]):
+        pulumi.set(self, "write_behavior", value)
+
+
+@pulumi.input_type
+class SalesforceSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 read_behavior: Optional[pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']]] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Salesforce source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'SalesforceSource'.
+        :param Any query: Database query. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']] read_behavior: The read behavior for the operation. Default is Query.
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SalesforceSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if read_behavior is not None:
+            pulumi.set(__self__, "read_behavior", read_behavior)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'SalesforceSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        Database query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="readBehavior")
+    def read_behavior(self) -> Optional[pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']]]:
+        """
+        The read behavior for the operation. Default is Query.
+        """
+        return pulumi.get(self, "read_behavior")
+
+    @read_behavior.setter
+    def read_behavior(self, value: Optional[pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']]]):
+        pulumi.set(self, "read_behavior", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -17801,6 +26488,184 @@ class SapCloudForCustomerResourceDatasetArgs:
 
 
 @pulumi.input_type
+class SapCloudForCustomerSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[pulumi.Input[Union[str, 'SapCloudForCustomerSinkWriteBehavior']]] = None):
+        """
+        A copy activity SAP Cloud for Customer sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'SapCloudForCustomerSink'.
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param pulumi.Input[Union[str, 'SapCloudForCustomerSinkWriteBehavior']] write_behavior: The write behavior for the operation. Default is 'Insert'.
+        """
+        pulumi.set(__self__, "type", 'SapCloudForCustomerSink')
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'SapCloudForCustomerSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[pulumi.Input[Union[str, 'SapCloudForCustomerSinkWriteBehavior']]]:
+        """
+        The write behavior for the operation. Default is 'Insert'.
+        """
+        return pulumi.get(self, "write_behavior")
+
+    @write_behavior.setter
+    def write_behavior(self, value: Optional[pulumi.Input[Union[str, 'SapCloudForCustomerSinkWriteBehavior']]]):
+        pulumi.set(self, "write_behavior", value)
+
+
+@pulumi.input_type
+class SapCloudForCustomerSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity source for SAP Cloud for Customer source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'SapCloudForCustomerSource'.
+        :param Any query: SAP Cloud for Customer OData query. For example, "$top=1". Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SapCloudForCustomerSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'SapCloudForCustomerSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        SAP Cloud for Customer OData query. For example, "$top=1". Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class SapEccLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -18072,6 +26937,79 @@ class SapEccResourceDatasetArgs:
 
 
 @pulumi.input_type
+class SapEccSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity source for SAP ECC source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'SapEccSource'.
+        :param Any query: SAP ECC OData query. For example, "$top=1". Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SapEccSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'SapEccSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        SAP ECC OData query. For example, "$top=1". Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class SapHanaLinkedServiceArgs:
     def __init__(__self__, *,
                  server: Any,
@@ -18237,6 +27175,182 @@ class SapHanaLinkedServiceArgs:
     @user_name.setter
     def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
+class ScheduleTriggerArgs:
+    def __init__(__self__, *,
+                 recurrence: pulumi.Input['ScheduleTriggerRecurrenceArgs'],
+                 type: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]] = None):
+        """
+        Trigger that creates pipeline runs periodically, on schedule.
+        :param pulumi.Input['ScheduleTriggerRecurrenceArgs'] recurrence: Recurrence schedule configuration.
+        :param pulumi.Input[str] type: Trigger type.
+               Expected value is 'MultiplePipelineTrigger'.
+        :param pulumi.Input[str] description: Trigger description.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
+        """
+        pulumi.set(__self__, "recurrence", recurrence)
+        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if pipelines is not None:
+            pulumi.set(__self__, "pipelines", pipelines)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> pulumi.Input['ScheduleTriggerRecurrenceArgs']:
+        """
+        Recurrence schedule configuration.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: pulumi.Input['ScheduleTriggerRecurrenceArgs']):
+        pulumi.set(self, "recurrence", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Trigger type.
+        Expected value is 'MultiplePipelineTrigger'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Trigger description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]:
+        """
+        Pipelines that need to be started.
+        """
+        return pulumi.get(self, "pipelines")
+
+    @pipelines.setter
+    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]):
+        pulumi.set(self, "pipelines", value)
+
+
+@pulumi.input_type
+class ScheduleTriggerRecurrenceArgs:
+    def __init__(__self__, *,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 frequency: Optional[pulumi.Input[Union[str, 'RecurrenceFrequency']]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 schedule: Optional[pulumi.Input['RecurrenceScheduleArgs']] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        The workflow trigger recurrence.
+        :param pulumi.Input[str] end_time: The end time.
+        :param pulumi.Input[Union[str, 'RecurrenceFrequency']] frequency: The frequency.
+        :param pulumi.Input[int] interval: The interval.
+        :param pulumi.Input['RecurrenceScheduleArgs'] schedule: The recurrence schedule.
+        :param pulumi.Input[str] start_time: The start time.
+        :param pulumi.Input[str] time_zone: The time zone.
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The end time.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[pulumi.Input[Union[str, 'RecurrenceFrequency']]]:
+        """
+        The frequency.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: Optional[pulumi.Input[Union[str, 'RecurrenceFrequency']]]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['RecurrenceScheduleArgs']]:
+        """
+        The recurrence schedule.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['RecurrenceScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time zone.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
@@ -18685,6 +27799,79 @@ class ServiceNowObjectDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class ServiceNowSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity ServiceNow server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'ServiceNowSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'ServiceNowSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'ServiceNowSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -19240,6 +28427,79 @@ class ShopifyObjectDatasetArgs:
 
 
 @pulumi.input_type
+class ShopifySourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Shopify Service source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'ShopifySource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'ShopifySource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'ShopifySource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class SparkLinkedServiceArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[Union[str, 'SparkAuthenticationType']],
@@ -19654,6 +28914,321 @@ class SparkObjectDatasetArgs:
 
 
 @pulumi.input_type
+class SparkSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Spark Server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'SparkSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SparkSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'SparkSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
+class SqlDWSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 allow_poly_base: Optional[Any] = None,
+                 poly_base_settings: Optional[pulumi.Input['PolybaseSettingsArgs']] = None,
+                 pre_copy_script: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity SQL Data Warehouse sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'SqlDWSink'.
+        :param Any allow_poly_base: Indicates to use PolyBase to copy data into SQL Data Warehouse when applicable. Type: boolean (or Expression with resultType boolean).
+        :param pulumi.Input['PolybaseSettingsArgs'] poly_base_settings: Specifies PolyBase-related settings when allowPolyBase is true.
+        :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SqlDWSink')
+        if allow_poly_base is not None:
+            pulumi.set(__self__, "allow_poly_base", allow_poly_base)
+        if poly_base_settings is not None:
+            pulumi.set(__self__, "poly_base_settings", poly_base_settings)
+        if pre_copy_script is not None:
+            pulumi.set(__self__, "pre_copy_script", pre_copy_script)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'SqlDWSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="allowPolyBase")
+    def allow_poly_base(self) -> Optional[Any]:
+        """
+        Indicates to use PolyBase to copy data into SQL Data Warehouse when applicable. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "allow_poly_base")
+
+    @allow_poly_base.setter
+    def allow_poly_base(self, value: Optional[Any]):
+        pulumi.set(self, "allow_poly_base", value)
+
+    @property
+    @pulumi.getter(name="polyBaseSettings")
+    def poly_base_settings(self) -> Optional[pulumi.Input['PolybaseSettingsArgs']]:
+        """
+        Specifies PolyBase-related settings when allowPolyBase is true.
+        """
+        return pulumi.get(self, "poly_base_settings")
+
+    @poly_base_settings.setter
+    def poly_base_settings(self, value: Optional[pulumi.Input['PolybaseSettingsArgs']]):
+        pulumi.set(self, "poly_base_settings", value)
+
+    @property
+    @pulumi.getter(name="preCopyScript")
+    def pre_copy_script(self) -> Optional[Any]:
+        """
+        SQL pre-copy script. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "pre_copy_script")
+
+    @pre_copy_script.setter
+    def pre_copy_script(self, value: Optional[Any]):
+        pulumi.set(self, "pre_copy_script", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
+class SqlDWSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None,
+                 sql_reader_query: Optional[Any] = None,
+                 sql_reader_stored_procedure_name: Optional[Any] = None,
+                 stored_procedure_parameters: Optional[Any] = None):
+        """
+        A copy activity SQL Data Warehouse source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'SqlDWSource'.
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any sql_reader_query: SQL Data Warehouse reader query. Type: string (or Expression with resultType string).
+        :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Data Warehouse source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
+        :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}". Type: object (or Expression with resultType object), itemType: StoredProcedureParameter.
+        """
+        pulumi.set(__self__, "type", 'SqlDWSource')
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+        if sql_reader_query is not None:
+            pulumi.set(__self__, "sql_reader_query", sql_reader_query)
+        if sql_reader_stored_procedure_name is not None:
+            pulumi.set(__self__, "sql_reader_stored_procedure_name", sql_reader_stored_procedure_name)
+        if stored_procedure_parameters is not None:
+            pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'SqlDWSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="sqlReaderQuery")
+    def sql_reader_query(self) -> Optional[Any]:
+        """
+        SQL Data Warehouse reader query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "sql_reader_query")
+
+    @sql_reader_query.setter
+    def sql_reader_query(self, value: Optional[Any]):
+        pulumi.set(self, "sql_reader_query", value)
+
+    @property
+    @pulumi.getter(name="sqlReaderStoredProcedureName")
+    def sql_reader_stored_procedure_name(self) -> Optional[Any]:
+        """
+        Name of the stored procedure for a SQL Data Warehouse source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "sql_reader_stored_procedure_name")
+
+    @sql_reader_stored_procedure_name.setter
+    def sql_reader_stored_procedure_name(self, value: Optional[Any]):
+        pulumi.set(self, "sql_reader_stored_procedure_name", value)
+
+    @property
+    @pulumi.getter(name="storedProcedureParameters")
+    def stored_procedure_parameters(self) -> Optional[Any]:
+        """
+        Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}". Type: object (or Expression with resultType object), itemType: StoredProcedureParameter.
+        """
+        return pulumi.get(self, "stored_procedure_parameters")
+
+    @stored_procedure_parameters.setter
+    def stored_procedure_parameters(self, value: Optional[Any]):
+        pulumi.set(self, "stored_procedure_parameters", value)
+
+
+@pulumi.input_type
 class SqlServerLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: Any,
@@ -19806,6 +29381,140 @@ class SqlServerLinkedServiceArgs:
 
 
 @pulumi.input_type
+class SqlServerStoredProcedureActivityArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
+                 name: pulumi.Input[str],
+                 stored_procedure_name: Any,
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None):
+        """
+        SQL stored procedure activity type.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input[str] name: Activity name.
+        :param Any stored_procedure_name: Stored procedure name. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "stored_procedure_name", stored_procedure_name)
+        pulumi.set(__self__, "type", 'Execution')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if stored_procedure_parameters is not None:
+            pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="storedProcedureName")
+    def stored_procedure_name(self) -> Any:
+        """
+        Stored procedure name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "stored_procedure_name")
+
+    @stored_procedure_name.setter
+    def stored_procedure_name(self, value: Any):
+        pulumi.set(self, "stored_procedure_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="storedProcedureParameters")
+    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+        """
+        Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        """
+        return pulumi.get(self, "stored_procedure_parameters")
+
+    @stored_procedure_parameters.setter
+    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+        pulumi.set(self, "stored_procedure_parameters", value)
+
+
+@pulumi.input_type
 class SqlServerTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
@@ -19922,6 +29631,264 @@ class SqlServerTableDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class SqlSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 pre_copy_script: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 sql_writer_stored_procedure_name: Optional[Any] = None,
+                 sql_writer_table_type: Optional[Any] = None,
+                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity SQL sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'SqlSink'.
+        :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
+        :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: SQL stored procedure parameters.
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SqlSink')
+        if pre_copy_script is not None:
+            pulumi.set(__self__, "pre_copy_script", pre_copy_script)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if sql_writer_stored_procedure_name is not None:
+            pulumi.set(__self__, "sql_writer_stored_procedure_name", sql_writer_stored_procedure_name)
+        if sql_writer_table_type is not None:
+            pulumi.set(__self__, "sql_writer_table_type", sql_writer_table_type)
+        if stored_procedure_parameters is not None:
+            pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'SqlSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="preCopyScript")
+    def pre_copy_script(self) -> Optional[Any]:
+        """
+        SQL pre-copy script. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "pre_copy_script")
+
+    @pre_copy_script.setter
+    def pre_copy_script(self, value: Optional[Any]):
+        pulumi.set(self, "pre_copy_script", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="sqlWriterStoredProcedureName")
+    def sql_writer_stored_procedure_name(self) -> Optional[Any]:
+        """
+        SQL writer stored procedure name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "sql_writer_stored_procedure_name")
+
+    @sql_writer_stored_procedure_name.setter
+    def sql_writer_stored_procedure_name(self, value: Optional[Any]):
+        pulumi.set(self, "sql_writer_stored_procedure_name", value)
+
+    @property
+    @pulumi.getter(name="sqlWriterTableType")
+    def sql_writer_table_type(self) -> Optional[Any]:
+        """
+        SQL writer table type. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "sql_writer_table_type")
+
+    @sql_writer_table_type.setter
+    def sql_writer_table_type(self, value: Optional[Any]):
+        pulumi.set(self, "sql_writer_table_type", value)
+
+    @property
+    @pulumi.getter(name="storedProcedureParameters")
+    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+        """
+        SQL stored procedure parameters.
+        """
+        return pulumi.get(self, "stored_procedure_parameters")
+
+    @stored_procedure_parameters.setter
+    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+        pulumi.set(self, "stored_procedure_parameters", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
+class SqlSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None,
+                 sql_reader_query: Optional[Any] = None,
+                 sql_reader_stored_procedure_name: Optional[Any] = None,
+                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None):
+        """
+        A copy activity SQL source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'SqlSource'.
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
+        :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        """
+        pulumi.set(__self__, "type", 'SqlSource')
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+        if sql_reader_query is not None:
+            pulumi.set(__self__, "sql_reader_query", sql_reader_query)
+        if sql_reader_stored_procedure_name is not None:
+            pulumi.set(__self__, "sql_reader_stored_procedure_name", sql_reader_stored_procedure_name)
+        if stored_procedure_parameters is not None:
+            pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'SqlSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="sqlReaderQuery")
+    def sql_reader_query(self) -> Optional[Any]:
+        """
+        SQL reader query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "sql_reader_query")
+
+    @sql_reader_query.setter
+    def sql_reader_query(self, value: Optional[Any]):
+        pulumi.set(self, "sql_reader_query", value)
+
+    @property
+    @pulumi.getter(name="sqlReaderStoredProcedureName")
+    def sql_reader_stored_procedure_name(self) -> Optional[Any]:
+        """
+        Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "sql_reader_stored_procedure_name")
+
+    @sql_reader_stored_procedure_name.setter
+    def sql_reader_stored_procedure_name(self, value: Optional[Any]):
+        pulumi.set(self, "sql_reader_stored_procedure_name", value)
+
+    @property
+    @pulumi.getter(name="storedProcedureParameters")
+    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+        """
+        Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        """
+        return pulumi.get(self, "stored_procedure_parameters")
+
+    @stored_procedure_parameters.setter
+    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+        pulumi.set(self, "stored_procedure_parameters", value)
 
 
 @pulumi.input_type
@@ -20240,6 +30207,173 @@ class SquareObjectDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class SquareSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Square Service source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'SquareSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SquareSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'SquareSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
+class StagingSettingsArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
+                 enable_compression: Optional[Any] = None,
+                 path: Optional[Any] = None):
+        """
+        Staging settings.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Staging linked service reference.
+        :param Any enable_compression: Specifies whether to use compression when copying data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
+        :param Any path: The path to storage for storing the interim data. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if enable_compression is not None:
+            pulumi.set(__self__, "enable_compression", enable_compression)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        Staging linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="enableCompression")
+    def enable_compression(self) -> Optional[Any]:
+        """
+        Specifies whether to use compression when copying data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "enable_compression")
+
+    @enable_compression.setter
+    def enable_compression(self, value: Optional[Any]):
+        pulumi.set(self, "enable_compression", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[Any]:
+        """
+        The path to storage for storing the interim data. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[Any]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class StoredProcedureParameterArgs:
+    def __init__(__self__, *,
+                 value: Any,
+                 type: Optional[pulumi.Input[Union[str, 'StoredProcedureParameterType']]] = None):
+        """
+        SQL stored procedure parameter.
+        :param Any value: Stored procedure parameter value. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'StoredProcedureParameterType']] type: Stored procedure parameter type.
+        """
+        pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Any:
+        """
+        Stored procedure parameter value. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Any):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'StoredProcedureParameterType']]]:
+        """
+        Stored procedure parameter type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'StoredProcedureParameterType']]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -21015,6 +31149,124 @@ class TumblingWindowTriggerArgs:
 
 
 @pulumi.input_type
+class UntilActivityArgs:
+    def __init__(__self__, *,
+                 activities: pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]],
+                 expression: pulumi.Input['ExpressionArgs'],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[Any] = None):
+        """
+        This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]] activities: List of activities to execute.
+        :param pulumi.Input['ExpressionArgs'] expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Container'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param Any timeout: Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "activities", activities)
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Container')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def activities(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]]:
+        """
+        List of activities to execute.
+        """
+        return pulumi.get(self, "activities")
+
+    @activities.setter
+    def activities(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AzureMLBatchExecutionActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'UntilActivityArgs', 'WaitActivityArgs', 'WebActivityArgs']]]]):
+        pulumi.set(self, "activities", value)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input['ExpressionArgs']:
+        """
+        An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input['ExpressionArgs']):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Container'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[Any]:
+        """
+        Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[Any]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
 class VerticaLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -21136,6 +31388,79 @@ class VerticaLinkedServiceArgs:
 
 
 @pulumi.input_type
+class VerticaSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Vertica source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'VerticaSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'VerticaSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'VerticaSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class VerticaTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
@@ -21237,6 +31562,394 @@ class VerticaTableDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class WaitActivityArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 wait_time_in_seconds: pulumi.Input[int],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        This activity suspends pipeline execution for the specified interval.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Container'.
+        :param pulumi.Input[int] wait_time_in_seconds: Duration in seconds.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "wait_time_in_seconds", wait_time_in_seconds)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Container'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="waitTimeInSeconds")
+    def wait_time_in_seconds(self) -> pulumi.Input[int]:
+        """
+        Duration in seconds.
+        """
+        return pulumi.get(self, "wait_time_in_seconds")
+
+    @wait_time_in_seconds.setter
+    def wait_time_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "wait_time_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class WebActivityArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input[Union[str, 'WebActivityMethod']],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 url: Any,
+                 authentication: Optional[pulumi.Input['WebActivityAuthenticationArgs']] = None,
+                 body: Optional[Any] = None,
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[Any] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None):
+        """
+        Web activity.
+        :param pulumi.Input[Union[str, 'WebActivityMethod']] method: Rest API method for target endpoint.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Execution'.
+        :param Any url: Web activity target endpoint and path. Type: string (or Expression with resultType string).
+        :param pulumi.Input['WebActivityAuthenticationArgs'] authentication: Authentication method used for calling the endpoint.
+        :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] datasets: List of datasets passed to web endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] linked_services: List of linked services passed to web endpoint.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        """
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "url", url)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if datasets is not None:
+            pulumi.set(__self__, "datasets", datasets)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if linked_services is not None:
+            pulumi.set(__self__, "linked_services", linked_services)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[Union[str, 'WebActivityMethod']]:
+        """
+        Rest API method for target endpoint.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[Union[str, 'WebActivityMethod']]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Execution'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Any:
+        """
+        Web activity target endpoint and path. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Any):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input['WebActivityAuthenticationArgs']]:
+        """
+        Authentication method used for calling the endpoint.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input['WebActivityAuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[Any]:
+        """
+        Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: Optional[Any]):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter
+    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
+        """
+        List of datasets passed to web endpoint.
+        """
+        return pulumi.get(self, "datasets")
+
+    @datasets.setter
+    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
+        pulumi.set(self, "datasets", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Any]:
+        """
+        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[Any]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="linkedServices")
+    def linked_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]:
+        """
+        List of linked services passed to web endpoint.
+        """
+        return pulumi.get(self, "linked_services")
+
+    @linked_services.setter
+    def linked_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]):
+        pulumi.set(self, "linked_services", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+
+@pulumi.input_type
+class WebActivityAuthenticationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 password: Optional[pulumi.Input['SecureStringArgs']] = None,
+                 pfx: Optional[pulumi.Input['SecureStringArgs']] = None,
+                 resource: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Web activity authentication properties.
+        :param pulumi.Input[str] type: Web activity authentication (Basic/ClientCertificate/MSI)
+        :param pulumi.Input['SecureStringArgs'] password: Password for the PFX file or basic authentication.
+        :param pulumi.Input['SecureStringArgs'] pfx: Base64-encoded contents of a PFX file.
+        :param pulumi.Input[str] resource: Resource for which Azure Auth token will be requested when using MSI Authentication.
+        :param pulumi.Input[str] username: Web activity authentication user name for basic authentication.
+        """
+        pulumi.set(__self__, "type", type)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if pfx is not None:
+            pulumi.set(__self__, "pfx", pfx)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Web activity authentication (Basic/ClientCertificate/MSI)
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+        """
+        Password for the PFX file or basic authentication.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input['SecureStringArgs']]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def pfx(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+        """
+        Base64-encoded contents of a PFX file.
+        """
+        return pulumi.get(self, "pfx")
+
+    @pfx.setter
+    def pfx(self, value: Optional[pulumi.Input['SecureStringArgs']]):
+        pulumi.set(self, "pfx", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource for which Azure Auth token will be requested when using MSI Authentication.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Web activity authentication user name for basic authentication.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
@@ -21521,6 +32234,63 @@ class WebLinkedServiceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class WebSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity source for web page table.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'WebSource'.
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'WebSource')
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'WebSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 
 @pulumi.input_type
@@ -21965,6 +32735,79 @@ class XeroObjectDatasetArgs:
 
 
 @pulumi.input_type
+class XeroSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Xero Service source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'XeroSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'XeroSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'XeroSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
 class ZohoLinkedServiceArgs:
     def __init__(__self__, *,
                  endpoint: Any,
@@ -22250,5 +33093,78 @@ class ZohoObjectDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class ZohoSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Zoho server source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'ZohoSource'.
+        :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'ZohoSource')
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'ZohoSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        A query to retrieve data from source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
 
 

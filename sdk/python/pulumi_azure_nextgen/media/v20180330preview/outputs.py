@@ -11,6 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AacAudioResponse',
     'AkamaiAccessControlResponse',
     'AkamaiSignatureHeaderAuthenticationKeyResponse',
     'AudioAnalyzerPresetResponse',
@@ -47,23 +48,35 @@ __all__ = [
     'EnabledProtocolsResponse',
     'EnvelopeEncryptionResponse',
     'FiltersResponse',
+    'H264LayerResponse',
+    'H264VideoResponse',
     'HlsResponse',
     'IPAccessControlResponse',
     'IPRangeResponse',
     'ImageFormatResponse',
+    'ImageResponse',
     'JobErrorDetailResponse',
     'JobErrorResponse',
+    'JobInputAssetResponse',
     'JobInputClipResponse',
+    'JobInputHttpResponse',
     'JobInputsResponse',
     'JobOutputAssetResponse',
+    'JpgFormatResponse',
+    'JpgImageResponse',
+    'JpgLayerResponse',
     'LiveEventEncodingResponse',
     'LiveEventEndpointResponse',
     'LiveEventInputResponse',
     'LiveEventPreviewAccessControlResponse',
     'LiveEventPreviewResponse',
+    'Mp4FormatResponse',
     'MultiBitrateFormatResponse',
     'NoEncryptionResponse',
     'OutputFileResponse',
+    'PngFormatResponse',
+    'PngImageResponse',
+    'PngLayerResponse',
     'RectangleResponse',
     'StandardEncoderPresetResponse',
     'StorageAccountResponse',
@@ -79,9 +92,98 @@ __all__ = [
     'TrackPropertyConditionResponse',
     'TrackSelectionResponse',
     'TransformOutputResponse',
+    'TransportStreamFormatResponse',
+    'VideoAnalyzerPresetResponse',
     'VideoOverlayResponse',
     'VideoResponse',
 ]
+
+@pulumi.output_type
+class AacAudioResponse(dict):
+    """
+    Describes Advanced Audio Codec (AAC) audio encoding settings.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 bitrate: Optional[int] = None,
+                 channels: Optional[int] = None,
+                 label: Optional[str] = None,
+                 profile: Optional[str] = None,
+                 sampling_rate: Optional[int] = None):
+        """
+        Describes Advanced Audio Codec (AAC) audio encoding settings.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.Audio'.
+        :param int bitrate: The bitrate, in bits per second, of the output encoded audio.
+        :param int channels: The number of channels in the audio.
+        :param str label: An optional label for the codec. The label can be used to control muxing behavior.
+        :param str profile: The encoding profile to be used when encoding audio with AAC.
+        :param int sampling_rate: The sampling rate to use for encoding in hertz.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Audio')
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if channels is not None:
+            pulumi.set(__self__, "channels", channels)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if sampling_rate is not None:
+            pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.Audio'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[int]:
+        """
+        The bitrate, in bits per second, of the output encoded audio.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter
+    def channels(self) -> Optional[int]:
+        """
+        The number of channels in the audio.
+        """
+        return pulumi.get(self, "channels")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[str]:
+        """
+        The encoding profile to be used when encoding audio with AAC.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> Optional[int]:
+        """
+        The sampling rate to use for encoding in hertz.
+        """
+        return pulumi.get(self, "sampling_rate")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class AkamaiAccessControlResponse(dict):
@@ -2001,6 +2103,300 @@ class FiltersResponse(dict):
 
 
 @pulumi.output_type
+class H264LayerResponse(dict):
+    """
+    Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 adaptive_b_frame: Optional[bool] = None,
+                 b_frames: Optional[int] = None,
+                 bitrate: Optional[int] = None,
+                 buffer_window: Optional[str] = None,
+                 entropy_mode: Optional[str] = None,
+                 frame_rate: Optional[str] = None,
+                 height: Optional[str] = None,
+                 label: Optional[str] = None,
+                 level: Optional[str] = None,
+                 max_bitrate: Optional[int] = None,
+                 profile: Optional[str] = None,
+                 reference_frames: Optional[int] = None,
+                 slices: Optional[int] = None,
+                 width: Optional[str] = None):
+        """
+        Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.VideoLayer'.
+        :param bool adaptive_b_frame: Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+        :param int b_frames: The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        :param int bitrate: The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
+        :param str buffer_window: The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+        :param str entropy_mode: The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+        :param str frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        :param str height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+        :param str label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        :param str level: Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+        :param int max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        :param str profile: Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
+        :param int reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        :param int slices: The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+        :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoLayer')
+        if adaptive_b_frame is not None:
+            pulumi.set(__self__, "adaptive_b_frame", adaptive_b_frame)
+        if b_frames is not None:
+            pulumi.set(__self__, "b_frames", b_frames)
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if buffer_window is not None:
+            pulumi.set(__self__, "buffer_window", buffer_window)
+        if entropy_mode is not None:
+            pulumi.set(__self__, "entropy_mode", entropy_mode)
+        if frame_rate is not None:
+            pulumi.set(__self__, "frame_rate", frame_rate)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if max_bitrate is not None:
+            pulumi.set(__self__, "max_bitrate", max_bitrate)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if reference_frames is not None:
+            pulumi.set(__self__, "reference_frames", reference_frames)
+        if slices is not None:
+            pulumi.set(__self__, "slices", slices)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.VideoLayer'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="adaptiveBFrame")
+    def adaptive_b_frame(self) -> Optional[bool]:
+        """
+        Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+        """
+        return pulumi.get(self, "adaptive_b_frame")
+
+    @property
+    @pulumi.getter(name="bFrames")
+    def b_frames(self) -> Optional[int]:
+        """
+        The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        """
+        return pulumi.get(self, "b_frames")
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[int]:
+        """
+        The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="bufferWindow")
+    def buffer_window(self) -> Optional[str]:
+        """
+        The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+        """
+        return pulumi.get(self, "buffer_window")
+
+    @property
+    @pulumi.getter(name="entropyMode")
+    def entropy_mode(self) -> Optional[str]:
+        """
+        The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+        """
+        return pulumi.get(self, "entropy_mode")
+
+    @property
+    @pulumi.getter(name="frameRate")
+    def frame_rate(self) -> Optional[str]:
+        """
+        The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        """
+        return pulumi.get(self, "frame_rate")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> Optional[int]:
+        """
+        The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[str]:
+        """
+        Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="referenceFrames")
+    def reference_frames(self) -> Optional[int]:
+        """
+        The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        """
+        return pulumi.get(self, "reference_frames")
+
+    @property
+    @pulumi.getter
+    def slices(self) -> Optional[int]:
+        """
+        The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+        """
+        return pulumi.get(self, "slices")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+        """
+        return pulumi.get(self, "width")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class H264VideoResponse(dict):
+    """
+    Describes all the properties for encoding a video with the H.264 codec.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 complexity: Optional[str] = None,
+                 key_frame_interval: Optional[str] = None,
+                 label: Optional[str] = None,
+                 layers: Optional[Sequence['outputs.H264LayerResponse']] = None,
+                 scene_change_detection: Optional[bool] = None,
+                 stretch_mode: Optional[str] = None):
+        """
+        Describes all the properties for encoding a video with the H.264 codec.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.Video'.
+        :param str complexity: Tells the encoder how to choose its encoding settings. The default value is Balanced.
+        :param str key_frame_interval: The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+        :param str label: An optional label for the codec. The label can be used to control muxing behavior.
+        :param Sequence['H264LayerResponseArgs'] layers: The collection of output H.264 layers to be produced by the encoder.
+        :param bool scene_change_detection: Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+        :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Video')
+        if complexity is not None:
+            pulumi.set(__self__, "complexity", complexity)
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if layers is not None:
+            pulumi.set(__self__, "layers", layers)
+        if scene_change_detection is not None:
+            pulumi.set(__self__, "scene_change_detection", scene_change_detection)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.Video'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def complexity(self) -> Optional[str]:
+        """
+        Tells the encoder how to choose its encoding settings. The default value is Balanced.
+        """
+        return pulumi.get(self, "complexity")
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[str]:
+        """
+        The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def layers(self) -> Optional[Sequence['outputs.H264LayerResponse']]:
+        """
+        The collection of output H.264 layers to be produced by the encoder.
+        """
+        return pulumi.get(self, "layers")
+
+    @property
+    @pulumi.getter(name="sceneChangeDetection")
+    def scene_change_detection(self) -> Optional[bool]:
+        """
+        Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+        """
+        return pulumi.get(self, "scene_change_detection")
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[str]:
+        """
+        The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class HlsResponse(dict):
     """
     The HLS configuration.
@@ -2142,6 +2538,105 @@ class ImageFormatResponse(dict):
 
 
 @pulumi.output_type
+class ImageResponse(dict):
+    """
+    Describes the basic properties for generating thumbnails from the input video
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 key_frame_interval: Optional[str] = None,
+                 label: Optional[str] = None,
+                 range: Optional[str] = None,
+                 start: Optional[str] = None,
+                 step: Optional[str] = None,
+                 stretch_mode: Optional[str] = None):
+        """
+        Describes the basic properties for generating thumbnails from the input video
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.Video'.
+        :param str key_frame_interval: The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+        :param str label: An optional label for the codec. The label can be used to control muxing behavior.
+        :param str range: The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+        :param str start: The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+        :param str step: The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+        :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Video')
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+        if step is not None:
+            pulumi.set(__self__, "step", step)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.Video'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[str]:
+        """
+        The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def range(self) -> Optional[str]:
+        """
+        The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+        """
+        return pulumi.get(self, "range")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+        """
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter
+    def step(self) -> Optional[str]:
+        """
+        The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+        """
+        return pulumi.get(self, "step")
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[str]:
+        """
+        The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class JobErrorDetailResponse(dict):
     """
     Details of JobOutput errors.
@@ -2247,6 +2742,68 @@ class JobErrorResponse(dict):
 
 
 @pulumi.output_type
+class JobInputAssetResponse(dict):
+    """
+    Represents an Asset for input into a Job.
+    """
+    def __init__(__self__, *,
+                 asset_name: str,
+                 odata_type: str,
+                 files: Optional[Sequence[str]] = None,
+                 label: Optional[str] = None):
+        """
+        Represents an Asset for input into a Job.
+        :param str asset_name: The name of the input Asset.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.JobInputClip'.
+        :param Sequence[str] files: List of files. Required for JobInputHttp.
+        :param str label: A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+        """
+        pulumi.set(__self__, "asset_name", asset_name)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputClip')
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> str:
+        """
+        The name of the input Asset.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.JobInputClip'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def files(self) -> Optional[Sequence[str]]:
+        """
+        List of files. Required for JobInputHttp.
+        """
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+        """
+        return pulumi.get(self, "label")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class JobInputClipResponse(dict):
     """
     Represents input files for a Job.
@@ -2298,6 +2855,69 @@ class JobInputClipResponse(dict):
 
 
 @pulumi.output_type
+class JobInputHttpResponse(dict):
+    """
+    Represents HTTPS job input.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 base_uri: Optional[str] = None,
+                 files: Optional[Sequence[str]] = None,
+                 label: Optional[str] = None):
+        """
+        Represents HTTPS job input.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.JobInputClip'.
+        :param str base_uri: Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
+        :param Sequence[str] files: List of files. Required for JobInputHttp.
+        :param str label: A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputClip')
+        if base_uri is not None:
+            pulumi.set(__self__, "base_uri", base_uri)
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.JobInputClip'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="baseUri")
+    def base_uri(self) -> Optional[str]:
+        """
+        Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
+        """
+        return pulumi.get(self, "base_uri")
+
+    @property
+    @pulumi.getter
+    def files(self) -> Optional[Sequence[str]]:
+        """
+        List of files. Required for JobInputHttp.
+        """
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+        """
+        return pulumi.get(self, "label")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class JobInputsResponse(dict):
     """
     Describes a list of inputs to a Job.
@@ -2310,7 +2930,7 @@ class JobInputsResponse(dict):
         Describes a list of inputs to a Job.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobInputs'.
-        :param Sequence[Union['JobInputClipResponseArgs', 'JobInputsResponseArgs']] inputs: List of inputs to a Job.
+        :param Sequence[Union['JobInputAssetResponseArgs', 'JobInputClipResponseArgs', 'JobInputHttpResponseArgs', 'JobInputsResponseArgs']] inputs: List of inputs to a Job.
         :param str label: A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputs')
@@ -2414,6 +3034,231 @@ class JobOutputAssetResponse(dict):
         Describes the state of the JobOutput.
         """
         return pulumi.get(self, "state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JpgFormatResponse(dict):
+    """
+    Describes the settings for producing JPEG thumbnails.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 filename_pattern: Optional[str] = None):
+        """
+        Describes the settings for producing JPEG thumbnails.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ImageFormat'.
+        :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ImageFormat')
+        if filename_pattern is not None:
+            pulumi.set(__self__, "filename_pattern", filename_pattern)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ImageFormat'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="filenamePattern")
+    def filename_pattern(self) -> Optional[str]:
+        """
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        return pulumi.get(self, "filename_pattern")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JpgImageResponse(dict):
+    """
+    Describes the properties for producing a series of JPEG images from the input video.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 key_frame_interval: Optional[str] = None,
+                 label: Optional[str] = None,
+                 layers: Optional[Sequence['outputs.JpgLayerResponse']] = None,
+                 range: Optional[str] = None,
+                 start: Optional[str] = None,
+                 step: Optional[str] = None,
+                 stretch_mode: Optional[str] = None):
+        """
+        Describes the properties for producing a series of JPEG images from the input video.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.Video'.
+        :param str key_frame_interval: The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+        :param str label: An optional label for the codec. The label can be used to control muxing behavior.
+        :param Sequence['JpgLayerResponseArgs'] layers: A collection of output JPEG image layers to be produced by the encoder.
+        :param str range: The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+        :param str start: The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+        :param str step: The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+        :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Video')
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if layers is not None:
+            pulumi.set(__self__, "layers", layers)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+        if step is not None:
+            pulumi.set(__self__, "step", step)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.Video'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[str]:
+        """
+        The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def layers(self) -> Optional[Sequence['outputs.JpgLayerResponse']]:
+        """
+        A collection of output JPEG image layers to be produced by the encoder.
+        """
+        return pulumi.get(self, "layers")
+
+    @property
+    @pulumi.getter
+    def range(self) -> Optional[str]:
+        """
+        The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+        """
+        return pulumi.get(self, "range")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+        """
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter
+    def step(self) -> Optional[str]:
+        """
+        The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+        """
+        return pulumi.get(self, "step")
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[str]:
+        """
+        The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JpgLayerResponse(dict):
+    """
+    Describes the settings to produce a JPEG image from the input video.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 height: Optional[str] = None,
+                 label: Optional[str] = None,
+                 quality: Optional[int] = None,
+                 width: Optional[str] = None):
+        """
+        Describes the settings to produce a JPEG image from the input video.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.JpgLayer'.
+        :param str height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+        :param str label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        :param int quality: The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
+        :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JpgLayer')
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if quality is not None:
+            pulumi.set(__self__, "quality", quality)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.JpgLayer'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def quality(self) -> Optional[int]:
+        """
+        The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
+        """
+        return pulumi.get(self, "quality")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+        """
+        return pulumi.get(self, "width")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2645,6 +3490,57 @@ class LiveEventPreviewResponse(dict):
 
 
 @pulumi.output_type
+class Mp4FormatResponse(dict):
+    """
+    Describes the properties for an output ISO MP4 file.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 filename_pattern: Optional[str] = None,
+                 output_files: Optional[Sequence['outputs.OutputFileResponse']] = None):
+        """
+        Describes the properties for an output ISO MP4 file.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+        :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param Sequence['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
+        if filename_pattern is not None:
+            pulumi.set(__self__, "filename_pattern", filename_pattern)
+        if output_files is not None:
+            pulumi.set(__self__, "output_files", output_files)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="filenamePattern")
+    def filename_pattern(self) -> Optional[str]:
+        """
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        return pulumi.get(self, "filename_pattern")
+
+    @property
+    @pulumi.getter(name="outputFiles")
+    def output_files(self) -> Optional[Sequence['outputs.OutputFileResponse']]:
+        """
+        The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        """
+        return pulumi.get(self, "output_files")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class MultiBitrateFormatResponse(dict):
     """
     Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
@@ -2748,6 +3644,219 @@ class OutputFileResponse(dict):
 
 
 @pulumi.output_type
+class PngFormatResponse(dict):
+    """
+    Describes the settings for producing PNG thumbnails.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 filename_pattern: Optional[str] = None):
+        """
+        Describes the settings for producing PNG thumbnails.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ImageFormat'.
+        :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ImageFormat')
+        if filename_pattern is not None:
+            pulumi.set(__self__, "filename_pattern", filename_pattern)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ImageFormat'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="filenamePattern")
+    def filename_pattern(self) -> Optional[str]:
+        """
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        return pulumi.get(self, "filename_pattern")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PngImageResponse(dict):
+    """
+    Describes the properties for producing a series of PNG images from the input video.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 key_frame_interval: Optional[str] = None,
+                 label: Optional[str] = None,
+                 layers: Optional[Sequence['outputs.PngLayerResponse']] = None,
+                 range: Optional[str] = None,
+                 start: Optional[str] = None,
+                 step: Optional[str] = None,
+                 stretch_mode: Optional[str] = None):
+        """
+        Describes the properties for producing a series of PNG images from the input video.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.Video'.
+        :param str key_frame_interval: The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+        :param str label: An optional label for the codec. The label can be used to control muxing behavior.
+        :param Sequence['PngLayerResponseArgs'] layers: A collection of output PNG image layers to be produced by the encoder.
+        :param str range: The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+        :param str start: The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+        :param str step: The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+        :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Video')
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if layers is not None:
+            pulumi.set(__self__, "layers", layers)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+        if step is not None:
+            pulumi.set(__self__, "step", step)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.Video'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[str]:
+        """
+        The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def layers(self) -> Optional[Sequence['outputs.PngLayerResponse']]:
+        """
+        A collection of output PNG image layers to be produced by the encoder.
+        """
+        return pulumi.get(self, "layers")
+
+    @property
+    @pulumi.getter
+    def range(self) -> Optional[str]:
+        """
+        The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+        """
+        return pulumi.get(self, "range")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+        """
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter
+    def step(self) -> Optional[str]:
+        """
+        The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+        """
+        return pulumi.get(self, "step")
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[str]:
+        """
+        The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PngLayerResponse(dict):
+    """
+    Describes the settings to produce a PNG image from the input video.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 height: Optional[str] = None,
+                 label: Optional[str] = None,
+                 width: Optional[str] = None):
+        """
+        Describes the settings to produce a PNG image from the input video.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.PngLayer'.
+        :param str height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+        :param str label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.PngLayer')
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.PngLayer'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+        """
+        return pulumi.get(self, "width")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RectangleResponse(dict):
     """
     Describes the properties of a rectangular window applied to the input media before processing it.
@@ -2823,9 +3932,9 @@ class StandardEncoderPresetResponse(dict):
         Describes all the settings to be used when encoding the input video with the Standard Encoder.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.StandardEncoderPreset'.
-        :param Sequence[Union['AudioResponseArgs', 'CopyAudioResponseArgs', 'CopyVideoResponseArgs', 'VideoResponseArgs']] codecs: The list of codecs to be used when encoding the input video.
+        :param Sequence[Union['AacAudioResponseArgs', 'AudioResponseArgs', 'CopyAudioResponseArgs', 'CopyVideoResponseArgs', 'H264VideoResponseArgs', 'ImageResponseArgs', 'JpgImageResponseArgs', 'PngImageResponseArgs', 'VideoResponseArgs']] codecs: The list of codecs to be used when encoding the input video.
         :param 'FiltersResponseArgs' filters: One or more filtering operations that are applied to the input media before encoding.
-        :param Sequence[Union['ImageFormatResponseArgs', 'MultiBitrateFormatResponseArgs']] formats: The list of outputs to be produced by the encoder.
+        :param Sequence[Union['ImageFormatResponseArgs', 'JpgFormatResponseArgs', 'Mp4FormatResponseArgs', 'MultiBitrateFormatResponseArgs', 'PngFormatResponseArgs', 'TransportStreamFormatResponseArgs']] formats: The list of outputs to be produced by the encoder.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.StandardEncoderPreset')
         if codecs is not None:
@@ -3396,7 +4505,7 @@ class TransformOutputResponse(dict):
                  relative_priority: Optional[str] = None):
         """
         Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
-        :param Union['AudioAnalyzerPresetResponseArgs', 'BuiltInStandardEncoderPresetResponseArgs', 'StandardEncoderPresetResponseArgs'] preset: Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+        :param Union['AudioAnalyzerPresetResponseArgs', 'BuiltInStandardEncoderPresetResponseArgs', 'StandardEncoderPresetResponseArgs', 'VideoAnalyzerPresetResponseArgs'] preset: Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
         :param str on_error: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The default is stop.
         :param str relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
@@ -3429,6 +4538,108 @@ class TransformOutputResponse(dict):
         Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
         return pulumi.get(self, "relative_priority")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TransportStreamFormatResponse(dict):
+    """
+    Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 filename_pattern: Optional[str] = None,
+                 output_files: Optional[Sequence['outputs.OutputFileResponse']] = None):
+        """
+        Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+        :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param Sequence['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
+        if filename_pattern is not None:
+            pulumi.set(__self__, "filename_pattern", filename_pattern)
+        if output_files is not None:
+            pulumi.set(__self__, "output_files", output_files)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="filenamePattern")
+    def filename_pattern(self) -> Optional[str]:
+        """
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        return pulumi.get(self, "filename_pattern")
+
+    @property
+    @pulumi.getter(name="outputFiles")
+    def output_files(self) -> Optional[Sequence['outputs.OutputFileResponse']]:
+        """
+        The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        """
+        return pulumi.get(self, "output_files")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VideoAnalyzerPresetResponse(dict):
+    """
+    A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 audio_insights_only: Optional[bool] = None,
+                 audio_language: Optional[str] = None):
+        """
+        A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+        :param bool audio_insights_only: Whether to only extract audio insights when processing a video file.
+        :param str audio_language: The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioAnalyzerPreset')
+        if audio_insights_only is not None:
+            pulumi.set(__self__, "audio_insights_only", audio_insights_only)
+        if audio_language is not None:
+            pulumi.set(__self__, "audio_language", audio_language)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="audioInsightsOnly")
+    def audio_insights_only(self) -> Optional[bool]:
+        """
+        Whether to only extract audio insights when processing a video file.
+        """
+        return pulumi.get(self, "audio_insights_only")
+
+    @property
+    @pulumi.getter(name="audioLanguage")
+    def audio_language(self) -> Optional[str]:
+        """
+        The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
+        """
+        return pulumi.get(self, "audio_language")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

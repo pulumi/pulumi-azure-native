@@ -5,15 +5,22 @@
 from enum import Enum
 
 __all__ = [
+    'AzureSearchIndexWriteBehaviorType',
+    'BlobEventTypes',
+    'CassandraSourceReadConsistencyLevels',
     'DatasetCompressionLevel',
+    'DayOfWeek',
+    'DaysOfWeek',
     'Db2AuthenticationType',
     'DependencyCondition',
     'DynamicsAuthenticationType',
     'DynamicsDeploymentType',
+    'DynamicsSinkWriteBehavior',
     'FactoryIdentityType',
     'FtpAuthenticationType',
     'GoogleBigQueryAuthenticationType',
     'HBaseAuthenticationType',
+    'HDInsightActivityDebugInfoOption',
     'HiveAuthenticationType',
     'HiveServerType',
     'HiveThriftTransportProtocol',
@@ -28,18 +35,56 @@ __all__ = [
     'ODataAuthenticationType',
     'ParameterType',
     'PhoenixAuthenticationType',
+    'PolybaseSettingsRejectType',
     'PrestoAuthenticationType',
+    'RecurrenceFrequency',
+    'SalesforceSinkWriteBehavior',
+    'SalesforceSourceReadBehavior',
+    'SapCloudForCustomerSinkWriteBehavior',
     'SapHanaAuthenticationType',
     'ServiceNowAuthenticationType',
     'SftpAuthenticationType',
     'SparkAuthenticationType',
     'SparkServerType',
     'SparkThriftTransportProtocol',
+    'SsisLogLocationType',
+    'SsisPackageLocationType',
+    'StoredProcedureParameterType',
     'SybaseAuthenticationType',
     'TeradataAuthenticationType',
     'TumblingWindowFrequency',
+    'WebActivityMethod',
     'WebAuthenticationType',
 ]
+
+
+class AzureSearchIndexWriteBehaviorType(str, Enum):
+    """
+    Specify the write behavior when upserting documents into Azure Search Index.
+    """
+    MERGE = "Merge"
+    UPLOAD = "Upload"
+
+
+class BlobEventTypes(str, Enum):
+    MICROSOFT_STORAGE_BLOB_CREATED = "Microsoft.Storage.BlobCreated"
+    MICROSOFT_STORAGE_BLOB_DELETED = "Microsoft.Storage.BlobDeleted"
+
+
+class CassandraSourceReadConsistencyLevels(str, Enum):
+    """
+    The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
+    """
+    ALL = "ALL"
+    EAC_H_QUORUM = "EACH_QUORUM"
+    QUORUM = "QUORUM"
+    LOCA_L_QUORUM = "LOCAL_QUORUM"
+    ONE = "ONE"
+    TWO = "TWO"
+    THREE = "THREE"
+    LOCA_L_ONE = "LOCAL_ONE"
+    SERIAL = "SERIAL"
+    LOCA_L_SERIAL = "LOCAL_SERIAL"
 
 
 class DatasetCompressionLevel(str, Enum):
@@ -48,6 +93,29 @@ class DatasetCompressionLevel(str, Enum):
     """
     OPTIMAL = "Optimal"
     FASTEST = "Fastest"
+
+
+class DayOfWeek(str, Enum):
+    """
+    The day of the week.
+    """
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+
+
+class DaysOfWeek(str, Enum):
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
 
 
 class Db2AuthenticationType(str, Enum):
@@ -80,6 +148,13 @@ class DynamicsDeploymentType(str, Enum):
     ON_PREMISES_WITH_IFD = "OnPremisesWithIfd"
 
 
+class DynamicsSinkWriteBehavior(str, Enum):
+    """
+    The write behavior for the operation.
+    """
+    UPSERT = "Upsert"
+
+
 class FactoryIdentityType(str, Enum):
     """
     The identity type. Currently the only supported type is 'SystemAssigned'.
@@ -109,6 +184,15 @@ class HBaseAuthenticationType(str, Enum):
     """
     ANONYMOUS = "Anonymous"
     BASIC = "Basic"
+
+
+class HDInsightActivityDebugInfoOption(str, Enum):
+    """
+    Debug info option.
+    """
+    NONE = "None"
+    ALWAYS = "Always"
+    FAILURE = "Failure"
 
 
 class HiveAuthenticationType(str, Enum):
@@ -237,12 +321,57 @@ class PhoenixAuthenticationType(str, Enum):
     WINDOWS_AZURE_HD_INSIGHT_SERVICE = "WindowsAzureHDInsightService"
 
 
+class PolybaseSettingsRejectType(str, Enum):
+    """
+    Reject type.
+    """
+    VALUE = "value"
+    PERCENTAGE = "percentage"
+
+
 class PrestoAuthenticationType(str, Enum):
     """
     The authentication mechanism used to connect to the Presto server.
     """
     ANONYMOUS = "Anonymous"
     LDAP = "LDAP"
+
+
+class RecurrenceFrequency(str, Enum):
+    """
+    The frequency.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    MINUTE = "Minute"
+    HOUR = "Hour"
+    DAY = "Day"
+    WEEK = "Week"
+    MONTH = "Month"
+    YEAR = "Year"
+
+
+class SalesforceSinkWriteBehavior(str, Enum):
+    """
+    The write behavior for the operation. Default is Insert.
+    """
+    INSERT = "Insert"
+    UPSERT = "Upsert"
+
+
+class SalesforceSourceReadBehavior(str, Enum):
+    """
+    The read behavior for the operation. Default is Query.
+    """
+    QUERY = "Query"
+    QUERY_ALL = "QueryAll"
+
+
+class SapCloudForCustomerSinkWriteBehavior(str, Enum):
+    """
+    The write behavior for the operation. Default is 'Insert'.
+    """
+    INSERT = "Insert"
+    UPDATE = "Update"
 
 
 class SapHanaAuthenticationType(str, Enum):
@@ -297,6 +426,34 @@ class SparkThriftTransportProtocol(str, Enum):
     HTT_P_ = "HTTP "
 
 
+class SsisLogLocationType(str, Enum):
+    """
+    The type of SSIS log location.
+    """
+    FILE = "File"
+
+
+class SsisPackageLocationType(str, Enum):
+    """
+    The type of SSIS package location.
+    """
+    SSISDB = "SSISDB"
+    FILE = "File"
+
+
+class StoredProcedureParameterType(str, Enum):
+    """
+    Stored procedure parameter type.
+    """
+    STRING = "String"
+    INT = "Int"
+    INT64 = "Int64"
+    DECIMAL = "Decimal"
+    GUID = "Guid"
+    BOOLEAN = "Boolean"
+    DATE = "Date"
+
+
 class SybaseAuthenticationType(str, Enum):
     """
     AuthenticationType to be used for connection.
@@ -319,6 +476,16 @@ class TumblingWindowFrequency(str, Enum):
     """
     MINUTE = "Minute"
     HOUR = "Hour"
+
+
+class WebActivityMethod(str, Enum):
+    """
+    Rest API method for target endpoint.
+    """
+    GET = "GET"
+    POST = "POST"
+    PUT = "PUT"
+    DELETE = "DELETE"
 
 
 class WebAuthenticationType(str, Enum):

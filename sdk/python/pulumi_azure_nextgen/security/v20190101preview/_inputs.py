@@ -20,6 +20,7 @@ __all__ = [
     'AutomationTriggeringRuleArgs',
     'AzureResourceDetailsArgs',
     'OnPremiseResourceDetailsArgs',
+    'OnPremiseSqlResourceDetailsArgs',
     'ScopeElementArgs',
     'SuppressionAlertsScopeArgs',
 ]
@@ -465,6 +466,121 @@ class OnPremiseResourceDetailsArgs:
     @machine_name.setter
     def machine_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "machine_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        """
+        The platform where the assessed resource resides
+        Expected value is 'OnPremise'.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="sourceComputerId")
+    def source_computer_id(self) -> pulumi.Input[str]:
+        """
+        The oms agent Id installed on the machine
+        """
+        return pulumi.get(self, "source_computer_id")
+
+    @source_computer_id.setter
+    def source_computer_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_computer_id", value)
+
+    @property
+    @pulumi.getter
+    def vmuuid(self) -> pulumi.Input[str]:
+        """
+        The unique Id of the machine
+        """
+        return pulumi.get(self, "vmuuid")
+
+    @vmuuid.setter
+    def vmuuid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vmuuid", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Input[str]:
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_id", value)
+
+
+@pulumi.input_type
+class OnPremiseSqlResourceDetailsArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 machine_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
+                 source: pulumi.Input[str],
+                 source_computer_id: pulumi.Input[str],
+                 vmuuid: pulumi.Input[str],
+                 workspace_id: pulumi.Input[str]):
+        """
+        Details of the On Premise Sql resource that was assessed
+        :param pulumi.Input[str] database_name: The Sql database name installed on the machine
+        :param pulumi.Input[str] machine_name: The name of the machine
+        :param pulumi.Input[str] server_name: The Sql server name installed on the machine
+        :param pulumi.Input[str] source: The platform where the assessed resource resides
+               Expected value is 'OnPremise'.
+        :param pulumi.Input[str] source_computer_id: The oms agent Id installed on the machine
+        :param pulumi.Input[str] vmuuid: The unique Id of the machine
+        :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "source", 'OnPremise')
+        pulumi.set(__self__, "source_computer_id", source_computer_id)
+        pulumi.set(__self__, "vmuuid", vmuuid)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The Sql database name installed on the machine
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> pulumi.Input[str]:
+        """
+        The name of the machine
+        """
+        return pulumi.get(self, "machine_name")
+
+    @machine_name.setter
+    def machine_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The Sql server name installed on the machine
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
 
     @property
     @pulumi.getter

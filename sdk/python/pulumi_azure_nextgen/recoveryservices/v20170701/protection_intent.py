@@ -22,7 +22,7 @@ class ProtectionIntent(pulumi.CustomResource):
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  intent_object_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class ProtectionIntent(pulumi.CustomResource):
         :param pulumi.Input[str] fabric_name: Fabric name associated with the backup item.
         :param pulumi.Input[str] intent_object_name: Intent object name.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs']]] properties: ProtectionIntentResource properties
+        :param pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]] properties: ProtectionIntentResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the recovery services vault.

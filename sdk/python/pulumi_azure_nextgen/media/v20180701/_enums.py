@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AacAudioProfile',
     'AnalysisResolution',
     'AssetContainerPermission',
     'ContentKeyPolicyFairPlayRentalAndLeaseKeyType',
@@ -15,8 +16,12 @@ __all__ = [
     'DeinterlaceMode',
     'DeinterlaceParity',
     'EncoderNamedPreset',
+    'EntropyMode',
     'FilterTrackPropertyCompareOperation',
     'FilterTrackPropertyType',
+    'H264Complexity',
+    'H264VideoProfile',
+    'InsightsType',
     'LiveEventEncodingType',
     'LiveEventInputProtocol',
     'OnErrorType',
@@ -28,6 +33,15 @@ __all__ = [
     'TrackPropertyCompareOperation',
     'TrackPropertyType',
 ]
+
+
+class AacAudioProfile(str, Enum):
+    """
+    The encoding profile to be used when encoding audio with AAC.
+    """
+    AAC_LC = "AacLc"
+    HE_AAC_V1 = "HeAacV1"
+    HE_AAC_V2 = "HeAacV2"
 
 
 class AnalysisResolution(str, Enum):
@@ -129,6 +143,14 @@ class EncoderNamedPreset(str, Enum):
     H264_MULTIPLE_BITRATE_SD = "H264MultipleBitrateSD"
 
 
+class EntropyMode(str, Enum):
+    """
+    The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+    """
+    CABAC = "Cabac"
+    CAVLC = "Cavlc"
+
+
 class FilterTrackPropertyCompareOperation(str, Enum):
     """
     The track property condition operation.
@@ -147,6 +169,36 @@ class FilterTrackPropertyType(str, Enum):
     LANGUAGE = "Language"
     FOUR_CC = "FourCC"
     BITRATE = "Bitrate"
+
+
+class H264Complexity(str, Enum):
+    """
+    Tells the encoder how to choose its encoding settings. The default value is Balanced.
+    """
+    SPEED = "Speed"
+    BALANCED = "Balanced"
+    QUALITY = "Quality"
+
+
+class H264VideoProfile(str, Enum):
+    """
+    We currently support Baseline, Main, High, High422, High444. Default is Auto.
+    """
+    AUTO = "Auto"
+    BASELINE = "Baseline"
+    MAIN = "Main"
+    HIGH = "High"
+    HIGH422 = "High422"
+    HIGH444 = "High444"
+
+
+class InsightsType(str, Enum):
+    """
+    Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+    """
+    AUDIO_INSIGHTS_ONLY = "AudioInsightsOnly"
+    VIDEO_INSIGHTS_ONLY = "VideoInsightsOnly"
+    ALL_INSIGHTS = "AllInsights"
 
 
 class LiveEventEncodingType(str, Enum):

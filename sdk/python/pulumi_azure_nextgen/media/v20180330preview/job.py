@@ -20,7 +20,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 input: Optional[pulumi.Input[Union[pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputsArgs']]]] = None,
+                 input: Optional[pulumi.Input[Union[pulumi.InputType['JobInputAssetArgs'], pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputHttpArgs'], pulumi.InputType['JobInputsArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]]] = None,
                  priority: Optional[pulumi.Input[Union[str, 'Priority']]] = None,
@@ -36,7 +36,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] description: Optional customer supplied description of the Job.
-        :param pulumi.Input[Union[pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputsArgs']]] input: The inputs for the Job.
+        :param pulumi.Input[Union[pulumi.InputType['JobInputAssetArgs'], pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputHttpArgs'], pulumi.InputType['JobInputsArgs']]] input: The inputs for the Job.
         :param pulumi.Input[str] job_name: The Job name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]] outputs: The outputs for the Job.
         :param pulumi.Input[Union[str, 'Priority']] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
