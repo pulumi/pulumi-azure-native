@@ -1402,7 +1402,10 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 	}
 
 	var oneOf []pschema.TypeSpec
-	subtypes := resolvedSchema.FindSubtypes()
+	subtypes, err := resolvedSchema.FindSubtypes()
+	if err != nil {
+		return nil, false, err
+	}
 	for _, subtype := range subtypes {
 		typ, err := m.genTypeSpec("", subtype, resolvedSchema.ReferenceContext, isOutput)
 		if err != nil {
