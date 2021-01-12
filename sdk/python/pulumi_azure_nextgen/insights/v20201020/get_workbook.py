@@ -20,13 +20,16 @@ class GetWorkbookResult:
     """
     An Application Insights workbook definition.
     """
-    def __init__(__self__, category=None, display_name=None, id=None, identity=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, storage_uri=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
+    def __init__(__self__, category=None, display_name=None, etag=None, id=None, identity=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, storage_uri=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if etag and not isinstance(etag, dict):
+            raise TypeError("Expected argument 'etag' to be a dict")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -85,7 +88,15 @@ class GetWorkbookResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def etag(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource etag
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
         """
         Azure resource Id
         """
@@ -109,7 +120,7 @@ class GetWorkbookResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> Optional[str]:
         """
         Resource location
         """
@@ -117,9 +128,9 @@ class GetWorkbookResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
-        Azure resource name. This is GUID value. The display name should be assigned within properties field.
+        Azure resource name
         """
         return pulumi.get(self, "name")
 
@@ -165,7 +176,7 @@ class GetWorkbookResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Azure resource type
         """
@@ -196,6 +207,7 @@ class AwaitableGetWorkbookResult(GetWorkbookResult):
         return GetWorkbookResult(
             category=self.category,
             display_name=self.display_name,
+            etag=self.etag,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
@@ -232,6 +244,7 @@ def get_workbook(resource_group_name: Optional[str] = None,
     return AwaitableGetWorkbookResult(
         category=__ret__.category,
         display_name=__ret__.display_name,
+        etag=__ret__.etag,
         id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,

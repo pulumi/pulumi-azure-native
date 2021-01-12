@@ -145,6 +145,18 @@ namespace Pulumi.AzureNextGen.WindowsIoT.Latest
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
+        /// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// The Azure Region where the resource lives
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// Windows IoT Device Service notes.
         /// </summary>
         [Input("notes")]
@@ -161,6 +173,18 @@ namespace Pulumi.AzureNextGen.WindowsIoT.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ServiceArgs()
         {

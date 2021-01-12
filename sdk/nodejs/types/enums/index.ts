@@ -100,6 +100,7 @@ import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
 import * as purview from "./purview";
 import * as recoveryservices from "./recoveryservices";
+import * as redhatopenshift from "./redhatopenshift";
 import * as relay from "./relay";
 import * as resources from "./resources";
 import * as saas from "./saas";
@@ -229,6 +230,7 @@ export {
     powerplatform,
     purview,
     recoveryservices,
+    redhatopenshift,
     relay,
     resources,
     saas,

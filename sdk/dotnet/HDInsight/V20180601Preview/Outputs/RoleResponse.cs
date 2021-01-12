@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DataDisksGroupsResponse> DataDisksGroups;
         /// <summary>
+        /// Indicates whether encrypt the data disks.
+        /// </summary>
+        public readonly bool? EncryptDataDisks;
+        /// <summary>
         /// The hardware profile.
         /// </summary>
         public readonly Outputs.HardwareProfileResponse? HardwareProfile;
@@ -56,6 +60,8 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
 
             ImmutableArray<Outputs.DataDisksGroupsResponse> dataDisksGroups,
 
+            bool? encryptDataDisks,
+
             Outputs.HardwareProfileResponse? hardwareProfile,
 
             int? minInstanceCount,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         {
             AutoscaleConfiguration = autoscaleConfiguration;
             DataDisksGroups = dataDisksGroups;
+            EncryptDataDisks = encryptDataDisks;
             HardwareProfile = hardwareProfile;
             MinInstanceCount = minInstanceCount;
             Name = name;

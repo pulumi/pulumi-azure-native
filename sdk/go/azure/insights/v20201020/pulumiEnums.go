@@ -11,29 +11,29 @@ import (
 )
 
 // The kind of workbook. Choices are user and shared.
-type SharedTypeKind pulumi.String
+type Kind pulumi.String
 
 const (
-	SharedTypeKindUser   = SharedTypeKind("user")
-	SharedTypeKindShared = SharedTypeKind("shared")
+	KindUser   = Kind("user")
+	KindShared = Kind("shared")
 )
 
-func (SharedTypeKind) ElementType() reflect.Type {
+func (Kind) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e SharedTypeKind) ToStringOutput() pulumi.StringOutput {
+func (e Kind) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SharedTypeKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e Kind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SharedTypeKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e Kind) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e SharedTypeKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e Kind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

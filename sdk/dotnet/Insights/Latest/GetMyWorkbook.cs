@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource etag
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Etag;
+        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string? Id;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 
             string displayName,
 
+            ImmutableDictionary<string, string>? etag,
+
             string? id,
 
             Outputs.ManagedIdentityResponse? identity,
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         {
             Category = category;
             DisplayName = displayName;
+            Etag = etag;
             Id = id;
             Identity = identity;
             Kind = kind;

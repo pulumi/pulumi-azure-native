@@ -20,6 +20,8 @@ type MyWorkbook struct {
 	Category pulumi.StringOutput `pulumi:"category"`
 	// The user-defined name of the private workbook.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// Resource etag
+	Etag pulumi.StringMapOutput `pulumi:"etag"`
 	// Identity used for BYOS
 	Identity ManagedIdentityResponsePtrOutput `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
@@ -103,6 +105,8 @@ type myWorkbookState struct {
 	Category *string `pulumi:"category"`
 	// The user-defined name of the private workbook.
 	DisplayName *string `pulumi:"displayName"`
+	// Resource etag
+	Etag map[string]string `pulumi:"etag"`
 	// Identity used for BYOS
 	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
@@ -134,6 +138,8 @@ type MyWorkbookState struct {
 	Category pulumi.StringPtrInput
 	// The user-defined name of the private workbook.
 	DisplayName pulumi.StringPtrInput
+	// Resource etag
+	Etag pulumi.StringMapInput
 	// Identity used for BYOS
 	Identity ManagedIdentityResponsePtrInput
 	// The kind of workbook. Choices are user and shared.
@@ -169,6 +175,8 @@ type myWorkbookArgs struct {
 	Category string `pulumi:"category"`
 	// The user-defined name of the private workbook.
 	DisplayName string `pulumi:"displayName"`
+	// Resource etag
+	Etag map[string]string `pulumi:"etag"`
 	// Azure resource Id
 	Id *string `pulumi:"id"`
 	// Identity used for BYOS
@@ -203,6 +211,8 @@ type MyWorkbookArgs struct {
 	Category pulumi.StringInput
 	// The user-defined name of the private workbook.
 	DisplayName pulumi.StringInput
+	// Resource etag
+	Etag pulumi.StringMapInput
 	// Azure resource Id
 	Id pulumi.StringPtrInput
 	// Identity used for BYOS

@@ -34,6 +34,12 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
         }
 
         /// <summary>
+        /// Indicates whether encrypt the data disks.
+        /// </summary>
+        [Input("encryptDataDisks")]
+        public Input<bool>? EncryptDataDisks { get; set; }
+
+        /// <summary>
         /// The hardware profile.
         /// </summary>
         [Input("hardwareProfile")]

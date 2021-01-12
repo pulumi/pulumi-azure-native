@@ -29,6 +29,8 @@ type LookupMyWorkbookResult struct {
 	Category string `pulumi:"category"`
 	// The user-defined name of the private workbook.
 	DisplayName string `pulumi:"displayName"`
+	// Resource etag
+	Etag map[string]string `pulumi:"etag"`
 	// Azure resource Id
 	Id *string `pulumi:"id"`
 	// Identity used for BYOS

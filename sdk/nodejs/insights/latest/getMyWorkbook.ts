@@ -43,6 +43,10 @@ export interface GetMyWorkbookResult {
      */
     readonly displayName: string;
     /**
+     * Resource etag
+     */
+    readonly etag?: {[key: string]: string};
+    /**
      * Azure resource Id
      */
     readonly id?: string;

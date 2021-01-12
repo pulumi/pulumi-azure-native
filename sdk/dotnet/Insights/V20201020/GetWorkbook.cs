@@ -48,9 +48,13 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource etag
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Etag;
+        /// <summary>
         /// Azure resource Id
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Identity used for BYOS
         /// </summary>
@@ -62,11 +66,11 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// <summary>
         /// Resource location
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
         /// <summary>
-        /// Azure resource name. This is GUID value. The display name should be assigned within properties field.
+        /// Azure resource name
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
         /// </summary>
@@ -90,7 +94,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// <summary>
         /// Azure resource type
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// Unique user id of the specific user that owns this workbook.
         /// </summary>
@@ -106,15 +110,17 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
 
             string displayName,
 
-            string id,
+            ImmutableDictionary<string, string>? etag,
+
+            string? id,
 
             Outputs.ManagedIdentityResponse? identity,
 
             string? kind,
 
-            string location,
+            string? location,
 
-            string name,
+            string? name,
 
             string serializedData,
 
@@ -126,7 +132,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
 
             string timeModified,
 
-            string type,
+            string? type,
 
             string userId,
 
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         {
             Category = category;
             DisplayName = displayName;
+            Etag = etag;
             Id = id;
             Identity = identity;
             Kind = kind;

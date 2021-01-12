@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// Resource etag
+        /// </summary>
+        [Output("etag")]
+        public Output<ImmutableDictionary<string, string>?> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// Identity used for BYOS
         /// </summary>
         [Output("identity")]
@@ -43,13 +49,13 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// Resource location
         /// </summary>
         [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name. This is GUID value. The display name should be assigned within properties field.
+        /// Azure resource name
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
@@ -85,7 +91,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// Azure resource type
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
         /// Unique user id of the specific user that owns this workbook.
@@ -162,6 +168,24 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        [Input("etag")]
+        private InputMap<string>? _etag;
+
+        /// <summary>
+        /// Resource etag
+        /// </summary>
+        public InputMap<string> Etag
+        {
+            get => _etag ?? (_etag = new InputMap<string>());
+            set => _etag = value;
+        }
+
+        /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         /// <summary>
         /// Identity used for BYOS
         /// </summary>
@@ -172,13 +196,19 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20201020.SharedTypeKind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20201020.Kind>? Kind { get; set; }
 
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Azure resource name
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -201,8 +231,8 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// <summary>
         /// ResourceId for a source resource.
         /// </summary>
-        [Input("sourceId", required: true)]
-        public Input<string> SourceId { get; set; } = null!;
+        [Input("sourceId")]
+        public Input<string>? SourceId { get; set; }
 
         /// <summary>
         /// BYOS Storage Account URI
@@ -221,6 +251,12 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Azure resource type
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// Workbook version

@@ -18,8 +18,8 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
         /// <summary>
         /// A message indicating if changes on the service provider require any updates on the consumer.
         /// </summary>
-        [Input("actionRequired")]
-        public Input<string>? ActionRequired { get; set; }
+        [Input("actionsRequired")]
+        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.ActionsRequired>? ActionsRequired { get; set; }
 
         /// <summary>
         /// The reason for approval or rejection.

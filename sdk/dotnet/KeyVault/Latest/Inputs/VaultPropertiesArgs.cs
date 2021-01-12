@@ -76,6 +76,12 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest.Inputs
         public Input<Inputs.NetworkRuleSetArgs>? NetworkAcls { get; set; }
 
         /// <summary>
+        /// Provisioning state of the vault.
+        /// </summary>
+        [Input("provisioningState")]
+        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.Latest.VaultProvisioningState>? ProvisioningState { get; set; }
+
+        /// <summary>
         /// SKU details
         /// </summary>
         [Input("sku", required: true)]

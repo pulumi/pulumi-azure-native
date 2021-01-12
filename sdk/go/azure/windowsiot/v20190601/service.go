@@ -137,12 +137,18 @@ type serviceArgs struct {
 	BillingDomainName *string `pulumi:"billingDomainName"`
 	// The name of the Windows IoT Device Service.
 	DeviceName string `pulumi:"deviceName"`
+	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+	Etag *string `pulumi:"etag"`
+	// The Azure Region where the resource lives
+	Location *string `pulumi:"location"`
 	// Windows IoT Device Service notes.
 	Notes *string `pulumi:"notes"`
 	// Windows IoT Device Service device allocation,
 	Quantity *float64 `pulumi:"quantity"`
 	// The name of the resource group that contains the Windows IoT Device Service.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -153,12 +159,18 @@ type ServiceArgs struct {
 	BillingDomainName pulumi.StringPtrInput
 	// The name of the Windows IoT Device Service.
 	DeviceName pulumi.StringInput
+	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+	Etag pulumi.StringPtrInput
+	// The Azure Region where the resource lives
+	Location pulumi.StringPtrInput
 	// Windows IoT Device Service notes.
 	Notes pulumi.StringPtrInput
 	// Windows IoT Device Service device allocation,
 	Quantity pulumi.Float64PtrInput
 	// The name of the resource group that contains the Windows IoT Device Service.
 	ResourceGroupName pulumi.StringInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

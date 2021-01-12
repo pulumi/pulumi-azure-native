@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest.Outputs
         /// <summary>
         /// A message indicating if changes on the service provider require any updates on the consumer.
         /// </summary>
-        public readonly string? ActionRequired;
+        public readonly string? ActionsRequired;
         /// <summary>
         /// The reason for approval or rejection.
         /// </summary>
@@ -28,13 +28,13 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest.Outputs
 
         [OutputConstructor]
         private PrivateLinkServiceConnectionStateResponse(
-            string? actionRequired,
+            string? actionsRequired,
 
             string? description,
 
             string? status)
         {
-            ActionRequired = actionRequired;
+            ActionsRequired = actionsRequired;
             Description = description;
             Status = status;
         }

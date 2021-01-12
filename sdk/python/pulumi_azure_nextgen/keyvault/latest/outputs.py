@@ -397,29 +397,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
     An object that represents the approval state of the private link connection.
     """
     def __init__(__self__, *,
-                 action_required: Optional[str] = None,
+                 actions_required: Optional[str] = None,
                  description: Optional[str] = None,
                  status: Optional[str] = None):
         """
         An object that represents the approval state of the private link connection.
-        :param str action_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param str description: The reason for approval or rejection.
         :param str status: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[str]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
     @property
     @pulumi.getter
@@ -639,6 +639,7 @@ class VaultPropertiesResponse(dict):
                  enabled_for_disk_encryption: Optional[bool] = None,
                  enabled_for_template_deployment: Optional[bool] = None,
                  network_acls: Optional['outputs.NetworkRuleSetResponse'] = None,
+                 provisioning_state: Optional[str] = None,
                  soft_delete_retention_in_days: Optional[int] = None,
                  vault_uri: Optional[str] = None):
         """
@@ -655,6 +656,7 @@ class VaultPropertiesResponse(dict):
         :param bool enabled_for_disk_encryption: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param bool enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param 'NetworkRuleSetResponseArgs' network_acls: Rules governing the accessibility of the key vault from specific network locations.
+        :param str provisioning_state: Provisioning state of the vault.
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param str vault_uri: The URI of the vault for performing operations on keys and secrets. This property is readonly
         """
@@ -683,6 +685,8 @@ class VaultPropertiesResponse(dict):
             pulumi.set(__self__, "enabled_for_template_deployment", enabled_for_template_deployment)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if soft_delete_retention_in_days is None:
             soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
@@ -785,6 +789,14 @@ class VaultPropertiesResponse(dict):
         Rules governing the accessibility of the key vault from specific network locations.
         """
         return pulumi.get(self, "network_acls")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Provisioning state of the vault.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="softDeleteRetentionInDays")

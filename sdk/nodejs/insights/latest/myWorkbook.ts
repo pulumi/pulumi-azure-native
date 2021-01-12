@@ -45,6 +45,10 @@ export class MyWorkbook extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
+     * Resource etag
+     */
+    public readonly etag!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Identity used for BYOS
      */
     public readonly identity!: pulumi.Output<outputs.insights.latest.ManagedIdentityResponse | undefined>;
@@ -120,6 +124,7 @@ export class MyWorkbook extends pulumi.CustomResource {
             }
             inputs["category"] = args ? args.category : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
@@ -138,6 +143,7 @@ export class MyWorkbook extends pulumi.CustomResource {
         } else {
             inputs["category"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -177,6 +183,10 @@ export interface MyWorkbookArgs {
      */
     readonly displayName: pulumi.Input<string>;
     /**
+     * Resource etag
+     */
+    readonly etag?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Azure resource Id
      */
     readonly id?: pulumi.Input<string>;
@@ -187,7 +197,7 @@ export interface MyWorkbookArgs {
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: pulumi.Input<string | enums.insights.latest.SharedTypeKind>;
+    readonly kind?: pulumi.Input<string | enums.insights.latest.Kind>;
     /**
      * Resource location
      */

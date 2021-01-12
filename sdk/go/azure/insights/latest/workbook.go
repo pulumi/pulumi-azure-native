@@ -20,14 +20,16 @@ type Workbook struct {
 	Category pulumi.StringOutput `pulumi:"category"`
 	// The user-defined name (display name) of the workbook.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// Resource etag
+	Etag pulumi.StringMapOutput `pulumi:"etag"`
 	// Identity used for BYOS
 	Identity ManagedIdentityResponsePtrOutput `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// Azure resource name
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringOutput `pulumi:"serializedData"`
 	// ResourceId for a source resource.
@@ -39,7 +41,7 @@ type Workbook struct {
 	// Date and time in UTC of the last modification that was made to this workbook definition.
 	TimeModified pulumi.StringOutput `pulumi:"timeModified"`
 	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Unique user id of the specific user that owns this workbook.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 	// Workbook version
@@ -59,9 +61,6 @@ func NewWorkbook(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -70,9 +69,6 @@ func NewWorkbook(ctx *pulumi.Context,
 	}
 	if args.SerializedData == nil {
 		return nil, errors.New("invalid value for required argument 'SerializedData'")
-	}
-	if args.SourceId == nil {
-		return nil, errors.New("invalid value for required argument 'SourceId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -112,13 +108,15 @@ type workbookState struct {
 	Category *string `pulumi:"category"`
 	// The user-defined name (display name) of the workbook.
 	DisplayName *string `pulumi:"displayName"`
+	// Resource etag
+	Etag map[string]string `pulumi:"etag"`
 	// Identity used for BYOS
 	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
+	// Azure resource name
 	Name *string `pulumi:"name"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData *string `pulumi:"serializedData"`
@@ -143,13 +141,15 @@ type WorkbookState struct {
 	Category pulumi.StringPtrInput
 	// The user-defined name (display name) of the workbook.
 	DisplayName pulumi.StringPtrInput
+	// Resource etag
+	Etag pulumi.StringMapInput
 	// Identity used for BYOS
 	Identity ManagedIdentityResponsePtrInput
 	// The kind of workbook. Choices are user and shared.
 	Kind pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
+	// Azure resource name
 	Name pulumi.StringPtrInput
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringPtrInput
@@ -178,12 +178,18 @@ type workbookArgs struct {
 	Category string `pulumi:"category"`
 	// The user-defined name (display name) of the workbook.
 	DisplayName string `pulumi:"displayName"`
+	// Resource etag
+	Etag map[string]string `pulumi:"etag"`
+	// Azure resource Id
+	Id *string `pulumi:"id"`
 	// Identity used for BYOS
 	Identity *ManagedIdentity `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.
@@ -191,11 +197,13 @@ type workbookArgs struct {
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData string `pulumi:"serializedData"`
 	// ResourceId for a source resource.
-	SourceId string `pulumi:"sourceId"`
+	SourceId *string `pulumi:"sourceId"`
 	// BYOS Storage Account URI
 	StorageUri *string `pulumi:"storageUri"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 	// Workbook version
 	Version *string `pulumi:"version"`
 }
@@ -206,12 +214,18 @@ type WorkbookArgs struct {
 	Category pulumi.StringInput
 	// The user-defined name (display name) of the workbook.
 	DisplayName pulumi.StringInput
+	// Resource etag
+	Etag pulumi.StringMapInput
+	// Azure resource Id
+	Id pulumi.StringPtrInput
 	// Identity used for BYOS
 	Identity ManagedIdentityPtrInput
 	// The kind of workbook. Choices are user and shared.
 	Kind pulumi.StringPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Application Insights component resource.
@@ -219,11 +233,13 @@ type WorkbookArgs struct {
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringInput
 	// ResourceId for a source resource.
-	SourceId pulumi.StringInput
+	SourceId pulumi.StringPtrInput
 	// BYOS Storage Account URI
 	StorageUri pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 	// Workbook version
 	Version pulumi.StringPtrInput
 }

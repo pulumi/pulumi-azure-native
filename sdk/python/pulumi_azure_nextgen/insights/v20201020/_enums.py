@@ -5,11 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'SharedTypeKind',
+    'Kind',
 ]
 
 
-class SharedTypeKind(str, Enum):
+class Kind(str, Enum):
     """
     The kind of workbook. Choices are user and shared.
     """

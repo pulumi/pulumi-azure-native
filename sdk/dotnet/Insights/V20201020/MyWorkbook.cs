@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// Resource etag
+        /// </summary>
+        [Output("etag")]
+        public Output<ImmutableDictionary<string, string>?> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// Identity used for BYOS
         /// </summary>
         [Output("identity")]
@@ -161,6 +167,18 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        [Input("etag")]
+        private InputMap<string>? _etag;
+
+        /// <summary>
+        /// Resource etag
+        /// </summary>
+        public InputMap<string> Etag
+        {
+            get => _etag ?? (_etag = new InputMap<string>());
+            set => _etag = value;
+        }
+
         /// <summary>
         /// Azure resource Id
         /// </summary>
@@ -177,7 +195,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20201020.SharedTypeKind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20201020.Kind>? Kind { get; set; }
 
         /// <summary>
         /// Resource location

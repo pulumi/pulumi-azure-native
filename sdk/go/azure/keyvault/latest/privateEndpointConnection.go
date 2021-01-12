@@ -16,6 +16,8 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
+	// Modified whenever there is a change in the state of private endpoint connection.
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Azure location of the key vault resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the key vault resource.
@@ -82,6 +84,8 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
+	// Modified whenever there is a change in the state of private endpoint connection.
+	Etag *string `pulumi:"etag"`
 	// Azure location of the key vault resource.
 	Location *string `pulumi:"location"`
 	// Name of the key vault resource.
@@ -99,6 +103,8 @@ type privateEndpointConnectionState struct {
 }
 
 type PrivateEndpointConnectionState struct {
+	// Modified whenever there is a change in the state of private endpoint connection.
+	Etag pulumi.StringPtrInput
 	// Azure location of the key vault resource.
 	Location pulumi.StringPtrInput
 	// Name of the key vault resource.
@@ -120,6 +126,8 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
+	// Modified whenever there is a change in the state of private endpoint connection.
+	Etag *string `pulumi:"etag"`
 	// Name of the private endpoint connection associated with the key vault.
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// Approval state of the private link connection.
@@ -132,6 +140,8 @@ type privateEndpointConnectionArgs struct {
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
+	// Modified whenever there is a change in the state of private endpoint connection.
+	Etag pulumi.StringPtrInput
 	// Name of the private endpoint connection associated with the key vault.
 	PrivateEndpointConnectionName pulumi.StringInput
 	// Approval state of the private link connection.

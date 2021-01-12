@@ -1874,7 +1874,7 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 // An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired *string `pulumi:"actionRequired"`
+	ActionsRequired *string `pulumi:"actionsRequired"`
 	// The reason for approval or rejection.
 	Description *string `pulumi:"description"`
 	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
@@ -1895,7 +1895,7 @@ type PrivateLinkServiceConnectionStateInput interface {
 // An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
 	// The reason for approval or rejection.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
@@ -1981,8 +1981,8 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStateOutput) ActionRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
+func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
 // The reason for approval or rejection.
@@ -2014,12 +2014,12 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStatePtrOutput) ActionRequired() pulumi.StringPtrOutput {
+func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ActionRequired
+		return v.ActionsRequired
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2046,7 +2046,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 // An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired *string `pulumi:"actionRequired"`
+	ActionsRequired *string `pulumi:"actionsRequired"`
 	// The reason for approval or rejection.
 	Description *string `pulumi:"description"`
 	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
@@ -2067,7 +2067,7 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 // An object that represents the approval state of the private link connection.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
 	// The reason for approval or rejection.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
@@ -2153,8 +2153,8 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStateResponseOutput) ActionRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
+func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
 // The reason for approval or rejection.
@@ -2188,12 +2188,12 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionRequired() pulumi.StringPtrOutput {
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ActionRequired
+		return v.ActionsRequired
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3307,6 +3307,8 @@ type VaultProperties struct {
 	EnabledForTemplateDeployment *bool `pulumi:"enabledForTemplateDeployment"`
 	// Rules governing the accessibility of the key vault from specific network locations.
 	NetworkAcls *NetworkRuleSet `pulumi:"networkAcls"`
+	// Provisioning state of the vault.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// SKU details
 	Sku Sku `pulumi:"sku"`
 	// softDelete data retention days. It accepts >=7 and <=90.
@@ -3348,6 +3350,8 @@ type VaultPropertiesArgs struct {
 	EnabledForTemplateDeployment pulumi.BoolPtrInput `pulumi:"enabledForTemplateDeployment"`
 	// Rules governing the accessibility of the key vault from specific network locations.
 	NetworkAcls NetworkRuleSetPtrInput `pulumi:"networkAcls"`
+	// Provisioning state of the vault.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// SKU details
 	Sku SkuInput `pulumi:"sku"`
 	// softDelete data retention days. It accepts >=7 and <=90.
@@ -3481,6 +3485,11 @@ func (o VaultPropertiesOutput) NetworkAcls() NetworkRuleSetPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *NetworkRuleSet { return v.NetworkAcls }).(NetworkRuleSetPtrOutput)
 }
 
+// Provisioning state of the vault.
+func (o VaultPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VaultProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
 // SKU details
 func (o VaultPropertiesOutput) Sku() SkuOutput {
 	return o.ApplyT(func(v VaultProperties) Sku { return v.Sku }).(SkuOutput)
@@ -3609,6 +3618,16 @@ func (o VaultPropertiesPtrOutput) NetworkAcls() NetworkRuleSetPtrOutput {
 	}).(NetworkRuleSetPtrOutput)
 }
 
+// Provisioning state of the vault.
+func (o VaultPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
 // SKU details
 func (o VaultPropertiesPtrOutput) Sku() SkuPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *Sku {
@@ -3671,6 +3690,8 @@ type VaultPropertiesResponse struct {
 	NetworkAcls *NetworkRuleSetResponse `pulumi:"networkAcls"`
 	// List of private endpoint connections associated with the key vault.
 	PrivateEndpointConnections []PrivateEndpointConnectionItemResponse `pulumi:"privateEndpointConnections"`
+	// Provisioning state of the vault.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// SKU details
 	Sku SkuResponse `pulumi:"sku"`
 	// softDelete data retention days. It accepts >=7 and <=90.
@@ -3714,6 +3735,8 @@ type VaultPropertiesResponseArgs struct {
 	NetworkAcls NetworkRuleSetResponsePtrInput `pulumi:"networkAcls"`
 	// List of private endpoint connections associated with the key vault.
 	PrivateEndpointConnections PrivateEndpointConnectionItemResponseArrayInput `pulumi:"privateEndpointConnections"`
+	// Provisioning state of the vault.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// SKU details
 	Sku SkuResponseInput `pulumi:"sku"`
 	// softDelete data retention days. It accepts >=7 and <=90.
@@ -3854,6 +3877,11 @@ func (o VaultPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpo
 	}).(PrivateEndpointConnectionItemResponseArrayOutput)
 }
 
+// Provisioning state of the vault.
+func (o VaultPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
 // SKU details
 func (o VaultPropertiesResponseOutput) Sku() SkuResponseOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) SkuResponse { return v.Sku }).(SkuResponseOutput)
@@ -3990,6 +4018,16 @@ func (o VaultPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEn
 		}
 		return v.PrivateEndpointConnections
 	}).(PrivateEndpointConnectionItemResponseArrayOutput)
+}
+
+// Provisioning state of the vault.
+func (o VaultPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
 }
 
 // SKU details

@@ -18,9 +18,12 @@ class Service(pulumi.CustomResource):
                  admin_domain_name: Optional[pulumi.Input[str]] = None,
                  billing_domain_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  quantity: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,9 +35,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] admin_domain_name: Windows IoT Device Service OEM AAD domain
         :param pulumi.Input[str] billing_domain_name: Windows IoT Device Service ODM AAD domain
         :param pulumi.Input[str] device_name: The name of the Windows IoT Device Service.
+        :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+        :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[str] notes: Windows IoT Device Service notes.
         :param pulumi.Input[float] quantity: Windows IoT Device Service device allocation,
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -58,16 +64,16 @@ class Service(pulumi.CustomResource):
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
+            __props__['etag'] = etag
+            __props__['location'] = location
             __props__['notes'] = notes
             __props__['quantity'] = quantity
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['etag'] = None
-            __props__['location'] = None
+            __props__['tags'] = tags
             __props__['name'] = None
             __props__['start_date'] = None
-            __props__['tags'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:windowsiot/latest:Service"), pulumi.Alias(type_="azure-nextgen:windowsiot/v20180216preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
