@@ -67,7 +67,7 @@ export interface GetJobResult {
     /**
      * The inputs for the Job.
      */
-    readonly input: outputs.media.v20200501.JobInputClipResponse | outputs.media.v20200501.JobInputsResponse;
+    readonly input: outputs.media.v20200501.JobInputAssetResponse | outputs.media.v20200501.JobInputClipResponse | outputs.media.v20200501.JobInputHttpResponse | outputs.media.v20200501.JobInputsResponse;
     /**
      * The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */

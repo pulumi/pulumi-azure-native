@@ -63,7 +63,7 @@ export interface GetProtectionContainerResult {
     /**
      * ProtectionContainerResource properties
      */
-    readonly properties: outputs.recoveryservices.v20161201.AzureSqlContainerResponse | outputs.recoveryservices.v20161201.AzureStorageContainerResponse | outputs.recoveryservices.v20161201.AzureWorkloadContainerResponse | outputs.recoveryservices.v20161201.DpmContainerResponse | outputs.recoveryservices.v20161201.GenericContainerResponse | outputs.recoveryservices.v20161201.IaaSVMContainerResponse | outputs.recoveryservices.v20161201.MabContainerResponse;
+    readonly properties: outputs.recoveryservices.v20161201.AzureBackupServerContainerResponse | outputs.recoveryservices.v20161201.AzureIaaSClassicComputeVMContainerResponse | outputs.recoveryservices.v20161201.AzureIaaSComputeVMContainerResponse | outputs.recoveryservices.v20161201.AzureSQLAGWorkloadContainerProtectionContainerResponse | outputs.recoveryservices.v20161201.AzureSqlContainerResponse | outputs.recoveryservices.v20161201.AzureStorageContainerResponse | outputs.recoveryservices.v20161201.AzureVMAppContainerProtectionContainerResponse | outputs.recoveryservices.v20161201.AzureWorkloadContainerResponse | outputs.recoveryservices.v20161201.DpmContainerResponse | outputs.recoveryservices.v20161201.GenericContainerResponse | outputs.recoveryservices.v20161201.IaaSVMContainerResponse | outputs.recoveryservices.v20161201.MabContainerResponse;
     /**
      * Resource tags.
      */

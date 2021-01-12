@@ -54,7 +54,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The inputs for the Job.
      */
-    public readonly input!: pulumi.Output<outputs.media.v20180701.JobInputClipResponse | outputs.media.v20180701.JobInputsResponse>;
+    public readonly input!: pulumi.Output<outputs.media.v20180701.JobInputAssetResponse | outputs.media.v20180701.JobInputClipResponse | outputs.media.v20180701.JobInputHttpResponse | outputs.media.v20180701.JobInputsResponse>;
     /**
      * The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
@@ -174,7 +174,7 @@ export interface JobArgs {
     /**
      * The inputs for the Job.
      */
-    readonly input: pulumi.Input<inputs.media.v20180701.JobInputClip | inputs.media.v20180701.JobInputs>;
+    readonly input: pulumi.Input<inputs.media.v20180701.JobInputAsset | inputs.media.v20180701.JobInputClip | inputs.media.v20180701.JobInputHttp | inputs.media.v20180701.JobInputs>;
     /**
      * The Job name.
      */

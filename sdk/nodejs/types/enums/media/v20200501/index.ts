@@ -2,6 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AacAudioProfile = {
+    /**
+     * Specifies that the output audio is to be encoded into AAC Low Complexity profile (AAC-LC).
+     */
+    AacLc: "AacLc",
+    /**
+     * Specifies that the output audio is to be encoded into HE-AAC v1 profile.
+     */
+    HeAacV1: "HeAacV1",
+    /**
+     * Specifies that the output audio is to be encoded into HE-AAC v2 profile.
+     */
+    HeAacV2: "HeAacV2",
+} as const;
+
+/**
+ * The encoding profile to be used when encoding audio with AAC.
+ */
+export type AacAudioProfile = (typeof AacAudioProfile)[keyof typeof AacAudioProfile];
+
 export const AccountEncryptionKeyType = {
     /**
      * The Account Key is encrypted with a System Key.
@@ -268,6 +288,22 @@ export const EncoderNamedPreset = {
  */
 export type EncoderNamedPreset = (typeof EncoderNamedPreset)[keyof typeof EncoderNamedPreset];
 
+export const EntropyMode = {
+    /**
+     * Context Adaptive Binary Arithmetic Coder (CABAC) entropy encoding.
+     */
+    Cabac: "Cabac",
+    /**
+     * Context Adaptive Variable Length Coder (CAVLC) entropy encoding.
+     */
+    Cavlc: "Cavlc",
+} as const;
+
+/**
+ * The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+ */
+export type EntropyMode = (typeof EntropyMode)[keyof typeof EntropyMode];
+
 export const FilterTrackPropertyCompareOperation = {
     /**
      * The equal operation.
@@ -315,6 +351,78 @@ export const FilterTrackPropertyType = {
  * The track property type.
  */
 export type FilterTrackPropertyType = (typeof FilterTrackPropertyType)[keyof typeof FilterTrackPropertyType];
+
+export const H264Complexity = {
+    /**
+     * Tells the encoder to use settings that are optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+     */
+    Speed: "Speed",
+    /**
+     * Tells the encoder to use settings that achieve a balance between speed and quality.
+     */
+    Balanced: "Balanced",
+    /**
+     * Tells the encoder to use settings that are optimized to produce higher quality output at the expense of slower overall encode time.
+     */
+    Quality: "Quality",
+} as const;
+
+/**
+ * Tells the encoder how to choose its encoding settings. The default value is Balanced.
+ */
+export type H264Complexity = (typeof H264Complexity)[keyof typeof H264Complexity];
+
+export const H264VideoProfile = {
+    /**
+     * Tells the encoder to automatically determine the appropriate H.264 profile.
+     */
+    Auto: "Auto",
+    /**
+     * Baseline profile
+     */
+    Baseline: "Baseline",
+    /**
+     * Main profile
+     */
+    Main: "Main",
+    /**
+     * High profile.
+     */
+    High: "High",
+    /**
+     * High 4:2:2 profile.
+     */
+    High422: "High422",
+    /**
+     * High 4:4:4 predictive profile.
+     */
+    High444: "High444",
+} as const;
+
+/**
+ * We currently support Baseline, Main, High, High422, High444. Default is Auto.
+ */
+export type H264VideoProfile = (typeof H264VideoProfile)[keyof typeof H264VideoProfile];
+
+export const InsightsType = {
+    /**
+     * Generate audio only insights. Ignore video even if present. Fails if no audio is present.
+     */
+    AudioInsightsOnly: "AudioInsightsOnly",
+    /**
+     * Generate video only insights. Ignore audio if present. Fails if no video is present.
+     */
+    VideoInsightsOnly: "VideoInsightsOnly",
+    /**
+     * Generate both audio and video insights. Fails if either audio or video Insights fail.
+     */
+    AllInsights: "AllInsights",
+} as const;
+
+/**
+ * Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+ */
+export type InsightsType = (typeof InsightsType)[keyof typeof InsightsType];
 
 export const LiveEventEncodingType = {
     /**

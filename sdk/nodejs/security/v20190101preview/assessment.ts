@@ -54,7 +54,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Details of the resource that was assessed
      */
-    public readonly resourceDetails!: pulumi.Output<outputs.security.v20190101preview.AzureResourceDetailsResponse | outputs.security.v20190101preview.OnPremiseResourceDetailsResponse>;
+    public readonly resourceDetails!: pulumi.Output<outputs.security.v20190101preview.AzureResourceDetailsResponse | outputs.security.v20190101preview.OnPremiseResourceDetailsResponse | outputs.security.v20190101preview.OnPremiseSqlResourceDetailsResponse>;
     /**
      * The result of the assessment
      */
@@ -132,7 +132,7 @@ export interface AssessmentArgs {
     /**
      * Details of the resource that was assessed
      */
-    readonly resourceDetails: pulumi.Input<inputs.security.v20190101preview.AzureResourceDetails | inputs.security.v20190101preview.OnPremiseResourceDetails>;
+    readonly resourceDetails: pulumi.Input<inputs.security.v20190101preview.AzureResourceDetails | inputs.security.v20190101preview.OnPremiseResourceDetails | inputs.security.v20190101preview.OnPremiseSqlResourceDetails>;
     /**
      * The identifier of the resource.
      */

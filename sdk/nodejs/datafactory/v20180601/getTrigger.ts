@@ -54,7 +54,7 @@ export interface GetTriggerResult {
     /**
      * Properties of the trigger.
      */
-    readonly properties: outputs.datafactory.v20180601.ChainingTriggerResponse | outputs.datafactory.v20180601.MultiplePipelineTriggerResponse | outputs.datafactory.v20180601.RerunTumblingWindowTriggerResponse | outputs.datafactory.v20180601.TumblingWindowTriggerResponse;
+    readonly properties: outputs.datafactory.v20180601.BlobEventsTriggerResponse | outputs.datafactory.v20180601.BlobTriggerResponse | outputs.datafactory.v20180601.ChainingTriggerResponse | outputs.datafactory.v20180601.MultiplePipelineTriggerResponse | outputs.datafactory.v20180601.RerunTumblingWindowTriggerResponse | outputs.datafactory.v20180601.ScheduleTriggerResponse | outputs.datafactory.v20180601.TumblingWindowTriggerResponse;
     /**
      * The resource type.
      */

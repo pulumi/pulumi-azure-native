@@ -31,3 +31,18 @@ export const ProtectionStatus = {
  * Backup state of this backup item.
  */
 export type ProtectionStatus = (typeof ProtectionStatus)[keyof typeof ProtectionStatus];
+
+export const WorkloadItemType = {
+    Invalid: "Invalid",
+    SQLInstance: "SQLInstance",
+    SQLDataBase: "SQLDataBase",
+    SAPHanaSystem: "SAPHanaSystem",
+    SAPHanaDatabase: "SAPHanaDatabase",
+    SAPAseSystem: "SAPAseSystem",
+    SAPAseDatabase: "SAPAseDatabase",
+} as const;
+
+/**
+ * Workload item type of the item for which intent is to be set
+ */
+export type WorkloadItemType = (typeof WorkloadItemType)[keyof typeof WorkloadItemType];

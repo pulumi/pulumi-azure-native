@@ -2,6 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AacAudioProfile = {
+    /**
+     * Specifies that the output audio is to be encoded into AAC Low Complexity profile (AAC-LC).
+     */
+    AacLc: "AacLc",
+    /**
+     * Specifies that the output audio is to be encoded into HE-AAC v1 profile.
+     */
+    HeAacV1: "HeAacV1",
+    /**
+     * Specifies that the output audio is to be encoded into HE-AAC v2 profile.
+     */
+    HeAacV2: "HeAacV2",
+} as const;
+
+/**
+ * The encoding profile to be used when encoding audio with AAC.
+ */
+export type AacAudioProfile = (typeof AacAudioProfile)[keyof typeof AacAudioProfile];
+
 export const AssetContainerPermission = {
     /**
      * The SAS URL will allow read access to the container.
@@ -197,6 +217,74 @@ export const EncoderNamedPreset = {
  * The built-in preset to be used for encoding videos.
  */
 export type EncoderNamedPreset = (typeof EncoderNamedPreset)[keyof typeof EncoderNamedPreset];
+
+export const EntropyMode = {
+    /**
+     * Context Adaptive Binary Arithmetic Coder (CABAC) entropy encoding.
+     */
+    Cabac: "Cabac",
+    /**
+     * Context Adaptive Variable Length Coder (CAVLC) entropy encoding.
+     */
+    Cavlc: "Cavlc",
+} as const;
+
+/**
+ * The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+ */
+export type EntropyMode = (typeof EntropyMode)[keyof typeof EntropyMode];
+
+export const H264Complexity = {
+    /**
+     * Tells the encoder to use settings that are optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+     */
+    Speed: "Speed",
+    /**
+     * Tells the encoder to use settings that achieve a balance between speed and quality.
+     */
+    Balanced: "Balanced",
+    /**
+     * Tells the encoder to use settings that are optimized to produce higher quality output at the expense of slower overall encode time.
+     */
+    Quality: "Quality",
+} as const;
+
+/**
+ * Tells the encoder how to choose its encoding settings. The default value is Balanced.
+ */
+export type H264Complexity = (typeof H264Complexity)[keyof typeof H264Complexity];
+
+export const H264VideoProfile = {
+    /**
+     * Tells the encoder to automatically determine the appropriate H.264 profile.
+     */
+    Auto: "Auto",
+    /**
+     * Baseline profile
+     */
+    Baseline: "Baseline",
+    /**
+     * Main profile
+     */
+    Main: "Main",
+    /**
+     * High profile.
+     */
+    High: "High",
+    /**
+     * High 4:2:2 profile.
+     */
+    High422: "High422",
+    /**
+     * High 4:4:4 predictive profile.
+     */
+    High444: "High444",
+} as const;
+
+/**
+ * Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
+ */
+export type H264VideoProfile = (typeof H264VideoProfile)[keyof typeof H264VideoProfile];
 
 export const LiveEventEncodingType = {
     None: "None",

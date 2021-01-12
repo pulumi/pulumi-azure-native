@@ -50,7 +50,7 @@ export class MachineLearningService extends pulumi.CustomResource {
     /**
      * Service properties
      */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.v20200901preview.ACIServiceResponseResponse | outputs.machinelearningservices.v20200901preview.AKSVariantResponseResponse>;
+    public readonly properties!: pulumi.Output<outputs.machinelearningservices.v20200901preview.ACIServiceResponseResponse | outputs.machinelearningservices.v20200901preview.AKSServiceResponseResponse | outputs.machinelearningservices.v20200901preview.AKSVariantResponseResponse>;
     /**
      * The sku of the workspace.
      */
