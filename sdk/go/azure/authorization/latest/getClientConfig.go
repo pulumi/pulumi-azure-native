@@ -19,8 +19,12 @@ func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClie
 
 // Configuration values returned by getClientConfig.
 type GetClientConfigResult struct {
-	ClientId       string `pulumi:"clientId"`
-	ObjectId       string `pulumi:"objectId"`
+	// Azure Client ID (Application Object ID).
+	ClientId string `pulumi:"clientId"`
+	// Azure Object ID of the current user or service principal.
+	ObjectId string `pulumi:"objectId"`
+	// Azure Subscription ID
 	SubscriptionId string `pulumi:"subscriptionId"`
-	TenantId       string `pulumi:"tenantId"`
+	// Azure Tenant ID
+	TenantId string `pulumi:"tenantId"`
 }
