@@ -10,6 +10,38 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The encoding profile to be used when encoding audio with AAC.
+type AacAudioProfile pulumi.String
+
+const (
+	// Specifies that the output audio is to be encoded into AAC Low Complexity profile (AAC-LC).
+	AacAudioProfileAacLc = AacAudioProfile("AacLc")
+	// Specifies that the output audio is to be encoded into HE-AAC v1 profile.
+	AacAudioProfileHeAacV1 = AacAudioProfile("HeAacV1")
+	// Specifies that the output audio is to be encoded into HE-AAC v2 profile.
+	AacAudioProfileHeAacV2 = AacAudioProfile("HeAacV2")
+)
+
+func (AacAudioProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AacAudioProfile) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AacAudioProfile) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AacAudioProfile) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AacAudioProfile) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of key used to encrypt the Account Key.
 type AccountEncryptionKeyType pulumi.String
 
@@ -408,6 +440,36 @@ func (e EncoderNamedPreset) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+type EntropyMode pulumi.String
+
+const (
+	// Context Adaptive Binary Arithmetic Coder (CABAC) entropy encoding.
+	EntropyModeCabac = EntropyMode("Cabac")
+	// Context Adaptive Variable Length Coder (CAVLC) entropy encoding.
+	EntropyModeCavlc = EntropyMode("Cavlc")
+)
+
+func (EntropyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EntropyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntropyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntropyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntropyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The track property condition operation.
 type FilterTrackPropertyCompareOperation pulumi.String
 
@@ -473,6 +535,108 @@ func (e FilterTrackPropertyType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e FilterTrackPropertyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+type H264Complexity pulumi.String
+
+const (
+	// Tells the encoder to use settings that are optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+	H264ComplexitySpeed = H264Complexity("Speed")
+	// Tells the encoder to use settings that achieve a balance between speed and quality.
+	H264ComplexityBalanced = H264Complexity("Balanced")
+	// Tells the encoder to use settings that are optimized to produce higher quality output at the expense of slower overall encode time.
+	H264ComplexityQuality = H264Complexity("Quality")
+)
+
+func (H264Complexity) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e H264Complexity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H264Complexity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H264Complexity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e H264Complexity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// We currently support Baseline, Main, High, High422, High444. Default is Auto.
+type H264VideoProfile pulumi.String
+
+const (
+	// Tells the encoder to automatically determine the appropriate H.264 profile.
+	H264VideoProfileAuto = H264VideoProfile("Auto")
+	// Baseline profile
+	H264VideoProfileBaseline = H264VideoProfile("Baseline")
+	// Main profile
+	H264VideoProfileMain = H264VideoProfile("Main")
+	// High profile.
+	H264VideoProfileHigh = H264VideoProfile("High")
+	// High 4:2:2 profile.
+	H264VideoProfileHigh422 = H264VideoProfile("High422")
+	// High 4:4:4 predictive profile.
+	H264VideoProfileHigh444 = H264VideoProfile("High444")
+)
+
+func (H264VideoProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e H264VideoProfile) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H264VideoProfile) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H264VideoProfile) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e H264VideoProfile) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+type InsightsType pulumi.String
+
+const (
+	// Generate audio only insights. Ignore video even if present. Fails if no audio is present.
+	InsightsTypeAudioInsightsOnly = InsightsType("AudioInsightsOnly")
+	// Generate video only insights. Ignore audio if present. Fails if no video is present.
+	InsightsTypeVideoInsightsOnly = InsightsType("VideoInsightsOnly")
+	// Generate both audio and video insights. Fails if either audio or video Insights fail.
+	InsightsTypeAllInsights = InsightsType("AllInsights")
+)
+
+func (InsightsType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e InsightsType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightsType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightsType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InsightsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

@@ -1313,6 +1313,178 @@ func (o AKSPropertiesPtrOutput) SslConfiguration() SslConfigurationPtrOutput {
 	}).(SslConfigurationPtrOutput)
 }
 
+// The error details.
+type AKSReplicaStatusResponseError struct {
+	// Error code.
+	Code string `pulumi:"code"`
+	// An array of error detail objects.
+	Details []ErrorDetailResponse `pulumi:"details"`
+	// Error message.
+	Message string `pulumi:"message"`
+}
+
+// AKSReplicaStatusResponseErrorInput is an input type that accepts AKSReplicaStatusResponseErrorArgs and AKSReplicaStatusResponseErrorOutput values.
+// You can construct a concrete instance of `AKSReplicaStatusResponseErrorInput` via:
+//
+//          AKSReplicaStatusResponseErrorArgs{...}
+type AKSReplicaStatusResponseErrorInput interface {
+	pulumi.Input
+
+	ToAKSReplicaStatusResponseErrorOutput() AKSReplicaStatusResponseErrorOutput
+	ToAKSReplicaStatusResponseErrorOutputWithContext(context.Context) AKSReplicaStatusResponseErrorOutput
+}
+
+// The error details.
+type AKSReplicaStatusResponseErrorArgs struct {
+	// Error code.
+	Code pulumi.StringInput `pulumi:"code"`
+	// An array of error detail objects.
+	Details ErrorDetailResponseArrayInput `pulumi:"details"`
+	// Error message.
+	Message pulumi.StringInput `pulumi:"message"`
+}
+
+func (AKSReplicaStatusResponseErrorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSReplicaStatusResponseError)(nil)).Elem()
+}
+
+func (i AKSReplicaStatusResponseErrorArgs) ToAKSReplicaStatusResponseErrorOutput() AKSReplicaStatusResponseErrorOutput {
+	return i.ToAKSReplicaStatusResponseErrorOutputWithContext(context.Background())
+}
+
+func (i AKSReplicaStatusResponseErrorArgs) ToAKSReplicaStatusResponseErrorOutputWithContext(ctx context.Context) AKSReplicaStatusResponseErrorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSReplicaStatusResponseErrorOutput)
+}
+
+func (i AKSReplicaStatusResponseErrorArgs) ToAKSReplicaStatusResponseErrorPtrOutput() AKSReplicaStatusResponseErrorPtrOutput {
+	return i.ToAKSReplicaStatusResponseErrorPtrOutputWithContext(context.Background())
+}
+
+func (i AKSReplicaStatusResponseErrorArgs) ToAKSReplicaStatusResponseErrorPtrOutputWithContext(ctx context.Context) AKSReplicaStatusResponseErrorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSReplicaStatusResponseErrorOutput).ToAKSReplicaStatusResponseErrorPtrOutputWithContext(ctx)
+}
+
+// AKSReplicaStatusResponseErrorPtrInput is an input type that accepts AKSReplicaStatusResponseErrorArgs, AKSReplicaStatusResponseErrorPtr and AKSReplicaStatusResponseErrorPtrOutput values.
+// You can construct a concrete instance of `AKSReplicaStatusResponseErrorPtrInput` via:
+//
+//          AKSReplicaStatusResponseErrorArgs{...}
+//
+//  or:
+//
+//          nil
+type AKSReplicaStatusResponseErrorPtrInput interface {
+	pulumi.Input
+
+	ToAKSReplicaStatusResponseErrorPtrOutput() AKSReplicaStatusResponseErrorPtrOutput
+	ToAKSReplicaStatusResponseErrorPtrOutputWithContext(context.Context) AKSReplicaStatusResponseErrorPtrOutput
+}
+
+type aksreplicaStatusResponseErrorPtrType AKSReplicaStatusResponseErrorArgs
+
+func AKSReplicaStatusResponseErrorPtr(v *AKSReplicaStatusResponseErrorArgs) AKSReplicaStatusResponseErrorPtrInput {
+	return (*aksreplicaStatusResponseErrorPtrType)(v)
+}
+
+func (*aksreplicaStatusResponseErrorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSReplicaStatusResponseError)(nil)).Elem()
+}
+
+func (i *aksreplicaStatusResponseErrorPtrType) ToAKSReplicaStatusResponseErrorPtrOutput() AKSReplicaStatusResponseErrorPtrOutput {
+	return i.ToAKSReplicaStatusResponseErrorPtrOutputWithContext(context.Background())
+}
+
+func (i *aksreplicaStatusResponseErrorPtrType) ToAKSReplicaStatusResponseErrorPtrOutputWithContext(ctx context.Context) AKSReplicaStatusResponseErrorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSReplicaStatusResponseErrorPtrOutput)
+}
+
+// The error details.
+type AKSReplicaStatusResponseErrorOutput struct{ *pulumi.OutputState }
+
+func (AKSReplicaStatusResponseErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSReplicaStatusResponseError)(nil)).Elem()
+}
+
+func (o AKSReplicaStatusResponseErrorOutput) ToAKSReplicaStatusResponseErrorOutput() AKSReplicaStatusResponseErrorOutput {
+	return o
+}
+
+func (o AKSReplicaStatusResponseErrorOutput) ToAKSReplicaStatusResponseErrorOutputWithContext(ctx context.Context) AKSReplicaStatusResponseErrorOutput {
+	return o
+}
+
+func (o AKSReplicaStatusResponseErrorOutput) ToAKSReplicaStatusResponseErrorPtrOutput() AKSReplicaStatusResponseErrorPtrOutput {
+	return o.ToAKSReplicaStatusResponseErrorPtrOutputWithContext(context.Background())
+}
+
+func (o AKSReplicaStatusResponseErrorOutput) ToAKSReplicaStatusResponseErrorPtrOutputWithContext(ctx context.Context) AKSReplicaStatusResponseErrorPtrOutput {
+	return o.ApplyT(func(v AKSReplicaStatusResponseError) *AKSReplicaStatusResponseError {
+		return &v
+	}).(AKSReplicaStatusResponseErrorPtrOutput)
+}
+
+// Error code.
+func (o AKSReplicaStatusResponseErrorOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v AKSReplicaStatusResponseError) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// An array of error detail objects.
+func (o AKSReplicaStatusResponseErrorOutput) Details() ErrorDetailResponseArrayOutput {
+	return o.ApplyT(func(v AKSReplicaStatusResponseError) []ErrorDetailResponse { return v.Details }).(ErrorDetailResponseArrayOutput)
+}
+
+// Error message.
+func (o AKSReplicaStatusResponseErrorOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v AKSReplicaStatusResponseError) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type AKSReplicaStatusResponseErrorPtrOutput struct{ *pulumi.OutputState }
+
+func (AKSReplicaStatusResponseErrorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSReplicaStatusResponseError)(nil)).Elem()
+}
+
+func (o AKSReplicaStatusResponseErrorPtrOutput) ToAKSReplicaStatusResponseErrorPtrOutput() AKSReplicaStatusResponseErrorPtrOutput {
+	return o
+}
+
+func (o AKSReplicaStatusResponseErrorPtrOutput) ToAKSReplicaStatusResponseErrorPtrOutputWithContext(ctx context.Context) AKSReplicaStatusResponseErrorPtrOutput {
+	return o
+}
+
+func (o AKSReplicaStatusResponseErrorPtrOutput) Elem() AKSReplicaStatusResponseErrorOutput {
+	return o.ApplyT(func(v *AKSReplicaStatusResponseError) AKSReplicaStatusResponseError { return *v }).(AKSReplicaStatusResponseErrorOutput)
+}
+
+// Error code.
+func (o AKSReplicaStatusResponseErrorPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AKSReplicaStatusResponseError) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of error detail objects.
+func (o AKSReplicaStatusResponseErrorPtrOutput) Details() ErrorDetailResponseArrayOutput {
+	return o.ApplyT(func(v *AKSReplicaStatusResponseError) []ErrorDetailResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Details
+	}).(ErrorDetailResponseArrayOutput)
+}
+
+// Error message.
+func (o AKSReplicaStatusResponseErrorPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AKSReplicaStatusResponseError) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
 // A Machine Learning compute based on AKS.
 type AKSResponse struct {
 	// Location for the underlying compute
@@ -1679,6 +1851,1216 @@ func (o AKSResponsePropertiesPtrOutput) SystemServices() SystemServiceResponseAr
 		}
 		return v.SystemServices
 	}).(SystemServiceResponseArrayOutput)
+}
+
+// The response for an AKS service.
+type AKSServiceResponseResponse struct {
+	// Whether or not AAD authentication is enabled.
+	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
+	// Whether or not Application Insights is enabled.
+	AppInsightsEnabled *bool `pulumi:"appInsightsEnabled"`
+	// Whether or not authentication is enabled.
+	AuthEnabled *bool `pulumi:"authEnabled"`
+	// The auto scaler properties.
+	AutoScaler *AKSServiceResponseResponseAutoScaler `pulumi:"autoScaler"`
+	// The name of the compute resource.
+	ComputeName *string `pulumi:"computeName"`
+	// The compute environment type for the service.
+	// Expected value is 'Custom'.
+	ComputeType string `pulumi:"computeType"`
+	// The container resource requirements.
+	ContainerResourceRequirements *ContainerResourceRequirementsResponse `pulumi:"containerResourceRequirements"`
+	// Details of the data collection options specified.
+	DataCollection *AKSServiceResponseResponseDataCollection `pulumi:"dataCollection"`
+	// The deployment status.
+	DeploymentStatus AKSServiceResponseResponseDeploymentStatus `pulumi:"deploymentStatus"`
+	// The deployment type for the service.
+	DeploymentType *string `pulumi:"deploymentType"`
+	// The service description.
+	Description *string `pulumi:"description"`
+	// The Environment, models and assets used for inferencing.
+	EnvironmentImageRequest *AKSServiceResponseResponseEnvironmentImageRequest `pulumi:"environmentImageRequest"`
+	// The error details.
+	Error ServiceResponseBaseResponseError `pulumi:"error"`
+	// Is this the default variant.
+	IsDefault *bool `pulumi:"isDefault"`
+	// The service tag dictionary. Tags are mutable.
+	KvTags map[string]string `pulumi:"kvTags"`
+	// The liveness probe requirements.
+	LivenessProbeRequirements *AKSServiceResponseResponseLivenessProbeRequirements `pulumi:"livenessProbeRequirements"`
+	// The maximum number of concurrent requests per container.
+	MaxConcurrentRequestsPerContainer *int `pulumi:"maxConcurrentRequestsPerContainer"`
+	// Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
+	MaxQueueWaitMs *int `pulumi:"maxQueueWaitMs"`
+	// Details on the models and configurations.
+	ModelConfigMap map[string]interface{} `pulumi:"modelConfigMap"`
+	// The list of models.
+	Models []ModelResponse `pulumi:"models"`
+	// The Kubernetes namespace of the deployment.
+	Namespace *string `pulumi:"namespace"`
+	// The number of replicas on the cluster.
+	NumReplicas *int `pulumi:"numReplicas"`
+	// The service property dictionary. Properties are immutable.
+	Properties map[string]string `pulumi:"properties"`
+	// The scoring timeout in milliseconds.
+	ScoringTimeoutMs *int `pulumi:"scoringTimeoutMs"`
+	// The Uri for sending scoring requests.
+	ScoringUri string `pulumi:"scoringUri"`
+	// The current state of the service.
+	State string `pulumi:"state"`
+	// The Uri for sending swagger requests.
+	SwaggerUri string `pulumi:"swaggerUri"`
+	// The amount of traffic variant receives.
+	TrafficPercentile *float64 `pulumi:"trafficPercentile"`
+	// The type of the variant.
+	Type *string `pulumi:"type"`
+}
+
+// AKSServiceResponseResponseInput is an input type that accepts AKSServiceResponseResponseArgs and AKSServiceResponseResponseOutput values.
+// You can construct a concrete instance of `AKSServiceResponseResponseInput` via:
+//
+//          AKSServiceResponseResponseArgs{...}
+type AKSServiceResponseResponseInput interface {
+	pulumi.Input
+
+	ToAKSServiceResponseResponseOutput() AKSServiceResponseResponseOutput
+	ToAKSServiceResponseResponseOutputWithContext(context.Context) AKSServiceResponseResponseOutput
+}
+
+// The response for an AKS service.
+type AKSServiceResponseResponseArgs struct {
+	// Whether or not AAD authentication is enabled.
+	AadAuthEnabled pulumi.BoolPtrInput `pulumi:"aadAuthEnabled"`
+	// Whether or not Application Insights is enabled.
+	AppInsightsEnabled pulumi.BoolPtrInput `pulumi:"appInsightsEnabled"`
+	// Whether or not authentication is enabled.
+	AuthEnabled pulumi.BoolPtrInput `pulumi:"authEnabled"`
+	// The auto scaler properties.
+	AutoScaler AKSServiceResponseResponseAutoScalerPtrInput `pulumi:"autoScaler"`
+	// The name of the compute resource.
+	ComputeName pulumi.StringPtrInput `pulumi:"computeName"`
+	// The compute environment type for the service.
+	// Expected value is 'Custom'.
+	ComputeType pulumi.StringInput `pulumi:"computeType"`
+	// The container resource requirements.
+	ContainerResourceRequirements ContainerResourceRequirementsResponsePtrInput `pulumi:"containerResourceRequirements"`
+	// Details of the data collection options specified.
+	DataCollection AKSServiceResponseResponseDataCollectionPtrInput `pulumi:"dataCollection"`
+	// The deployment status.
+	DeploymentStatus AKSServiceResponseResponseDeploymentStatusInput `pulumi:"deploymentStatus"`
+	// The deployment type for the service.
+	DeploymentType pulumi.StringPtrInput `pulumi:"deploymentType"`
+	// The service description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The Environment, models and assets used for inferencing.
+	EnvironmentImageRequest AKSServiceResponseResponseEnvironmentImageRequestPtrInput `pulumi:"environmentImageRequest"`
+	// The error details.
+	Error ServiceResponseBaseResponseErrorInput `pulumi:"error"`
+	// Is this the default variant.
+	IsDefault pulumi.BoolPtrInput `pulumi:"isDefault"`
+	// The service tag dictionary. Tags are mutable.
+	KvTags pulumi.StringMapInput `pulumi:"kvTags"`
+	// The liveness probe requirements.
+	LivenessProbeRequirements AKSServiceResponseResponseLivenessProbeRequirementsPtrInput `pulumi:"livenessProbeRequirements"`
+	// The maximum number of concurrent requests per container.
+	MaxConcurrentRequestsPerContainer pulumi.IntPtrInput `pulumi:"maxConcurrentRequestsPerContainer"`
+	// Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
+	MaxQueueWaitMs pulumi.IntPtrInput `pulumi:"maxQueueWaitMs"`
+	// Details on the models and configurations.
+	ModelConfigMap pulumi.MapInput `pulumi:"modelConfigMap"`
+	// The list of models.
+	Models ModelResponseArrayInput `pulumi:"models"`
+	// The Kubernetes namespace of the deployment.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// The number of replicas on the cluster.
+	NumReplicas pulumi.IntPtrInput `pulumi:"numReplicas"`
+	// The service property dictionary. Properties are immutable.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// The scoring timeout in milliseconds.
+	ScoringTimeoutMs pulumi.IntPtrInput `pulumi:"scoringTimeoutMs"`
+	// The Uri for sending scoring requests.
+	ScoringUri pulumi.StringInput `pulumi:"scoringUri"`
+	// The current state of the service.
+	State pulumi.StringInput `pulumi:"state"`
+	// The Uri for sending swagger requests.
+	SwaggerUri pulumi.StringInput `pulumi:"swaggerUri"`
+	// The amount of traffic variant receives.
+	TrafficPercentile pulumi.Float64PtrInput `pulumi:"trafficPercentile"`
+	// The type of the variant.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (AKSServiceResponseResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponse)(nil)).Elem()
+}
+
+func (i AKSServiceResponseResponseArgs) ToAKSServiceResponseResponseOutput() AKSServiceResponseResponseOutput {
+	return i.ToAKSServiceResponseResponseOutputWithContext(context.Background())
+}
+
+func (i AKSServiceResponseResponseArgs) ToAKSServiceResponseResponseOutputWithContext(ctx context.Context) AKSServiceResponseResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseOutput)
+}
+
+// The response for an AKS service.
+type AKSServiceResponseResponseOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceResponseResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponse)(nil)).Elem()
+}
+
+func (o AKSServiceResponseResponseOutput) ToAKSServiceResponseResponseOutput() AKSServiceResponseResponseOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseOutput) ToAKSServiceResponseResponseOutputWithContext(ctx context.Context) AKSServiceResponseResponseOutput {
+	return o
+}
+
+// Whether or not AAD authentication is enabled.
+func (o AKSServiceResponseResponseOutput) AadAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *bool { return v.AadAuthEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not Application Insights is enabled.
+func (o AKSServiceResponseResponseOutput) AppInsightsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *bool { return v.AppInsightsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not authentication is enabled.
+func (o AKSServiceResponseResponseOutput) AuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *bool { return v.AuthEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The auto scaler properties.
+func (o AKSServiceResponseResponseOutput) AutoScaler() AKSServiceResponseResponseAutoScalerPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *AKSServiceResponseResponseAutoScaler { return v.AutoScaler }).(AKSServiceResponseResponseAutoScalerPtrOutput)
+}
+
+// The name of the compute resource.
+func (o AKSServiceResponseResponseOutput) ComputeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *string { return v.ComputeName }).(pulumi.StringPtrOutput)
+}
+
+// The compute environment type for the service.
+// Expected value is 'Custom'.
+func (o AKSServiceResponseResponseOutput) ComputeType() pulumi.StringOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) string { return v.ComputeType }).(pulumi.StringOutput)
+}
+
+// The container resource requirements.
+func (o AKSServiceResponseResponseOutput) ContainerResourceRequirements() ContainerResourceRequirementsResponsePtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *ContainerResourceRequirementsResponse {
+		return v.ContainerResourceRequirements
+	}).(ContainerResourceRequirementsResponsePtrOutput)
+}
+
+// Details of the data collection options specified.
+func (o AKSServiceResponseResponseOutput) DataCollection() AKSServiceResponseResponseDataCollectionPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *AKSServiceResponseResponseDataCollection { return v.DataCollection }).(AKSServiceResponseResponseDataCollectionPtrOutput)
+}
+
+// The deployment status.
+func (o AKSServiceResponseResponseOutput) DeploymentStatus() AKSServiceResponseResponseDeploymentStatusOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) AKSServiceResponseResponseDeploymentStatus {
+		return v.DeploymentStatus
+	}).(AKSServiceResponseResponseDeploymentStatusOutput)
+}
+
+// The deployment type for the service.
+func (o AKSServiceResponseResponseOutput) DeploymentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
+}
+
+// The service description.
+func (o AKSServiceResponseResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Environment, models and assets used for inferencing.
+func (o AKSServiceResponseResponseOutput) EnvironmentImageRequest() AKSServiceResponseResponseEnvironmentImageRequestPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *AKSServiceResponseResponseEnvironmentImageRequest {
+		return v.EnvironmentImageRequest
+	}).(AKSServiceResponseResponseEnvironmentImageRequestPtrOutput)
+}
+
+// The error details.
+func (o AKSServiceResponseResponseOutput) Error() ServiceResponseBaseResponseErrorOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) ServiceResponseBaseResponseError { return v.Error }).(ServiceResponseBaseResponseErrorOutput)
+}
+
+// Is this the default variant.
+func (o AKSServiceResponseResponseOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
+}
+
+// The service tag dictionary. Tags are mutable.
+func (o AKSServiceResponseResponseOutput) KvTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) map[string]string { return v.KvTags }).(pulumi.StringMapOutput)
+}
+
+// The liveness probe requirements.
+func (o AKSServiceResponseResponseOutput) LivenessProbeRequirements() AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *AKSServiceResponseResponseLivenessProbeRequirements {
+		return v.LivenessProbeRequirements
+	}).(AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput)
+}
+
+// The maximum number of concurrent requests per container.
+func (o AKSServiceResponseResponseOutput) MaxConcurrentRequestsPerContainer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *int { return v.MaxConcurrentRequestsPerContainer }).(pulumi.IntPtrOutput)
+}
+
+// Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
+func (o AKSServiceResponseResponseOutput) MaxQueueWaitMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *int { return v.MaxQueueWaitMs }).(pulumi.IntPtrOutput)
+}
+
+// Details on the models and configurations.
+func (o AKSServiceResponseResponseOutput) ModelConfigMap() pulumi.MapOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) map[string]interface{} { return v.ModelConfigMap }).(pulumi.MapOutput)
+}
+
+// The list of models.
+func (o AKSServiceResponseResponseOutput) Models() ModelResponseArrayOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) []ModelResponse { return v.Models }).(ModelResponseArrayOutput)
+}
+
+// The Kubernetes namespace of the deployment.
+func (o AKSServiceResponseResponseOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// The number of replicas on the cluster.
+func (o AKSServiceResponseResponseOutput) NumReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *int { return v.NumReplicas }).(pulumi.IntPtrOutput)
+}
+
+// The service property dictionary. Properties are immutable.
+func (o AKSServiceResponseResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// The scoring timeout in milliseconds.
+func (o AKSServiceResponseResponseOutput) ScoringTimeoutMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *int { return v.ScoringTimeoutMs }).(pulumi.IntPtrOutput)
+}
+
+// The Uri for sending scoring requests.
+func (o AKSServiceResponseResponseOutput) ScoringUri() pulumi.StringOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) string { return v.ScoringUri }).(pulumi.StringOutput)
+}
+
+// The current state of the service.
+func (o AKSServiceResponseResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The Uri for sending swagger requests.
+func (o AKSServiceResponseResponseOutput) SwaggerUri() pulumi.StringOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) string { return v.SwaggerUri }).(pulumi.StringOutput)
+}
+
+// The amount of traffic variant receives.
+func (o AKSServiceResponseResponseOutput) TrafficPercentile() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *float64 { return v.TrafficPercentile }).(pulumi.Float64PtrOutput)
+}
+
+// The type of the variant.
+func (o AKSServiceResponseResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The auto scaler properties.
+type AKSServiceResponseResponseAutoScaler struct {
+	// Option to enable/disable auto scaling.
+	AutoscaleEnabled *bool `pulumi:"autoscaleEnabled"`
+	// The maximum number of replicas in the cluster.
+	MaxReplicas *int `pulumi:"maxReplicas"`
+	// The minimum number of replicas to scale down to.
+	MinReplicas *int `pulumi:"minReplicas"`
+	// The amount of seconds to wait between auto scale updates.
+	RefreshPeriodInSeconds *int `pulumi:"refreshPeriodInSeconds"`
+	// The target utilization percentage to use for determining whether to scale the cluster.
+	TargetUtilization *int `pulumi:"targetUtilization"`
+}
+
+// AKSServiceResponseResponseAutoScalerInput is an input type that accepts AKSServiceResponseResponseAutoScalerArgs and AKSServiceResponseResponseAutoScalerOutput values.
+// You can construct a concrete instance of `AKSServiceResponseResponseAutoScalerInput` via:
+//
+//          AKSServiceResponseResponseAutoScalerArgs{...}
+type AKSServiceResponseResponseAutoScalerInput interface {
+	pulumi.Input
+
+	ToAKSServiceResponseResponseAutoScalerOutput() AKSServiceResponseResponseAutoScalerOutput
+	ToAKSServiceResponseResponseAutoScalerOutputWithContext(context.Context) AKSServiceResponseResponseAutoScalerOutput
+}
+
+// The auto scaler properties.
+type AKSServiceResponseResponseAutoScalerArgs struct {
+	// Option to enable/disable auto scaling.
+	AutoscaleEnabled pulumi.BoolPtrInput `pulumi:"autoscaleEnabled"`
+	// The maximum number of replicas in the cluster.
+	MaxReplicas pulumi.IntPtrInput `pulumi:"maxReplicas"`
+	// The minimum number of replicas to scale down to.
+	MinReplicas pulumi.IntPtrInput `pulumi:"minReplicas"`
+	// The amount of seconds to wait between auto scale updates.
+	RefreshPeriodInSeconds pulumi.IntPtrInput `pulumi:"refreshPeriodInSeconds"`
+	// The target utilization percentage to use for determining whether to scale the cluster.
+	TargetUtilization pulumi.IntPtrInput `pulumi:"targetUtilization"`
+}
+
+func (AKSServiceResponseResponseAutoScalerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponseAutoScaler)(nil)).Elem()
+}
+
+func (i AKSServiceResponseResponseAutoScalerArgs) ToAKSServiceResponseResponseAutoScalerOutput() AKSServiceResponseResponseAutoScalerOutput {
+	return i.ToAKSServiceResponseResponseAutoScalerOutputWithContext(context.Background())
+}
+
+func (i AKSServiceResponseResponseAutoScalerArgs) ToAKSServiceResponseResponseAutoScalerOutputWithContext(ctx context.Context) AKSServiceResponseResponseAutoScalerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseAutoScalerOutput)
+}
+
+func (i AKSServiceResponseResponseAutoScalerArgs) ToAKSServiceResponseResponseAutoScalerPtrOutput() AKSServiceResponseResponseAutoScalerPtrOutput {
+	return i.ToAKSServiceResponseResponseAutoScalerPtrOutputWithContext(context.Background())
+}
+
+func (i AKSServiceResponseResponseAutoScalerArgs) ToAKSServiceResponseResponseAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseAutoScalerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseAutoScalerOutput).ToAKSServiceResponseResponseAutoScalerPtrOutputWithContext(ctx)
+}
+
+// AKSServiceResponseResponseAutoScalerPtrInput is an input type that accepts AKSServiceResponseResponseAutoScalerArgs, AKSServiceResponseResponseAutoScalerPtr and AKSServiceResponseResponseAutoScalerPtrOutput values.
+// You can construct a concrete instance of `AKSServiceResponseResponseAutoScalerPtrInput` via:
+//
+//          AKSServiceResponseResponseAutoScalerArgs{...}
+//
+//  or:
+//
+//          nil
+type AKSServiceResponseResponseAutoScalerPtrInput interface {
+	pulumi.Input
+
+	ToAKSServiceResponseResponseAutoScalerPtrOutput() AKSServiceResponseResponseAutoScalerPtrOutput
+	ToAKSServiceResponseResponseAutoScalerPtrOutputWithContext(context.Context) AKSServiceResponseResponseAutoScalerPtrOutput
+}
+
+type aksserviceResponseResponseAutoScalerPtrType AKSServiceResponseResponseAutoScalerArgs
+
+func AKSServiceResponseResponseAutoScalerPtr(v *AKSServiceResponseResponseAutoScalerArgs) AKSServiceResponseResponseAutoScalerPtrInput {
+	return (*aksserviceResponseResponseAutoScalerPtrType)(v)
+}
+
+func (*aksserviceResponseResponseAutoScalerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceResponseResponseAutoScaler)(nil)).Elem()
+}
+
+func (i *aksserviceResponseResponseAutoScalerPtrType) ToAKSServiceResponseResponseAutoScalerPtrOutput() AKSServiceResponseResponseAutoScalerPtrOutput {
+	return i.ToAKSServiceResponseResponseAutoScalerPtrOutputWithContext(context.Background())
+}
+
+func (i *aksserviceResponseResponseAutoScalerPtrType) ToAKSServiceResponseResponseAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseAutoScalerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseAutoScalerPtrOutput)
+}
+
+// The auto scaler properties.
+type AKSServiceResponseResponseAutoScalerOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceResponseResponseAutoScalerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponseAutoScaler)(nil)).Elem()
+}
+
+func (o AKSServiceResponseResponseAutoScalerOutput) ToAKSServiceResponseResponseAutoScalerOutput() AKSServiceResponseResponseAutoScalerOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseAutoScalerOutput) ToAKSServiceResponseResponseAutoScalerOutputWithContext(ctx context.Context) AKSServiceResponseResponseAutoScalerOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseAutoScalerOutput) ToAKSServiceResponseResponseAutoScalerPtrOutput() AKSServiceResponseResponseAutoScalerPtrOutput {
+	return o.ToAKSServiceResponseResponseAutoScalerPtrOutputWithContext(context.Background())
+}
+
+func (o AKSServiceResponseResponseAutoScalerOutput) ToAKSServiceResponseResponseAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseAutoScalerPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseAutoScaler) *AKSServiceResponseResponseAutoScaler {
+		return &v
+	}).(AKSServiceResponseResponseAutoScalerPtrOutput)
+}
+
+// Option to enable/disable auto scaling.
+func (o AKSServiceResponseResponseAutoScalerOutput) AutoscaleEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseAutoScaler) *bool { return v.AutoscaleEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of replicas in the cluster.
+func (o AKSServiceResponseResponseAutoScalerOutput) MaxReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseAutoScaler) *int { return v.MaxReplicas }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of replicas to scale down to.
+func (o AKSServiceResponseResponseAutoScalerOutput) MinReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseAutoScaler) *int { return v.MinReplicas }).(pulumi.IntPtrOutput)
+}
+
+// The amount of seconds to wait between auto scale updates.
+func (o AKSServiceResponseResponseAutoScalerOutput) RefreshPeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseAutoScaler) *int { return v.RefreshPeriodInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The target utilization percentage to use for determining whether to scale the cluster.
+func (o AKSServiceResponseResponseAutoScalerOutput) TargetUtilization() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseAutoScaler) *int { return v.TargetUtilization }).(pulumi.IntPtrOutput)
+}
+
+type AKSServiceResponseResponseAutoScalerPtrOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceResponseResponseAutoScalerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceResponseResponseAutoScaler)(nil)).Elem()
+}
+
+func (o AKSServiceResponseResponseAutoScalerPtrOutput) ToAKSServiceResponseResponseAutoScalerPtrOutput() AKSServiceResponseResponseAutoScalerPtrOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseAutoScalerPtrOutput) ToAKSServiceResponseResponseAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseAutoScalerPtrOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseAutoScalerPtrOutput) Elem() AKSServiceResponseResponseAutoScalerOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseAutoScaler) AKSServiceResponseResponseAutoScaler { return *v }).(AKSServiceResponseResponseAutoScalerOutput)
+}
+
+// Option to enable/disable auto scaling.
+func (o AKSServiceResponseResponseAutoScalerPtrOutput) AutoscaleEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseAutoScaler) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoscaleEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of replicas in the cluster.
+func (o AKSServiceResponseResponseAutoScalerPtrOutput) MaxReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseAutoScaler) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxReplicas
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of replicas to scale down to.
+func (o AKSServiceResponseResponseAutoScalerPtrOutput) MinReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseAutoScaler) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinReplicas
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of seconds to wait between auto scale updates.
+func (o AKSServiceResponseResponseAutoScalerPtrOutput) RefreshPeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseAutoScaler) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshPeriodInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The target utilization percentage to use for determining whether to scale the cluster.
+func (o AKSServiceResponseResponseAutoScalerPtrOutput) TargetUtilization() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseAutoScaler) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUtilization
+	}).(pulumi.IntPtrOutput)
+}
+
+// Details of the data collection options specified.
+type AKSServiceResponseResponseDataCollection struct {
+	// Option for enabling/disabling Event Hub.
+	EventHubEnabled *bool `pulumi:"eventHubEnabled"`
+	// Option for enabling/disabling storage.
+	StorageEnabled *bool `pulumi:"storageEnabled"`
+}
+
+// AKSServiceResponseResponseDataCollectionInput is an input type that accepts AKSServiceResponseResponseDataCollectionArgs and AKSServiceResponseResponseDataCollectionOutput values.
+// You can construct a concrete instance of `AKSServiceResponseResponseDataCollectionInput` via:
+//
+//          AKSServiceResponseResponseDataCollectionArgs{...}
+type AKSServiceResponseResponseDataCollectionInput interface {
+	pulumi.Input
+
+	ToAKSServiceResponseResponseDataCollectionOutput() AKSServiceResponseResponseDataCollectionOutput
+	ToAKSServiceResponseResponseDataCollectionOutputWithContext(context.Context) AKSServiceResponseResponseDataCollectionOutput
+}
+
+// Details of the data collection options specified.
+type AKSServiceResponseResponseDataCollectionArgs struct {
+	// Option for enabling/disabling Event Hub.
+	EventHubEnabled pulumi.BoolPtrInput `pulumi:"eventHubEnabled"`
+	// Option for enabling/disabling storage.
+	StorageEnabled pulumi.BoolPtrInput `pulumi:"storageEnabled"`
+}
+
+func (AKSServiceResponseResponseDataCollectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponseDataCollection)(nil)).Elem()
+}
+
+func (i AKSServiceResponseResponseDataCollectionArgs) ToAKSServiceResponseResponseDataCollectionOutput() AKSServiceResponseResponseDataCollectionOutput {
+	return i.ToAKSServiceResponseResponseDataCollectionOutputWithContext(context.Background())
+}
+
+func (i AKSServiceResponseResponseDataCollectionArgs) ToAKSServiceResponseResponseDataCollectionOutputWithContext(ctx context.Context) AKSServiceResponseResponseDataCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseDataCollectionOutput)
+}
+
+func (i AKSServiceResponseResponseDataCollectionArgs) ToAKSServiceResponseResponseDataCollectionPtrOutput() AKSServiceResponseResponseDataCollectionPtrOutput {
+	return i.ToAKSServiceResponseResponseDataCollectionPtrOutputWithContext(context.Background())
+}
+
+func (i AKSServiceResponseResponseDataCollectionArgs) ToAKSServiceResponseResponseDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseDataCollectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseDataCollectionOutput).ToAKSServiceResponseResponseDataCollectionPtrOutputWithContext(ctx)
+}
+
+// AKSServiceResponseResponseDataCollectionPtrInput is an input type that accepts AKSServiceResponseResponseDataCollectionArgs, AKSServiceResponseResponseDataCollectionPtr and AKSServiceResponseResponseDataCollectionPtrOutput values.
+// You can construct a concrete instance of `AKSServiceResponseResponseDataCollectionPtrInput` via:
+//
+//          AKSServiceResponseResponseDataCollectionArgs{...}
+//
+//  or:
+//
+//          nil
+type AKSServiceResponseResponseDataCollectionPtrInput interface {
+	pulumi.Input
+
+	ToAKSServiceResponseResponseDataCollectionPtrOutput() AKSServiceResponseResponseDataCollectionPtrOutput
+	ToAKSServiceResponseResponseDataCollectionPtrOutputWithContext(context.Context) AKSServiceResponseResponseDataCollectionPtrOutput
+}
+
+type aksserviceResponseResponseDataCollectionPtrType AKSServiceResponseResponseDataCollectionArgs
+
+func AKSServiceResponseResponseDataCollectionPtr(v *AKSServiceResponseResponseDataCollectionArgs) AKSServiceResponseResponseDataCollectionPtrInput {
+	return (*aksserviceResponseResponseDataCollectionPtrType)(v)
+}
+
+func (*aksserviceResponseResponseDataCollectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceResponseResponseDataCollection)(nil)).Elem()
+}
+
+func (i *aksserviceResponseResponseDataCollectionPtrType) ToAKSServiceResponseResponseDataCollectionPtrOutput() AKSServiceResponseResponseDataCollectionPtrOutput {
+	return i.ToAKSServiceResponseResponseDataCollectionPtrOutputWithContext(context.Background())
+}
+
+func (i *aksserviceResponseResponseDataCollectionPtrType) ToAKSServiceResponseResponseDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseDataCollectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseDataCollectionPtrOutput)
+}
+
+// Details of the data collection options specified.
+type AKSServiceResponseResponseDataCollectionOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceResponseResponseDataCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponseDataCollection)(nil)).Elem()
+}
+
+func (o AKSServiceResponseResponseDataCollectionOutput) ToAKSServiceResponseResponseDataCollectionOutput() AKSServiceResponseResponseDataCollectionOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseDataCollectionOutput) ToAKSServiceResponseResponseDataCollectionOutputWithContext(ctx context.Context) AKSServiceResponseResponseDataCollectionOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseDataCollectionOutput) ToAKSServiceResponseResponseDataCollectionPtrOutput() AKSServiceResponseResponseDataCollectionPtrOutput {
+	return o.ToAKSServiceResponseResponseDataCollectionPtrOutputWithContext(context.Background())
+}
+
+func (o AKSServiceResponseResponseDataCollectionOutput) ToAKSServiceResponseResponseDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseDataCollectionPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseDataCollection) *AKSServiceResponseResponseDataCollection {
+		return &v
+	}).(AKSServiceResponseResponseDataCollectionPtrOutput)
+}
+
+// Option for enabling/disabling Event Hub.
+func (o AKSServiceResponseResponseDataCollectionOutput) EventHubEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseDataCollection) *bool { return v.EventHubEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Option for enabling/disabling storage.
+func (o AKSServiceResponseResponseDataCollectionOutput) StorageEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseDataCollection) *bool { return v.StorageEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type AKSServiceResponseResponseDataCollectionPtrOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceResponseResponseDataCollectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceResponseResponseDataCollection)(nil)).Elem()
+}
+
+func (o AKSServiceResponseResponseDataCollectionPtrOutput) ToAKSServiceResponseResponseDataCollectionPtrOutput() AKSServiceResponseResponseDataCollectionPtrOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseDataCollectionPtrOutput) ToAKSServiceResponseResponseDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseDataCollectionPtrOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseDataCollectionPtrOutput) Elem() AKSServiceResponseResponseDataCollectionOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseDataCollection) AKSServiceResponseResponseDataCollection { return *v }).(AKSServiceResponseResponseDataCollectionOutput)
+}
+
+// Option for enabling/disabling Event Hub.
+func (o AKSServiceResponseResponseDataCollectionPtrOutput) EventHubEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseDataCollection) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EventHubEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Option for enabling/disabling storage.
+func (o AKSServiceResponseResponseDataCollectionPtrOutput) StorageEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseDataCollection) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StorageEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The deployment status.
+type AKSServiceResponseResponseDeploymentStatus struct {
+	// The number of available replicas.
+	AvailableReplicas *int `pulumi:"availableReplicas"`
+	// The desired number of replicas.
+	DesiredReplicas *int `pulumi:"desiredReplicas"`
+	// The error details.
+	Error *AKSReplicaStatusResponseError `pulumi:"error"`
+	// The number of updated replicas.
+	UpdatedReplicas *int `pulumi:"updatedReplicas"`
+}
+
+// AKSServiceResponseResponseDeploymentStatusInput is an input type that accepts AKSServiceResponseResponseDeploymentStatusArgs and AKSServiceResponseResponseDeploymentStatusOutput values.
+// You can construct a concrete instance of `AKSServiceResponseResponseDeploymentStatusInput` via:
+//
+//          AKSServiceResponseResponseDeploymentStatusArgs{...}
+type AKSServiceResponseResponseDeploymentStatusInput interface {
+	pulumi.Input
+
+	ToAKSServiceResponseResponseDeploymentStatusOutput() AKSServiceResponseResponseDeploymentStatusOutput
+	ToAKSServiceResponseResponseDeploymentStatusOutputWithContext(context.Context) AKSServiceResponseResponseDeploymentStatusOutput
+}
+
+// The deployment status.
+type AKSServiceResponseResponseDeploymentStatusArgs struct {
+	// The number of available replicas.
+	AvailableReplicas pulumi.IntPtrInput `pulumi:"availableReplicas"`
+	// The desired number of replicas.
+	DesiredReplicas pulumi.IntPtrInput `pulumi:"desiredReplicas"`
+	// The error details.
+	Error AKSReplicaStatusResponseErrorPtrInput `pulumi:"error"`
+	// The number of updated replicas.
+	UpdatedReplicas pulumi.IntPtrInput `pulumi:"updatedReplicas"`
+}
+
+func (AKSServiceResponseResponseDeploymentStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponseDeploymentStatus)(nil)).Elem()
+}
+
+func (i AKSServiceResponseResponseDeploymentStatusArgs) ToAKSServiceResponseResponseDeploymentStatusOutput() AKSServiceResponseResponseDeploymentStatusOutput {
+	return i.ToAKSServiceResponseResponseDeploymentStatusOutputWithContext(context.Background())
+}
+
+func (i AKSServiceResponseResponseDeploymentStatusArgs) ToAKSServiceResponseResponseDeploymentStatusOutputWithContext(ctx context.Context) AKSServiceResponseResponseDeploymentStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseDeploymentStatusOutput)
+}
+
+// The deployment status.
+type AKSServiceResponseResponseDeploymentStatusOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceResponseResponseDeploymentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponseDeploymentStatus)(nil)).Elem()
+}
+
+func (o AKSServiceResponseResponseDeploymentStatusOutput) ToAKSServiceResponseResponseDeploymentStatusOutput() AKSServiceResponseResponseDeploymentStatusOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseDeploymentStatusOutput) ToAKSServiceResponseResponseDeploymentStatusOutputWithContext(ctx context.Context) AKSServiceResponseResponseDeploymentStatusOutput {
+	return o
+}
+
+// The number of available replicas.
+func (o AKSServiceResponseResponseDeploymentStatusOutput) AvailableReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseDeploymentStatus) *int { return v.AvailableReplicas }).(pulumi.IntPtrOutput)
+}
+
+// The desired number of replicas.
+func (o AKSServiceResponseResponseDeploymentStatusOutput) DesiredReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseDeploymentStatus) *int { return v.DesiredReplicas }).(pulumi.IntPtrOutput)
+}
+
+// The error details.
+func (o AKSServiceResponseResponseDeploymentStatusOutput) Error() AKSReplicaStatusResponseErrorPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseDeploymentStatus) *AKSReplicaStatusResponseError { return v.Error }).(AKSReplicaStatusResponseErrorPtrOutput)
+}
+
+// The number of updated replicas.
+func (o AKSServiceResponseResponseDeploymentStatusOutput) UpdatedReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseDeploymentStatus) *int { return v.UpdatedReplicas }).(pulumi.IntPtrOutput)
+}
+
+// The Environment, models and assets used for inferencing.
+type AKSServiceResponseResponseEnvironmentImageRequest struct {
+	// The list of assets.
+	Assets []ImageAssetResponse `pulumi:"assets"`
+	// The name of the driver file.
+	DriverProgram *string `pulumi:"driverProgram"`
+	// The details of the AZURE ML environment.
+	Environment *EnvironmentImageResponseResponseEnvironment `pulumi:"environment"`
+	// The unique identifying details of the AZURE ML environment.
+	EnvironmentReference *EnvironmentImageResponseResponseEnvironmentReference `pulumi:"environmentReference"`
+	// The list of model Ids.
+	ModelIds []string `pulumi:"modelIds"`
+	// The list of models.
+	Models []ModelResponse `pulumi:"models"`
+}
+
+// AKSServiceResponseResponseEnvironmentImageRequestInput is an input type that accepts AKSServiceResponseResponseEnvironmentImageRequestArgs and AKSServiceResponseResponseEnvironmentImageRequestOutput values.
+// You can construct a concrete instance of `AKSServiceResponseResponseEnvironmentImageRequestInput` via:
+//
+//          AKSServiceResponseResponseEnvironmentImageRequestArgs{...}
+type AKSServiceResponseResponseEnvironmentImageRequestInput interface {
+	pulumi.Input
+
+	ToAKSServiceResponseResponseEnvironmentImageRequestOutput() AKSServiceResponseResponseEnvironmentImageRequestOutput
+	ToAKSServiceResponseResponseEnvironmentImageRequestOutputWithContext(context.Context) AKSServiceResponseResponseEnvironmentImageRequestOutput
+}
+
+// The Environment, models and assets used for inferencing.
+type AKSServiceResponseResponseEnvironmentImageRequestArgs struct {
+	// The list of assets.
+	Assets ImageAssetResponseArrayInput `pulumi:"assets"`
+	// The name of the driver file.
+	DriverProgram pulumi.StringPtrInput `pulumi:"driverProgram"`
+	// The details of the AZURE ML environment.
+	Environment EnvironmentImageResponseResponseEnvironmentPtrInput `pulumi:"environment"`
+	// The unique identifying details of the AZURE ML environment.
+	EnvironmentReference EnvironmentImageResponseResponseEnvironmentReferencePtrInput `pulumi:"environmentReference"`
+	// The list of model Ids.
+	ModelIds pulumi.StringArrayInput `pulumi:"modelIds"`
+	// The list of models.
+	Models ModelResponseArrayInput `pulumi:"models"`
+}
+
+func (AKSServiceResponseResponseEnvironmentImageRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponseEnvironmentImageRequest)(nil)).Elem()
+}
+
+func (i AKSServiceResponseResponseEnvironmentImageRequestArgs) ToAKSServiceResponseResponseEnvironmentImageRequestOutput() AKSServiceResponseResponseEnvironmentImageRequestOutput {
+	return i.ToAKSServiceResponseResponseEnvironmentImageRequestOutputWithContext(context.Background())
+}
+
+func (i AKSServiceResponseResponseEnvironmentImageRequestArgs) ToAKSServiceResponseResponseEnvironmentImageRequestOutputWithContext(ctx context.Context) AKSServiceResponseResponseEnvironmentImageRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseEnvironmentImageRequestOutput)
+}
+
+func (i AKSServiceResponseResponseEnvironmentImageRequestArgs) ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutput() AKSServiceResponseResponseEnvironmentImageRequestPtrOutput {
+	return i.ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutputWithContext(context.Background())
+}
+
+func (i AKSServiceResponseResponseEnvironmentImageRequestArgs) ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseEnvironmentImageRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseEnvironmentImageRequestOutput).ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutputWithContext(ctx)
+}
+
+// AKSServiceResponseResponseEnvironmentImageRequestPtrInput is an input type that accepts AKSServiceResponseResponseEnvironmentImageRequestArgs, AKSServiceResponseResponseEnvironmentImageRequestPtr and AKSServiceResponseResponseEnvironmentImageRequestPtrOutput values.
+// You can construct a concrete instance of `AKSServiceResponseResponseEnvironmentImageRequestPtrInput` via:
+//
+//          AKSServiceResponseResponseEnvironmentImageRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type AKSServiceResponseResponseEnvironmentImageRequestPtrInput interface {
+	pulumi.Input
+
+	ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutput() AKSServiceResponseResponseEnvironmentImageRequestPtrOutput
+	ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutputWithContext(context.Context) AKSServiceResponseResponseEnvironmentImageRequestPtrOutput
+}
+
+type aksserviceResponseResponseEnvironmentImageRequestPtrType AKSServiceResponseResponseEnvironmentImageRequestArgs
+
+func AKSServiceResponseResponseEnvironmentImageRequestPtr(v *AKSServiceResponseResponseEnvironmentImageRequestArgs) AKSServiceResponseResponseEnvironmentImageRequestPtrInput {
+	return (*aksserviceResponseResponseEnvironmentImageRequestPtrType)(v)
+}
+
+func (*aksserviceResponseResponseEnvironmentImageRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceResponseResponseEnvironmentImageRequest)(nil)).Elem()
+}
+
+func (i *aksserviceResponseResponseEnvironmentImageRequestPtrType) ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutput() AKSServiceResponseResponseEnvironmentImageRequestPtrOutput {
+	return i.ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *aksserviceResponseResponseEnvironmentImageRequestPtrType) ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseEnvironmentImageRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseEnvironmentImageRequestPtrOutput)
+}
+
+// The Environment, models and assets used for inferencing.
+type AKSServiceResponseResponseEnvironmentImageRequestOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceResponseResponseEnvironmentImageRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponseEnvironmentImageRequest)(nil)).Elem()
+}
+
+func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) ToAKSServiceResponseResponseEnvironmentImageRequestOutput() AKSServiceResponseResponseEnvironmentImageRequestOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) ToAKSServiceResponseResponseEnvironmentImageRequestOutputWithContext(ctx context.Context) AKSServiceResponseResponseEnvironmentImageRequestOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutput() AKSServiceResponseResponseEnvironmentImageRequestPtrOutput {
+	return o.ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutputWithContext(context.Background())
+}
+
+func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseEnvironmentImageRequestPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseEnvironmentImageRequest) *AKSServiceResponseResponseEnvironmentImageRequest {
+		return &v
+	}).(AKSServiceResponseResponseEnvironmentImageRequestPtrOutput)
+}
+
+// The list of assets.
+func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) Assets() ImageAssetResponseArrayOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseEnvironmentImageRequest) []ImageAssetResponse { return v.Assets }).(ImageAssetResponseArrayOutput)
+}
+
+// The name of the driver file.
+func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) DriverProgram() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseEnvironmentImageRequest) *string { return v.DriverProgram }).(pulumi.StringPtrOutput)
+}
+
+// The details of the AZURE ML environment.
+func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) Environment() EnvironmentImageResponseResponseEnvironmentPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseEnvironmentImageRequest) *EnvironmentImageResponseResponseEnvironment {
+		return v.Environment
+	}).(EnvironmentImageResponseResponseEnvironmentPtrOutput)
+}
+
+// The unique identifying details of the AZURE ML environment.
+func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) EnvironmentReference() EnvironmentImageResponseResponseEnvironmentReferencePtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseEnvironmentImageRequest) *EnvironmentImageResponseResponseEnvironmentReference {
+		return v.EnvironmentReference
+	}).(EnvironmentImageResponseResponseEnvironmentReferencePtrOutput)
+}
+
+// The list of model Ids.
+func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) ModelIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseEnvironmentImageRequest) []string { return v.ModelIds }).(pulumi.StringArrayOutput)
+}
+
+// The list of models.
+func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) Models() ModelResponseArrayOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseEnvironmentImageRequest) []ModelResponse { return v.Models }).(ModelResponseArrayOutput)
+}
+
+type AKSServiceResponseResponseEnvironmentImageRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceResponseResponseEnvironmentImageRequest)(nil)).Elem()
+}
+
+func (o AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutput() AKSServiceResponseResponseEnvironmentImageRequestPtrOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseEnvironmentImageRequestPtrOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) Elem() AKSServiceResponseResponseEnvironmentImageRequestOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseEnvironmentImageRequest) AKSServiceResponseResponseEnvironmentImageRequest {
+		return *v
+	}).(AKSServiceResponseResponseEnvironmentImageRequestOutput)
+}
+
+// The list of assets.
+func (o AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) Assets() ImageAssetResponseArrayOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseEnvironmentImageRequest) []ImageAssetResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Assets
+	}).(ImageAssetResponseArrayOutput)
+}
+
+// The name of the driver file.
+func (o AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) DriverProgram() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseEnvironmentImageRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DriverProgram
+	}).(pulumi.StringPtrOutput)
+}
+
+// The details of the AZURE ML environment.
+func (o AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) Environment() EnvironmentImageResponseResponseEnvironmentPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseEnvironmentImageRequest) *EnvironmentImageResponseResponseEnvironment {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(EnvironmentImageResponseResponseEnvironmentPtrOutput)
+}
+
+// The unique identifying details of the AZURE ML environment.
+func (o AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) EnvironmentReference() EnvironmentImageResponseResponseEnvironmentReferencePtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseEnvironmentImageRequest) *EnvironmentImageResponseResponseEnvironmentReference {
+		if v == nil {
+			return nil
+		}
+		return v.EnvironmentReference
+	}).(EnvironmentImageResponseResponseEnvironmentReferencePtrOutput)
+}
+
+// The list of model Ids.
+func (o AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) ModelIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseEnvironmentImageRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of models.
+func (o AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) Models() ModelResponseArrayOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseEnvironmentImageRequest) []ModelResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Models
+	}).(ModelResponseArrayOutput)
+}
+
+// The liveness probe requirements.
+type AKSServiceResponseResponseLivenessProbeRequirements struct {
+	// The number of failures to allow before returning an unhealthy status.
+	FailureThreshold *int `pulumi:"failureThreshold"`
+	// The delay before the first probe in seconds.
+	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
+	// The length of time between probes in seconds.
+	PeriodSeconds *int `pulumi:"periodSeconds"`
+	// The number of successful probes before returning a healthy status.
+	SuccessThreshold *int `pulumi:"successThreshold"`
+	// The probe timeout in seconds.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+
+// AKSServiceResponseResponseLivenessProbeRequirementsInput is an input type that accepts AKSServiceResponseResponseLivenessProbeRequirementsArgs and AKSServiceResponseResponseLivenessProbeRequirementsOutput values.
+// You can construct a concrete instance of `AKSServiceResponseResponseLivenessProbeRequirementsInput` via:
+//
+//          AKSServiceResponseResponseLivenessProbeRequirementsArgs{...}
+type AKSServiceResponseResponseLivenessProbeRequirementsInput interface {
+	pulumi.Input
+
+	ToAKSServiceResponseResponseLivenessProbeRequirementsOutput() AKSServiceResponseResponseLivenessProbeRequirementsOutput
+	ToAKSServiceResponseResponseLivenessProbeRequirementsOutputWithContext(context.Context) AKSServiceResponseResponseLivenessProbeRequirementsOutput
+}
+
+// The liveness probe requirements.
+type AKSServiceResponseResponseLivenessProbeRequirementsArgs struct {
+	// The number of failures to allow before returning an unhealthy status.
+	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
+	// The delay before the first probe in seconds.
+	InitialDelaySeconds pulumi.IntPtrInput `pulumi:"initialDelaySeconds"`
+	// The length of time between probes in seconds.
+	PeriodSeconds pulumi.IntPtrInput `pulumi:"periodSeconds"`
+	// The number of successful probes before returning a healthy status.
+	SuccessThreshold pulumi.IntPtrInput `pulumi:"successThreshold"`
+	// The probe timeout in seconds.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+}
+
+func (AKSServiceResponseResponseLivenessProbeRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponseLivenessProbeRequirements)(nil)).Elem()
+}
+
+func (i AKSServiceResponseResponseLivenessProbeRequirementsArgs) ToAKSServiceResponseResponseLivenessProbeRequirementsOutput() AKSServiceResponseResponseLivenessProbeRequirementsOutput {
+	return i.ToAKSServiceResponseResponseLivenessProbeRequirementsOutputWithContext(context.Background())
+}
+
+func (i AKSServiceResponseResponseLivenessProbeRequirementsArgs) ToAKSServiceResponseResponseLivenessProbeRequirementsOutputWithContext(ctx context.Context) AKSServiceResponseResponseLivenessProbeRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseLivenessProbeRequirementsOutput)
+}
+
+func (i AKSServiceResponseResponseLivenessProbeRequirementsArgs) ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutput() AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput {
+	return i.ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i AKSServiceResponseResponseLivenessProbeRequirementsArgs) ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseLivenessProbeRequirementsOutput).ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutputWithContext(ctx)
+}
+
+// AKSServiceResponseResponseLivenessProbeRequirementsPtrInput is an input type that accepts AKSServiceResponseResponseLivenessProbeRequirementsArgs, AKSServiceResponseResponseLivenessProbeRequirementsPtr and AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput values.
+// You can construct a concrete instance of `AKSServiceResponseResponseLivenessProbeRequirementsPtrInput` via:
+//
+//          AKSServiceResponseResponseLivenessProbeRequirementsArgs{...}
+//
+//  or:
+//
+//          nil
+type AKSServiceResponseResponseLivenessProbeRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutput() AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput
+	ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutputWithContext(context.Context) AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput
+}
+
+type aksserviceResponseResponseLivenessProbeRequirementsPtrType AKSServiceResponseResponseLivenessProbeRequirementsArgs
+
+func AKSServiceResponseResponseLivenessProbeRequirementsPtr(v *AKSServiceResponseResponseLivenessProbeRequirementsArgs) AKSServiceResponseResponseLivenessProbeRequirementsPtrInput {
+	return (*aksserviceResponseResponseLivenessProbeRequirementsPtrType)(v)
+}
+
+func (*aksserviceResponseResponseLivenessProbeRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceResponseResponseLivenessProbeRequirements)(nil)).Elem()
+}
+
+func (i *aksserviceResponseResponseLivenessProbeRequirementsPtrType) ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutput() AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput {
+	return i.ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *aksserviceResponseResponseLivenessProbeRequirementsPtrType) ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput)
+}
+
+// The liveness probe requirements.
+type AKSServiceResponseResponseLivenessProbeRequirementsOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceResponseResponseLivenessProbeRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceResponseResponseLivenessProbeRequirements)(nil)).Elem()
+}
+
+func (o AKSServiceResponseResponseLivenessProbeRequirementsOutput) ToAKSServiceResponseResponseLivenessProbeRequirementsOutput() AKSServiceResponseResponseLivenessProbeRequirementsOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseLivenessProbeRequirementsOutput) ToAKSServiceResponseResponseLivenessProbeRequirementsOutputWithContext(ctx context.Context) AKSServiceResponseResponseLivenessProbeRequirementsOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseLivenessProbeRequirementsOutput) ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutput() AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput {
+	return o.ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o AKSServiceResponseResponseLivenessProbeRequirementsOutput) ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseLivenessProbeRequirements) *AKSServiceResponseResponseLivenessProbeRequirements {
+		return &v
+	}).(AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput)
+}
+
+// The number of failures to allow before returning an unhealthy status.
+func (o AKSServiceResponseResponseLivenessProbeRequirementsOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseLivenessProbeRequirements) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The delay before the first probe in seconds.
+func (o AKSServiceResponseResponseLivenessProbeRequirementsOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseLivenessProbeRequirements) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+// The length of time between probes in seconds.
+func (o AKSServiceResponseResponseLivenessProbeRequirementsOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseLivenessProbeRequirements) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The number of successful probes before returning a healthy status.
+func (o AKSServiceResponseResponseLivenessProbeRequirementsOutput) SuccessThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseLivenessProbeRequirements) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The probe timeout in seconds.
+func (o AKSServiceResponseResponseLivenessProbeRequirementsOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceResponseResponseLivenessProbeRequirements) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceResponseResponseLivenessProbeRequirements)(nil)).Elem()
+}
+
+func (o AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput) ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutput() AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput) ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput {
+	return o
+}
+
+func (o AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput) Elem() AKSServiceResponseResponseLivenessProbeRequirementsOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseLivenessProbeRequirements) AKSServiceResponseResponseLivenessProbeRequirements {
+		return *v
+	}).(AKSServiceResponseResponseLivenessProbeRequirementsOutput)
+}
+
+// The number of failures to allow before returning an unhealthy status.
+func (o AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseLivenessProbeRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The delay before the first probe in seconds.
+func (o AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseLivenessProbeRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InitialDelaySeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The length of time between probes in seconds.
+func (o AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseLivenessProbeRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of successful probes before returning a healthy status.
+func (o AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseLivenessProbeRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The probe timeout in seconds.
+func (o AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceResponseResponseLivenessProbeRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The response for an AKS variant.
@@ -18776,9 +20158,21 @@ func init() {
 	pulumi.RegisterOutputType(AKSOutput{})
 	pulumi.RegisterOutputType(AKSPropertiesOutput{})
 	pulumi.RegisterOutputType(AKSPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AKSReplicaStatusResponseErrorOutput{})
+	pulumi.RegisterOutputType(AKSReplicaStatusResponseErrorPtrOutput{})
 	pulumi.RegisterOutputType(AKSResponseOutput{})
 	pulumi.RegisterOutputType(AKSResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(AKSResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AKSServiceResponseResponseOutput{})
+	pulumi.RegisterOutputType(AKSServiceResponseResponseAutoScalerOutput{})
+	pulumi.RegisterOutputType(AKSServiceResponseResponseAutoScalerPtrOutput{})
+	pulumi.RegisterOutputType(AKSServiceResponseResponseDataCollectionOutput{})
+	pulumi.RegisterOutputType(AKSServiceResponseResponseDataCollectionPtrOutput{})
+	pulumi.RegisterOutputType(AKSServiceResponseResponseDeploymentStatusOutput{})
+	pulumi.RegisterOutputType(AKSServiceResponseResponseEnvironmentImageRequestOutput{})
+	pulumi.RegisterOutputType(AKSServiceResponseResponseEnvironmentImageRequestPtrOutput{})
+	pulumi.RegisterOutputType(AKSServiceResponseResponseLivenessProbeRequirementsOutput{})
+	pulumi.RegisterOutputType(AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(AKSVariantResponseResponseOutput{})
 	pulumi.RegisterOutputType(AksNetworkingConfigurationOutput{})
 	pulumi.RegisterOutputType(AksNetworkingConfigurationPtrOutput{})

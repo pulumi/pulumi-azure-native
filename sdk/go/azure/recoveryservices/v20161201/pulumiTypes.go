@@ -10,6 +10,1176 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// AzureBackupServer (DPMVenus) workload-specific protection container.
+type AzureBackupServerContainer struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Specifies whether the container is re-registrable.
+	CanReRegister *bool `pulumi:"canReRegister"`
+	// ID of container.
+	ContainerId *string `pulumi:"containerId"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
+	ContainerType *string `pulumi:"containerType"`
+	// Backup engine Agent version
+	DpmAgentVersion *string `pulumi:"dpmAgentVersion"`
+	// List of BackupEngines protecting the container
+	DpmServers []string `pulumi:"dpmServers"`
+	// Extended Info of the container.
+	ExtendedInfo *DPMContainerExtendedInfo `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Number of protected items in the BackupEngine
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
+	// Protection status of the container.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// To check if upgrade available
+	UpgradeAvailable *bool `pulumi:"upgradeAvailable"`
+}
+
+// AzureBackupServerContainerInput is an input type that accepts AzureBackupServerContainerArgs and AzureBackupServerContainerOutput values.
+// You can construct a concrete instance of `AzureBackupServerContainerInput` via:
+//
+//          AzureBackupServerContainerArgs{...}
+type AzureBackupServerContainerInput interface {
+	pulumi.Input
+
+	ToAzureBackupServerContainerOutput() AzureBackupServerContainerOutput
+	ToAzureBackupServerContainerOutputWithContext(context.Context) AzureBackupServerContainerOutput
+}
+
+// AzureBackupServer (DPMVenus) workload-specific protection container.
+type AzureBackupServerContainerArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Specifies whether the container is re-registrable.
+	CanReRegister pulumi.BoolPtrInput `pulumi:"canReRegister"`
+	// ID of container.
+	ContainerId pulumi.StringPtrInput `pulumi:"containerId"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// Backup engine Agent version
+	DpmAgentVersion pulumi.StringPtrInput `pulumi:"dpmAgentVersion"`
+	// List of BackupEngines protecting the container
+	DpmServers pulumi.StringArrayInput `pulumi:"dpmServers"`
+	// Extended Info of the container.
+	ExtendedInfo DPMContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Number of protected items in the BackupEngine
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
+	// Protection status of the container.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// To check if upgrade available
+	UpgradeAvailable pulumi.BoolPtrInput `pulumi:"upgradeAvailable"`
+}
+
+func (AzureBackupServerContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupServerContainer)(nil)).Elem()
+}
+
+func (i AzureBackupServerContainerArgs) ToAzureBackupServerContainerOutput() AzureBackupServerContainerOutput {
+	return i.ToAzureBackupServerContainerOutputWithContext(context.Background())
+}
+
+func (i AzureBackupServerContainerArgs) ToAzureBackupServerContainerOutputWithContext(ctx context.Context) AzureBackupServerContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupServerContainerOutput)
+}
+
+// AzureBackupServer (DPMVenus) workload-specific protection container.
+type AzureBackupServerContainerOutput struct{ *pulumi.OutputState }
+
+func (AzureBackupServerContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupServerContainer)(nil)).Elem()
+}
+
+func (o AzureBackupServerContainerOutput) ToAzureBackupServerContainerOutput() AzureBackupServerContainerOutput {
+	return o
+}
+
+func (o AzureBackupServerContainerOutput) ToAzureBackupServerContainerOutputWithContext(ctx context.Context) AzureBackupServerContainerOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureBackupServerContainerOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the container is re-registrable.
+func (o AzureBackupServerContainerOutput) CanReRegister() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *bool { return v.CanReRegister }).(pulumi.BoolPtrOutput)
+}
+
+// ID of container.
+func (o AzureBackupServerContainerOutput) ContainerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *string { return v.ContainerId }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'DPMContainer'.
+func (o AzureBackupServerContainerOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+}
+
+// Backup engine Agent version
+func (o AzureBackupServerContainerOutput) DpmAgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *string { return v.DpmAgentVersion }).(pulumi.StringPtrOutput)
+}
+
+// List of BackupEngines protecting the container
+func (o AzureBackupServerContainerOutput) DpmServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) []string { return v.DpmServers }).(pulumi.StringArrayOutput)
+}
+
+// Extended Info of the container.
+func (o AzureBackupServerContainerOutput) ExtendedInfo() DPMContainerExtendedInfoPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *DPMContainerExtendedInfo { return v.ExtendedInfo }).(DPMContainerExtendedInfoPtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureBackupServerContainerOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureBackupServerContainerOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Number of protected items in the BackupEngine
+func (o AzureBackupServerContainerOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
+}
+
+// Protection status of the container.
+func (o AzureBackupServerContainerOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureBackupServerContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// To check if upgrade available
+func (o AzureBackupServerContainerOutput) UpgradeAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *bool { return v.UpgradeAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// AzureBackupServer (DPMVenus) workload-specific protection container.
+type AzureBackupServerContainerResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Specifies whether the container is re-registrable.
+	CanReRegister *bool `pulumi:"canReRegister"`
+	// ID of container.
+	ContainerId *string `pulumi:"containerId"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
+	ContainerType *string `pulumi:"containerType"`
+	// Backup engine Agent version
+	DpmAgentVersion *string `pulumi:"dpmAgentVersion"`
+	// List of BackupEngines protecting the container
+	DpmServers []string `pulumi:"dpmServers"`
+	// Extended Info of the container.
+	ExtendedInfo *DPMContainerExtendedInfoResponse `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Number of protected items in the BackupEngine
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
+	// Protection status of the container.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// To check if upgrade available
+	UpgradeAvailable *bool `pulumi:"upgradeAvailable"`
+}
+
+// AzureBackupServerContainerResponseInput is an input type that accepts AzureBackupServerContainerResponseArgs and AzureBackupServerContainerResponseOutput values.
+// You can construct a concrete instance of `AzureBackupServerContainerResponseInput` via:
+//
+//          AzureBackupServerContainerResponseArgs{...}
+type AzureBackupServerContainerResponseInput interface {
+	pulumi.Input
+
+	ToAzureBackupServerContainerResponseOutput() AzureBackupServerContainerResponseOutput
+	ToAzureBackupServerContainerResponseOutputWithContext(context.Context) AzureBackupServerContainerResponseOutput
+}
+
+// AzureBackupServer (DPMVenus) workload-specific protection container.
+type AzureBackupServerContainerResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Specifies whether the container is re-registrable.
+	CanReRegister pulumi.BoolPtrInput `pulumi:"canReRegister"`
+	// ID of container.
+	ContainerId pulumi.StringPtrInput `pulumi:"containerId"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// Backup engine Agent version
+	DpmAgentVersion pulumi.StringPtrInput `pulumi:"dpmAgentVersion"`
+	// List of BackupEngines protecting the container
+	DpmServers pulumi.StringArrayInput `pulumi:"dpmServers"`
+	// Extended Info of the container.
+	ExtendedInfo DPMContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Number of protected items in the BackupEngine
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
+	// Protection status of the container.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// To check if upgrade available
+	UpgradeAvailable pulumi.BoolPtrInput `pulumi:"upgradeAvailable"`
+}
+
+func (AzureBackupServerContainerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupServerContainerResponse)(nil)).Elem()
+}
+
+func (i AzureBackupServerContainerResponseArgs) ToAzureBackupServerContainerResponseOutput() AzureBackupServerContainerResponseOutput {
+	return i.ToAzureBackupServerContainerResponseOutputWithContext(context.Background())
+}
+
+func (i AzureBackupServerContainerResponseArgs) ToAzureBackupServerContainerResponseOutputWithContext(ctx context.Context) AzureBackupServerContainerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupServerContainerResponseOutput)
+}
+
+// AzureBackupServer (DPMVenus) workload-specific protection container.
+type AzureBackupServerContainerResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureBackupServerContainerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupServerContainerResponse)(nil)).Elem()
+}
+
+func (o AzureBackupServerContainerResponseOutput) ToAzureBackupServerContainerResponseOutput() AzureBackupServerContainerResponseOutput {
+	return o
+}
+
+func (o AzureBackupServerContainerResponseOutput) ToAzureBackupServerContainerResponseOutputWithContext(ctx context.Context) AzureBackupServerContainerResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureBackupServerContainerResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the container is re-registrable.
+func (o AzureBackupServerContainerResponseOutput) CanReRegister() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *bool { return v.CanReRegister }).(pulumi.BoolPtrOutput)
+}
+
+// ID of container.
+func (o AzureBackupServerContainerResponseOutput) ContainerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *string { return v.ContainerId }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'DPMContainer'.
+func (o AzureBackupServerContainerResponseOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+}
+
+// Backup engine Agent version
+func (o AzureBackupServerContainerResponseOutput) DpmAgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *string { return v.DpmAgentVersion }).(pulumi.StringPtrOutput)
+}
+
+// List of BackupEngines protecting the container
+func (o AzureBackupServerContainerResponseOutput) DpmServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) []string { return v.DpmServers }).(pulumi.StringArrayOutput)
+}
+
+// Extended Info of the container.
+func (o AzureBackupServerContainerResponseOutput) ExtendedInfo() DPMContainerExtendedInfoResponsePtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *DPMContainerExtendedInfoResponse { return v.ExtendedInfo }).(DPMContainerExtendedInfoResponsePtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureBackupServerContainerResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureBackupServerContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Number of protected items in the BackupEngine
+func (o AzureBackupServerContainerResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
+}
+
+// Protection status of the container.
+func (o AzureBackupServerContainerResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureBackupServerContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// To check if upgrade available
+func (o AzureBackupServerContainerResponseOutput) UpgradeAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *bool { return v.UpgradeAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// IaaS VM workload-specific backup item representing a classic virtual machine.
+type AzureIaaSClassicComputeVMContainer struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType *string `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion *string `pulumi:"virtualMachineVersion"`
+}
+
+// AzureIaaSClassicComputeVMContainerInput is an input type that accepts AzureIaaSClassicComputeVMContainerArgs and AzureIaaSClassicComputeVMContainerOutput values.
+// You can construct a concrete instance of `AzureIaaSClassicComputeVMContainerInput` via:
+//
+//          AzureIaaSClassicComputeVMContainerArgs{...}
+type AzureIaaSClassicComputeVMContainerInput interface {
+	pulumi.Input
+
+	ToAzureIaaSClassicComputeVMContainerOutput() AzureIaaSClassicComputeVMContainerOutput
+	ToAzureIaaSClassicComputeVMContainerOutputWithContext(context.Context) AzureIaaSClassicComputeVMContainerOutput
+}
+
+// IaaS VM workload-specific backup item representing a classic virtual machine.
+type AzureIaaSClassicComputeVMContainerArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion pulumi.StringPtrInput `pulumi:"virtualMachineVersion"`
+}
+
+func (AzureIaaSClassicComputeVMContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSClassicComputeVMContainer)(nil)).Elem()
+}
+
+func (i AzureIaaSClassicComputeVMContainerArgs) ToAzureIaaSClassicComputeVMContainerOutput() AzureIaaSClassicComputeVMContainerOutput {
+	return i.ToAzureIaaSClassicComputeVMContainerOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSClassicComputeVMContainerArgs) ToAzureIaaSClassicComputeVMContainerOutputWithContext(ctx context.Context) AzureIaaSClassicComputeVMContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSClassicComputeVMContainerOutput)
+}
+
+// IaaS VM workload-specific backup item representing a classic virtual machine.
+type AzureIaaSClassicComputeVMContainerOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSClassicComputeVMContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSClassicComputeVMContainer)(nil)).Elem()
+}
+
+func (o AzureIaaSClassicComputeVMContainerOutput) ToAzureIaaSClassicComputeVMContainerOutput() AzureIaaSClassicComputeVMContainerOutput {
+	return o
+}
+
+func (o AzureIaaSClassicComputeVMContainerOutput) ToAzureIaaSClassicComputeVMContainerOutputWithContext(ctx context.Context) AzureIaaSClassicComputeVMContainerOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureIaaSClassicComputeVMContainerOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'IaaSVMContainer'.
+func (o AzureIaaSClassicComputeVMContainerOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureIaaSClassicComputeVMContainerOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureIaaSClassicComputeVMContainerOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureIaaSClassicComputeVMContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// Resource group name of Recovery Services Vault.
+func (o AzureIaaSClassicComputeVMContainerOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+func (o AzureIaaSClassicComputeVMContainerOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+func (o AzureIaaSClassicComputeVMContainerOutput) VirtualMachineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
+}
+
+// IaaS VM workload-specific backup item representing a classic virtual machine.
+type AzureIaaSClassicComputeVMContainerResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType *string `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion *string `pulumi:"virtualMachineVersion"`
+}
+
+// AzureIaaSClassicComputeVMContainerResponseInput is an input type that accepts AzureIaaSClassicComputeVMContainerResponseArgs and AzureIaaSClassicComputeVMContainerResponseOutput values.
+// You can construct a concrete instance of `AzureIaaSClassicComputeVMContainerResponseInput` via:
+//
+//          AzureIaaSClassicComputeVMContainerResponseArgs{...}
+type AzureIaaSClassicComputeVMContainerResponseInput interface {
+	pulumi.Input
+
+	ToAzureIaaSClassicComputeVMContainerResponseOutput() AzureIaaSClassicComputeVMContainerResponseOutput
+	ToAzureIaaSClassicComputeVMContainerResponseOutputWithContext(context.Context) AzureIaaSClassicComputeVMContainerResponseOutput
+}
+
+// IaaS VM workload-specific backup item representing a classic virtual machine.
+type AzureIaaSClassicComputeVMContainerResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion pulumi.StringPtrInput `pulumi:"virtualMachineVersion"`
+}
+
+func (AzureIaaSClassicComputeVMContainerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSClassicComputeVMContainerResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSClassicComputeVMContainerResponseArgs) ToAzureIaaSClassicComputeVMContainerResponseOutput() AzureIaaSClassicComputeVMContainerResponseOutput {
+	return i.ToAzureIaaSClassicComputeVMContainerResponseOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSClassicComputeVMContainerResponseArgs) ToAzureIaaSClassicComputeVMContainerResponseOutputWithContext(ctx context.Context) AzureIaaSClassicComputeVMContainerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSClassicComputeVMContainerResponseOutput)
+}
+
+// IaaS VM workload-specific backup item representing a classic virtual machine.
+type AzureIaaSClassicComputeVMContainerResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSClassicComputeVMContainerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSClassicComputeVMContainerResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSClassicComputeVMContainerResponseOutput) ToAzureIaaSClassicComputeVMContainerResponseOutput() AzureIaaSClassicComputeVMContainerResponseOutput {
+	return o
+}
+
+func (o AzureIaaSClassicComputeVMContainerResponseOutput) ToAzureIaaSClassicComputeVMContainerResponseOutputWithContext(ctx context.Context) AzureIaaSClassicComputeVMContainerResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureIaaSClassicComputeVMContainerResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'IaaSVMContainer'.
+func (o AzureIaaSClassicComputeVMContainerResponseOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureIaaSClassicComputeVMContainerResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureIaaSClassicComputeVMContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureIaaSClassicComputeVMContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// Resource group name of Recovery Services Vault.
+func (o AzureIaaSClassicComputeVMContainerResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+func (o AzureIaaSClassicComputeVMContainerResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+func (o AzureIaaSClassicComputeVMContainerResponseOutput) VirtualMachineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
+}
+
+// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+type AzureIaaSComputeVMContainer struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType *string `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion *string `pulumi:"virtualMachineVersion"`
+}
+
+// AzureIaaSComputeVMContainerInput is an input type that accepts AzureIaaSComputeVMContainerArgs and AzureIaaSComputeVMContainerOutput values.
+// You can construct a concrete instance of `AzureIaaSComputeVMContainerInput` via:
+//
+//          AzureIaaSComputeVMContainerArgs{...}
+type AzureIaaSComputeVMContainerInput interface {
+	pulumi.Input
+
+	ToAzureIaaSComputeVMContainerOutput() AzureIaaSComputeVMContainerOutput
+	ToAzureIaaSComputeVMContainerOutputWithContext(context.Context) AzureIaaSComputeVMContainerOutput
+}
+
+// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+type AzureIaaSComputeVMContainerArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion pulumi.StringPtrInput `pulumi:"virtualMachineVersion"`
+}
+
+func (AzureIaaSComputeVMContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSComputeVMContainer)(nil)).Elem()
+}
+
+func (i AzureIaaSComputeVMContainerArgs) ToAzureIaaSComputeVMContainerOutput() AzureIaaSComputeVMContainerOutput {
+	return i.ToAzureIaaSComputeVMContainerOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSComputeVMContainerArgs) ToAzureIaaSComputeVMContainerOutputWithContext(ctx context.Context) AzureIaaSComputeVMContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSComputeVMContainerOutput)
+}
+
+// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+type AzureIaaSComputeVMContainerOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSComputeVMContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSComputeVMContainer)(nil)).Elem()
+}
+
+func (o AzureIaaSComputeVMContainerOutput) ToAzureIaaSComputeVMContainerOutput() AzureIaaSComputeVMContainerOutput {
+	return o
+}
+
+func (o AzureIaaSComputeVMContainerOutput) ToAzureIaaSComputeVMContainerOutputWithContext(ctx context.Context) AzureIaaSComputeVMContainerOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureIaaSComputeVMContainerOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'IaaSVMContainer'.
+func (o AzureIaaSComputeVMContainerOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureIaaSComputeVMContainerOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureIaaSComputeVMContainerOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureIaaSComputeVMContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// Resource group name of Recovery Services Vault.
+func (o AzureIaaSComputeVMContainerOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+func (o AzureIaaSComputeVMContainerOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+func (o AzureIaaSComputeVMContainerOutput) VirtualMachineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
+}
+
+// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+type AzureIaaSComputeVMContainerResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType *string `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion *string `pulumi:"virtualMachineVersion"`
+}
+
+// AzureIaaSComputeVMContainerResponseInput is an input type that accepts AzureIaaSComputeVMContainerResponseArgs and AzureIaaSComputeVMContainerResponseOutput values.
+// You can construct a concrete instance of `AzureIaaSComputeVMContainerResponseInput` via:
+//
+//          AzureIaaSComputeVMContainerResponseArgs{...}
+type AzureIaaSComputeVMContainerResponseInput interface {
+	pulumi.Input
+
+	ToAzureIaaSComputeVMContainerResponseOutput() AzureIaaSComputeVMContainerResponseOutput
+	ToAzureIaaSComputeVMContainerResponseOutputWithContext(context.Context) AzureIaaSComputeVMContainerResponseOutput
+}
+
+// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+type AzureIaaSComputeVMContainerResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion pulumi.StringPtrInput `pulumi:"virtualMachineVersion"`
+}
+
+func (AzureIaaSComputeVMContainerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSComputeVMContainerResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSComputeVMContainerResponseArgs) ToAzureIaaSComputeVMContainerResponseOutput() AzureIaaSComputeVMContainerResponseOutput {
+	return i.ToAzureIaaSComputeVMContainerResponseOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSComputeVMContainerResponseArgs) ToAzureIaaSComputeVMContainerResponseOutputWithContext(ctx context.Context) AzureIaaSComputeVMContainerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSComputeVMContainerResponseOutput)
+}
+
+// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+type AzureIaaSComputeVMContainerResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSComputeVMContainerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSComputeVMContainerResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSComputeVMContainerResponseOutput) ToAzureIaaSComputeVMContainerResponseOutput() AzureIaaSComputeVMContainerResponseOutput {
+	return o
+}
+
+func (o AzureIaaSComputeVMContainerResponseOutput) ToAzureIaaSComputeVMContainerResponseOutputWithContext(ctx context.Context) AzureIaaSComputeVMContainerResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureIaaSComputeVMContainerResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'IaaSVMContainer'.
+func (o AzureIaaSComputeVMContainerResponseOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureIaaSComputeVMContainerResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureIaaSComputeVMContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureIaaSComputeVMContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// Resource group name of Recovery Services Vault.
+func (o AzureIaaSComputeVMContainerResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+func (o AzureIaaSComputeVMContainerResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+func (o AzureIaaSComputeVMContainerResponseOutput) VirtualMachineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
+}
+
+// Container for SQL workloads under SQL Availability Group.
+type AzureSQLAGWorkloadContainerProtectionContainer struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType *string `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo *AzureWorkloadContainerExtendedInfo `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType *string `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureSQLAGWorkloadContainerProtectionContainerInput is an input type that accepts AzureSQLAGWorkloadContainerProtectionContainerArgs and AzureSQLAGWorkloadContainerProtectionContainerOutput values.
+// You can construct a concrete instance of `AzureSQLAGWorkloadContainerProtectionContainerInput` via:
+//
+//          AzureSQLAGWorkloadContainerProtectionContainerArgs{...}
+type AzureSQLAGWorkloadContainerProtectionContainerInput interface {
+	pulumi.Input
+
+	ToAzureSQLAGWorkloadContainerProtectionContainerOutput() AzureSQLAGWorkloadContainerProtectionContainerOutput
+	ToAzureSQLAGWorkloadContainerProtectionContainerOutputWithContext(context.Context) AzureSQLAGWorkloadContainerProtectionContainerOutput
+}
+
+// Container for SQL workloads under SQL Availability Group.
+type AzureSQLAGWorkloadContainerProtectionContainerArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo AzureWorkloadContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType pulumi.StringPtrInput `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureSQLAGWorkloadContainerProtectionContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSQLAGWorkloadContainerProtectionContainer)(nil)).Elem()
+}
+
+func (i AzureSQLAGWorkloadContainerProtectionContainerArgs) ToAzureSQLAGWorkloadContainerProtectionContainerOutput() AzureSQLAGWorkloadContainerProtectionContainerOutput {
+	return i.ToAzureSQLAGWorkloadContainerProtectionContainerOutputWithContext(context.Background())
+}
+
+func (i AzureSQLAGWorkloadContainerProtectionContainerArgs) ToAzureSQLAGWorkloadContainerProtectionContainerOutputWithContext(ctx context.Context) AzureSQLAGWorkloadContainerProtectionContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSQLAGWorkloadContainerProtectionContainerOutput)
+}
+
+// Container for SQL workloads under SQL Availability Group.
+type AzureSQLAGWorkloadContainerProtectionContainerOutput struct{ *pulumi.OutputState }
+
+func (AzureSQLAGWorkloadContainerProtectionContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSQLAGWorkloadContainerProtectionContainer)(nil)).Elem()
+}
+
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) ToAzureSQLAGWorkloadContainerProtectionContainerOutput() AzureSQLAGWorkloadContainerProtectionContainerOutput {
+	return o
+}
+
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) ToAzureSQLAGWorkloadContainerProtectionContainerOutputWithContext(ctx context.Context) AzureSQLAGWorkloadContainerProtectionContainerOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'AzureWorkloadContainer'.
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+}
+
+// Additional details of a workload container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) ExtendedInfo() AzureWorkloadContainerExtendedInfoPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *AzureWorkloadContainerExtendedInfo {
+		return v.ExtendedInfo
+	}).(AzureWorkloadContainerExtendedInfoPtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Time stamp when this container was updated.
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// Re-Do Operation
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) OperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.OperationType }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the virtual machine represented by this Azure Workload Container
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Workload type for which registration was sent.
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// Container for SQL workloads under SQL Availability Group.
+type AzureSQLAGWorkloadContainerProtectionContainerResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType *string `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo *AzureWorkloadContainerExtendedInfoResponse `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType *string `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureSQLAGWorkloadContainerProtectionContainerResponseInput is an input type that accepts AzureSQLAGWorkloadContainerProtectionContainerResponseArgs and AzureSQLAGWorkloadContainerProtectionContainerResponseOutput values.
+// You can construct a concrete instance of `AzureSQLAGWorkloadContainerProtectionContainerResponseInput` via:
+//
+//          AzureSQLAGWorkloadContainerProtectionContainerResponseArgs{...}
+type AzureSQLAGWorkloadContainerProtectionContainerResponseInput interface {
+	pulumi.Input
+
+	ToAzureSQLAGWorkloadContainerProtectionContainerResponseOutput() AzureSQLAGWorkloadContainerProtectionContainerResponseOutput
+	ToAzureSQLAGWorkloadContainerProtectionContainerResponseOutputWithContext(context.Context) AzureSQLAGWorkloadContainerProtectionContainerResponseOutput
+}
+
+// Container for SQL workloads under SQL Availability Group.
+type AzureSQLAGWorkloadContainerProtectionContainerResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo AzureWorkloadContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType pulumi.StringPtrInput `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureSQLAGWorkloadContainerProtectionContainerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSQLAGWorkloadContainerProtectionContainerResponse)(nil)).Elem()
+}
+
+func (i AzureSQLAGWorkloadContainerProtectionContainerResponseArgs) ToAzureSQLAGWorkloadContainerProtectionContainerResponseOutput() AzureSQLAGWorkloadContainerProtectionContainerResponseOutput {
+	return i.ToAzureSQLAGWorkloadContainerProtectionContainerResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSQLAGWorkloadContainerProtectionContainerResponseArgs) ToAzureSQLAGWorkloadContainerProtectionContainerResponseOutputWithContext(ctx context.Context) AzureSQLAGWorkloadContainerProtectionContainerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSQLAGWorkloadContainerProtectionContainerResponseOutput)
+}
+
+// Container for SQL workloads under SQL Availability Group.
+type AzureSQLAGWorkloadContainerProtectionContainerResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSQLAGWorkloadContainerProtectionContainerResponse)(nil)).Elem()
+}
+
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) ToAzureSQLAGWorkloadContainerProtectionContainerResponseOutput() AzureSQLAGWorkloadContainerProtectionContainerResponseOutput {
+	return o
+}
+
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) ToAzureSQLAGWorkloadContainerProtectionContainerResponseOutputWithContext(ctx context.Context) AzureSQLAGWorkloadContainerProtectionContainerResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'AzureWorkloadContainer'.
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+}
+
+// Additional details of a workload container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) ExtendedInfo() AzureWorkloadContainerExtendedInfoResponsePtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *AzureWorkloadContainerExtendedInfoResponse {
+		return v.ExtendedInfo
+	}).(AzureWorkloadContainerExtendedInfoResponsePtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Time stamp when this container was updated.
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// Re-Do Operation
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) OperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.OperationType }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the virtual machine represented by this Azure Workload Container
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Workload type for which registration was sent.
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
 // Azure Sql workload-specific container.
 type AzureSqlContainer struct {
 	// Type of backup management for the container.
@@ -492,6 +1662,306 @@ func (o AzureStorageContainerResponseOutput) SourceResourceId() pulumi.StringPtr
 // Storage account version.
 func (o AzureStorageContainerResponseOutput) StorageAccountVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageContainerResponse) *string { return v.StorageAccountVersion }).(pulumi.StringPtrOutput)
+}
+
+// Container for SQL workloads under Azure Virtual Machines.
+type AzureVMAppContainerProtectionContainer struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType *string `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo *AzureWorkloadContainerExtendedInfo `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType *string `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureVMAppContainerProtectionContainerInput is an input type that accepts AzureVMAppContainerProtectionContainerArgs and AzureVMAppContainerProtectionContainerOutput values.
+// You can construct a concrete instance of `AzureVMAppContainerProtectionContainerInput` via:
+//
+//          AzureVMAppContainerProtectionContainerArgs{...}
+type AzureVMAppContainerProtectionContainerInput interface {
+	pulumi.Input
+
+	ToAzureVMAppContainerProtectionContainerOutput() AzureVMAppContainerProtectionContainerOutput
+	ToAzureVMAppContainerProtectionContainerOutputWithContext(context.Context) AzureVMAppContainerProtectionContainerOutput
+}
+
+// Container for SQL workloads under Azure Virtual Machines.
+type AzureVMAppContainerProtectionContainerArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo AzureWorkloadContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType pulumi.StringPtrInput `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureVMAppContainerProtectionContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVMAppContainerProtectionContainer)(nil)).Elem()
+}
+
+func (i AzureVMAppContainerProtectionContainerArgs) ToAzureVMAppContainerProtectionContainerOutput() AzureVMAppContainerProtectionContainerOutput {
+	return i.ToAzureVMAppContainerProtectionContainerOutputWithContext(context.Background())
+}
+
+func (i AzureVMAppContainerProtectionContainerArgs) ToAzureVMAppContainerProtectionContainerOutputWithContext(ctx context.Context) AzureVMAppContainerProtectionContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureVMAppContainerProtectionContainerOutput)
+}
+
+// Container for SQL workloads under Azure Virtual Machines.
+type AzureVMAppContainerProtectionContainerOutput struct{ *pulumi.OutputState }
+
+func (AzureVMAppContainerProtectionContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVMAppContainerProtectionContainer)(nil)).Elem()
+}
+
+func (o AzureVMAppContainerProtectionContainerOutput) ToAzureVMAppContainerProtectionContainerOutput() AzureVMAppContainerProtectionContainerOutput {
+	return o
+}
+
+func (o AzureVMAppContainerProtectionContainerOutput) ToAzureVMAppContainerProtectionContainerOutputWithContext(ctx context.Context) AzureVMAppContainerProtectionContainerOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureVMAppContainerProtectionContainerOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'AzureWorkloadContainer'.
+func (o AzureVMAppContainerProtectionContainerOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+}
+
+// Additional details of a workload container.
+func (o AzureVMAppContainerProtectionContainerOutput) ExtendedInfo() AzureWorkloadContainerExtendedInfoPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *AzureWorkloadContainerExtendedInfo {
+		return v.ExtendedInfo
+	}).(AzureWorkloadContainerExtendedInfoPtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureVMAppContainerProtectionContainerOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureVMAppContainerProtectionContainerOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Time stamp when this container was updated.
+func (o AzureVMAppContainerProtectionContainerOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// Re-Do Operation
+func (o AzureVMAppContainerProtectionContainerOutput) OperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.OperationType }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureVMAppContainerProtectionContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the virtual machine represented by this Azure Workload Container
+func (o AzureVMAppContainerProtectionContainerOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Workload type for which registration was sent.
+func (o AzureVMAppContainerProtectionContainerOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// Container for SQL workloads under Azure Virtual Machines.
+type AzureVMAppContainerProtectionContainerResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType *string `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo *AzureWorkloadContainerExtendedInfoResponse `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType *string `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureVMAppContainerProtectionContainerResponseInput is an input type that accepts AzureVMAppContainerProtectionContainerResponseArgs and AzureVMAppContainerProtectionContainerResponseOutput values.
+// You can construct a concrete instance of `AzureVMAppContainerProtectionContainerResponseInput` via:
+//
+//          AzureVMAppContainerProtectionContainerResponseArgs{...}
+type AzureVMAppContainerProtectionContainerResponseInput interface {
+	pulumi.Input
+
+	ToAzureVMAppContainerProtectionContainerResponseOutput() AzureVMAppContainerProtectionContainerResponseOutput
+	ToAzureVMAppContainerProtectionContainerResponseOutputWithContext(context.Context) AzureVMAppContainerProtectionContainerResponseOutput
+}
+
+// Container for SQL workloads under Azure Virtual Machines.
+type AzureVMAppContainerProtectionContainerResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo AzureWorkloadContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType pulumi.StringPtrInput `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureVMAppContainerProtectionContainerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVMAppContainerProtectionContainerResponse)(nil)).Elem()
+}
+
+func (i AzureVMAppContainerProtectionContainerResponseArgs) ToAzureVMAppContainerProtectionContainerResponseOutput() AzureVMAppContainerProtectionContainerResponseOutput {
+	return i.ToAzureVMAppContainerProtectionContainerResponseOutputWithContext(context.Background())
+}
+
+func (i AzureVMAppContainerProtectionContainerResponseArgs) ToAzureVMAppContainerProtectionContainerResponseOutputWithContext(ctx context.Context) AzureVMAppContainerProtectionContainerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureVMAppContainerProtectionContainerResponseOutput)
+}
+
+// Container for SQL workloads under Azure Virtual Machines.
+type AzureVMAppContainerProtectionContainerResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureVMAppContainerProtectionContainerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVMAppContainerProtectionContainerResponse)(nil)).Elem()
+}
+
+func (o AzureVMAppContainerProtectionContainerResponseOutput) ToAzureVMAppContainerProtectionContainerResponseOutput() AzureVMAppContainerProtectionContainerResponseOutput {
+	return o
+}
+
+func (o AzureVMAppContainerProtectionContainerResponseOutput) ToAzureVMAppContainerProtectionContainerResponseOutputWithContext(ctx context.Context) AzureVMAppContainerProtectionContainerResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureVMAppContainerProtectionContainerResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'AzureWorkloadContainer'.
+func (o AzureVMAppContainerProtectionContainerResponseOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+}
+
+// Additional details of a workload container.
+func (o AzureVMAppContainerProtectionContainerResponseOutput) ExtendedInfo() AzureWorkloadContainerExtendedInfoResponsePtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *AzureWorkloadContainerExtendedInfoResponse {
+		return v.ExtendedInfo
+	}).(AzureWorkloadContainerExtendedInfoResponsePtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureVMAppContainerProtectionContainerResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureVMAppContainerProtectionContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Time stamp when this container was updated.
+func (o AzureVMAppContainerProtectionContainerResponseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// Re-Do Operation
+func (o AzureVMAppContainerProtectionContainerResponseOutput) OperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.OperationType }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureVMAppContainerProtectionContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the virtual machine represented by this Azure Workload Container
+func (o AzureVMAppContainerProtectionContainerResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Workload type for which registration was sent.
+func (o AzureVMAppContainerProtectionContainerResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // Container for the workloads running inside Azure Compute or Classic Compute.
@@ -5281,10 +6751,20 @@ func (o WorkloadInquiryDetailsResponseArrayOutput) Index(i pulumi.IntInput) Work
 }
 
 func init() {
+	pulumi.RegisterOutputType(AzureBackupServerContainerOutput{})
+	pulumi.RegisterOutputType(AzureBackupServerContainerResponseOutput{})
+	pulumi.RegisterOutputType(AzureIaaSClassicComputeVMContainerOutput{})
+	pulumi.RegisterOutputType(AzureIaaSClassicComputeVMContainerResponseOutput{})
+	pulumi.RegisterOutputType(AzureIaaSComputeVMContainerOutput{})
+	pulumi.RegisterOutputType(AzureIaaSComputeVMContainerResponseOutput{})
+	pulumi.RegisterOutputType(AzureSQLAGWorkloadContainerProtectionContainerOutput{})
+	pulumi.RegisterOutputType(AzureSQLAGWorkloadContainerProtectionContainerResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlContainerOutput{})
 	pulumi.RegisterOutputType(AzureSqlContainerResponseOutput{})
 	pulumi.RegisterOutputType(AzureStorageContainerOutput{})
 	pulumi.RegisterOutputType(AzureStorageContainerResponseOutput{})
+	pulumi.RegisterOutputType(AzureVMAppContainerProtectionContainerOutput{})
+	pulumi.RegisterOutputType(AzureVMAppContainerProtectionContainerResponseOutput{})
 	pulumi.RegisterOutputType(AzureWorkloadContainerOutput{})
 	pulumi.RegisterOutputType(AzureWorkloadContainerExtendedInfoOutput{})
 	pulumi.RegisterOutputType(AzureWorkloadContainerExtendedInfoPtrOutput{})

@@ -10,6 +10,340 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// IaaS VM workload-specific backup item representing the classic VM.
+type AzureIaaSClassicComputeVMProtectedItem struct {
+	// The backup management type associated with the backup item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Additional information for this backup item.
+	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	// The friendly name of the VM represented by this backup item.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// The last backup operation status. The possible values are: Healthy or Unhealthy.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// The timestamp of the last backup operation for this backup item.
+	LastBackupTime *string `pulumi:"lastBackupTime"`
+	// The timestamp when the most recent backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// The ID of the backup policy associated with this backup item.
+	PolicyId *string `pulumi:"policyId"`
+	// The backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
+	ProtectedItemType *string `pulumi:"protectedItemType"`
+	// The backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// The backup status of this backup item.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// The ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// The fully qualified Resource Manager ID of the virtual machine represented by this item.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// The workload type for this item.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureIaaSClassicComputeVMProtectedItemInput is an input type that accepts AzureIaaSClassicComputeVMProtectedItemArgs and AzureIaaSClassicComputeVMProtectedItemOutput values.
+// You can construct a concrete instance of `AzureIaaSClassicComputeVMProtectedItemInput` via:
+//
+//          AzureIaaSClassicComputeVMProtectedItemArgs{...}
+type AzureIaaSClassicComputeVMProtectedItemInput interface {
+	pulumi.Input
+
+	ToAzureIaaSClassicComputeVMProtectedItemOutput() AzureIaaSClassicComputeVMProtectedItemOutput
+	ToAzureIaaSClassicComputeVMProtectedItemOutputWithContext(context.Context) AzureIaaSClassicComputeVMProtectedItemOutput
+}
+
+// IaaS VM workload-specific backup item representing the classic VM.
+type AzureIaaSClassicComputeVMProtectedItemArgs struct {
+	// The backup management type associated with the backup item.
+	BackupManagementType BackupManagementType `pulumi:"backupManagementType"`
+	// Additional information for this backup item.
+	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	// The friendly name of the VM represented by this backup item.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// The last backup operation status. The possible values are: Healthy or Unhealthy.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// The timestamp of the last backup operation for this backup item.
+	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
+	// The timestamp when the most recent backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// The ID of the backup policy associated with this backup item.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// The backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
+	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
+	// The backup state of this backup item.
+	ProtectionState ProtectionState `pulumi:"protectionState"`
+	// The backup status of this backup item.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// The ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// The fully qualified Resource Manager ID of the virtual machine represented by this item.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// The workload type for this item.
+	WorkloadType DataSourceType `pulumi:"workloadType"`
+}
+
+func (AzureIaaSClassicComputeVMProtectedItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSClassicComputeVMProtectedItem)(nil)).Elem()
+}
+
+func (i AzureIaaSClassicComputeVMProtectedItemArgs) ToAzureIaaSClassicComputeVMProtectedItemOutput() AzureIaaSClassicComputeVMProtectedItemOutput {
+	return i.ToAzureIaaSClassicComputeVMProtectedItemOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSClassicComputeVMProtectedItemArgs) ToAzureIaaSClassicComputeVMProtectedItemOutputWithContext(ctx context.Context) AzureIaaSClassicComputeVMProtectedItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSClassicComputeVMProtectedItemOutput)
+}
+
+// IaaS VM workload-specific backup item representing the classic VM.
+type AzureIaaSClassicComputeVMProtectedItemOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSClassicComputeVMProtectedItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSClassicComputeVMProtectedItem)(nil)).Elem()
+}
+
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) ToAzureIaaSClassicComputeVMProtectedItemOutput() AzureIaaSClassicComputeVMProtectedItemOutput {
+	return o
+}
+
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) ToAzureIaaSClassicComputeVMProtectedItemOutputWithContext(ctx context.Context) AzureIaaSClassicComputeVMProtectedItemOutput {
+	return o
+}
+
+// The backup management type associated with the backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Additional information for this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) ExtendedInfo() AzureIaaSVMProtectedItemExtendedInfoPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *AzureIaaSVMProtectedItemExtendedInfo {
+		return v.ExtendedInfo
+	}).(AzureIaaSVMProtectedItemExtendedInfoPtrOutput)
+}
+
+// The friendly name of the VM represented by this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// The last backup operation status. The possible values are: Healthy or Unhealthy.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of the last backup operation for this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) LastBackupTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the most recent backup copy was created for this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the backup policy associated with this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// The backup item type.
+// Expected value is 'AzureIaaSVMProtectedItem'.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
+}
+
+// The backup state of this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// The backup status of this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the resource to be backed up.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified Resource Manager ID of the virtual machine represented by this item.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// The workload type for this item.
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// IaaS VM workload-specific backup item representing the Resource Manager VM.
+type AzureIaaSComputeVMProtectedItem struct {
+	// The backup management type associated with the backup item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Additional information for this backup item.
+	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	// The friendly name of the VM represented by this backup item.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// The last backup operation status. The possible values are: Healthy or Unhealthy.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// The timestamp of the last backup operation for this backup item.
+	LastBackupTime *string `pulumi:"lastBackupTime"`
+	// The timestamp when the most recent backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// The ID of the backup policy associated with this backup item.
+	PolicyId *string `pulumi:"policyId"`
+	// The backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
+	ProtectedItemType *string `pulumi:"protectedItemType"`
+	// The backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// The backup status of this backup item.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// The ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// The fully qualified Resource Manager ID of the virtual machine represented by this item.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// The workload type for this item.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureIaaSComputeVMProtectedItemInput is an input type that accepts AzureIaaSComputeVMProtectedItemArgs and AzureIaaSComputeVMProtectedItemOutput values.
+// You can construct a concrete instance of `AzureIaaSComputeVMProtectedItemInput` via:
+//
+//          AzureIaaSComputeVMProtectedItemArgs{...}
+type AzureIaaSComputeVMProtectedItemInput interface {
+	pulumi.Input
+
+	ToAzureIaaSComputeVMProtectedItemOutput() AzureIaaSComputeVMProtectedItemOutput
+	ToAzureIaaSComputeVMProtectedItemOutputWithContext(context.Context) AzureIaaSComputeVMProtectedItemOutput
+}
+
+// IaaS VM workload-specific backup item representing the Resource Manager VM.
+type AzureIaaSComputeVMProtectedItemArgs struct {
+	// The backup management type associated with the backup item.
+	BackupManagementType BackupManagementType `pulumi:"backupManagementType"`
+	// Additional information for this backup item.
+	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	// The friendly name of the VM represented by this backup item.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// The last backup operation status. The possible values are: Healthy or Unhealthy.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// The timestamp of the last backup operation for this backup item.
+	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
+	// The timestamp when the most recent backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// The ID of the backup policy associated with this backup item.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// The backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
+	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
+	// The backup state of this backup item.
+	ProtectionState ProtectionState `pulumi:"protectionState"`
+	// The backup status of this backup item.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// The ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// The fully qualified Resource Manager ID of the virtual machine represented by this item.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// The workload type for this item.
+	WorkloadType DataSourceType `pulumi:"workloadType"`
+}
+
+func (AzureIaaSComputeVMProtectedItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSComputeVMProtectedItem)(nil)).Elem()
+}
+
+func (i AzureIaaSComputeVMProtectedItemArgs) ToAzureIaaSComputeVMProtectedItemOutput() AzureIaaSComputeVMProtectedItemOutput {
+	return i.ToAzureIaaSComputeVMProtectedItemOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSComputeVMProtectedItemArgs) ToAzureIaaSComputeVMProtectedItemOutputWithContext(ctx context.Context) AzureIaaSComputeVMProtectedItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSComputeVMProtectedItemOutput)
+}
+
+// IaaS VM workload-specific backup item representing the Resource Manager VM.
+type AzureIaaSComputeVMProtectedItemOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSComputeVMProtectedItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSComputeVMProtectedItem)(nil)).Elem()
+}
+
+func (o AzureIaaSComputeVMProtectedItemOutput) ToAzureIaaSComputeVMProtectedItemOutput() AzureIaaSComputeVMProtectedItemOutput {
+	return o
+}
+
+func (o AzureIaaSComputeVMProtectedItemOutput) ToAzureIaaSComputeVMProtectedItemOutputWithContext(ctx context.Context) AzureIaaSComputeVMProtectedItemOutput {
+	return o
+}
+
+// The backup management type associated with the backup item.
+func (o AzureIaaSComputeVMProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Additional information for this backup item.
+func (o AzureIaaSComputeVMProtectedItemOutput) ExtendedInfo() AzureIaaSVMProtectedItemExtendedInfoPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *AzureIaaSVMProtectedItemExtendedInfo { return v.ExtendedInfo }).(AzureIaaSVMProtectedItemExtendedInfoPtrOutput)
+}
+
+// The friendly name of the VM represented by this backup item.
+func (o AzureIaaSComputeVMProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// The last backup operation status. The possible values are: Healthy or Unhealthy.
+func (o AzureIaaSComputeVMProtectedItemOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of the last backup operation for this backup item.
+func (o AzureIaaSComputeVMProtectedItemOutput) LastBackupTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the most recent backup copy was created for this backup item.
+func (o AzureIaaSComputeVMProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the backup policy associated with this backup item.
+func (o AzureIaaSComputeVMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// The backup item type.
+// Expected value is 'AzureIaaSVMProtectedItem'.
+func (o AzureIaaSComputeVMProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
+}
+
+// The backup state of this backup item.
+func (o AzureIaaSComputeVMProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// The backup status of this backup item.
+func (o AzureIaaSComputeVMProtectedItemOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the resource to be backed up.
+func (o AzureIaaSComputeVMProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified Resource Manager ID of the virtual machine represented by this item.
+func (o AzureIaaSComputeVMProtectedItemOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// The workload type for this item.
+func (o AzureIaaSComputeVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
 // This Azure VM workload-specific (also known as IaaS VM workload-specific) backup item has been backed up.
 type AzureIaaSVMProtectedItem struct {
 	// The backup management type associated with the backup item.
@@ -6109,6 +6443,8 @@ func (o YearlyRetentionScheduleResponsePtrOutput) RetentionTimes() pulumi.String
 }
 
 func init() {
+	pulumi.RegisterOutputType(AzureIaaSClassicComputeVMProtectedItemOutput{})
+	pulumi.RegisterOutputType(AzureIaaSComputeVMProtectedItemOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemExtendedInfoOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemExtendedInfoPtrOutput{})
