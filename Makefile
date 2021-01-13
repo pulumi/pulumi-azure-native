@@ -121,4 +121,7 @@ build:: init_submodules clean codegen local_generate provider build_sdks install
 build_sdks: build_nodejs build_dotnet build_python build_go
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 
+# Required for the codegen action that runs in pulumi/pulumi
+only_build:: build
+
 .PHONY: init_submodules update_submodules ensure generate_schema generate build_provider build
