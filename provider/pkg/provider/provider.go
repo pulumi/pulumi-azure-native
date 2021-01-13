@@ -668,6 +668,11 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 		return nil, err
 	}
 
+	// Read the canonical ID from the response.
+	if azureId, ok := response["id"].(string); ok {
+		id = azureId
+	}
+
 	// Map the raw response to the shape of outputs that the SDKs expect.
 	outputs := k.converter.BodyPropertiesToSDK(res.Response, response)
 

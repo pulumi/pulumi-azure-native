@@ -119,3 +119,22 @@ const key = new keyvault.Key("mykey", {
         ],
     },
 });
+
+const roleDefinitionId = new random.RandomUuid("role-definition-id").result;
+const scope = pulumi.interpolate`/subscriptions/${config.subscriptionId}`;
+const roleDefinition = new authorization.RoleDefinition("custom-role", {
+    roleDefinitionId,
+    roleName: roleDefinitionId,
+    assignableScopes: [scope],
+    permissions: [{
+        actions: ["*"],
+        notActions: [],
+    }],
+    scope,
+});
+
+export const validatedRoleDefinitionId = pulumi.all([scope, roleDefinition.id]).apply(([scope, id]) => {
+    if (id.indexOf(scope) < 0)
+        throw new Error(`Expected '${scope}' in ${id} but not found`);
+    return id;
+});
