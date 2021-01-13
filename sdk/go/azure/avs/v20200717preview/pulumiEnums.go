@@ -124,33 +124,6 @@ func (e InternetEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Indicate to rotate the NSX-T Manager password for the private cloud
-type NsxtAdminRotateEnum pulumi.String
-
-const (
-	NsxtAdminRotateEnumOnetimeRotate = NsxtAdminRotateEnum("OnetimeRotate")
-)
-
-func (NsxtAdminRotateEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e NsxtAdminRotateEnum) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e NsxtAdminRotateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e NsxtAdminRotateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e NsxtAdminRotateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Direction of port mirroring profile.
 type PortMirroringDirectionEnum pulumi.String
 
@@ -203,32 +176,5 @@ func (e SslEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e SslEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Indicate to rotate the vCenter admin password for the private cloud
-type VcsaAdminRotateEnum pulumi.String
-
-const (
-	VcsaAdminRotateEnumOnetimeRotate = VcsaAdminRotateEnum("OnetimeRotate")
-)
-
-func (VcsaAdminRotateEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e VcsaAdminRotateEnum) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e VcsaAdminRotateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e VcsaAdminRotateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e VcsaAdminRotateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

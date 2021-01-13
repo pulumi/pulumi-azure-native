@@ -13,19 +13,19 @@ import (
 // The shipping address of the customer.
 type Address struct {
 	// The address line1.
-	AddressLine1 string `pulumi:"addressLine1"`
+	AddressLine1 *string `pulumi:"addressLine1"`
 	// The address line2.
 	AddressLine2 *string `pulumi:"addressLine2"`
 	// The address line3.
 	AddressLine3 *string `pulumi:"addressLine3"`
 	// The city name.
-	City string `pulumi:"city"`
+	City *string `pulumi:"city"`
 	// The country name.
 	Country string `pulumi:"country"`
 	// The postal code.
-	PostalCode string `pulumi:"postalCode"`
+	PostalCode *string `pulumi:"postalCode"`
 	// The state name.
-	State string `pulumi:"state"`
+	State *string `pulumi:"state"`
 }
 
 // AddressInput is an input type that accepts AddressArgs and AddressOutput values.
@@ -42,19 +42,19 @@ type AddressInput interface {
 // The shipping address of the customer.
 type AddressArgs struct {
 	// The address line1.
-	AddressLine1 pulumi.StringInput `pulumi:"addressLine1"`
+	AddressLine1 pulumi.StringPtrInput `pulumi:"addressLine1"`
 	// The address line2.
 	AddressLine2 pulumi.StringPtrInput `pulumi:"addressLine2"`
 	// The address line3.
 	AddressLine3 pulumi.StringPtrInput `pulumi:"addressLine3"`
 	// The city name.
-	City pulumi.StringInput `pulumi:"city"`
+	City pulumi.StringPtrInput `pulumi:"city"`
 	// The country name.
 	Country pulumi.StringInput `pulumi:"country"`
 	// The postal code.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
+	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
 	// The state name.
-	State pulumi.StringInput `pulumi:"state"`
+	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (AddressArgs) ElementType() reflect.Type {
@@ -136,8 +136,8 @@ func (o AddressOutput) ToAddressPtrOutputWithContext(ctx context.Context) Addres
 }
 
 // The address line1.
-func (o AddressOutput) AddressLine1() pulumi.StringOutput {
-	return o.ApplyT(func(v Address) string { return v.AddressLine1 }).(pulumi.StringOutput)
+func (o AddressOutput) AddressLine1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Address) *string { return v.AddressLine1 }).(pulumi.StringPtrOutput)
 }
 
 // The address line2.
@@ -151,8 +151,8 @@ func (o AddressOutput) AddressLine3() pulumi.StringPtrOutput {
 }
 
 // The city name.
-func (o AddressOutput) City() pulumi.StringOutput {
-	return o.ApplyT(func(v Address) string { return v.City }).(pulumi.StringOutput)
+func (o AddressOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Address) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
 // The country name.
@@ -161,13 +161,13 @@ func (o AddressOutput) Country() pulumi.StringOutput {
 }
 
 // The postal code.
-func (o AddressOutput) PostalCode() pulumi.StringOutput {
-	return o.ApplyT(func(v Address) string { return v.PostalCode }).(pulumi.StringOutput)
+func (o AddressOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Address) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
 // The state name.
-func (o AddressOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v Address) string { return v.State }).(pulumi.StringOutput)
+func (o AddressOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Address) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type AddressPtrOutput struct{ *pulumi.OutputState }
@@ -194,7 +194,7 @@ func (o AddressPtrOutput) AddressLine1() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.AddressLine1
+		return v.AddressLine1
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -224,7 +224,7 @@ func (o AddressPtrOutput) City() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.City
+		return v.City
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -244,7 +244,7 @@ func (o AddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.PostalCode
+		return v.PostalCode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -254,26 +254,26 @@ func (o AddressPtrOutput) State() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.State
+		return v.State
 	}).(pulumi.StringPtrOutput)
 }
 
 // The shipping address of the customer.
 type AddressResponse struct {
 	// The address line1.
-	AddressLine1 string `pulumi:"addressLine1"`
+	AddressLine1 *string `pulumi:"addressLine1"`
 	// The address line2.
 	AddressLine2 *string `pulumi:"addressLine2"`
 	// The address line3.
 	AddressLine3 *string `pulumi:"addressLine3"`
 	// The city name.
-	City string `pulumi:"city"`
+	City *string `pulumi:"city"`
 	// The country name.
 	Country string `pulumi:"country"`
 	// The postal code.
-	PostalCode string `pulumi:"postalCode"`
+	PostalCode *string `pulumi:"postalCode"`
 	// The state name.
-	State string `pulumi:"state"`
+	State *string `pulumi:"state"`
 }
 
 // AddressResponseInput is an input type that accepts AddressResponseArgs and AddressResponseOutput values.
@@ -290,19 +290,19 @@ type AddressResponseInput interface {
 // The shipping address of the customer.
 type AddressResponseArgs struct {
 	// The address line1.
-	AddressLine1 pulumi.StringInput `pulumi:"addressLine1"`
+	AddressLine1 pulumi.StringPtrInput `pulumi:"addressLine1"`
 	// The address line2.
 	AddressLine2 pulumi.StringPtrInput `pulumi:"addressLine2"`
 	// The address line3.
 	AddressLine3 pulumi.StringPtrInput `pulumi:"addressLine3"`
 	// The city name.
-	City pulumi.StringInput `pulumi:"city"`
+	City pulumi.StringPtrInput `pulumi:"city"`
 	// The country name.
 	Country pulumi.StringInput `pulumi:"country"`
 	// The postal code.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
+	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
 	// The state name.
-	State pulumi.StringInput `pulumi:"state"`
+	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (AddressResponseArgs) ElementType() reflect.Type {
@@ -384,8 +384,8 @@ func (o AddressResponseOutput) ToAddressResponsePtrOutputWithContext(ctx context
 }
 
 // The address line1.
-func (o AddressResponseOutput) AddressLine1() pulumi.StringOutput {
-	return o.ApplyT(func(v AddressResponse) string { return v.AddressLine1 }).(pulumi.StringOutput)
+func (o AddressResponseOutput) AddressLine1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddressResponse) *string { return v.AddressLine1 }).(pulumi.StringPtrOutput)
 }
 
 // The address line2.
@@ -399,8 +399,8 @@ func (o AddressResponseOutput) AddressLine3() pulumi.StringPtrOutput {
 }
 
 // The city name.
-func (o AddressResponseOutput) City() pulumi.StringOutput {
-	return o.ApplyT(func(v AddressResponse) string { return v.City }).(pulumi.StringOutput)
+func (o AddressResponseOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddressResponse) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
 // The country name.
@@ -409,13 +409,13 @@ func (o AddressResponseOutput) Country() pulumi.StringOutput {
 }
 
 // The postal code.
-func (o AddressResponseOutput) PostalCode() pulumi.StringOutput {
-	return o.ApplyT(func(v AddressResponse) string { return v.PostalCode }).(pulumi.StringOutput)
+func (o AddressResponseOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddressResponse) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
 // The state name.
-func (o AddressResponseOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v AddressResponse) string { return v.State }).(pulumi.StringOutput)
+func (o AddressResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddressResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type AddressResponsePtrOutput struct{ *pulumi.OutputState }
@@ -442,7 +442,7 @@ func (o AddressResponsePtrOutput) AddressLine1() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.AddressLine1
+		return v.AddressLine1
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -472,7 +472,7 @@ func (o AddressResponsePtrOutput) City() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.City
+		return v.City
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -492,7 +492,7 @@ func (o AddressResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.PostalCode
+		return v.PostalCode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -502,7 +502,7 @@ func (o AddressResponsePtrOutput) State() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.State
+		return v.State
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1794,10 +1794,1754 @@ func (o ContactDetailsResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Details about Edge Profile for the resource
+type EdgeProfile struct {
+	// Edge Profile Subscription
+	Subscription *EdgeProfileSubscription `pulumi:"subscription"`
+}
+
+// EdgeProfileInput is an input type that accepts EdgeProfileArgs and EdgeProfileOutput values.
+// You can construct a concrete instance of `EdgeProfileInput` via:
+//
+//          EdgeProfileArgs{...}
+type EdgeProfileInput interface {
+	pulumi.Input
+
+	ToEdgeProfileOutput() EdgeProfileOutput
+	ToEdgeProfileOutputWithContext(context.Context) EdgeProfileOutput
+}
+
+// Details about Edge Profile for the resource
+type EdgeProfileArgs struct {
+	// Edge Profile Subscription
+	Subscription EdgeProfileSubscriptionPtrInput `pulumi:"subscription"`
+}
+
+func (EdgeProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeProfile)(nil)).Elem()
+}
+
+func (i EdgeProfileArgs) ToEdgeProfileOutput() EdgeProfileOutput {
+	return i.ToEdgeProfileOutputWithContext(context.Background())
+}
+
+func (i EdgeProfileArgs) ToEdgeProfileOutputWithContext(ctx context.Context) EdgeProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfileOutput)
+}
+
+func (i EdgeProfileArgs) ToEdgeProfilePtrOutput() EdgeProfilePtrOutput {
+	return i.ToEdgeProfilePtrOutputWithContext(context.Background())
+}
+
+func (i EdgeProfileArgs) ToEdgeProfilePtrOutputWithContext(ctx context.Context) EdgeProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfileOutput).ToEdgeProfilePtrOutputWithContext(ctx)
+}
+
+// EdgeProfilePtrInput is an input type that accepts EdgeProfileArgs, EdgeProfilePtr and EdgeProfilePtrOutput values.
+// You can construct a concrete instance of `EdgeProfilePtrInput` via:
+//
+//          EdgeProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type EdgeProfilePtrInput interface {
+	pulumi.Input
+
+	ToEdgeProfilePtrOutput() EdgeProfilePtrOutput
+	ToEdgeProfilePtrOutputWithContext(context.Context) EdgeProfilePtrOutput
+}
+
+type edgeProfilePtrType EdgeProfileArgs
+
+func EdgeProfilePtr(v *EdgeProfileArgs) EdgeProfilePtrInput {
+	return (*edgeProfilePtrType)(v)
+}
+
+func (*edgeProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeProfile)(nil)).Elem()
+}
+
+func (i *edgeProfilePtrType) ToEdgeProfilePtrOutput() EdgeProfilePtrOutput {
+	return i.ToEdgeProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *edgeProfilePtrType) ToEdgeProfilePtrOutputWithContext(ctx context.Context) EdgeProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfilePtrOutput)
+}
+
+// Details about Edge Profile for the resource
+type EdgeProfileOutput struct{ *pulumi.OutputState }
+
+func (EdgeProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeProfile)(nil)).Elem()
+}
+
+func (o EdgeProfileOutput) ToEdgeProfileOutput() EdgeProfileOutput {
+	return o
+}
+
+func (o EdgeProfileOutput) ToEdgeProfileOutputWithContext(ctx context.Context) EdgeProfileOutput {
+	return o
+}
+
+func (o EdgeProfileOutput) ToEdgeProfilePtrOutput() EdgeProfilePtrOutput {
+	return o.ToEdgeProfilePtrOutputWithContext(context.Background())
+}
+
+func (o EdgeProfileOutput) ToEdgeProfilePtrOutputWithContext(ctx context.Context) EdgeProfilePtrOutput {
+	return o.ApplyT(func(v EdgeProfile) *EdgeProfile {
+		return &v
+	}).(EdgeProfilePtrOutput)
+}
+
+// Edge Profile Subscription
+func (o EdgeProfileOutput) Subscription() EdgeProfileSubscriptionPtrOutput {
+	return o.ApplyT(func(v EdgeProfile) *EdgeProfileSubscription { return v.Subscription }).(EdgeProfileSubscriptionPtrOutput)
+}
+
+type EdgeProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (EdgeProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeProfile)(nil)).Elem()
+}
+
+func (o EdgeProfilePtrOutput) ToEdgeProfilePtrOutput() EdgeProfilePtrOutput {
+	return o
+}
+
+func (o EdgeProfilePtrOutput) ToEdgeProfilePtrOutputWithContext(ctx context.Context) EdgeProfilePtrOutput {
+	return o
+}
+
+func (o EdgeProfilePtrOutput) Elem() EdgeProfileOutput {
+	return o.ApplyT(func(v *EdgeProfile) EdgeProfile { return *v }).(EdgeProfileOutput)
+}
+
+// Edge Profile Subscription
+func (o EdgeProfilePtrOutput) Subscription() EdgeProfileSubscriptionPtrOutput {
+	return o.ApplyT(func(v *EdgeProfile) *EdgeProfileSubscription {
+		if v == nil {
+			return nil
+		}
+		return v.Subscription
+	}).(EdgeProfileSubscriptionPtrOutput)
+}
+
+// Details about Edge Profile for the resource
+type EdgeProfileResponse struct {
+	// Edge Profile Subscription
+	Subscription *EdgeProfileSubscriptionResponse `pulumi:"subscription"`
+}
+
+// EdgeProfileResponseInput is an input type that accepts EdgeProfileResponseArgs and EdgeProfileResponseOutput values.
+// You can construct a concrete instance of `EdgeProfileResponseInput` via:
+//
+//          EdgeProfileResponseArgs{...}
+type EdgeProfileResponseInput interface {
+	pulumi.Input
+
+	ToEdgeProfileResponseOutput() EdgeProfileResponseOutput
+	ToEdgeProfileResponseOutputWithContext(context.Context) EdgeProfileResponseOutput
+}
+
+// Details about Edge Profile for the resource
+type EdgeProfileResponseArgs struct {
+	// Edge Profile Subscription
+	Subscription EdgeProfileSubscriptionResponsePtrInput `pulumi:"subscription"`
+}
+
+func (EdgeProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeProfileResponse)(nil)).Elem()
+}
+
+func (i EdgeProfileResponseArgs) ToEdgeProfileResponseOutput() EdgeProfileResponseOutput {
+	return i.ToEdgeProfileResponseOutputWithContext(context.Background())
+}
+
+func (i EdgeProfileResponseArgs) ToEdgeProfileResponseOutputWithContext(ctx context.Context) EdgeProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfileResponseOutput)
+}
+
+func (i EdgeProfileResponseArgs) ToEdgeProfileResponsePtrOutput() EdgeProfileResponsePtrOutput {
+	return i.ToEdgeProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdgeProfileResponseArgs) ToEdgeProfileResponsePtrOutputWithContext(ctx context.Context) EdgeProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfileResponseOutput).ToEdgeProfileResponsePtrOutputWithContext(ctx)
+}
+
+// EdgeProfileResponsePtrInput is an input type that accepts EdgeProfileResponseArgs, EdgeProfileResponsePtr and EdgeProfileResponsePtrOutput values.
+// You can construct a concrete instance of `EdgeProfileResponsePtrInput` via:
+//
+//          EdgeProfileResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdgeProfileResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdgeProfileResponsePtrOutput() EdgeProfileResponsePtrOutput
+	ToEdgeProfileResponsePtrOutputWithContext(context.Context) EdgeProfileResponsePtrOutput
+}
+
+type edgeProfileResponsePtrType EdgeProfileResponseArgs
+
+func EdgeProfileResponsePtr(v *EdgeProfileResponseArgs) EdgeProfileResponsePtrInput {
+	return (*edgeProfileResponsePtrType)(v)
+}
+
+func (*edgeProfileResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeProfileResponse)(nil)).Elem()
+}
+
+func (i *edgeProfileResponsePtrType) ToEdgeProfileResponsePtrOutput() EdgeProfileResponsePtrOutput {
+	return i.ToEdgeProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edgeProfileResponsePtrType) ToEdgeProfileResponsePtrOutputWithContext(ctx context.Context) EdgeProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfileResponsePtrOutput)
+}
+
+// Details about Edge Profile for the resource
+type EdgeProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (EdgeProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeProfileResponse)(nil)).Elem()
+}
+
+func (o EdgeProfileResponseOutput) ToEdgeProfileResponseOutput() EdgeProfileResponseOutput {
+	return o
+}
+
+func (o EdgeProfileResponseOutput) ToEdgeProfileResponseOutputWithContext(ctx context.Context) EdgeProfileResponseOutput {
+	return o
+}
+
+func (o EdgeProfileResponseOutput) ToEdgeProfileResponsePtrOutput() EdgeProfileResponsePtrOutput {
+	return o.ToEdgeProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdgeProfileResponseOutput) ToEdgeProfileResponsePtrOutputWithContext(ctx context.Context) EdgeProfileResponsePtrOutput {
+	return o.ApplyT(func(v EdgeProfileResponse) *EdgeProfileResponse {
+		return &v
+	}).(EdgeProfileResponsePtrOutput)
+}
+
+// Edge Profile Subscription
+func (o EdgeProfileResponseOutput) Subscription() EdgeProfileSubscriptionResponsePtrOutput {
+	return o.ApplyT(func(v EdgeProfileResponse) *EdgeProfileSubscriptionResponse { return v.Subscription }).(EdgeProfileSubscriptionResponsePtrOutput)
+}
+
+type EdgeProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdgeProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeProfileResponse)(nil)).Elem()
+}
+
+func (o EdgeProfileResponsePtrOutput) ToEdgeProfileResponsePtrOutput() EdgeProfileResponsePtrOutput {
+	return o
+}
+
+func (o EdgeProfileResponsePtrOutput) ToEdgeProfileResponsePtrOutputWithContext(ctx context.Context) EdgeProfileResponsePtrOutput {
+	return o
+}
+
+func (o EdgeProfileResponsePtrOutput) Elem() EdgeProfileResponseOutput {
+	return o.ApplyT(func(v *EdgeProfileResponse) EdgeProfileResponse { return *v }).(EdgeProfileResponseOutput)
+}
+
+// Edge Profile Subscription
+func (o EdgeProfileResponsePtrOutput) Subscription() EdgeProfileSubscriptionResponsePtrOutput {
+	return o.ApplyT(func(v *EdgeProfileResponse) *EdgeProfileSubscriptionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Subscription
+	}).(EdgeProfileSubscriptionResponsePtrOutput)
+}
+
+// Subscription details for the Edge Profile
+type EdgeProfileSubscription struct {
+	// ARM ID of the subscription
+	Id                  *string                          `pulumi:"id"`
+	LocationPlacementId *string                          `pulumi:"locationPlacementId"`
+	QuotaId             *string                          `pulumi:"quotaId"`
+	RegisteredFeatures  []SubscriptionRegisteredFeatures `pulumi:"registeredFeatures"`
+	RegistrationDate    *string                          `pulumi:"registrationDate"`
+	// Edge Subscription Registration ID
+	RegistrationId    *string `pulumi:"registrationId"`
+	SerializedDetails *string `pulumi:"serializedDetails"`
+	State             *string `pulumi:"state"`
+	SubscriptionId    *string `pulumi:"subscriptionId"`
+	TenantId          *string `pulumi:"tenantId"`
+}
+
+// EdgeProfileSubscriptionInput is an input type that accepts EdgeProfileSubscriptionArgs and EdgeProfileSubscriptionOutput values.
+// You can construct a concrete instance of `EdgeProfileSubscriptionInput` via:
+//
+//          EdgeProfileSubscriptionArgs{...}
+type EdgeProfileSubscriptionInput interface {
+	pulumi.Input
+
+	ToEdgeProfileSubscriptionOutput() EdgeProfileSubscriptionOutput
+	ToEdgeProfileSubscriptionOutputWithContext(context.Context) EdgeProfileSubscriptionOutput
+}
+
+// Subscription details for the Edge Profile
+type EdgeProfileSubscriptionArgs struct {
+	// ARM ID of the subscription
+	Id                  pulumi.StringPtrInput                    `pulumi:"id"`
+	LocationPlacementId pulumi.StringPtrInput                    `pulumi:"locationPlacementId"`
+	QuotaId             pulumi.StringPtrInput                    `pulumi:"quotaId"`
+	RegisteredFeatures  SubscriptionRegisteredFeaturesArrayInput `pulumi:"registeredFeatures"`
+	RegistrationDate    pulumi.StringPtrInput                    `pulumi:"registrationDate"`
+	// Edge Subscription Registration ID
+	RegistrationId    pulumi.StringPtrInput `pulumi:"registrationId"`
+	SerializedDetails pulumi.StringPtrInput `pulumi:"serializedDetails"`
+	State             pulumi.StringPtrInput `pulumi:"state"`
+	SubscriptionId    pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	TenantId          pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (EdgeProfileSubscriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeProfileSubscription)(nil)).Elem()
+}
+
+func (i EdgeProfileSubscriptionArgs) ToEdgeProfileSubscriptionOutput() EdgeProfileSubscriptionOutput {
+	return i.ToEdgeProfileSubscriptionOutputWithContext(context.Background())
+}
+
+func (i EdgeProfileSubscriptionArgs) ToEdgeProfileSubscriptionOutputWithContext(ctx context.Context) EdgeProfileSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfileSubscriptionOutput)
+}
+
+func (i EdgeProfileSubscriptionArgs) ToEdgeProfileSubscriptionPtrOutput() EdgeProfileSubscriptionPtrOutput {
+	return i.ToEdgeProfileSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i EdgeProfileSubscriptionArgs) ToEdgeProfileSubscriptionPtrOutputWithContext(ctx context.Context) EdgeProfileSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfileSubscriptionOutput).ToEdgeProfileSubscriptionPtrOutputWithContext(ctx)
+}
+
+// EdgeProfileSubscriptionPtrInput is an input type that accepts EdgeProfileSubscriptionArgs, EdgeProfileSubscriptionPtr and EdgeProfileSubscriptionPtrOutput values.
+// You can construct a concrete instance of `EdgeProfileSubscriptionPtrInput` via:
+//
+//          EdgeProfileSubscriptionArgs{...}
+//
+//  or:
+//
+//          nil
+type EdgeProfileSubscriptionPtrInput interface {
+	pulumi.Input
+
+	ToEdgeProfileSubscriptionPtrOutput() EdgeProfileSubscriptionPtrOutput
+	ToEdgeProfileSubscriptionPtrOutputWithContext(context.Context) EdgeProfileSubscriptionPtrOutput
+}
+
+type edgeProfileSubscriptionPtrType EdgeProfileSubscriptionArgs
+
+func EdgeProfileSubscriptionPtr(v *EdgeProfileSubscriptionArgs) EdgeProfileSubscriptionPtrInput {
+	return (*edgeProfileSubscriptionPtrType)(v)
+}
+
+func (*edgeProfileSubscriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeProfileSubscription)(nil)).Elem()
+}
+
+func (i *edgeProfileSubscriptionPtrType) ToEdgeProfileSubscriptionPtrOutput() EdgeProfileSubscriptionPtrOutput {
+	return i.ToEdgeProfileSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *edgeProfileSubscriptionPtrType) ToEdgeProfileSubscriptionPtrOutputWithContext(ctx context.Context) EdgeProfileSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfileSubscriptionPtrOutput)
+}
+
+// Subscription details for the Edge Profile
+type EdgeProfileSubscriptionOutput struct{ *pulumi.OutputState }
+
+func (EdgeProfileSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeProfileSubscription)(nil)).Elem()
+}
+
+func (o EdgeProfileSubscriptionOutput) ToEdgeProfileSubscriptionOutput() EdgeProfileSubscriptionOutput {
+	return o
+}
+
+func (o EdgeProfileSubscriptionOutput) ToEdgeProfileSubscriptionOutputWithContext(ctx context.Context) EdgeProfileSubscriptionOutput {
+	return o
+}
+
+func (o EdgeProfileSubscriptionOutput) ToEdgeProfileSubscriptionPtrOutput() EdgeProfileSubscriptionPtrOutput {
+	return o.ToEdgeProfileSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (o EdgeProfileSubscriptionOutput) ToEdgeProfileSubscriptionPtrOutputWithContext(ctx context.Context) EdgeProfileSubscriptionPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscription) *EdgeProfileSubscription {
+		return &v
+	}).(EdgeProfileSubscriptionPtrOutput)
+}
+
+// ARM ID of the subscription
+func (o EdgeProfileSubscriptionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscription) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionOutput) LocationPlacementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscription) *string { return v.LocationPlacementId }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionOutput) QuotaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscription) *string { return v.QuotaId }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionOutput) RegisteredFeatures() SubscriptionRegisteredFeaturesArrayOutput {
+	return o.ApplyT(func(v EdgeProfileSubscription) []SubscriptionRegisteredFeatures { return v.RegisteredFeatures }).(SubscriptionRegisteredFeaturesArrayOutput)
+}
+
+func (o EdgeProfileSubscriptionOutput) RegistrationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscription) *string { return v.RegistrationDate }).(pulumi.StringPtrOutput)
+}
+
+// Edge Subscription Registration ID
+func (o EdgeProfileSubscriptionOutput) RegistrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscription) *string { return v.RegistrationId }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionOutput) SerializedDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscription) *string { return v.SerializedDetails }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscription) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscription) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscription) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type EdgeProfileSubscriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (EdgeProfileSubscriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeProfileSubscription)(nil)).Elem()
+}
+
+func (o EdgeProfileSubscriptionPtrOutput) ToEdgeProfileSubscriptionPtrOutput() EdgeProfileSubscriptionPtrOutput {
+	return o
+}
+
+func (o EdgeProfileSubscriptionPtrOutput) ToEdgeProfileSubscriptionPtrOutputWithContext(ctx context.Context) EdgeProfileSubscriptionPtrOutput {
+	return o
+}
+
+func (o EdgeProfileSubscriptionPtrOutput) Elem() EdgeProfileSubscriptionOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscription) EdgeProfileSubscription { return *v }).(EdgeProfileSubscriptionOutput)
+}
+
+// ARM ID of the subscription
+func (o EdgeProfileSubscriptionPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionPtrOutput) LocationPlacementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocationPlacementId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionPtrOutput) QuotaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QuotaId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionPtrOutput) RegisteredFeatures() SubscriptionRegisteredFeaturesArrayOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscription) []SubscriptionRegisteredFeatures {
+		if v == nil {
+			return nil
+		}
+		return v.RegisteredFeatures
+	}).(SubscriptionRegisteredFeaturesArrayOutput)
+}
+
+func (o EdgeProfileSubscriptionPtrOutput) RegistrationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistrationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Edge Subscription Registration ID
+func (o EdgeProfileSubscriptionPtrOutput) RegistrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistrationId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionPtrOutput) SerializedDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SerializedDetails
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subscription details for the Edge Profile
+type EdgeProfileSubscriptionResponse struct {
+	// ARM ID of the subscription
+	Id                  *string                                  `pulumi:"id"`
+	LocationPlacementId *string                                  `pulumi:"locationPlacementId"`
+	QuotaId             *string                                  `pulumi:"quotaId"`
+	RegisteredFeatures  []SubscriptionRegisteredFeaturesResponse `pulumi:"registeredFeatures"`
+	RegistrationDate    *string                                  `pulumi:"registrationDate"`
+	// Edge Subscription Registration ID
+	RegistrationId    *string `pulumi:"registrationId"`
+	SerializedDetails *string `pulumi:"serializedDetails"`
+	State             *string `pulumi:"state"`
+	SubscriptionId    *string `pulumi:"subscriptionId"`
+	TenantId          *string `pulumi:"tenantId"`
+}
+
+// EdgeProfileSubscriptionResponseInput is an input type that accepts EdgeProfileSubscriptionResponseArgs and EdgeProfileSubscriptionResponseOutput values.
+// You can construct a concrete instance of `EdgeProfileSubscriptionResponseInput` via:
+//
+//          EdgeProfileSubscriptionResponseArgs{...}
+type EdgeProfileSubscriptionResponseInput interface {
+	pulumi.Input
+
+	ToEdgeProfileSubscriptionResponseOutput() EdgeProfileSubscriptionResponseOutput
+	ToEdgeProfileSubscriptionResponseOutputWithContext(context.Context) EdgeProfileSubscriptionResponseOutput
+}
+
+// Subscription details for the Edge Profile
+type EdgeProfileSubscriptionResponseArgs struct {
+	// ARM ID of the subscription
+	Id                  pulumi.StringPtrInput                            `pulumi:"id"`
+	LocationPlacementId pulumi.StringPtrInput                            `pulumi:"locationPlacementId"`
+	QuotaId             pulumi.StringPtrInput                            `pulumi:"quotaId"`
+	RegisteredFeatures  SubscriptionRegisteredFeaturesResponseArrayInput `pulumi:"registeredFeatures"`
+	RegistrationDate    pulumi.StringPtrInput                            `pulumi:"registrationDate"`
+	// Edge Subscription Registration ID
+	RegistrationId    pulumi.StringPtrInput `pulumi:"registrationId"`
+	SerializedDetails pulumi.StringPtrInput `pulumi:"serializedDetails"`
+	State             pulumi.StringPtrInput `pulumi:"state"`
+	SubscriptionId    pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	TenantId          pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (EdgeProfileSubscriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeProfileSubscriptionResponse)(nil)).Elem()
+}
+
+func (i EdgeProfileSubscriptionResponseArgs) ToEdgeProfileSubscriptionResponseOutput() EdgeProfileSubscriptionResponseOutput {
+	return i.ToEdgeProfileSubscriptionResponseOutputWithContext(context.Background())
+}
+
+func (i EdgeProfileSubscriptionResponseArgs) ToEdgeProfileSubscriptionResponseOutputWithContext(ctx context.Context) EdgeProfileSubscriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfileSubscriptionResponseOutput)
+}
+
+func (i EdgeProfileSubscriptionResponseArgs) ToEdgeProfileSubscriptionResponsePtrOutput() EdgeProfileSubscriptionResponsePtrOutput {
+	return i.ToEdgeProfileSubscriptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdgeProfileSubscriptionResponseArgs) ToEdgeProfileSubscriptionResponsePtrOutputWithContext(ctx context.Context) EdgeProfileSubscriptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfileSubscriptionResponseOutput).ToEdgeProfileSubscriptionResponsePtrOutputWithContext(ctx)
+}
+
+// EdgeProfileSubscriptionResponsePtrInput is an input type that accepts EdgeProfileSubscriptionResponseArgs, EdgeProfileSubscriptionResponsePtr and EdgeProfileSubscriptionResponsePtrOutput values.
+// You can construct a concrete instance of `EdgeProfileSubscriptionResponsePtrInput` via:
+//
+//          EdgeProfileSubscriptionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdgeProfileSubscriptionResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdgeProfileSubscriptionResponsePtrOutput() EdgeProfileSubscriptionResponsePtrOutput
+	ToEdgeProfileSubscriptionResponsePtrOutputWithContext(context.Context) EdgeProfileSubscriptionResponsePtrOutput
+}
+
+type edgeProfileSubscriptionResponsePtrType EdgeProfileSubscriptionResponseArgs
+
+func EdgeProfileSubscriptionResponsePtr(v *EdgeProfileSubscriptionResponseArgs) EdgeProfileSubscriptionResponsePtrInput {
+	return (*edgeProfileSubscriptionResponsePtrType)(v)
+}
+
+func (*edgeProfileSubscriptionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeProfileSubscriptionResponse)(nil)).Elem()
+}
+
+func (i *edgeProfileSubscriptionResponsePtrType) ToEdgeProfileSubscriptionResponsePtrOutput() EdgeProfileSubscriptionResponsePtrOutput {
+	return i.ToEdgeProfileSubscriptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edgeProfileSubscriptionResponsePtrType) ToEdgeProfileSubscriptionResponsePtrOutputWithContext(ctx context.Context) EdgeProfileSubscriptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeProfileSubscriptionResponsePtrOutput)
+}
+
+// Subscription details for the Edge Profile
+type EdgeProfileSubscriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (EdgeProfileSubscriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeProfileSubscriptionResponse)(nil)).Elem()
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) ToEdgeProfileSubscriptionResponseOutput() EdgeProfileSubscriptionResponseOutput {
+	return o
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) ToEdgeProfileSubscriptionResponseOutputWithContext(ctx context.Context) EdgeProfileSubscriptionResponseOutput {
+	return o
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) ToEdgeProfileSubscriptionResponsePtrOutput() EdgeProfileSubscriptionResponsePtrOutput {
+	return o.ToEdgeProfileSubscriptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) ToEdgeProfileSubscriptionResponsePtrOutputWithContext(ctx context.Context) EdgeProfileSubscriptionResponsePtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscriptionResponse) *EdgeProfileSubscriptionResponse {
+		return &v
+	}).(EdgeProfileSubscriptionResponsePtrOutput)
+}
+
+// ARM ID of the subscription
+func (o EdgeProfileSubscriptionResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscriptionResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) LocationPlacementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscriptionResponse) *string { return v.LocationPlacementId }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) QuotaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscriptionResponse) *string { return v.QuotaId }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) RegisteredFeatures() SubscriptionRegisteredFeaturesResponseArrayOutput {
+	return o.ApplyT(func(v EdgeProfileSubscriptionResponse) []SubscriptionRegisteredFeaturesResponse {
+		return v.RegisteredFeatures
+	}).(SubscriptionRegisteredFeaturesResponseArrayOutput)
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) RegistrationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscriptionResponse) *string { return v.RegistrationDate }).(pulumi.StringPtrOutput)
+}
+
+// Edge Subscription Registration ID
+func (o EdgeProfileSubscriptionResponseOutput) RegistrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscriptionResponse) *string { return v.RegistrationId }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) SerializedDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscriptionResponse) *string { return v.SerializedDetails }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscriptionResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscriptionResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeProfileSubscriptionResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type EdgeProfileSubscriptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdgeProfileSubscriptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeProfileSubscriptionResponse)(nil)).Elem()
+}
+
+func (o EdgeProfileSubscriptionResponsePtrOutput) ToEdgeProfileSubscriptionResponsePtrOutput() EdgeProfileSubscriptionResponsePtrOutput {
+	return o
+}
+
+func (o EdgeProfileSubscriptionResponsePtrOutput) ToEdgeProfileSubscriptionResponsePtrOutputWithContext(ctx context.Context) EdgeProfileSubscriptionResponsePtrOutput {
+	return o
+}
+
+func (o EdgeProfileSubscriptionResponsePtrOutput) Elem() EdgeProfileSubscriptionResponseOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscriptionResponse) EdgeProfileSubscriptionResponse { return *v }).(EdgeProfileSubscriptionResponseOutput)
+}
+
+// ARM ID of the subscription
+func (o EdgeProfileSubscriptionResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponsePtrOutput) LocationPlacementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocationPlacementId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponsePtrOutput) QuotaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QuotaId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponsePtrOutput) RegisteredFeatures() SubscriptionRegisteredFeaturesResponseArrayOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscriptionResponse) []SubscriptionRegisteredFeaturesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RegisteredFeatures
+	}).(SubscriptionRegisteredFeaturesResponseArrayOutput)
+}
+
+func (o EdgeProfileSubscriptionResponsePtrOutput) RegistrationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistrationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Edge Subscription Registration ID
+func (o EdgeProfileSubscriptionResponsePtrOutput) RegistrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistrationId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponsePtrOutput) SerializedDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SerializedDetails
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeProfileSubscriptionResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeProfileSubscriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metric configuration.
+type MetricConfiguration struct {
+	// Host name for the IoT hub associated to the device.
+	CounterSets []MetricCounterSet `pulumi:"counterSets"`
+	// The MDM account to which the counters should be pushed.
+	MdmAccount *string `pulumi:"mdmAccount"`
+	// The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
+	MetricNameSpace *string `pulumi:"metricNameSpace"`
+	// The Resource ID on which the metrics should be pushed.
+	ResourceId string `pulumi:"resourceId"`
+}
+
+// MetricConfigurationInput is an input type that accepts MetricConfigurationArgs and MetricConfigurationOutput values.
+// You can construct a concrete instance of `MetricConfigurationInput` via:
+//
+//          MetricConfigurationArgs{...}
+type MetricConfigurationInput interface {
+	pulumi.Input
+
+	ToMetricConfigurationOutput() MetricConfigurationOutput
+	ToMetricConfigurationOutputWithContext(context.Context) MetricConfigurationOutput
+}
+
+// Metric configuration.
+type MetricConfigurationArgs struct {
+	// Host name for the IoT hub associated to the device.
+	CounterSets MetricCounterSetArrayInput `pulumi:"counterSets"`
+	// The MDM account to which the counters should be pushed.
+	MdmAccount pulumi.StringPtrInput `pulumi:"mdmAccount"`
+	// The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
+	MetricNameSpace pulumi.StringPtrInput `pulumi:"metricNameSpace"`
+	// The Resource ID on which the metrics should be pushed.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+}
+
+func (MetricConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricConfiguration)(nil)).Elem()
+}
+
+func (i MetricConfigurationArgs) ToMetricConfigurationOutput() MetricConfigurationOutput {
+	return i.ToMetricConfigurationOutputWithContext(context.Background())
+}
+
+func (i MetricConfigurationArgs) ToMetricConfigurationOutputWithContext(ctx context.Context) MetricConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricConfigurationOutput)
+}
+
+// MetricConfigurationArrayInput is an input type that accepts MetricConfigurationArray and MetricConfigurationArrayOutput values.
+// You can construct a concrete instance of `MetricConfigurationArrayInput` via:
+//
+//          MetricConfigurationArray{ MetricConfigurationArgs{...} }
+type MetricConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToMetricConfigurationArrayOutput() MetricConfigurationArrayOutput
+	ToMetricConfigurationArrayOutputWithContext(context.Context) MetricConfigurationArrayOutput
+}
+
+type MetricConfigurationArray []MetricConfigurationInput
+
+func (MetricConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricConfiguration)(nil)).Elem()
+}
+
+func (i MetricConfigurationArray) ToMetricConfigurationArrayOutput() MetricConfigurationArrayOutput {
+	return i.ToMetricConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i MetricConfigurationArray) ToMetricConfigurationArrayOutputWithContext(ctx context.Context) MetricConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricConfigurationArrayOutput)
+}
+
+// Metric configuration.
+type MetricConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MetricConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricConfiguration)(nil)).Elem()
+}
+
+func (o MetricConfigurationOutput) ToMetricConfigurationOutput() MetricConfigurationOutput {
+	return o
+}
+
+func (o MetricConfigurationOutput) ToMetricConfigurationOutputWithContext(ctx context.Context) MetricConfigurationOutput {
+	return o
+}
+
+// Host name for the IoT hub associated to the device.
+func (o MetricConfigurationOutput) CounterSets() MetricCounterSetArrayOutput {
+	return o.ApplyT(func(v MetricConfiguration) []MetricCounterSet { return v.CounterSets }).(MetricCounterSetArrayOutput)
+}
+
+// The MDM account to which the counters should be pushed.
+func (o MetricConfigurationOutput) MdmAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricConfiguration) *string { return v.MdmAccount }).(pulumi.StringPtrOutput)
+}
+
+// The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
+func (o MetricConfigurationOutput) MetricNameSpace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricConfiguration) *string { return v.MetricNameSpace }).(pulumi.StringPtrOutput)
+}
+
+// The Resource ID on which the metrics should be pushed.
+func (o MetricConfigurationOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricConfiguration) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+type MetricConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricConfiguration)(nil)).Elem()
+}
+
+func (o MetricConfigurationArrayOutput) ToMetricConfigurationArrayOutput() MetricConfigurationArrayOutput {
+	return o
+}
+
+func (o MetricConfigurationArrayOutput) ToMetricConfigurationArrayOutputWithContext(ctx context.Context) MetricConfigurationArrayOutput {
+	return o
+}
+
+func (o MetricConfigurationArrayOutput) Index(i pulumi.IntInput) MetricConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricConfiguration {
+		return vs[0].([]MetricConfiguration)[vs[1].(int)]
+	}).(MetricConfigurationOutput)
+}
+
+// Metric configuration.
+type MetricConfigurationResponse struct {
+	// Host name for the IoT hub associated to the device.
+	CounterSets []MetricCounterSetResponse `pulumi:"counterSets"`
+	// The MDM account to which the counters should be pushed.
+	MdmAccount *string `pulumi:"mdmAccount"`
+	// The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
+	MetricNameSpace *string `pulumi:"metricNameSpace"`
+	// The Resource ID on which the metrics should be pushed.
+	ResourceId string `pulumi:"resourceId"`
+}
+
+// MetricConfigurationResponseInput is an input type that accepts MetricConfigurationResponseArgs and MetricConfigurationResponseOutput values.
+// You can construct a concrete instance of `MetricConfigurationResponseInput` via:
+//
+//          MetricConfigurationResponseArgs{...}
+type MetricConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToMetricConfigurationResponseOutput() MetricConfigurationResponseOutput
+	ToMetricConfigurationResponseOutputWithContext(context.Context) MetricConfigurationResponseOutput
+}
+
+// Metric configuration.
+type MetricConfigurationResponseArgs struct {
+	// Host name for the IoT hub associated to the device.
+	CounterSets MetricCounterSetResponseArrayInput `pulumi:"counterSets"`
+	// The MDM account to which the counters should be pushed.
+	MdmAccount pulumi.StringPtrInput `pulumi:"mdmAccount"`
+	// The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
+	MetricNameSpace pulumi.StringPtrInput `pulumi:"metricNameSpace"`
+	// The Resource ID on which the metrics should be pushed.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+}
+
+func (MetricConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricConfigurationResponse)(nil)).Elem()
+}
+
+func (i MetricConfigurationResponseArgs) ToMetricConfigurationResponseOutput() MetricConfigurationResponseOutput {
+	return i.ToMetricConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i MetricConfigurationResponseArgs) ToMetricConfigurationResponseOutputWithContext(ctx context.Context) MetricConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricConfigurationResponseOutput)
+}
+
+// MetricConfigurationResponseArrayInput is an input type that accepts MetricConfigurationResponseArray and MetricConfigurationResponseArrayOutput values.
+// You can construct a concrete instance of `MetricConfigurationResponseArrayInput` via:
+//
+//          MetricConfigurationResponseArray{ MetricConfigurationResponseArgs{...} }
+type MetricConfigurationResponseArrayInput interface {
+	pulumi.Input
+
+	ToMetricConfigurationResponseArrayOutput() MetricConfigurationResponseArrayOutput
+	ToMetricConfigurationResponseArrayOutputWithContext(context.Context) MetricConfigurationResponseArrayOutput
+}
+
+type MetricConfigurationResponseArray []MetricConfigurationResponseInput
+
+func (MetricConfigurationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricConfigurationResponse)(nil)).Elem()
+}
+
+func (i MetricConfigurationResponseArray) ToMetricConfigurationResponseArrayOutput() MetricConfigurationResponseArrayOutput {
+	return i.ToMetricConfigurationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MetricConfigurationResponseArray) ToMetricConfigurationResponseArrayOutputWithContext(ctx context.Context) MetricConfigurationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricConfigurationResponseArrayOutput)
+}
+
+// Metric configuration.
+type MetricConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (MetricConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricConfigurationResponse)(nil)).Elem()
+}
+
+func (o MetricConfigurationResponseOutput) ToMetricConfigurationResponseOutput() MetricConfigurationResponseOutput {
+	return o
+}
+
+func (o MetricConfigurationResponseOutput) ToMetricConfigurationResponseOutputWithContext(ctx context.Context) MetricConfigurationResponseOutput {
+	return o
+}
+
+// Host name for the IoT hub associated to the device.
+func (o MetricConfigurationResponseOutput) CounterSets() MetricCounterSetResponseArrayOutput {
+	return o.ApplyT(func(v MetricConfigurationResponse) []MetricCounterSetResponse { return v.CounterSets }).(MetricCounterSetResponseArrayOutput)
+}
+
+// The MDM account to which the counters should be pushed.
+func (o MetricConfigurationResponseOutput) MdmAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricConfigurationResponse) *string { return v.MdmAccount }).(pulumi.StringPtrOutput)
+}
+
+// The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
+func (o MetricConfigurationResponseOutput) MetricNameSpace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricConfigurationResponse) *string { return v.MetricNameSpace }).(pulumi.StringPtrOutput)
+}
+
+// The Resource ID on which the metrics should be pushed.
+func (o MetricConfigurationResponseOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricConfigurationResponse) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+type MetricConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricConfigurationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricConfigurationResponse)(nil)).Elem()
+}
+
+func (o MetricConfigurationResponseArrayOutput) ToMetricConfigurationResponseArrayOutput() MetricConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o MetricConfigurationResponseArrayOutput) ToMetricConfigurationResponseArrayOutputWithContext(ctx context.Context) MetricConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o MetricConfigurationResponseArrayOutput) Index(i pulumi.IntInput) MetricConfigurationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricConfigurationResponse {
+		return vs[0].([]MetricConfigurationResponse)[vs[1].(int)]
+	}).(MetricConfigurationResponseOutput)
+}
+
+// The metric counter
+type MetricCounter struct {
+	// The additional dimensions to be added to metric.
+	AdditionalDimensions []MetricDimension `pulumi:"additionalDimensions"`
+	// The dimension filter.
+	DimensionFilter []MetricDimension `pulumi:"dimensionFilter"`
+	// The instance from which counter should be collected.
+	Instance *string `pulumi:"instance"`
+	// The counter name.
+	Name string `pulumi:"name"`
+}
+
+// MetricCounterInput is an input type that accepts MetricCounterArgs and MetricCounterOutput values.
+// You can construct a concrete instance of `MetricCounterInput` via:
+//
+//          MetricCounterArgs{...}
+type MetricCounterInput interface {
+	pulumi.Input
+
+	ToMetricCounterOutput() MetricCounterOutput
+	ToMetricCounterOutputWithContext(context.Context) MetricCounterOutput
+}
+
+// The metric counter
+type MetricCounterArgs struct {
+	// The additional dimensions to be added to metric.
+	AdditionalDimensions MetricDimensionArrayInput `pulumi:"additionalDimensions"`
+	// The dimension filter.
+	DimensionFilter MetricDimensionArrayInput `pulumi:"dimensionFilter"`
+	// The instance from which counter should be collected.
+	Instance pulumi.StringPtrInput `pulumi:"instance"`
+	// The counter name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (MetricCounterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCounter)(nil)).Elem()
+}
+
+func (i MetricCounterArgs) ToMetricCounterOutput() MetricCounterOutput {
+	return i.ToMetricCounterOutputWithContext(context.Background())
+}
+
+func (i MetricCounterArgs) ToMetricCounterOutputWithContext(ctx context.Context) MetricCounterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCounterOutput)
+}
+
+// MetricCounterArrayInput is an input type that accepts MetricCounterArray and MetricCounterArrayOutput values.
+// You can construct a concrete instance of `MetricCounterArrayInput` via:
+//
+//          MetricCounterArray{ MetricCounterArgs{...} }
+type MetricCounterArrayInput interface {
+	pulumi.Input
+
+	ToMetricCounterArrayOutput() MetricCounterArrayOutput
+	ToMetricCounterArrayOutputWithContext(context.Context) MetricCounterArrayOutput
+}
+
+type MetricCounterArray []MetricCounterInput
+
+func (MetricCounterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCounter)(nil)).Elem()
+}
+
+func (i MetricCounterArray) ToMetricCounterArrayOutput() MetricCounterArrayOutput {
+	return i.ToMetricCounterArrayOutputWithContext(context.Background())
+}
+
+func (i MetricCounterArray) ToMetricCounterArrayOutputWithContext(ctx context.Context) MetricCounterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCounterArrayOutput)
+}
+
+// The metric counter
+type MetricCounterOutput struct{ *pulumi.OutputState }
+
+func (MetricCounterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCounter)(nil)).Elem()
+}
+
+func (o MetricCounterOutput) ToMetricCounterOutput() MetricCounterOutput {
+	return o
+}
+
+func (o MetricCounterOutput) ToMetricCounterOutputWithContext(ctx context.Context) MetricCounterOutput {
+	return o
+}
+
+// The additional dimensions to be added to metric.
+func (o MetricCounterOutput) AdditionalDimensions() MetricDimensionArrayOutput {
+	return o.ApplyT(func(v MetricCounter) []MetricDimension { return v.AdditionalDimensions }).(MetricDimensionArrayOutput)
+}
+
+// The dimension filter.
+func (o MetricCounterOutput) DimensionFilter() MetricDimensionArrayOutput {
+	return o.ApplyT(func(v MetricCounter) []MetricDimension { return v.DimensionFilter }).(MetricDimensionArrayOutput)
+}
+
+// The instance from which counter should be collected.
+func (o MetricCounterOutput) Instance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricCounter) *string { return v.Instance }).(pulumi.StringPtrOutput)
+}
+
+// The counter name.
+func (o MetricCounterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCounter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type MetricCounterArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricCounterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCounter)(nil)).Elem()
+}
+
+func (o MetricCounterArrayOutput) ToMetricCounterArrayOutput() MetricCounterArrayOutput {
+	return o
+}
+
+func (o MetricCounterArrayOutput) ToMetricCounterArrayOutputWithContext(ctx context.Context) MetricCounterArrayOutput {
+	return o
+}
+
+func (o MetricCounterArrayOutput) Index(i pulumi.IntInput) MetricCounterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricCounter {
+		return vs[0].([]MetricCounter)[vs[1].(int)]
+	}).(MetricCounterOutput)
+}
+
+// The metric counter
+type MetricCounterResponse struct {
+	// The additional dimensions to be added to metric.
+	AdditionalDimensions []MetricDimensionResponse `pulumi:"additionalDimensions"`
+	// The dimension filter.
+	DimensionFilter []MetricDimensionResponse `pulumi:"dimensionFilter"`
+	// The instance from which counter should be collected.
+	Instance *string `pulumi:"instance"`
+	// The counter name.
+	Name string `pulumi:"name"`
+}
+
+// MetricCounterResponseInput is an input type that accepts MetricCounterResponseArgs and MetricCounterResponseOutput values.
+// You can construct a concrete instance of `MetricCounterResponseInput` via:
+//
+//          MetricCounterResponseArgs{...}
+type MetricCounterResponseInput interface {
+	pulumi.Input
+
+	ToMetricCounterResponseOutput() MetricCounterResponseOutput
+	ToMetricCounterResponseOutputWithContext(context.Context) MetricCounterResponseOutput
+}
+
+// The metric counter
+type MetricCounterResponseArgs struct {
+	// The additional dimensions to be added to metric.
+	AdditionalDimensions MetricDimensionResponseArrayInput `pulumi:"additionalDimensions"`
+	// The dimension filter.
+	DimensionFilter MetricDimensionResponseArrayInput `pulumi:"dimensionFilter"`
+	// The instance from which counter should be collected.
+	Instance pulumi.StringPtrInput `pulumi:"instance"`
+	// The counter name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (MetricCounterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCounterResponse)(nil)).Elem()
+}
+
+func (i MetricCounterResponseArgs) ToMetricCounterResponseOutput() MetricCounterResponseOutput {
+	return i.ToMetricCounterResponseOutputWithContext(context.Background())
+}
+
+func (i MetricCounterResponseArgs) ToMetricCounterResponseOutputWithContext(ctx context.Context) MetricCounterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCounterResponseOutput)
+}
+
+// MetricCounterResponseArrayInput is an input type that accepts MetricCounterResponseArray and MetricCounterResponseArrayOutput values.
+// You can construct a concrete instance of `MetricCounterResponseArrayInput` via:
+//
+//          MetricCounterResponseArray{ MetricCounterResponseArgs{...} }
+type MetricCounterResponseArrayInput interface {
+	pulumi.Input
+
+	ToMetricCounterResponseArrayOutput() MetricCounterResponseArrayOutput
+	ToMetricCounterResponseArrayOutputWithContext(context.Context) MetricCounterResponseArrayOutput
+}
+
+type MetricCounterResponseArray []MetricCounterResponseInput
+
+func (MetricCounterResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCounterResponse)(nil)).Elem()
+}
+
+func (i MetricCounterResponseArray) ToMetricCounterResponseArrayOutput() MetricCounterResponseArrayOutput {
+	return i.ToMetricCounterResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MetricCounterResponseArray) ToMetricCounterResponseArrayOutputWithContext(ctx context.Context) MetricCounterResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCounterResponseArrayOutput)
+}
+
+// The metric counter
+type MetricCounterResponseOutput struct{ *pulumi.OutputState }
+
+func (MetricCounterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCounterResponse)(nil)).Elem()
+}
+
+func (o MetricCounterResponseOutput) ToMetricCounterResponseOutput() MetricCounterResponseOutput {
+	return o
+}
+
+func (o MetricCounterResponseOutput) ToMetricCounterResponseOutputWithContext(ctx context.Context) MetricCounterResponseOutput {
+	return o
+}
+
+// The additional dimensions to be added to metric.
+func (o MetricCounterResponseOutput) AdditionalDimensions() MetricDimensionResponseArrayOutput {
+	return o.ApplyT(func(v MetricCounterResponse) []MetricDimensionResponse { return v.AdditionalDimensions }).(MetricDimensionResponseArrayOutput)
+}
+
+// The dimension filter.
+func (o MetricCounterResponseOutput) DimensionFilter() MetricDimensionResponseArrayOutput {
+	return o.ApplyT(func(v MetricCounterResponse) []MetricDimensionResponse { return v.DimensionFilter }).(MetricDimensionResponseArrayOutput)
+}
+
+// The instance from which counter should be collected.
+func (o MetricCounterResponseOutput) Instance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricCounterResponse) *string { return v.Instance }).(pulumi.StringPtrOutput)
+}
+
+// The counter name.
+func (o MetricCounterResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCounterResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type MetricCounterResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricCounterResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCounterResponse)(nil)).Elem()
+}
+
+func (o MetricCounterResponseArrayOutput) ToMetricCounterResponseArrayOutput() MetricCounterResponseArrayOutput {
+	return o
+}
+
+func (o MetricCounterResponseArrayOutput) ToMetricCounterResponseArrayOutputWithContext(ctx context.Context) MetricCounterResponseArrayOutput {
+	return o
+}
+
+func (o MetricCounterResponseArrayOutput) Index(i pulumi.IntInput) MetricCounterResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricCounterResponse {
+		return vs[0].([]MetricCounterResponse)[vs[1].(int)]
+	}).(MetricCounterResponseOutput)
+}
+
+// The metric counter set
+type MetricCounterSet struct {
+	// The counters that should be collected in this set.
+	Counters []MetricCounter `pulumi:"counters"`
+}
+
+// MetricCounterSetInput is an input type that accepts MetricCounterSetArgs and MetricCounterSetOutput values.
+// You can construct a concrete instance of `MetricCounterSetInput` via:
+//
+//          MetricCounterSetArgs{...}
+type MetricCounterSetInput interface {
+	pulumi.Input
+
+	ToMetricCounterSetOutput() MetricCounterSetOutput
+	ToMetricCounterSetOutputWithContext(context.Context) MetricCounterSetOutput
+}
+
+// The metric counter set
+type MetricCounterSetArgs struct {
+	// The counters that should be collected in this set.
+	Counters MetricCounterArrayInput `pulumi:"counters"`
+}
+
+func (MetricCounterSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCounterSet)(nil)).Elem()
+}
+
+func (i MetricCounterSetArgs) ToMetricCounterSetOutput() MetricCounterSetOutput {
+	return i.ToMetricCounterSetOutputWithContext(context.Background())
+}
+
+func (i MetricCounterSetArgs) ToMetricCounterSetOutputWithContext(ctx context.Context) MetricCounterSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCounterSetOutput)
+}
+
+// MetricCounterSetArrayInput is an input type that accepts MetricCounterSetArray and MetricCounterSetArrayOutput values.
+// You can construct a concrete instance of `MetricCounterSetArrayInput` via:
+//
+//          MetricCounterSetArray{ MetricCounterSetArgs{...} }
+type MetricCounterSetArrayInput interface {
+	pulumi.Input
+
+	ToMetricCounterSetArrayOutput() MetricCounterSetArrayOutput
+	ToMetricCounterSetArrayOutputWithContext(context.Context) MetricCounterSetArrayOutput
+}
+
+type MetricCounterSetArray []MetricCounterSetInput
+
+func (MetricCounterSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCounterSet)(nil)).Elem()
+}
+
+func (i MetricCounterSetArray) ToMetricCounterSetArrayOutput() MetricCounterSetArrayOutput {
+	return i.ToMetricCounterSetArrayOutputWithContext(context.Background())
+}
+
+func (i MetricCounterSetArray) ToMetricCounterSetArrayOutputWithContext(ctx context.Context) MetricCounterSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCounterSetArrayOutput)
+}
+
+// The metric counter set
+type MetricCounterSetOutput struct{ *pulumi.OutputState }
+
+func (MetricCounterSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCounterSet)(nil)).Elem()
+}
+
+func (o MetricCounterSetOutput) ToMetricCounterSetOutput() MetricCounterSetOutput {
+	return o
+}
+
+func (o MetricCounterSetOutput) ToMetricCounterSetOutputWithContext(ctx context.Context) MetricCounterSetOutput {
+	return o
+}
+
+// The counters that should be collected in this set.
+func (o MetricCounterSetOutput) Counters() MetricCounterArrayOutput {
+	return o.ApplyT(func(v MetricCounterSet) []MetricCounter { return v.Counters }).(MetricCounterArrayOutput)
+}
+
+type MetricCounterSetArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricCounterSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCounterSet)(nil)).Elem()
+}
+
+func (o MetricCounterSetArrayOutput) ToMetricCounterSetArrayOutput() MetricCounterSetArrayOutput {
+	return o
+}
+
+func (o MetricCounterSetArrayOutput) ToMetricCounterSetArrayOutputWithContext(ctx context.Context) MetricCounterSetArrayOutput {
+	return o
+}
+
+func (o MetricCounterSetArrayOutput) Index(i pulumi.IntInput) MetricCounterSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricCounterSet {
+		return vs[0].([]MetricCounterSet)[vs[1].(int)]
+	}).(MetricCounterSetOutput)
+}
+
+// The metric counter set
+type MetricCounterSetResponse struct {
+	// The counters that should be collected in this set.
+	Counters []MetricCounterResponse `pulumi:"counters"`
+}
+
+// MetricCounterSetResponseInput is an input type that accepts MetricCounterSetResponseArgs and MetricCounterSetResponseOutput values.
+// You can construct a concrete instance of `MetricCounterSetResponseInput` via:
+//
+//          MetricCounterSetResponseArgs{...}
+type MetricCounterSetResponseInput interface {
+	pulumi.Input
+
+	ToMetricCounterSetResponseOutput() MetricCounterSetResponseOutput
+	ToMetricCounterSetResponseOutputWithContext(context.Context) MetricCounterSetResponseOutput
+}
+
+// The metric counter set
+type MetricCounterSetResponseArgs struct {
+	// The counters that should be collected in this set.
+	Counters MetricCounterResponseArrayInput `pulumi:"counters"`
+}
+
+func (MetricCounterSetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCounterSetResponse)(nil)).Elem()
+}
+
+func (i MetricCounterSetResponseArgs) ToMetricCounterSetResponseOutput() MetricCounterSetResponseOutput {
+	return i.ToMetricCounterSetResponseOutputWithContext(context.Background())
+}
+
+func (i MetricCounterSetResponseArgs) ToMetricCounterSetResponseOutputWithContext(ctx context.Context) MetricCounterSetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCounterSetResponseOutput)
+}
+
+// MetricCounterSetResponseArrayInput is an input type that accepts MetricCounterSetResponseArray and MetricCounterSetResponseArrayOutput values.
+// You can construct a concrete instance of `MetricCounterSetResponseArrayInput` via:
+//
+//          MetricCounterSetResponseArray{ MetricCounterSetResponseArgs{...} }
+type MetricCounterSetResponseArrayInput interface {
+	pulumi.Input
+
+	ToMetricCounterSetResponseArrayOutput() MetricCounterSetResponseArrayOutput
+	ToMetricCounterSetResponseArrayOutputWithContext(context.Context) MetricCounterSetResponseArrayOutput
+}
+
+type MetricCounterSetResponseArray []MetricCounterSetResponseInput
+
+func (MetricCounterSetResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCounterSetResponse)(nil)).Elem()
+}
+
+func (i MetricCounterSetResponseArray) ToMetricCounterSetResponseArrayOutput() MetricCounterSetResponseArrayOutput {
+	return i.ToMetricCounterSetResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MetricCounterSetResponseArray) ToMetricCounterSetResponseArrayOutputWithContext(ctx context.Context) MetricCounterSetResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCounterSetResponseArrayOutput)
+}
+
+// The metric counter set
+type MetricCounterSetResponseOutput struct{ *pulumi.OutputState }
+
+func (MetricCounterSetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCounterSetResponse)(nil)).Elem()
+}
+
+func (o MetricCounterSetResponseOutput) ToMetricCounterSetResponseOutput() MetricCounterSetResponseOutput {
+	return o
+}
+
+func (o MetricCounterSetResponseOutput) ToMetricCounterSetResponseOutputWithContext(ctx context.Context) MetricCounterSetResponseOutput {
+	return o
+}
+
+// The counters that should be collected in this set.
+func (o MetricCounterSetResponseOutput) Counters() MetricCounterResponseArrayOutput {
+	return o.ApplyT(func(v MetricCounterSetResponse) []MetricCounterResponse { return v.Counters }).(MetricCounterResponseArrayOutput)
+}
+
+type MetricCounterSetResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricCounterSetResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCounterSetResponse)(nil)).Elem()
+}
+
+func (o MetricCounterSetResponseArrayOutput) ToMetricCounterSetResponseArrayOutput() MetricCounterSetResponseArrayOutput {
+	return o
+}
+
+func (o MetricCounterSetResponseArrayOutput) ToMetricCounterSetResponseArrayOutputWithContext(ctx context.Context) MetricCounterSetResponseArrayOutput {
+	return o
+}
+
+func (o MetricCounterSetResponseArrayOutput) Index(i pulumi.IntInput) MetricCounterSetResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricCounterSetResponse {
+		return vs[0].([]MetricCounterSetResponse)[vs[1].(int)]
+	}).(MetricCounterSetResponseOutput)
+}
+
+// The metric dimension
+type MetricDimension struct {
+	// The dimension value.
+	SourceName string `pulumi:"sourceName"`
+	// The dimension type.
+	SourceType string `pulumi:"sourceType"`
+}
+
+// MetricDimensionInput is an input type that accepts MetricDimensionArgs and MetricDimensionOutput values.
+// You can construct a concrete instance of `MetricDimensionInput` via:
+//
+//          MetricDimensionArgs{...}
+type MetricDimensionInput interface {
+	pulumi.Input
+
+	ToMetricDimensionOutput() MetricDimensionOutput
+	ToMetricDimensionOutputWithContext(context.Context) MetricDimensionOutput
+}
+
+// The metric dimension
+type MetricDimensionArgs struct {
+	// The dimension value.
+	SourceName pulumi.StringInput `pulumi:"sourceName"`
+	// The dimension type.
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
+}
+
+func (MetricDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricDimension)(nil)).Elem()
+}
+
+func (i MetricDimensionArgs) ToMetricDimensionOutput() MetricDimensionOutput {
+	return i.ToMetricDimensionOutputWithContext(context.Background())
+}
+
+func (i MetricDimensionArgs) ToMetricDimensionOutputWithContext(ctx context.Context) MetricDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionOutput)
+}
+
+// MetricDimensionArrayInput is an input type that accepts MetricDimensionArray and MetricDimensionArrayOutput values.
+// You can construct a concrete instance of `MetricDimensionArrayInput` via:
+//
+//          MetricDimensionArray{ MetricDimensionArgs{...} }
+type MetricDimensionArrayInput interface {
+	pulumi.Input
+
+	ToMetricDimensionArrayOutput() MetricDimensionArrayOutput
+	ToMetricDimensionArrayOutputWithContext(context.Context) MetricDimensionArrayOutput
+}
+
+type MetricDimensionArray []MetricDimensionInput
+
+func (MetricDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricDimension)(nil)).Elem()
+}
+
+func (i MetricDimensionArray) ToMetricDimensionArrayOutput() MetricDimensionArrayOutput {
+	return i.ToMetricDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i MetricDimensionArray) ToMetricDimensionArrayOutputWithContext(ctx context.Context) MetricDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionArrayOutput)
+}
+
+// The metric dimension
+type MetricDimensionOutput struct{ *pulumi.OutputState }
+
+func (MetricDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricDimension)(nil)).Elem()
+}
+
+func (o MetricDimensionOutput) ToMetricDimensionOutput() MetricDimensionOutput {
+	return o
+}
+
+func (o MetricDimensionOutput) ToMetricDimensionOutputWithContext(ctx context.Context) MetricDimensionOutput {
+	return o
+}
+
+// The dimension value.
+func (o MetricDimensionOutput) SourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricDimension) string { return v.SourceName }).(pulumi.StringOutput)
+}
+
+// The dimension type.
+func (o MetricDimensionOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricDimension) string { return v.SourceType }).(pulumi.StringOutput)
+}
+
+type MetricDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricDimension)(nil)).Elem()
+}
+
+func (o MetricDimensionArrayOutput) ToMetricDimensionArrayOutput() MetricDimensionArrayOutput {
+	return o
+}
+
+func (o MetricDimensionArrayOutput) ToMetricDimensionArrayOutputWithContext(ctx context.Context) MetricDimensionArrayOutput {
+	return o
+}
+
+func (o MetricDimensionArrayOutput) Index(i pulumi.IntInput) MetricDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricDimension {
+		return vs[0].([]MetricDimension)[vs[1].(int)]
+	}).(MetricDimensionOutput)
+}
+
+// The metric dimension
+type MetricDimensionResponse struct {
+	// The dimension value.
+	SourceName string `pulumi:"sourceName"`
+	// The dimension type.
+	SourceType string `pulumi:"sourceType"`
+}
+
+// MetricDimensionResponseInput is an input type that accepts MetricDimensionResponseArgs and MetricDimensionResponseOutput values.
+// You can construct a concrete instance of `MetricDimensionResponseInput` via:
+//
+//          MetricDimensionResponseArgs{...}
+type MetricDimensionResponseInput interface {
+	pulumi.Input
+
+	ToMetricDimensionResponseOutput() MetricDimensionResponseOutput
+	ToMetricDimensionResponseOutputWithContext(context.Context) MetricDimensionResponseOutput
+}
+
+// The metric dimension
+type MetricDimensionResponseArgs struct {
+	// The dimension value.
+	SourceName pulumi.StringInput `pulumi:"sourceName"`
+	// The dimension type.
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
+}
+
+func (MetricDimensionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricDimensionResponse)(nil)).Elem()
+}
+
+func (i MetricDimensionResponseArgs) ToMetricDimensionResponseOutput() MetricDimensionResponseOutput {
+	return i.ToMetricDimensionResponseOutputWithContext(context.Background())
+}
+
+func (i MetricDimensionResponseArgs) ToMetricDimensionResponseOutputWithContext(ctx context.Context) MetricDimensionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionResponseOutput)
+}
+
+// MetricDimensionResponseArrayInput is an input type that accepts MetricDimensionResponseArray and MetricDimensionResponseArrayOutput values.
+// You can construct a concrete instance of `MetricDimensionResponseArrayInput` via:
+//
+//          MetricDimensionResponseArray{ MetricDimensionResponseArgs{...} }
+type MetricDimensionResponseArrayInput interface {
+	pulumi.Input
+
+	ToMetricDimensionResponseArrayOutput() MetricDimensionResponseArrayOutput
+	ToMetricDimensionResponseArrayOutputWithContext(context.Context) MetricDimensionResponseArrayOutput
+}
+
+type MetricDimensionResponseArray []MetricDimensionResponseInput
+
+func (MetricDimensionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricDimensionResponse)(nil)).Elem()
+}
+
+func (i MetricDimensionResponseArray) ToMetricDimensionResponseArrayOutput() MetricDimensionResponseArrayOutput {
+	return i.ToMetricDimensionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MetricDimensionResponseArray) ToMetricDimensionResponseArrayOutputWithContext(ctx context.Context) MetricDimensionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionResponseArrayOutput)
+}
+
+// The metric dimension
+type MetricDimensionResponseOutput struct{ *pulumi.OutputState }
+
+func (MetricDimensionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricDimensionResponse)(nil)).Elem()
+}
+
+func (o MetricDimensionResponseOutput) ToMetricDimensionResponseOutput() MetricDimensionResponseOutput {
+	return o
+}
+
+func (o MetricDimensionResponseOutput) ToMetricDimensionResponseOutputWithContext(ctx context.Context) MetricDimensionResponseOutput {
+	return o
+}
+
+// The dimension value.
+func (o MetricDimensionResponseOutput) SourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricDimensionResponse) string { return v.SourceName }).(pulumi.StringOutput)
+}
+
+// The dimension type.
+func (o MetricDimensionResponseOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricDimensionResponse) string { return v.SourceType }).(pulumi.StringOutput)
+}
+
+type MetricDimensionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricDimensionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricDimensionResponse)(nil)).Elem()
+}
+
+func (o MetricDimensionResponseArrayOutput) ToMetricDimensionResponseArrayOutput() MetricDimensionResponseArrayOutput {
+	return o
+}
+
+func (o MetricDimensionResponseArrayOutput) ToMetricDimensionResponseArrayOutputWithContext(ctx context.Context) MetricDimensionResponseArrayOutput {
+	return o
+}
+
+func (o MetricDimensionResponseArrayOutput) Index(i pulumi.IntInput) MetricDimensionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricDimensionResponse {
+		return vs[0].([]MetricDimensionResponse)[vs[1].(int)]
+	}).(MetricDimensionResponseOutput)
+}
+
 // The share mount point.
 type MountPointMapResponse struct {
 	// Mount point for the share.
 	MountPoint string `pulumi:"mountPoint"`
+	// Mounting type.
+	MountType string `pulumi:"mountType"`
 	// ID of the role to which share is mounted.
 	RoleId string `pulumi:"roleId"`
 	// Role type.
@@ -1821,6 +3565,8 @@ type MountPointMapResponseInput interface {
 type MountPointMapResponseArgs struct {
 	// Mount point for the share.
 	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	// Mounting type.
+	MountType pulumi.StringInput `pulumi:"mountType"`
 	// ID of the role to which share is mounted.
 	RoleId pulumi.StringInput `pulumi:"roleId"`
 	// Role type.
@@ -1884,6 +3630,11 @@ func (o MountPointMapResponseOutput) ToMountPointMapResponseOutputWithContext(ct
 // Mount point for the share.
 func (o MountPointMapResponseOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v MountPointMapResponse) string { return v.MountPoint }).(pulumi.StringOutput)
+}
+
+// Mounting type.
+func (o MountPointMapResponseOutput) MountType() pulumi.StringOutput {
+	return o.ApplyT(func(v MountPointMapResponse) string { return v.MountType }).(pulumi.StringOutput)
 }
 
 // ID of the role to which share is mounted.
@@ -2083,6 +3834,8 @@ type OrderStatusResponse struct {
 	Comments *string `pulumi:"comments"`
 	// Status of the order as per the allowed status types.
 	Status string `pulumi:"status"`
+	// Tracking information related to the state in the ordering flow
+	TrackingInformation TrackingInfoResponse `pulumi:"trackingInformation"`
 	// Time of status update.
 	UpdateDateTime string `pulumi:"updateDateTime"`
 }
@@ -2107,6 +3860,8 @@ type OrderStatusResponseArgs struct {
 	Comments pulumi.StringPtrInput `pulumi:"comments"`
 	// Status of the order as per the allowed status types.
 	Status pulumi.StringInput `pulumi:"status"`
+	// Tracking information related to the state in the ordering flow
+	TrackingInformation TrackingInfoResponseInput `pulumi:"trackingInformation"`
 	// Time of status update.
 	UpdateDateTime pulumi.StringInput `pulumi:"updateDateTime"`
 }
@@ -2230,6 +3985,11 @@ func (o OrderStatusResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v OrderStatusResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Tracking information related to the state in the ordering flow
+func (o OrderStatusResponseOutput) TrackingInformation() TrackingInfoResponseOutput {
+	return o.ApplyT(func(v OrderStatusResponse) TrackingInfoResponse { return v.TrackingInformation }).(TrackingInfoResponseOutput)
+}
+
 // Time of status update.
 func (o OrderStatusResponseOutput) UpdateDateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v OrderStatusResponse) string { return v.UpdateDateTime }).(pulumi.StringOutput)
@@ -2282,6 +4042,16 @@ func (o OrderStatusResponsePtrOutput) Status() pulumi.StringPtrOutput {
 		}
 		return &v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+// Tracking information related to the state in the ordering flow
+func (o OrderStatusResponsePtrOutput) TrackingInformation() TrackingInfoResponsePtrOutput {
+	return o.ApplyT(func(v *OrderStatusResponse) *TrackingInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.TrackingInformation
+	}).(TrackingInfoResponsePtrOutput)
 }
 
 // Time of status update.
@@ -2696,113 +4466,616 @@ func (o RefreshDetailsResponsePtrOutput) LastJob() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the mapping between this particular user and the type of access he has on shares on this device.
-type ShareAccessRight struct {
-	// Type of access to be allowed on the share for this user.
-	AccessType string `pulumi:"accessType"`
-	// The share ID.
-	ShareId string `pulumi:"shareId"`
+// Msi identity details of the resource
+type ResourceIdentity struct {
+	// Identity type
+	Type *string `pulumi:"type"`
 }
 
-// ShareAccessRightInput is an input type that accepts ShareAccessRightArgs and ShareAccessRightOutput values.
-// You can construct a concrete instance of `ShareAccessRightInput` via:
+// ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
+// You can construct a concrete instance of `ResourceIdentityInput` via:
 //
-//          ShareAccessRightArgs{...}
-type ShareAccessRightInput interface {
+//          ResourceIdentityArgs{...}
+type ResourceIdentityInput interface {
 	pulumi.Input
 
-	ToShareAccessRightOutput() ShareAccessRightOutput
-	ToShareAccessRightOutputWithContext(context.Context) ShareAccessRightOutput
+	ToResourceIdentityOutput() ResourceIdentityOutput
+	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
 }
 
-// Specifies the mapping between this particular user and the type of access he has on shares on this device.
-type ShareAccessRightArgs struct {
-	// Type of access to be allowed on the share for this user.
-	AccessType pulumi.StringInput `pulumi:"accessType"`
-	// The share ID.
-	ShareId pulumi.StringInput `pulumi:"shareId"`
+// Msi identity details of the resource
+type ResourceIdentityArgs struct {
+	// Identity type
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
-func (ShareAccessRightArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareAccessRight)(nil)).Elem()
+func (ResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
 }
 
-func (i ShareAccessRightArgs) ToShareAccessRightOutput() ShareAccessRightOutput {
-	return i.ToShareAccessRightOutputWithContext(context.Background())
+func (i ResourceIdentityArgs) ToResourceIdentityOutput() ResourceIdentityOutput {
+	return i.ToResourceIdentityOutputWithContext(context.Background())
 }
 
-func (i ShareAccessRightArgs) ToShareAccessRightOutputWithContext(ctx context.Context) ShareAccessRightOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShareAccessRightOutput)
+func (i ResourceIdentityArgs) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput)
 }
 
-// ShareAccessRightArrayInput is an input type that accepts ShareAccessRightArray and ShareAccessRightArrayOutput values.
-// You can construct a concrete instance of `ShareAccessRightArrayInput` via:
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput).ToResourceIdentityPtrOutputWithContext(ctx)
+}
+
+// ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceIdentityPtrInput` via:
 //
-//          ShareAccessRightArray{ ShareAccessRightArgs{...} }
-type ShareAccessRightArrayInput interface {
+//          ResourceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceIdentityPtrInput interface {
 	pulumi.Input
 
-	ToShareAccessRightArrayOutput() ShareAccessRightArrayOutput
-	ToShareAccessRightArrayOutputWithContext(context.Context) ShareAccessRightArrayOutput
+	ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput
+	ToResourceIdentityPtrOutputWithContext(context.Context) ResourceIdentityPtrOutput
 }
 
-type ShareAccessRightArray []ShareAccessRightInput
+type resourceIdentityPtrType ResourceIdentityArgs
 
-func (ShareAccessRightArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ShareAccessRight)(nil)).Elem()
+func ResourceIdentityPtr(v *ResourceIdentityArgs) ResourceIdentityPtrInput {
+	return (*resourceIdentityPtrType)(v)
 }
 
-func (i ShareAccessRightArray) ToShareAccessRightArrayOutput() ShareAccessRightArrayOutput {
-	return i.ToShareAccessRightArrayOutputWithContext(context.Background())
+func (*resourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
 }
 
-func (i ShareAccessRightArray) ToShareAccessRightArrayOutputWithContext(ctx context.Context) ShareAccessRightArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShareAccessRightArrayOutput)
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
 }
 
-// Specifies the mapping between this particular user and the type of access he has on shares on this device.
-type ShareAccessRightOutput struct{ *pulumi.OutputState }
-
-func (ShareAccessRightOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareAccessRight)(nil)).Elem()
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
 }
 
-func (o ShareAccessRightOutput) ToShareAccessRightOutput() ShareAccessRightOutput {
+// Msi identity details of the resource
+type ResourceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityOutput() ResourceIdentityOutput {
 	return o
 }
 
-func (o ShareAccessRightOutput) ToShareAccessRightOutputWithContext(ctx context.Context) ShareAccessRightOutput {
+func (o ResourceIdentityOutput) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
 	return o
 }
 
-// Type of access to be allowed on the share for this user.
-func (o ShareAccessRightOutput) AccessType() pulumi.StringOutput {
-	return o.ApplyT(func(v ShareAccessRight) string { return v.AccessType }).(pulumi.StringOutput)
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return o.ToResourceIdentityPtrOutputWithContext(context.Background())
 }
 
-// The share ID.
-func (o ShareAccessRightOutput) ShareId() pulumi.StringOutput {
-	return o.ApplyT(func(v ShareAccessRight) string { return v.ShareId }).(pulumi.StringOutput)
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
+		return &v
+	}).(ResourceIdentityPtrOutput)
 }
 
-type ShareAccessRightArrayOutput struct{ *pulumi.OutputState }
-
-func (ShareAccessRightArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ShareAccessRight)(nil)).Elem()
+// Identity type
+func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-func (o ShareAccessRightArrayOutput) ToShareAccessRightArrayOutput() ShareAccessRightArrayOutput {
+type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
+}
+
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
 	return o
 }
 
-func (o ShareAccessRightArrayOutput) ToShareAccessRightArrayOutputWithContext(ctx context.Context) ShareAccessRightArrayOutput {
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
 	return o
 }
 
-func (o ShareAccessRightArrayOutput) Index(i pulumi.IntInput) ShareAccessRightOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareAccessRight {
-		return vs[0].([]ShareAccessRight)[vs[1].(int)]
-	}).(ShareAccessRightOutput)
+func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
+}
+
+// Identity type
+func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Msi identity details of the resource
+type ResourceIdentityResponse struct {
+	// Service Principal Id backing the Msi
+	PrincipalId string `pulumi:"principalId"`
+	// Home Tenant Id
+	TenantId string `pulumi:"tenantId"`
+	// Identity type
+	Type *string `pulumi:"type"`
+}
+
+// ResourceIdentityResponseInput is an input type that accepts ResourceIdentityResponseArgs and ResourceIdentityResponseOutput values.
+// You can construct a concrete instance of `ResourceIdentityResponseInput` via:
+//
+//          ResourceIdentityResponseArgs{...}
+type ResourceIdentityResponseInput interface {
+	pulumi.Input
+
+	ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput
+	ToResourceIdentityResponseOutputWithContext(context.Context) ResourceIdentityResponseOutput
+}
+
+// Msi identity details of the resource
+type ResourceIdentityResponseArgs struct {
+	// Service Principal Id backing the Msi
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Home Tenant Id
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Identity type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
+	return i.ToResourceIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponseOutput)
+}
+
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return i.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponseOutput).ToResourceIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// ResourceIdentityResponsePtrInput is an input type that accepts ResourceIdentityResponseArgs, ResourceIdentityResponsePtr and ResourceIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceIdentityResponsePtrInput` via:
+//
+//          ResourceIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput
+	ToResourceIdentityResponsePtrOutputWithContext(context.Context) ResourceIdentityResponsePtrOutput
+}
+
+type resourceIdentityResponsePtrType ResourceIdentityResponseArgs
+
+func ResourceIdentityResponsePtr(v *ResourceIdentityResponseArgs) ResourceIdentityResponsePtrInput {
+	return (*resourceIdentityResponsePtrType)(v)
+}
+
+func (*resourceIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return i.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponsePtrOutput)
+}
+
+// Msi identity details of the resource
+type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
+	return o
+}
+
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
+	return o
+}
+
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return o.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
+		return &v
+	}).(ResourceIdentityResponsePtrOutput)
+}
+
+// Service Principal Id backing the Msi
+func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Home Tenant Id
+func (o ResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Identity type
+func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
+}
+
+// Service Principal Id backing the Msi
+func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Home Tenant Id
+func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identity type
+func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Fields for tracking resource move
+type ResourceMoveDetails struct {
+	// Denotes whether move operation is in progress
+	OperationInProgress *string `pulumi:"operationInProgress"`
+	// Denotes the timeout of the operation to finish
+	OperationInProgressLockTimeoutInUTC *string `pulumi:"operationInProgressLockTimeoutInUTC"`
+}
+
+// ResourceMoveDetailsInput is an input type that accepts ResourceMoveDetailsArgs and ResourceMoveDetailsOutput values.
+// You can construct a concrete instance of `ResourceMoveDetailsInput` via:
+//
+//          ResourceMoveDetailsArgs{...}
+type ResourceMoveDetailsInput interface {
+	pulumi.Input
+
+	ToResourceMoveDetailsOutput() ResourceMoveDetailsOutput
+	ToResourceMoveDetailsOutputWithContext(context.Context) ResourceMoveDetailsOutput
+}
+
+// Fields for tracking resource move
+type ResourceMoveDetailsArgs struct {
+	// Denotes whether move operation is in progress
+	OperationInProgress pulumi.StringPtrInput `pulumi:"operationInProgress"`
+	// Denotes the timeout of the operation to finish
+	OperationInProgressLockTimeoutInUTC pulumi.StringPtrInput `pulumi:"operationInProgressLockTimeoutInUTC"`
+}
+
+func (ResourceMoveDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMoveDetails)(nil)).Elem()
+}
+
+func (i ResourceMoveDetailsArgs) ToResourceMoveDetailsOutput() ResourceMoveDetailsOutput {
+	return i.ToResourceMoveDetailsOutputWithContext(context.Background())
+}
+
+func (i ResourceMoveDetailsArgs) ToResourceMoveDetailsOutputWithContext(ctx context.Context) ResourceMoveDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMoveDetailsOutput)
+}
+
+func (i ResourceMoveDetailsArgs) ToResourceMoveDetailsPtrOutput() ResourceMoveDetailsPtrOutput {
+	return i.ToResourceMoveDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceMoveDetailsArgs) ToResourceMoveDetailsPtrOutputWithContext(ctx context.Context) ResourceMoveDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMoveDetailsOutput).ToResourceMoveDetailsPtrOutputWithContext(ctx)
+}
+
+// ResourceMoveDetailsPtrInput is an input type that accepts ResourceMoveDetailsArgs, ResourceMoveDetailsPtr and ResourceMoveDetailsPtrOutput values.
+// You can construct a concrete instance of `ResourceMoveDetailsPtrInput` via:
+//
+//          ResourceMoveDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceMoveDetailsPtrInput interface {
+	pulumi.Input
+
+	ToResourceMoveDetailsPtrOutput() ResourceMoveDetailsPtrOutput
+	ToResourceMoveDetailsPtrOutputWithContext(context.Context) ResourceMoveDetailsPtrOutput
+}
+
+type resourceMoveDetailsPtrType ResourceMoveDetailsArgs
+
+func ResourceMoveDetailsPtr(v *ResourceMoveDetailsArgs) ResourceMoveDetailsPtrInput {
+	return (*resourceMoveDetailsPtrType)(v)
+}
+
+func (*resourceMoveDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceMoveDetails)(nil)).Elem()
+}
+
+func (i *resourceMoveDetailsPtrType) ToResourceMoveDetailsPtrOutput() ResourceMoveDetailsPtrOutput {
+	return i.ToResourceMoveDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceMoveDetailsPtrType) ToResourceMoveDetailsPtrOutputWithContext(ctx context.Context) ResourceMoveDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMoveDetailsPtrOutput)
+}
+
+// Fields for tracking resource move
+type ResourceMoveDetailsOutput struct{ *pulumi.OutputState }
+
+func (ResourceMoveDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMoveDetails)(nil)).Elem()
+}
+
+func (o ResourceMoveDetailsOutput) ToResourceMoveDetailsOutput() ResourceMoveDetailsOutput {
+	return o
+}
+
+func (o ResourceMoveDetailsOutput) ToResourceMoveDetailsOutputWithContext(ctx context.Context) ResourceMoveDetailsOutput {
+	return o
+}
+
+func (o ResourceMoveDetailsOutput) ToResourceMoveDetailsPtrOutput() ResourceMoveDetailsPtrOutput {
+	return o.ToResourceMoveDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceMoveDetailsOutput) ToResourceMoveDetailsPtrOutputWithContext(ctx context.Context) ResourceMoveDetailsPtrOutput {
+	return o.ApplyT(func(v ResourceMoveDetails) *ResourceMoveDetails {
+		return &v
+	}).(ResourceMoveDetailsPtrOutput)
+}
+
+// Denotes whether move operation is in progress
+func (o ResourceMoveDetailsOutput) OperationInProgress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveDetails) *string { return v.OperationInProgress }).(pulumi.StringPtrOutput)
+}
+
+// Denotes the timeout of the operation to finish
+func (o ResourceMoveDetailsOutput) OperationInProgressLockTimeoutInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveDetails) *string { return v.OperationInProgressLockTimeoutInUTC }).(pulumi.StringPtrOutput)
+}
+
+type ResourceMoveDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceMoveDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceMoveDetails)(nil)).Elem()
+}
+
+func (o ResourceMoveDetailsPtrOutput) ToResourceMoveDetailsPtrOutput() ResourceMoveDetailsPtrOutput {
+	return o
+}
+
+func (o ResourceMoveDetailsPtrOutput) ToResourceMoveDetailsPtrOutputWithContext(ctx context.Context) ResourceMoveDetailsPtrOutput {
+	return o
+}
+
+func (o ResourceMoveDetailsPtrOutput) Elem() ResourceMoveDetailsOutput {
+	return o.ApplyT(func(v *ResourceMoveDetails) ResourceMoveDetails { return *v }).(ResourceMoveDetailsOutput)
+}
+
+// Denotes whether move operation is in progress
+func (o ResourceMoveDetailsPtrOutput) OperationInProgress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceMoveDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationInProgress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Denotes the timeout of the operation to finish
+func (o ResourceMoveDetailsPtrOutput) OperationInProgressLockTimeoutInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceMoveDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationInProgressLockTimeoutInUTC
+	}).(pulumi.StringPtrOutput)
+}
+
+// Fields for tracking resource move
+type ResourceMoveDetailsResponse struct {
+	// Denotes whether move operation is in progress
+	OperationInProgress *string `pulumi:"operationInProgress"`
+	// Denotes the timeout of the operation to finish
+	OperationInProgressLockTimeoutInUTC *string `pulumi:"operationInProgressLockTimeoutInUTC"`
+}
+
+// ResourceMoveDetailsResponseInput is an input type that accepts ResourceMoveDetailsResponseArgs and ResourceMoveDetailsResponseOutput values.
+// You can construct a concrete instance of `ResourceMoveDetailsResponseInput` via:
+//
+//          ResourceMoveDetailsResponseArgs{...}
+type ResourceMoveDetailsResponseInput interface {
+	pulumi.Input
+
+	ToResourceMoveDetailsResponseOutput() ResourceMoveDetailsResponseOutput
+	ToResourceMoveDetailsResponseOutputWithContext(context.Context) ResourceMoveDetailsResponseOutput
+}
+
+// Fields for tracking resource move
+type ResourceMoveDetailsResponseArgs struct {
+	// Denotes whether move operation is in progress
+	OperationInProgress pulumi.StringPtrInput `pulumi:"operationInProgress"`
+	// Denotes the timeout of the operation to finish
+	OperationInProgressLockTimeoutInUTC pulumi.StringPtrInput `pulumi:"operationInProgressLockTimeoutInUTC"`
+}
+
+func (ResourceMoveDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMoveDetailsResponse)(nil)).Elem()
+}
+
+func (i ResourceMoveDetailsResponseArgs) ToResourceMoveDetailsResponseOutput() ResourceMoveDetailsResponseOutput {
+	return i.ToResourceMoveDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceMoveDetailsResponseArgs) ToResourceMoveDetailsResponseOutputWithContext(ctx context.Context) ResourceMoveDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMoveDetailsResponseOutput)
+}
+
+func (i ResourceMoveDetailsResponseArgs) ToResourceMoveDetailsResponsePtrOutput() ResourceMoveDetailsResponsePtrOutput {
+	return i.ToResourceMoveDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceMoveDetailsResponseArgs) ToResourceMoveDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceMoveDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMoveDetailsResponseOutput).ToResourceMoveDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// ResourceMoveDetailsResponsePtrInput is an input type that accepts ResourceMoveDetailsResponseArgs, ResourceMoveDetailsResponsePtr and ResourceMoveDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceMoveDetailsResponsePtrInput` via:
+//
+//          ResourceMoveDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceMoveDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToResourceMoveDetailsResponsePtrOutput() ResourceMoveDetailsResponsePtrOutput
+	ToResourceMoveDetailsResponsePtrOutputWithContext(context.Context) ResourceMoveDetailsResponsePtrOutput
+}
+
+type resourceMoveDetailsResponsePtrType ResourceMoveDetailsResponseArgs
+
+func ResourceMoveDetailsResponsePtr(v *ResourceMoveDetailsResponseArgs) ResourceMoveDetailsResponsePtrInput {
+	return (*resourceMoveDetailsResponsePtrType)(v)
+}
+
+func (*resourceMoveDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceMoveDetailsResponse)(nil)).Elem()
+}
+
+func (i *resourceMoveDetailsResponsePtrType) ToResourceMoveDetailsResponsePtrOutput() ResourceMoveDetailsResponsePtrOutput {
+	return i.ToResourceMoveDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceMoveDetailsResponsePtrType) ToResourceMoveDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceMoveDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMoveDetailsResponsePtrOutput)
+}
+
+// Fields for tracking resource move
+type ResourceMoveDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceMoveDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMoveDetailsResponse)(nil)).Elem()
+}
+
+func (o ResourceMoveDetailsResponseOutput) ToResourceMoveDetailsResponseOutput() ResourceMoveDetailsResponseOutput {
+	return o
+}
+
+func (o ResourceMoveDetailsResponseOutput) ToResourceMoveDetailsResponseOutputWithContext(ctx context.Context) ResourceMoveDetailsResponseOutput {
+	return o
+}
+
+func (o ResourceMoveDetailsResponseOutput) ToResourceMoveDetailsResponsePtrOutput() ResourceMoveDetailsResponsePtrOutput {
+	return o.ToResourceMoveDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceMoveDetailsResponseOutput) ToResourceMoveDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceMoveDetailsResponsePtrOutput {
+	return o.ApplyT(func(v ResourceMoveDetailsResponse) *ResourceMoveDetailsResponse {
+		return &v
+	}).(ResourceMoveDetailsResponsePtrOutput)
+}
+
+// Denotes whether move operation is in progress
+func (o ResourceMoveDetailsResponseOutput) OperationInProgress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveDetailsResponse) *string { return v.OperationInProgress }).(pulumi.StringPtrOutput)
+}
+
+// Denotes the timeout of the operation to finish
+func (o ResourceMoveDetailsResponseOutput) OperationInProgressLockTimeoutInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveDetailsResponse) *string { return v.OperationInProgressLockTimeoutInUTC }).(pulumi.StringPtrOutput)
+}
+
+type ResourceMoveDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceMoveDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceMoveDetailsResponse)(nil)).Elem()
+}
+
+func (o ResourceMoveDetailsResponsePtrOutput) ToResourceMoveDetailsResponsePtrOutput() ResourceMoveDetailsResponsePtrOutput {
+	return o
+}
+
+func (o ResourceMoveDetailsResponsePtrOutput) ToResourceMoveDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceMoveDetailsResponsePtrOutput {
+	return o
+}
+
+func (o ResourceMoveDetailsResponsePtrOutput) Elem() ResourceMoveDetailsResponseOutput {
+	return o.ApplyT(func(v *ResourceMoveDetailsResponse) ResourceMoveDetailsResponse { return *v }).(ResourceMoveDetailsResponseOutput)
+}
+
+// Denotes whether move operation is in progress
+func (o ResourceMoveDetailsResponsePtrOutput) OperationInProgress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceMoveDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationInProgress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Denotes the timeout of the operation to finish
+func (o ResourceMoveDetailsResponsePtrOutput) OperationInProgressLockTimeoutInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceMoveDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationInProgressLockTimeoutInUTC
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the mapping between this particular user and the type of access he has on shares on this device.
@@ -3220,6 +5493,435 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SubscriptionRegisteredFeatures struct {
+	Name  *string `pulumi:"name"`
+	State *string `pulumi:"state"`
+}
+
+// SubscriptionRegisteredFeaturesInput is an input type that accepts SubscriptionRegisteredFeaturesArgs and SubscriptionRegisteredFeaturesOutput values.
+// You can construct a concrete instance of `SubscriptionRegisteredFeaturesInput` via:
+//
+//          SubscriptionRegisteredFeaturesArgs{...}
+type SubscriptionRegisteredFeaturesInput interface {
+	pulumi.Input
+
+	ToSubscriptionRegisteredFeaturesOutput() SubscriptionRegisteredFeaturesOutput
+	ToSubscriptionRegisteredFeaturesOutputWithContext(context.Context) SubscriptionRegisteredFeaturesOutput
+}
+
+type SubscriptionRegisteredFeaturesArgs struct {
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (SubscriptionRegisteredFeaturesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionRegisteredFeatures)(nil)).Elem()
+}
+
+func (i SubscriptionRegisteredFeaturesArgs) ToSubscriptionRegisteredFeaturesOutput() SubscriptionRegisteredFeaturesOutput {
+	return i.ToSubscriptionRegisteredFeaturesOutputWithContext(context.Background())
+}
+
+func (i SubscriptionRegisteredFeaturesArgs) ToSubscriptionRegisteredFeaturesOutputWithContext(ctx context.Context) SubscriptionRegisteredFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRegisteredFeaturesOutput)
+}
+
+// SubscriptionRegisteredFeaturesArrayInput is an input type that accepts SubscriptionRegisteredFeaturesArray and SubscriptionRegisteredFeaturesArrayOutput values.
+// You can construct a concrete instance of `SubscriptionRegisteredFeaturesArrayInput` via:
+//
+//          SubscriptionRegisteredFeaturesArray{ SubscriptionRegisteredFeaturesArgs{...} }
+type SubscriptionRegisteredFeaturesArrayInput interface {
+	pulumi.Input
+
+	ToSubscriptionRegisteredFeaturesArrayOutput() SubscriptionRegisteredFeaturesArrayOutput
+	ToSubscriptionRegisteredFeaturesArrayOutputWithContext(context.Context) SubscriptionRegisteredFeaturesArrayOutput
+}
+
+type SubscriptionRegisteredFeaturesArray []SubscriptionRegisteredFeaturesInput
+
+func (SubscriptionRegisteredFeaturesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionRegisteredFeatures)(nil)).Elem()
+}
+
+func (i SubscriptionRegisteredFeaturesArray) ToSubscriptionRegisteredFeaturesArrayOutput() SubscriptionRegisteredFeaturesArrayOutput {
+	return i.ToSubscriptionRegisteredFeaturesArrayOutputWithContext(context.Background())
+}
+
+func (i SubscriptionRegisteredFeaturesArray) ToSubscriptionRegisteredFeaturesArrayOutputWithContext(ctx context.Context) SubscriptionRegisteredFeaturesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRegisteredFeaturesArrayOutput)
+}
+
+type SubscriptionRegisteredFeaturesOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionRegisteredFeaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionRegisteredFeatures)(nil)).Elem()
+}
+
+func (o SubscriptionRegisteredFeaturesOutput) ToSubscriptionRegisteredFeaturesOutput() SubscriptionRegisteredFeaturesOutput {
+	return o
+}
+
+func (o SubscriptionRegisteredFeaturesOutput) ToSubscriptionRegisteredFeaturesOutputWithContext(ctx context.Context) SubscriptionRegisteredFeaturesOutput {
+	return o
+}
+
+func (o SubscriptionRegisteredFeaturesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionRegisteredFeatures) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SubscriptionRegisteredFeaturesOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionRegisteredFeatures) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type SubscriptionRegisteredFeaturesArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionRegisteredFeaturesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionRegisteredFeatures)(nil)).Elem()
+}
+
+func (o SubscriptionRegisteredFeaturesArrayOutput) ToSubscriptionRegisteredFeaturesArrayOutput() SubscriptionRegisteredFeaturesArrayOutput {
+	return o
+}
+
+func (o SubscriptionRegisteredFeaturesArrayOutput) ToSubscriptionRegisteredFeaturesArrayOutputWithContext(ctx context.Context) SubscriptionRegisteredFeaturesArrayOutput {
+	return o
+}
+
+func (o SubscriptionRegisteredFeaturesArrayOutput) Index(i pulumi.IntInput) SubscriptionRegisteredFeaturesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionRegisteredFeatures {
+		return vs[0].([]SubscriptionRegisteredFeatures)[vs[1].(int)]
+	}).(SubscriptionRegisteredFeaturesOutput)
+}
+
+type SubscriptionRegisteredFeaturesResponse struct {
+	Name  *string `pulumi:"name"`
+	State *string `pulumi:"state"`
+}
+
+// SubscriptionRegisteredFeaturesResponseInput is an input type that accepts SubscriptionRegisteredFeaturesResponseArgs and SubscriptionRegisteredFeaturesResponseOutput values.
+// You can construct a concrete instance of `SubscriptionRegisteredFeaturesResponseInput` via:
+//
+//          SubscriptionRegisteredFeaturesResponseArgs{...}
+type SubscriptionRegisteredFeaturesResponseInput interface {
+	pulumi.Input
+
+	ToSubscriptionRegisteredFeaturesResponseOutput() SubscriptionRegisteredFeaturesResponseOutput
+	ToSubscriptionRegisteredFeaturesResponseOutputWithContext(context.Context) SubscriptionRegisteredFeaturesResponseOutput
+}
+
+type SubscriptionRegisteredFeaturesResponseArgs struct {
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (SubscriptionRegisteredFeaturesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionRegisteredFeaturesResponse)(nil)).Elem()
+}
+
+func (i SubscriptionRegisteredFeaturesResponseArgs) ToSubscriptionRegisteredFeaturesResponseOutput() SubscriptionRegisteredFeaturesResponseOutput {
+	return i.ToSubscriptionRegisteredFeaturesResponseOutputWithContext(context.Background())
+}
+
+func (i SubscriptionRegisteredFeaturesResponseArgs) ToSubscriptionRegisteredFeaturesResponseOutputWithContext(ctx context.Context) SubscriptionRegisteredFeaturesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRegisteredFeaturesResponseOutput)
+}
+
+// SubscriptionRegisteredFeaturesResponseArrayInput is an input type that accepts SubscriptionRegisteredFeaturesResponseArray and SubscriptionRegisteredFeaturesResponseArrayOutput values.
+// You can construct a concrete instance of `SubscriptionRegisteredFeaturesResponseArrayInput` via:
+//
+//          SubscriptionRegisteredFeaturesResponseArray{ SubscriptionRegisteredFeaturesResponseArgs{...} }
+type SubscriptionRegisteredFeaturesResponseArrayInput interface {
+	pulumi.Input
+
+	ToSubscriptionRegisteredFeaturesResponseArrayOutput() SubscriptionRegisteredFeaturesResponseArrayOutput
+	ToSubscriptionRegisteredFeaturesResponseArrayOutputWithContext(context.Context) SubscriptionRegisteredFeaturesResponseArrayOutput
+}
+
+type SubscriptionRegisteredFeaturesResponseArray []SubscriptionRegisteredFeaturesResponseInput
+
+func (SubscriptionRegisteredFeaturesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionRegisteredFeaturesResponse)(nil)).Elem()
+}
+
+func (i SubscriptionRegisteredFeaturesResponseArray) ToSubscriptionRegisteredFeaturesResponseArrayOutput() SubscriptionRegisteredFeaturesResponseArrayOutput {
+	return i.ToSubscriptionRegisteredFeaturesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SubscriptionRegisteredFeaturesResponseArray) ToSubscriptionRegisteredFeaturesResponseArrayOutputWithContext(ctx context.Context) SubscriptionRegisteredFeaturesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRegisteredFeaturesResponseArrayOutput)
+}
+
+type SubscriptionRegisteredFeaturesResponseOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionRegisteredFeaturesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionRegisteredFeaturesResponse)(nil)).Elem()
+}
+
+func (o SubscriptionRegisteredFeaturesResponseOutput) ToSubscriptionRegisteredFeaturesResponseOutput() SubscriptionRegisteredFeaturesResponseOutput {
+	return o
+}
+
+func (o SubscriptionRegisteredFeaturesResponseOutput) ToSubscriptionRegisteredFeaturesResponseOutputWithContext(ctx context.Context) SubscriptionRegisteredFeaturesResponseOutput {
+	return o
+}
+
+func (o SubscriptionRegisteredFeaturesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionRegisteredFeaturesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SubscriptionRegisteredFeaturesResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionRegisteredFeaturesResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type SubscriptionRegisteredFeaturesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionRegisteredFeaturesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionRegisteredFeaturesResponse)(nil)).Elem()
+}
+
+func (o SubscriptionRegisteredFeaturesResponseArrayOutput) ToSubscriptionRegisteredFeaturesResponseArrayOutput() SubscriptionRegisteredFeaturesResponseArrayOutput {
+	return o
+}
+
+func (o SubscriptionRegisteredFeaturesResponseArrayOutput) ToSubscriptionRegisteredFeaturesResponseArrayOutputWithContext(ctx context.Context) SubscriptionRegisteredFeaturesResponseArrayOutput {
+	return o
+}
+
+func (o SubscriptionRegisteredFeaturesResponseArrayOutput) Index(i pulumi.IntInput) SubscriptionRegisteredFeaturesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionRegisteredFeaturesResponse {
+		return vs[0].([]SubscriptionRegisteredFeaturesResponse)[vs[1].(int)]
+	}).(SubscriptionRegisteredFeaturesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Tracking courier information.
 type TrackingInfoResponse struct {
 	// Name of the carrier used in the delivery.
@@ -3267,6 +5969,47 @@ func (i TrackingInfoResponseArgs) ToTrackingInfoResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TrackingInfoResponseOutput)
 }
 
+func (i TrackingInfoResponseArgs) ToTrackingInfoResponsePtrOutput() TrackingInfoResponsePtrOutput {
+	return i.ToTrackingInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TrackingInfoResponseArgs) ToTrackingInfoResponsePtrOutputWithContext(ctx context.Context) TrackingInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrackingInfoResponseOutput).ToTrackingInfoResponsePtrOutputWithContext(ctx)
+}
+
+// TrackingInfoResponsePtrInput is an input type that accepts TrackingInfoResponseArgs, TrackingInfoResponsePtr and TrackingInfoResponsePtrOutput values.
+// You can construct a concrete instance of `TrackingInfoResponsePtrInput` via:
+//
+//          TrackingInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TrackingInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToTrackingInfoResponsePtrOutput() TrackingInfoResponsePtrOutput
+	ToTrackingInfoResponsePtrOutputWithContext(context.Context) TrackingInfoResponsePtrOutput
+}
+
+type trackingInfoResponsePtrType TrackingInfoResponseArgs
+
+func TrackingInfoResponsePtr(v *TrackingInfoResponseArgs) TrackingInfoResponsePtrInput {
+	return (*trackingInfoResponsePtrType)(v)
+}
+
+func (*trackingInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrackingInfoResponse)(nil)).Elem()
+}
+
+func (i *trackingInfoResponsePtrType) ToTrackingInfoResponsePtrOutput() TrackingInfoResponsePtrOutput {
+	return i.ToTrackingInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *trackingInfoResponsePtrType) ToTrackingInfoResponsePtrOutputWithContext(ctx context.Context) TrackingInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrackingInfoResponsePtrOutput)
+}
+
 // TrackingInfoResponseArrayInput is an input type that accepts TrackingInfoResponseArray and TrackingInfoResponseArrayOutput values.
 // You can construct a concrete instance of `TrackingInfoResponseArrayInput` via:
 //
@@ -3307,6 +6050,16 @@ func (o TrackingInfoResponseOutput) ToTrackingInfoResponseOutputWithContext(ctx 
 	return o
 }
 
+func (o TrackingInfoResponseOutput) ToTrackingInfoResponsePtrOutput() TrackingInfoResponsePtrOutput {
+	return o.ToTrackingInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TrackingInfoResponseOutput) ToTrackingInfoResponsePtrOutputWithContext(ctx context.Context) TrackingInfoResponsePtrOutput {
+	return o.ApplyT(func(v TrackingInfoResponse) *TrackingInfoResponse {
+		return &v
+	}).(TrackingInfoResponsePtrOutput)
+}
+
 // Name of the carrier used in the delivery.
 func (o TrackingInfoResponseOutput) CarrierName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrackingInfoResponse) *string { return v.CarrierName }).(pulumi.StringPtrOutput)
@@ -3325,6 +6078,64 @@ func (o TrackingInfoResponseOutput) TrackingId() pulumi.StringPtrOutput {
 // Tracking URL of the shipment.
 func (o TrackingInfoResponseOutput) TrackingUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrackingInfoResponse) *string { return v.TrackingUrl }).(pulumi.StringPtrOutput)
+}
+
+type TrackingInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TrackingInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrackingInfoResponse)(nil)).Elem()
+}
+
+func (o TrackingInfoResponsePtrOutput) ToTrackingInfoResponsePtrOutput() TrackingInfoResponsePtrOutput {
+	return o
+}
+
+func (o TrackingInfoResponsePtrOutput) ToTrackingInfoResponsePtrOutputWithContext(ctx context.Context) TrackingInfoResponsePtrOutput {
+	return o
+}
+
+func (o TrackingInfoResponsePtrOutput) Elem() TrackingInfoResponseOutput {
+	return o.ApplyT(func(v *TrackingInfoResponse) TrackingInfoResponse { return *v }).(TrackingInfoResponseOutput)
+}
+
+// Name of the carrier used in the delivery.
+func (o TrackingInfoResponsePtrOutput) CarrierName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrackingInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CarrierName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Serial number of the device being tracked.
+func (o TrackingInfoResponsePtrOutput) SerialNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrackingInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SerialNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tracking ID of the shipment.
+func (o TrackingInfoResponsePtrOutput) TrackingId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrackingInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrackingId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tracking URL of the shipment.
+func (o TrackingInfoResponsePtrOutput) TrackingUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrackingInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrackingUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 type TrackingInfoResponseArrayOutput struct{ *pulumi.OutputState }
@@ -3586,6 +6397,30 @@ func init() {
 	pulumi.RegisterOutputType(ContactDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(EdgeProfileOutput{})
+	pulumi.RegisterOutputType(EdgeProfilePtrOutput{})
+	pulumi.RegisterOutputType(EdgeProfileResponseOutput{})
+	pulumi.RegisterOutputType(EdgeProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(EdgeProfileSubscriptionOutput{})
+	pulumi.RegisterOutputType(EdgeProfileSubscriptionPtrOutput{})
+	pulumi.RegisterOutputType(EdgeProfileSubscriptionResponseOutput{})
+	pulumi.RegisterOutputType(EdgeProfileSubscriptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(MetricConfigurationOutput{})
+	pulumi.RegisterOutputType(MetricConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(MetricConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(MetricConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(MetricCounterOutput{})
+	pulumi.RegisterOutputType(MetricCounterArrayOutput{})
+	pulumi.RegisterOutputType(MetricCounterResponseOutput{})
+	pulumi.RegisterOutputType(MetricCounterResponseArrayOutput{})
+	pulumi.RegisterOutputType(MetricCounterSetOutput{})
+	pulumi.RegisterOutputType(MetricCounterSetArrayOutput{})
+	pulumi.RegisterOutputType(MetricCounterSetResponseOutput{})
+	pulumi.RegisterOutputType(MetricCounterSetResponseArrayOutput{})
+	pulumi.RegisterOutputType(MetricDimensionOutput{})
+	pulumi.RegisterOutputType(MetricDimensionArrayOutput{})
+	pulumi.RegisterOutputType(MetricDimensionResponseOutput{})
+	pulumi.RegisterOutputType(MetricDimensionResponseArrayOutput{})
 	pulumi.RegisterOutputType(MountPointMapResponseOutput{})
 	pulumi.RegisterOutputType(MountPointMapResponseArrayOutput{})
 	pulumi.RegisterOutputType(OrderStatusOutput{})
@@ -3597,15 +6432,28 @@ func init() {
 	pulumi.RegisterOutputType(RefreshDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsResponseOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(ShareAccessRightOutput{})
-	pulumi.RegisterOutputType(ShareAccessRightArrayOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceMoveDetailsOutput{})
+	pulumi.RegisterOutputType(ResourceMoveDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ResourceMoveDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ResourceMoveDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SubscriptionRegisteredFeaturesOutput{})
+	pulumi.RegisterOutputType(SubscriptionRegisteredFeaturesArrayOutput{})
+	pulumi.RegisterOutputType(SubscriptionRegisteredFeaturesResponseOutput{})
+	pulumi.RegisterOutputType(SubscriptionRegisteredFeaturesResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TrackingInfoResponseOutput{})
+	pulumi.RegisterOutputType(TrackingInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(TrackingInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserAccessRightOutput{})
 	pulumi.RegisterOutputType(UserAccessRightArrayOutput{})

@@ -43,12 +43,18 @@ type LookupDeviceResult struct {
 	DeviceSoftwareVersion string `pulumi:"deviceSoftwareVersion"`
 	// The type of the Data Box Edge/Gateway device.
 	DeviceType string `pulumi:"deviceType"`
+	// The details of Edge Profile for this resource
+	EdgeProfile *EdgeProfileResponse `pulumi:"edgeProfile"`
 	// The etag for the devices.
 	Etag *string `pulumi:"etag"`
 	// The Data Box Edge/Gateway device name.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// The path ID that uniquely identifies the object.
 	Id string `pulumi:"id"`
+	// Msi identity of the resource
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// The etag for the devices.
+	Kind *string `pulumi:"kind"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
 	Location string `pulumi:"location"`
 	// The description of the Data Box Edge/Gateway device model.
@@ -57,10 +63,14 @@ type LookupDeviceResult struct {
 	Name string `pulumi:"name"`
 	// The number of nodes in the cluster.
 	NodeCount int `pulumi:"nodeCount"`
+	// The details of the move operation on this resource.
+	ResourceMoveDetails *ResourceMoveDetailsResponse `pulumi:"resourceMoveDetails"`
 	// The Serial Number of Data Box Edge/Gateway device.
 	SerialNumber string `pulumi:"serialNumber"`
 	// The SKU type.
 	Sku *SkuResponse `pulumi:"sku"`
+	// DataBoxEdge Resource
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
 	Tags map[string]string `pulumi:"tags"`
 	// The Data Box Edge/Gateway device timezone.

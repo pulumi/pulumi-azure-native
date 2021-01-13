@@ -45,6 +45,8 @@ type LookupStorageAccountCredentialResult struct {
 	SslStatus string `pulumi:"sslStatus"`
 	// Id of the storage account.
 	StorageAccountId *string `pulumi:"storageAccountId"`
+	// StorageAccountCredential object
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 	// Username for the storage account.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// Represents a container on the  Data Box Edge/Gateway device.
-    /// Latest API Version: 2019-08-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Container")]
     public partial class Container : Pulumi.CustomResource
@@ -47,6 +47,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         public Output<Outputs.RefreshDetailsResponse> RefreshDetails { get; private set; } = null!;
 
         /// <summary>
+        /// Container in DataBoxEdge Resource
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
@@ -79,6 +85,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Container"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Container"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Container"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

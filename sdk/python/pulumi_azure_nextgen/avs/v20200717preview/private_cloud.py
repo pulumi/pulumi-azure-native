@@ -23,12 +23,12 @@ class PrivateCloud(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  management_cluster: Optional[pulumi.Input[pulumi.InputType['ManagementClusterArgs']]] = None,
                  network_block: Optional[pulumi.Input[str]] = None,
-                 nsxt_password: Optional[pulumi.Input[Union[str, 'NsxtAdminRotateEnum']]] = None,
+                 nsxt_password: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vcenter_password: Optional[pulumi.Input[Union[str, 'VcsaAdminRotateEnum']]] = None,
+                 vcenter_password: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -42,12 +42,12 @@ class PrivateCloud(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['ManagementClusterArgs']] management_cluster: The default cluster used for management
         :param pulumi.Input[str] network_block: The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
-        :param pulumi.Input[Union[str, 'NsxtAdminRotateEnum']] nsxt_password: Indicate to rotate the NSX-T Manager password for the private cloud
+        :param pulumi.Input[str] nsxt_password: Optionally, set the NSX-T Manager password when the private cloud is created
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The private cloud SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[Union[str, 'VcsaAdminRotateEnum']] vcenter_password: Indicate to rotate the vCenter admin password for the private cloud
+        :param pulumi.Input[str] vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -211,7 +211,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter(name="nsxtPassword")
     def nsxt_password(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicate to rotate the NSX-T Manager password for the private cloud
+        Optionally, set the NSX-T Manager password when the private cloud is created
         """
         return pulumi.get(self, "nsxt_password")
 
@@ -267,7 +267,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter(name="vcenterPassword")
     def vcenter_password(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicate to rotate the vCenter admin password for the private cloud
+        Optionally, set the vCenter admin password when the private cloud is created
         """
         return pulumi.get(self, "vcenter_password")
 

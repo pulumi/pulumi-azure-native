@@ -45,6 +45,10 @@ export class Workbook extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
+     * Resource etag
+     */
+    public readonly etag!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Identity used for BYOS
      */
     public readonly identity!: pulumi.Output<outputs.insights.latest.ManagedIdentityResponse | undefined>;
@@ -55,11 +59,11 @@ export class Workbook extends pulumi.CustomResource {
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource name. This is GUID value. The display name should be assigned within properties field.
+     * Azure resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
@@ -83,7 +87,7 @@ export class Workbook extends pulumi.CustomResource {
     /**
      * Azure resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * Unique user id of the specific user that owns this workbook.
      */
@@ -109,9 +113,6 @@ export class Workbook extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -121,28 +122,28 @@ export class Workbook extends pulumi.CustomResource {
             if ((!args || args.serializedData === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serializedData'");
             }
-            if ((!args || args.sourceId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sourceId'");
-            }
             inputs["category"] = args ? args.category : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["etag"] = args ? args.etag : undefined;
+            inputs["id"] = args ? args.id : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["serializedData"] = args ? args.serializedData : undefined;
             inputs["sourceId"] = args ? args.sourceId : undefined;
             inputs["storageUri"] = args ? args.storageUri : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["version"] = args ? args.version : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
             inputs["userId"] = undefined /*out*/;
         } else {
             inputs["category"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -182,17 +183,29 @@ export interface WorkbookArgs {
      */
     readonly displayName: pulumi.Input<string>;
     /**
+     * Resource etag
+     */
+    readonly etag?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Azure resource Id
+     */
+    readonly id?: pulumi.Input<string>;
+    /**
      * Identity used for BYOS
      */
     readonly identity?: pulumi.Input<inputs.insights.latest.ManagedIdentity>;
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: pulumi.Input<string | enums.insights.latest.SharedTypeKind>;
+    readonly kind?: pulumi.Input<string | enums.insights.latest.Kind>;
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
+    /**
+     * Azure resource name
+     */
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -208,7 +221,7 @@ export interface WorkbookArgs {
     /**
      * ResourceId for a source resource.
      */
-    readonly sourceId: pulumi.Input<string>;
+    readonly sourceId?: pulumi.Input<string>;
     /**
      * BYOS Storage Account URI
      */
@@ -217,6 +230,10 @@ export interface WorkbookArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Azure resource type
+     */
+    readonly type?: pulumi.Input<string>;
     /**
      * Workbook version
      */

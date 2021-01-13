@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionItemResponse> PrivateEndpointConnections;
         /// <summary>
+        /// Provisioning state of the vault.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
         /// SKU details
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Outputs
 
             ImmutableArray<Outputs.PrivateEndpointConnectionItemResponse> privateEndpointConnections,
 
+            string? provisioningState,
+
             Outputs.SkuResponse sku,
 
             int? softDeleteRetentionInDays,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Outputs
             EnabledForTemplateDeployment = enabledForTemplateDeployment;
             NetworkAcls = networkAcls;
             PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
             Sku = sku;
             SoftDeleteRetentionInDays = softDeleteRetentionInDays;
             TenantId = tenantId;

@@ -79,7 +79,7 @@ export interface GetPrivateCloudResult {
      */
     readonly nsxtCertificateThumbprint: string;
     /**
-     * Indicate to rotate the NSX-T Manager password for the private cloud
+     * Optionally, set the NSX-T Manager password when the private cloud is created
      */
     readonly nsxtPassword?: string;
     /**
@@ -107,7 +107,7 @@ export interface GetPrivateCloudResult {
      */
     readonly vcenterCertificateThumbprint: string;
     /**
-     * Indicate to rotate the vCenter admin password for the private cloud
+     * Optionally, set the vCenter admin password when the private cloud is created
      */
     readonly vcenterPassword?: string;
     /**

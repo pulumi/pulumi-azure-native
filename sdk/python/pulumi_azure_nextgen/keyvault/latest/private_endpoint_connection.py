@@ -18,6 +18,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -31,6 +32,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] etag: Modified whenever there is a change in the state of private endpoint connection.
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: Approval state of the private link connection.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the key vault.
@@ -53,6 +55,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['etag'] = etag
             if private_endpoint_connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
@@ -94,6 +97,14 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         __props__ = dict()
 
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[Optional[str]]:
+        """
+        Modified whenever there is a change in the state of private endpoint connection.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter

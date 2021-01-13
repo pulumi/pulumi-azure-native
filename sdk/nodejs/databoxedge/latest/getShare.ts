@@ -84,6 +84,10 @@ export interface GetShareResult {
      */
     readonly shareStatus: string;
     /**
+     * Share on ASE device
+     */
+    readonly systemData: outputs.databoxedge.latest.SystemDataResponse;
+    /**
      * The hierarchical type of the object.
      */
     readonly type: string;

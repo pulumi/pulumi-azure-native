@@ -35,6 +35,22 @@ export interface GetDeviceExtendedInformationArgs {
  */
 export interface GetDeviceExtendedInformationResult {
     /**
+     * The name of Channel Integrity Key stored in the Client Key Vault
+     */
+    readonly channelIntegrityKeyName?: string;
+    /**
+     * The version of Channel Integrity Key stored in the Client Key Vault
+     */
+    readonly channelIntegrityKeyVersion?: string;
+    /**
+     * The Key Vault ARM Id for client secrets
+     */
+    readonly clientSecretStoreId?: string;
+    /**
+     * The url to access the Client Key Vault
+     */
+    readonly clientSecretStoreUrl?: string;
+    /**
      * The public part of the encryption certificate. Client uses this to encrypt any secret.
      */
     readonly encryptionKey?: string;

@@ -18,8 +18,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Inputs
         /// <summary>
         /// The address line1.
         /// </summary>
-        [Input("addressLine1", required: true)]
-        public Input<string> AddressLine1 { get; set; } = null!;
+        [Input("addressLine1")]
+        public Input<string>? AddressLine1 { get; set; }
 
         /// <summary>
         /// The address line2.
@@ -36,8 +36,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Inputs
         /// <summary>
         /// The city name.
         /// </summary>
-        [Input("city", required: true)]
-        public Input<string> City { get; set; } = null!;
+        [Input("city")]
+        public Input<string>? City { get; set; }
 
         /// <summary>
         /// The country name.
@@ -48,14 +48,14 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Inputs
         /// <summary>
         /// The postal code.
         /// </summary>
-        [Input("postalCode", required: true)]
-        public Input<string> PostalCode { get; set; } = null!;
+        [Input("postalCode")]
+        public Input<string>? PostalCode { get; set; }
 
         /// <summary>
         /// The state name.
         /// </summary>
-        [Input("state", required: true)]
-        public Input<string> State { get; set; } = null!;
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         public AddressArgs()
         {

@@ -37,6 +37,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Modified whenever there is a change in the state of private endpoint connection.
+     */
+    public readonly etag!: pulumi.Output<string | undefined>;
+    /**
      * Azure location of the key vault resource.
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
@@ -84,6 +88,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vaultName'");
             }
+            inputs["etag"] = args ? args.etag : undefined;
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -95,6 +100,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
@@ -120,6 +126,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivateEndpointConnection resource.
  */
 export interface PrivateEndpointConnectionArgs {
+    /**
+     * Modified whenever there is a change in the state of private endpoint connection.
+     */
+    readonly etag?: pulumi.Input<string>;
     /**
      * Name of the private endpoint connection associated with the key vault.
      */

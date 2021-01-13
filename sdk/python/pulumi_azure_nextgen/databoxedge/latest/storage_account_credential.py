@@ -34,7 +34,7 @@ class StorageAccountCredential(pulumi.CustomResource):
                  __opts__=None):
         """
         The storage account credential.
-        Latest API Version: 2019-08-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -90,8 +90,9 @@ class StorageAccountCredential(pulumi.CustomResource):
             __props__['ssl_status'] = ssl_status
             __props__['storage_account_id'] = storage_account_id
             __props__['user_name'] = user_name
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccountCredential, __self__).__init__(
             'azure-nextgen:databoxedge/latest:StorageAccountCredential',
@@ -180,6 +181,14 @@ class StorageAccountCredential(pulumi.CustomResource):
         Id of the storage account.
         """
         return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        StorageAccountCredential object
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

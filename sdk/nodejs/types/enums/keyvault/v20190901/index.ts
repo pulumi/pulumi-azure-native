@@ -179,3 +179,13 @@ export const StoragePermissions = {
 } as const;
 
 export type StoragePermissions = (typeof StoragePermissions)[keyof typeof StoragePermissions];
+
+export const VaultProvisioningState = {
+    Succeeded: "Succeeded",
+    RegisteringDns: "RegisteringDns",
+} as const;
+
+/**
+ * Provisioning state of the vault.
+ */
+export type VaultProvisioningState = (typeof VaultProvisioningState)[keyof typeof VaultProvisioningState];

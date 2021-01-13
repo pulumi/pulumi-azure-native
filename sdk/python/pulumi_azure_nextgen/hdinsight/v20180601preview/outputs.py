@@ -31,6 +31,7 @@ __all__ = [
     'DiskEncryptionPropertiesResponse',
     'EncryptionInTransitPropertiesResponse',
     'ErrorsResponse',
+    'ExcludedServicesConfigResponse',
     'HardwareProfileResponse',
     'KafkaRestPropertiesResponse',
     'LinuxOperatingSystemProfileResponse',
@@ -43,6 +44,8 @@ __all__ = [
     'SecurityProfileResponse',
     'SshProfileResponse',
     'SshPublicKeyResponse',
+    'StorageAccountResponse',
+    'StorageProfileResponse',
     'VirtualNetworkProfileResponse',
 ]
 
@@ -633,6 +636,7 @@ class ClusterGetPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  cluster_definition: 'outputs.ClusterDefinitionResponse',
+                 cluster_hdp_version: Optional[str] = None,
                  cluster_id: Optional[str] = None,
                  cluster_state: Optional[str] = None,
                  cluster_version: Optional[str] = None,
@@ -643,6 +647,7 @@ class ClusterGetPropertiesResponse(dict):
                  disk_encryption_properties: Optional['outputs.DiskEncryptionPropertiesResponse'] = None,
                  encryption_in_transit_properties: Optional['outputs.EncryptionInTransitPropertiesResponse'] = None,
                  errors: Optional[Sequence['outputs.ErrorsResponse']] = None,
+                 excluded_services_config: Optional['outputs.ExcludedServicesConfigResponse'] = None,
                  kafka_rest_properties: Optional['outputs.KafkaRestPropertiesResponse'] = None,
                  min_supported_tls_version: Optional[str] = None,
                  network_properties: Optional['outputs.NetworkPropertiesResponse'] = None,
@@ -650,10 +655,12 @@ class ClusterGetPropertiesResponse(dict):
                  provisioning_state: Optional[str] = None,
                  quota_info: Optional['outputs.QuotaInfoResponse'] = None,
                  security_profile: Optional['outputs.SecurityProfileResponse'] = None,
+                 storage_profile: Optional['outputs.StorageProfileResponse'] = None,
                  tier: Optional[str] = None):
         """
         The properties of cluster.
         :param 'ClusterDefinitionResponseArgs' cluster_definition: The cluster definition.
+        :param str cluster_hdp_version: The hdp version of the cluster.
         :param str cluster_id: The cluster id.
         :param str cluster_state: The state of the cluster.
         :param str cluster_version: The version of the cluster.
@@ -664,6 +671,7 @@ class ClusterGetPropertiesResponse(dict):
         :param 'DiskEncryptionPropertiesResponseArgs' disk_encryption_properties: The disk encryption properties.
         :param 'EncryptionInTransitPropertiesResponseArgs' encryption_in_transit_properties: The encryption-in-transit properties.
         :param Sequence['ErrorsResponseArgs'] errors: The list of errors.
+        :param 'ExcludedServicesConfigResponseArgs' excluded_services_config: The excluded services config.
         :param 'KafkaRestPropertiesResponseArgs' kafka_rest_properties: The cluster kafka rest proxy configuration.
         :param str min_supported_tls_version: The minimal supported tls version.
         :param 'NetworkPropertiesResponseArgs' network_properties: The network properties.
@@ -671,9 +679,12 @@ class ClusterGetPropertiesResponse(dict):
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param 'QuotaInfoResponseArgs' quota_info: The quota information.
         :param 'SecurityProfileResponseArgs' security_profile: The security profile.
+        :param 'StorageProfileResponseArgs' storage_profile: The storage profile.
         :param str tier: The cluster tier.
         """
         pulumi.set(__self__, "cluster_definition", cluster_definition)
+        if cluster_hdp_version is not None:
+            pulumi.set(__self__, "cluster_hdp_version", cluster_hdp_version)
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
         if cluster_state is not None:
@@ -694,6 +705,8 @@ class ClusterGetPropertiesResponse(dict):
             pulumi.set(__self__, "encryption_in_transit_properties", encryption_in_transit_properties)
         if errors is not None:
             pulumi.set(__self__, "errors", errors)
+        if excluded_services_config is not None:
+            pulumi.set(__self__, "excluded_services_config", excluded_services_config)
         if kafka_rest_properties is not None:
             pulumi.set(__self__, "kafka_rest_properties", kafka_rest_properties)
         if min_supported_tls_version is not None:
@@ -708,6 +721,8 @@ class ClusterGetPropertiesResponse(dict):
             pulumi.set(__self__, "quota_info", quota_info)
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
@@ -718,6 +733,14 @@ class ClusterGetPropertiesResponse(dict):
         The cluster definition.
         """
         return pulumi.get(self, "cluster_definition")
+
+    @property
+    @pulumi.getter(name="clusterHdpVersion")
+    def cluster_hdp_version(self) -> Optional[str]:
+        """
+        The hdp version of the cluster.
+        """
+        return pulumi.get(self, "cluster_hdp_version")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -800,6 +823,14 @@ class ClusterGetPropertiesResponse(dict):
         return pulumi.get(self, "errors")
 
     @property
+    @pulumi.getter(name="excludedServicesConfig")
+    def excluded_services_config(self) -> Optional['outputs.ExcludedServicesConfigResponse']:
+        """
+        The excluded services config.
+        """
+        return pulumi.get(self, "excluded_services_config")
+
+    @property
     @pulumi.getter(name="kafkaRestProperties")
     def kafka_rest_properties(self) -> Optional['outputs.KafkaRestPropertiesResponse']:
         """
@@ -854,6 +885,14 @@ class ClusterGetPropertiesResponse(dict):
         The security profile.
         """
         return pulumi.get(self, "security_profile")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional['outputs.StorageProfileResponse']:
+        """
+        The storage profile.
+        """
+        return pulumi.get(self, "storage_profile")
 
     @property
     @pulumi.getter
@@ -931,13 +970,17 @@ class ClusterIdentityResponse(dict):
 class ClusterIdentityResponseUserAssignedIdentities(dict):
     def __init__(__self__, *,
                  client_id: str,
-                 principal_id: str):
+                 principal_id: str,
+                 tenant_id: Optional[str] = None):
         """
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
+        :param str tenant_id: The tenant id of user assigned identity.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -954,6 +997,14 @@ class ClusterIdentityResponseUserAssignedIdentities(dict):
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1288,6 +1339,44 @@ class ErrorsResponse(dict):
 
 
 @pulumi.output_type
+class ExcludedServicesConfigResponse(dict):
+    """
+    The configuration that services will be excluded when creating cluster.
+    """
+    def __init__(__self__, *,
+                 excluded_services_config_id: Optional[str] = None,
+                 excluded_services_list: Optional[str] = None):
+        """
+        The configuration that services will be excluded when creating cluster.
+        :param str excluded_services_config_id: The config id of excluded services.
+        :param str excluded_services_list: The list of excluded services.
+        """
+        if excluded_services_config_id is not None:
+            pulumi.set(__self__, "excluded_services_config_id", excluded_services_config_id)
+        if excluded_services_list is not None:
+            pulumi.set(__self__, "excluded_services_list", excluded_services_list)
+
+    @property
+    @pulumi.getter(name="excludedServicesConfigId")
+    def excluded_services_config_id(self) -> Optional[str]:
+        """
+        The config id of excluded services.
+        """
+        return pulumi.get(self, "excluded_services_config_id")
+
+    @property
+    @pulumi.getter(name="excludedServicesList")
+    def excluded_services_list(self) -> Optional[str]:
+        """
+        The list of excluded services.
+        """
+        return pulumi.get(self, "excluded_services_list")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class HardwareProfileResponse(dict):
     """
     The hardware profile.
@@ -1487,6 +1576,7 @@ class RoleResponse(dict):
     def __init__(__self__, *,
                  autoscale_configuration: Optional['outputs.AutoscaleResponse'] = None,
                  data_disks_groups: Optional[Sequence['outputs.DataDisksGroupsResponse']] = None,
+                 encrypt_data_disks: Optional[bool] = None,
                  hardware_profile: Optional['outputs.HardwareProfileResponse'] = None,
                  min_instance_count: Optional[int] = None,
                  name: Optional[str] = None,
@@ -1498,6 +1588,7 @@ class RoleResponse(dict):
         Describes a role on the cluster.
         :param 'AutoscaleResponseArgs' autoscale_configuration: The autoscale configurations.
         :param Sequence['DataDisksGroupsResponseArgs'] data_disks_groups: The data disks groups for the role.
+        :param bool encrypt_data_disks: Indicates whether encrypt the data disks.
         :param 'HardwareProfileResponseArgs' hardware_profile: The hardware profile.
         :param int min_instance_count: The minimum instance count of the cluster.
         :param str name: The name of the role.
@@ -1510,6 +1601,8 @@ class RoleResponse(dict):
             pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
         if data_disks_groups is not None:
             pulumi.set(__self__, "data_disks_groups", data_disks_groups)
+        if encrypt_data_disks is not None:
+            pulumi.set(__self__, "encrypt_data_disks", encrypt_data_disks)
         if hardware_profile is not None:
             pulumi.set(__self__, "hardware_profile", hardware_profile)
         if min_instance_count is not None:
@@ -1540,6 +1633,14 @@ class RoleResponse(dict):
         The data disks groups for the role.
         """
         return pulumi.get(self, "data_disks_groups")
+
+    @property
+    @pulumi.getter(name="encryptDataDisks")
+    def encrypt_data_disks(self) -> Optional[bool]:
+        """
+        Indicates whether encrypt the data disks.
+        """
+        return pulumi.get(self, "encrypt_data_disks")
 
     @property
     @pulumi.getter(name="hardwareProfile")
@@ -1887,6 +1988,130 @@ class SshPublicKeyResponse(dict):
         The certificate for SSH.
         """
         return pulumi.get(self, "certificate_data")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageAccountResponse(dict):
+    """
+    The storage Account.
+    """
+    def __init__(__self__, *,
+                 container: Optional[str] = None,
+                 file_system: Optional[str] = None,
+                 is_default: Optional[bool] = None,
+                 key: Optional[str] = None,
+                 msi_resource_id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        The storage Account.
+        :param str container: The container in the storage account, only to be specified for WASB storage accounts.
+        :param str file_system: The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
+        :param bool is_default: Whether or not the storage account is the default storage account.
+        :param str key: The storage account access key.
+        :param str msi_resource_id: The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        :param str name: The name of the storage account.
+        :param str resource_id: The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        """
+        if container is not None:
+            pulumi.set(__self__, "container", container)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if msi_resource_id is not None:
+            pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter
+    def container(self) -> Optional[str]:
+        """
+        The container in the storage account, only to be specified for WASB storage accounts.
+        """
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional[str]:
+        """
+        The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
+        """
+        return pulumi.get(self, "file_system")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[bool]:
+        """
+        Whether or not the storage account is the default storage account.
+        """
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The storage account access key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="msiResourceId")
+    def msi_resource_id(self) -> Optional[str]:
+        """
+        The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        """
+        return pulumi.get(self, "msi_resource_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the storage account.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageProfileResponse(dict):
+    """
+    The storage profile.
+    """
+    def __init__(__self__, *,
+                 storageaccounts: Optional[Sequence['outputs.StorageAccountResponse']] = None):
+        """
+        The storage profile.
+        :param Sequence['StorageAccountResponseArgs'] storageaccounts: The list of storage accounts in the cluster.
+        """
+        if storageaccounts is not None:
+            pulumi.set(__self__, "storageaccounts", storageaccounts)
+
+    @property
+    @pulumi.getter
+    def storageaccounts(self) -> Optional[Sequence['outputs.StorageAccountResponse']]:
+        """
+        The list of storage accounts in the cluster.
+        """
+        return pulumi.get(self, "storageaccounts")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -52,6 +52,10 @@ export interface GetRoleResult {
      */
     readonly name: string;
     /**
+     * Role configured on ASE resource
+     */
+    readonly systemData: outputs.databoxedge.latest.SystemDataResponse;
+    /**
      * The hierarchical type of the object.
      */
     readonly type: string;

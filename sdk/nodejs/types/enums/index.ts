@@ -9,6 +9,7 @@ import * as analysisservices from "./analysisservices";
 import * as apimanagement from "./apimanagement";
 import * as appconfiguration from "./appconfiguration";
 import * as appplatform from "./appplatform";
+import * as attestation from "./attestation";
 import * as authorization from "./authorization";
 import * as automanage from "./automanage";
 import * as automation from "./automation";
@@ -100,6 +101,7 @@ import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
 import * as purview from "./purview";
 import * as recoveryservices from "./recoveryservices";
+import * as redhatopenshift from "./redhatopenshift";
 import * as relay from "./relay";
 import * as resources from "./resources";
 import * as saas from "./saas";
@@ -138,6 +140,7 @@ export {
     apimanagement,
     appconfiguration,
     appplatform,
+    attestation,
     authorization,
     automanage,
     automation,
@@ -229,6 +232,7 @@ export {
     powerplatform,
     purview,
     recoveryservices,
+    redhatopenshift,
     relay,
     resources,
     saas,

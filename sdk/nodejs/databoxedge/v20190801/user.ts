@@ -99,7 +99,7 @@ export class User extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/latest:User" }, { type: "azure-nextgen:databoxedge/v20190301:User" }, { type: "azure-nextgen:databoxedge/v20190701:User" }, { type: "azure-nextgen:databoxedge/v20200501preview:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/latest:User" }, { type: "azure-nextgen:databoxedge/v20190301:User" }, { type: "azure-nextgen:databoxedge/v20190701:User" }, { type: "azure-nextgen:databoxedge/v20200501preview:User" }, { type: "azure-nextgen:databoxedge/v20200901:User" }, { type: "azure-nextgen:databoxedge/v20200901preview:User" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(User.__pulumiType, name, inputs, opts);
     }

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 from ._enums import *
 
 __all__ = ['Trigger']
@@ -25,7 +26,7 @@ class Trigger(pulumi.CustomResource):
                  __opts__=None):
         """
         Trigger details.
-        Latest API Version: 2019-08-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -63,8 +64,9 @@ class Trigger(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Trigger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Trigger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Trigger, __self__).__init__(
             'azure-nextgen:databoxedge/latest:Trigger',
@@ -105,6 +107,14 @@ class Trigger(pulumi.CustomResource):
         The object name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Trigger in DataBoxEdge Resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -50,7 +50,7 @@ export interface GetStorageAccountResult {
     /**
      * Data policy of the storage Account.
      */
-    readonly dataPolicy?: string;
+    readonly dataPolicy: string;
     /**
      * Description for the storage Account.
      */
@@ -71,6 +71,10 @@ export interface GetStorageAccountResult {
      * Current status of the storage account
      */
     readonly storageAccountStatus?: string;
+    /**
+     * StorageAccount object on ASE device
+     */
+    readonly systemData: outputs.databoxedge.latest.SystemDataResponse;
     /**
      * The hierarchical type of the object.
      */

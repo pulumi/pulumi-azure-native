@@ -386,6 +386,8 @@ class SignalRNetworkACLsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]] private_endpoints: ACLs for requests from private endpoints
         :param pulumi.Input['NetworkACLArgs'] public_network: ACL for requests from public network
         """
+        if default_action is None:
+            default_action = 'Deny'
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if private_endpoints is not None:

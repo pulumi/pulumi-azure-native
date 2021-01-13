@@ -38,6 +38,34 @@ func (e AccountType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Addon type.
+type AddonType pulumi.String
+
+const (
+	AddonTypeIotEdge          = AddonType("IotEdge")
+	AddonTypeArcForKubernetes = AddonType("ArcForKubernetes")
+)
+
+func (AddonType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AddonType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AddonType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AddonType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AddonType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Storage format used for the file represented by the share.
 type AzureContainerDataFormat pulumi.String
 
@@ -93,6 +121,36 @@ func (e ClientPermissionType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ClientPermissionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The etag for the devices.
+type DataBoxEdgeDeviceKind pulumi.String
+
+const (
+	DataBoxEdgeDeviceKindAzureDataBoxGateway    = DataBoxEdgeDeviceKind("AzureDataBoxGateway")
+	DataBoxEdgeDeviceKindAzureStackEdge         = DataBoxEdgeDeviceKind("AzureStackEdge")
+	DataBoxEdgeDeviceKindAzureStackHub          = DataBoxEdgeDeviceKind("AzureStackHub")
+	DataBoxEdgeDeviceKindAzureModularDataCentre = DataBoxEdgeDeviceKind("AzureModularDataCentre")
+)
+
+func (DataBoxEdgeDeviceKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DataBoxEdgeDeviceKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataBoxEdgeDeviceKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataBoxEdgeDeviceKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataBoxEdgeDeviceKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -246,6 +304,35 @@ func (e MonitoringStatus) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Identity type
+type MsiIdentityType pulumi.String
+
+const (
+	MsiIdentityTypeNone           = MsiIdentityType("None")
+	MsiIdentityTypeSystemAssigned = MsiIdentityType("SystemAssigned")
+	MsiIdentityTypeUserAssigned   = MsiIdentityType("UserAssigned")
+)
+
+func (MsiIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e MsiIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MsiIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MsiIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MsiIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Status of the order as per the allowed status types.
 type OrderState pulumi.String
 
@@ -264,6 +351,9 @@ const (
 	OrderStateAwaitingReturnShipment = OrderState("AwaitingReturnShipment")
 	OrderStateShippedBack            = OrderState("ShippedBack")
 	OrderStateCollectedAtMicrosoft   = OrderState("CollectedAtMicrosoft")
+	OrderStateAwaitingPickup         = OrderState("AwaitingPickup")
+	OrderStatePickupCompleted        = OrderState("PickupCompleted")
+	OrderStateAwaitingDrop           = OrderState("AwaitingDrop")
 )
 
 func (OrderState) ElementType() reflect.Type {
@@ -286,14 +376,46 @@ func (e OrderState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Denotes whether move operation is in progress
+type ResourceMoveStatus pulumi.String
+
+const (
+	ResourceMoveStatusNone                   = ResourceMoveStatus("None")
+	ResourceMoveStatusResourceMoveInProgress = ResourceMoveStatus("ResourceMoveInProgress")
+	ResourceMoveStatusResourceMoveFailed     = ResourceMoveStatus("ResourceMoveFailed")
+)
+
+func (ResourceMoveStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ResourceMoveStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceMoveStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceMoveStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceMoveStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Role type.
 type RoleTypes pulumi.String
 
 const (
-	RoleTypesIOT       = RoleTypes("IOT")
-	RoleTypesASA       = RoleTypes("ASA")
-	RoleTypesFunctions = RoleTypes("Functions")
-	RoleTypesCognitive = RoleTypes("Cognitive")
+	RoleTypesIOT                 = RoleTypes("IOT")
+	RoleTypesASA                 = RoleTypes("ASA")
+	RoleTypesFunctions           = RoleTypes("Functions")
+	RoleTypesCognitive           = RoleTypes("Cognitive")
+	RoleTypesMEC                 = RoleTypes("MEC")
+	RoleTypesCloudEdgeManagement = RoleTypes("CloudEdgeManagement")
+	RoleTypesKubernetes          = RoleTypes("Kubernetes")
 )
 
 func (RoleTypes) ElementType() reflect.Type {
@@ -372,7 +494,7 @@ func (e ShareAccessProtocol) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Type of access to be allowed on the share for this user.
+// Type of access to be allowed for the user.
 type ShareAccessType pulumi.String
 
 const (
@@ -432,6 +554,35 @@ func (e ShareStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// ShipmentType of the order
+type ShipmentType pulumi.String
+
+const (
+	ShipmentTypeNotApplicable     = ShipmentType("NotApplicable")
+	ShipmentTypeShippedToCustomer = ShipmentType("ShippedToCustomer")
+	ShipmentTypeSelfPickup        = ShipmentType("SelfPickup")
+)
+
+func (ShipmentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ShipmentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ShipmentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ShipmentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ShipmentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // SKU name.
 type SkuName pulumi.String
 
@@ -445,6 +596,18 @@ const (
 	SkuName_TEA_4Node_Heater     = SkuName("TEA_4Node_Heater")
 	SkuName_TEA_4Node_UPS_Heater = SkuName("TEA_4Node_UPS_Heater")
 	SkuNameTMA                   = SkuName("TMA")
+	SkuNameTDC                   = SkuName("TDC")
+	SkuName_TCA_Small            = SkuName("TCA_Small")
+	SkuNameGPU                   = SkuName("GPU")
+	SkuName_TCA_Large            = SkuName("TCA_Large")
+	SkuName_EdgeP_Base           = SkuName("EdgeP_Base")
+	SkuName_EdgeP_High           = SkuName("EdgeP_High")
+	SkuName_EdgePR_Base          = SkuName("EdgePR_Base")
+	SkuName_EdgePR_Base_UPS      = SkuName("EdgePR_Base_UPS")
+	SkuName_EdgeMR_Mini          = SkuName("EdgeMR_Mini")
+	SkuName_RCA_Small            = SkuName("RCA_Small")
+	SkuName_RCA_Large            = SkuName("RCA_Large")
+	SkuNameRDC                   = SkuName("RDC")
 )
 
 func (SkuName) ElementType() reflect.Type {
@@ -522,6 +685,36 @@ func (e StorageAccountStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e StorageAccountStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SubscriptionState pulumi.String
+
+const (
+	SubscriptionStateRegistered   = SubscriptionState("Registered")
+	SubscriptionStateWarned       = SubscriptionState("Warned")
+	SubscriptionStateSuspended    = SubscriptionState("Suspended")
+	SubscriptionStateDeleted      = SubscriptionState("Deleted")
+	SubscriptionStateUnregistered = SubscriptionState("Unregistered")
+)
+
+func (SubscriptionState) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SubscriptionState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriptionState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriptionState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SubscriptionState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

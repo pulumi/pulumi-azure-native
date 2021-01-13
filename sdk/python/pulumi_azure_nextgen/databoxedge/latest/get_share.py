@@ -20,7 +20,7 @@ class GetShareResult:
     """
     Represents a share on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, access_protocol=None, azure_container_info=None, client_access_rights=None, data_policy=None, description=None, id=None, monitoring_status=None, name=None, refresh_details=None, share_mappings=None, share_status=None, type=None, user_access_rights=None):
+    def __init__(__self__, access_protocol=None, azure_container_info=None, client_access_rights=None, data_policy=None, description=None, id=None, monitoring_status=None, name=None, refresh_details=None, share_mappings=None, share_status=None, system_data=None, type=None, user_access_rights=None):
         if access_protocol and not isinstance(access_protocol, str):
             raise TypeError("Expected argument 'access_protocol' to be a str")
         pulumi.set(__self__, "access_protocol", access_protocol)
@@ -54,6 +54,9 @@ class GetShareResult:
         if share_status and not isinstance(share_status, str):
             raise TypeError("Expected argument 'share_status' to be a str")
         pulumi.set(__self__, "share_status", share_status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -150,6 +153,14 @@ class GetShareResult:
         return pulumi.get(self, "share_status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Share on ASE device
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -183,6 +194,7 @@ class AwaitableGetShareResult(GetShareResult):
             refresh_details=self.refresh_details,
             share_mappings=self.share_mappings,
             share_status=self.share_status,
+            system_data=self.system_data,
             type=self.type,
             user_access_rights=self.user_access_rights)
 
@@ -220,5 +232,6 @@ def get_share(device_name: Optional[str] = None,
         refresh_details=__ret__.refresh_details,
         share_mappings=__ret__.share_mappings,
         share_status=__ret__.share_status,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         user_access_rights=__ret__.user_access_rights)

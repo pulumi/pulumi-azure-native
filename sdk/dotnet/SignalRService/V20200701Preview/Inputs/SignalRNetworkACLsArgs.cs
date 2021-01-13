@@ -41,6 +41,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
 
         public SignalRNetworkACLsArgs()
         {
+            DefaultAction = "Deny";
         }
     }
 }

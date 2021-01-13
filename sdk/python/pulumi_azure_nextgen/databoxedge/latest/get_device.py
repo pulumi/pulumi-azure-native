@@ -20,7 +20,7 @@ class GetDeviceResult:
     """
     The Data Box Edge/Gateway device.
     """
-    def __init__(__self__, configured_role_types=None, culture=None, data_box_edge_device_status=None, description=None, device_hcs_version=None, device_local_capacity=None, device_model=None, device_software_version=None, device_type=None, etag=None, friendly_name=None, id=None, location=None, model_description=None, name=None, node_count=None, serial_number=None, sku=None, tags=None, time_zone=None, type=None):
+    def __init__(__self__, configured_role_types=None, culture=None, data_box_edge_device_status=None, description=None, device_hcs_version=None, device_local_capacity=None, device_model=None, device_software_version=None, device_type=None, edge_profile=None, etag=None, friendly_name=None, id=None, identity=None, kind=None, location=None, model_description=None, name=None, node_count=None, resource_move_details=None, serial_number=None, sku=None, system_data=None, tags=None, time_zone=None, type=None):
         if configured_role_types and not isinstance(configured_role_types, list):
             raise TypeError("Expected argument 'configured_role_types' to be a list")
         pulumi.set(__self__, "configured_role_types", configured_role_types)
@@ -48,6 +48,9 @@ class GetDeviceResult:
         if device_type and not isinstance(device_type, str):
             raise TypeError("Expected argument 'device_type' to be a str")
         pulumi.set(__self__, "device_type", device_type)
+        if edge_profile and not isinstance(edge_profile, dict):
+            raise TypeError("Expected argument 'edge_profile' to be a dict")
+        pulumi.set(__self__, "edge_profile", edge_profile)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -57,6 +60,12 @@ class GetDeviceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -69,12 +78,18 @@ class GetDeviceResult:
         if node_count and not isinstance(node_count, int):
             raise TypeError("Expected argument 'node_count' to be a int")
         pulumi.set(__self__, "node_count", node_count)
+        if resource_move_details and not isinstance(resource_move_details, dict):
+            raise TypeError("Expected argument 'resource_move_details' to be a dict")
+        pulumi.set(__self__, "resource_move_details", resource_move_details)
         if serial_number and not isinstance(serial_number, str):
             raise TypeError("Expected argument 'serial_number' to be a str")
         pulumi.set(__self__, "serial_number", serial_number)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -158,6 +173,14 @@ class GetDeviceResult:
         return pulumi.get(self, "device_type")
 
     @property
+    @pulumi.getter(name="edgeProfile")
+    def edge_profile(self) -> Optional['outputs.EdgeProfileResponse']:
+        """
+        The details of Edge Profile for this resource
+        """
+        return pulumi.get(self, "edge_profile")
+
+    @property
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
@@ -180,6 +203,22 @@ class GetDeviceResult:
         The path ID that uniquely identifies the object.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+        """
+        Msi identity of the resource
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The etag for the devices.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -214,6 +253,14 @@ class GetDeviceResult:
         return pulumi.get(self, "node_count")
 
     @property
+    @pulumi.getter(name="resourceMoveDetails")
+    def resource_move_details(self) -> Optional['outputs.ResourceMoveDetailsResponse']:
+        """
+        The details of the move operation on this resource.
+        """
+        return pulumi.get(self, "resource_move_details")
+
+    @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> str:
         """
@@ -228,6 +275,14 @@ class GetDeviceResult:
         The SKU type.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        DataBoxEdge Resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -269,15 +324,20 @@ class AwaitableGetDeviceResult(GetDeviceResult):
             device_model=self.device_model,
             device_software_version=self.device_software_version,
             device_type=self.device_type,
+            edge_profile=self.edge_profile,
             etag=self.etag,
             friendly_name=self.friendly_name,
             id=self.id,
+            identity=self.identity,
+            kind=self.kind,
             location=self.location,
             model_description=self.model_description,
             name=self.name,
             node_count=self.node_count,
+            resource_move_details=self.resource_move_details,
             serial_number=self.serial_number,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             time_zone=self.time_zone,
             type=self.type)
@@ -311,15 +371,20 @@ def get_device(device_name: Optional[str] = None,
         device_model=__ret__.device_model,
         device_software_version=__ret__.device_software_version,
         device_type=__ret__.device_type,
+        edge_profile=__ret__.edge_profile,
         etag=__ret__.etag,
         friendly_name=__ret__.friendly_name,
         id=__ret__.id,
+        identity=__ret__.identity,
+        kind=__ret__.kind,
         location=__ret__.location,
         model_description=__ret__.model_description,
         name=__ret__.name,
         node_count=__ret__.node_count,
+        resource_move_details=__ret__.resource_move_details,
         serial_number=__ret__.serial_number,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         time_zone=__ret__.time_zone,
         type=__ret__.type)

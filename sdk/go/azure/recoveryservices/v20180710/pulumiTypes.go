@@ -6171,6 +6171,8 @@ type HyperVReplicaAzureEnableProtectionInput struct {
 	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
 	// The OS type associated with vm.
 	OsType *string `pulumi:"osType"`
+	// The availability set ARM Id.
+	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
 	// The target availability zone.
 	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
 	// The selected target Azure network Id.
@@ -6221,6 +6223,8 @@ type HyperVReplicaAzureEnableProtectionInputArgs struct {
 	LogStorageAccountId pulumi.StringPtrInput `pulumi:"logStorageAccountId"`
 	// The OS type associated with vm.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// The availability set ARM Id.
+	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
 	// The target availability zone.
 	TargetAvailabilityZone pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
 	// The selected target Azure network Id.
@@ -6301,6 +6305,11 @@ func (o HyperVReplicaAzureEnableProtectionInputOutput) LogStorageAccountId() pul
 // The OS type associated with vm.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The availability set ARM Id.
+func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
 // The target availability zone.
@@ -8947,6 +8956,8 @@ type InMageAzureV2EnableProtectionInput struct {
 	RunAsAccountId *string `pulumi:"runAsAccountId"`
 	// The storage account name.
 	StorageAccountId *string `pulumi:"storageAccountId"`
+	// The availability set ARM Id.
+	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
 	// The target availability zone.
 	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
 	// The selected target Azure network Id.
@@ -9001,6 +9012,8 @@ type InMageAzureV2EnableProtectionInputArgs struct {
 	RunAsAccountId pulumi.StringPtrInput `pulumi:"runAsAccountId"`
 	// The storage account name.
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
+	// The availability set ARM Id.
+	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
 	// The target availability zone.
 	TargetAvailabilityZone pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
 	// The selected target Azure network Id.
@@ -9103,6 +9116,11 @@ func (o InMageAzureV2EnableProtectionInputOutput) RunAsAccountId() pulumi.String
 // The storage account name.
 func (o InMageAzureV2EnableProtectionInputOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The availability set ARM Id.
+func (o InMageAzureV2EnableProtectionInputOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
 // The target availability zone.

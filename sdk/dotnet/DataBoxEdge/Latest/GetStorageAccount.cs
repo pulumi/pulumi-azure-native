@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// <summary>
         /// Data policy of the storage Account.
         /// </summary>
-        public readonly string? DataPolicy;
+        public readonly string DataPolicy;
         /// <summary>
         /// Description for the storage Account.
         /// </summary>
@@ -78,6 +78,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly string? StorageAccountStatus;
         /// <summary>
+        /// StorageAccount object on ASE device
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
@@ -88,7 +92,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             int containerCount,
 
-            string? dataPolicy,
+            string dataPolicy,
 
             string? description,
 
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             string? storageAccountStatus,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             BlobEndpoint = blobEndpoint;
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
             Name = name;
             StorageAccountCredentialId = storageAccountCredentialId;
             StorageAccountStatus = storageAccountStatus;
+            SystemData = systemData;
             Type = type;
         }
     }

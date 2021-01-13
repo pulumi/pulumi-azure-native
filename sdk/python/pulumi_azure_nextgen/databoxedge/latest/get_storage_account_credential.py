@@ -20,7 +20,7 @@ class GetStorageAccountCredentialResult:
     """
     The storage account credential.
     """
-    def __init__(__self__, account_key=None, account_type=None, alias=None, blob_domain_name=None, connection_string=None, id=None, name=None, ssl_status=None, storage_account_id=None, type=None, user_name=None):
+    def __init__(__self__, account_key=None, account_type=None, alias=None, blob_domain_name=None, connection_string=None, id=None, name=None, ssl_status=None, storage_account_id=None, system_data=None, type=None, user_name=None):
         if account_key and not isinstance(account_key, dict):
             raise TypeError("Expected argument 'account_key' to be a dict")
         pulumi.set(__self__, "account_key", account_key)
@@ -48,6 +48,9 @@ class GetStorageAccountCredentialResult:
         if storage_account_id and not isinstance(storage_account_id, str):
             raise TypeError("Expected argument 'storage_account_id' to be a str")
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -128,6 +131,14 @@ class GetStorageAccountCredentialResult:
         return pulumi.get(self, "storage_account_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        StorageAccountCredential object
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -159,6 +170,7 @@ class AwaitableGetStorageAccountCredentialResult(GetStorageAccountCredentialResu
             name=self.name,
             ssl_status=self.ssl_status,
             storage_account_id=self.storage_account_id,
+            system_data=self.system_data,
             type=self.type,
             user_name=self.user_name)
 
@@ -194,5 +206,6 @@ def get_storage_account_credential(device_name: Optional[str] = None,
         name=__ret__.name,
         ssl_status=__ret__.ssl_status,
         storage_account_id=__ret__.storage_account_id,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         user_name=__ret__.user_name)

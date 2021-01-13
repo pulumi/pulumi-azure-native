@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// The bandwidth schedule details.
-    /// Latest API Version: 2019-08-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:BandwidthSchedule")]
     public partial class BandwidthSchedule : Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         [Output("stop")]
         public Output<string> Stop { get; private set; } = null!;
+
+        /// <summary>
+        /// Bandwidth object related to ASE resource
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
@@ -81,6 +87,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -19,7 +19,19 @@ class GetDeviceExtendedInformationResult:
     """
     The extended Info of the Data Box Edge/Gateway device.
     """
-    def __init__(__self__, encryption_key=None, encryption_key_thumbprint=None, id=None, name=None, resource_key=None, type=None):
+    def __init__(__self__, channel_integrity_key_name=None, channel_integrity_key_version=None, client_secret_store_id=None, client_secret_store_url=None, encryption_key=None, encryption_key_thumbprint=None, id=None, name=None, resource_key=None, type=None):
+        if channel_integrity_key_name and not isinstance(channel_integrity_key_name, str):
+            raise TypeError("Expected argument 'channel_integrity_key_name' to be a str")
+        pulumi.set(__self__, "channel_integrity_key_name", channel_integrity_key_name)
+        if channel_integrity_key_version and not isinstance(channel_integrity_key_version, str):
+            raise TypeError("Expected argument 'channel_integrity_key_version' to be a str")
+        pulumi.set(__self__, "channel_integrity_key_version", channel_integrity_key_version)
+        if client_secret_store_id and not isinstance(client_secret_store_id, str):
+            raise TypeError("Expected argument 'client_secret_store_id' to be a str")
+        pulumi.set(__self__, "client_secret_store_id", client_secret_store_id)
+        if client_secret_store_url and not isinstance(client_secret_store_url, str):
+            raise TypeError("Expected argument 'client_secret_store_url' to be a str")
+        pulumi.set(__self__, "client_secret_store_url", client_secret_store_url)
         if encryption_key and not isinstance(encryption_key, str):
             raise TypeError("Expected argument 'encryption_key' to be a str")
         pulumi.set(__self__, "encryption_key", encryption_key)
@@ -38,6 +50,38 @@ class GetDeviceExtendedInformationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="channelIntegrityKeyName")
+    def channel_integrity_key_name(self) -> Optional[str]:
+        """
+        The name of Channel Integrity Key stored in the Client Key Vault
+        """
+        return pulumi.get(self, "channel_integrity_key_name")
+
+    @property
+    @pulumi.getter(name="channelIntegrityKeyVersion")
+    def channel_integrity_key_version(self) -> Optional[str]:
+        """
+        The version of Channel Integrity Key stored in the Client Key Vault
+        """
+        return pulumi.get(self, "channel_integrity_key_version")
+
+    @property
+    @pulumi.getter(name="clientSecretStoreId")
+    def client_secret_store_id(self) -> Optional[str]:
+        """
+        The Key Vault ARM Id for client secrets
+        """
+        return pulumi.get(self, "client_secret_store_id")
+
+    @property
+    @pulumi.getter(name="clientSecretStoreUrl")
+    def client_secret_store_url(self) -> Optional[str]:
+        """
+        The url to access the Client Key Vault
+        """
+        return pulumi.get(self, "client_secret_store_url")
 
     @property
     @pulumi.getter(name="encryptionKey")
@@ -94,6 +138,10 @@ class AwaitableGetDeviceExtendedInformationResult(GetDeviceExtendedInformationRe
         if False:
             yield self
         return GetDeviceExtendedInformationResult(
+            channel_integrity_key_name=self.channel_integrity_key_name,
+            channel_integrity_key_version=self.channel_integrity_key_version,
+            client_secret_store_id=self.client_secret_store_id,
+            client_secret_store_url=self.client_secret_store_url,
             encryption_key=self.encryption_key,
             encryption_key_thumbprint=self.encryption_key_thumbprint,
             id=self.id,
@@ -121,6 +169,10 @@ def get_device_extended_information(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:databoxedge/latest:getDeviceExtendedInformation', __args__, opts=opts, typ=GetDeviceExtendedInformationResult).value
 
     return AwaitableGetDeviceExtendedInformationResult(
+        channel_integrity_key_name=__ret__.channel_integrity_key_name,
+        channel_integrity_key_version=__ret__.channel_integrity_key_version,
+        client_secret_store_id=__ret__.client_secret_store_id,
+        client_secret_store_url=__ret__.client_secret_store_url,
         encryption_key=__ret__.encryption_key,
         encryption_key_thumbprint=__ret__.encryption_key_thumbprint,
         id=__ret__.id,

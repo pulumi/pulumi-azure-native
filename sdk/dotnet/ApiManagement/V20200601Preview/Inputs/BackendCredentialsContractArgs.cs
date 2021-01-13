@@ -25,12 +25,24 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview.Inputs
         private InputList<string>? _certificate;
 
         /// <summary>
-        /// List of Client Certificate Thumbprint.
+        /// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
         /// </summary>
         public InputList<string> Certificate
         {
             get => _certificate ?? (_certificate = new InputList<string>());
             set => _certificate = value;
+        }
+
+        [Input("certificateIds")]
+        private InputList<string>? _certificateIds;
+
+        /// <summary>
+        /// List of Client Certificate Ids.
+        /// </summary>
+        public InputList<string> CertificateIds
+        {
+            get => _certificateIds ?? (_certificateIds = new InputList<string>());
+            set => _certificateIds = value;
         }
 
         [Input("header")]

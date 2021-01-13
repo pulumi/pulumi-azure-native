@@ -12,7 +12,7 @@ import (
 )
 
 // The bandwidth schedule details.
-// Latest API Version: 2019-08-01.
+// Latest API Version: 2020-09-01.
 type BandwidthSchedule struct {
 	pulumi.CustomResourceState
 
@@ -26,6 +26,8 @@ type BandwidthSchedule struct {
 	Start pulumi.StringOutput `pulumi:"start"`
 	// The stop time of the schedule in UTC.
 	Stop pulumi.StringOutput `pulumi:"stop"`
+	// Bandwidth object related to ASE resource
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -71,6 +73,12 @@ func NewBandwidthSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:BandwidthSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BandwidthSchedule
@@ -105,6 +113,8 @@ type bandwidthScheduleState struct {
 	Start *string `pulumi:"start"`
 	// The stop time of the schedule in UTC.
 	Stop *string `pulumi:"stop"`
+	// Bandwidth object related to ASE resource
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
@@ -120,6 +130,8 @@ type BandwidthScheduleState struct {
 	Start pulumi.StringPtrInput
 	// The stop time of the schedule in UTC.
 	Stop pulumi.StringPtrInput
+	// Bandwidth object related to ASE resource
+	SystemData SystemDataResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }

@@ -47,7 +47,7 @@ type LookupPrivateCloudResult struct {
 	NetworkBlock string `pulumi:"networkBlock"`
 	// Thumbprint of the NSX-T Manager SSL certificate
 	NsxtCertificateThumbprint string `pulumi:"nsxtCertificateThumbprint"`
-	// Indicate to rotate the NSX-T Manager password for the private cloud
+	// Optionally, set the NSX-T Manager password when the private cloud is created
 	NsxtPassword *string `pulumi:"nsxtPassword"`
 	// Used for virtual machine cold migration, cloning, and snapshot migration
 	ProvisioningNetwork string `pulumi:"provisioningNetwork"`
@@ -61,7 +61,7 @@ type LookupPrivateCloudResult struct {
 	Type string `pulumi:"type"`
 	// Thumbprint of the vCenter Server SSL certificate
 	VcenterCertificateThumbprint string `pulumi:"vcenterCertificateThumbprint"`
-	// Indicate to rotate the vCenter admin password for the private cloud
+	// Optionally, set the vCenter admin password when the private cloud is created
 	VcenterPassword *string `pulumi:"vcenterPassword"`
 	// Used for live migration of virtual machines
 	VmotionNetwork string `pulumi:"vmotionNetwork"`

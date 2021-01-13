@@ -35,8 +35,10 @@ type LookupUserResult struct {
 	Name string `pulumi:"name"`
 	// List of shares that the user has rights on. This field should not be specified during user creation.
 	ShareAccessRights []ShareAccessRightResponse `pulumi:"shareAccessRights"`
+	// User in DataBoxEdge Resource
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 	// Type of the user.
-	UserType string `pulumi:"userType"`
+	UserType *string `pulumi:"userType"`
 }

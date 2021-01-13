@@ -71,7 +71,7 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'user_type'")
             __props__['user_type'] = user_type
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/latest:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/latest:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-nextgen:databoxedge/v20190801:User',

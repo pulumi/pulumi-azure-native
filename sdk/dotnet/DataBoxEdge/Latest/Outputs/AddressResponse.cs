@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Outputs
         /// <summary>
         /// The address line1.
         /// </summary>
-        public readonly string AddressLine1;
+        public readonly string? AddressLine1;
         /// <summary>
         /// The address line2.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Outputs
         /// <summary>
         /// The city name.
         /// </summary>
-        public readonly string City;
+        public readonly string? City;
         /// <summary>
         /// The country name.
         /// </summary>
@@ -36,27 +36,27 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Outputs
         /// <summary>
         /// The postal code.
         /// </summary>
-        public readonly string PostalCode;
+        public readonly string? PostalCode;
         /// <summary>
         /// The state name.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
 
         [OutputConstructor]
         private AddressResponse(
-            string addressLine1,
+            string? addressLine1,
 
             string? addressLine2,
 
             string? addressLine3,
 
-            string city,
+            string? city,
 
             string country,
 
-            string postalCode,
+            string? postalCode,
 
-            string state)
+            string? state)
         {
             AddressLine1 = addressLine1;
             AddressLine2 = addressLine2;

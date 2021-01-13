@@ -32,7 +32,7 @@ type LookupStorageAccountResult struct {
 	// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
 	ContainerCount int `pulumi:"containerCount"`
 	// Data policy of the storage Account.
-	DataPolicy *string `pulumi:"dataPolicy"`
+	DataPolicy string `pulumi:"dataPolicy"`
 	// Description for the storage Account.
 	Description *string `pulumi:"description"`
 	// The path ID that uniquely identifies the object.
@@ -43,6 +43,8 @@ type LookupStorageAccountResult struct {
 	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
 	// Current status of the storage account
 	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
+	// StorageAccount object on ASE device
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

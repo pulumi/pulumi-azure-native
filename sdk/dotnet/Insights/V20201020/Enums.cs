@@ -11,26 +11,26 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
     /// The kind of workbook. Choices are user and shared.
     /// </summary>
     [EnumType]
-    public readonly struct SharedTypeKind : IEquatable<SharedTypeKind>
+    public readonly struct Kind : IEquatable<Kind>
     {
         private readonly string _value;
 
-        private SharedTypeKind(string value)
+        private Kind(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SharedTypeKind User { get; } = new SharedTypeKind("user");
-        public static SharedTypeKind Shared { get; } = new SharedTypeKind("shared");
+        public static Kind User { get; } = new Kind("user");
+        public static Kind Shared { get; } = new Kind("shared");
 
-        public static bool operator ==(SharedTypeKind left, SharedTypeKind right) => left.Equals(right);
-        public static bool operator !=(SharedTypeKind left, SharedTypeKind right) => !left.Equals(right);
+        public static bool operator ==(Kind left, Kind right) => left.Equals(right);
+        public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
 
-        public static explicit operator string(SharedTypeKind value) => value._value;
+        public static explicit operator string(Kind value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SharedTypeKind other && Equals(other);
-        public bool Equals(SharedTypeKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Kind other && Equals(other);
+        public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

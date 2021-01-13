@@ -174,7 +174,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="nsxtPassword")
     def nsxt_password(self) -> Optional[str]:
         """
-        Indicate to rotate the NSX-T Manager password for the private cloud
+        Optionally, set the NSX-T Manager password when the private cloud is created
         """
         return pulumi.get(self, "nsxt_password")
 
@@ -230,7 +230,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="vcenterPassword")
     def vcenter_password(self) -> Optional[str]:
         """
-        Indicate to rotate the vCenter admin password for the private cloud
+        Optionally, set the vCenter admin password when the private cloud is created
         """
         return pulumi.get(self, "vcenter_password")
 

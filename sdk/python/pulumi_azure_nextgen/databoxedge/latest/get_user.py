@@ -20,7 +20,7 @@ class GetUserResult:
     """
     Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     """
-    def __init__(__self__, encrypted_password=None, id=None, name=None, share_access_rights=None, type=None, user_type=None):
+    def __init__(__self__, encrypted_password=None, id=None, name=None, share_access_rights=None, system_data=None, type=None, user_type=None):
         if encrypted_password and not isinstance(encrypted_password, dict):
             raise TypeError("Expected argument 'encrypted_password' to be a dict")
         pulumi.set(__self__, "encrypted_password", encrypted_password)
@@ -33,6 +33,9 @@ class GetUserResult:
         if share_access_rights and not isinstance(share_access_rights, list):
             raise TypeError("Expected argument 'share_access_rights' to be a list")
         pulumi.set(__self__, "share_access_rights", share_access_rights)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -66,11 +69,19 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> Optional[Sequence['outputs.ShareAccessRightResponse']]:
+    def share_access_rights(self) -> Sequence['outputs.ShareAccessRightResponse']:
         """
         List of shares that the user has rights on. This field should not be specified during user creation.
         """
         return pulumi.get(self, "share_access_rights")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        User in DataBoxEdge Resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -82,7 +93,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="userType")
-    def user_type(self) -> str:
+    def user_type(self) -> Optional[str]:
         """
         Type of the user.
         """
@@ -99,6 +110,7 @@ class AwaitableGetUserResult(GetUserResult):
             id=self.id,
             name=self.name,
             share_access_rights=self.share_access_rights,
+            system_data=self.system_data,
             type=self.type,
             user_type=self.user_type)
 
@@ -129,5 +141,6 @@ def get_user(device_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         share_access_rights=__ret__.share_access_rights,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         user_type=__ret__.user_type)

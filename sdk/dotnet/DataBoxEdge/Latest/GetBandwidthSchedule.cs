@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly string Stop;
         /// <summary>
+        /// Bandwidth object related to ASE resource
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             string stop,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Days = days;
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
             RateInMbps = rateInMbps;
             Start = start;
             Stop = stop;
+            SystemData = systemData;
             Type = type;
         }
     }

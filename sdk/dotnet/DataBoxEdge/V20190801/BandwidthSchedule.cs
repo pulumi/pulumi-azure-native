@@ -80,6 +80,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

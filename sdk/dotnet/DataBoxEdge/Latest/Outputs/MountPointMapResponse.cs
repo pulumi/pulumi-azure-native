@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Outputs
         /// </summary>
         public readonly string MountPoint;
         /// <summary>
+        /// Mounting type.
+        /// </summary>
+        public readonly string MountType;
+        /// <summary>
         /// ID of the role to which share is mounted.
         /// </summary>
         public readonly string RoleId;
@@ -34,6 +38,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Outputs
         private MountPointMapResponse(
             string mountPoint,
 
+            string mountType,
+
             string roleId,
 
             string roleType,
@@ -41,6 +47,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Outputs
             string shareId)
         {
             MountPoint = mountPoint;
+            MountType = mountType;
             RoleId = roleId;
             RoleType = roleType;
             ShareId = shareId;

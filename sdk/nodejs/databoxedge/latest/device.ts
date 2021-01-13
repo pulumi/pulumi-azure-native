@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
- * Latest API Version: 2019-08-01.
+ * Latest API Version: 2020-09-01.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -73,6 +73,10 @@ export class Device extends pulumi.CustomResource {
      */
     public /*out*/ readonly deviceType!: pulumi.Output<string>;
     /**
+     * The details of Edge Profile for this resource
+     */
+    public readonly edgeProfile!: pulumi.Output<outputs.databoxedge.latest.EdgeProfileResponse | undefined>;
+    /**
      * The etag for the devices.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -80,6 +84,14 @@ export class Device extends pulumi.CustomResource {
      * The Data Box Edge/Gateway device name.
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
+    /**
+     * Msi identity of the resource
+     */
+    public readonly identity!: pulumi.Output<outputs.databoxedge.latest.ResourceIdentityResponse | undefined>;
+    /**
+     * The etag for the devices.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
@@ -97,6 +109,10 @@ export class Device extends pulumi.CustomResource {
      */
     public /*out*/ readonly nodeCount!: pulumi.Output<number>;
     /**
+     * The details of the move operation on this resource.
+     */
+    public readonly resourceMoveDetails!: pulumi.Output<outputs.databoxedge.latest.ResourceMoveDetailsResponse | undefined>;
+    /**
      * The Serial Number of Data Box Edge/Gateway device.
      */
     public /*out*/ readonly serialNumber!: pulumi.Output<string>;
@@ -104,6 +120,10 @@ export class Device extends pulumi.CustomResource {
      * The SKU type.
      */
     public readonly sku!: pulumi.Output<outputs.databoxedge.latest.SkuResponse | undefined>;
+    /**
+     * DataBoxEdge Resource
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.latest.SystemDataResponse>;
     /**
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */
@@ -139,11 +159,15 @@ export class Device extends pulumi.CustomResource {
             inputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
+            inputs["edgeProfile"] = args ? args.edgeProfile : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
+            inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["modelDescription"] = args ? args.modelDescription : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceMoveDetails"] = args ? args.resourceMoveDetails : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["configuredRoleTypes"] = undefined /*out*/;
@@ -156,6 +180,7 @@ export class Device extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["nodeCount"] = undefined /*out*/;
             inputs["serialNumber"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["timeZone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -168,14 +193,19 @@ export class Device extends pulumi.CustomResource {
             inputs["deviceModel"] = undefined /*out*/;
             inputs["deviceSoftwareVersion"] = undefined /*out*/;
             inputs["deviceType"] = undefined /*out*/;
+            inputs["edgeProfile"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["friendlyName"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["modelDescription"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["nodeCount"] = undefined /*out*/;
+            inputs["resourceMoveDetails"] = undefined /*out*/;
             inputs["serialNumber"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeZone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -187,7 +217,7 @@ export class Device extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Device" }, { type: "azure-nextgen:databoxedge/v20190701:Device" }, { type: "azure-nextgen:databoxedge/v20190801:Device" }, { type: "azure-nextgen:databoxedge/v20200501preview:Device" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Device" }, { type: "azure-nextgen:databoxedge/v20190701:Device" }, { type: "azure-nextgen:databoxedge/v20190801:Device" }, { type: "azure-nextgen:databoxedge/v20200501preview:Device" }, { type: "azure-nextgen:databoxedge/v20200901:Device" }, { type: "azure-nextgen:databoxedge/v20200901preview:Device" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Device.__pulumiType, name, inputs, opts);
     }
@@ -210,6 +240,10 @@ export interface DeviceArgs {
      */
     readonly deviceName: pulumi.Input<string>;
     /**
+     * The details of Edge Profile for this resource
+     */
+    readonly edgeProfile?: pulumi.Input<inputs.databoxedge.latest.EdgeProfile>;
+    /**
      * The etag for the devices.
      */
     readonly etag?: pulumi.Input<string>;
@@ -217,6 +251,14 @@ export interface DeviceArgs {
      * The Data Box Edge/Gateway device name.
      */
     readonly friendlyName?: pulumi.Input<string>;
+    /**
+     * Msi identity of the resource
+     */
+    readonly identity?: pulumi.Input<inputs.databoxedge.latest.ResourceIdentity>;
+    /**
+     * The etag for the devices.
+     */
+    readonly kind?: pulumi.Input<string | enums.databoxedge.latest.DataBoxEdgeDeviceKind>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
@@ -229,6 +271,10 @@ export interface DeviceArgs {
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The details of the move operation on this resource.
+     */
+    readonly resourceMoveDetails?: pulumi.Input<inputs.databoxedge.latest.ResourceMoveDetails>;
     /**
      * The SKU type.
      */

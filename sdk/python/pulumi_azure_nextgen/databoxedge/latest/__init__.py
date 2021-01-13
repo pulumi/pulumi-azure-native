@@ -4,13 +4,16 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .addon import *
 from .bandwidth_schedule import *
 from .container import *
 from .device import *
+from .get_addon import *
 from .get_bandwidth_schedule import *
 from .get_container import *
 from .get_device import *
 from .get_device_extended_information import *
+from .get_monitoring_config import *
 from .get_order import *
 from .get_role import *
 from .get_share import *
@@ -18,6 +21,8 @@ from .get_storage_account import *
 from .get_storage_account_credential import *
 from .get_trigger import *
 from .get_user import *
+from .list_order_dc_access_code import *
+from .monitoring_config import *
 from .order import *
 from .role import *
 from .share import *
@@ -40,12 +45,16 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-nextgen:databoxedge/latest:BandwidthSchedule":
+            if typ == "azure-nextgen:databoxedge/latest:Addon":
+                return Addon(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:databoxedge/latest:BandwidthSchedule":
                 return BandwidthSchedule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:databoxedge/latest:Container":
                 return Container(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:databoxedge/latest:Device":
                 return Device(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:databoxedge/latest:MonitoringConfig":
+                return MonitoringConfig(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:databoxedge/latest:Order":
                 return Order(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:databoxedge/latest:Role":

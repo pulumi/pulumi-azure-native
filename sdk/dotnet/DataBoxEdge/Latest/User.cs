@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-    /// Latest API Version: 2019-08-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:User")]
     public partial class User : Pulumi.CustomResource
@@ -35,6 +35,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         public Output<ImmutableArray<Outputs.ShareAccessRightResponse>> ShareAccessRights { get; private set; } = null!;
 
         /// <summary>
+        /// User in DataBoxEdge Resource
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
@@ -44,7 +50,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// Type of the user.
         /// </summary>
         [Output("userType")]
-        public Output<string> UserType { get; private set; } = null!;
+        public Output<string?> UserType { get; private set; } = null!;
 
 
         /// <summary>
@@ -75,6 +81,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:User"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:User"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,23 +130,11 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("shareAccessRights")]
-        private InputList<Inputs.ShareAccessRightArgs>? _shareAccessRights;
-
-        /// <summary>
-        /// List of shares that the user has rights on. This field should not be specified during user creation.
-        /// </summary>
-        public InputList<Inputs.ShareAccessRightArgs> ShareAccessRights
-        {
-            get => _shareAccessRights ?? (_shareAccessRights = new InputList<Inputs.ShareAccessRightArgs>());
-            set => _shareAccessRights = value;
-        }
-
         /// <summary>
         /// Type of the user.
         /// </summary>
-        [Input("userType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.UserType> UserType { get; set; } = null!;
+        [Input("userType")]
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.UserType>? UserType { get; set; }
 
         public UserArgs()
         {

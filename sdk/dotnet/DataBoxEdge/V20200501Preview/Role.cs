@@ -62,6 +62,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Role"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Role"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Role"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

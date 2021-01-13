@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Compute role.
- * Latest API Version: 2019-08-01.
+ * Latest API Version: 2020-09-01.
  */
 export class Role extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Role configured on ASE resource
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.latest.SystemDataResponse>;
+    /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -75,10 +79,12 @@ export class Role extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -88,7 +94,7 @@ export class Role extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Role" }, { type: "azure-nextgen:databoxedge/v20190701:Role" }, { type: "azure-nextgen:databoxedge/v20190801:Role" }, { type: "azure-nextgen:databoxedge/v20200501preview:Role" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Role" }, { type: "azure-nextgen:databoxedge/v20190701:Role" }, { type: "azure-nextgen:databoxedge/v20190801:Role" }, { type: "azure-nextgen:databoxedge/v20200501preview:Role" }, { type: "azure-nextgen:databoxedge/v20200901:Role" }, { type: "azure-nextgen:databoxedge/v20200901preview:Role" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Role.__pulumiType, name, inputs, opts);
     }

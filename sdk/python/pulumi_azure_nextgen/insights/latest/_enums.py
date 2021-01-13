@@ -20,6 +20,7 @@ __all__ = [
     'IngestionMode',
     'ItemScope',
     'ItemType',
+    'Kind',
     'MetricStatisticType',
     'MetricTriggerType',
     'Odatatype',
@@ -31,7 +32,6 @@ __all__ = [
     'ScaleDirection',
     'ScaleRuleMetricDimensionOperationType',
     'ScaleType',
-    'SharedTypeKind',
     'TimeAggregationOperator',
     'TimeAggregationType',
     'WebTestKind',
@@ -175,6 +175,14 @@ class ItemType(str, Enum):
     RECENT = "recent"
 
 
+class Kind(str, Enum):
+    """
+    The kind of workbook. Choices are user and shared.
+    """
+    USER = "user"
+    SHARED = "shared"
+
+
 class MetricStatisticType(str, Enum):
     """
     the metric statistic type. How the metrics from multiple instances are combined.
@@ -268,14 +276,6 @@ class ScaleType(str, Enum):
     CHANGE_COUNT = "ChangeCount"
     PERCENT_CHANGE_COUNT = "PercentChangeCount"
     EXACT_COUNT = "ExactCount"
-
-
-class SharedTypeKind(str, Enum):
-    """
-    The kind of workbook. Choices are user and shared.
-    """
-    USER = "user"
-    SHARED = "shared"
 
 
 class TimeAggregationOperator(str, Enum):

@@ -78,6 +78,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Container"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Container"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Container"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

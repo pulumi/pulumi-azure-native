@@ -2492,8 +2492,10 @@ func (o BackendAuthorizationHeaderCredentialsResponsePtrOutput) Scheme() pulumi.
 type BackendCredentialsContract struct {
 	// Authorization header authentication
 	Authorization *BackendAuthorizationHeaderCredentials `pulumi:"authorization"`
-	// List of Client Certificate Thumbprint.
+	// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
 	Certificate []string `pulumi:"certificate"`
+	// List of Client Certificate Ids.
+	CertificateIds []string `pulumi:"certificateIds"`
 	// Header Parameter description.
 	Header map[string][]string `pulumi:"header"`
 	// Query Parameter description.
@@ -2515,8 +2517,10 @@ type BackendCredentialsContractInput interface {
 type BackendCredentialsContractArgs struct {
 	// Authorization header authentication
 	Authorization BackendAuthorizationHeaderCredentialsPtrInput `pulumi:"authorization"`
-	// List of Client Certificate Thumbprint.
+	// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
 	Certificate pulumi.StringArrayInput `pulumi:"certificate"`
+	// List of Client Certificate Ids.
+	CertificateIds pulumi.StringArrayInput `pulumi:"certificateIds"`
 	// Header Parameter description.
 	Header pulumi.StringArrayMapInput `pulumi:"header"`
 	// Query Parameter description.
@@ -2606,9 +2610,14 @@ func (o BackendCredentialsContractOutput) Authorization() BackendAuthorizationHe
 	return o.ApplyT(func(v BackendCredentialsContract) *BackendAuthorizationHeaderCredentials { return v.Authorization }).(BackendAuthorizationHeaderCredentialsPtrOutput)
 }
 
-// List of Client Certificate Thumbprint.
+// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
 func (o BackendCredentialsContractOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackendCredentialsContract) []string { return v.Certificate }).(pulumi.StringArrayOutput)
+}
+
+// List of Client Certificate Ids.
+func (o BackendCredentialsContractOutput) CertificateIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackendCredentialsContract) []string { return v.CertificateIds }).(pulumi.StringArrayOutput)
 }
 
 // Header Parameter description.
@@ -2649,13 +2658,23 @@ func (o BackendCredentialsContractPtrOutput) Authorization() BackendAuthorizatio
 	}).(BackendAuthorizationHeaderCredentialsPtrOutput)
 }
 
-// List of Client Certificate Thumbprint.
+// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
 func (o BackendCredentialsContractPtrOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackendCredentialsContract) []string {
 		if v == nil {
 			return nil
 		}
 		return v.Certificate
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of Client Certificate Ids.
+func (o BackendCredentialsContractPtrOutput) CertificateIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackendCredentialsContract) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateIds
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -2683,8 +2702,10 @@ func (o BackendCredentialsContractPtrOutput) Query() pulumi.StringArrayMapOutput
 type BackendCredentialsContractResponse struct {
 	// Authorization header authentication
 	Authorization *BackendAuthorizationHeaderCredentialsResponse `pulumi:"authorization"`
-	// List of Client Certificate Thumbprint.
+	// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
 	Certificate []string `pulumi:"certificate"`
+	// List of Client Certificate Ids.
+	CertificateIds []string `pulumi:"certificateIds"`
 	// Header Parameter description.
 	Header map[string][]string `pulumi:"header"`
 	// Query Parameter description.
@@ -2706,8 +2727,10 @@ type BackendCredentialsContractResponseInput interface {
 type BackendCredentialsContractResponseArgs struct {
 	// Authorization header authentication
 	Authorization BackendAuthorizationHeaderCredentialsResponsePtrInput `pulumi:"authorization"`
-	// List of Client Certificate Thumbprint.
+	// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
 	Certificate pulumi.StringArrayInput `pulumi:"certificate"`
+	// List of Client Certificate Ids.
+	CertificateIds pulumi.StringArrayInput `pulumi:"certificateIds"`
 	// Header Parameter description.
 	Header pulumi.StringArrayMapInput `pulumi:"header"`
 	// Query Parameter description.
@@ -2799,9 +2822,14 @@ func (o BackendCredentialsContractResponseOutput) Authorization() BackendAuthori
 	}).(BackendAuthorizationHeaderCredentialsResponsePtrOutput)
 }
 
-// List of Client Certificate Thumbprint.
+// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
 func (o BackendCredentialsContractResponseOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackendCredentialsContractResponse) []string { return v.Certificate }).(pulumi.StringArrayOutput)
+}
+
+// List of Client Certificate Ids.
+func (o BackendCredentialsContractResponseOutput) CertificateIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackendCredentialsContractResponse) []string { return v.CertificateIds }).(pulumi.StringArrayOutput)
 }
 
 // Header Parameter description.
@@ -2842,13 +2870,23 @@ func (o BackendCredentialsContractResponsePtrOutput) Authorization() BackendAuth
 	}).(BackendAuthorizationHeaderCredentialsResponsePtrOutput)
 }
 
-// List of Client Certificate Thumbprint.
+// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
 func (o BackendCredentialsContractResponsePtrOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackendCredentialsContractResponse) []string {
 		if v == nil {
 			return nil
 		}
 		return v.Certificate
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of Client Certificate Ids.
+func (o BackendCredentialsContractResponsePtrOutput) CertificateIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackendCredentialsContractResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateIds
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -3488,8 +3526,10 @@ func (o BackendProxyContractResponsePtrOutput) Username() pulumi.StringPtrOutput
 
 // Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterProperties struct {
-	// The client certificate thumbprint for the management endpoint.
-	ClientCertificatethumbprint string `pulumi:"clientCertificatethumbprint"`
+	// The client certificate id for the management endpoint.
+	ClientCertificateId *string `pulumi:"clientCertificateId"`
+	// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+	ClientCertificatethumbprint *string `pulumi:"clientCertificatethumbprint"`
 	// The cluster management endpoint.
 	ManagementEndpoints []string `pulumi:"managementEndpoints"`
 	// Maximum number of retries while attempting resolve the partition.
@@ -3513,8 +3553,10 @@ type BackendServiceFabricClusterPropertiesInput interface {
 
 // Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterPropertiesArgs struct {
-	// The client certificate thumbprint for the management endpoint.
-	ClientCertificatethumbprint pulumi.StringInput `pulumi:"clientCertificatethumbprint"`
+	// The client certificate id for the management endpoint.
+	ClientCertificateId pulumi.StringPtrInput `pulumi:"clientCertificateId"`
+	// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+	ClientCertificatethumbprint pulumi.StringPtrInput `pulumi:"clientCertificatethumbprint"`
 	// The cluster management endpoint.
 	ManagementEndpoints pulumi.StringArrayInput `pulumi:"managementEndpoints"`
 	// Maximum number of retries while attempting resolve the partition.
@@ -3603,9 +3645,14 @@ func (o BackendServiceFabricClusterPropertiesOutput) ToBackendServiceFabricClust
 	}).(BackendServiceFabricClusterPropertiesPtrOutput)
 }
 
-// The client certificate thumbprint for the management endpoint.
-func (o BackendServiceFabricClusterPropertiesOutput) ClientCertificatethumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v BackendServiceFabricClusterProperties) string { return v.ClientCertificatethumbprint }).(pulumi.StringOutput)
+// The client certificate id for the management endpoint.
+func (o BackendServiceFabricClusterPropertiesOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackendServiceFabricClusterProperties) *string { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+func (o BackendServiceFabricClusterPropertiesOutput) ClientCertificatethumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackendServiceFabricClusterProperties) *string { return v.ClientCertificatethumbprint }).(pulumi.StringPtrOutput)
 }
 
 // The cluster management endpoint.
@@ -3646,13 +3693,23 @@ func (o BackendServiceFabricClusterPropertiesPtrOutput) Elem() BackendServiceFab
 	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) BackendServiceFabricClusterProperties { return *v }).(BackendServiceFabricClusterPropertiesOutput)
 }
 
-// The client certificate thumbprint for the management endpoint.
+// The client certificate id for the management endpoint.
+func (o BackendServiceFabricClusterPropertiesPtrOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
 func (o BackendServiceFabricClusterPropertiesPtrOutput) ClientCertificatethumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ClientCertificatethumbprint
+		return v.ClientCertificatethumbprint
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3698,8 +3755,10 @@ func (o BackendServiceFabricClusterPropertiesPtrOutput) ServerX509Names() X509Ce
 
 // Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterPropertiesResponse struct {
-	// The client certificate thumbprint for the management endpoint.
-	ClientCertificatethumbprint string `pulumi:"clientCertificatethumbprint"`
+	// The client certificate id for the management endpoint.
+	ClientCertificateId *string `pulumi:"clientCertificateId"`
+	// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+	ClientCertificatethumbprint *string `pulumi:"clientCertificatethumbprint"`
 	// The cluster management endpoint.
 	ManagementEndpoints []string `pulumi:"managementEndpoints"`
 	// Maximum number of retries while attempting resolve the partition.
@@ -3723,8 +3782,10 @@ type BackendServiceFabricClusterPropertiesResponseInput interface {
 
 // Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterPropertiesResponseArgs struct {
-	// The client certificate thumbprint for the management endpoint.
-	ClientCertificatethumbprint pulumi.StringInput `pulumi:"clientCertificatethumbprint"`
+	// The client certificate id for the management endpoint.
+	ClientCertificateId pulumi.StringPtrInput `pulumi:"clientCertificateId"`
+	// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+	ClientCertificatethumbprint pulumi.StringPtrInput `pulumi:"clientCertificatethumbprint"`
 	// The cluster management endpoint.
 	ManagementEndpoints pulumi.StringArrayInput `pulumi:"managementEndpoints"`
 	// Maximum number of retries while attempting resolve the partition.
@@ -3813,9 +3874,14 @@ func (o BackendServiceFabricClusterPropertiesResponseOutput) ToBackendServiceFab
 	}).(BackendServiceFabricClusterPropertiesResponsePtrOutput)
 }
 
-// The client certificate thumbprint for the management endpoint.
-func (o BackendServiceFabricClusterPropertiesResponseOutput) ClientCertificatethumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) string { return v.ClientCertificatethumbprint }).(pulumi.StringOutput)
+// The client certificate id for the management endpoint.
+func (o BackendServiceFabricClusterPropertiesResponseOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) *string { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+func (o BackendServiceFabricClusterPropertiesResponseOutput) ClientCertificatethumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) *string { return v.ClientCertificatethumbprint }).(pulumi.StringPtrOutput)
 }
 
 // The cluster management endpoint.
@@ -3860,13 +3926,23 @@ func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) Elem() BackendSe
 	}).(BackendServiceFabricClusterPropertiesResponseOutput)
 }
 
-// The client certificate thumbprint for the management endpoint.
+// The client certificate id for the management endpoint.
+func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendServiceFabricClusterPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
 func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ClientCertificatethumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ClientCertificatethumbprint
+		return v.ClientCertificatethumbprint
 	}).(pulumi.StringPtrOutput)
 }
 

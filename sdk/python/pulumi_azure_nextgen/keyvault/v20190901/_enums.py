@@ -18,6 +18,7 @@ __all__ = [
     'SkuFamily',
     'SkuName',
     'StoragePermissions',
+    'VaultProvisioningState',
 ]
 
 
@@ -171,3 +172,11 @@ class StoragePermissions(str, Enum):
     LISTSAS = "listsas"
     GETSAS = "getsas"
     DELETESAS = "deletesas"
+
+
+class VaultProvisioningState(str, Enum):
+    """
+    Provisioning state of the vault.
+    """
+    SUCCEEDED = "Succeeded"
+    REGISTERING_DNS = "RegisteringDns"

@@ -41,6 +41,8 @@ type LookupContainerResult struct {
 	Name string `pulumi:"name"`
 	// Details of the refresh job on this container.
 	RefreshDetails RefreshDetailsResponse `pulumi:"refreshDetails"`
+	// Container in DataBoxEdge Resource
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

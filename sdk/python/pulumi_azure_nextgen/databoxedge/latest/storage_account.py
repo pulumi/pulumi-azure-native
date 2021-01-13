@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 from ._enums import *
 
 __all__ = ['StorageAccount']
@@ -28,7 +29,7 @@ class StorageAccount(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents a Storage Account on the  Data Box Edge/Gateway device.
-        Latest API Version: 2019-08-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -57,6 +58,8 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if data_policy is None and not opts.urn:
+                raise TypeError("Missing required property 'data_policy'")
             __props__['data_policy'] = data_policy
             __props__['description'] = description
             if device_name is None and not opts.urn:
@@ -73,8 +76,9 @@ class StorageAccount(pulumi.CustomResource):
             __props__['blob_endpoint'] = None
             __props__['container_count'] = None
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:StorageAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:StorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccount, __self__).__init__(
             'azure-nextgen:databoxedge/latest:StorageAccount',
@@ -118,7 +122,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> pulumi.Output[Optional[str]]:
+    def data_policy(self) -> pulumi.Output[str]:
         """
         Data policy of the storage Account.
         """
@@ -155,6 +159,14 @@ class StorageAccount(pulumi.CustomResource):
         Current status of the storage account
         """
         return pulumi.get(self, "storage_account_status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        StorageAccount object on ASE device
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

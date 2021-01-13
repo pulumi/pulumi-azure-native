@@ -82,6 +82,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly string? StorageAccountId;
         /// <summary>
+        /// StorageAccountCredential object
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             string? storageAccountId,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string? userName)
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
             Name = name;
             SslStatus = sslStatus;
             StorageAccountId = storageAccountId;
+            SystemData = systemData;
             Type = type;
             UserName = userName;
         }

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// Modified whenever there is a change in the state of private endpoint connection.
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
         /// Fully qualified identifier of the key vault resource.
         /// </summary>
         public readonly string Id;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string? etag,
+
             string id,
 
             string location,
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
 
             string type)
         {
+            Etag = etag;
             Id = id;
             Location = location;
             Name = name;

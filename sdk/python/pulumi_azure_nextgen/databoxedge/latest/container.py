@@ -27,7 +27,7 @@ class Container(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents a container on the  Data Box Edge/Gateway device.
-        Latest API Version: 2019-08-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,8 +73,9 @@ class Container(pulumi.CustomResource):
             __props__['created_date_time'] = None
             __props__['name'] = None
             __props__['refresh_details'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Container")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Container")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Container, __self__).__init__(
             'azure-nextgen:databoxedge/latest:Container',
@@ -139,6 +140,14 @@ class Container(pulumi.CustomResource):
         Details of the refresh job on this container.
         """
         return pulumi.get(self, "refresh_details")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Container in DataBoxEdge Resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

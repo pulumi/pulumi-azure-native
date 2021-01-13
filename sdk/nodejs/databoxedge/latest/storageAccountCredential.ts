@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account credential.
- * Latest API Version: 2019-08-01.
+ * Latest API Version: 2020-09-01.
  */
 export class StorageAccountCredential extends pulumi.CustomResource {
     /**
@@ -69,6 +69,10 @@ export class StorageAccountCredential extends pulumi.CustomResource {
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
+     * StorageAccountCredential object
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.latest.SystemDataResponse>;
+    /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -116,6 +120,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             inputs["sslStatus"] = args ? args.sslStatus : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["userName"] = args ? args.userName : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["accountKey"] = undefined /*out*/;
@@ -126,6 +131,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["sslStatus"] = undefined /*out*/;
             inputs["storageAccountId"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         }
@@ -136,7 +142,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20190701:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20190801:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20190701:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20190801:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20200901:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccountCredential.__pulumiType, name, inputs, opts);
     }

@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// </summary>
         public readonly string NsxtCertificateThumbprint;
         /// <summary>
-        /// Indicate to rotate the NSX-T Manager password for the private cloud
+        /// Optionally, set the NSX-T Manager password when the private cloud is created
         /// </summary>
         public readonly string? NsxtPassword;
         /// <summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// </summary>
         public readonly string VcenterCertificateThumbprint;
         /// <summary>
-        /// Indicate to rotate the vCenter admin password for the private cloud
+        /// Optionally, set the vCenter admin password when the private cloud is created
         /// </summary>
         public readonly string? VcenterPassword;
         /// <summary>

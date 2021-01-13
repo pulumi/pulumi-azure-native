@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// Trigger details.
-    /// Latest API Version: 2019-08-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Trigger in DataBoxEdge Resource
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
@@ -63,6 +69,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

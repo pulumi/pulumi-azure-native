@@ -39,6 +39,37 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     }
 
     /// <summary>
+    /// Addon type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AddonType : IEquatable<AddonType>
+    {
+        private readonly string _value;
+
+        private AddonType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AddonType IotEdge { get; } = new AddonType("IotEdge");
+        public static AddonType ArcForKubernetes { get; } = new AddonType("ArcForKubernetes");
+
+        public static bool operator ==(AddonType left, AddonType right) => left.Equals(right);
+        public static bool operator !=(AddonType left, AddonType right) => !left.Equals(right);
+
+        public static explicit operator string(AddonType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AddonType other && Equals(other);
+        public bool Equals(AddonType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Storage format used for the file represented by the share.
     /// </summary>
     [EnumType]
@@ -95,6 +126,39 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ClientPermissionType other && Equals(other);
         public bool Equals(ClientPermissionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The etag for the devices.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataBoxEdgeDeviceKind : IEquatable<DataBoxEdgeDeviceKind>
+    {
+        private readonly string _value;
+
+        private DataBoxEdgeDeviceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataBoxEdgeDeviceKind AzureDataBoxGateway { get; } = new DataBoxEdgeDeviceKind("AzureDataBoxGateway");
+        public static DataBoxEdgeDeviceKind AzureStackEdge { get; } = new DataBoxEdgeDeviceKind("AzureStackEdge");
+        public static DataBoxEdgeDeviceKind AzureStackHub { get; } = new DataBoxEdgeDeviceKind("AzureStackHub");
+        public static DataBoxEdgeDeviceKind AzureModularDataCentre { get; } = new DataBoxEdgeDeviceKind("AzureModularDataCentre");
+
+        public static bool operator ==(DataBoxEdgeDeviceKind left, DataBoxEdgeDeviceKind right) => left.Equals(right);
+        public static bool operator !=(DataBoxEdgeDeviceKind left, DataBoxEdgeDeviceKind right) => !left.Equals(right);
+
+        public static explicit operator string(DataBoxEdgeDeviceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataBoxEdgeDeviceKind other && Equals(other);
+        public bool Equals(DataBoxEdgeDeviceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -266,6 +330,38 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     }
 
     /// <summary>
+    /// Identity type
+    /// </summary>
+    [EnumType]
+    public readonly struct MsiIdentityType : IEquatable<MsiIdentityType>
+    {
+        private readonly string _value;
+
+        private MsiIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MsiIdentityType None { get; } = new MsiIdentityType("None");
+        public static MsiIdentityType SystemAssigned { get; } = new MsiIdentityType("SystemAssigned");
+        public static MsiIdentityType UserAssigned { get; } = new MsiIdentityType("UserAssigned");
+
+        public static bool operator ==(MsiIdentityType left, MsiIdentityType right) => left.Equals(right);
+        public static bool operator !=(MsiIdentityType left, MsiIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(MsiIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MsiIdentityType other && Equals(other);
+        public bool Equals(MsiIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of the order as per the allowed status types.
     /// </summary>
     [EnumType]
@@ -292,6 +388,9 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         public static OrderState AwaitingReturnShipment { get; } = new OrderState("AwaitingReturnShipment");
         public static OrderState ShippedBack { get; } = new OrderState("ShippedBack");
         public static OrderState CollectedAtMicrosoft { get; } = new OrderState("CollectedAtMicrosoft");
+        public static OrderState AwaitingPickup { get; } = new OrderState("AwaitingPickup");
+        public static OrderState PickupCompleted { get; } = new OrderState("PickupCompleted");
+        public static OrderState AwaitingDrop { get; } = new OrderState("AwaitingDrop");
 
         public static bool operator ==(OrderState left, OrderState right) => left.Equals(right);
         public static bool operator !=(OrderState left, OrderState right) => !left.Equals(right);
@@ -301,6 +400,38 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OrderState other && Equals(other);
         public bool Equals(OrderState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Denotes whether move operation is in progress
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceMoveStatus : IEquatable<ResourceMoveStatus>
+    {
+        private readonly string _value;
+
+        private ResourceMoveStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceMoveStatus None { get; } = new ResourceMoveStatus("None");
+        public static ResourceMoveStatus ResourceMoveInProgress { get; } = new ResourceMoveStatus("ResourceMoveInProgress");
+        public static ResourceMoveStatus ResourceMoveFailed { get; } = new ResourceMoveStatus("ResourceMoveFailed");
+
+        public static bool operator ==(ResourceMoveStatus left, ResourceMoveStatus right) => left.Equals(right);
+        public static bool operator !=(ResourceMoveStatus left, ResourceMoveStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceMoveStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceMoveStatus other && Equals(other);
+        public bool Equals(ResourceMoveStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -325,6 +456,9 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         public static RoleTypes ASA { get; } = new RoleTypes("ASA");
         public static RoleTypes Functions { get; } = new RoleTypes("Functions");
         public static RoleTypes Cognitive { get; } = new RoleTypes("Cognitive");
+        public static RoleTypes MEC { get; } = new RoleTypes("MEC");
+        public static RoleTypes CloudEdgeManagement { get; } = new RoleTypes("CloudEdgeManagement");
+        public static RoleTypes Kubernetes { get; } = new RoleTypes("Kubernetes");
 
         public static bool operator ==(RoleTypes left, RoleTypes right) => left.Equals(right);
         public static bool operator !=(RoleTypes left, RoleTypes right) => !left.Equals(right);
@@ -404,7 +538,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     }
 
     /// <summary>
-    /// Type of access to be allowed on the share for this user.
+    /// Type of access to be allowed for the user.
     /// </summary>
     [EnumType]
     public readonly struct ShareAccessType : IEquatable<ShareAccessType>
@@ -470,6 +604,38 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     }
 
     /// <summary>
+    /// ShipmentType of the order
+    /// </summary>
+    [EnumType]
+    public readonly struct ShipmentType : IEquatable<ShipmentType>
+    {
+        private readonly string _value;
+
+        private ShipmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ShipmentType NotApplicable { get; } = new ShipmentType("NotApplicable");
+        public static ShipmentType ShippedToCustomer { get; } = new ShipmentType("ShippedToCustomer");
+        public static ShipmentType SelfPickup { get; } = new ShipmentType("SelfPickup");
+
+        public static bool operator ==(ShipmentType left, ShipmentType right) => left.Equals(right);
+        public static bool operator !=(ShipmentType left, ShipmentType right) => !left.Equals(right);
+
+        public static explicit operator string(ShipmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ShipmentType other && Equals(other);
+        public bool Equals(ShipmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// SKU name.
     /// </summary>
     [EnumType]
@@ -491,6 +657,18 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         public static SkuName TEA_4Node_Heater { get; } = new SkuName("TEA_4Node_Heater");
         public static SkuName TEA_4Node_UPS_Heater { get; } = new SkuName("TEA_4Node_UPS_Heater");
         public static SkuName TMA { get; } = new SkuName("TMA");
+        public static SkuName TDC { get; } = new SkuName("TDC");
+        public static SkuName TCA_Small { get; } = new SkuName("TCA_Small");
+        public static SkuName GPU { get; } = new SkuName("GPU");
+        public static SkuName TCA_Large { get; } = new SkuName("TCA_Large");
+        public static SkuName EdgeP_Base { get; } = new SkuName("EdgeP_Base");
+        public static SkuName EdgeP_High { get; } = new SkuName("EdgeP_High");
+        public static SkuName EdgePR_Base { get; } = new SkuName("EdgePR_Base");
+        public static SkuName EdgePR_Base_UPS { get; } = new SkuName("EdgePR_Base_UPS");
+        public static SkuName EdgeMR_Mini { get; } = new SkuName("EdgeMR_Mini");
+        public static SkuName RCA_Small { get; } = new SkuName("RCA_Small");
+        public static SkuName RCA_Large { get; } = new SkuName("RCA_Large");
+        public static SkuName RDC { get; } = new SkuName("RDC");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
         public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
@@ -564,6 +742,37 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageAccountStatus other && Equals(other);
         public bool Equals(StorageAccountStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SubscriptionState : IEquatable<SubscriptionState>
+    {
+        private readonly string _value;
+
+        private SubscriptionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SubscriptionState Registered { get; } = new SubscriptionState("Registered");
+        public static SubscriptionState Warned { get; } = new SubscriptionState("Warned");
+        public static SubscriptionState Suspended { get; } = new SubscriptionState("Suspended");
+        public static SubscriptionState Deleted { get; } = new SubscriptionState("Deleted");
+        public static SubscriptionState Unregistered { get; } = new SubscriptionState("Unregistered");
+
+        public static bool operator ==(SubscriptionState left, SubscriptionState right) => left.Equals(right);
+        public static bool operator !=(SubscriptionState left, SubscriptionState right) => !left.Equals(right);
+
+        public static explicit operator string(SubscriptionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SubscriptionState other && Equals(other);
+        public bool Equals(SubscriptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

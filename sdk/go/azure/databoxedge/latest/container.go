@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a container on the  Data Box Edge/Gateway device.
-// Latest API Version: 2019-08-01.
+// Latest API Version: 2020-09-01.
 type Container struct {
 	pulumi.CustomResourceState
 
@@ -26,6 +26,8 @@ type Container struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Details of the refresh job on this container.
 	RefreshDetails RefreshDetailsResponseOutput `pulumi:"refreshDetails"`
+	// Container in DataBoxEdge Resource
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -58,6 +60,12 @@ func NewContainer(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Container"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Container"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Container"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -93,6 +101,8 @@ type containerState struct {
 	Name *string `pulumi:"name"`
 	// Details of the refresh job on this container.
 	RefreshDetails *RefreshDetailsResponse `pulumi:"refreshDetails"`
+	// Container in DataBoxEdge Resource
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
@@ -108,6 +118,8 @@ type ContainerState struct {
 	Name pulumi.StringPtrInput
 	// Details of the refresh job on this container.
 	RefreshDetails RefreshDetailsResponsePtrInput
+	// Container in DataBoxEdge Resource
+	SystemData SystemDataResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }

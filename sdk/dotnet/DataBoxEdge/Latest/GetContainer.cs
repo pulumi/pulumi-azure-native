@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly Outputs.RefreshDetailsResponse RefreshDetails;
         /// <summary>
+        /// Container in DataBoxEdge Resource
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             Outputs.RefreshDetailsResponse refreshDetails,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             ContainerStatus = containerStatus;
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
             Id = id;
             Name = name;
             RefreshDetails = refreshDetails;
+            SystemData = systemData;
             Type = type;
         }
     }

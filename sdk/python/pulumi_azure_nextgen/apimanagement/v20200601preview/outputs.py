@@ -453,12 +453,14 @@ class BackendCredentialsContractResponse(dict):
     def __init__(__self__, *,
                  authorization: Optional['outputs.BackendAuthorizationHeaderCredentialsResponse'] = None,
                  certificate: Optional[Sequence[str]] = None,
+                 certificate_ids: Optional[Sequence[str]] = None,
                  header: Optional[Mapping[str, Sequence[str]]] = None,
                  query: Optional[Mapping[str, Sequence[str]]] = None):
         """
         Details of the Credentials used to connect to Backend.
         :param 'BackendAuthorizationHeaderCredentialsResponseArgs' authorization: Authorization header authentication
-        :param Sequence[str] certificate: List of Client Certificate Thumbprint.
+        :param Sequence[str] certificate: List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+        :param Sequence[str] certificate_ids: List of Client Certificate Ids.
         :param Mapping[str, Sequence[str]] header: Header Parameter description.
         :param Mapping[str, Sequence[str]] query: Query Parameter description.
         """
@@ -466,6 +468,8 @@ class BackendCredentialsContractResponse(dict):
             pulumi.set(__self__, "authorization", authorization)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if certificate_ids is not None:
+            pulumi.set(__self__, "certificate_ids", certificate_ids)
         if header is not None:
             pulumi.set(__self__, "header", header)
         if query is not None:
@@ -483,9 +487,17 @@ class BackendCredentialsContractResponse(dict):
     @pulumi.getter
     def certificate(self) -> Optional[Sequence[str]]:
         """
-        List of Client Certificate Thumbprint.
+        List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
         """
         return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="certificateIds")
+    def certificate_ids(self) -> Optional[Sequence[str]]:
+        """
+        List of Client Certificate Ids.
+        """
+        return pulumi.get(self, "certificate_ids")
 
     @property
     @pulumi.getter
@@ -588,21 +600,26 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
     Properties of the Service Fabric Type Backend.
     """
     def __init__(__self__, *,
-                 client_certificatethumbprint: str,
                  management_endpoints: Sequence[str],
+                 client_certificate_id: Optional[str] = None,
+                 client_certificatethumbprint: Optional[str] = None,
                  max_partition_resolution_retries: Optional[int] = None,
                  server_certificate_thumbprints: Optional[Sequence[str]] = None,
                  server_x509_names: Optional[Sequence['outputs.X509CertificateNameResponse']] = None):
         """
         Properties of the Service Fabric Type Backend.
-        :param str client_certificatethumbprint: The client certificate thumbprint for the management endpoint.
         :param Sequence[str] management_endpoints: The cluster management endpoint.
+        :param str client_certificate_id: The client certificate id for the management endpoint.
+        :param str client_certificatethumbprint: The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
         :param int max_partition_resolution_retries: Maximum number of retries while attempting resolve the partition.
         :param Sequence[str] server_certificate_thumbprints: Thumbprints of certificates cluster management service uses for tls communication
         :param Sequence['X509CertificateNameResponseArgs'] server_x509_names: Server X509 Certificate Names Collection
         """
-        pulumi.set(__self__, "client_certificatethumbprint", client_certificatethumbprint)
         pulumi.set(__self__, "management_endpoints", management_endpoints)
+        if client_certificate_id is not None:
+            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+        if client_certificatethumbprint is not None:
+            pulumi.set(__self__, "client_certificatethumbprint", client_certificatethumbprint)
         if max_partition_resolution_retries is not None:
             pulumi.set(__self__, "max_partition_resolution_retries", max_partition_resolution_retries)
         if server_certificate_thumbprints is not None:
@@ -611,20 +628,28 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
             pulumi.set(__self__, "server_x509_names", server_x509_names)
 
     @property
-    @pulumi.getter(name="clientCertificatethumbprint")
-    def client_certificatethumbprint(self) -> str:
-        """
-        The client certificate thumbprint for the management endpoint.
-        """
-        return pulumi.get(self, "client_certificatethumbprint")
-
-    @property
     @pulumi.getter(name="managementEndpoints")
     def management_endpoints(self) -> Sequence[str]:
         """
         The cluster management endpoint.
         """
         return pulumi.get(self, "management_endpoints")
+
+    @property
+    @pulumi.getter(name="clientCertificateId")
+    def client_certificate_id(self) -> Optional[str]:
+        """
+        The client certificate id for the management endpoint.
+        """
+        return pulumi.get(self, "client_certificate_id")
+
+    @property
+    @pulumi.getter(name="clientCertificatethumbprint")
+    def client_certificatethumbprint(self) -> Optional[str]:
+        """
+        The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+        """
+        return pulumi.get(self, "client_certificatethumbprint")
 
     @property
     @pulumi.getter(name="maxPartitionResolutionRetries")

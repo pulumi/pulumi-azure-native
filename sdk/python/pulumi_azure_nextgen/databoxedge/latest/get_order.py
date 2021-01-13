@@ -20,7 +20,7 @@ class GetOrderResult:
     """
     The order details.
     """
-    def __init__(__self__, contact_information=None, current_status=None, delivery_tracking_info=None, id=None, name=None, order_history=None, return_tracking_info=None, serial_number=None, shipping_address=None, type=None):
+    def __init__(__self__, contact_information=None, current_status=None, delivery_tracking_info=None, id=None, name=None, order_history=None, return_tracking_info=None, serial_number=None, shipment_type=None, shipping_address=None, type=None):
         if contact_information and not isinstance(contact_information, dict):
             raise TypeError("Expected argument 'contact_information' to be a dict")
         pulumi.set(__self__, "contact_information", contact_information)
@@ -45,6 +45,9 @@ class GetOrderResult:
         if serial_number and not isinstance(serial_number, str):
             raise TypeError("Expected argument 'serial_number' to be a str")
         pulumi.set(__self__, "serial_number", serial_number)
+        if shipment_type and not isinstance(shipment_type, str):
+            raise TypeError("Expected argument 'shipment_type' to be a str")
+        pulumi.set(__self__, "shipment_type", shipment_type)
         if shipping_address and not isinstance(shipping_address, dict):
             raise TypeError("Expected argument 'shipping_address' to be a dict")
         pulumi.set(__self__, "shipping_address", shipping_address)
@@ -117,8 +120,16 @@ class GetOrderResult:
         return pulumi.get(self, "serial_number")
 
     @property
+    @pulumi.getter(name="shipmentType")
+    def shipment_type(self) -> Optional[str]:
+        """
+        ShipmentType of the order
+        """
+        return pulumi.get(self, "shipment_type")
+
+    @property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> 'outputs.AddressResponse':
+    def shipping_address(self) -> Optional['outputs.AddressResponse']:
         """
         The shipping address.
         """
@@ -147,6 +158,7 @@ class AwaitableGetOrderResult(GetOrderResult):
             order_history=self.order_history,
             return_tracking_info=self.return_tracking_info,
             serial_number=self.serial_number,
+            shipment_type=self.shipment_type,
             shipping_address=self.shipping_address,
             type=self.type)
 
@@ -178,5 +190,6 @@ def get_order(device_name: Optional[str] = None,
         order_history=__ret__.order_history,
         return_tracking_info=__ret__.return_tracking_info,
         serial_number=__ret__.serial_number,
+        shipment_type=__ret__.shipment_type,
         shipping_address=__ret__.shipping_address,
         type=__ret__.type)

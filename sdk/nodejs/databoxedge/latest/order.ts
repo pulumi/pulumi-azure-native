@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The order details.
- * Latest API Version: 2019-08-01.
+ * Latest API Version: 2020-09-01.
  */
 export class Order extends pulumi.CustomResource {
     /**
@@ -65,9 +65,13 @@ export class Order extends pulumi.CustomResource {
      */
     public /*out*/ readonly serialNumber!: pulumi.Output<string>;
     /**
+     * ShipmentType of the order
+     */
+    public readonly shipmentType!: pulumi.Output<string | undefined>;
+    /**
      * The shipping address.
      */
-    public readonly shippingAddress!: pulumi.Output<outputs.databoxedge.latest.AddressResponse>;
+    public readonly shippingAddress!: pulumi.Output<outputs.databoxedge.latest.AddressResponse | undefined>;
     /**
      * The hierarchical type of the object.
      */
@@ -92,13 +96,11 @@ export class Order extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shippingAddress === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'shippingAddress'");
-            }
             inputs["contactInformation"] = args ? args.contactInformation : undefined;
             inputs["currentStatus"] = args ? args.currentStatus : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["shipmentType"] = args ? args.shipmentType : undefined;
             inputs["shippingAddress"] = args ? args.shippingAddress : undefined;
             inputs["deliveryTrackingInfo"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -114,6 +116,7 @@ export class Order extends pulumi.CustomResource {
             inputs["orderHistory"] = undefined /*out*/;
             inputs["returnTrackingInfo"] = undefined /*out*/;
             inputs["serialNumber"] = undefined /*out*/;
+            inputs["shipmentType"] = undefined /*out*/;
             inputs["shippingAddress"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -124,7 +127,7 @@ export class Order extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Order" }, { type: "azure-nextgen:databoxedge/v20190701:Order" }, { type: "azure-nextgen:databoxedge/v20190801:Order" }, { type: "azure-nextgen:databoxedge/v20200501preview:Order" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Order" }, { type: "azure-nextgen:databoxedge/v20190701:Order" }, { type: "azure-nextgen:databoxedge/v20190801:Order" }, { type: "azure-nextgen:databoxedge/v20200501preview:Order" }, { type: "azure-nextgen:databoxedge/v20200901:Order" }, { type: "azure-nextgen:databoxedge/v20200901preview:Order" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Order.__pulumiType, name, inputs, opts);
     }
@@ -151,7 +154,11 @@ export interface OrderArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * ShipmentType of the order
+     */
+    readonly shipmentType?: pulumi.Input<string | enums.databoxedge.latest.ShipmentType>;
+    /**
      * The shipping address.
      */
-    readonly shippingAddress: pulumi.Input<inputs.databoxedge.latest.Address>;
+    readonly shippingAddress?: pulumi.Input<inputs.databoxedge.latest.Address>;
 }

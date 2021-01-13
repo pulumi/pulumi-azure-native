@@ -40,6 +40,10 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
+     * Modified whenever there is a change in the state of private endpoint connection.
+     */
+    readonly etag?: string;
+    /**
      * Fully qualified identifier of the key vault resource.
      */
     readonly id: string;

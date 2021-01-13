@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetStorageAccountResult',
@@ -19,7 +20,7 @@ class GetStorageAccountResult:
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, blob_endpoint=None, container_count=None, data_policy=None, description=None, id=None, name=None, storage_account_credential_id=None, storage_account_status=None, type=None):
+    def __init__(__self__, blob_endpoint=None, container_count=None, data_policy=None, description=None, id=None, name=None, storage_account_credential_id=None, storage_account_status=None, system_data=None, type=None):
         if blob_endpoint and not isinstance(blob_endpoint, str):
             raise TypeError("Expected argument 'blob_endpoint' to be a str")
         pulumi.set(__self__, "blob_endpoint", blob_endpoint)
@@ -44,6 +45,9 @@ class GetStorageAccountResult:
         if storage_account_status and not isinstance(storage_account_status, str):
             raise TypeError("Expected argument 'storage_account_status' to be a str")
         pulumi.set(__self__, "storage_account_status", storage_account_status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -66,7 +70,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> Optional[str]:
+    def data_policy(self) -> str:
         """
         Data policy of the storage Account.
         """
@@ -113,6 +117,14 @@ class GetStorageAccountResult:
         return pulumi.get(self, "storage_account_status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        StorageAccount object on ASE device
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -135,6 +147,7 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             name=self.name,
             storage_account_credential_id=self.storage_account_credential_id,
             storage_account_status=self.storage_account_status,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -168,4 +181,5 @@ def get_storage_account(device_name: Optional[str] = None,
         name=__ret__.name,
         storage_account_credential_id=__ret__.storage_account_credential_id,
         storage_account_status=__ret__.storage_account_status,
+        system_data=__ret__.system_data,
         type=__ret__.type)

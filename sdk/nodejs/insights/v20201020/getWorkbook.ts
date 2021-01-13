@@ -43,9 +43,13 @@ export interface GetWorkbookResult {
      */
     readonly displayName: string;
     /**
+     * Resource etag
+     */
+    readonly etag?: {[key: string]: string};
+    /**
      * Azure resource Id
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Identity used for BYOS
      */
@@ -57,11 +61,11 @@ export interface GetWorkbookResult {
     /**
      * Resource location
      */
-    readonly location: string;
+    readonly location?: string;
     /**
-     * Azure resource name. This is GUID value. The display name should be assigned within properties field.
+     * Azure resource name
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
@@ -85,7 +89,7 @@ export interface GetWorkbookResult {
     /**
      * Azure resource type
      */
-    readonly type: string;
+    readonly type?: string;
     /**
      * Unique user id of the specific user that owns this workbook.
      */

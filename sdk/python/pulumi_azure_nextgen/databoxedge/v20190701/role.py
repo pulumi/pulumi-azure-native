@@ -63,7 +63,7 @@ class Role(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Role")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Role")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Role, __self__).__init__(
             'azure-nextgen:databoxedge/v20190701:Role',

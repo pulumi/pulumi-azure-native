@@ -5,13 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./addon";
 export * from "./bandwidthSchedule";
 export * from "./container";
 export * from "./device";
+export * from "./getAddon";
 export * from "./getBandwidthSchedule";
 export * from "./getContainer";
 export * from "./getDevice";
 export * from "./getDeviceExtendedInformation";
+export * from "./getMonitoringConfig";
 export * from "./getOrder";
 export * from "./getRole";
 export * from "./getShare";
@@ -19,6 +22,8 @@ export * from "./getStorageAccount";
 export * from "./getStorageAccountCredential";
 export * from "./getTrigger";
 export * from "./getUser";
+export * from "./listOrderDCAccessCode";
+export * from "./monitoringConfig";
 export * from "./order";
 export * from "./role";
 export * from "./share";
@@ -31,9 +36,11 @@ export * from "./user";
 export * from "../../types/enums/databoxedge/latest";
 
 // Import resources to register:
+import { Addon } from "./addon";
 import { BandwidthSchedule } from "./bandwidthSchedule";
 import { Container } from "./container";
 import { Device } from "./device";
+import { MonitoringConfig } from "./monitoringConfig";
 import { Order } from "./order";
 import { Role } from "./role";
 import { Share } from "./share";
@@ -46,12 +53,16 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:databoxedge/latest:Addon":
+                return new Addon(name, <any>undefined, { urn })
             case "azure-nextgen:databoxedge/latest:BandwidthSchedule":
                 return new BandwidthSchedule(name, <any>undefined, { urn })
             case "azure-nextgen:databoxedge/latest:Container":
                 return new Container(name, <any>undefined, { urn })
             case "azure-nextgen:databoxedge/latest:Device":
                 return new Device(name, <any>undefined, { urn })
+            case "azure-nextgen:databoxedge/latest:MonitoringConfig":
+                return new MonitoringConfig(name, <any>undefined, { urn })
             case "azure-nextgen:databoxedge/latest:Order":
                 return new Order(name, <any>undefined, { urn })
             case "azure-nextgen:databoxedge/latest:Role":

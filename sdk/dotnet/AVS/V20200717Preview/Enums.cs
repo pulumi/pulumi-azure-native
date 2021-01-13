@@ -134,36 +134,6 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
     }
 
     /// <summary>
-    /// Indicate to rotate the NSX-T Manager password for the private cloud
-    /// </summary>
-    [EnumType]
-    public readonly struct NsxtAdminRotateEnum : IEquatable<NsxtAdminRotateEnum>
-    {
-        private readonly string _value;
-
-        private NsxtAdminRotateEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static NsxtAdminRotateEnum OnetimeRotate { get; } = new NsxtAdminRotateEnum("OnetimeRotate");
-
-        public static bool operator ==(NsxtAdminRotateEnum left, NsxtAdminRotateEnum right) => left.Equals(right);
-        public static bool operator !=(NsxtAdminRotateEnum left, NsxtAdminRotateEnum right) => !left.Equals(right);
-
-        public static explicit operator string(NsxtAdminRotateEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is NsxtAdminRotateEnum other && Equals(other);
-        public bool Equals(NsxtAdminRotateEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Direction of port mirroring profile.
     /// </summary>
     [EnumType]
@@ -217,36 +187,6 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SslEnum other && Equals(other);
         public bool Equals(SslEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Indicate to rotate the vCenter admin password for the private cloud
-    /// </summary>
-    [EnumType]
-    public readonly struct VcsaAdminRotateEnum : IEquatable<VcsaAdminRotateEnum>
-    {
-        private readonly string _value;
-
-        private VcsaAdminRotateEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static VcsaAdminRotateEnum OnetimeRotate { get; } = new VcsaAdminRotateEnum("OnetimeRotate");
-
-        public static bool operator ==(VcsaAdminRotateEnum left, VcsaAdminRotateEnum right) => left.Equals(right);
-        public static bool operator !=(VcsaAdminRotateEnum left, VcsaAdminRotateEnum right) => !left.Equals(right);
-
-        public static explicit operator string(VcsaAdminRotateEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VcsaAdminRotateEnum other && Equals(other);
-        public bool Equals(VcsaAdminRotateEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

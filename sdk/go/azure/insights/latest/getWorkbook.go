@@ -29,16 +29,18 @@ type LookupWorkbookResult struct {
 	Category string `pulumi:"category"`
 	// The user-defined name (display name) of the workbook.
 	DisplayName string `pulumi:"displayName"`
+	// Resource etag
+	Etag map[string]string `pulumi:"etag"`
 	// Azure resource Id
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Identity used for BYOS
 	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
-	Name string `pulumi:"name"`
+	Location *string `pulumi:"location"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData string `pulumi:"serializedData"`
 	// ResourceId for a source resource.
@@ -50,7 +52,7 @@ type LookupWorkbookResult struct {
 	// Date and time in UTC of the last modification that was made to this workbook definition.
 	TimeModified string `pulumi:"timeModified"`
 	// Azure resource type
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// Unique user id of the specific user that owns this workbook.
 	UserId string `pulumi:"userId"`
 	// Workbook version

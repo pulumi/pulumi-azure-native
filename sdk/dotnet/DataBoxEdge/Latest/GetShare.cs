@@ -90,6 +90,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly string ShareStatus;
         /// <summary>
+        /// Share on ASE device
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             string shareStatus,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             ImmutableArray<Outputs.UserAccessRightResponse> userAccessRights)
@@ -137,6 +143,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
             RefreshDetails = refreshDetails;
             ShareMappings = shareMappings;
             ShareStatus = shareStatus;
+            SystemData = systemData;
             Type = type;
             UserAccessRights = userAccessRights;
         }

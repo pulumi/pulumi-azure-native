@@ -27,6 +27,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Outputs
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// Tracking information related to the state in the ordering flow
+        /// </summary>
+        public readonly Outputs.TrackingInfoResponse TrackingInformation;
+        /// <summary>
         /// Time of status update.
         /// </summary>
         public readonly string UpdateDateTime;
@@ -39,11 +43,14 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Outputs
 
             string status,
 
+            Outputs.TrackingInfoResponse trackingInformation,
+
             string updateDateTime)
         {
             AdditionalOrderDetails = additionalOrderDetails;
             Comments = comments;
             Status = status;
+            TrackingInformation = trackingInformation;
             UpdateDateTime = updateDateTime;
         }
     }

@@ -7,6 +7,36 @@ using Pulumi;
 
 namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
 {
+    /// <summary>
+    /// A message indicating if changes on the service provider require any updates on the consumer.
+    /// </summary>
+    [EnumType]
+    public readonly struct ActionsRequired : IEquatable<ActionsRequired>
+    {
+        private readonly string _value;
+
+        private ActionsRequired(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActionsRequired None { get; } = new ActionsRequired("None");
+
+        public static bool operator ==(ActionsRequired left, ActionsRequired right) => left.Equals(right);
+        public static bool operator !=(ActionsRequired left, ActionsRequired right) => !left.Equals(right);
+
+        public static explicit operator string(ActionsRequired value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActionsRequired other && Equals(other);
+        public bool Equals(ActionsRequired other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct CertificatePermissions : IEquatable<CertificatePermissions>
     {
@@ -406,6 +436,37 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StoragePermissions other && Equals(other);
         public bool Equals(StoragePermissions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Provisioning state of the vault.
+    /// </summary>
+    [EnumType]
+    public readonly struct VaultProvisioningState : IEquatable<VaultProvisioningState>
+    {
+        private readonly string _value;
+
+        private VaultProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VaultProvisioningState Succeeded { get; } = new VaultProvisioningState("Succeeded");
+        public static VaultProvisioningState RegisteringDns { get; } = new VaultProvisioningState("RegisteringDns");
+
+        public static bool operator ==(VaultProvisioningState left, VaultProvisioningState right) => left.Equals(right);
+        public static bool operator !=(VaultProvisioningState left, VaultProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(VaultProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VaultProvisioningState other && Equals(other);
+        public bool Equals(VaultProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

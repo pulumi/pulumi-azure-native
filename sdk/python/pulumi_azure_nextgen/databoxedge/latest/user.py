@@ -22,14 +22,13 @@ class User(pulumi.CustomResource):
                  encrypted_password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 share_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]]] = None,
                  user_type: Optional[pulumi.Input[Union[str, 'UserType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-        Latest API Version: 2019-08-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -37,7 +36,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encrypted_password: The password details.
         :param pulumi.Input[str] name: The user name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]] share_access_rights: List of shares that the user has rights on. This field should not be specified during user creation.
         :param pulumi.Input[Union[str, 'UserType']] user_type: Type of the user.
         """
         if __name__ is not None:
@@ -67,12 +65,11 @@ class User(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['share_access_rights'] = share_access_rights
-            if user_type is None and not opts.urn:
-                raise TypeError("Missing required property 'user_type'")
             __props__['user_type'] = user_type
+            __props__['share_access_rights'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-nextgen:databoxedge/latest:User',
@@ -116,11 +113,19 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> pulumi.Output[Optional[Sequence['outputs.ShareAccessRightResponse']]]:
+    def share_access_rights(self) -> pulumi.Output[Sequence['outputs.ShareAccessRightResponse']]:
         """
         List of shares that the user has rights on. This field should not be specified during user creation.
         """
         return pulumi.get(self, "share_access_rights")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        User in DataBoxEdge Resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -132,7 +137,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userType")
-    def user_type(self) -> pulumi.Output[str]:
+    def user_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of the user.
         """

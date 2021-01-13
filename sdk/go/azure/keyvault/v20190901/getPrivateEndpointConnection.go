@@ -27,6 +27,8 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 // Private endpoint connection resource.
 type LookupPrivateEndpointConnectionResult struct {
+	// Modified whenever there is a change in the state of private endpoint connection.
+	Etag *string `pulumi:"etag"`
 	// Fully qualified identifier of the key vault resource.
 	Id string `pulumi:"id"`
 	// Azure location of the key vault resource.

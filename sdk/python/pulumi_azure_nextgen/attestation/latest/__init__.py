@@ -3,8 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .attestation_provider import *
 from .get_attestation_provider import *
+from .get_private_endpoint_connection import *
+from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
 
@@ -22,6 +25,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-nextgen:attestation/latest:AttestationProvider":
                 return AttestationProvider(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:attestation/latest:PrivateEndpointConnection":
+                return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
