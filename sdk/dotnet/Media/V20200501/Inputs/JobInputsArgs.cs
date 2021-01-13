@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
     public sealed class JobInputsArgs : Pulumi.ResourceArgs
     {
         [Input("inputs")]
-        private InputList<Union<Inputs.JobInputClipArgs, Inputs.JobInputsArgs>>? _inputs;
+        private InputList<object>? _inputs;
 
         /// <summary>
         /// List of inputs to a Job.
         /// </summary>
-        public InputList<Union<Inputs.JobInputClipArgs, Inputs.JobInputsArgs>> Inputs
+        public InputList<object> Inputs
         {
-            get => _inputs ?? (_inputs = new InputList<Union<Inputs.JobInputClipArgs, Inputs.JobInputsArgs>>());
+            get => _inputs ?? (_inputs = new InputList<object>());
             set => _inputs = value;
         }
 

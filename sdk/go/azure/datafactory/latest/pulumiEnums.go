@@ -40,6 +40,130 @@ func (e AvroCompressionCodec) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Rest API method for target endpoint.
+type AzureFunctionActivityMethod pulumi.String
+
+const (
+	AzureFunctionActivityMethodGET     = AzureFunctionActivityMethod("GET")
+	AzureFunctionActivityMethodPOST    = AzureFunctionActivityMethod("POST")
+	AzureFunctionActivityMethodPUT     = AzureFunctionActivityMethod("PUT")
+	AzureFunctionActivityMethodDELETE  = AzureFunctionActivityMethod("DELETE")
+	AzureFunctionActivityMethodOPTIONS = AzureFunctionActivityMethod("OPTIONS")
+	AzureFunctionActivityMethodHEAD    = AzureFunctionActivityMethod("HEAD")
+	AzureFunctionActivityMethodTRACE   = AzureFunctionActivityMethod("TRACE")
+)
+
+func (AzureFunctionActivityMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AzureFunctionActivityMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureFunctionActivityMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureFunctionActivityMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AzureFunctionActivityMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Specify the write behavior when upserting documents into Azure Search Index.
+type AzureSearchIndexWriteBehaviorType pulumi.String
+
+const (
+	AzureSearchIndexWriteBehaviorTypeMerge  = AzureSearchIndexWriteBehaviorType("Merge")
+	AzureSearchIndexWriteBehaviorTypeUpload = AzureSearchIndexWriteBehaviorType("Upload")
+)
+
+func (AzureSearchIndexWriteBehaviorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AzureSearchIndexWriteBehaviorType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureSearchIndexWriteBehaviorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureSearchIndexWriteBehaviorType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AzureSearchIndexWriteBehaviorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BlobEventTypes pulumi.String
+
+const (
+	BlobEventTypes_Microsoft_Storage_BlobCreated = BlobEventTypes("Microsoft.Storage.BlobCreated")
+	BlobEventTypes_Microsoft_Storage_BlobDeleted = BlobEventTypes("Microsoft.Storage.BlobDeleted")
+)
+
+func (BlobEventTypes) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e BlobEventTypes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlobEventTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlobEventTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BlobEventTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
+type CassandraSourceReadConsistencyLevels pulumi.String
+
+const (
+	CassandraSourceReadConsistencyLevelsALL           = CassandraSourceReadConsistencyLevels("ALL")
+	CassandraSourceReadConsistencyLevels_EACH_QUORUM  = CassandraSourceReadConsistencyLevels("EACH_QUORUM")
+	CassandraSourceReadConsistencyLevelsQUORUM        = CassandraSourceReadConsistencyLevels("QUORUM")
+	CassandraSourceReadConsistencyLevels_LOCAL_QUORUM = CassandraSourceReadConsistencyLevels("LOCAL_QUORUM")
+	CassandraSourceReadConsistencyLevelsONE           = CassandraSourceReadConsistencyLevels("ONE")
+	CassandraSourceReadConsistencyLevelsTWO           = CassandraSourceReadConsistencyLevels("TWO")
+	CassandraSourceReadConsistencyLevelsTHREE         = CassandraSourceReadConsistencyLevels("THREE")
+	CassandraSourceReadConsistencyLevels_LOCAL_ONE    = CassandraSourceReadConsistencyLevels("LOCAL_ONE")
+	CassandraSourceReadConsistencyLevelsSERIAL        = CassandraSourceReadConsistencyLevels("SERIAL")
+	CassandraSourceReadConsistencyLevels_LOCAL_SERIAL = CassandraSourceReadConsistencyLevels("LOCAL_SERIAL")
+)
+
+func (CassandraSourceReadConsistencyLevels) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e CassandraSourceReadConsistencyLevels) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CassandraSourceReadConsistencyLevels) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CassandraSourceReadConsistencyLevels) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CassandraSourceReadConsistencyLevels) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type CompressionCodec pulumi.String
 
 const (
@@ -123,6 +247,71 @@ func (e DatasetCompressionLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e DatasetCompressionLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The day of the week.
+type DayOfWeek pulumi.String
+
+const (
+	DayOfWeekSunday    = DayOfWeek("Sunday")
+	DayOfWeekMonday    = DayOfWeek("Monday")
+	DayOfWeekTuesday   = DayOfWeek("Tuesday")
+	DayOfWeekWednesday = DayOfWeek("Wednesday")
+	DayOfWeekThursday  = DayOfWeek("Thursday")
+	DayOfWeekFriday    = DayOfWeek("Friday")
+	DayOfWeekSaturday  = DayOfWeek("Saturday")
+)
+
+func (DayOfWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DayOfWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DayOfWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DayOfWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DayOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DaysOfWeek pulumi.String
+
+const (
+	DaysOfWeekSunday    = DaysOfWeek("Sunday")
+	DaysOfWeekMonday    = DaysOfWeek("Monday")
+	DaysOfWeekTuesday   = DaysOfWeek("Tuesday")
+	DaysOfWeekWednesday = DaysOfWeek("Wednesday")
+	DaysOfWeekThursday  = DaysOfWeek("Thursday")
+	DaysOfWeekFriday    = DaysOfWeek("Friday")
+	DaysOfWeekSaturday  = DaysOfWeek("Saturday")
+)
+
+func (DaysOfWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DaysOfWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DaysOfWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DaysOfWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DaysOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -264,6 +453,33 @@ func (e DynamicsServicePrincipalCredentialType) ToStringPtrOutput() pulumi.Strin
 }
 
 func (e DynamicsServicePrincipalCredentialType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The write behavior for the operation.
+type DynamicsSinkWriteBehavior pulumi.String
+
+const (
+	DynamicsSinkWriteBehaviorUpsert = DynamicsSinkWriteBehavior("Upsert")
+)
+
+func (DynamicsSinkWriteBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DynamicsSinkWriteBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DynamicsSinkWriteBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DynamicsSinkWriteBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DynamicsSinkWriteBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -435,6 +651,35 @@ func (e HBaseAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e HBaseAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Debug info option.
+type HDInsightActivityDebugInfoOption pulumi.String
+
+const (
+	HDInsightActivityDebugInfoOptionNone    = HDInsightActivityDebugInfoOption("None")
+	HDInsightActivityDebugInfoOptionAlways  = HDInsightActivityDebugInfoOption("Always")
+	HDInsightActivityDebugInfoOptionFailure = HDInsightActivityDebugInfoOption("Failure")
+)
+
+func (HDInsightActivityDebugInfoOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e HDInsightActivityDebugInfoOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HDInsightActivityDebugInfoOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HDInsightActivityDebugInfoOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HDInsightActivityDebugInfoOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -785,6 +1030,34 @@ func (e JsonFormatFilePattern) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
+type JsonWriteFilePattern pulumi.String
+
+const (
+	JsonWriteFilePatternSetOfObjects   = JsonWriteFilePattern("setOfObjects")
+	JsonWriteFilePatternArrayOfObjects = JsonWriteFilePattern("arrayOfObjects")
+)
+
+func (JsonWriteFilePattern) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e JsonWriteFilePattern) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JsonWriteFilePattern) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JsonWriteFilePattern) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JsonWriteFilePattern) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The authentication type to be used to connect to the MongoDB database.
 type MongoDbAuthenticationType pulumi.String
 
@@ -963,6 +1236,34 @@ func (e PhoenixAuthenticationType) ToStringPtrOutputWithContext(ctx context.Cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Reject type.
+type PolybaseSettingsRejectType pulumi.String
+
+const (
+	PolybaseSettingsRejectTypeValue      = PolybaseSettingsRejectType("value")
+	PolybaseSettingsRejectTypePercentage = PolybaseSettingsRejectType("percentage")
+)
+
+func (PolybaseSettingsRejectType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e PolybaseSettingsRejectType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolybaseSettingsRejectType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolybaseSettingsRejectType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolybaseSettingsRejectType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The authentication mechanism used to connect to the Presto server.
 type PrestoAuthenticationType pulumi.String
 
@@ -1019,6 +1320,39 @@ func (e PublicNetworkAccess) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The frequency.
+type RecurrenceFrequency pulumi.String
+
+const (
+	RecurrenceFrequencyNotSpecified = RecurrenceFrequency("NotSpecified")
+	RecurrenceFrequencyMinute       = RecurrenceFrequency("Minute")
+	RecurrenceFrequencyHour         = RecurrenceFrequency("Hour")
+	RecurrenceFrequencyDay          = RecurrenceFrequency("Day")
+	RecurrenceFrequencyWeek         = RecurrenceFrequency("Week")
+	RecurrenceFrequencyMonth        = RecurrenceFrequency("Month")
+	RecurrenceFrequencyYear         = RecurrenceFrequency("Year")
+)
+
+func (RecurrenceFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e RecurrenceFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecurrenceFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecurrenceFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RecurrenceFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Type of authentication used to connect to the REST service.
 type RestServiceAuthenticationType pulumi.String
 
@@ -1046,6 +1380,90 @@ func (e RestServiceAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutpu
 }
 
 func (e RestServiceAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The write behavior for the operation. Default is Insert.
+type SalesforceSinkWriteBehavior pulumi.String
+
+const (
+	SalesforceSinkWriteBehaviorInsert = SalesforceSinkWriteBehavior("Insert")
+	SalesforceSinkWriteBehaviorUpsert = SalesforceSinkWriteBehavior("Upsert")
+)
+
+func (SalesforceSinkWriteBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SalesforceSinkWriteBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SalesforceSinkWriteBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SalesforceSinkWriteBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SalesforceSinkWriteBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The read behavior for the operation. Default is Query.
+type SalesforceSourceReadBehavior pulumi.String
+
+const (
+	SalesforceSourceReadBehaviorQuery    = SalesforceSourceReadBehavior("Query")
+	SalesforceSourceReadBehaviorQueryAll = SalesforceSourceReadBehavior("QueryAll")
+)
+
+func (SalesforceSourceReadBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SalesforceSourceReadBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SalesforceSourceReadBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SalesforceSourceReadBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SalesforceSourceReadBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The write behavior for the operation. Default is 'Insert'.
+type SapCloudForCustomerSinkWriteBehavior pulumi.String
+
+const (
+	SapCloudForCustomerSinkWriteBehaviorInsert = SapCloudForCustomerSinkWriteBehavior("Insert")
+	SapCloudForCustomerSinkWriteBehaviorUpdate = SapCloudForCustomerSinkWriteBehavior("Update")
+)
+
+func (SapCloudForCustomerSinkWriteBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SapCloudForCustomerSinkWriteBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SapCloudForCustomerSinkWriteBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SapCloudForCustomerSinkWriteBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SapCloudForCustomerSinkWriteBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -1221,6 +1639,96 @@ func (e SparkThriftTransportProtocol) ToStringPtrOutputWithContext(ctx context.C
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The type of SSIS log location.
+type SsisLogLocationType pulumi.String
+
+const (
+	SsisLogLocationTypeFile = SsisLogLocationType("File")
+)
+
+func (SsisLogLocationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SsisLogLocationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SsisLogLocationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SsisLogLocationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SsisLogLocationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of SSIS package location.
+type SsisPackageLocationType pulumi.String
+
+const (
+	SsisPackageLocationTypeSSISDB        = SsisPackageLocationType("SSISDB")
+	SsisPackageLocationTypeFile          = SsisPackageLocationType("File")
+	SsisPackageLocationTypeInlinePackage = SsisPackageLocationType("InlinePackage")
+	SsisPackageLocationTypePackageStore  = SsisPackageLocationType("PackageStore")
+)
+
+func (SsisPackageLocationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SsisPackageLocationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SsisPackageLocationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SsisPackageLocationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SsisPackageLocationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Stored procedure parameter type.
+type StoredProcedureParameterType pulumi.String
+
+const (
+	StoredProcedureParameterTypeString  = StoredProcedureParameterType("String")
+	StoredProcedureParameterTypeInt     = StoredProcedureParameterType("Int")
+	StoredProcedureParameterTypeInt64   = StoredProcedureParameterType("Int64")
+	StoredProcedureParameterTypeDecimal = StoredProcedureParameterType("Decimal")
+	StoredProcedureParameterTypeGuid    = StoredProcedureParameterType("Guid")
+	StoredProcedureParameterTypeBoolean = StoredProcedureParameterType("Boolean")
+	StoredProcedureParameterTypeDate    = StoredProcedureParameterType("Date")
+)
+
+func (StoredProcedureParameterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e StoredProcedureParameterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StoredProcedureParameterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StoredProcedureParameterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StoredProcedureParameterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // AuthenticationType to be used for connection.
 type SybaseAuthenticationType pulumi.String
 
@@ -1335,6 +1843,36 @@ func (e VariableType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Rest API method for target endpoint.
+type WebActivityMethod pulumi.String
+
+const (
+	WebActivityMethodGET    = WebActivityMethod("GET")
+	WebActivityMethodPOST   = WebActivityMethod("POST")
+	WebActivityMethodPUT    = WebActivityMethod("PUT")
+	WebActivityMethodDELETE = WebActivityMethod("DELETE")
+)
+
+func (WebActivityMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e WebActivityMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebActivityMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebActivityMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebActivityMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Type of authentication used to connect to the web table source.
 type WebAuthenticationType pulumi.String
 
@@ -1361,5 +1899,32 @@ func (e WebAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e WebAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Rest API method for target endpoint.
+type WebHookActivityMethod pulumi.String
+
+const (
+	WebHookActivityMethodPOST = WebHookActivityMethod("POST")
+)
+
+func (WebHookActivityMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e WebHookActivityMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebHookActivityMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebHookActivityMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebHookActivityMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

@@ -63,7 +63,7 @@ export interface GetMachineLearningServiceResult {
     /**
      * Service properties
      */
-    readonly properties: outputs.machinelearningservices.v20200515preview.ACIServiceResponseResponse | outputs.machinelearningservices.v20200515preview.AKSVariantResponseResponse;
+    readonly properties: outputs.machinelearningservices.v20200515preview.ACIServiceResponseResponse | outputs.machinelearningservices.v20200515preview.AKSServiceResponseResponse | outputs.machinelearningservices.v20200515preview.AKSVariantResponseResponse;
     /**
      * The sku of the workspace.
      */

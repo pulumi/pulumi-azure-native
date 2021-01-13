@@ -440,9 +440,443 @@ func (o AzureResourceProtectionIntentResponseOutput) SourceResourceId() pulumi.S
 	return o.ApplyT(func(v AzureResourceProtectionIntentResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
+// Azure Recovery Services Vault specific protection intent item.
+type AzureWorkloadAutoProtectionIntent struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId *string `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// backup protectionIntent type.
+	// Expected value is 'RecoveryServiceVaultItem'.
+	ProtectionIntentItemType *string `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+}
+
+// AzureWorkloadAutoProtectionIntentInput is an input type that accepts AzureWorkloadAutoProtectionIntentArgs and AzureWorkloadAutoProtectionIntentOutput values.
+// You can construct a concrete instance of `AzureWorkloadAutoProtectionIntentInput` via:
+//
+//          AzureWorkloadAutoProtectionIntentArgs{...}
+type AzureWorkloadAutoProtectionIntentInput interface {
+	pulumi.Input
+
+	ToAzureWorkloadAutoProtectionIntentOutput() AzureWorkloadAutoProtectionIntentOutput
+	ToAzureWorkloadAutoProtectionIntentOutputWithContext(context.Context) AzureWorkloadAutoProtectionIntentOutput
+}
+
+// Azure Recovery Services Vault specific protection intent item.
+type AzureWorkloadAutoProtectionIntentArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId pulumi.StringPtrInput `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// backup protectionIntent type.
+	// Expected value is 'RecoveryServiceVaultItem'.
+	ProtectionIntentItemType pulumi.StringPtrInput `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+}
+
+func (AzureWorkloadAutoProtectionIntentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadAutoProtectionIntent)(nil)).Elem()
+}
+
+func (i AzureWorkloadAutoProtectionIntentArgs) ToAzureWorkloadAutoProtectionIntentOutput() AzureWorkloadAutoProtectionIntentOutput {
+	return i.ToAzureWorkloadAutoProtectionIntentOutputWithContext(context.Background())
+}
+
+func (i AzureWorkloadAutoProtectionIntentArgs) ToAzureWorkloadAutoProtectionIntentOutputWithContext(ctx context.Context) AzureWorkloadAutoProtectionIntentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadAutoProtectionIntentOutput)
+}
+
+// Azure Recovery Services Vault specific protection intent item.
+type AzureWorkloadAutoProtectionIntentOutput struct{ *pulumi.OutputState }
+
+func (AzureWorkloadAutoProtectionIntentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadAutoProtectionIntent)(nil)).Elem()
+}
+
+func (o AzureWorkloadAutoProtectionIntentOutput) ToAzureWorkloadAutoProtectionIntentOutput() AzureWorkloadAutoProtectionIntentOutput {
+	return o
+}
+
+func (o AzureWorkloadAutoProtectionIntentOutput) ToAzureWorkloadAutoProtectionIntentOutputWithContext(ctx context.Context) AzureWorkloadAutoProtectionIntentOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureWorkloadAutoProtectionIntentOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntent) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+func (o AzureWorkloadAutoProtectionIntentOutput) ItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntent) *string { return v.ItemId }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureWorkloadAutoProtectionIntentOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntent) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// backup protectionIntent type.
+// Expected value is 'RecoveryServiceVaultItem'.
+func (o AzureWorkloadAutoProtectionIntentOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntent) *string { return v.ProtectionIntentItemType }).(pulumi.StringPtrOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureWorkloadAutoProtectionIntentOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntent) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureWorkloadAutoProtectionIntentOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntent) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Recovery Services Vault specific protection intent item.
+type AzureWorkloadAutoProtectionIntentResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId *string `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// backup protectionIntent type.
+	// Expected value is 'RecoveryServiceVaultItem'.
+	ProtectionIntentItemType *string `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+}
+
+// AzureWorkloadAutoProtectionIntentResponseInput is an input type that accepts AzureWorkloadAutoProtectionIntentResponseArgs and AzureWorkloadAutoProtectionIntentResponseOutput values.
+// You can construct a concrete instance of `AzureWorkloadAutoProtectionIntentResponseInput` via:
+//
+//          AzureWorkloadAutoProtectionIntentResponseArgs{...}
+type AzureWorkloadAutoProtectionIntentResponseInput interface {
+	pulumi.Input
+
+	ToAzureWorkloadAutoProtectionIntentResponseOutput() AzureWorkloadAutoProtectionIntentResponseOutput
+	ToAzureWorkloadAutoProtectionIntentResponseOutputWithContext(context.Context) AzureWorkloadAutoProtectionIntentResponseOutput
+}
+
+// Azure Recovery Services Vault specific protection intent item.
+type AzureWorkloadAutoProtectionIntentResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId pulumi.StringPtrInput `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// backup protectionIntent type.
+	// Expected value is 'RecoveryServiceVaultItem'.
+	ProtectionIntentItemType pulumi.StringPtrInput `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+}
+
+func (AzureWorkloadAutoProtectionIntentResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadAutoProtectionIntentResponse)(nil)).Elem()
+}
+
+func (i AzureWorkloadAutoProtectionIntentResponseArgs) ToAzureWorkloadAutoProtectionIntentResponseOutput() AzureWorkloadAutoProtectionIntentResponseOutput {
+	return i.ToAzureWorkloadAutoProtectionIntentResponseOutputWithContext(context.Background())
+}
+
+func (i AzureWorkloadAutoProtectionIntentResponseArgs) ToAzureWorkloadAutoProtectionIntentResponseOutputWithContext(ctx context.Context) AzureWorkloadAutoProtectionIntentResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadAutoProtectionIntentResponseOutput)
+}
+
+// Azure Recovery Services Vault specific protection intent item.
+type AzureWorkloadAutoProtectionIntentResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureWorkloadAutoProtectionIntentResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadAutoProtectionIntentResponse)(nil)).Elem()
+}
+
+func (o AzureWorkloadAutoProtectionIntentResponseOutput) ToAzureWorkloadAutoProtectionIntentResponseOutput() AzureWorkloadAutoProtectionIntentResponseOutput {
+	return o
+}
+
+func (o AzureWorkloadAutoProtectionIntentResponseOutput) ToAzureWorkloadAutoProtectionIntentResponseOutputWithContext(ctx context.Context) AzureWorkloadAutoProtectionIntentResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureWorkloadAutoProtectionIntentResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntentResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+func (o AzureWorkloadAutoProtectionIntentResponseOutput) ItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntentResponse) *string { return v.ItemId }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureWorkloadAutoProtectionIntentResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntentResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// backup protectionIntent type.
+// Expected value is 'RecoveryServiceVaultItem'.
+func (o AzureWorkloadAutoProtectionIntentResponseOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntentResponse) *string { return v.ProtectionIntentItemType }).(pulumi.StringPtrOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureWorkloadAutoProtectionIntentResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntentResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureWorkloadAutoProtectionIntentResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntentResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Workload SQL Auto Protection intent item.
+type AzureWorkloadSQLAutoProtectionIntent struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId *string `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// backup protectionIntent type.
+	// Expected value is 'RecoveryServiceVaultItem'.
+	ProtectionIntentItemType *string `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Workload item type of the item for which intent is to be set
+	WorkloadItemType *string `pulumi:"workloadItemType"`
+}
+
+// AzureWorkloadSQLAutoProtectionIntentInput is an input type that accepts AzureWorkloadSQLAutoProtectionIntentArgs and AzureWorkloadSQLAutoProtectionIntentOutput values.
+// You can construct a concrete instance of `AzureWorkloadSQLAutoProtectionIntentInput` via:
+//
+//          AzureWorkloadSQLAutoProtectionIntentArgs{...}
+type AzureWorkloadSQLAutoProtectionIntentInput interface {
+	pulumi.Input
+
+	ToAzureWorkloadSQLAutoProtectionIntentOutput() AzureWorkloadSQLAutoProtectionIntentOutput
+	ToAzureWorkloadSQLAutoProtectionIntentOutputWithContext(context.Context) AzureWorkloadSQLAutoProtectionIntentOutput
+}
+
+// Azure Workload SQL Auto Protection intent item.
+type AzureWorkloadSQLAutoProtectionIntentArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId pulumi.StringPtrInput `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// backup protectionIntent type.
+	// Expected value is 'RecoveryServiceVaultItem'.
+	ProtectionIntentItemType pulumi.StringPtrInput `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Workload item type of the item for which intent is to be set
+	WorkloadItemType pulumi.StringPtrInput `pulumi:"workloadItemType"`
+}
+
+func (AzureWorkloadSQLAutoProtectionIntentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadSQLAutoProtectionIntent)(nil)).Elem()
+}
+
+func (i AzureWorkloadSQLAutoProtectionIntentArgs) ToAzureWorkloadSQLAutoProtectionIntentOutput() AzureWorkloadSQLAutoProtectionIntentOutput {
+	return i.ToAzureWorkloadSQLAutoProtectionIntentOutputWithContext(context.Background())
+}
+
+func (i AzureWorkloadSQLAutoProtectionIntentArgs) ToAzureWorkloadSQLAutoProtectionIntentOutputWithContext(ctx context.Context) AzureWorkloadSQLAutoProtectionIntentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadSQLAutoProtectionIntentOutput)
+}
+
+// Azure Workload SQL Auto Protection intent item.
+type AzureWorkloadSQLAutoProtectionIntentOutput struct{ *pulumi.OutputState }
+
+func (AzureWorkloadSQLAutoProtectionIntentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadSQLAutoProtectionIntent)(nil)).Elem()
+}
+
+func (o AzureWorkloadSQLAutoProtectionIntentOutput) ToAzureWorkloadSQLAutoProtectionIntentOutput() AzureWorkloadSQLAutoProtectionIntentOutput {
+	return o
+}
+
+func (o AzureWorkloadSQLAutoProtectionIntentOutput) ToAzureWorkloadSQLAutoProtectionIntentOutputWithContext(ctx context.Context) AzureWorkloadSQLAutoProtectionIntentOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureWorkloadSQLAutoProtectionIntentOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntent) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+func (o AzureWorkloadSQLAutoProtectionIntentOutput) ItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntent) *string { return v.ItemId }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureWorkloadSQLAutoProtectionIntentOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntent) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// backup protectionIntent type.
+// Expected value is 'RecoveryServiceVaultItem'.
+func (o AzureWorkloadSQLAutoProtectionIntentOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntent) *string { return v.ProtectionIntentItemType }).(pulumi.StringPtrOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureWorkloadSQLAutoProtectionIntentOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntent) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureWorkloadSQLAutoProtectionIntentOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntent) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Workload item type of the item for which intent is to be set
+func (o AzureWorkloadSQLAutoProtectionIntentOutput) WorkloadItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntent) *string { return v.WorkloadItemType }).(pulumi.StringPtrOutput)
+}
+
+// Azure Workload SQL Auto Protection intent item.
+type AzureWorkloadSQLAutoProtectionIntentResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId *string `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// backup protectionIntent type.
+	// Expected value is 'RecoveryServiceVaultItem'.
+	ProtectionIntentItemType *string `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Workload item type of the item for which intent is to be set
+	WorkloadItemType *string `pulumi:"workloadItemType"`
+}
+
+// AzureWorkloadSQLAutoProtectionIntentResponseInput is an input type that accepts AzureWorkloadSQLAutoProtectionIntentResponseArgs and AzureWorkloadSQLAutoProtectionIntentResponseOutput values.
+// You can construct a concrete instance of `AzureWorkloadSQLAutoProtectionIntentResponseInput` via:
+//
+//          AzureWorkloadSQLAutoProtectionIntentResponseArgs{...}
+type AzureWorkloadSQLAutoProtectionIntentResponseInput interface {
+	pulumi.Input
+
+	ToAzureWorkloadSQLAutoProtectionIntentResponseOutput() AzureWorkloadSQLAutoProtectionIntentResponseOutput
+	ToAzureWorkloadSQLAutoProtectionIntentResponseOutputWithContext(context.Context) AzureWorkloadSQLAutoProtectionIntentResponseOutput
+}
+
+// Azure Workload SQL Auto Protection intent item.
+type AzureWorkloadSQLAutoProtectionIntentResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId pulumi.StringPtrInput `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// backup protectionIntent type.
+	// Expected value is 'RecoveryServiceVaultItem'.
+	ProtectionIntentItemType pulumi.StringPtrInput `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Workload item type of the item for which intent is to be set
+	WorkloadItemType pulumi.StringPtrInput `pulumi:"workloadItemType"`
+}
+
+func (AzureWorkloadSQLAutoProtectionIntentResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadSQLAutoProtectionIntentResponse)(nil)).Elem()
+}
+
+func (i AzureWorkloadSQLAutoProtectionIntentResponseArgs) ToAzureWorkloadSQLAutoProtectionIntentResponseOutput() AzureWorkloadSQLAutoProtectionIntentResponseOutput {
+	return i.ToAzureWorkloadSQLAutoProtectionIntentResponseOutputWithContext(context.Background())
+}
+
+func (i AzureWorkloadSQLAutoProtectionIntentResponseArgs) ToAzureWorkloadSQLAutoProtectionIntentResponseOutputWithContext(ctx context.Context) AzureWorkloadSQLAutoProtectionIntentResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadSQLAutoProtectionIntentResponseOutput)
+}
+
+// Azure Workload SQL Auto Protection intent item.
+type AzureWorkloadSQLAutoProtectionIntentResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureWorkloadSQLAutoProtectionIntentResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadSQLAutoProtectionIntentResponse)(nil)).Elem()
+}
+
+func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) ToAzureWorkloadSQLAutoProtectionIntentResponseOutput() AzureWorkloadSQLAutoProtectionIntentResponseOutput {
+	return o
+}
+
+func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) ToAzureWorkloadSQLAutoProtectionIntentResponseOutputWithContext(ctx context.Context) AzureWorkloadSQLAutoProtectionIntentResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntentResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) ItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntentResponse) *string { return v.ItemId }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntentResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// backup protectionIntent type.
+// Expected value is 'RecoveryServiceVaultItem'.
+func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntentResponse) *string { return v.ProtectionIntentItemType }).(pulumi.StringPtrOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntentResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntentResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Workload item type of the item for which intent is to be set
+func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) WorkloadItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntentResponse) *string { return v.WorkloadItemType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AzureRecoveryServiceVaultProtectionIntentOutput{})
 	pulumi.RegisterOutputType(AzureRecoveryServiceVaultProtectionIntentResponseOutput{})
 	pulumi.RegisterOutputType(AzureResourceProtectionIntentOutput{})
 	pulumi.RegisterOutputType(AzureResourceProtectionIntentResponseOutput{})
+	pulumi.RegisterOutputType(AzureWorkloadAutoProtectionIntentOutput{})
+	pulumi.RegisterOutputType(AzureWorkloadAutoProtectionIntentResponseOutput{})
+	pulumi.RegisterOutputType(AzureWorkloadSQLAutoProtectionIntentOutput{})
+	pulumi.RegisterOutputType(AzureWorkloadSQLAutoProtectionIntentResponseOutput{})
 }

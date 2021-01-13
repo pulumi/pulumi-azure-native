@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701.Outputs
         /// <summary>
         /// The list of outputs to be produced by the encoder.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ImageFormatResponse, Outputs.MultiBitrateFormatResponse>> Formats;
+        public readonly ImmutableArray<object> Formats;
         /// <summary>
         /// The discriminator for derived types.
         /// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701.Outputs
 
             Outputs.FiltersResponse? filters,
 
-            ImmutableArray<Union<Outputs.ImageFormatResponse, Outputs.MultiBitrateFormatResponse>> formats,
+            ImmutableArray<object> formats,
 
             string odataType)
         {

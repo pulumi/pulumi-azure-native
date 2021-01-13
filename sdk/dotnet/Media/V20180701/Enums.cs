@@ -8,6 +8,47 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.Media.V20180701
 {
     /// <summary>
+    /// The encoding profile to be used when encoding audio with AAC.
+    /// </summary>
+    [EnumType]
+    public readonly struct AacAudioProfile : IEquatable<AacAudioProfile>
+    {
+        private readonly string _value;
+
+        private AacAudioProfile(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Specifies that the output audio is to be encoded into AAC Low Complexity profile (AAC-LC).
+        /// </summary>
+        public static AacAudioProfile AacLc { get; } = new AacAudioProfile("AacLc");
+        /// <summary>
+        /// Specifies that the output audio is to be encoded into HE-AAC v1 profile.
+        /// </summary>
+        public static AacAudioProfile HeAacV1 { get; } = new AacAudioProfile("HeAacV1");
+        /// <summary>
+        /// Specifies that the output audio is to be encoded into HE-AAC v2 profile.
+        /// </summary>
+        public static AacAudioProfile HeAacV2 { get; } = new AacAudioProfile("HeAacV2");
+
+        public static bool operator ==(AacAudioProfile left, AacAudioProfile right) => left.Equals(right);
+        public static bool operator !=(AacAudioProfile left, AacAudioProfile right) => !left.Equals(right);
+
+        public static explicit operator string(AacAudioProfile value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AacAudioProfile other && Equals(other);
+        public bool Equals(AacAudioProfile other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
     /// </summary>
     [EnumType]
@@ -448,6 +489,43 @@ namespace Pulumi.AzureNextGen.Media.V20180701
     }
 
     /// <summary>
+    /// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+    /// </summary>
+    [EnumType]
+    public readonly struct EntropyMode : IEquatable<EntropyMode>
+    {
+        private readonly string _value;
+
+        private EntropyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Context Adaptive Binary Arithmetic Coder (CABAC) entropy encoding.
+        /// </summary>
+        public static EntropyMode Cabac { get; } = new EntropyMode("Cabac");
+        /// <summary>
+        /// Context Adaptive Variable Length Coder (CAVLC) entropy encoding.
+        /// </summary>
+        public static EntropyMode Cavlc { get; } = new EntropyMode("Cavlc");
+
+        public static bool operator ==(EntropyMode left, EntropyMode right) => left.Equals(right);
+        public static bool operator !=(EntropyMode left, EntropyMode right) => !left.Equals(right);
+
+        public static explicit operator string(EntropyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntropyMode other && Equals(other);
+        public bool Equals(EntropyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The track property condition operation.
     /// </summary>
     [EnumType]
@@ -530,6 +608,141 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FilterTrackPropertyType other && Equals(other);
         public bool Equals(FilterTrackPropertyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+    /// </summary>
+    [EnumType]
+    public readonly struct H264Complexity : IEquatable<H264Complexity>
+    {
+        private readonly string _value;
+
+        private H264Complexity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Tells the encoder to use settings that are optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+        /// </summary>
+        public static H264Complexity Speed { get; } = new H264Complexity("Speed");
+        /// <summary>
+        /// Tells the encoder to use settings that achieve a balance between speed and quality.
+        /// </summary>
+        public static H264Complexity Balanced { get; } = new H264Complexity("Balanced");
+        /// <summary>
+        /// Tells the encoder to use settings that are optimized to produce higher quality output at the expense of slower overall encode time.
+        /// </summary>
+        public static H264Complexity Quality { get; } = new H264Complexity("Quality");
+
+        public static bool operator ==(H264Complexity left, H264Complexity right) => left.Equals(right);
+        public static bool operator !=(H264Complexity left, H264Complexity right) => !left.Equals(right);
+
+        public static explicit operator string(H264Complexity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is H264Complexity other && Equals(other);
+        public bool Equals(H264Complexity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// We currently support Baseline, Main, High, High422, High444. Default is Auto.
+    /// </summary>
+    [EnumType]
+    public readonly struct H264VideoProfile : IEquatable<H264VideoProfile>
+    {
+        private readonly string _value;
+
+        private H264VideoProfile(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Tells the encoder to automatically determine the appropriate H.264 profile.
+        /// </summary>
+        public static H264VideoProfile Auto { get; } = new H264VideoProfile("Auto");
+        /// <summary>
+        /// Baseline profile
+        /// </summary>
+        public static H264VideoProfile Baseline { get; } = new H264VideoProfile("Baseline");
+        /// <summary>
+        /// Main profile
+        /// </summary>
+        public static H264VideoProfile Main { get; } = new H264VideoProfile("Main");
+        /// <summary>
+        /// High profile.
+        /// </summary>
+        public static H264VideoProfile High { get; } = new H264VideoProfile("High");
+        /// <summary>
+        /// High 4:2:2 profile.
+        /// </summary>
+        public static H264VideoProfile High422 { get; } = new H264VideoProfile("High422");
+        /// <summary>
+        /// High 4:4:4 predictive profile.
+        /// </summary>
+        public static H264VideoProfile High444 { get; } = new H264VideoProfile("High444");
+
+        public static bool operator ==(H264VideoProfile left, H264VideoProfile right) => left.Equals(right);
+        public static bool operator !=(H264VideoProfile left, H264VideoProfile right) => !left.Equals(right);
+
+        public static explicit operator string(H264VideoProfile value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is H264VideoProfile other && Equals(other);
+        public bool Equals(H264VideoProfile other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+    /// </summary>
+    [EnumType]
+    public readonly struct InsightsType : IEquatable<InsightsType>
+    {
+        private readonly string _value;
+
+        private InsightsType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Generate audio only insights. Ignore video even if present. Fails if no audio is present.
+        /// </summary>
+        public static InsightsType AudioInsightsOnly { get; } = new InsightsType("AudioInsightsOnly");
+        /// <summary>
+        /// Generate video only insights. Ignore audio if present. Fails if no video is present.
+        /// </summary>
+        public static InsightsType VideoInsightsOnly { get; } = new InsightsType("VideoInsightsOnly");
+        /// <summary>
+        /// Generate both audio and video insights. Fails if either audio or video Insights fail.
+        /// </summary>
+        public static InsightsType AllInsights { get; } = new InsightsType("AllInsights");
+
+        public static bool operator ==(InsightsType left, InsightsType right) => left.Equals(right);
+        public static bool operator !=(InsightsType left, InsightsType right) => !left.Equals(right);
+
+        public static explicit operator string(InsightsType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InsightsType other && Equals(other);
+        public bool Equals(InsightsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

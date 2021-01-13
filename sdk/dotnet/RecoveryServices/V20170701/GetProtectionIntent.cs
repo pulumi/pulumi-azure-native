@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20170701
         /// <summary>
         /// ProtectionIntentResource properties
         /// </summary>
-        public readonly Union<Outputs.AzureRecoveryServiceVaultProtectionIntentResponse, Outputs.AzureResourceProtectionIntentResponse> Properties;
+        public readonly object Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20170701
 
             string name,
 
-            Union<Outputs.AzureRecoveryServiceVaultProtectionIntentResponse, Outputs.AzureResourceProtectionIntentResponse> properties,
+            object properties,
 
             ImmutableDictionary<string, string>? tags,
 

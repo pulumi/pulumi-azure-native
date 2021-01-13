@@ -78,4 +78,40 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20170701
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Workload item type of the item for which intent is to be set
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkloadItemType : IEquatable<WorkloadItemType>
+    {
+        private readonly string _value;
+
+        private WorkloadItemType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkloadItemType Invalid { get; } = new WorkloadItemType("Invalid");
+        public static WorkloadItemType SQLInstance { get; } = new WorkloadItemType("SQLInstance");
+        public static WorkloadItemType SQLDataBase { get; } = new WorkloadItemType("SQLDataBase");
+        public static WorkloadItemType SAPHanaSystem { get; } = new WorkloadItemType("SAPHanaSystem");
+        public static WorkloadItemType SAPHanaDatabase { get; } = new WorkloadItemType("SAPHanaDatabase");
+        public static WorkloadItemType SAPAseSystem { get; } = new WorkloadItemType("SAPAseSystem");
+        public static WorkloadItemType SAPAseDatabase { get; } = new WorkloadItemType("SAPAseDatabase");
+
+        public static bool operator ==(WorkloadItemType left, WorkloadItemType right) => left.Equals(right);
+        public static bool operator !=(WorkloadItemType left, WorkloadItemType right) => !left.Equals(right);
+
+        public static explicit operator string(WorkloadItemType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkloadItemType other && Equals(other);
+        public bool Equals(WorkloadItemType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

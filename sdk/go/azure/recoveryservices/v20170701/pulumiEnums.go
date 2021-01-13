@@ -75,3 +75,36 @@ func (e ProtectionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 func (e ProtectionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
+
+// Workload item type of the item for which intent is to be set
+type WorkloadItemType pulumi.String
+
+const (
+	WorkloadItemTypeInvalid         = WorkloadItemType("Invalid")
+	WorkloadItemTypeSQLInstance     = WorkloadItemType("SQLInstance")
+	WorkloadItemTypeSQLDataBase     = WorkloadItemType("SQLDataBase")
+	WorkloadItemTypeSAPHanaSystem   = WorkloadItemType("SAPHanaSystem")
+	WorkloadItemTypeSAPHanaDatabase = WorkloadItemType("SAPHanaDatabase")
+	WorkloadItemTypeSAPAseSystem    = WorkloadItemType("SAPAseSystem")
+	WorkloadItemTypeSAPAseDatabase  = WorkloadItemType("SAPAseDatabase")
+)
+
+func (WorkloadItemType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e WorkloadItemType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkloadItemType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkloadItemType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkloadItemType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}

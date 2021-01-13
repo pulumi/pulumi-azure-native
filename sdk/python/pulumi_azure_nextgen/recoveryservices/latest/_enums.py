@@ -38,6 +38,7 @@ __all__ = [
     'SetMultiVmSyncStatus',
     'SkuName',
     'WeekOfMonth',
+    'WorkloadItemType',
     'WorkloadType',
 ]
 
@@ -412,6 +413,19 @@ class WeekOfMonth(str, Enum):
     FOURTH = "Fourth"
     LAST = "Last"
     INVALID = "Invalid"
+
+
+class WorkloadItemType(str, Enum):
+    """
+    Workload item type of the item for which intent is to be set
+    """
+    INVALID = "Invalid"
+    SQL_INSTANCE = "SQLInstance"
+    SQL_DATA_BASE = "SQLDataBase"
+    SAP_HANA_SYSTEM = "SAPHanaSystem"
+    SAP_HANA_DATABASE = "SAPHanaDatabase"
+    SAPASE_SYSTEM = "SAPAseSystem"
+    SAPASE_DATABASE = "SAPAseDatabase"
 
 
 class WorkloadType(str, Enum):

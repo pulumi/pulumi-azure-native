@@ -2150,6 +2150,230 @@ func (o OnPremiseResourceDetailsResponseOutput) WorkspaceId() pulumi.StringOutpu
 	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
+// Details of the On Premise Sql resource that was assessed
+type OnPremiseSqlResourceDetails struct {
+	// The Sql database name installed on the machine
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the machine
+	MachineName string `pulumi:"machineName"`
+	// The Sql server name installed on the machine
+	ServerName string `pulumi:"serverName"`
+	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
+	Source string `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId string `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid string `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId string `pulumi:"workspaceId"`
+}
+
+// OnPremiseSqlResourceDetailsInput is an input type that accepts OnPremiseSqlResourceDetailsArgs and OnPremiseSqlResourceDetailsOutput values.
+// You can construct a concrete instance of `OnPremiseSqlResourceDetailsInput` via:
+//
+//          OnPremiseSqlResourceDetailsArgs{...}
+type OnPremiseSqlResourceDetailsInput interface {
+	pulumi.Input
+
+	ToOnPremiseSqlResourceDetailsOutput() OnPremiseSqlResourceDetailsOutput
+	ToOnPremiseSqlResourceDetailsOutputWithContext(context.Context) OnPremiseSqlResourceDetailsOutput
+}
+
+// Details of the On Premise Sql resource that was assessed
+type OnPremiseSqlResourceDetailsArgs struct {
+	// The Sql database name installed on the machine
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the machine
+	MachineName pulumi.StringInput `pulumi:"machineName"`
+	// The Sql server name installed on the machine
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
+	Source pulumi.StringInput `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid pulumi.StringInput `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+}
+
+func (OnPremiseSqlResourceDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseSqlResourceDetails)(nil)).Elem()
+}
+
+func (i OnPremiseSqlResourceDetailsArgs) ToOnPremiseSqlResourceDetailsOutput() OnPremiseSqlResourceDetailsOutput {
+	return i.ToOnPremiseSqlResourceDetailsOutputWithContext(context.Background())
+}
+
+func (i OnPremiseSqlResourceDetailsArgs) ToOnPremiseSqlResourceDetailsOutputWithContext(ctx context.Context) OnPremiseSqlResourceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseSqlResourceDetailsOutput)
+}
+
+// Details of the On Premise Sql resource that was assessed
+type OnPremiseSqlResourceDetailsOutput struct{ *pulumi.OutputState }
+
+func (OnPremiseSqlResourceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseSqlResourceDetails)(nil)).Elem()
+}
+
+func (o OnPremiseSqlResourceDetailsOutput) ToOnPremiseSqlResourceDetailsOutput() OnPremiseSqlResourceDetailsOutput {
+	return o
+}
+
+func (o OnPremiseSqlResourceDetailsOutput) ToOnPremiseSqlResourceDetailsOutputWithContext(ctx context.Context) OnPremiseSqlResourceDetailsOutput {
+	return o
+}
+
+// The Sql database name installed on the machine
+func (o OnPremiseSqlResourceDetailsOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The name of the machine
+func (o OnPremiseSqlResourceDetailsOutput) MachineName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.MachineName }).(pulumi.StringOutput)
+}
+
+// The Sql server name installed on the machine
+func (o OnPremiseSqlResourceDetailsOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+// The platform where the assessed resource resides
+// Expected value is 'OnPremise'.
+func (o OnPremiseSqlResourceDetailsOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The oms agent Id installed on the machine
+func (o OnPremiseSqlResourceDetailsOutput) SourceComputerId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.SourceComputerId }).(pulumi.StringOutput)
+}
+
+// The unique Id of the machine
+func (o OnPremiseSqlResourceDetailsOutput) Vmuuid() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.Vmuuid }).(pulumi.StringOutput)
+}
+
+// Azure resource Id of the workspace the machine is attached to
+func (o OnPremiseSqlResourceDetailsOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+// Details of the On Premise Sql resource that was assessed
+type OnPremiseSqlResourceDetailsResponse struct {
+	// The Sql database name installed on the machine
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the machine
+	MachineName string `pulumi:"machineName"`
+	// The Sql server name installed on the machine
+	ServerName string `pulumi:"serverName"`
+	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
+	Source string `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId string `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid string `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId string `pulumi:"workspaceId"`
+}
+
+// OnPremiseSqlResourceDetailsResponseInput is an input type that accepts OnPremiseSqlResourceDetailsResponseArgs and OnPremiseSqlResourceDetailsResponseOutput values.
+// You can construct a concrete instance of `OnPremiseSqlResourceDetailsResponseInput` via:
+//
+//          OnPremiseSqlResourceDetailsResponseArgs{...}
+type OnPremiseSqlResourceDetailsResponseInput interface {
+	pulumi.Input
+
+	ToOnPremiseSqlResourceDetailsResponseOutput() OnPremiseSqlResourceDetailsResponseOutput
+	ToOnPremiseSqlResourceDetailsResponseOutputWithContext(context.Context) OnPremiseSqlResourceDetailsResponseOutput
+}
+
+// Details of the On Premise Sql resource that was assessed
+type OnPremiseSqlResourceDetailsResponseArgs struct {
+	// The Sql database name installed on the machine
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the machine
+	MachineName pulumi.StringInput `pulumi:"machineName"`
+	// The Sql server name installed on the machine
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
+	Source pulumi.StringInput `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid pulumi.StringInput `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+}
+
+func (OnPremiseSqlResourceDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseSqlResourceDetailsResponse)(nil)).Elem()
+}
+
+func (i OnPremiseSqlResourceDetailsResponseArgs) ToOnPremiseSqlResourceDetailsResponseOutput() OnPremiseSqlResourceDetailsResponseOutput {
+	return i.ToOnPremiseSqlResourceDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i OnPremiseSqlResourceDetailsResponseArgs) ToOnPremiseSqlResourceDetailsResponseOutputWithContext(ctx context.Context) OnPremiseSqlResourceDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseSqlResourceDetailsResponseOutput)
+}
+
+// Details of the On Premise Sql resource that was assessed
+type OnPremiseSqlResourceDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (OnPremiseSqlResourceDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseSqlResourceDetailsResponse)(nil)).Elem()
+}
+
+func (o OnPremiseSqlResourceDetailsResponseOutput) ToOnPremiseSqlResourceDetailsResponseOutput() OnPremiseSqlResourceDetailsResponseOutput {
+	return o
+}
+
+func (o OnPremiseSqlResourceDetailsResponseOutput) ToOnPremiseSqlResourceDetailsResponseOutputWithContext(ctx context.Context) OnPremiseSqlResourceDetailsResponseOutput {
+	return o
+}
+
+// The Sql database name installed on the machine
+func (o OnPremiseSqlResourceDetailsResponseOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The name of the machine
+func (o OnPremiseSqlResourceDetailsResponseOutput) MachineName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.MachineName }).(pulumi.StringOutput)
+}
+
+// The Sql server name installed on the machine
+func (o OnPremiseSqlResourceDetailsResponseOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+// The platform where the assessed resource resides
+// Expected value is 'OnPremise'.
+func (o OnPremiseSqlResourceDetailsResponseOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The oms agent Id installed on the machine
+func (o OnPremiseSqlResourceDetailsResponseOutput) SourceComputerId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.SourceComputerId }).(pulumi.StringOutput)
+}
+
+// The unique Id of the machine
+func (o OnPremiseSqlResourceDetailsResponseOutput) Vmuuid() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.Vmuuid }).(pulumi.StringOutput)
+}
+
+// Azure resource Id of the workspace the machine is attached to
+func (o OnPremiseSqlResourceDetailsResponseOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 // Represents a path that is recommended to be allowed and its properties
 type PathRecommendation struct {
 	// The recommendation action of the machine or rule
@@ -5060,6 +5284,8 @@ func init() {
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineResponseArrayOutput{})
 	pulumi.RegisterOutputType(OnPremiseResourceDetailsOutput{})
 	pulumi.RegisterOutputType(OnPremiseResourceDetailsResponseOutput{})
+	pulumi.RegisterOutputType(OnPremiseSqlResourceDetailsOutput{})
+	pulumi.RegisterOutputType(OnPremiseSqlResourceDetailsResponseOutput{})
 	pulumi.RegisterOutputType(PathRecommendationOutput{})
 	pulumi.RegisterOutputType(PathRecommendationArrayOutput{})
 	pulumi.RegisterOutputType(PathRecommendationResponseOutput{})

@@ -10,20 +10,30 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'AzureBackupServerContainerArgs',
     'AzureFileShareProtectionPolicyArgs',
     'AzureFileshareProtectedItemArgs',
     'AzureFileshareProtectedItemExtendedInfoArgs',
+    'AzureIaaSClassicComputeVMContainerArgs',
+    'AzureIaaSClassicComputeVMProtectedItemArgs',
+    'AzureIaaSComputeVMContainerArgs',
+    'AzureIaaSComputeVMProtectedItemArgs',
     'AzureIaaSVMProtectedItemArgs',
     'AzureIaaSVMProtectedItemExtendedInfoArgs',
     'AzureIaaSVMProtectionPolicyArgs',
+    'AzureSQLAGWorkloadContainerProtectionContainerArgs',
     'AzureSqlContainerArgs',
     'AzureSqlProtectedItemArgs',
     'AzureSqlProtectedItemExtendedInfoArgs',
     'AzureSqlProtectionPolicyArgs',
     'AzureStorageContainerArgs',
+    'AzureVMAppContainerProtectionContainerArgs',
     'AzureVmWorkloadProtectedItemArgs',
     'AzureVmWorkloadProtectedItemExtendedInfoArgs',
     'AzureVmWorkloadProtectionPolicyArgs',
+    'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs',
+    'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs',
+    'AzureVmWorkloadSQLDatabaseProtectedItemArgs',
     'AzureWorkloadContainerArgs',
     'AzureWorkloadContainerExtendedInfoArgs',
     'ContainerIdentityInfoArgs',
@@ -69,6 +79,229 @@ __all__ = [
     'WorkloadInquiryDetailsArgs',
     'YearlyRetentionScheduleArgs',
 ]
+
+@pulumi.input_type
+class AzureBackupServerContainerArgs:
+    def __init__(__self__, *,
+                 container_type: pulumi.Input[str],
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
+                 can_re_register: Optional[pulumi.Input[bool]] = None,
+                 container_id: Optional[pulumi.Input[str]] = None,
+                 dpm_agent_version: Optional[pulumi.Input[str]] = None,
+                 dpm_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 extended_info: Optional[pulumi.Input['DPMContainerExtendedInfoArgs']] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 health_status: Optional[pulumi.Input[str]] = None,
+                 protected_item_count: Optional[pulumi.Input[float]] = None,
+                 protection_status: Optional[pulumi.Input[str]] = None,
+                 registration_status: Optional[pulumi.Input[str]] = None,
+                 upgrade_available: Optional[pulumi.Input[bool]] = None):
+        """
+        AzureBackupServer (DPMVenus) workload-specific protection container.
+        :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+               Backup is VMAppContainer
+               Expected value is 'DPMContainer'.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input[bool] can_re_register: Specifies whether the container is re-registrable.
+        :param pulumi.Input[str] container_id: ID of container.
+        :param pulumi.Input[str] dpm_agent_version: Backup engine Agent version
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dpm_servers: List of BackupEngines protecting the container
+        :param pulumi.Input['DPMContainerExtendedInfoArgs'] extended_info: Extended Info of the container.
+        :param pulumi.Input[str] friendly_name: Friendly name of the container.
+        :param pulumi.Input[str] health_status: Status of health of the container.
+        :param pulumi.Input[float] protected_item_count: Number of protected items in the BackupEngine
+        :param pulumi.Input[str] protection_status: Protection status of the container.
+        :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
+        :param pulumi.Input[bool] upgrade_available: To check if upgrade available
+        """
+        pulumi.set(__self__, "container_type", 'DPMContainer')
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if can_re_register is not None:
+            pulumi.set(__self__, "can_re_register", can_re_register)
+        if container_id is not None:
+            pulumi.set(__self__, "container_id", container_id)
+        if dpm_agent_version is not None:
+            pulumi.set(__self__, "dpm_agent_version", dpm_agent_version)
+        if dpm_servers is not None:
+            pulumi.set(__self__, "dpm_servers", dpm_servers)
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if protected_item_count is not None:
+            pulumi.set(__self__, "protected_item_count", protected_item_count)
+        if protection_status is not None:
+            pulumi.set(__self__, "protection_status", protection_status)
+        if registration_status is not None:
+            pulumi.set(__self__, "registration_status", registration_status)
+        if upgrade_available is not None:
+            pulumi.set(__self__, "upgrade_available", upgrade_available)
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> pulumi.Input[str]:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'DPMContainer'.
+        """
+        return pulumi.get(self, "container_type")
+
+    @container_type.setter
+    def container_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_type", value)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter(name="canReRegister")
+    def can_re_register(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the container is re-registrable.
+        """
+        return pulumi.get(self, "can_re_register")
+
+    @can_re_register.setter
+    def can_re_register(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "can_re_register", value)
+
+    @property
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of container.
+        """
+        return pulumi.get(self, "container_id")
+
+    @container_id.setter
+    def container_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_id", value)
+
+    @property
+    @pulumi.getter(name="dpmAgentVersion")
+    def dpm_agent_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Backup engine Agent version
+        """
+        return pulumi.get(self, "dpm_agent_version")
+
+    @dpm_agent_version.setter
+    def dpm_agent_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dpm_agent_version", value)
+
+    @property
+    @pulumi.getter(name="dpmServers")
+    def dpm_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of BackupEngines protecting the container
+        """
+        return pulumi.get(self, "dpm_servers")
+
+    @dpm_servers.setter
+    def dpm_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dpm_servers", value)
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional[pulumi.Input['DPMContainerExtendedInfoArgs']]:
+        """
+        Extended Info of the container.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @extended_info.setter
+    def extended_info(self, value: Optional[pulumi.Input['DPMContainerExtendedInfoArgs']]):
+        pulumi.set(self, "extended_info", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the container.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of health of the container.
+        """
+        return pulumi.get(self, "health_status")
+
+    @health_status.setter
+    def health_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_status", value)
+
+    @property
+    @pulumi.getter(name="protectedItemCount")
+    def protected_item_count(self) -> Optional[pulumi.Input[float]]:
+        """
+        Number of protected items in the BackupEngine
+        """
+        return pulumi.get(self, "protected_item_count")
+
+    @protected_item_count.setter
+    def protected_item_count(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "protected_item_count", value)
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protection status of the container.
+        """
+        return pulumi.get(self, "protection_status")
+
+    @protection_status.setter
+    def protection_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_status", value)
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        return pulumi.get(self, "registration_status")
+
+    @registration_status.setter
+    def registration_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registration_status", value)
+
+    @property
+    @pulumi.getter(name="upgradeAvailable")
+    def upgrade_available(self) -> Optional[pulumi.Input[bool]]:
+        """
+        To check if upgrade available
+        """
+        return pulumi.get(self, "upgrade_available")
+
+    @upgrade_available.setter
+    def upgrade_available(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "upgrade_available", value)
+
 
 @pulumi.input_type
 class AzureFileShareProtectionPolicyArgs:
@@ -574,6 +807,1110 @@ class AzureFileshareProtectedItemExtendedInfoArgs:
     @recovery_point_count.setter
     def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
+
+
+@pulumi.input_type
+class AzureIaaSClassicComputeVMContainerArgs:
+    def __init__(__self__, *,
+                 container_type: pulumi.Input[str],
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 health_status: Optional[pulumi.Input[str]] = None,
+                 registration_status: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_version: Optional[pulumi.Input[str]] = None):
+        """
+        IaaS VM workload-specific backup item representing a classic virtual machine.
+        :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+               Backup is VMAppContainer
+               Expected value is 'IaaSVMContainer'.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input[str] friendly_name: Friendly name of the container.
+        :param pulumi.Input[str] health_status: Status of health of the container.
+        :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
+        :param pulumi.Input[str] resource_group: Resource group name of Recovery Services Vault.
+        :param pulumi.Input[str] virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+        :param pulumi.Input[str] virtual_machine_version: Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+        """
+        pulumi.set(__self__, "container_type", 'IaaSVMContainer')
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if registration_status is not None:
+            pulumi.set(__self__, "registration_status", registration_status)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if virtual_machine_id is not None:
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if virtual_machine_version is not None:
+            pulumi.set(__self__, "virtual_machine_version", virtual_machine_version)
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> pulumi.Input[str]:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'IaaSVMContainer'.
+        """
+        return pulumi.get(self, "container_type")
+
+    @container_type.setter
+    def container_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_type", value)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the container.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of health of the container.
+        """
+        return pulumi.get(self, "health_status")
+
+    @health_status.setter
+    def health_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_status", value)
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        return pulumi.get(self, "registration_status")
+
+    @registration_status.setter
+    def registration_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registration_status", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource group name of Recovery Services Vault.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @virtual_machine_id.setter
+    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_id", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineVersion")
+    def virtual_machine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+        """
+        return pulumi.get(self, "virtual_machine_version")
+
+    @virtual_machine_version.setter
+    def virtual_machine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_version", value)
+
+
+@pulumi.input_type
+class AzureIaaSClassicComputeVMProtectedItemArgs:
+    def __init__(__self__, *,
+                 protected_item_type: pulumi.Input[str],
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
+                 backup_set_name: Optional[pulumi.Input[str]] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
+                 deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
+                 extended_info: Optional[pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgs']] = None,
+                 extended_properties: Optional[pulumi.Input['ExtendedPropertiesArgs']] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 health_status: Optional[pulumi.Input[Union[str, 'HealthStatus']]] = None,
+                 is_deferred_delete_schedule_upcoming: Optional[pulumi.Input[bool]] = None,
+                 is_rehydrate: Optional[pulumi.Input[bool]] = None,
+                 is_scheduled_for_deferred_delete: Optional[pulumi.Input[bool]] = None,
+                 kpis_healths: Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]] = None,
+                 last_backup_status: Optional[pulumi.Input[str]] = None,
+                 last_backup_time: Optional[pulumi.Input[str]] = None,
+                 last_recovery_point: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 protected_item_data_id: Optional[pulumi.Input[str]] = None,
+                 protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
+                 protection_status: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
+        """
+        IaaS VM workload-specific backup item representing the Classic Compute VM.
+        :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureIaaSVMProtectedItem'.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
+        :param pulumi.Input[str] container_name: Unique name of container
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
+        :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
+        :param pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgs'] extended_info: Additional information for this backup item.
+        :param pulumi.Input['ExtendedPropertiesArgs'] extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param pulumi.Input[str] friendly_name: Friendly name of the VM represented by this backup item.
+        :param pulumi.Input[Union[str, 'HealthStatus']] health_status: Health status of protected item.
+        :param pulumi.Input[bool] is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
+        :param pulumi.Input[bool] is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
+        :param pulumi.Input[bool] is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
+        :param pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]] kpis_healths: Health details of different KPIs
+        :param pulumi.Input[str] last_backup_status: Last backup operation status.
+        :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
+        :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
+        :param pulumi.Input[str] protected_item_data_id: Data ID of the protected item.
+        :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
+        :param pulumi.Input[str] protection_status: Backup status of this backup item.
+        :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
+        :param pulumi.Input[str] virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
+        """
+        pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if backup_set_name is not None:
+            pulumi.set(__self__, "backup_set_name", backup_set_name)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if deferred_delete_time_in_utc is not None:
+            pulumi.set(__self__, "deferred_delete_time_in_utc", deferred_delete_time_in_utc)
+        if deferred_delete_time_remaining is not None:
+            pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if extended_properties is not None:
+            pulumi.set(__self__, "extended_properties", extended_properties)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if is_deferred_delete_schedule_upcoming is not None:
+            pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
+        if is_rehydrate is not None:
+            pulumi.set(__self__, "is_rehydrate", is_rehydrate)
+        if is_scheduled_for_deferred_delete is not None:
+            pulumi.set(__self__, "is_scheduled_for_deferred_delete", is_scheduled_for_deferred_delete)
+        if kpis_healths is not None:
+            pulumi.set(__self__, "kpis_healths", kpis_healths)
+        if last_backup_status is not None:
+            pulumi.set(__self__, "last_backup_status", last_backup_status)
+        if last_backup_time is not None:
+            pulumi.set(__self__, "last_backup_time", last_backup_time)
+        if last_recovery_point is not None:
+            pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if protected_item_data_id is not None:
+            pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
+        if protection_status is not None:
+            pulumi.set(__self__, "protection_status", protection_status)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if virtual_machine_id is not None:
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if workload_type is not None:
+            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="protectedItemType")
+    def protected_item_type(self) -> pulumi.Input[str]:
+        """
+        backup item type.
+        Expected value is 'AzureIaaSVMProtectedItem'.
+        """
+        return pulumi.get(self, "protected_item_type")
+
+    @protected_item_type.setter
+    def protected_item_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protected_item_type", value)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter(name="backupSetName")
+    def backup_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the backup set the backup item belongs to
+        """
+        return pulumi.get(self, "backup_set_name")
+
+    @backup_set_name.setter
+    def backup_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_set_name", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name of container
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeInUTC")
+    def deferred_delete_time_in_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time for deferred deletion in UTC
+        """
+        return pulumi.get(self, "deferred_delete_time_in_utc")
+
+    @deferred_delete_time_in_utc.setter
+    def deferred_delete_time_in_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deferred_delete_time_in_utc", value)
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeRemaining")
+    def deferred_delete_time_remaining(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        return pulumi.get(self, "deferred_delete_time_remaining")
+
+    @deferred_delete_time_remaining.setter
+    def deferred_delete_time_remaining(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deferred_delete_time_remaining", value)
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional[pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgs']]:
+        """
+        Additional information for this backup item.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @extended_info.setter
+    def extended_info(self, value: Optional[pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgs']]):
+        pulumi.set(self, "extended_info", value)
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[pulumi.Input['ExtendedPropertiesArgs']]:
+        """
+        Extended Properties for Azure IaasVM Backup.
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @extended_properties.setter
+    def extended_properties(self, value: Optional[pulumi.Input['ExtendedPropertiesArgs']]):
+        pulumi.set(self, "extended_properties", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the VM represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[pulumi.Input[Union[str, 'HealthStatus']]]:
+        """
+        Health status of protected item.
+        """
+        return pulumi.get(self, "health_status")
+
+    @health_status.setter
+    def health_status(self, value: Optional[pulumi.Input[Union[str, 'HealthStatus']]]):
+        pulumi.set(self, "health_status", value)
+
+    @property
+    @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
+    def is_deferred_delete_schedule_upcoming(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        return pulumi.get(self, "is_deferred_delete_schedule_upcoming")
+
+    @is_deferred_delete_schedule_upcoming.setter
+    def is_deferred_delete_schedule_upcoming(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_deferred_delete_schedule_upcoming", value)
+
+    @property
+    @pulumi.getter(name="isRehydrate")
+    def is_rehydrate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        return pulumi.get(self, "is_rehydrate")
+
+    @is_rehydrate.setter
+    def is_rehydrate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_rehydrate", value)
+
+    @property
+    @pulumi.getter(name="isScheduledForDeferredDelete")
+    def is_scheduled_for_deferred_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        return pulumi.get(self, "is_scheduled_for_deferred_delete")
+
+    @is_scheduled_for_deferred_delete.setter
+    def is_scheduled_for_deferred_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_scheduled_for_deferred_delete", value)
+
+    @property
+    @pulumi.getter(name="kpisHealths")
+    def kpis_healths(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]]:
+        """
+        Health details of different KPIs
+        """
+        return pulumi.get(self, "kpis_healths")
+
+    @kpis_healths.setter
+    def kpis_healths(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]]):
+        pulumi.set(self, "kpis_healths", value)
+
+    @property
+    @pulumi.getter(name="lastBackupStatus")
+    def last_backup_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last backup operation status.
+        """
+        return pulumi.get(self, "last_backup_status")
+
+    @last_backup_status.setter
+    def last_backup_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_backup_status", value)
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @last_backup_time.setter
+    def last_backup_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_backup_time", value)
+
+    @property
+    @pulumi.getter(name="lastRecoveryPoint")
+    def last_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        return pulumi.get(self, "last_recovery_point")
+
+    @last_recovery_point.setter
+    def last_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="protectedItemDataId")
+    def protected_item_data_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data ID of the protected item.
+        """
+        return pulumi.get(self, "protected_item_data_id")
+
+    @protected_item_data_id.setter
+    def protected_item_data_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protected_item_data_id", value)
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectionState']]]:
+        """
+        Backup state of this backup item.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[Union[str, 'ProtectionState']]]):
+        pulumi.set(self, "protection_state", value)
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Backup status of this backup item.
+        """
+        return pulumi.get(self, "protection_status")
+
+    @protection_status.setter
+    def protection_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_status", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID of the resource to be backed up.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified ARM ID of the virtual machine represented by this item.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @virtual_machine_id.setter
+    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_id", value)
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
+
+    @workload_type.setter
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
+        pulumi.set(self, "workload_type", value)
+
+
+@pulumi.input_type
+class AzureIaaSComputeVMContainerArgs:
+    def __init__(__self__, *,
+                 container_type: pulumi.Input[str],
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 health_status: Optional[pulumi.Input[str]] = None,
+                 registration_status: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_version: Optional[pulumi.Input[str]] = None):
+        """
+        IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+        :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+               Backup is VMAppContainer
+               Expected value is 'IaaSVMContainer'.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input[str] friendly_name: Friendly name of the container.
+        :param pulumi.Input[str] health_status: Status of health of the container.
+        :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
+        :param pulumi.Input[str] resource_group: Resource group name of Recovery Services Vault.
+        :param pulumi.Input[str] virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+        :param pulumi.Input[str] virtual_machine_version: Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+        """
+        pulumi.set(__self__, "container_type", 'IaaSVMContainer')
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if registration_status is not None:
+            pulumi.set(__self__, "registration_status", registration_status)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if virtual_machine_id is not None:
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if virtual_machine_version is not None:
+            pulumi.set(__self__, "virtual_machine_version", virtual_machine_version)
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> pulumi.Input[str]:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'IaaSVMContainer'.
+        """
+        return pulumi.get(self, "container_type")
+
+    @container_type.setter
+    def container_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_type", value)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the container.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of health of the container.
+        """
+        return pulumi.get(self, "health_status")
+
+    @health_status.setter
+    def health_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_status", value)
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        return pulumi.get(self, "registration_status")
+
+    @registration_status.setter
+    def registration_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registration_status", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource group name of Recovery Services Vault.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @virtual_machine_id.setter
+    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_id", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineVersion")
+    def virtual_machine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+        """
+        return pulumi.get(self, "virtual_machine_version")
+
+    @virtual_machine_version.setter
+    def virtual_machine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_version", value)
+
+
+@pulumi.input_type
+class AzureIaaSComputeVMProtectedItemArgs:
+    def __init__(__self__, *,
+                 protected_item_type: pulumi.Input[str],
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
+                 backup_set_name: Optional[pulumi.Input[str]] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
+                 deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
+                 extended_info: Optional[pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgs']] = None,
+                 extended_properties: Optional[pulumi.Input['ExtendedPropertiesArgs']] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 health_status: Optional[pulumi.Input[Union[str, 'HealthStatus']]] = None,
+                 is_deferred_delete_schedule_upcoming: Optional[pulumi.Input[bool]] = None,
+                 is_rehydrate: Optional[pulumi.Input[bool]] = None,
+                 is_scheduled_for_deferred_delete: Optional[pulumi.Input[bool]] = None,
+                 kpis_healths: Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]] = None,
+                 last_backup_status: Optional[pulumi.Input[str]] = None,
+                 last_backup_time: Optional[pulumi.Input[str]] = None,
+                 last_recovery_point: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 protected_item_data_id: Optional[pulumi.Input[str]] = None,
+                 protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
+                 protection_status: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
+        """
+        IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
+        :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureIaaSVMProtectedItem'.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
+        :param pulumi.Input[str] container_name: Unique name of container
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
+        :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
+        :param pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgs'] extended_info: Additional information for this backup item.
+        :param pulumi.Input['ExtendedPropertiesArgs'] extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param pulumi.Input[str] friendly_name: Friendly name of the VM represented by this backup item.
+        :param pulumi.Input[Union[str, 'HealthStatus']] health_status: Health status of protected item.
+        :param pulumi.Input[bool] is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
+        :param pulumi.Input[bool] is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
+        :param pulumi.Input[bool] is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
+        :param pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]] kpis_healths: Health details of different KPIs
+        :param pulumi.Input[str] last_backup_status: Last backup operation status.
+        :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
+        :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
+        :param pulumi.Input[str] protected_item_data_id: Data ID of the protected item.
+        :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
+        :param pulumi.Input[str] protection_status: Backup status of this backup item.
+        :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
+        :param pulumi.Input[str] virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
+        """
+        pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if backup_set_name is not None:
+            pulumi.set(__self__, "backup_set_name", backup_set_name)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if deferred_delete_time_in_utc is not None:
+            pulumi.set(__self__, "deferred_delete_time_in_utc", deferred_delete_time_in_utc)
+        if deferred_delete_time_remaining is not None:
+            pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if extended_properties is not None:
+            pulumi.set(__self__, "extended_properties", extended_properties)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if is_deferred_delete_schedule_upcoming is not None:
+            pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
+        if is_rehydrate is not None:
+            pulumi.set(__self__, "is_rehydrate", is_rehydrate)
+        if is_scheduled_for_deferred_delete is not None:
+            pulumi.set(__self__, "is_scheduled_for_deferred_delete", is_scheduled_for_deferred_delete)
+        if kpis_healths is not None:
+            pulumi.set(__self__, "kpis_healths", kpis_healths)
+        if last_backup_status is not None:
+            pulumi.set(__self__, "last_backup_status", last_backup_status)
+        if last_backup_time is not None:
+            pulumi.set(__self__, "last_backup_time", last_backup_time)
+        if last_recovery_point is not None:
+            pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if protected_item_data_id is not None:
+            pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
+        if protection_status is not None:
+            pulumi.set(__self__, "protection_status", protection_status)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if virtual_machine_id is not None:
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if workload_type is not None:
+            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="protectedItemType")
+    def protected_item_type(self) -> pulumi.Input[str]:
+        """
+        backup item type.
+        Expected value is 'AzureIaaSVMProtectedItem'.
+        """
+        return pulumi.get(self, "protected_item_type")
+
+    @protected_item_type.setter
+    def protected_item_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protected_item_type", value)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter(name="backupSetName")
+    def backup_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the backup set the backup item belongs to
+        """
+        return pulumi.get(self, "backup_set_name")
+
+    @backup_set_name.setter
+    def backup_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_set_name", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name of container
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeInUTC")
+    def deferred_delete_time_in_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time for deferred deletion in UTC
+        """
+        return pulumi.get(self, "deferred_delete_time_in_utc")
+
+    @deferred_delete_time_in_utc.setter
+    def deferred_delete_time_in_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deferred_delete_time_in_utc", value)
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeRemaining")
+    def deferred_delete_time_remaining(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        return pulumi.get(self, "deferred_delete_time_remaining")
+
+    @deferred_delete_time_remaining.setter
+    def deferred_delete_time_remaining(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deferred_delete_time_remaining", value)
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional[pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgs']]:
+        """
+        Additional information for this backup item.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @extended_info.setter
+    def extended_info(self, value: Optional[pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgs']]):
+        pulumi.set(self, "extended_info", value)
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[pulumi.Input['ExtendedPropertiesArgs']]:
+        """
+        Extended Properties for Azure IaasVM Backup.
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @extended_properties.setter
+    def extended_properties(self, value: Optional[pulumi.Input['ExtendedPropertiesArgs']]):
+        pulumi.set(self, "extended_properties", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the VM represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[pulumi.Input[Union[str, 'HealthStatus']]]:
+        """
+        Health status of protected item.
+        """
+        return pulumi.get(self, "health_status")
+
+    @health_status.setter
+    def health_status(self, value: Optional[pulumi.Input[Union[str, 'HealthStatus']]]):
+        pulumi.set(self, "health_status", value)
+
+    @property
+    @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
+    def is_deferred_delete_schedule_upcoming(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        return pulumi.get(self, "is_deferred_delete_schedule_upcoming")
+
+    @is_deferred_delete_schedule_upcoming.setter
+    def is_deferred_delete_schedule_upcoming(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_deferred_delete_schedule_upcoming", value)
+
+    @property
+    @pulumi.getter(name="isRehydrate")
+    def is_rehydrate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        return pulumi.get(self, "is_rehydrate")
+
+    @is_rehydrate.setter
+    def is_rehydrate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_rehydrate", value)
+
+    @property
+    @pulumi.getter(name="isScheduledForDeferredDelete")
+    def is_scheduled_for_deferred_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        return pulumi.get(self, "is_scheduled_for_deferred_delete")
+
+    @is_scheduled_for_deferred_delete.setter
+    def is_scheduled_for_deferred_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_scheduled_for_deferred_delete", value)
+
+    @property
+    @pulumi.getter(name="kpisHealths")
+    def kpis_healths(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]]:
+        """
+        Health details of different KPIs
+        """
+        return pulumi.get(self, "kpis_healths")
+
+    @kpis_healths.setter
+    def kpis_healths(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]]):
+        pulumi.set(self, "kpis_healths", value)
+
+    @property
+    @pulumi.getter(name="lastBackupStatus")
+    def last_backup_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last backup operation status.
+        """
+        return pulumi.get(self, "last_backup_status")
+
+    @last_backup_status.setter
+    def last_backup_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_backup_status", value)
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @last_backup_time.setter
+    def last_backup_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_backup_time", value)
+
+    @property
+    @pulumi.getter(name="lastRecoveryPoint")
+    def last_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        return pulumi.get(self, "last_recovery_point")
+
+    @last_recovery_point.setter
+    def last_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="protectedItemDataId")
+    def protected_item_data_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data ID of the protected item.
+        """
+        return pulumi.get(self, "protected_item_data_id")
+
+    @protected_item_data_id.setter
+    def protected_item_data_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protected_item_data_id", value)
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectionState']]]:
+        """
+        Backup state of this backup item.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[Union[str, 'ProtectionState']]]):
+        pulumi.set(self, "protection_state", value)
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Backup status of this backup item.
+        """
+        return pulumi.get(self, "protection_status")
+
+    @protection_status.setter
+    def protection_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_status", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID of the resource to be backed up.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified ARM ID of the virtual machine represented by this item.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @virtual_machine_id.setter
+    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_id", value)
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
+
+    @workload_type.setter
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
+        pulumi.set(self, "workload_type", value)
 
 
 @pulumi.input_type
@@ -1156,6 +2493,181 @@ class AzureIaaSVMProtectionPolicyArgs:
     @time_zone.setter
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class AzureSQLAGWorkloadContainerProtectionContainerArgs:
+    def __init__(__self__, *,
+                 container_type: pulumi.Input[str],
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
+                 extended_info: Optional[pulumi.Input['AzureWorkloadContainerExtendedInfoArgs']] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 health_status: Optional[pulumi.Input[str]] = None,
+                 last_updated_time: Optional[pulumi.Input[str]] = None,
+                 operation_type: Optional[pulumi.Input[Union[str, 'OperationType']]] = None,
+                 registration_status: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 workload_type: Optional[pulumi.Input[Union[str, 'WorkloadType']]] = None):
+        """
+        Container for SQL workloads under SQL Availability Group.
+        :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+               Backup is VMAppContainer
+               Expected value is 'AzureWorkloadContainer'.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input['AzureWorkloadContainerExtendedInfoArgs'] extended_info: Additional details of a workload container.
+        :param pulumi.Input[str] friendly_name: Friendly name of the container.
+        :param pulumi.Input[str] health_status: Status of health of the container.
+        :param pulumi.Input[str] last_updated_time: Time stamp when this container was updated.
+        :param pulumi.Input[Union[str, 'OperationType']] operation_type: Re-Do Operation
+        :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
+        :param pulumi.Input[str] source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
+        :param pulumi.Input[Union[str, 'WorkloadType']] workload_type: Workload type for which registration was sent.
+        """
+        pulumi.set(__self__, "container_type", 'AzureWorkloadContainer')
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if operation_type is not None:
+            pulumi.set(__self__, "operation_type", operation_type)
+        if registration_status is not None:
+            pulumi.set(__self__, "registration_status", registration_status)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if workload_type is not None:
+            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> pulumi.Input[str]:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'AzureWorkloadContainer'.
+        """
+        return pulumi.get(self, "container_type")
+
+    @container_type.setter
+    def container_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_type", value)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional[pulumi.Input['AzureWorkloadContainerExtendedInfoArgs']]:
+        """
+        Additional details of a workload container.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @extended_info.setter
+    def extended_info(self, value: Optional[pulumi.Input['AzureWorkloadContainerExtendedInfoArgs']]):
+        pulumi.set(self, "extended_info", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the container.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of health of the container.
+        """
+        return pulumi.get(self, "health_status")
+
+    @health_status.setter
+    def health_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_status", value)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time stamp when this container was updated.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @last_updated_time.setter
+    def last_updated_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_updated_time", value)
+
+    @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[pulumi.Input[Union[str, 'OperationType']]]:
+        """
+        Re-Do Operation
+        """
+        return pulumi.get(self, "operation_type")
+
+    @operation_type.setter
+    def operation_type(self, value: Optional[pulumi.Input[Union[str, 'OperationType']]]):
+        pulumi.set(self, "operation_type", value)
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        return pulumi.get(self, "registration_status")
+
+    @registration_status.setter
+    def registration_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registration_status", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID of the virtual machine represented by this Azure Workload Container
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'WorkloadType']]]:
+        """
+        Workload type for which registration was sent.
+        """
+        return pulumi.get(self, "workload_type")
+
+    @workload_type.setter
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'WorkloadType']]]):
+        pulumi.set(self, "workload_type", value)
 
 
 @pulumi.input_type
@@ -1807,6 +3319,181 @@ class AzureStorageContainerArgs:
 
 
 @pulumi.input_type
+class AzureVMAppContainerProtectionContainerArgs:
+    def __init__(__self__, *,
+                 container_type: pulumi.Input[str],
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
+                 extended_info: Optional[pulumi.Input['AzureWorkloadContainerExtendedInfoArgs']] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 health_status: Optional[pulumi.Input[str]] = None,
+                 last_updated_time: Optional[pulumi.Input[str]] = None,
+                 operation_type: Optional[pulumi.Input[Union[str, 'OperationType']]] = None,
+                 registration_status: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 workload_type: Optional[pulumi.Input[Union[str, 'WorkloadType']]] = None):
+        """
+        Container for SQL workloads under Azure Virtual Machines.
+        :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+               Backup is VMAppContainer
+               Expected value is 'AzureWorkloadContainer'.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input['AzureWorkloadContainerExtendedInfoArgs'] extended_info: Additional details of a workload container.
+        :param pulumi.Input[str] friendly_name: Friendly name of the container.
+        :param pulumi.Input[str] health_status: Status of health of the container.
+        :param pulumi.Input[str] last_updated_time: Time stamp when this container was updated.
+        :param pulumi.Input[Union[str, 'OperationType']] operation_type: Re-Do Operation
+        :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
+        :param pulumi.Input[str] source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
+        :param pulumi.Input[Union[str, 'WorkloadType']] workload_type: Workload type for which registration was sent.
+        """
+        pulumi.set(__self__, "container_type", 'AzureWorkloadContainer')
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if operation_type is not None:
+            pulumi.set(__self__, "operation_type", operation_type)
+        if registration_status is not None:
+            pulumi.set(__self__, "registration_status", registration_status)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if workload_type is not None:
+            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> pulumi.Input[str]:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'AzureWorkloadContainer'.
+        """
+        return pulumi.get(self, "container_type")
+
+    @container_type.setter
+    def container_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_type", value)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional[pulumi.Input['AzureWorkloadContainerExtendedInfoArgs']]:
+        """
+        Additional details of a workload container.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @extended_info.setter
+    def extended_info(self, value: Optional[pulumi.Input['AzureWorkloadContainerExtendedInfoArgs']]):
+        pulumi.set(self, "extended_info", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the container.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of health of the container.
+        """
+        return pulumi.get(self, "health_status")
+
+    @health_status.setter
+    def health_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_status", value)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time stamp when this container was updated.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @last_updated_time.setter
+    def last_updated_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_updated_time", value)
+
+    @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[pulumi.Input[Union[str, 'OperationType']]]:
+        """
+        Re-Do Operation
+        """
+        return pulumi.get(self, "operation_type")
+
+    @operation_type.setter
+    def operation_type(self, value: Optional[pulumi.Input[Union[str, 'OperationType']]]):
+        pulumi.set(self, "operation_type", value)
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        return pulumi.get(self, "registration_status")
+
+    @registration_status.setter
+    def registration_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registration_status", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID of the virtual machine represented by this Azure Workload Container
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'WorkloadType']]]:
+        """
+        Workload type for which registration was sent.
+        """
+        return pulumi.get(self, "workload_type")
+
+    @workload_type.setter
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'WorkloadType']]]):
+        pulumi.set(self, "workload_type", value)
+
+
+@pulumi.input_type
 class AzureVmWorkloadProtectedItemArgs:
     def __init__(__self__, *,
                  protected_item_type: pulumi.Input[str],
@@ -2390,6 +4077,1281 @@ class AzureVmWorkloadProtectionPolicyArgs:
     @work_load_type.setter
     def work_load_type(self, value: Optional[pulumi.Input[Union[str, 'WorkloadType']]]):
         pulumi.set(self, "work_load_type", value)
+
+
+@pulumi.input_type
+class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
+    def __init__(__self__, *,
+                 protected_item_type: pulumi.Input[str],
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
+                 backup_set_name: Optional[pulumi.Input[str]] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
+                 deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
+                 extended_info: Optional[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs']] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 is_deferred_delete_schedule_upcoming: Optional[pulumi.Input[bool]] = None,
+                 is_rehydrate: Optional[pulumi.Input[bool]] = None,
+                 is_scheduled_for_deferred_delete: Optional[pulumi.Input[bool]] = None,
+                 kpis_healths: Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]] = None,
+                 last_backup_status: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]] = None,
+                 last_backup_time: Optional[pulumi.Input[str]] = None,
+                 last_recovery_point: Optional[pulumi.Input[str]] = None,
+                 parent_name: Optional[pulumi.Input[str]] = None,
+                 parent_type: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 protected_item_data_source_id: Optional[pulumi.Input[str]] = None,
+                 protected_item_health_status: Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]] = None,
+                 protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
+                 protection_status: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
+        """
+        Azure VM workload-specific protected item representing SAP ASE Database.
+        :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureVmWorkloadProtectedItem'.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
+        :param pulumi.Input[str] container_name: Unique name of container
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
+        :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
+        :param pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs'] extended_info: Additional information for this backup item.
+        :param pulumi.Input[str] friendly_name: Friendly name of the DB represented by this backup item.
+        :param pulumi.Input[bool] is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
+        :param pulumi.Input[bool] is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
+        :param pulumi.Input[bool] is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
+        :param pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]] kpis_healths: Health details of different KPIs
+        :param pulumi.Input[Union[str, 'LastBackupStatus']] last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
+        :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
+        :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param pulumi.Input[str] parent_name: Parent name of the DB such as Instance or Availability Group.
+        :param pulumi.Input[str] parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
+        :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
+        :param pulumi.Input[str] protected_item_data_source_id: Data ID of the protected item.
+        :param pulumi.Input[Union[str, 'ProtectedItemHealthStatus']] protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
+        :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
+        :param pulumi.Input[str] protection_status: Backup status of this backup item.
+        :param pulumi.Input[str] server_name: Host/Cluster Name for instance or AG
+        :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
+        """
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if backup_set_name is not None:
+            pulumi.set(__self__, "backup_set_name", backup_set_name)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if deferred_delete_time_in_utc is not None:
+            pulumi.set(__self__, "deferred_delete_time_in_utc", deferred_delete_time_in_utc)
+        if deferred_delete_time_remaining is not None:
+            pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_deferred_delete_schedule_upcoming is not None:
+            pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
+        if is_rehydrate is not None:
+            pulumi.set(__self__, "is_rehydrate", is_rehydrate)
+        if is_scheduled_for_deferred_delete is not None:
+            pulumi.set(__self__, "is_scheduled_for_deferred_delete", is_scheduled_for_deferred_delete)
+        if kpis_healths is not None:
+            pulumi.set(__self__, "kpis_healths", kpis_healths)
+        if last_backup_status is not None:
+            pulumi.set(__self__, "last_backup_status", last_backup_status)
+        if last_backup_time is not None:
+            pulumi.set(__self__, "last_backup_time", last_backup_time)
+        if last_recovery_point is not None:
+            pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if parent_name is not None:
+            pulumi.set(__self__, "parent_name", parent_name)
+        if parent_type is not None:
+            pulumi.set(__self__, "parent_type", parent_type)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if protected_item_data_source_id is not None:
+            pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
+        if protected_item_health_status is not None:
+            pulumi.set(__self__, "protected_item_health_status", protected_item_health_status)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
+        if protection_status is not None:
+            pulumi.set(__self__, "protection_status", protection_status)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if workload_type is not None:
+            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="protectedItemType")
+    def protected_item_type(self) -> pulumi.Input[str]:
+        """
+        backup item type.
+        Expected value is 'AzureVmWorkloadProtectedItem'.
+        """
+        return pulumi.get(self, "protected_item_type")
+
+    @protected_item_type.setter
+    def protected_item_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protected_item_type", value)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter(name="backupSetName")
+    def backup_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the backup set the backup item belongs to
+        """
+        return pulumi.get(self, "backup_set_name")
+
+    @backup_set_name.setter
+    def backup_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_set_name", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name of container
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeInUTC")
+    def deferred_delete_time_in_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time for deferred deletion in UTC
+        """
+        return pulumi.get(self, "deferred_delete_time_in_utc")
+
+    @deferred_delete_time_in_utc.setter
+    def deferred_delete_time_in_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deferred_delete_time_in_utc", value)
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeRemaining")
+    def deferred_delete_time_remaining(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        return pulumi.get(self, "deferred_delete_time_remaining")
+
+    @deferred_delete_time_remaining.setter
+    def deferred_delete_time_remaining(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deferred_delete_time_remaining", value)
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs']]:
+        """
+        Additional information for this backup item.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @extended_info.setter
+    def extended_info(self, value: Optional[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs']]):
+        pulumi.set(self, "extended_info", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the DB represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
+    def is_deferred_delete_schedule_upcoming(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        return pulumi.get(self, "is_deferred_delete_schedule_upcoming")
+
+    @is_deferred_delete_schedule_upcoming.setter
+    def is_deferred_delete_schedule_upcoming(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_deferred_delete_schedule_upcoming", value)
+
+    @property
+    @pulumi.getter(name="isRehydrate")
+    def is_rehydrate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        return pulumi.get(self, "is_rehydrate")
+
+    @is_rehydrate.setter
+    def is_rehydrate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_rehydrate", value)
+
+    @property
+    @pulumi.getter(name="isScheduledForDeferredDelete")
+    def is_scheduled_for_deferred_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        return pulumi.get(self, "is_scheduled_for_deferred_delete")
+
+    @is_scheduled_for_deferred_delete.setter
+    def is_scheduled_for_deferred_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_scheduled_for_deferred_delete", value)
+
+    @property
+    @pulumi.getter(name="kpisHealths")
+    def kpis_healths(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]]:
+        """
+        Health details of different KPIs
+        """
+        return pulumi.get(self, "kpis_healths")
+
+    @kpis_healths.setter
+    def kpis_healths(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]]):
+        pulumi.set(self, "kpis_healths", value)
+
+    @property
+    @pulumi.getter(name="lastBackupStatus")
+    def last_backup_status(self) -> Optional[pulumi.Input[Union[str, 'LastBackupStatus']]]:
+        """
+        Last backup operation status. Possible values: Healthy, Unhealthy.
+        """
+        return pulumi.get(self, "last_backup_status")
+
+    @last_backup_status.setter
+    def last_backup_status(self, value: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]]):
+        pulumi.set(self, "last_backup_status", value)
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @last_backup_time.setter
+    def last_backup_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_backup_time", value)
+
+    @property
+    @pulumi.getter(name="lastRecoveryPoint")
+    def last_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        return pulumi.get(self, "last_recovery_point")
+
+    @last_recovery_point.setter
+    def last_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="parentName")
+    def parent_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Parent name of the DB such as Instance or Availability Group.
+        """
+        return pulumi.get(self, "parent_name")
+
+    @parent_name.setter
+    def parent_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_name", value)
+
+    @property
+    @pulumi.getter(name="parentType")
+    def parent_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Parent type of protected item, example: for a DB, standalone server or distributed
+        """
+        return pulumi.get(self, "parent_type")
+
+    @parent_type.setter
+    def parent_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_type", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="protectedItemDataSourceId")
+    def protected_item_data_source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data ID of the protected item.
+        """
+        return pulumi.get(self, "protected_item_data_source_id")
+
+    @protected_item_data_source_id.setter
+    def protected_item_data_source_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protected_item_data_source_id", value)
+
+    @property
+    @pulumi.getter(name="protectedItemHealthStatus")
+    def protected_item_health_status(self) -> Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]:
+        """
+        Health status of the backup item, evaluated based on last heartbeat received
+        """
+        return pulumi.get(self, "protected_item_health_status")
+
+    @protected_item_health_status.setter
+    def protected_item_health_status(self, value: Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]):
+        pulumi.set(self, "protected_item_health_status", value)
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectionState']]]:
+        """
+        Backup state of this backup item.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[Union[str, 'ProtectionState']]]):
+        pulumi.set(self, "protection_state", value)
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Backup status of this backup item.
+        """
+        return pulumi.get(self, "protection_status")
+
+    @protection_status.setter
+    def protection_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_status", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Host/Cluster Name for instance or AG
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID of the resource to be backed up.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
+
+    @workload_type.setter
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
+        pulumi.set(self, "workload_type", value)
+
+
+@pulumi.input_type
+class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
+    def __init__(__self__, *,
+                 protected_item_type: pulumi.Input[str],
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
+                 backup_set_name: Optional[pulumi.Input[str]] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
+                 deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
+                 extended_info: Optional[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs']] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 is_deferred_delete_schedule_upcoming: Optional[pulumi.Input[bool]] = None,
+                 is_rehydrate: Optional[pulumi.Input[bool]] = None,
+                 is_scheduled_for_deferred_delete: Optional[pulumi.Input[bool]] = None,
+                 kpis_healths: Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]] = None,
+                 last_backup_status: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]] = None,
+                 last_backup_time: Optional[pulumi.Input[str]] = None,
+                 last_recovery_point: Optional[pulumi.Input[str]] = None,
+                 parent_name: Optional[pulumi.Input[str]] = None,
+                 parent_type: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 protected_item_data_source_id: Optional[pulumi.Input[str]] = None,
+                 protected_item_health_status: Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]] = None,
+                 protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
+                 protection_status: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
+        """
+        Azure VM workload-specific protected item representing SAP HANA Database.
+        :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureVmWorkloadProtectedItem'.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
+        :param pulumi.Input[str] container_name: Unique name of container
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
+        :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
+        :param pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs'] extended_info: Additional information for this backup item.
+        :param pulumi.Input[str] friendly_name: Friendly name of the DB represented by this backup item.
+        :param pulumi.Input[bool] is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
+        :param pulumi.Input[bool] is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
+        :param pulumi.Input[bool] is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
+        :param pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]] kpis_healths: Health details of different KPIs
+        :param pulumi.Input[Union[str, 'LastBackupStatus']] last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
+        :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
+        :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param pulumi.Input[str] parent_name: Parent name of the DB such as Instance or Availability Group.
+        :param pulumi.Input[str] parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
+        :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
+        :param pulumi.Input[str] protected_item_data_source_id: Data ID of the protected item.
+        :param pulumi.Input[Union[str, 'ProtectedItemHealthStatus']] protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
+        :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
+        :param pulumi.Input[str] protection_status: Backup status of this backup item.
+        :param pulumi.Input[str] server_name: Host/Cluster Name for instance or AG
+        :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
+        """
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if backup_set_name is not None:
+            pulumi.set(__self__, "backup_set_name", backup_set_name)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if deferred_delete_time_in_utc is not None:
+            pulumi.set(__self__, "deferred_delete_time_in_utc", deferred_delete_time_in_utc)
+        if deferred_delete_time_remaining is not None:
+            pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_deferred_delete_schedule_upcoming is not None:
+            pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
+        if is_rehydrate is not None:
+            pulumi.set(__self__, "is_rehydrate", is_rehydrate)
+        if is_scheduled_for_deferred_delete is not None:
+            pulumi.set(__self__, "is_scheduled_for_deferred_delete", is_scheduled_for_deferred_delete)
+        if kpis_healths is not None:
+            pulumi.set(__self__, "kpis_healths", kpis_healths)
+        if last_backup_status is not None:
+            pulumi.set(__self__, "last_backup_status", last_backup_status)
+        if last_backup_time is not None:
+            pulumi.set(__self__, "last_backup_time", last_backup_time)
+        if last_recovery_point is not None:
+            pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if parent_name is not None:
+            pulumi.set(__self__, "parent_name", parent_name)
+        if parent_type is not None:
+            pulumi.set(__self__, "parent_type", parent_type)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if protected_item_data_source_id is not None:
+            pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
+        if protected_item_health_status is not None:
+            pulumi.set(__self__, "protected_item_health_status", protected_item_health_status)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
+        if protection_status is not None:
+            pulumi.set(__self__, "protection_status", protection_status)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if workload_type is not None:
+            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="protectedItemType")
+    def protected_item_type(self) -> pulumi.Input[str]:
+        """
+        backup item type.
+        Expected value is 'AzureVmWorkloadProtectedItem'.
+        """
+        return pulumi.get(self, "protected_item_type")
+
+    @protected_item_type.setter
+    def protected_item_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protected_item_type", value)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter(name="backupSetName")
+    def backup_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the backup set the backup item belongs to
+        """
+        return pulumi.get(self, "backup_set_name")
+
+    @backup_set_name.setter
+    def backup_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_set_name", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name of container
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeInUTC")
+    def deferred_delete_time_in_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time for deferred deletion in UTC
+        """
+        return pulumi.get(self, "deferred_delete_time_in_utc")
+
+    @deferred_delete_time_in_utc.setter
+    def deferred_delete_time_in_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deferred_delete_time_in_utc", value)
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeRemaining")
+    def deferred_delete_time_remaining(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        return pulumi.get(self, "deferred_delete_time_remaining")
+
+    @deferred_delete_time_remaining.setter
+    def deferred_delete_time_remaining(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deferred_delete_time_remaining", value)
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs']]:
+        """
+        Additional information for this backup item.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @extended_info.setter
+    def extended_info(self, value: Optional[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs']]):
+        pulumi.set(self, "extended_info", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the DB represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
+    def is_deferred_delete_schedule_upcoming(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        return pulumi.get(self, "is_deferred_delete_schedule_upcoming")
+
+    @is_deferred_delete_schedule_upcoming.setter
+    def is_deferred_delete_schedule_upcoming(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_deferred_delete_schedule_upcoming", value)
+
+    @property
+    @pulumi.getter(name="isRehydrate")
+    def is_rehydrate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        return pulumi.get(self, "is_rehydrate")
+
+    @is_rehydrate.setter
+    def is_rehydrate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_rehydrate", value)
+
+    @property
+    @pulumi.getter(name="isScheduledForDeferredDelete")
+    def is_scheduled_for_deferred_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        return pulumi.get(self, "is_scheduled_for_deferred_delete")
+
+    @is_scheduled_for_deferred_delete.setter
+    def is_scheduled_for_deferred_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_scheduled_for_deferred_delete", value)
+
+    @property
+    @pulumi.getter(name="kpisHealths")
+    def kpis_healths(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]]:
+        """
+        Health details of different KPIs
+        """
+        return pulumi.get(self, "kpis_healths")
+
+    @kpis_healths.setter
+    def kpis_healths(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]]):
+        pulumi.set(self, "kpis_healths", value)
+
+    @property
+    @pulumi.getter(name="lastBackupStatus")
+    def last_backup_status(self) -> Optional[pulumi.Input[Union[str, 'LastBackupStatus']]]:
+        """
+        Last backup operation status. Possible values: Healthy, Unhealthy.
+        """
+        return pulumi.get(self, "last_backup_status")
+
+    @last_backup_status.setter
+    def last_backup_status(self, value: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]]):
+        pulumi.set(self, "last_backup_status", value)
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @last_backup_time.setter
+    def last_backup_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_backup_time", value)
+
+    @property
+    @pulumi.getter(name="lastRecoveryPoint")
+    def last_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        return pulumi.get(self, "last_recovery_point")
+
+    @last_recovery_point.setter
+    def last_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="parentName")
+    def parent_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Parent name of the DB such as Instance or Availability Group.
+        """
+        return pulumi.get(self, "parent_name")
+
+    @parent_name.setter
+    def parent_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_name", value)
+
+    @property
+    @pulumi.getter(name="parentType")
+    def parent_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Parent type of protected item, example: for a DB, standalone server or distributed
+        """
+        return pulumi.get(self, "parent_type")
+
+    @parent_type.setter
+    def parent_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_type", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="protectedItemDataSourceId")
+    def protected_item_data_source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data ID of the protected item.
+        """
+        return pulumi.get(self, "protected_item_data_source_id")
+
+    @protected_item_data_source_id.setter
+    def protected_item_data_source_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protected_item_data_source_id", value)
+
+    @property
+    @pulumi.getter(name="protectedItemHealthStatus")
+    def protected_item_health_status(self) -> Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]:
+        """
+        Health status of the backup item, evaluated based on last heartbeat received
+        """
+        return pulumi.get(self, "protected_item_health_status")
+
+    @protected_item_health_status.setter
+    def protected_item_health_status(self, value: Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]):
+        pulumi.set(self, "protected_item_health_status", value)
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectionState']]]:
+        """
+        Backup state of this backup item.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[Union[str, 'ProtectionState']]]):
+        pulumi.set(self, "protection_state", value)
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Backup status of this backup item.
+        """
+        return pulumi.get(self, "protection_status")
+
+    @protection_status.setter
+    def protection_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_status", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Host/Cluster Name for instance or AG
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID of the resource to be backed up.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
+
+    @workload_type.setter
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
+        pulumi.set(self, "workload_type", value)
+
+
+@pulumi.input_type
+class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
+    def __init__(__self__, *,
+                 protected_item_type: pulumi.Input[str],
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
+                 backup_set_name: Optional[pulumi.Input[str]] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
+                 deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
+                 extended_info: Optional[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs']] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 is_deferred_delete_schedule_upcoming: Optional[pulumi.Input[bool]] = None,
+                 is_rehydrate: Optional[pulumi.Input[bool]] = None,
+                 is_scheduled_for_deferred_delete: Optional[pulumi.Input[bool]] = None,
+                 kpis_healths: Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]] = None,
+                 last_backup_status: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]] = None,
+                 last_backup_time: Optional[pulumi.Input[str]] = None,
+                 last_recovery_point: Optional[pulumi.Input[str]] = None,
+                 parent_name: Optional[pulumi.Input[str]] = None,
+                 parent_type: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 protected_item_data_source_id: Optional[pulumi.Input[str]] = None,
+                 protected_item_health_status: Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]] = None,
+                 protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
+                 protection_status: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
+        """
+        Azure VM workload-specific protected item representing SQL Database.
+        :param pulumi.Input[str] protected_item_type: backup item type.
+               Expected value is 'AzureVmWorkloadProtectedItem'.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
+        :param pulumi.Input[str] container_name: Unique name of container
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
+        :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
+        :param pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs'] extended_info: Additional information for this backup item.
+        :param pulumi.Input[str] friendly_name: Friendly name of the DB represented by this backup item.
+        :param pulumi.Input[bool] is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
+        :param pulumi.Input[bool] is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
+        :param pulumi.Input[bool] is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
+        :param pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]] kpis_healths: Health details of different KPIs
+        :param pulumi.Input[Union[str, 'LastBackupStatus']] last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
+        :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
+        :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param pulumi.Input[str] parent_name: Parent name of the DB such as Instance or Availability Group.
+        :param pulumi.Input[str] parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
+        :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
+        :param pulumi.Input[str] protected_item_data_source_id: Data ID of the protected item.
+        :param pulumi.Input[Union[str, 'ProtectedItemHealthStatus']] protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
+        :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
+        :param pulumi.Input[str] protection_status: Backup status of this backup item.
+        :param pulumi.Input[str] server_name: Host/Cluster Name for instance or AG
+        :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
+        """
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if backup_set_name is not None:
+            pulumi.set(__self__, "backup_set_name", backup_set_name)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if deferred_delete_time_in_utc is not None:
+            pulumi.set(__self__, "deferred_delete_time_in_utc", deferred_delete_time_in_utc)
+        if deferred_delete_time_remaining is not None:
+            pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_deferred_delete_schedule_upcoming is not None:
+            pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
+        if is_rehydrate is not None:
+            pulumi.set(__self__, "is_rehydrate", is_rehydrate)
+        if is_scheduled_for_deferred_delete is not None:
+            pulumi.set(__self__, "is_scheduled_for_deferred_delete", is_scheduled_for_deferred_delete)
+        if kpis_healths is not None:
+            pulumi.set(__self__, "kpis_healths", kpis_healths)
+        if last_backup_status is not None:
+            pulumi.set(__self__, "last_backup_status", last_backup_status)
+        if last_backup_time is not None:
+            pulumi.set(__self__, "last_backup_time", last_backup_time)
+        if last_recovery_point is not None:
+            pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if parent_name is not None:
+            pulumi.set(__self__, "parent_name", parent_name)
+        if parent_type is not None:
+            pulumi.set(__self__, "parent_type", parent_type)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if protected_item_data_source_id is not None:
+            pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
+        if protected_item_health_status is not None:
+            pulumi.set(__self__, "protected_item_health_status", protected_item_health_status)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
+        if protection_status is not None:
+            pulumi.set(__self__, "protection_status", protection_status)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if workload_type is not None:
+            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="protectedItemType")
+    def protected_item_type(self) -> pulumi.Input[str]:
+        """
+        backup item type.
+        Expected value is 'AzureVmWorkloadProtectedItem'.
+        """
+        return pulumi.get(self, "protected_item_type")
+
+    @protected_item_type.setter
+    def protected_item_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protected_item_type", value)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @backup_management_type.setter
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
+        pulumi.set(self, "backup_management_type", value)
+
+    @property
+    @pulumi.getter(name="backupSetName")
+    def backup_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the backup set the backup item belongs to
+        """
+        return pulumi.get(self, "backup_set_name")
+
+    @backup_set_name.setter
+    def backup_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_set_name", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name of container
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeInUTC")
+    def deferred_delete_time_in_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time for deferred deletion in UTC
+        """
+        return pulumi.get(self, "deferred_delete_time_in_utc")
+
+    @deferred_delete_time_in_utc.setter
+    def deferred_delete_time_in_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deferred_delete_time_in_utc", value)
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeRemaining")
+    def deferred_delete_time_remaining(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        return pulumi.get(self, "deferred_delete_time_remaining")
+
+    @deferred_delete_time_remaining.setter
+    def deferred_delete_time_remaining(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deferred_delete_time_remaining", value)
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs']]:
+        """
+        Additional information for this backup item.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @extended_info.setter
+    def extended_info(self, value: Optional[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs']]):
+        pulumi.set(self, "extended_info", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the DB represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
+    def is_deferred_delete_schedule_upcoming(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        return pulumi.get(self, "is_deferred_delete_schedule_upcoming")
+
+    @is_deferred_delete_schedule_upcoming.setter
+    def is_deferred_delete_schedule_upcoming(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_deferred_delete_schedule_upcoming", value)
+
+    @property
+    @pulumi.getter(name="isRehydrate")
+    def is_rehydrate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        return pulumi.get(self, "is_rehydrate")
+
+    @is_rehydrate.setter
+    def is_rehydrate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_rehydrate", value)
+
+    @property
+    @pulumi.getter(name="isScheduledForDeferredDelete")
+    def is_scheduled_for_deferred_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        return pulumi.get(self, "is_scheduled_for_deferred_delete")
+
+    @is_scheduled_for_deferred_delete.setter
+    def is_scheduled_for_deferred_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_scheduled_for_deferred_delete", value)
+
+    @property
+    @pulumi.getter(name="kpisHealths")
+    def kpis_healths(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]]:
+        """
+        Health details of different KPIs
+        """
+        return pulumi.get(self, "kpis_healths")
+
+    @kpis_healths.setter
+    def kpis_healths(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]]):
+        pulumi.set(self, "kpis_healths", value)
+
+    @property
+    @pulumi.getter(name="lastBackupStatus")
+    def last_backup_status(self) -> Optional[pulumi.Input[Union[str, 'LastBackupStatus']]]:
+        """
+        Last backup operation status. Possible values: Healthy, Unhealthy.
+        """
+        return pulumi.get(self, "last_backup_status")
+
+    @last_backup_status.setter
+    def last_backup_status(self, value: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]]):
+        pulumi.set(self, "last_backup_status", value)
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @last_backup_time.setter
+    def last_backup_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_backup_time", value)
+
+    @property
+    @pulumi.getter(name="lastRecoveryPoint")
+    def last_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        return pulumi.get(self, "last_recovery_point")
+
+    @last_recovery_point.setter
+    def last_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="parentName")
+    def parent_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Parent name of the DB such as Instance or Availability Group.
+        """
+        return pulumi.get(self, "parent_name")
+
+    @parent_name.setter
+    def parent_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_name", value)
+
+    @property
+    @pulumi.getter(name="parentType")
+    def parent_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Parent type of protected item, example: for a DB, standalone server or distributed
+        """
+        return pulumi.get(self, "parent_type")
+
+    @parent_type.setter
+    def parent_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_type", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="protectedItemDataSourceId")
+    def protected_item_data_source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data ID of the protected item.
+        """
+        return pulumi.get(self, "protected_item_data_source_id")
+
+    @protected_item_data_source_id.setter
+    def protected_item_data_source_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protected_item_data_source_id", value)
+
+    @property
+    @pulumi.getter(name="protectedItemHealthStatus")
+    def protected_item_health_status(self) -> Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]:
+        """
+        Health status of the backup item, evaluated based on last heartbeat received
+        """
+        return pulumi.get(self, "protected_item_health_status")
+
+    @protected_item_health_status.setter
+    def protected_item_health_status(self, value: Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]):
+        pulumi.set(self, "protected_item_health_status", value)
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectionState']]]:
+        """
+        Backup state of this backup item.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[Union[str, 'ProtectionState']]]):
+        pulumi.set(self, "protection_state", value)
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Backup status of this backup item.
+        """
+        return pulumi.get(self, "protection_status")
+
+    @protection_status.setter
+    def protection_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_status", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Host/Cluster Name for instance or AG
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID of the resource to be backed up.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
+
+    @workload_type.setter
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
+        pulumi.set(self, "workload_type", value)
 
 
 @pulumi.input_type

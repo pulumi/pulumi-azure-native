@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// The inputs for the Job.
         /// </summary>
         [Output("input")]
-        public Output<Union<Outputs.JobInputClipResponse, Outputs.JobInputsResponse>> Input { get; private set; } = null!;
+        public Output<object> Input { get; private set; } = null!;
 
         /// <summary>
         /// The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
@@ -167,7 +167,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// The inputs for the Job.
         /// </summary>
         [Input("input", required: true)]
-        public InputUnion<Inputs.JobInputClipArgs, Inputs.JobInputsArgs> Input { get; set; } = null!;
+        public Input<object> Input { get; set; } = null!;
 
         /// <summary>
         /// The Job name.

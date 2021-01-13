@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'BackupManagementType',
     'ProtectionStatus',
+    'WorkloadItemType',
 ]
 
 
@@ -34,3 +35,16 @@ class ProtectionStatus(str, Enum):
     PROTECTING = "Protecting"
     PROTECTED = "Protected"
     PROTECTION_FAILED = "ProtectionFailed"
+
+
+class WorkloadItemType(str, Enum):
+    """
+    Workload item type of the item for which intent is to be set
+    """
+    INVALID = "Invalid"
+    SQL_INSTANCE = "SQLInstance"
+    SQL_DATA_BASE = "SQLDataBase"
+    SAP_HANA_SYSTEM = "SAPHanaSystem"
+    SAP_HANA_DATABASE = "SAPHanaDatabase"
+    SAPASE_SYSTEM = "SAPAseSystem"
+    SAPASE_DATABASE = "SAPAseDatabase"

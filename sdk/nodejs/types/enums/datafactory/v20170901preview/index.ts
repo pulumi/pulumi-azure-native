@@ -2,6 +2,41 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AzureSearchIndexWriteBehaviorType = {
+    Merge: "Merge",
+    Upload: "Upload",
+} as const;
+
+/**
+ * Specify the write behavior when upserting documents into Azure Search Index.
+ */
+export type AzureSearchIndexWriteBehaviorType = (typeof AzureSearchIndexWriteBehaviorType)[keyof typeof AzureSearchIndexWriteBehaviorType];
+
+export const BlobEventTypes = {
+    Microsoft_Storage_BlobCreated: "Microsoft.Storage.BlobCreated",
+    Microsoft_Storage_BlobDeleted: "Microsoft.Storage.BlobDeleted",
+} as const;
+
+export type BlobEventTypes = (typeof BlobEventTypes)[keyof typeof BlobEventTypes];
+
+export const CassandraSourceReadConsistencyLevels = {
+    ALL: "ALL",
+    EACH_QUORUM: "EACH_QUORUM",
+    QUORUM: "QUORUM",
+    LOCAL_QUORUM: "LOCAL_QUORUM",
+    ONE: "ONE",
+    TWO: "TWO",
+    THREE: "THREE",
+    LOCAL_ONE: "LOCAL_ONE",
+    SERIAL: "SERIAL",
+    LOCAL_SERIAL: "LOCAL_SERIAL",
+} as const;
+
+/**
+ * The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
+ */
+export type CassandraSourceReadConsistencyLevels = (typeof CassandraSourceReadConsistencyLevels)[keyof typeof CassandraSourceReadConsistencyLevels];
+
 export const DatasetCompressionLevel = {
     Optimal: "Optimal",
     Fastest: "Fastest",
@@ -11,6 +46,33 @@ export const DatasetCompressionLevel = {
  * The ZipDeflate compression level.
  */
 export type DatasetCompressionLevel = (typeof DatasetCompressionLevel)[keyof typeof DatasetCompressionLevel];
+
+export const DayOfWeek = {
+    Sunday: "Sunday",
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+} as const;
+
+/**
+ * The day of the week.
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+export const DaysOfWeek = {
+    Sunday: "Sunday",
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+} as const;
+
+export type DaysOfWeek = (typeof DaysOfWeek)[keyof typeof DaysOfWeek];
 
 export const Db2AuthenticationType = {
     Basic: "Basic",
@@ -50,6 +112,15 @@ export const DynamicsDeploymentType = {
  */
 export type DynamicsDeploymentType = (typeof DynamicsDeploymentType)[keyof typeof DynamicsDeploymentType];
 
+export const DynamicsSinkWriteBehavior = {
+    Upsert: "Upsert",
+} as const;
+
+/**
+ * The write behavior for the operation.
+ */
+export type DynamicsSinkWriteBehavior = (typeof DynamicsSinkWriteBehavior)[keyof typeof DynamicsSinkWriteBehavior];
+
 export const FactoryIdentityType = {
     SystemAssigned: "SystemAssigned",
 } as const;
@@ -88,6 +159,17 @@ export const HBaseAuthenticationType = {
  * The authentication mechanism to use to connect to the HBase server.
  */
 export type HBaseAuthenticationType = (typeof HBaseAuthenticationType)[keyof typeof HBaseAuthenticationType];
+
+export const HDInsightActivityDebugInfoOption = {
+    None: "None",
+    Always: "Always",
+    Failure: "Failure",
+} as const;
+
+/**
+ * Debug info option.
+ */
+export type HDInsightActivityDebugInfoOption = (typeof HDInsightActivityDebugInfoOption)[keyof typeof HDInsightActivityDebugInfoOption];
 
 export const HiveAuthenticationType = {
     Anonymous: "Anonymous",
@@ -243,6 +325,16 @@ export const PhoenixAuthenticationType = {
  */
 export type PhoenixAuthenticationType = (typeof PhoenixAuthenticationType)[keyof typeof PhoenixAuthenticationType];
 
+export const PolybaseSettingsRejectType = {
+    Value: "value",
+    Percentage: "percentage",
+} as const;
+
+/**
+ * Reject type.
+ */
+export type PolybaseSettingsRejectType = (typeof PolybaseSettingsRejectType)[keyof typeof PolybaseSettingsRejectType];
+
 export const PrestoAuthenticationType = {
     Anonymous: "Anonymous",
     LDAP: "LDAP",
@@ -252,6 +344,51 @@ export const PrestoAuthenticationType = {
  * The authentication mechanism used to connect to the Presto server.
  */
 export type PrestoAuthenticationType = (typeof PrestoAuthenticationType)[keyof typeof PrestoAuthenticationType];
+
+export const RecurrenceFrequency = {
+    NotSpecified: "NotSpecified",
+    Minute: "Minute",
+    Hour: "Hour",
+    Day: "Day",
+    Week: "Week",
+    Month: "Month",
+    Year: "Year",
+} as const;
+
+/**
+ * The frequency.
+ */
+export type RecurrenceFrequency = (typeof RecurrenceFrequency)[keyof typeof RecurrenceFrequency];
+
+export const SalesforceSinkWriteBehavior = {
+    Insert: "Insert",
+    Upsert: "Upsert",
+} as const;
+
+/**
+ * The write behavior for the operation. Default is Insert.
+ */
+export type SalesforceSinkWriteBehavior = (typeof SalesforceSinkWriteBehavior)[keyof typeof SalesforceSinkWriteBehavior];
+
+export const SalesforceSourceReadBehavior = {
+    Query: "Query",
+    QueryAll: "QueryAll",
+} as const;
+
+/**
+ * The read behavior for the operation. Default is Query.
+ */
+export type SalesforceSourceReadBehavior = (typeof SalesforceSourceReadBehavior)[keyof typeof SalesforceSourceReadBehavior];
+
+export const SapCloudForCustomerSinkWriteBehavior = {
+    Insert: "Insert",
+    Update: "Update",
+} as const;
+
+/**
+ * The write behavior for the operation. Default is 'Insert'.
+ */
+export type SapCloudForCustomerSinkWriteBehavior = (typeof SapCloudForCustomerSinkWriteBehavior)[keyof typeof SapCloudForCustomerSinkWriteBehavior];
 
 export const SapHanaAuthenticationType = {
     Basic: "Basic",
@@ -317,6 +454,40 @@ export const SparkThriftTransportProtocol = {
  */
 export type SparkThriftTransportProtocol = (typeof SparkThriftTransportProtocol)[keyof typeof SparkThriftTransportProtocol];
 
+export const SsisLogLocationType = {
+    File: "File",
+} as const;
+
+/**
+ * The type of SSIS log location.
+ */
+export type SsisLogLocationType = (typeof SsisLogLocationType)[keyof typeof SsisLogLocationType];
+
+export const SsisPackageLocationType = {
+    SSISDB: "SSISDB",
+    File: "File",
+} as const;
+
+/**
+ * The type of SSIS package location.
+ */
+export type SsisPackageLocationType = (typeof SsisPackageLocationType)[keyof typeof SsisPackageLocationType];
+
+export const StoredProcedureParameterType = {
+    String: "String",
+    Int: "Int",
+    Int64: "Int64",
+    Decimal: "Decimal",
+    Guid: "Guid",
+    Boolean: "Boolean",
+    Date: "Date",
+} as const;
+
+/**
+ * Stored procedure parameter type.
+ */
+export type StoredProcedureParameterType = (typeof StoredProcedureParameterType)[keyof typeof StoredProcedureParameterType];
+
 export const SybaseAuthenticationType = {
     Basic: "Basic",
     Windows: "Windows",
@@ -346,6 +517,18 @@ export const TumblingWindowFrequency = {
  * The frequency of the time windows.
  */
 export type TumblingWindowFrequency = (typeof TumblingWindowFrequency)[keyof typeof TumblingWindowFrequency];
+
+export const WebActivityMethod = {
+    GET: "GET",
+    POST: "POST",
+    PUT: "PUT",
+    DELETE: "DELETE",
+} as const;
+
+/**
+ * Rest API method for target endpoint.
+ */
+export type WebActivityMethod = (typeof WebActivityMethod)[keyof typeof WebActivityMethod];
 
 export const WebAuthenticationType = {
     Basic: "Basic",

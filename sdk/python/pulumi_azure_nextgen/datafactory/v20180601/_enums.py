@@ -6,20 +6,28 @@ from enum import Enum
 
 __all__ = [
     'AvroCompressionCodec',
+    'AzureFunctionActivityMethod',
+    'AzureSearchIndexWriteBehaviorType',
+    'BlobEventTypes',
+    'CassandraSourceReadConsistencyLevels',
     'CompressionCodec',
     'DataFlowComputeType',
     'DatasetCompressionLevel',
+    'DayOfWeek',
+    'DaysOfWeek',
     'Db2AuthenticationType',
     'DependencyCondition',
     'DynamicsAuthenticationType',
     'DynamicsDeploymentType',
     'DynamicsServicePrincipalCredentialType',
+    'DynamicsSinkWriteBehavior',
     'FactoryIdentityType',
     'FtpAuthenticationType',
     'GlobalParameterType',
     'GoogleAdWordsAuthenticationType',
     'GoogleBigQueryAuthenticationType',
     'HBaseAuthenticationType',
+    'HDInsightActivityDebugInfoOption',
     'HdiNodeTypes',
     'HiveAuthenticationType',
     'HiveServerType',
@@ -32,26 +40,37 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogPricingTier',
     'IntegrationRuntimeType',
     'JsonFormatFilePattern',
+    'JsonWriteFilePattern',
     'MongoDbAuthenticationType',
     'ODataAadServicePrincipalCredentialType',
     'ODataAuthenticationType',
     'OrcCompressionCodec',
     'ParameterType',
     'PhoenixAuthenticationType',
+    'PolybaseSettingsRejectType',
     'PrestoAuthenticationType',
     'PublicNetworkAccess',
+    'RecurrenceFrequency',
     'RestServiceAuthenticationType',
+    'SalesforceSinkWriteBehavior',
+    'SalesforceSourceReadBehavior',
+    'SapCloudForCustomerSinkWriteBehavior',
     'SapHanaAuthenticationType',
     'ServiceNowAuthenticationType',
     'SftpAuthenticationType',
     'SparkAuthenticationType',
     'SparkServerType',
     'SparkThriftTransportProtocol',
+    'SsisLogLocationType',
+    'SsisPackageLocationType',
+    'StoredProcedureParameterType',
     'SybaseAuthenticationType',
     'TeradataAuthenticationType',
     'TumblingWindowFrequency',
     'VariableType',
+    'WebActivityMethod',
     'WebAuthenticationType',
+    'WebHookActivityMethod',
 ]
 
 
@@ -61,6 +80,48 @@ class AvroCompressionCodec(str, Enum):
     SNAPPY = "snappy"
     XZ = "xz"
     BZIP2 = "bzip2"
+
+
+class AzureFunctionActivityMethod(str, Enum):
+    """
+    Rest API method for target endpoint.
+    """
+    GET = "GET"
+    POST = "POST"
+    PUT = "PUT"
+    DELETE = "DELETE"
+    OPTIONS = "OPTIONS"
+    HEAD = "HEAD"
+    TRACE = "TRACE"
+
+
+class AzureSearchIndexWriteBehaviorType(str, Enum):
+    """
+    Specify the write behavior when upserting documents into Azure Search Index.
+    """
+    MERGE = "Merge"
+    UPLOAD = "Upload"
+
+
+class BlobEventTypes(str, Enum):
+    MICROSOFT_STORAGE_BLOB_CREATED = "Microsoft.Storage.BlobCreated"
+    MICROSOFT_STORAGE_BLOB_DELETED = "Microsoft.Storage.BlobDeleted"
+
+
+class CassandraSourceReadConsistencyLevels(str, Enum):
+    """
+    The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
+    """
+    ALL = "ALL"
+    EAC_H_QUORUM = "EACH_QUORUM"
+    QUORUM = "QUORUM"
+    LOCA_L_QUORUM = "LOCAL_QUORUM"
+    ONE = "ONE"
+    TWO = "TWO"
+    THREE = "THREE"
+    LOCA_L_ONE = "LOCAL_ONE"
+    SERIAL = "SERIAL"
+    LOCA_L_SERIAL = "LOCAL_SERIAL"
 
 
 class CompressionCodec(str, Enum):
@@ -85,6 +146,29 @@ class DatasetCompressionLevel(str, Enum):
     """
     OPTIMAL = "Optimal"
     FASTEST = "Fastest"
+
+
+class DayOfWeek(str, Enum):
+    """
+    The day of the week.
+    """
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+
+
+class DaysOfWeek(str, Enum):
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
 
 
 class Db2AuthenticationType(str, Enum):
@@ -124,6 +208,13 @@ class DynamicsServicePrincipalCredentialType(str, Enum):
     """
     SERVICE_PRINCIPAL_KEY = "ServicePrincipalKey"
     SERVICE_PRINCIPAL_CERT = "ServicePrincipalCert"
+
+
+class DynamicsSinkWriteBehavior(str, Enum):
+    """
+    The write behavior for the operation.
+    """
+    UPSERT = "Upsert"
 
 
 class FactoryIdentityType(str, Enum):
@@ -175,6 +266,15 @@ class HBaseAuthenticationType(str, Enum):
     """
     ANONYMOUS = "Anonymous"
     BASIC = "Basic"
+
+
+class HDInsightActivityDebugInfoOption(str, Enum):
+    """
+    Debug info option.
+    """
+    NONE = "None"
+    ALWAYS = "Always"
+    FAILURE = "Failure"
 
 
 class HdiNodeTypes(str, Enum):
@@ -284,6 +384,14 @@ class JsonFormatFilePattern(str, Enum):
     ARRAY_OF_OBJECTS = "arrayOfObjects"
 
 
+class JsonWriteFilePattern(str, Enum):
+    """
+    File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
+    """
+    SET_OF_OBJECTS = "setOfObjects"
+    ARRAY_OF_OBJECTS = "arrayOfObjects"
+
+
 class MongoDbAuthenticationType(str, Enum):
     """
     The authentication type to be used to connect to the MongoDB database.
@@ -340,6 +448,14 @@ class PhoenixAuthenticationType(str, Enum):
     WINDOWS_AZURE_HD_INSIGHT_SERVICE = "WindowsAzureHDInsightService"
 
 
+class PolybaseSettingsRejectType(str, Enum):
+    """
+    Reject type.
+    """
+    VALUE = "value"
+    PERCENTAGE = "percentage"
+
+
 class PrestoAuthenticationType(str, Enum):
     """
     The authentication mechanism used to connect to the Presto server.
@@ -356,6 +472,19 @@ class PublicNetworkAccess(str, Enum):
     DISABLED = "Disabled"
 
 
+class RecurrenceFrequency(str, Enum):
+    """
+    The frequency.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    MINUTE = "Minute"
+    HOUR = "Hour"
+    DAY = "Day"
+    WEEK = "Week"
+    MONTH = "Month"
+    YEAR = "Year"
+
+
 class RestServiceAuthenticationType(str, Enum):
     """
     Type of authentication used to connect to the REST service.
@@ -364,6 +493,30 @@ class RestServiceAuthenticationType(str, Enum):
     BASIC = "Basic"
     AAD_SERVICE_PRINCIPAL = "AadServicePrincipal"
     MANAGED_SERVICE_IDENTITY = "ManagedServiceIdentity"
+
+
+class SalesforceSinkWriteBehavior(str, Enum):
+    """
+    The write behavior for the operation. Default is Insert.
+    """
+    INSERT = "Insert"
+    UPSERT = "Upsert"
+
+
+class SalesforceSourceReadBehavior(str, Enum):
+    """
+    The read behavior for the operation. Default is Query.
+    """
+    QUERY = "Query"
+    QUERY_ALL = "QueryAll"
+
+
+class SapCloudForCustomerSinkWriteBehavior(str, Enum):
+    """
+    The write behavior for the operation. Default is 'Insert'.
+    """
+    INSERT = "Insert"
+    UPDATE = "Update"
 
 
 class SapHanaAuthenticationType(str, Enum):
@@ -418,6 +571,36 @@ class SparkThriftTransportProtocol(str, Enum):
     HTT_P_ = "HTTP "
 
 
+class SsisLogLocationType(str, Enum):
+    """
+    The type of SSIS log location.
+    """
+    FILE = "File"
+
+
+class SsisPackageLocationType(str, Enum):
+    """
+    The type of SSIS package location.
+    """
+    SSISDB = "SSISDB"
+    FILE = "File"
+    INLINE_PACKAGE = "InlinePackage"
+    PACKAGE_STORE = "PackageStore"
+
+
+class StoredProcedureParameterType(str, Enum):
+    """
+    Stored procedure parameter type.
+    """
+    STRING = "String"
+    INT = "Int"
+    INT64 = "Int64"
+    DECIMAL = "Decimal"
+    GUID = "Guid"
+    BOOLEAN = "Boolean"
+    DATE = "Date"
+
+
 class SybaseAuthenticationType(str, Enum):
     """
     AuthenticationType to be used for connection.
@@ -452,6 +635,16 @@ class VariableType(str, Enum):
     ARRAY = "Array"
 
 
+class WebActivityMethod(str, Enum):
+    """
+    Rest API method for target endpoint.
+    """
+    GET = "GET"
+    POST = "POST"
+    PUT = "PUT"
+    DELETE = "DELETE"
+
+
 class WebAuthenticationType(str, Enum):
     """
     Type of authentication used to connect to the web table source.
@@ -459,3 +652,10 @@ class WebAuthenticationType(str, Enum):
     BASIC = "Basic"
     ANONYMOUS = "Anonymous"
     CLIENT_CERTIFICATE = "ClientCertificate"
+
+
+class WebHookActivityMethod(str, Enum):
+    """
+    Rest API method for target endpoint.
+    """
+    POST = "POST"

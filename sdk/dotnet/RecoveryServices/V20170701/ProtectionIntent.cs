@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20170701
         /// ProtectionIntentResource properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.AzureRecoveryServiceVaultProtectionIntentResponse, Outputs.AzureResourceProtectionIntentResponse>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20170701
         /// ProtectionIntentResource properties
         /// </summary>
         [Input("properties")]
-        public InputUnion<Inputs.AzureRecoveryServiceVaultProtectionIntentArgs, Inputs.AzureResourceProtectionIntentArgs>? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

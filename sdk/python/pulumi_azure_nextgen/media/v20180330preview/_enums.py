@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AacAudioProfile',
     'AssetContainerPermission',
     'ContentKeyPolicyFairPlayRentalAndLeaseKeyType',
     'ContentKeyPolicyPlayReadyContentType',
@@ -14,6 +15,9 @@ __all__ = [
     'DeinterlaceMode',
     'DeinterlaceParity',
     'EncoderNamedPreset',
+    'EntropyMode',
+    'H264Complexity',
+    'H264VideoProfile',
     'LiveEventEncodingType',
     'LiveEventInputProtocol',
     'OnErrorType',
@@ -25,6 +29,15 @@ __all__ = [
     'TrackPropertyCompareOperation',
     'TrackPropertyType',
 ]
+
+
+class AacAudioProfile(str, Enum):
+    """
+    The encoding profile to be used when encoding audio with AAC.
+    """
+    AAC_LC = "AacLc"
+    HE_AAC_V1 = "HeAacV1"
+    HE_AAC_V2 = "HeAacV2"
 
 
 class AssetContainerPermission(str, Enum):
@@ -110,6 +123,35 @@ class EncoderNamedPreset(str, Enum):
     H264_MULTIPLE_BITRATE1080P = "H264MultipleBitrate1080p"
     H264_MULTIPLE_BITRATE720P = "H264MultipleBitrate720p"
     H264_MULTIPLE_BITRATE_SD = "H264MultipleBitrateSD"
+
+
+class EntropyMode(str, Enum):
+    """
+    The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+    """
+    CABAC = "Cabac"
+    CAVLC = "Cavlc"
+
+
+class H264Complexity(str, Enum):
+    """
+    Tells the encoder how to choose its encoding settings. The default value is Balanced.
+    """
+    SPEED = "Speed"
+    BALANCED = "Balanced"
+    QUALITY = "Quality"
+
+
+class H264VideoProfile(str, Enum):
+    """
+    Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
+    """
+    AUTO = "Auto"
+    BASELINE = "Baseline"
+    MAIN = "Main"
+    HIGH = "High"
+    HIGH422 = "High422"
+    HIGH444 = "High444"
 
 
 class LiveEventEncodingType(str, Enum):

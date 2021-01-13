@@ -10,6 +10,212 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Describes Advanced Audio Codec (AAC) audio encoding settings.
+type AacAudio struct {
+	// The bitrate, in bits per second, of the output encoded audio.
+	Bitrate *int `pulumi:"bitrate"`
+	// The number of channels in the audio.
+	Channels *int `pulumi:"channels"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
+	OdataType string `pulumi:"odataType"`
+	// The encoding profile to be used when encoding audio with AAC.
+	Profile *string `pulumi:"profile"`
+	// The sampling rate to use for encoding in hertz.
+	SamplingRate *int `pulumi:"samplingRate"`
+}
+
+// AacAudioInput is an input type that accepts AacAudioArgs and AacAudioOutput values.
+// You can construct a concrete instance of `AacAudioInput` via:
+//
+//          AacAudioArgs{...}
+type AacAudioInput interface {
+	pulumi.Input
+
+	ToAacAudioOutput() AacAudioOutput
+	ToAacAudioOutputWithContext(context.Context) AacAudioOutput
+}
+
+// Describes Advanced Audio Codec (AAC) audio encoding settings.
+type AacAudioArgs struct {
+	// The bitrate, in bits per second, of the output encoded audio.
+	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
+	// The number of channels in the audio.
+	Channels pulumi.IntPtrInput `pulumi:"channels"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The encoding profile to be used when encoding audio with AAC.
+	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	// The sampling rate to use for encoding in hertz.
+	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
+}
+
+func (AacAudioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AacAudio)(nil)).Elem()
+}
+
+func (i AacAudioArgs) ToAacAudioOutput() AacAudioOutput {
+	return i.ToAacAudioOutputWithContext(context.Background())
+}
+
+func (i AacAudioArgs) ToAacAudioOutputWithContext(ctx context.Context) AacAudioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AacAudioOutput)
+}
+
+// Describes Advanced Audio Codec (AAC) audio encoding settings.
+type AacAudioOutput struct{ *pulumi.OutputState }
+
+func (AacAudioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AacAudio)(nil)).Elem()
+}
+
+func (o AacAudioOutput) ToAacAudioOutput() AacAudioOutput {
+	return o
+}
+
+func (o AacAudioOutput) ToAacAudioOutputWithContext(ctx context.Context) AacAudioOutput {
+	return o
+}
+
+// The bitrate, in bits per second, of the output encoded audio.
+func (o AacAudioOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AacAudio) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
+}
+
+// The number of channels in the audio.
+func (o AacAudioOutput) Channels() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AacAudio) *int { return v.Channels }).(pulumi.IntPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o AacAudioOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AacAudio) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Audio'.
+func (o AacAudioOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AacAudio) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The encoding profile to be used when encoding audio with AAC.
+func (o AacAudioOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AacAudio) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// The sampling rate to use for encoding in hertz.
+func (o AacAudioOutput) SamplingRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AacAudio) *int { return v.SamplingRate }).(pulumi.IntPtrOutput)
+}
+
+// Describes Advanced Audio Codec (AAC) audio encoding settings.
+type AacAudioResponse struct {
+	// The bitrate, in bits per second, of the output encoded audio.
+	Bitrate *int `pulumi:"bitrate"`
+	// The number of channels in the audio.
+	Channels *int `pulumi:"channels"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
+	OdataType string `pulumi:"odataType"`
+	// The encoding profile to be used when encoding audio with AAC.
+	Profile *string `pulumi:"profile"`
+	// The sampling rate to use for encoding in hertz.
+	SamplingRate *int `pulumi:"samplingRate"`
+}
+
+// AacAudioResponseInput is an input type that accepts AacAudioResponseArgs and AacAudioResponseOutput values.
+// You can construct a concrete instance of `AacAudioResponseInput` via:
+//
+//          AacAudioResponseArgs{...}
+type AacAudioResponseInput interface {
+	pulumi.Input
+
+	ToAacAudioResponseOutput() AacAudioResponseOutput
+	ToAacAudioResponseOutputWithContext(context.Context) AacAudioResponseOutput
+}
+
+// Describes Advanced Audio Codec (AAC) audio encoding settings.
+type AacAudioResponseArgs struct {
+	// The bitrate, in bits per second, of the output encoded audio.
+	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
+	// The number of channels in the audio.
+	Channels pulumi.IntPtrInput `pulumi:"channels"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The encoding profile to be used when encoding audio with AAC.
+	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	// The sampling rate to use for encoding in hertz.
+	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
+}
+
+func (AacAudioResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AacAudioResponse)(nil)).Elem()
+}
+
+func (i AacAudioResponseArgs) ToAacAudioResponseOutput() AacAudioResponseOutput {
+	return i.ToAacAudioResponseOutputWithContext(context.Background())
+}
+
+func (i AacAudioResponseArgs) ToAacAudioResponseOutputWithContext(ctx context.Context) AacAudioResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AacAudioResponseOutput)
+}
+
+// Describes Advanced Audio Codec (AAC) audio encoding settings.
+type AacAudioResponseOutput struct{ *pulumi.OutputState }
+
+func (AacAudioResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AacAudioResponse)(nil)).Elem()
+}
+
+func (o AacAudioResponseOutput) ToAacAudioResponseOutput() AacAudioResponseOutput {
+	return o
+}
+
+func (o AacAudioResponseOutput) ToAacAudioResponseOutputWithContext(ctx context.Context) AacAudioResponseOutput {
+	return o
+}
+
+// The bitrate, in bits per second, of the output encoded audio.
+func (o AacAudioResponseOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AacAudioResponse) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
+}
+
+// The number of channels in the audio.
+func (o AacAudioResponseOutput) Channels() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AacAudioResponse) *int { return v.Channels }).(pulumi.IntPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o AacAudioResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AacAudioResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Audio'.
+func (o AacAudioResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AacAudioResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The encoding profile to be used when encoding audio with AAC.
+func (o AacAudioResponseOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AacAudioResponse) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// The sampling rate to use for encoding in hertz.
+func (o AacAudioResponseOutput) SamplingRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AacAudioResponse) *int { return v.SamplingRate }).(pulumi.IntPtrOutput)
+}
+
 // Akamai access control
 type AkamaiAccessControl struct {
 	// authentication key list
@@ -8701,6 +8907,688 @@ func (o FiltersResponsePtrOutput) Rotation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
+type H264Layer struct {
+	// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+	AdaptiveBFrame *bool `pulumi:"adaptiveBFrame"`
+	// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	BFrames *int `pulumi:"bFrames"`
+	// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
+	Bitrate *int `pulumi:"bitrate"`
+	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+	BufferWindow *string `pulumi:"bufferWindow"`
+	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+	EntropyMode *string `pulumi:"entropyMode"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+	FrameRate *string `pulumi:"frameRate"`
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+	Level *string `pulumi:"level"`
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	MaxBitrate *int `pulumi:"maxBitrate"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoLayer'.
+	OdataType string `pulumi:"odataType"`
+	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
+	Profile *string `pulumi:"profile"`
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	ReferenceFrames *int `pulumi:"referenceFrames"`
+	// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+	Slices *int `pulumi:"slices"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// H264LayerInput is an input type that accepts H264LayerArgs and H264LayerOutput values.
+// You can construct a concrete instance of `H264LayerInput` via:
+//
+//          H264LayerArgs{...}
+type H264LayerInput interface {
+	pulumi.Input
+
+	ToH264LayerOutput() H264LayerOutput
+	ToH264LayerOutputWithContext(context.Context) H264LayerOutput
+}
+
+// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
+type H264LayerArgs struct {
+	// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+	AdaptiveBFrame pulumi.BoolPtrInput `pulumi:"adaptiveBFrame"`
+	// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	BFrames pulumi.IntPtrInput `pulumi:"bFrames"`
+	// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
+	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
+	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+	BufferWindow pulumi.StringPtrInput `pulumi:"bufferWindow"`
+	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+	EntropyMode pulumi.StringPtrInput `pulumi:"entropyMode"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+	FrameRate pulumi.StringPtrInput `pulumi:"frameRate"`
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoLayer'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
+	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
+	// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+	Slices pulumi.IntPtrInput `pulumi:"slices"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (H264LayerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264Layer)(nil)).Elem()
+}
+
+func (i H264LayerArgs) ToH264LayerOutput() H264LayerOutput {
+	return i.ToH264LayerOutputWithContext(context.Background())
+}
+
+func (i H264LayerArgs) ToH264LayerOutputWithContext(ctx context.Context) H264LayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(H264LayerOutput)
+}
+
+// H264LayerArrayInput is an input type that accepts H264LayerArray and H264LayerArrayOutput values.
+// You can construct a concrete instance of `H264LayerArrayInput` via:
+//
+//          H264LayerArray{ H264LayerArgs{...} }
+type H264LayerArrayInput interface {
+	pulumi.Input
+
+	ToH264LayerArrayOutput() H264LayerArrayOutput
+	ToH264LayerArrayOutputWithContext(context.Context) H264LayerArrayOutput
+}
+
+type H264LayerArray []H264LayerInput
+
+func (H264LayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]H264Layer)(nil)).Elem()
+}
+
+func (i H264LayerArray) ToH264LayerArrayOutput() H264LayerArrayOutput {
+	return i.ToH264LayerArrayOutputWithContext(context.Background())
+}
+
+func (i H264LayerArray) ToH264LayerArrayOutputWithContext(ctx context.Context) H264LayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(H264LayerArrayOutput)
+}
+
+// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
+type H264LayerOutput struct{ *pulumi.OutputState }
+
+func (H264LayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264Layer)(nil)).Elem()
+}
+
+func (o H264LayerOutput) ToH264LayerOutput() H264LayerOutput {
+	return o
+}
+
+func (o H264LayerOutput) ToH264LayerOutputWithContext(ctx context.Context) H264LayerOutput {
+	return o
+}
+
+// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+func (o H264LayerOutput) AdaptiveBFrame() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v H264Layer) *bool { return v.AdaptiveBFrame }).(pulumi.BoolPtrOutput)
+}
+
+// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+func (o H264LayerOutput) BFrames() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264Layer) *int { return v.BFrames }).(pulumi.IntPtrOutput)
+}
+
+// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
+func (o H264LayerOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264Layer) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
+}
+
+// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+func (o H264LayerOutput) BufferWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Layer) *string { return v.BufferWindow }).(pulumi.StringPtrOutput)
+}
+
+// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+func (o H264LayerOutput) EntropyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Layer) *string { return v.EntropyMode }).(pulumi.StringPtrOutput)
+}
+
+// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+func (o H264LayerOutput) FrameRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Layer) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+func (o H264LayerOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Layer) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o H264LayerOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Layer) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+func (o H264LayerOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Layer) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+func (o H264LayerOutput) MaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264Layer) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.VideoLayer'.
+func (o H264LayerOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v H264Layer) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
+func (o H264LayerOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Layer) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+func (o H264LayerOutput) ReferenceFrames() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264Layer) *int { return v.ReferenceFrames }).(pulumi.IntPtrOutput)
+}
+
+// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+func (o H264LayerOutput) Slices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264Layer) *int { return v.Slices }).(pulumi.IntPtrOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+func (o H264LayerOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Layer) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type H264LayerArrayOutput struct{ *pulumi.OutputState }
+
+func (H264LayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]H264Layer)(nil)).Elem()
+}
+
+func (o H264LayerArrayOutput) ToH264LayerArrayOutput() H264LayerArrayOutput {
+	return o
+}
+
+func (o H264LayerArrayOutput) ToH264LayerArrayOutputWithContext(ctx context.Context) H264LayerArrayOutput {
+	return o
+}
+
+func (o H264LayerArrayOutput) Index(i pulumi.IntInput) H264LayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) H264Layer {
+		return vs[0].([]H264Layer)[vs[1].(int)]
+	}).(H264LayerOutput)
+}
+
+// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
+type H264LayerResponse struct {
+	// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+	AdaptiveBFrame *bool `pulumi:"adaptiveBFrame"`
+	// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	BFrames *int `pulumi:"bFrames"`
+	// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
+	Bitrate *int `pulumi:"bitrate"`
+	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+	BufferWindow *string `pulumi:"bufferWindow"`
+	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+	EntropyMode *string `pulumi:"entropyMode"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+	FrameRate *string `pulumi:"frameRate"`
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+	Level *string `pulumi:"level"`
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	MaxBitrate *int `pulumi:"maxBitrate"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoLayer'.
+	OdataType string `pulumi:"odataType"`
+	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
+	Profile *string `pulumi:"profile"`
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	ReferenceFrames *int `pulumi:"referenceFrames"`
+	// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+	Slices *int `pulumi:"slices"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// H264LayerResponseInput is an input type that accepts H264LayerResponseArgs and H264LayerResponseOutput values.
+// You can construct a concrete instance of `H264LayerResponseInput` via:
+//
+//          H264LayerResponseArgs{...}
+type H264LayerResponseInput interface {
+	pulumi.Input
+
+	ToH264LayerResponseOutput() H264LayerResponseOutput
+	ToH264LayerResponseOutputWithContext(context.Context) H264LayerResponseOutput
+}
+
+// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
+type H264LayerResponseArgs struct {
+	// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+	AdaptiveBFrame pulumi.BoolPtrInput `pulumi:"adaptiveBFrame"`
+	// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	BFrames pulumi.IntPtrInput `pulumi:"bFrames"`
+	// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
+	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
+	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+	BufferWindow pulumi.StringPtrInput `pulumi:"bufferWindow"`
+	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+	EntropyMode pulumi.StringPtrInput `pulumi:"entropyMode"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+	FrameRate pulumi.StringPtrInput `pulumi:"frameRate"`
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoLayer'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
+	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
+	// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+	Slices pulumi.IntPtrInput `pulumi:"slices"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (H264LayerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264LayerResponse)(nil)).Elem()
+}
+
+func (i H264LayerResponseArgs) ToH264LayerResponseOutput() H264LayerResponseOutput {
+	return i.ToH264LayerResponseOutputWithContext(context.Background())
+}
+
+func (i H264LayerResponseArgs) ToH264LayerResponseOutputWithContext(ctx context.Context) H264LayerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(H264LayerResponseOutput)
+}
+
+// H264LayerResponseArrayInput is an input type that accepts H264LayerResponseArray and H264LayerResponseArrayOutput values.
+// You can construct a concrete instance of `H264LayerResponseArrayInput` via:
+//
+//          H264LayerResponseArray{ H264LayerResponseArgs{...} }
+type H264LayerResponseArrayInput interface {
+	pulumi.Input
+
+	ToH264LayerResponseArrayOutput() H264LayerResponseArrayOutput
+	ToH264LayerResponseArrayOutputWithContext(context.Context) H264LayerResponseArrayOutput
+}
+
+type H264LayerResponseArray []H264LayerResponseInput
+
+func (H264LayerResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]H264LayerResponse)(nil)).Elem()
+}
+
+func (i H264LayerResponseArray) ToH264LayerResponseArrayOutput() H264LayerResponseArrayOutput {
+	return i.ToH264LayerResponseArrayOutputWithContext(context.Background())
+}
+
+func (i H264LayerResponseArray) ToH264LayerResponseArrayOutputWithContext(ctx context.Context) H264LayerResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(H264LayerResponseArrayOutput)
+}
+
+// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
+type H264LayerResponseOutput struct{ *pulumi.OutputState }
+
+func (H264LayerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264LayerResponse)(nil)).Elem()
+}
+
+func (o H264LayerResponseOutput) ToH264LayerResponseOutput() H264LayerResponseOutput {
+	return o
+}
+
+func (o H264LayerResponseOutput) ToH264LayerResponseOutputWithContext(ctx context.Context) H264LayerResponseOutput {
+	return o
+}
+
+// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+func (o H264LayerResponseOutput) AdaptiveBFrame() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *bool { return v.AdaptiveBFrame }).(pulumi.BoolPtrOutput)
+}
+
+// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+func (o H264LayerResponseOutput) BFrames() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *int { return v.BFrames }).(pulumi.IntPtrOutput)
+}
+
+// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
+func (o H264LayerResponseOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
+}
+
+// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+func (o H264LayerResponseOutput) BufferWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *string { return v.BufferWindow }).(pulumi.StringPtrOutput)
+}
+
+// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+func (o H264LayerResponseOutput) EntropyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *string { return v.EntropyMode }).(pulumi.StringPtrOutput)
+}
+
+// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+func (o H264LayerResponseOutput) FrameRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+func (o H264LayerResponseOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o H264LayerResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Which level of the H.264 standard should be used when encoding this layer. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+func (o H264LayerResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+func (o H264LayerResponseOutput) MaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.VideoLayer'.
+func (o H264LayerResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v H264LayerResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
+func (o H264LayerResponseOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+func (o H264LayerResponseOutput) ReferenceFrames() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *int { return v.ReferenceFrames }).(pulumi.IntPtrOutput)
+}
+
+// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+func (o H264LayerResponseOutput) Slices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *int { return v.Slices }).(pulumi.IntPtrOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+func (o H264LayerResponseOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerResponse) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type H264LayerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (H264LayerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]H264LayerResponse)(nil)).Elem()
+}
+
+func (o H264LayerResponseArrayOutput) ToH264LayerResponseArrayOutput() H264LayerResponseArrayOutput {
+	return o
+}
+
+func (o H264LayerResponseArrayOutput) ToH264LayerResponseArrayOutputWithContext(ctx context.Context) H264LayerResponseArrayOutput {
+	return o
+}
+
+func (o H264LayerResponseArrayOutput) Index(i pulumi.IntInput) H264LayerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) H264LayerResponse {
+		return vs[0].([]H264LayerResponse)[vs[1].(int)]
+	}).(H264LayerResponseOutput)
+}
+
+// Describes all the properties for encoding a video with the H.264 codec.
+type H264Video struct {
+	// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+	Complexity *string `pulumi:"complexity"`
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The collection of output H.264 layers to be produced by the encoder.
+	Layers []H264Layer `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+	SceneChangeDetection *bool `pulumi:"sceneChangeDetection"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// H264VideoInput is an input type that accepts H264VideoArgs and H264VideoOutput values.
+// You can construct a concrete instance of `H264VideoInput` via:
+//
+//          H264VideoArgs{...}
+type H264VideoInput interface {
+	pulumi.Input
+
+	ToH264VideoOutput() H264VideoOutput
+	ToH264VideoOutputWithContext(context.Context) H264VideoOutput
+}
+
+// Describes all the properties for encoding a video with the H.264 codec.
+type H264VideoArgs struct {
+	// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The collection of output H.264 layers to be produced by the encoder.
+	Layers H264LayerArrayInput `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+	SceneChangeDetection pulumi.BoolPtrInput `pulumi:"sceneChangeDetection"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (H264VideoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264Video)(nil)).Elem()
+}
+
+func (i H264VideoArgs) ToH264VideoOutput() H264VideoOutput {
+	return i.ToH264VideoOutputWithContext(context.Background())
+}
+
+func (i H264VideoArgs) ToH264VideoOutputWithContext(ctx context.Context) H264VideoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(H264VideoOutput)
+}
+
+// Describes all the properties for encoding a video with the H.264 codec.
+type H264VideoOutput struct{ *pulumi.OutputState }
+
+func (H264VideoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264Video)(nil)).Elem()
+}
+
+func (o H264VideoOutput) ToH264VideoOutput() H264VideoOutput {
+	return o
+}
+
+func (o H264VideoOutput) ToH264VideoOutputWithContext(ctx context.Context) H264VideoOutput {
+	return o
+}
+
+// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+func (o H264VideoOutput) Complexity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Video) *string { return v.Complexity }).(pulumi.StringPtrOutput)
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o H264VideoOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Video) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o H264VideoOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Video) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The collection of output H.264 layers to be produced by the encoder.
+func (o H264VideoOutput) Layers() H264LayerArrayOutput {
+	return o.ApplyT(func(v H264Video) []H264Layer { return v.Layers }).(H264LayerArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o H264VideoOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v H264Video) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+func (o H264VideoOutput) SceneChangeDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v H264Video) *bool { return v.SceneChangeDetection }).(pulumi.BoolPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o H264VideoOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264Video) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Describes all the properties for encoding a video with the H.264 codec.
+type H264VideoResponse struct {
+	// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+	Complexity *string `pulumi:"complexity"`
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The collection of output H.264 layers to be produced by the encoder.
+	Layers []H264LayerResponse `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+	SceneChangeDetection *bool `pulumi:"sceneChangeDetection"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// H264VideoResponseInput is an input type that accepts H264VideoResponseArgs and H264VideoResponseOutput values.
+// You can construct a concrete instance of `H264VideoResponseInput` via:
+//
+//          H264VideoResponseArgs{...}
+type H264VideoResponseInput interface {
+	pulumi.Input
+
+	ToH264VideoResponseOutput() H264VideoResponseOutput
+	ToH264VideoResponseOutputWithContext(context.Context) H264VideoResponseOutput
+}
+
+// Describes all the properties for encoding a video with the H.264 codec.
+type H264VideoResponseArgs struct {
+	// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The collection of output H.264 layers to be produced by the encoder.
+	Layers H264LayerResponseArrayInput `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+	SceneChangeDetection pulumi.BoolPtrInput `pulumi:"sceneChangeDetection"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (H264VideoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264VideoResponse)(nil)).Elem()
+}
+
+func (i H264VideoResponseArgs) ToH264VideoResponseOutput() H264VideoResponseOutput {
+	return i.ToH264VideoResponseOutputWithContext(context.Background())
+}
+
+func (i H264VideoResponseArgs) ToH264VideoResponseOutputWithContext(ctx context.Context) H264VideoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(H264VideoResponseOutput)
+}
+
+// Describes all the properties for encoding a video with the H.264 codec.
+type H264VideoResponseOutput struct{ *pulumi.OutputState }
+
+func (H264VideoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264VideoResponse)(nil)).Elem()
+}
+
+func (o H264VideoResponseOutput) ToH264VideoResponseOutput() H264VideoResponseOutput {
+	return o
+}
+
+func (o H264VideoResponseOutput) ToH264VideoResponseOutputWithContext(ctx context.Context) H264VideoResponseOutput {
+	return o
+}
+
+// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+func (o H264VideoResponseOutput) Complexity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264VideoResponse) *string { return v.Complexity }).(pulumi.StringPtrOutput)
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o H264VideoResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264VideoResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o H264VideoResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264VideoResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The collection of output H.264 layers to be produced by the encoder.
+func (o H264VideoResponseOutput) Layers() H264LayerResponseArrayOutput {
+	return o.ApplyT(func(v H264VideoResponse) []H264LayerResponse { return v.Layers }).(H264LayerResponseArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o H264VideoResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v H264VideoResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+func (o H264VideoResponseOutput) SceneChangeDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v H264VideoResponse) *bool { return v.SceneChangeDetection }).(pulumi.BoolPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o H264VideoResponseOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264VideoResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
 // The HLS configuration.
 type Hls struct {
 	// The amount of fragments per HTTP Live Streaming (HLS) segment.
@@ -9473,6 +10361,118 @@ func (o IPRangeResponseArrayOutput) Index(i pulumi.IntInput) IPRangeResponseOutp
 	}).(IPRangeResponseOutput)
 }
 
+// Describes the basic properties for generating thumbnails from the input video
+type Image struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range *string `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start *string `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step *string `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// ImageInput is an input type that accepts ImageArgs and ImageOutput values.
+// You can construct a concrete instance of `ImageInput` via:
+//
+//          ImageArgs{...}
+type ImageInput interface {
+	pulumi.Input
+
+	ToImageOutput() ImageOutput
+	ToImageOutputWithContext(context.Context) ImageOutput
+}
+
+// Describes the basic properties for generating thumbnails from the input video
+type ImageArgs struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step pulumi.StringPtrInput `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (ImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Image)(nil)).Elem()
+}
+
+func (i ImageArgs) ToImageOutput() ImageOutput {
+	return i.ToImageOutputWithContext(context.Background())
+}
+
+func (i ImageArgs) ToImageOutputWithContext(ctx context.Context) ImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageOutput)
+}
+
+// Describes the basic properties for generating thumbnails from the input video
+type ImageOutput struct{ *pulumi.OutputState }
+
+func (ImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Image)(nil)).Elem()
+}
+
+func (o ImageOutput) ToImageOutput() ImageOutput {
+	return o
+}
+
+func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
+	return o
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o ImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Image) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o ImageOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Image) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o ImageOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v Image) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+func (o ImageOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Image) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+func (o ImageOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Image) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+func (o ImageOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Image) *string { return v.Step }).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o ImageOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Image) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
 // Describes the properties for an output image file.
 type ImageFormat struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
@@ -9605,6 +10605,118 @@ func (o ImageFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
 // Expected value is '#Microsoft.Media.ImageFormat'.
 func (o ImageFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes the basic properties for generating thumbnails from the input video
+type ImageResponse struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range *string `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start *string `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step *string `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// ImageResponseInput is an input type that accepts ImageResponseArgs and ImageResponseOutput values.
+// You can construct a concrete instance of `ImageResponseInput` via:
+//
+//          ImageResponseArgs{...}
+type ImageResponseInput interface {
+	pulumi.Input
+
+	ToImageResponseOutput() ImageResponseOutput
+	ToImageResponseOutputWithContext(context.Context) ImageResponseOutput
+}
+
+// Describes the basic properties for generating thumbnails from the input video
+type ImageResponseArgs struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step pulumi.StringPtrInput `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (ImageResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageResponse)(nil)).Elem()
+}
+
+func (i ImageResponseArgs) ToImageResponseOutput() ImageResponseOutput {
+	return i.ToImageResponseOutputWithContext(context.Background())
+}
+
+func (i ImageResponseArgs) ToImageResponseOutputWithContext(ctx context.Context) ImageResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageResponseOutput)
+}
+
+// Describes the basic properties for generating thumbnails from the input video
+type ImageResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageResponse)(nil)).Elem()
+}
+
+func (o ImageResponseOutput) ToImageResponseOutput() ImageResponseOutput {
+	return o
+}
+
+func (o ImageResponseOutput) ToImageResponseOutputWithContext(ctx context.Context) ImageResponseOutput {
+	return o
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o ImageResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o ImageResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o ImageResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+func (o ImageResponseOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageResponse) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+func (o ImageResponseOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+func (o ImageResponseOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageResponse) *string { return v.Step }).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o ImageResponseOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
 // Details of JobOutput errors.
@@ -9807,6 +10919,176 @@ func (o JobErrorResponseOutput) Retry() pulumi.StringOutput {
 	return o.ApplyT(func(v JobErrorResponse) string { return v.Retry }).(pulumi.StringOutput)
 }
 
+// Represents an Asset for input into a Job.
+type JobInputAsset struct {
+	// The name of the input Asset.
+	AssetName string `pulumi:"assetName"`
+	// List of files. Required for JobInputHttp.
+	Files []string `pulumi:"files"`
+	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// JobInputAssetInput is an input type that accepts JobInputAssetArgs and JobInputAssetOutput values.
+// You can construct a concrete instance of `JobInputAssetInput` via:
+//
+//          JobInputAssetArgs{...}
+type JobInputAssetInput interface {
+	pulumi.Input
+
+	ToJobInputAssetOutput() JobInputAssetOutput
+	ToJobInputAssetOutputWithContext(context.Context) JobInputAssetOutput
+}
+
+// Represents an Asset for input into a Job.
+type JobInputAssetArgs struct {
+	// The name of the input Asset.
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// List of files. Required for JobInputHttp.
+	Files pulumi.StringArrayInput `pulumi:"files"`
+	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (JobInputAssetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputAsset)(nil)).Elem()
+}
+
+func (i JobInputAssetArgs) ToJobInputAssetOutput() JobInputAssetOutput {
+	return i.ToJobInputAssetOutputWithContext(context.Background())
+}
+
+func (i JobInputAssetArgs) ToJobInputAssetOutputWithContext(ctx context.Context) JobInputAssetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetOutput)
+}
+
+// Represents an Asset for input into a Job.
+type JobInputAssetOutput struct{ *pulumi.OutputState }
+
+func (JobInputAssetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputAsset)(nil)).Elem()
+}
+
+func (o JobInputAssetOutput) ToJobInputAssetOutput() JobInputAssetOutput {
+	return o
+}
+
+func (o JobInputAssetOutput) ToJobInputAssetOutputWithContext(ctx context.Context) JobInputAssetOutput {
+	return o
+}
+
+// The name of the input Asset.
+func (o JobInputAssetOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputAsset) string { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// List of files. Required for JobInputHttp.
+func (o JobInputAssetOutput) Files() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobInputAsset) []string { return v.Files }).(pulumi.StringArrayOutput)
+}
+
+// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+func (o JobInputAssetOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobInputAsset) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputClip'.
+func (o JobInputAssetOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputAsset) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Represents an Asset for input into a Job.
+type JobInputAssetResponse struct {
+	// The name of the input Asset.
+	AssetName string `pulumi:"assetName"`
+	// List of files. Required for JobInputHttp.
+	Files []string `pulumi:"files"`
+	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// JobInputAssetResponseInput is an input type that accepts JobInputAssetResponseArgs and JobInputAssetResponseOutput values.
+// You can construct a concrete instance of `JobInputAssetResponseInput` via:
+//
+//          JobInputAssetResponseArgs{...}
+type JobInputAssetResponseInput interface {
+	pulumi.Input
+
+	ToJobInputAssetResponseOutput() JobInputAssetResponseOutput
+	ToJobInputAssetResponseOutputWithContext(context.Context) JobInputAssetResponseOutput
+}
+
+// Represents an Asset for input into a Job.
+type JobInputAssetResponseArgs struct {
+	// The name of the input Asset.
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// List of files. Required for JobInputHttp.
+	Files pulumi.StringArrayInput `pulumi:"files"`
+	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (JobInputAssetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputAssetResponse)(nil)).Elem()
+}
+
+func (i JobInputAssetResponseArgs) ToJobInputAssetResponseOutput() JobInputAssetResponseOutput {
+	return i.ToJobInputAssetResponseOutputWithContext(context.Background())
+}
+
+func (i JobInputAssetResponseArgs) ToJobInputAssetResponseOutputWithContext(ctx context.Context) JobInputAssetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetResponseOutput)
+}
+
+// Represents an Asset for input into a Job.
+type JobInputAssetResponseOutput struct{ *pulumi.OutputState }
+
+func (JobInputAssetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputAssetResponse)(nil)).Elem()
+}
+
+func (o JobInputAssetResponseOutput) ToJobInputAssetResponseOutput() JobInputAssetResponseOutput {
+	return o
+}
+
+func (o JobInputAssetResponseOutput) ToJobInputAssetResponseOutputWithContext(ctx context.Context) JobInputAssetResponseOutput {
+	return o
+}
+
+// The name of the input Asset.
+func (o JobInputAssetResponseOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputAssetResponse) string { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// List of files. Required for JobInputHttp.
+func (o JobInputAssetResponseOutput) Files() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobInputAssetResponse) []string { return v.Files }).(pulumi.StringArrayOutput)
+}
+
+// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+func (o JobInputAssetResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobInputAssetResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputClip'.
+func (o JobInputAssetResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputAssetResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
 // Represents input files for a Job.
 type JobInputClip struct {
 	// List of files. Required for JobInputHttp.
@@ -9957,6 +11239,176 @@ func (o JobInputClipResponseOutput) Label() pulumi.StringPtrOutput {
 // Expected value is '#Microsoft.Media.JobInputClip'.
 func (o JobInputClipResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputClipResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Represents HTTPS job input.
+type JobInputHttp struct {
+	// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
+	BaseUri *string `pulumi:"baseUri"`
+	// List of files. Required for JobInputHttp.
+	Files []string `pulumi:"files"`
+	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// JobInputHttpInput is an input type that accepts JobInputHttpArgs and JobInputHttpOutput values.
+// You can construct a concrete instance of `JobInputHttpInput` via:
+//
+//          JobInputHttpArgs{...}
+type JobInputHttpInput interface {
+	pulumi.Input
+
+	ToJobInputHttpOutput() JobInputHttpOutput
+	ToJobInputHttpOutputWithContext(context.Context) JobInputHttpOutput
+}
+
+// Represents HTTPS job input.
+type JobInputHttpArgs struct {
+	// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
+	BaseUri pulumi.StringPtrInput `pulumi:"baseUri"`
+	// List of files. Required for JobInputHttp.
+	Files pulumi.StringArrayInput `pulumi:"files"`
+	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (JobInputHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputHttp)(nil)).Elem()
+}
+
+func (i JobInputHttpArgs) ToJobInputHttpOutput() JobInputHttpOutput {
+	return i.ToJobInputHttpOutputWithContext(context.Background())
+}
+
+func (i JobInputHttpArgs) ToJobInputHttpOutputWithContext(ctx context.Context) JobInputHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputHttpOutput)
+}
+
+// Represents HTTPS job input.
+type JobInputHttpOutput struct{ *pulumi.OutputState }
+
+func (JobInputHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputHttp)(nil)).Elem()
+}
+
+func (o JobInputHttpOutput) ToJobInputHttpOutput() JobInputHttpOutput {
+	return o
+}
+
+func (o JobInputHttpOutput) ToJobInputHttpOutputWithContext(ctx context.Context) JobInputHttpOutput {
+	return o
+}
+
+// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
+func (o JobInputHttpOutput) BaseUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobInputHttp) *string { return v.BaseUri }).(pulumi.StringPtrOutput)
+}
+
+// List of files. Required for JobInputHttp.
+func (o JobInputHttpOutput) Files() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobInputHttp) []string { return v.Files }).(pulumi.StringArrayOutput)
+}
+
+// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+func (o JobInputHttpOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobInputHttp) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputClip'.
+func (o JobInputHttpOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputHttp) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Represents HTTPS job input.
+type JobInputHttpResponse struct {
+	// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
+	BaseUri *string `pulumi:"baseUri"`
+	// List of files. Required for JobInputHttp.
+	Files []string `pulumi:"files"`
+	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// JobInputHttpResponseInput is an input type that accepts JobInputHttpResponseArgs and JobInputHttpResponseOutput values.
+// You can construct a concrete instance of `JobInputHttpResponseInput` via:
+//
+//          JobInputHttpResponseArgs{...}
+type JobInputHttpResponseInput interface {
+	pulumi.Input
+
+	ToJobInputHttpResponseOutput() JobInputHttpResponseOutput
+	ToJobInputHttpResponseOutputWithContext(context.Context) JobInputHttpResponseOutput
+}
+
+// Represents HTTPS job input.
+type JobInputHttpResponseArgs struct {
+	// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
+	BaseUri pulumi.StringPtrInput `pulumi:"baseUri"`
+	// List of files. Required for JobInputHttp.
+	Files pulumi.StringArrayInput `pulumi:"files"`
+	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (JobInputHttpResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputHttpResponse)(nil)).Elem()
+}
+
+func (i JobInputHttpResponseArgs) ToJobInputHttpResponseOutput() JobInputHttpResponseOutput {
+	return i.ToJobInputHttpResponseOutputWithContext(context.Background())
+}
+
+func (i JobInputHttpResponseArgs) ToJobInputHttpResponseOutputWithContext(ctx context.Context) JobInputHttpResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputHttpResponseOutput)
+}
+
+// Represents HTTPS job input.
+type JobInputHttpResponseOutput struct{ *pulumi.OutputState }
+
+func (JobInputHttpResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputHttpResponse)(nil)).Elem()
+}
+
+func (o JobInputHttpResponseOutput) ToJobInputHttpResponseOutput() JobInputHttpResponseOutput {
+	return o
+}
+
+func (o JobInputHttpResponseOutput) ToJobInputHttpResponseOutputWithContext(ctx context.Context) JobInputHttpResponseOutput {
+	return o
+}
+
+// Base URI for HTTPS job input. It will be concatenated with provided file names.   If no base uri is given, then the provided file list is assumed to be fully qualified uris.
+func (o JobInputHttpResponseOutput) BaseUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobInputHttpResponse) *string { return v.BaseUri }).(pulumi.StringPtrOutput)
+}
+
+// List of files. Required for JobInputHttp.
+func (o JobInputHttpResponseOutput) Files() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobInputHttpResponse) []string { return v.Files }).(pulumi.StringArrayOutput)
+}
+
+// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+func (o JobInputHttpResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobInputHttpResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputClip'.
+func (o JobInputHttpResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputHttpResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // Describes a list of inputs to a Job.
@@ -10360,6 +11812,660 @@ func (o JobOutputAssetResponseArrayOutput) Index(i pulumi.IntInput) JobOutputAss
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobOutputAssetResponse {
 		return vs[0].([]JobOutputAssetResponse)[vs[1].(int)]
 	}).(JobOutputAssetResponseOutput)
+}
+
+// Describes the settings for producing JPEG thumbnails.
+type JpgFormat struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern *string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// JpgFormatInput is an input type that accepts JpgFormatArgs and JpgFormatOutput values.
+// You can construct a concrete instance of `JpgFormatInput` via:
+//
+//          JpgFormatArgs{...}
+type JpgFormatInput interface {
+	pulumi.Input
+
+	ToJpgFormatOutput() JpgFormatOutput
+	ToJpgFormatOutputWithContext(context.Context) JpgFormatOutput
+}
+
+// Describes the settings for producing JPEG thumbnails.
+type JpgFormatArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (JpgFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgFormat)(nil)).Elem()
+}
+
+func (i JpgFormatArgs) ToJpgFormatOutput() JpgFormatOutput {
+	return i.ToJpgFormatOutputWithContext(context.Background())
+}
+
+func (i JpgFormatArgs) ToJpgFormatOutputWithContext(ctx context.Context) JpgFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgFormatOutput)
+}
+
+// Describes the settings for producing JPEG thumbnails.
+type JpgFormatOutput struct{ *pulumi.OutputState }
+
+func (JpgFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgFormat)(nil)).Elem()
+}
+
+func (o JpgFormatOutput) ToJpgFormatOutput() JpgFormatOutput {
+	return o
+}
+
+func (o JpgFormatOutput) ToJpgFormatOutputWithContext(ctx context.Context) JpgFormatOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o JpgFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgFormat) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ImageFormat'.
+func (o JpgFormatOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JpgFormat) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes the settings for producing JPEG thumbnails.
+type JpgFormatResponse struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern *string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// JpgFormatResponseInput is an input type that accepts JpgFormatResponseArgs and JpgFormatResponseOutput values.
+// You can construct a concrete instance of `JpgFormatResponseInput` via:
+//
+//          JpgFormatResponseArgs{...}
+type JpgFormatResponseInput interface {
+	pulumi.Input
+
+	ToJpgFormatResponseOutput() JpgFormatResponseOutput
+	ToJpgFormatResponseOutputWithContext(context.Context) JpgFormatResponseOutput
+}
+
+// Describes the settings for producing JPEG thumbnails.
+type JpgFormatResponseArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (JpgFormatResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgFormatResponse)(nil)).Elem()
+}
+
+func (i JpgFormatResponseArgs) ToJpgFormatResponseOutput() JpgFormatResponseOutput {
+	return i.ToJpgFormatResponseOutputWithContext(context.Background())
+}
+
+func (i JpgFormatResponseArgs) ToJpgFormatResponseOutputWithContext(ctx context.Context) JpgFormatResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgFormatResponseOutput)
+}
+
+// Describes the settings for producing JPEG thumbnails.
+type JpgFormatResponseOutput struct{ *pulumi.OutputState }
+
+func (JpgFormatResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgFormatResponse)(nil)).Elem()
+}
+
+func (o JpgFormatResponseOutput) ToJpgFormatResponseOutput() JpgFormatResponseOutput {
+	return o
+}
+
+func (o JpgFormatResponseOutput) ToJpgFormatResponseOutputWithContext(ctx context.Context) JpgFormatResponseOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o JpgFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgFormatResponse) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ImageFormat'.
+func (o JpgFormatResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JpgFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes the properties for producing a series of JPEG images from the input video.
+type JpgImage struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// A collection of output JPEG image layers to be produced by the encoder.
+	Layers []JpgLayer `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range *string `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start *string `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step *string `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// JpgImageInput is an input type that accepts JpgImageArgs and JpgImageOutput values.
+// You can construct a concrete instance of `JpgImageInput` via:
+//
+//          JpgImageArgs{...}
+type JpgImageInput interface {
+	pulumi.Input
+
+	ToJpgImageOutput() JpgImageOutput
+	ToJpgImageOutputWithContext(context.Context) JpgImageOutput
+}
+
+// Describes the properties for producing a series of JPEG images from the input video.
+type JpgImageArgs struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// A collection of output JPEG image layers to be produced by the encoder.
+	Layers JpgLayerArrayInput `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step pulumi.StringPtrInput `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (JpgImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgImage)(nil)).Elem()
+}
+
+func (i JpgImageArgs) ToJpgImageOutput() JpgImageOutput {
+	return i.ToJpgImageOutputWithContext(context.Background())
+}
+
+func (i JpgImageArgs) ToJpgImageOutputWithContext(ctx context.Context) JpgImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgImageOutput)
+}
+
+// Describes the properties for producing a series of JPEG images from the input video.
+type JpgImageOutput struct{ *pulumi.OutputState }
+
+func (JpgImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgImage)(nil)).Elem()
+}
+
+func (o JpgImageOutput) ToJpgImageOutput() JpgImageOutput {
+	return o
+}
+
+func (o JpgImageOutput) ToJpgImageOutputWithContext(ctx context.Context) JpgImageOutput {
+	return o
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o JpgImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImage) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o JpgImageOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImage) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// A collection of output JPEG image layers to be produced by the encoder.
+func (o JpgImageOutput) Layers() JpgLayerArrayOutput {
+	return o.ApplyT(func(v JpgImage) []JpgLayer { return v.Layers }).(JpgLayerArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o JpgImageOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JpgImage) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+func (o JpgImageOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImage) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+func (o JpgImageOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImage) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+func (o JpgImageOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImage) *string { return v.Step }).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o JpgImageOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImage) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Describes the properties for producing a series of JPEG images from the input video.
+type JpgImageResponse struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// A collection of output JPEG image layers to be produced by the encoder.
+	Layers []JpgLayerResponse `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range *string `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start *string `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step *string `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// JpgImageResponseInput is an input type that accepts JpgImageResponseArgs and JpgImageResponseOutput values.
+// You can construct a concrete instance of `JpgImageResponseInput` via:
+//
+//          JpgImageResponseArgs{...}
+type JpgImageResponseInput interface {
+	pulumi.Input
+
+	ToJpgImageResponseOutput() JpgImageResponseOutput
+	ToJpgImageResponseOutputWithContext(context.Context) JpgImageResponseOutput
+}
+
+// Describes the properties for producing a series of JPEG images from the input video.
+type JpgImageResponseArgs struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// A collection of output JPEG image layers to be produced by the encoder.
+	Layers JpgLayerResponseArrayInput `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step pulumi.StringPtrInput `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (JpgImageResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgImageResponse)(nil)).Elem()
+}
+
+func (i JpgImageResponseArgs) ToJpgImageResponseOutput() JpgImageResponseOutput {
+	return i.ToJpgImageResponseOutputWithContext(context.Background())
+}
+
+func (i JpgImageResponseArgs) ToJpgImageResponseOutputWithContext(ctx context.Context) JpgImageResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgImageResponseOutput)
+}
+
+// Describes the properties for producing a series of JPEG images from the input video.
+type JpgImageResponseOutput struct{ *pulumi.OutputState }
+
+func (JpgImageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgImageResponse)(nil)).Elem()
+}
+
+func (o JpgImageResponseOutput) ToJpgImageResponseOutput() JpgImageResponseOutput {
+	return o
+}
+
+func (o JpgImageResponseOutput) ToJpgImageResponseOutputWithContext(ctx context.Context) JpgImageResponseOutput {
+	return o
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o JpgImageResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImageResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o JpgImageResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImageResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// A collection of output JPEG image layers to be produced by the encoder.
+func (o JpgImageResponseOutput) Layers() JpgLayerResponseArrayOutput {
+	return o.ApplyT(func(v JpgImageResponse) []JpgLayerResponse { return v.Layers }).(JpgLayerResponseArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o JpgImageResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JpgImageResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+func (o JpgImageResponseOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImageResponse) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+func (o JpgImageResponseOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImageResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+func (o JpgImageResponseOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImageResponse) *string { return v.Step }).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o JpgImageResponseOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImageResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Describes the settings to produce a JPEG image from the input video.
+type JpgLayer struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JpgLayer'.
+	OdataType string `pulumi:"odataType"`
+	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
+	Quality *int `pulumi:"quality"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// JpgLayerInput is an input type that accepts JpgLayerArgs and JpgLayerOutput values.
+// You can construct a concrete instance of `JpgLayerInput` via:
+//
+//          JpgLayerArgs{...}
+type JpgLayerInput interface {
+	pulumi.Input
+
+	ToJpgLayerOutput() JpgLayerOutput
+	ToJpgLayerOutputWithContext(context.Context) JpgLayerOutput
+}
+
+// Describes the settings to produce a JPEG image from the input video.
+type JpgLayerArgs struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JpgLayer'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
+	Quality pulumi.IntPtrInput `pulumi:"quality"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (JpgLayerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgLayer)(nil)).Elem()
+}
+
+func (i JpgLayerArgs) ToJpgLayerOutput() JpgLayerOutput {
+	return i.ToJpgLayerOutputWithContext(context.Background())
+}
+
+func (i JpgLayerArgs) ToJpgLayerOutputWithContext(ctx context.Context) JpgLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgLayerOutput)
+}
+
+// JpgLayerArrayInput is an input type that accepts JpgLayerArray and JpgLayerArrayOutput values.
+// You can construct a concrete instance of `JpgLayerArrayInput` via:
+//
+//          JpgLayerArray{ JpgLayerArgs{...} }
+type JpgLayerArrayInput interface {
+	pulumi.Input
+
+	ToJpgLayerArrayOutput() JpgLayerArrayOutput
+	ToJpgLayerArrayOutputWithContext(context.Context) JpgLayerArrayOutput
+}
+
+type JpgLayerArray []JpgLayerInput
+
+func (JpgLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JpgLayer)(nil)).Elem()
+}
+
+func (i JpgLayerArray) ToJpgLayerArrayOutput() JpgLayerArrayOutput {
+	return i.ToJpgLayerArrayOutputWithContext(context.Background())
+}
+
+func (i JpgLayerArray) ToJpgLayerArrayOutputWithContext(ctx context.Context) JpgLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgLayerArrayOutput)
+}
+
+// Describes the settings to produce a JPEG image from the input video.
+type JpgLayerOutput struct{ *pulumi.OutputState }
+
+func (JpgLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgLayer)(nil)).Elem()
+}
+
+func (o JpgLayerOutput) ToJpgLayerOutput() JpgLayerOutput {
+	return o
+}
+
+func (o JpgLayerOutput) ToJpgLayerOutputWithContext(ctx context.Context) JpgLayerOutput {
+	return o
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+func (o JpgLayerOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o JpgLayerOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JpgLayer'.
+func (o JpgLayerOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JpgLayer) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
+func (o JpgLayerOutput) Quality() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JpgLayer) *int { return v.Quality }).(pulumi.IntPtrOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+func (o JpgLayerOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type JpgLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (JpgLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JpgLayer)(nil)).Elem()
+}
+
+func (o JpgLayerArrayOutput) ToJpgLayerArrayOutput() JpgLayerArrayOutput {
+	return o
+}
+
+func (o JpgLayerArrayOutput) ToJpgLayerArrayOutputWithContext(ctx context.Context) JpgLayerArrayOutput {
+	return o
+}
+
+func (o JpgLayerArrayOutput) Index(i pulumi.IntInput) JpgLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JpgLayer {
+		return vs[0].([]JpgLayer)[vs[1].(int)]
+	}).(JpgLayerOutput)
+}
+
+// Describes the settings to produce a JPEG image from the input video.
+type JpgLayerResponse struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JpgLayer'.
+	OdataType string `pulumi:"odataType"`
+	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
+	Quality *int `pulumi:"quality"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// JpgLayerResponseInput is an input type that accepts JpgLayerResponseArgs and JpgLayerResponseOutput values.
+// You can construct a concrete instance of `JpgLayerResponseInput` via:
+//
+//          JpgLayerResponseArgs{...}
+type JpgLayerResponseInput interface {
+	pulumi.Input
+
+	ToJpgLayerResponseOutput() JpgLayerResponseOutput
+	ToJpgLayerResponseOutputWithContext(context.Context) JpgLayerResponseOutput
+}
+
+// Describes the settings to produce a JPEG image from the input video.
+type JpgLayerResponseArgs struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JpgLayer'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
+	Quality pulumi.IntPtrInput `pulumi:"quality"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (JpgLayerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgLayerResponse)(nil)).Elem()
+}
+
+func (i JpgLayerResponseArgs) ToJpgLayerResponseOutput() JpgLayerResponseOutput {
+	return i.ToJpgLayerResponseOutputWithContext(context.Background())
+}
+
+func (i JpgLayerResponseArgs) ToJpgLayerResponseOutputWithContext(ctx context.Context) JpgLayerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgLayerResponseOutput)
+}
+
+// JpgLayerResponseArrayInput is an input type that accepts JpgLayerResponseArray and JpgLayerResponseArrayOutput values.
+// You can construct a concrete instance of `JpgLayerResponseArrayInput` via:
+//
+//          JpgLayerResponseArray{ JpgLayerResponseArgs{...} }
+type JpgLayerResponseArrayInput interface {
+	pulumi.Input
+
+	ToJpgLayerResponseArrayOutput() JpgLayerResponseArrayOutput
+	ToJpgLayerResponseArrayOutputWithContext(context.Context) JpgLayerResponseArrayOutput
+}
+
+type JpgLayerResponseArray []JpgLayerResponseInput
+
+func (JpgLayerResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JpgLayerResponse)(nil)).Elem()
+}
+
+func (i JpgLayerResponseArray) ToJpgLayerResponseArrayOutput() JpgLayerResponseArrayOutput {
+	return i.ToJpgLayerResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JpgLayerResponseArray) ToJpgLayerResponseArrayOutputWithContext(ctx context.Context) JpgLayerResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgLayerResponseArrayOutput)
+}
+
+// Describes the settings to produce a JPEG image from the input video.
+type JpgLayerResponseOutput struct{ *pulumi.OutputState }
+
+func (JpgLayerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgLayerResponse)(nil)).Elem()
+}
+
+func (o JpgLayerResponseOutput) ToJpgLayerResponseOutput() JpgLayerResponseOutput {
+	return o
+}
+
+func (o JpgLayerResponseOutput) ToJpgLayerResponseOutputWithContext(ctx context.Context) JpgLayerResponseOutput {
+	return o
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+func (o JpgLayerResponseOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgLayerResponse) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o JpgLayerResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgLayerResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JpgLayer'.
+func (o JpgLayerResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JpgLayerResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
+func (o JpgLayerResponseOutput) Quality() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JpgLayerResponse) *int { return v.Quality }).(pulumi.IntPtrOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+func (o JpgLayerResponseOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgLayerResponse) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type JpgLayerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JpgLayerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JpgLayerResponse)(nil)).Elem()
+}
+
+func (o JpgLayerResponseArrayOutput) ToJpgLayerResponseArrayOutput() JpgLayerResponseArrayOutput {
+	return o
+}
+
+func (o JpgLayerResponseArrayOutput) ToJpgLayerResponseArrayOutputWithContext(ctx context.Context) JpgLayerResponseArrayOutput {
+	return o
+}
+
+func (o JpgLayerResponseArrayOutput) Index(i pulumi.IntInput) JpgLayerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JpgLayerResponse {
+		return vs[0].([]JpgLayerResponse)[vs[1].(int)]
+	}).(JpgLayerResponseOutput)
 }
 
 // The Live Event encoding.
@@ -11956,6 +14062,158 @@ func (o LiveEventPreviewResponsePtrOutput) StreamingPolicyName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the properties for an output ISO MP4 file.
+type Mp4Format struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern *string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType string `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles []OutputFile `pulumi:"outputFiles"`
+}
+
+// Mp4FormatInput is an input type that accepts Mp4FormatArgs and Mp4FormatOutput values.
+// You can construct a concrete instance of `Mp4FormatInput` via:
+//
+//          Mp4FormatArgs{...}
+type Mp4FormatInput interface {
+	pulumi.Input
+
+	ToMp4FormatOutput() Mp4FormatOutput
+	ToMp4FormatOutputWithContext(context.Context) Mp4FormatOutput
+}
+
+// Describes the properties for an output ISO MP4 file.
+type Mp4FormatArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles OutputFileArrayInput `pulumi:"outputFiles"`
+}
+
+func (Mp4FormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mp4Format)(nil)).Elem()
+}
+
+func (i Mp4FormatArgs) ToMp4FormatOutput() Mp4FormatOutput {
+	return i.ToMp4FormatOutputWithContext(context.Background())
+}
+
+func (i Mp4FormatArgs) ToMp4FormatOutputWithContext(ctx context.Context) Mp4FormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Mp4FormatOutput)
+}
+
+// Describes the properties for an output ISO MP4 file.
+type Mp4FormatOutput struct{ *pulumi.OutputState }
+
+func (Mp4FormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mp4Format)(nil)).Elem()
+}
+
+func (o Mp4FormatOutput) ToMp4FormatOutput() Mp4FormatOutput {
+	return o
+}
+
+func (o Mp4FormatOutput) ToMp4FormatOutputWithContext(ctx context.Context) Mp4FormatOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o Mp4FormatOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Mp4Format) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+func (o Mp4FormatOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v Mp4Format) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+func (o Mp4FormatOutput) OutputFiles() OutputFileArrayOutput {
+	return o.ApplyT(func(v Mp4Format) []OutputFile { return v.OutputFiles }).(OutputFileArrayOutput)
+}
+
+// Describes the properties for an output ISO MP4 file.
+type Mp4FormatResponse struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern *string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType string `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles []OutputFileResponse `pulumi:"outputFiles"`
+}
+
+// Mp4FormatResponseInput is an input type that accepts Mp4FormatResponseArgs and Mp4FormatResponseOutput values.
+// You can construct a concrete instance of `Mp4FormatResponseInput` via:
+//
+//          Mp4FormatResponseArgs{...}
+type Mp4FormatResponseInput interface {
+	pulumi.Input
+
+	ToMp4FormatResponseOutput() Mp4FormatResponseOutput
+	ToMp4FormatResponseOutputWithContext(context.Context) Mp4FormatResponseOutput
+}
+
+// Describes the properties for an output ISO MP4 file.
+type Mp4FormatResponseArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles OutputFileResponseArrayInput `pulumi:"outputFiles"`
+}
+
+func (Mp4FormatResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mp4FormatResponse)(nil)).Elem()
+}
+
+func (i Mp4FormatResponseArgs) ToMp4FormatResponseOutput() Mp4FormatResponseOutput {
+	return i.ToMp4FormatResponseOutputWithContext(context.Background())
+}
+
+func (i Mp4FormatResponseArgs) ToMp4FormatResponseOutputWithContext(ctx context.Context) Mp4FormatResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Mp4FormatResponseOutput)
+}
+
+// Describes the properties for an output ISO MP4 file.
+type Mp4FormatResponseOutput struct{ *pulumi.OutputState }
+
+func (Mp4FormatResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mp4FormatResponse)(nil)).Elem()
+}
+
+func (o Mp4FormatResponseOutput) ToMp4FormatResponseOutput() Mp4FormatResponseOutput {
+	return o
+}
+
+func (o Mp4FormatResponseOutput) ToMp4FormatResponseOutputWithContext(ctx context.Context) Mp4FormatResponseOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o Mp4FormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Mp4FormatResponse) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+func (o Mp4FormatResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v Mp4FormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+func (o Mp4FormatResponseOutput) OutputFiles() OutputFileResponseArrayOutput {
+	return o.ApplyT(func(v Mp4FormatResponse) []OutputFileResponse { return v.OutputFiles }).(OutputFileResponseArrayOutput)
+}
+
 // Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
 type MultiBitrateFormat struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
@@ -12574,6 +14832,642 @@ func (o OutputFileResponseArrayOutput) Index(i pulumi.IntInput) OutputFileRespon
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputFileResponse {
 		return vs[0].([]OutputFileResponse)[vs[1].(int)]
 	}).(OutputFileResponseOutput)
+}
+
+// Describes the settings for producing PNG thumbnails.
+type PngFormat struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern *string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// PngFormatInput is an input type that accepts PngFormatArgs and PngFormatOutput values.
+// You can construct a concrete instance of `PngFormatInput` via:
+//
+//          PngFormatArgs{...}
+type PngFormatInput interface {
+	pulumi.Input
+
+	ToPngFormatOutput() PngFormatOutput
+	ToPngFormatOutputWithContext(context.Context) PngFormatOutput
+}
+
+// Describes the settings for producing PNG thumbnails.
+type PngFormatArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (PngFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngFormat)(nil)).Elem()
+}
+
+func (i PngFormatArgs) ToPngFormatOutput() PngFormatOutput {
+	return i.ToPngFormatOutputWithContext(context.Background())
+}
+
+func (i PngFormatArgs) ToPngFormatOutputWithContext(ctx context.Context) PngFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngFormatOutput)
+}
+
+// Describes the settings for producing PNG thumbnails.
+type PngFormatOutput struct{ *pulumi.OutputState }
+
+func (PngFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngFormat)(nil)).Elem()
+}
+
+func (o PngFormatOutput) ToPngFormatOutput() PngFormatOutput {
+	return o
+}
+
+func (o PngFormatOutput) ToPngFormatOutputWithContext(ctx context.Context) PngFormatOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o PngFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngFormat) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ImageFormat'.
+func (o PngFormatOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PngFormat) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes the settings for producing PNG thumbnails.
+type PngFormatResponse struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern *string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// PngFormatResponseInput is an input type that accepts PngFormatResponseArgs and PngFormatResponseOutput values.
+// You can construct a concrete instance of `PngFormatResponseInput` via:
+//
+//          PngFormatResponseArgs{...}
+type PngFormatResponseInput interface {
+	pulumi.Input
+
+	ToPngFormatResponseOutput() PngFormatResponseOutput
+	ToPngFormatResponseOutputWithContext(context.Context) PngFormatResponseOutput
+}
+
+// Describes the settings for producing PNG thumbnails.
+type PngFormatResponseArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (PngFormatResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngFormatResponse)(nil)).Elem()
+}
+
+func (i PngFormatResponseArgs) ToPngFormatResponseOutput() PngFormatResponseOutput {
+	return i.ToPngFormatResponseOutputWithContext(context.Background())
+}
+
+func (i PngFormatResponseArgs) ToPngFormatResponseOutputWithContext(ctx context.Context) PngFormatResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngFormatResponseOutput)
+}
+
+// Describes the settings for producing PNG thumbnails.
+type PngFormatResponseOutput struct{ *pulumi.OutputState }
+
+func (PngFormatResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngFormatResponse)(nil)).Elem()
+}
+
+func (o PngFormatResponseOutput) ToPngFormatResponseOutput() PngFormatResponseOutput {
+	return o
+}
+
+func (o PngFormatResponseOutput) ToPngFormatResponseOutputWithContext(ctx context.Context) PngFormatResponseOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o PngFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngFormatResponse) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ImageFormat'.
+func (o PngFormatResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PngFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes the properties for producing a series of PNG images from the input video.
+type PngImage struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// A collection of output PNG image layers to be produced by the encoder.
+	Layers []PngLayer `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range *string `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start *string `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step *string `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// PngImageInput is an input type that accepts PngImageArgs and PngImageOutput values.
+// You can construct a concrete instance of `PngImageInput` via:
+//
+//          PngImageArgs{...}
+type PngImageInput interface {
+	pulumi.Input
+
+	ToPngImageOutput() PngImageOutput
+	ToPngImageOutputWithContext(context.Context) PngImageOutput
+}
+
+// Describes the properties for producing a series of PNG images from the input video.
+type PngImageArgs struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// A collection of output PNG image layers to be produced by the encoder.
+	Layers PngLayerArrayInput `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step pulumi.StringPtrInput `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (PngImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngImage)(nil)).Elem()
+}
+
+func (i PngImageArgs) ToPngImageOutput() PngImageOutput {
+	return i.ToPngImageOutputWithContext(context.Background())
+}
+
+func (i PngImageArgs) ToPngImageOutputWithContext(ctx context.Context) PngImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngImageOutput)
+}
+
+// Describes the properties for producing a series of PNG images from the input video.
+type PngImageOutput struct{ *pulumi.OutputState }
+
+func (PngImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngImage)(nil)).Elem()
+}
+
+func (o PngImageOutput) ToPngImageOutput() PngImageOutput {
+	return o
+}
+
+func (o PngImageOutput) ToPngImageOutputWithContext(ctx context.Context) PngImageOutput {
+	return o
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o PngImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImage) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o PngImageOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImage) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// A collection of output PNG image layers to be produced by the encoder.
+func (o PngImageOutput) Layers() PngLayerArrayOutput {
+	return o.ApplyT(func(v PngImage) []PngLayer { return v.Layers }).(PngLayerArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o PngImageOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PngImage) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+func (o PngImageOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImage) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+func (o PngImageOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImage) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+func (o PngImageOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImage) *string { return v.Step }).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o PngImageOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImage) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Describes the properties for producing a series of PNG images from the input video.
+type PngImageResponse struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// A collection of output PNG image layers to be produced by the encoder.
+	Layers []PngLayerResponse `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range *string `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start *string `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step *string `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// PngImageResponseInput is an input type that accepts PngImageResponseArgs and PngImageResponseOutput values.
+// You can construct a concrete instance of `PngImageResponseInput` via:
+//
+//          PngImageResponseArgs{...}
+type PngImageResponseInput interface {
+	pulumi.Input
+
+	ToPngImageResponseOutput() PngImageResponseOutput
+	ToPngImageResponseOutputWithContext(context.Context) PngImageResponseOutput
+}
+
+// Describes the properties for producing a series of PNG images from the input video.
+type PngImageResponseArgs struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// A collection of output PNG image layers to be produced by the encoder.
+	Layers PngLayerResponseArrayInput `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step pulumi.StringPtrInput `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (PngImageResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngImageResponse)(nil)).Elem()
+}
+
+func (i PngImageResponseArgs) ToPngImageResponseOutput() PngImageResponseOutput {
+	return i.ToPngImageResponseOutputWithContext(context.Background())
+}
+
+func (i PngImageResponseArgs) ToPngImageResponseOutputWithContext(ctx context.Context) PngImageResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngImageResponseOutput)
+}
+
+// Describes the properties for producing a series of PNG images from the input video.
+type PngImageResponseOutput struct{ *pulumi.OutputState }
+
+func (PngImageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngImageResponse)(nil)).Elem()
+}
+
+func (o PngImageResponseOutput) ToPngImageResponseOutput() PngImageResponseOutput {
+	return o
+}
+
+func (o PngImageResponseOutput) ToPngImageResponseOutputWithContext(ctx context.Context) PngImageResponseOutput {
+	return o
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o PngImageResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImageResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o PngImageResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImageResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// A collection of output PNG image layers to be produced by the encoder.
+func (o PngImageResponseOutput) Layers() PngLayerResponseArrayOutput {
+	return o.ApplyT(func(v PngImageResponse) []PngLayerResponse { return v.Layers }).(PngLayerResponseArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o PngImageResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PngImageResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+func (o PngImageResponseOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImageResponse) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+func (o PngImageResponseOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImageResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+func (o PngImageResponseOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImageResponse) *string { return v.Step }).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o PngImageResponseOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImageResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Describes the settings to produce a PNG image from the input video.
+type PngLayer struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.PngLayer'.
+	OdataType string `pulumi:"odataType"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// PngLayerInput is an input type that accepts PngLayerArgs and PngLayerOutput values.
+// You can construct a concrete instance of `PngLayerInput` via:
+//
+//          PngLayerArgs{...}
+type PngLayerInput interface {
+	pulumi.Input
+
+	ToPngLayerOutput() PngLayerOutput
+	ToPngLayerOutputWithContext(context.Context) PngLayerOutput
+}
+
+// Describes the settings to produce a PNG image from the input video.
+type PngLayerArgs struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.PngLayer'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (PngLayerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngLayer)(nil)).Elem()
+}
+
+func (i PngLayerArgs) ToPngLayerOutput() PngLayerOutput {
+	return i.ToPngLayerOutputWithContext(context.Background())
+}
+
+func (i PngLayerArgs) ToPngLayerOutputWithContext(ctx context.Context) PngLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngLayerOutput)
+}
+
+// PngLayerArrayInput is an input type that accepts PngLayerArray and PngLayerArrayOutput values.
+// You can construct a concrete instance of `PngLayerArrayInput` via:
+//
+//          PngLayerArray{ PngLayerArgs{...} }
+type PngLayerArrayInput interface {
+	pulumi.Input
+
+	ToPngLayerArrayOutput() PngLayerArrayOutput
+	ToPngLayerArrayOutputWithContext(context.Context) PngLayerArrayOutput
+}
+
+type PngLayerArray []PngLayerInput
+
+func (PngLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PngLayer)(nil)).Elem()
+}
+
+func (i PngLayerArray) ToPngLayerArrayOutput() PngLayerArrayOutput {
+	return i.ToPngLayerArrayOutputWithContext(context.Background())
+}
+
+func (i PngLayerArray) ToPngLayerArrayOutputWithContext(ctx context.Context) PngLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngLayerArrayOutput)
+}
+
+// Describes the settings to produce a PNG image from the input video.
+type PngLayerOutput struct{ *pulumi.OutputState }
+
+func (PngLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngLayer)(nil)).Elem()
+}
+
+func (o PngLayerOutput) ToPngLayerOutput() PngLayerOutput {
+	return o
+}
+
+func (o PngLayerOutput) ToPngLayerOutputWithContext(ctx context.Context) PngLayerOutput {
+	return o
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+func (o PngLayerOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o PngLayerOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.PngLayer'.
+func (o PngLayerOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PngLayer) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+func (o PngLayerOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type PngLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (PngLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PngLayer)(nil)).Elem()
+}
+
+func (o PngLayerArrayOutput) ToPngLayerArrayOutput() PngLayerArrayOutput {
+	return o
+}
+
+func (o PngLayerArrayOutput) ToPngLayerArrayOutputWithContext(ctx context.Context) PngLayerArrayOutput {
+	return o
+}
+
+func (o PngLayerArrayOutput) Index(i pulumi.IntInput) PngLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PngLayer {
+		return vs[0].([]PngLayer)[vs[1].(int)]
+	}).(PngLayerOutput)
+}
+
+// Describes the settings to produce a PNG image from the input video.
+type PngLayerResponse struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.PngLayer'.
+	OdataType string `pulumi:"odataType"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// PngLayerResponseInput is an input type that accepts PngLayerResponseArgs and PngLayerResponseOutput values.
+// You can construct a concrete instance of `PngLayerResponseInput` via:
+//
+//          PngLayerResponseArgs{...}
+type PngLayerResponseInput interface {
+	pulumi.Input
+
+	ToPngLayerResponseOutput() PngLayerResponseOutput
+	ToPngLayerResponseOutputWithContext(context.Context) PngLayerResponseOutput
+}
+
+// Describes the settings to produce a PNG image from the input video.
+type PngLayerResponseArgs struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.PngLayer'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (PngLayerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngLayerResponse)(nil)).Elem()
+}
+
+func (i PngLayerResponseArgs) ToPngLayerResponseOutput() PngLayerResponseOutput {
+	return i.ToPngLayerResponseOutputWithContext(context.Background())
+}
+
+func (i PngLayerResponseArgs) ToPngLayerResponseOutputWithContext(ctx context.Context) PngLayerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngLayerResponseOutput)
+}
+
+// PngLayerResponseArrayInput is an input type that accepts PngLayerResponseArray and PngLayerResponseArrayOutput values.
+// You can construct a concrete instance of `PngLayerResponseArrayInput` via:
+//
+//          PngLayerResponseArray{ PngLayerResponseArgs{...} }
+type PngLayerResponseArrayInput interface {
+	pulumi.Input
+
+	ToPngLayerResponseArrayOutput() PngLayerResponseArrayOutput
+	ToPngLayerResponseArrayOutputWithContext(context.Context) PngLayerResponseArrayOutput
+}
+
+type PngLayerResponseArray []PngLayerResponseInput
+
+func (PngLayerResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PngLayerResponse)(nil)).Elem()
+}
+
+func (i PngLayerResponseArray) ToPngLayerResponseArrayOutput() PngLayerResponseArrayOutput {
+	return i.ToPngLayerResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PngLayerResponseArray) ToPngLayerResponseArrayOutputWithContext(ctx context.Context) PngLayerResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngLayerResponseArrayOutput)
+}
+
+// Describes the settings to produce a PNG image from the input video.
+type PngLayerResponseOutput struct{ *pulumi.OutputState }
+
+func (PngLayerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngLayerResponse)(nil)).Elem()
+}
+
+func (o PngLayerResponseOutput) ToPngLayerResponseOutput() PngLayerResponseOutput {
+	return o
+}
+
+func (o PngLayerResponseOutput) ToPngLayerResponseOutputWithContext(ctx context.Context) PngLayerResponseOutput {
+	return o
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+func (o PngLayerResponseOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngLayerResponse) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o PngLayerResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngLayerResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.PngLayer'.
+func (o PngLayerResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PngLayerResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+func (o PngLayerResponseOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngLayerResponse) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type PngLayerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PngLayerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PngLayerResponse)(nil)).Elem()
+}
+
+func (o PngLayerResponseArrayOutput) ToPngLayerResponseArrayOutput() PngLayerResponseArrayOutput {
+	return o
+}
+
+func (o PngLayerResponseArrayOutput) ToPngLayerResponseArrayOutputWithContext(ctx context.Context) PngLayerResponseArrayOutput {
+	return o
+}
+
+func (o PngLayerResponseArrayOutput) Index(i pulumi.IntInput) PngLayerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PngLayerResponse {
+		return vs[0].([]PngLayerResponse)[vs[1].(int)]
+	}).(PngLayerResponseOutput)
 }
 
 // Describes the properties of a rectangular window applied to the input media before processing it.
@@ -16150,6 +19044,158 @@ func (o TransformOutputResponseArrayOutput) Index(i pulumi.IntInput) TransformOu
 	}).(TransformOutputResponseOutput)
 }
 
+// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
+type TransportStreamFormat struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern *string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType string `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles []OutputFile `pulumi:"outputFiles"`
+}
+
+// TransportStreamFormatInput is an input type that accepts TransportStreamFormatArgs and TransportStreamFormatOutput values.
+// You can construct a concrete instance of `TransportStreamFormatInput` via:
+//
+//          TransportStreamFormatArgs{...}
+type TransportStreamFormatInput interface {
+	pulumi.Input
+
+	ToTransportStreamFormatOutput() TransportStreamFormatOutput
+	ToTransportStreamFormatOutputWithContext(context.Context) TransportStreamFormatOutput
+}
+
+// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
+type TransportStreamFormatArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles OutputFileArrayInput `pulumi:"outputFiles"`
+}
+
+func (TransportStreamFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransportStreamFormat)(nil)).Elem()
+}
+
+func (i TransportStreamFormatArgs) ToTransportStreamFormatOutput() TransportStreamFormatOutput {
+	return i.ToTransportStreamFormatOutputWithContext(context.Background())
+}
+
+func (i TransportStreamFormatArgs) ToTransportStreamFormatOutputWithContext(ctx context.Context) TransportStreamFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransportStreamFormatOutput)
+}
+
+// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
+type TransportStreamFormatOutput struct{ *pulumi.OutputState }
+
+func (TransportStreamFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransportStreamFormat)(nil)).Elem()
+}
+
+func (o TransportStreamFormatOutput) ToTransportStreamFormatOutput() TransportStreamFormatOutput {
+	return o
+}
+
+func (o TransportStreamFormatOutput) ToTransportStreamFormatOutputWithContext(ctx context.Context) TransportStreamFormatOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o TransportStreamFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransportStreamFormat) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+func (o TransportStreamFormatOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v TransportStreamFormat) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+func (o TransportStreamFormatOutput) OutputFiles() OutputFileArrayOutput {
+	return o.ApplyT(func(v TransportStreamFormat) []OutputFile { return v.OutputFiles }).(OutputFileArrayOutput)
+}
+
+// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
+type TransportStreamFormatResponse struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern *string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType string `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles []OutputFileResponse `pulumi:"outputFiles"`
+}
+
+// TransportStreamFormatResponseInput is an input type that accepts TransportStreamFormatResponseArgs and TransportStreamFormatResponseOutput values.
+// You can construct a concrete instance of `TransportStreamFormatResponseInput` via:
+//
+//          TransportStreamFormatResponseArgs{...}
+type TransportStreamFormatResponseInput interface {
+	pulumi.Input
+
+	ToTransportStreamFormatResponseOutput() TransportStreamFormatResponseOutput
+	ToTransportStreamFormatResponseOutputWithContext(context.Context) TransportStreamFormatResponseOutput
+}
+
+// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
+type TransportStreamFormatResponseArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles OutputFileResponseArrayInput `pulumi:"outputFiles"`
+}
+
+func (TransportStreamFormatResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransportStreamFormatResponse)(nil)).Elem()
+}
+
+func (i TransportStreamFormatResponseArgs) ToTransportStreamFormatResponseOutput() TransportStreamFormatResponseOutput {
+	return i.ToTransportStreamFormatResponseOutputWithContext(context.Background())
+}
+
+func (i TransportStreamFormatResponseArgs) ToTransportStreamFormatResponseOutputWithContext(ctx context.Context) TransportStreamFormatResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransportStreamFormatResponseOutput)
+}
+
+// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
+type TransportStreamFormatResponseOutput struct{ *pulumi.OutputState }
+
+func (TransportStreamFormatResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransportStreamFormatResponse)(nil)).Elem()
+}
+
+func (o TransportStreamFormatResponseOutput) ToTransportStreamFormatResponseOutput() TransportStreamFormatResponseOutput {
+	return o
+}
+
+func (o TransportStreamFormatResponseOutput) ToTransportStreamFormatResponseOutputWithContext(ctx context.Context) TransportStreamFormatResponseOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o TransportStreamFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransportStreamFormatResponse) *string { return v.FilenamePattern }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+func (o TransportStreamFormatResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v TransportStreamFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+func (o TransportStreamFormatResponseOutput) OutputFiles() OutputFileResponseArrayOutput {
+	return o.ApplyT(func(v TransportStreamFormatResponse) []OutputFileResponse { return v.OutputFiles }).(OutputFileResponseArrayOutput)
+}
+
 // Describes the basic properties for encoding the input video.
 type Video struct {
 	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
@@ -16233,6 +19279,158 @@ func (o VideoOutput) OdataType() pulumi.StringOutput {
 // The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o VideoOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Video) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+type VideoAnalyzerPreset struct {
+	// Whether to only extract audio insights when processing a video file.
+	AudioInsightsOnly *bool `pulumi:"audioInsightsOnly"`
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
+	AudioLanguage *string `pulumi:"audioLanguage"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// VideoAnalyzerPresetInput is an input type that accepts VideoAnalyzerPresetArgs and VideoAnalyzerPresetOutput values.
+// You can construct a concrete instance of `VideoAnalyzerPresetInput` via:
+//
+//          VideoAnalyzerPresetArgs{...}
+type VideoAnalyzerPresetInput interface {
+	pulumi.Input
+
+	ToVideoAnalyzerPresetOutput() VideoAnalyzerPresetOutput
+	ToVideoAnalyzerPresetOutputWithContext(context.Context) VideoAnalyzerPresetOutput
+}
+
+// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+type VideoAnalyzerPresetArgs struct {
+	// Whether to only extract audio insights when processing a video file.
+	AudioInsightsOnly pulumi.BoolPtrInput `pulumi:"audioInsightsOnly"`
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
+	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (VideoAnalyzerPresetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoAnalyzerPreset)(nil)).Elem()
+}
+
+func (i VideoAnalyzerPresetArgs) ToVideoAnalyzerPresetOutput() VideoAnalyzerPresetOutput {
+	return i.ToVideoAnalyzerPresetOutputWithContext(context.Background())
+}
+
+func (i VideoAnalyzerPresetArgs) ToVideoAnalyzerPresetOutputWithContext(ctx context.Context) VideoAnalyzerPresetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoAnalyzerPresetOutput)
+}
+
+// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+type VideoAnalyzerPresetOutput struct{ *pulumi.OutputState }
+
+func (VideoAnalyzerPresetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoAnalyzerPreset)(nil)).Elem()
+}
+
+func (o VideoAnalyzerPresetOutput) ToVideoAnalyzerPresetOutput() VideoAnalyzerPresetOutput {
+	return o
+}
+
+func (o VideoAnalyzerPresetOutput) ToVideoAnalyzerPresetOutputWithContext(ctx context.Context) VideoAnalyzerPresetOutput {
+	return o
+}
+
+// Whether to only extract audio insights when processing a video file.
+func (o VideoAnalyzerPresetOutput) AudioInsightsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VideoAnalyzerPreset) *bool { return v.AudioInsightsOnly }).(pulumi.BoolPtrOutput)
+}
+
+// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
+func (o VideoAnalyzerPresetOutput) AudioLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoAnalyzerPreset) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+func (o VideoAnalyzerPresetOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v VideoAnalyzerPreset) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+type VideoAnalyzerPresetResponse struct {
+	// Whether to only extract audio insights when processing a video file.
+	AudioInsightsOnly *bool `pulumi:"audioInsightsOnly"`
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
+	AudioLanguage *string `pulumi:"audioLanguage"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// VideoAnalyzerPresetResponseInput is an input type that accepts VideoAnalyzerPresetResponseArgs and VideoAnalyzerPresetResponseOutput values.
+// You can construct a concrete instance of `VideoAnalyzerPresetResponseInput` via:
+//
+//          VideoAnalyzerPresetResponseArgs{...}
+type VideoAnalyzerPresetResponseInput interface {
+	pulumi.Input
+
+	ToVideoAnalyzerPresetResponseOutput() VideoAnalyzerPresetResponseOutput
+	ToVideoAnalyzerPresetResponseOutputWithContext(context.Context) VideoAnalyzerPresetResponseOutput
+}
+
+// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+type VideoAnalyzerPresetResponseArgs struct {
+	// Whether to only extract audio insights when processing a video file.
+	AudioInsightsOnly pulumi.BoolPtrInput `pulumi:"audioInsightsOnly"`
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
+	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (VideoAnalyzerPresetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoAnalyzerPresetResponse)(nil)).Elem()
+}
+
+func (i VideoAnalyzerPresetResponseArgs) ToVideoAnalyzerPresetResponseOutput() VideoAnalyzerPresetResponseOutput {
+	return i.ToVideoAnalyzerPresetResponseOutputWithContext(context.Background())
+}
+
+func (i VideoAnalyzerPresetResponseArgs) ToVideoAnalyzerPresetResponseOutputWithContext(ctx context.Context) VideoAnalyzerPresetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoAnalyzerPresetResponseOutput)
+}
+
+// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+type VideoAnalyzerPresetResponseOutput struct{ *pulumi.OutputState }
+
+func (VideoAnalyzerPresetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoAnalyzerPresetResponse)(nil)).Elem()
+}
+
+func (o VideoAnalyzerPresetResponseOutput) ToVideoAnalyzerPresetResponseOutput() VideoAnalyzerPresetResponseOutput {
+	return o
+}
+
+func (o VideoAnalyzerPresetResponseOutput) ToVideoAnalyzerPresetResponseOutputWithContext(ctx context.Context) VideoAnalyzerPresetResponseOutput {
+	return o
+}
+
+// Whether to only extract audio insights when processing a video file.
+func (o VideoAnalyzerPresetResponseOutput) AudioInsightsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VideoAnalyzerPresetResponse) *bool { return v.AudioInsightsOnly }).(pulumi.BoolPtrOutput)
+}
+
+// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
+func (o VideoAnalyzerPresetResponseOutput) AudioLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoAnalyzerPresetResponse) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+func (o VideoAnalyzerPresetResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v VideoAnalyzerPresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // Describes the properties of a video overlay.
@@ -16599,6 +19797,8 @@ func (o VideoResponseOutput) StretchMode() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AacAudioOutput{})
+	pulumi.RegisterOutputType(AacAudioResponseOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlResponseOutput{})
@@ -16705,6 +19905,12 @@ func init() {
 	pulumi.RegisterOutputType(FiltersPtrOutput{})
 	pulumi.RegisterOutputType(FiltersResponseOutput{})
 	pulumi.RegisterOutputType(FiltersResponsePtrOutput{})
+	pulumi.RegisterOutputType(H264LayerOutput{})
+	pulumi.RegisterOutputType(H264LayerArrayOutput{})
+	pulumi.RegisterOutputType(H264LayerResponseOutput{})
+	pulumi.RegisterOutputType(H264LayerResponseArrayOutput{})
+	pulumi.RegisterOutputType(H264VideoOutput{})
+	pulumi.RegisterOutputType(H264VideoResponseOutput{})
 	pulumi.RegisterOutputType(HlsOutput{})
 	pulumi.RegisterOutputType(HlsPtrOutput{})
 	pulumi.RegisterOutputType(HlsResponseOutput{})
@@ -16717,19 +19923,33 @@ func init() {
 	pulumi.RegisterOutputType(IPRangeArrayOutput{})
 	pulumi.RegisterOutputType(IPRangeResponseOutput{})
 	pulumi.RegisterOutputType(IPRangeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ImageOutput{})
 	pulumi.RegisterOutputType(ImageFormatOutput{})
 	pulumi.RegisterOutputType(ImageFormatResponseOutput{})
+	pulumi.RegisterOutputType(ImageResponseOutput{})
 	pulumi.RegisterOutputType(JobErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(JobErrorDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobErrorResponseOutput{})
+	pulumi.RegisterOutputType(JobInputAssetOutput{})
+	pulumi.RegisterOutputType(JobInputAssetResponseOutput{})
 	pulumi.RegisterOutputType(JobInputClipOutput{})
 	pulumi.RegisterOutputType(JobInputClipResponseOutput{})
+	pulumi.RegisterOutputType(JobInputHttpOutput{})
+	pulumi.RegisterOutputType(JobInputHttpResponseOutput{})
 	pulumi.RegisterOutputType(JobInputsOutput{})
 	pulumi.RegisterOutputType(JobInputsResponseOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetArrayOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetResponseOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetResponseArrayOutput{})
+	pulumi.RegisterOutputType(JpgFormatOutput{})
+	pulumi.RegisterOutputType(JpgFormatResponseOutput{})
+	pulumi.RegisterOutputType(JpgImageOutput{})
+	pulumi.RegisterOutputType(JpgImageResponseOutput{})
+	pulumi.RegisterOutputType(JpgLayerOutput{})
+	pulumi.RegisterOutputType(JpgLayerArrayOutput{})
+	pulumi.RegisterOutputType(JpgLayerResponseOutput{})
+	pulumi.RegisterOutputType(JpgLayerResponseArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingResponseOutput{})
@@ -16750,6 +19970,8 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventPreviewAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewResponsePtrOutput{})
+	pulumi.RegisterOutputType(Mp4FormatOutput{})
+	pulumi.RegisterOutputType(Mp4FormatResponseOutput{})
 	pulumi.RegisterOutputType(MultiBitrateFormatOutput{})
 	pulumi.RegisterOutputType(MultiBitrateFormatResponseOutput{})
 	pulumi.RegisterOutputType(NoEncryptionOutput{})
@@ -16760,6 +19982,14 @@ func init() {
 	pulumi.RegisterOutputType(OutputFileArrayOutput{})
 	pulumi.RegisterOutputType(OutputFileResponseOutput{})
 	pulumi.RegisterOutputType(OutputFileResponseArrayOutput{})
+	pulumi.RegisterOutputType(PngFormatOutput{})
+	pulumi.RegisterOutputType(PngFormatResponseOutput{})
+	pulumi.RegisterOutputType(PngImageOutput{})
+	pulumi.RegisterOutputType(PngImageResponseOutput{})
+	pulumi.RegisterOutputType(PngLayerOutput{})
+	pulumi.RegisterOutputType(PngLayerArrayOutput{})
+	pulumi.RegisterOutputType(PngLayerResponseOutput{})
+	pulumi.RegisterOutputType(PngLayerResponseArrayOutput{})
 	pulumi.RegisterOutputType(RectangleOutput{})
 	pulumi.RegisterOutputType(RectanglePtrOutput{})
 	pulumi.RegisterOutputType(RectangleResponseOutput{})
@@ -16812,7 +20042,11 @@ func init() {
 	pulumi.RegisterOutputType(TransformOutputArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseArrayOutput{})
+	pulumi.RegisterOutputType(TransportStreamFormatOutput{})
+	pulumi.RegisterOutputType(TransportStreamFormatResponseOutput{})
 	pulumi.RegisterOutputType(VideoOutput{})
+	pulumi.RegisterOutputType(VideoAnalyzerPresetOutput{})
+	pulumi.RegisterOutputType(VideoAnalyzerPresetResponseOutput{})
 	pulumi.RegisterOutputType(VideoOverlayOutput{})
 	pulumi.RegisterOutputType(VideoOverlayResponseOutput{})
 	pulumi.RegisterOutputType(VideoResponseOutput{})

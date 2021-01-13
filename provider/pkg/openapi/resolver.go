@@ -183,10 +183,16 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 // The following rules apply:
 // - All subtypes reside in the same Open API specification.
 // - A subtype is defines as `allOf` of the base type.
-func (ctx *ReferenceContext) FindSubtypes() (schemas []*spec.Schema) {
+// - The search is applied recursively and all types along `allOf` hiereachy are returned.
+func (ctx *ReferenceContext) FindSubtypes() ([]*spec.Schema, error) {
+	var schemas []*spec.Schema
 	for _, name := range codegen.SortedKeys(ctx.swagger.Definitions) {
 		def := ctx.swagger.Definitions[name]
-		for _, schema := range def.AllOf {
+		subTypes, err := ctx.recursiveAllOf(&def)
+		if err != nil {
+			return nil, err
+		}
+		for _, schema := range subTypes {
 			if resolved, ok, _ := ctx.resolveReference(schema.Ref); ok {
 				if resolved.ReferenceName == ctx.ReferenceName {
 					ref := spec.Schema{
@@ -201,7 +207,24 @@ func (ctx *ReferenceContext) FindSubtypes() (schemas []*spec.Schema) {
 			}
 		}
 	}
-	return
+	return schemas, nil
+}
+
+func (ctx *ReferenceContext) recursiveAllOf(def *spec.Schema) ([]spec.Schema, error) {
+	var result []spec.Schema
+	for _, ref := range def.AllOf {
+		result = append(result, ref)
+		schema, err := ctx.ResolveSchema(&ref)
+		if err != nil {
+			return nil, err
+		}
+		children, err := schema.ReferenceContext.recursiveAllOf(schema.Schema)
+		if err != nil {
+			return nil, err
+		}
+		result = append(result, children...)
+	}
+	return result, nil
 }
 
 // MergeParameters combines the Path Item parameters with Operation parameters.

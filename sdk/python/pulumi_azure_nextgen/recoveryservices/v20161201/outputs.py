@@ -11,8 +11,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AzureBackupServerContainerResponse',
+    'AzureIaaSClassicComputeVMContainerResponse',
+    'AzureIaaSComputeVMContainerResponse',
+    'AzureSQLAGWorkloadContainerProtectionContainerResponse',
     'AzureSqlContainerResponse',
     'AzureStorageContainerResponse',
+    'AzureVMAppContainerProtectionContainerResponse',
     'AzureWorkloadContainerExtendedInfoResponse',
     'AzureWorkloadContainerResponse',
     'ContainerIdentityInfoResponse',
@@ -30,6 +35,562 @@ __all__ = [
     'MabContainerResponse',
     'WorkloadInquiryDetailsResponse',
 ]
+
+@pulumi.output_type
+class AzureBackupServerContainerResponse(dict):
+    """
+    AzureBackupServer (DPMVenus) workload-specific protection container.
+    """
+    def __init__(__self__, *,
+                 backup_management_type: Optional[str] = None,
+                 can_re_register: Optional[bool] = None,
+                 container_id: Optional[str] = None,
+                 container_type: Optional[str] = None,
+                 dpm_agent_version: Optional[str] = None,
+                 dpm_servers: Optional[Sequence[str]] = None,
+                 extended_info: Optional['outputs.DPMContainerExtendedInfoResponse'] = None,
+                 friendly_name: Optional[str] = None,
+                 health_status: Optional[str] = None,
+                 protected_item_count: Optional[float] = None,
+                 protection_status: Optional[str] = None,
+                 registration_status: Optional[str] = None,
+                 upgrade_available: Optional[bool] = None):
+        """
+        AzureBackupServer (DPMVenus) workload-specific protection container.
+        :param str backup_management_type: Type of backup management for the container.
+        :param bool can_re_register: Specifies whether the container is re-registrable.
+        :param str container_id: ID of container.
+        :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+               Backup is VMAppContainer
+               Expected value is 'DPMContainer'.
+        :param str dpm_agent_version: Backup engine Agent version
+        :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
+        :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
+        :param str friendly_name: Friendly name of the container.
+        :param str health_status: Status of health of the container.
+        :param float protected_item_count: Number of protected items in the BackupEngine
+        :param str protection_status: Protection status of the container.
+        :param str registration_status: Status of registration of the container with the Recovery Services Vault.
+        :param bool upgrade_available: To check if upgrade available
+        """
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if can_re_register is not None:
+            pulumi.set(__self__, "can_re_register", can_re_register)
+        if container_id is not None:
+            pulumi.set(__self__, "container_id", container_id)
+        if container_type is not None:
+            pulumi.set(__self__, "container_type", 'DPMContainer')
+        if dpm_agent_version is not None:
+            pulumi.set(__self__, "dpm_agent_version", dpm_agent_version)
+        if dpm_servers is not None:
+            pulumi.set(__self__, "dpm_servers", dpm_servers)
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if protected_item_count is not None:
+            pulumi.set(__self__, "protected_item_count", protected_item_count)
+        if protection_status is not None:
+            pulumi.set(__self__, "protection_status", protection_status)
+        if registration_status is not None:
+            pulumi.set(__self__, "registration_status", registration_status)
+        if upgrade_available is not None:
+            pulumi.set(__self__, "upgrade_available", upgrade_available)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="canReRegister")
+    def can_re_register(self) -> Optional[bool]:
+        """
+        Specifies whether the container is re-registrable.
+        """
+        return pulumi.get(self, "can_re_register")
+
+    @property
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> Optional[str]:
+        """
+        ID of container.
+        """
+        return pulumi.get(self, "container_id")
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> Optional[str]:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'DPMContainer'.
+        """
+        return pulumi.get(self, "container_type")
+
+    @property
+    @pulumi.getter(name="dpmAgentVersion")
+    def dpm_agent_version(self) -> Optional[str]:
+        """
+        Backup engine Agent version
+        """
+        return pulumi.get(self, "dpm_agent_version")
+
+    @property
+    @pulumi.getter(name="dpmServers")
+    def dpm_servers(self) -> Optional[Sequence[str]]:
+        """
+        List of BackupEngines protecting the container
+        """
+        return pulumi.get(self, "dpm_servers")
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional['outputs.DPMContainerExtendedInfoResponse']:
+        """
+        Extended Info of the container.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly name of the container.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[str]:
+        """
+        Status of health of the container.
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectedItemCount")
+    def protected_item_count(self) -> Optional[float]:
+        """
+        Number of protected items in the BackupEngine
+        """
+        return pulumi.get(self, "protected_item_count")
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> Optional[str]:
+        """
+        Protection status of the container.
+        """
+        return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> Optional[str]:
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        return pulumi.get(self, "registration_status")
+
+    @property
+    @pulumi.getter(name="upgradeAvailable")
+    def upgrade_available(self) -> Optional[bool]:
+        """
+        To check if upgrade available
+        """
+        return pulumi.get(self, "upgrade_available")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureIaaSClassicComputeVMContainerResponse(dict):
+    """
+    IaaS VM workload-specific backup item representing a classic virtual machine.
+    """
+    def __init__(__self__, *,
+                 backup_management_type: Optional[str] = None,
+                 container_type: Optional[str] = None,
+                 friendly_name: Optional[str] = None,
+                 health_status: Optional[str] = None,
+                 registration_status: Optional[str] = None,
+                 resource_group: Optional[str] = None,
+                 virtual_machine_id: Optional[str] = None,
+                 virtual_machine_version: Optional[str] = None):
+        """
+        IaaS VM workload-specific backup item representing a classic virtual machine.
+        :param str backup_management_type: Type of backup management for the container.
+        :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+               Backup is VMAppContainer
+               Expected value is 'IaaSVMContainer'.
+        :param str friendly_name: Friendly name of the container.
+        :param str health_status: Status of health of the container.
+        :param str registration_status: Status of registration of the container with the Recovery Services Vault.
+        :param str resource_group: Resource group name of Recovery Services Vault.
+        :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+        :param str virtual_machine_version: Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+        """
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if container_type is not None:
+            pulumi.set(__self__, "container_type", 'IaaSVMContainer')
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if registration_status is not None:
+            pulumi.set(__self__, "registration_status", registration_status)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if virtual_machine_id is not None:
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if virtual_machine_version is not None:
+            pulumi.set(__self__, "virtual_machine_version", virtual_machine_version)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> Optional[str]:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'IaaSVMContainer'.
+        """
+        return pulumi.get(self, "container_type")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly name of the container.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[str]:
+        """
+        Status of health of the container.
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> Optional[str]:
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        return pulumi.get(self, "registration_status")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Resource group name of Recovery Services Vault.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> Optional[str]:
+        """
+        Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @property
+    @pulumi.getter(name="virtualMachineVersion")
+    def virtual_machine_version(self) -> Optional[str]:
+        """
+        Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+        """
+        return pulumi.get(self, "virtual_machine_version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureIaaSComputeVMContainerResponse(dict):
+    """
+    IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+    """
+    def __init__(__self__, *,
+                 backup_management_type: Optional[str] = None,
+                 container_type: Optional[str] = None,
+                 friendly_name: Optional[str] = None,
+                 health_status: Optional[str] = None,
+                 registration_status: Optional[str] = None,
+                 resource_group: Optional[str] = None,
+                 virtual_machine_id: Optional[str] = None,
+                 virtual_machine_version: Optional[str] = None):
+        """
+        IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+        :param str backup_management_type: Type of backup management for the container.
+        :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+               Backup is VMAppContainer
+               Expected value is 'IaaSVMContainer'.
+        :param str friendly_name: Friendly name of the container.
+        :param str health_status: Status of health of the container.
+        :param str registration_status: Status of registration of the container with the Recovery Services Vault.
+        :param str resource_group: Resource group name of Recovery Services Vault.
+        :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+        :param str virtual_machine_version: Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+        """
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if container_type is not None:
+            pulumi.set(__self__, "container_type", 'IaaSVMContainer')
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if registration_status is not None:
+            pulumi.set(__self__, "registration_status", registration_status)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if virtual_machine_id is not None:
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if virtual_machine_version is not None:
+            pulumi.set(__self__, "virtual_machine_version", virtual_machine_version)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> Optional[str]:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'IaaSVMContainer'.
+        """
+        return pulumi.get(self, "container_type")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly name of the container.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[str]:
+        """
+        Status of health of the container.
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> Optional[str]:
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        return pulumi.get(self, "registration_status")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Resource group name of Recovery Services Vault.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> Optional[str]:
+        """
+        Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @property
+    @pulumi.getter(name="virtualMachineVersion")
+    def virtual_machine_version(self) -> Optional[str]:
+        """
+        Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+        """
+        return pulumi.get(self, "virtual_machine_version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
+    """
+    Container for SQL workloads under SQL Availability Group.
+    """
+    def __init__(__self__, *,
+                 backup_management_type: Optional[str] = None,
+                 container_type: Optional[str] = None,
+                 extended_info: Optional['outputs.AzureWorkloadContainerExtendedInfoResponse'] = None,
+                 friendly_name: Optional[str] = None,
+                 health_status: Optional[str] = None,
+                 last_updated_time: Optional[str] = None,
+                 operation_type: Optional[str] = None,
+                 registration_status: Optional[str] = None,
+                 source_resource_id: Optional[str] = None,
+                 workload_type: Optional[str] = None):
+        """
+        Container for SQL workloads under SQL Availability Group.
+        :param str backup_management_type: Type of backup management for the container.
+        :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+               Backup is VMAppContainer
+               Expected value is 'AzureWorkloadContainer'.
+        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param str friendly_name: Friendly name of the container.
+        :param str health_status: Status of health of the container.
+        :param str last_updated_time: Time stamp when this container was updated.
+        :param str operation_type: Re-Do Operation
+        :param str registration_status: Status of registration of the container with the Recovery Services Vault.
+        :param str source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
+        :param str workload_type: Workload type for which registration was sent.
+        """
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if container_type is not None:
+            pulumi.set(__self__, "container_type", 'AzureWorkloadContainer')
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if operation_type is not None:
+            pulumi.set(__self__, "operation_type", operation_type)
+        if registration_status is not None:
+            pulumi.set(__self__, "registration_status", registration_status)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if workload_type is not None:
+            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> Optional[str]:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'AzureWorkloadContainer'.
+        """
+        return pulumi.get(self, "container_type")
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional['outputs.AzureWorkloadContainerExtendedInfoResponse']:
+        """
+        Additional details of a workload container.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly name of the container.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[str]:
+        """
+        Status of health of the container.
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[str]:
+        """
+        Time stamp when this container was updated.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[str]:
+        """
+        Re-Do Operation
+        """
+        return pulumi.get(self, "operation_type")
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> Optional[str]:
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        return pulumi.get(self, "registration_status")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[str]:
+        """
+        ARM ID of the virtual machine represented by this Azure Workload Container
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[str]:
+        """
+        Workload type for which registration was sent.
+        """
+        return pulumi.get(self, "workload_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class AzureSqlContainerResponse(dict):
@@ -238,6 +799,148 @@ class AzureStorageContainerResponse(dict):
         Storage account version.
         """
         return pulumi.get(self, "storage_account_version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureVMAppContainerProtectionContainerResponse(dict):
+    """
+    Container for SQL workloads under Azure Virtual Machines.
+    """
+    def __init__(__self__, *,
+                 backup_management_type: Optional[str] = None,
+                 container_type: Optional[str] = None,
+                 extended_info: Optional['outputs.AzureWorkloadContainerExtendedInfoResponse'] = None,
+                 friendly_name: Optional[str] = None,
+                 health_status: Optional[str] = None,
+                 last_updated_time: Optional[str] = None,
+                 operation_type: Optional[str] = None,
+                 registration_status: Optional[str] = None,
+                 source_resource_id: Optional[str] = None,
+                 workload_type: Optional[str] = None):
+        """
+        Container for SQL workloads under Azure Virtual Machines.
+        :param str backup_management_type: Type of backup management for the container.
+        :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+               Backup is VMAppContainer
+               Expected value is 'AzureWorkloadContainer'.
+        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param str friendly_name: Friendly name of the container.
+        :param str health_status: Status of health of the container.
+        :param str last_updated_time: Time stamp when this container was updated.
+        :param str operation_type: Re-Do Operation
+        :param str registration_status: Status of registration of the container with the Recovery Services Vault.
+        :param str source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
+        :param str workload_type: Workload type for which registration was sent.
+        """
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if container_type is not None:
+            pulumi.set(__self__, "container_type", 'AzureWorkloadContainer')
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if operation_type is not None:
+            pulumi.set(__self__, "operation_type", operation_type)
+        if registration_status is not None:
+            pulumi.set(__self__, "registration_status", registration_status)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if workload_type is not None:
+            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> Optional[str]:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'AzureWorkloadContainer'.
+        """
+        return pulumi.get(self, "container_type")
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional['outputs.AzureWorkloadContainerExtendedInfoResponse']:
+        """
+        Additional details of a workload container.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly name of the container.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[str]:
+        """
+        Status of health of the container.
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[str]:
+        """
+        Time stamp when this container was updated.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[str]:
+        """
+        Re-Do Operation
+        """
+        return pulumi.get(self, "operation_type")
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> Optional[str]:
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        return pulumi.get(self, "registration_status")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[str]:
+        """
+        ARM ID of the virtual machine represented by this Azure Workload Container
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[str]:
+        """
+        Workload type for which registration was sent.
+        """
+        return pulumi.get(self, "workload_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

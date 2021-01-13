@@ -73,7 +73,7 @@ export interface GetProtectedItemResult {
     /**
      * ProtectedItemResource properties
      */
-    readonly properties: outputs.recoveryservices.v20201001.AzureFileshareProtectedItemResponse | outputs.recoveryservices.v20201001.AzureIaaSVMProtectedItemResponse | outputs.recoveryservices.v20201001.AzureSqlProtectedItemResponse | outputs.recoveryservices.v20201001.AzureVmWorkloadProtectedItemResponse | outputs.recoveryservices.v20201001.DPMProtectedItemResponse | outputs.recoveryservices.v20201001.GenericProtectedItemResponse | outputs.recoveryservices.v20201001.MabFileFolderProtectedItemResponse;
+    readonly properties: outputs.recoveryservices.v20201001.AzureFileshareProtectedItemResponse | outputs.recoveryservices.v20201001.AzureIaaSClassicComputeVMProtectedItemResponse | outputs.recoveryservices.v20201001.AzureIaaSComputeVMProtectedItemResponse | outputs.recoveryservices.v20201001.AzureIaaSVMProtectedItemResponse | outputs.recoveryservices.v20201001.AzureSqlProtectedItemResponse | outputs.recoveryservices.v20201001.AzureVmWorkloadProtectedItemResponse | outputs.recoveryservices.v20201001.AzureVmWorkloadSAPAseDatabaseProtectedItemResponse | outputs.recoveryservices.v20201001.AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse | outputs.recoveryservices.v20201001.AzureVmWorkloadSQLDatabaseProtectedItemResponse | outputs.recoveryservices.v20201001.DPMProtectedItemResponse | outputs.recoveryservices.v20201001.GenericProtectedItemResponse | outputs.recoveryservices.v20201001.MabFileFolderProtectedItemResponse;
     /**
      * Resource tags.
      */

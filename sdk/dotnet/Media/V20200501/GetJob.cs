@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// <summary>
         /// The inputs for the Job.
         /// </summary>
-        public readonly Union<Outputs.JobInputClipResponse, Outputs.JobInputsResponse> Input;
+        public readonly object Input;
         /// <summary>
         /// The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
             string id,
 
-            Union<Outputs.JobInputClipResponse, Outputs.JobInputsResponse> input,
+            object input,
 
             string lastModified,
 

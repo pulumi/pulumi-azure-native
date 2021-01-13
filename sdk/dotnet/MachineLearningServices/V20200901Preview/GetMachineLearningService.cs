@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         /// <summary>
         /// Service properties
         /// </summary>
-        public readonly Union<Outputs.ACIServiceResponseResponse, Outputs.AKSVariantResponseResponse> Properties;
+        public readonly object Properties;
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
 
             string name,
 
-            Union<Outputs.ACIServiceResponseResponse, Outputs.AKSVariantResponseResponse> properties,
+            object properties,
 
             Outputs.SkuResponse? sku,
 

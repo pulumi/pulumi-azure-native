@@ -20,7 +20,7 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  assessment_name: Optional[pulumi.Input[str]] = None,
-                 resource_details: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceDetailsArgs'], pulumi.InputType['OnPremiseResourceDetailsArgs']]]] = None,
+                 resource_details: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceDetailsArgs'], pulumi.InputType['OnPremiseResourceDetailsArgs'], pulumi.InputType['OnPremiseSqlResourceDetailsArgs']]]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArgs']]] = None,
                  __props__=None,
@@ -33,7 +33,7 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: Additional data regarding the assessment
         :param pulumi.Input[str] assessment_name: The Assessment Key - Unique key for the assessment type
-        :param pulumi.Input[Union[pulumi.InputType['AzureResourceDetailsArgs'], pulumi.InputType['OnPremiseResourceDetailsArgs']]] resource_details: Details of the resource that was assessed
+        :param pulumi.Input[Union[pulumi.InputType['AzureResourceDetailsArgs'], pulumi.InputType['OnPremiseResourceDetailsArgs'], pulumi.InputType['OnPremiseSqlResourceDetailsArgs']]] resource_details: Details of the resource that was assessed
         :param pulumi.Input[str] resource_id: The identifier of the resource.
         :param pulumi.Input[pulumi.InputType['AssessmentStatusArgs']] status: The result of the assessment
         """

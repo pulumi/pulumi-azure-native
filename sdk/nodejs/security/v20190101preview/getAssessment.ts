@@ -62,7 +62,7 @@ export interface GetAssessmentResult {
     /**
      * Details of the resource that was assessed
      */
-    readonly resourceDetails: outputs.security.v20190101preview.AzureResourceDetailsResponse | outputs.security.v20190101preview.OnPremiseResourceDetailsResponse;
+    readonly resourceDetails: outputs.security.v20190101preview.AzureResourceDetailsResponse | outputs.security.v20190101preview.OnPremiseResourceDetailsResponse | outputs.security.v20190101preview.OnPremiseSqlResourceDetailsResponse;
     /**
      * The result of the assessment
      */

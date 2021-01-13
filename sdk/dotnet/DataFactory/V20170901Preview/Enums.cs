@@ -8,6 +8,104 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
 {
     /// <summary>
+    /// Specify the write behavior when upserting documents into Azure Search Index.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureSearchIndexWriteBehaviorType : IEquatable<AzureSearchIndexWriteBehaviorType>
+    {
+        private readonly string _value;
+
+        private AzureSearchIndexWriteBehaviorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureSearchIndexWriteBehaviorType Merge { get; } = new AzureSearchIndexWriteBehaviorType("Merge");
+        public static AzureSearchIndexWriteBehaviorType Upload { get; } = new AzureSearchIndexWriteBehaviorType("Upload");
+
+        public static bool operator ==(AzureSearchIndexWriteBehaviorType left, AzureSearchIndexWriteBehaviorType right) => left.Equals(right);
+        public static bool operator !=(AzureSearchIndexWriteBehaviorType left, AzureSearchIndexWriteBehaviorType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureSearchIndexWriteBehaviorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureSearchIndexWriteBehaviorType other && Equals(other);
+        public bool Equals(AzureSearchIndexWriteBehaviorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct BlobEventTypes : IEquatable<BlobEventTypes>
+    {
+        private readonly string _value;
+
+        private BlobEventTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BlobEventTypes Microsoft_Storage_BlobCreated { get; } = new BlobEventTypes("Microsoft.Storage.BlobCreated");
+        public static BlobEventTypes Microsoft_Storage_BlobDeleted { get; } = new BlobEventTypes("Microsoft.Storage.BlobDeleted");
+
+        public static bool operator ==(BlobEventTypes left, BlobEventTypes right) => left.Equals(right);
+        public static bool operator !=(BlobEventTypes left, BlobEventTypes right) => !left.Equals(right);
+
+        public static explicit operator string(BlobEventTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlobEventTypes other && Equals(other);
+        public bool Equals(BlobEventTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
+    /// </summary>
+    [EnumType]
+    public readonly struct CassandraSourceReadConsistencyLevels : IEquatable<CassandraSourceReadConsistencyLevels>
+    {
+        private readonly string _value;
+
+        private CassandraSourceReadConsistencyLevels(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CassandraSourceReadConsistencyLevels ALL { get; } = new CassandraSourceReadConsistencyLevels("ALL");
+        public static CassandraSourceReadConsistencyLevels EACH_QUORUM { get; } = new CassandraSourceReadConsistencyLevels("EACH_QUORUM");
+        public static CassandraSourceReadConsistencyLevels QUORUM { get; } = new CassandraSourceReadConsistencyLevels("QUORUM");
+        public static CassandraSourceReadConsistencyLevels LOCAL_QUORUM { get; } = new CassandraSourceReadConsistencyLevels("LOCAL_QUORUM");
+        public static CassandraSourceReadConsistencyLevels ONE { get; } = new CassandraSourceReadConsistencyLevels("ONE");
+        public static CassandraSourceReadConsistencyLevels TWO { get; } = new CassandraSourceReadConsistencyLevels("TWO");
+        public static CassandraSourceReadConsistencyLevels THREE { get; } = new CassandraSourceReadConsistencyLevels("THREE");
+        public static CassandraSourceReadConsistencyLevels LOCAL_ONE { get; } = new CassandraSourceReadConsistencyLevels("LOCAL_ONE");
+        public static CassandraSourceReadConsistencyLevels SERIAL { get; } = new CassandraSourceReadConsistencyLevels("SERIAL");
+        public static CassandraSourceReadConsistencyLevels LOCAL_SERIAL { get; } = new CassandraSourceReadConsistencyLevels("LOCAL_SERIAL");
+
+        public static bool operator ==(CassandraSourceReadConsistencyLevels left, CassandraSourceReadConsistencyLevels right) => left.Equals(right);
+        public static bool operator !=(CassandraSourceReadConsistencyLevels left, CassandraSourceReadConsistencyLevels right) => !left.Equals(right);
+
+        public static explicit operator string(CassandraSourceReadConsistencyLevels value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CassandraSourceReadConsistencyLevels other && Equals(other);
+        public bool Equals(CassandraSourceReadConsistencyLevels other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The ZipDeflate compression level.
     /// </summary>
     [EnumType]
@@ -31,6 +129,75 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DatasetCompressionLevel other && Equals(other);
         public bool Equals(DatasetCompressionLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The day of the week.
+    /// </summary>
+    [EnumType]
+    public readonly struct DayOfWeek : IEquatable<DayOfWeek>
+    {
+        private readonly string _value;
+
+        private DayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
+        public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
+        public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
+        public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
+        public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
+        public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
+        public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
+
+        public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
+        public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
+        public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DaysOfWeek : IEquatable<DaysOfWeek>
+    {
+        private readonly string _value;
+
+        private DaysOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DaysOfWeek Sunday { get; } = new DaysOfWeek("Sunday");
+        public static DaysOfWeek Monday { get; } = new DaysOfWeek("Monday");
+        public static DaysOfWeek Tuesday { get; } = new DaysOfWeek("Tuesday");
+        public static DaysOfWeek Wednesday { get; } = new DaysOfWeek("Wednesday");
+        public static DaysOfWeek Thursday { get; } = new DaysOfWeek("Thursday");
+        public static DaysOfWeek Friday { get; } = new DaysOfWeek("Friday");
+        public static DaysOfWeek Saturday { get; } = new DaysOfWeek("Saturday");
+
+        public static bool operator ==(DaysOfWeek left, DaysOfWeek right) => left.Equals(right);
+        public static bool operator !=(DaysOfWeek left, DaysOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DaysOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DaysOfWeek other && Equals(other);
+        public bool Equals(DaysOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -161,6 +328,36 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
     }
 
     /// <summary>
+    /// The write behavior for the operation.
+    /// </summary>
+    [EnumType]
+    public readonly struct DynamicsSinkWriteBehavior : IEquatable<DynamicsSinkWriteBehavior>
+    {
+        private readonly string _value;
+
+        private DynamicsSinkWriteBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DynamicsSinkWriteBehavior Upsert { get; } = new DynamicsSinkWriteBehavior("Upsert");
+
+        public static bool operator ==(DynamicsSinkWriteBehavior left, DynamicsSinkWriteBehavior right) => left.Equals(right);
+        public static bool operator !=(DynamicsSinkWriteBehavior left, DynamicsSinkWriteBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(DynamicsSinkWriteBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DynamicsSinkWriteBehavior other && Equals(other);
+        public bool Equals(DynamicsSinkWriteBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The identity type. Currently the only supported type is 'SystemAssigned'.
     /// </summary>
     [EnumType]
@@ -276,6 +473,38 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HBaseAuthenticationType other && Equals(other);
         public bool Equals(HBaseAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Debug info option.
+    /// </summary>
+    [EnumType]
+    public readonly struct HDInsightActivityDebugInfoOption : IEquatable<HDInsightActivityDebugInfoOption>
+    {
+        private readonly string _value;
+
+        private HDInsightActivityDebugInfoOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HDInsightActivityDebugInfoOption None { get; } = new HDInsightActivityDebugInfoOption("None");
+        public static HDInsightActivityDebugInfoOption Always { get; } = new HDInsightActivityDebugInfoOption("Always");
+        public static HDInsightActivityDebugInfoOption Failure { get; } = new HDInsightActivityDebugInfoOption("Failure");
+
+        public static bool operator ==(HDInsightActivityDebugInfoOption left, HDInsightActivityDebugInfoOption right) => left.Equals(right);
+        public static bool operator !=(HDInsightActivityDebugInfoOption left, HDInsightActivityDebugInfoOption right) => !left.Equals(right);
+
+        public static explicit operator string(HDInsightActivityDebugInfoOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HDInsightActivityDebugInfoOption other && Equals(other);
+        public bool Equals(HDInsightActivityDebugInfoOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -732,6 +961,37 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
     }
 
     /// <summary>
+    /// Reject type.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolybaseSettingsRejectType : IEquatable<PolybaseSettingsRejectType>
+    {
+        private readonly string _value;
+
+        private PolybaseSettingsRejectType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolybaseSettingsRejectType @Value { get; } = new PolybaseSettingsRejectType("value");
+        public static PolybaseSettingsRejectType Percentage { get; } = new PolybaseSettingsRejectType("percentage");
+
+        public static bool operator ==(PolybaseSettingsRejectType left, PolybaseSettingsRejectType right) => left.Equals(right);
+        public static bool operator !=(PolybaseSettingsRejectType left, PolybaseSettingsRejectType right) => !left.Equals(right);
+
+        public static explicit operator string(PolybaseSettingsRejectType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolybaseSettingsRejectType other && Equals(other);
+        public bool Equals(PolybaseSettingsRejectType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The authentication mechanism used to connect to the Presto server.
     /// </summary>
     [EnumType]
@@ -755,6 +1015,135 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrestoAuthenticationType other && Equals(other);
         public bool Equals(PrestoAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The frequency.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecurrenceFrequency : IEquatable<RecurrenceFrequency>
+    {
+        private readonly string _value;
+
+        private RecurrenceFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecurrenceFrequency NotSpecified { get; } = new RecurrenceFrequency("NotSpecified");
+        public static RecurrenceFrequency Minute { get; } = new RecurrenceFrequency("Minute");
+        public static RecurrenceFrequency Hour { get; } = new RecurrenceFrequency("Hour");
+        public static RecurrenceFrequency Day { get; } = new RecurrenceFrequency("Day");
+        public static RecurrenceFrequency Week { get; } = new RecurrenceFrequency("Week");
+        public static RecurrenceFrequency Month { get; } = new RecurrenceFrequency("Month");
+        public static RecurrenceFrequency Year { get; } = new RecurrenceFrequency("Year");
+
+        public static bool operator ==(RecurrenceFrequency left, RecurrenceFrequency right) => left.Equals(right);
+        public static bool operator !=(RecurrenceFrequency left, RecurrenceFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(RecurrenceFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecurrenceFrequency other && Equals(other);
+        public bool Equals(RecurrenceFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The write behavior for the operation. Default is Insert.
+    /// </summary>
+    [EnumType]
+    public readonly struct SalesforceSinkWriteBehavior : IEquatable<SalesforceSinkWriteBehavior>
+    {
+        private readonly string _value;
+
+        private SalesforceSinkWriteBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SalesforceSinkWriteBehavior Insert { get; } = new SalesforceSinkWriteBehavior("Insert");
+        public static SalesforceSinkWriteBehavior Upsert { get; } = new SalesforceSinkWriteBehavior("Upsert");
+
+        public static bool operator ==(SalesforceSinkWriteBehavior left, SalesforceSinkWriteBehavior right) => left.Equals(right);
+        public static bool operator !=(SalesforceSinkWriteBehavior left, SalesforceSinkWriteBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(SalesforceSinkWriteBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SalesforceSinkWriteBehavior other && Equals(other);
+        public bool Equals(SalesforceSinkWriteBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The read behavior for the operation. Default is Query.
+    /// </summary>
+    [EnumType]
+    public readonly struct SalesforceSourceReadBehavior : IEquatable<SalesforceSourceReadBehavior>
+    {
+        private readonly string _value;
+
+        private SalesforceSourceReadBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SalesforceSourceReadBehavior Query { get; } = new SalesforceSourceReadBehavior("Query");
+        public static SalesforceSourceReadBehavior QueryAll { get; } = new SalesforceSourceReadBehavior("QueryAll");
+
+        public static bool operator ==(SalesforceSourceReadBehavior left, SalesforceSourceReadBehavior right) => left.Equals(right);
+        public static bool operator !=(SalesforceSourceReadBehavior left, SalesforceSourceReadBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(SalesforceSourceReadBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SalesforceSourceReadBehavior other && Equals(other);
+        public bool Equals(SalesforceSourceReadBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The write behavior for the operation. Default is 'Insert'.
+    /// </summary>
+    [EnumType]
+    public readonly struct SapCloudForCustomerSinkWriteBehavior : IEquatable<SapCloudForCustomerSinkWriteBehavior>
+    {
+        private readonly string _value;
+
+        private SapCloudForCustomerSinkWriteBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SapCloudForCustomerSinkWriteBehavior Insert { get; } = new SapCloudForCustomerSinkWriteBehavior("Insert");
+        public static SapCloudForCustomerSinkWriteBehavior Update { get; } = new SapCloudForCustomerSinkWriteBehavior("Update");
+
+        public static bool operator ==(SapCloudForCustomerSinkWriteBehavior left, SapCloudForCustomerSinkWriteBehavior right) => left.Equals(right);
+        public static bool operator !=(SapCloudForCustomerSinkWriteBehavior left, SapCloudForCustomerSinkWriteBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(SapCloudForCustomerSinkWriteBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SapCloudForCustomerSinkWriteBehavior other && Equals(other);
+        public bool Equals(SapCloudForCustomerSinkWriteBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -953,6 +1342,103 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
     }
 
     /// <summary>
+    /// The type of SSIS log location.
+    /// </summary>
+    [EnumType]
+    public readonly struct SsisLogLocationType : IEquatable<SsisLogLocationType>
+    {
+        private readonly string _value;
+
+        private SsisLogLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SsisLogLocationType File { get; } = new SsisLogLocationType("File");
+
+        public static bool operator ==(SsisLogLocationType left, SsisLogLocationType right) => left.Equals(right);
+        public static bool operator !=(SsisLogLocationType left, SsisLogLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(SsisLogLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SsisLogLocationType other && Equals(other);
+        public bool Equals(SsisLogLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of SSIS package location.
+    /// </summary>
+    [EnumType]
+    public readonly struct SsisPackageLocationType : IEquatable<SsisPackageLocationType>
+    {
+        private readonly string _value;
+
+        private SsisPackageLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SsisPackageLocationType SSISDB { get; } = new SsisPackageLocationType("SSISDB");
+        public static SsisPackageLocationType File { get; } = new SsisPackageLocationType("File");
+
+        public static bool operator ==(SsisPackageLocationType left, SsisPackageLocationType right) => left.Equals(right);
+        public static bool operator !=(SsisPackageLocationType left, SsisPackageLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(SsisPackageLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SsisPackageLocationType other && Equals(other);
+        public bool Equals(SsisPackageLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Stored procedure parameter type.
+    /// </summary>
+    [EnumType]
+    public readonly struct StoredProcedureParameterType : IEquatable<StoredProcedureParameterType>
+    {
+        private readonly string _value;
+
+        private StoredProcedureParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StoredProcedureParameterType String { get; } = new StoredProcedureParameterType("String");
+        public static StoredProcedureParameterType Int { get; } = new StoredProcedureParameterType("Int");
+        public static StoredProcedureParameterType Int64 { get; } = new StoredProcedureParameterType("Int64");
+        public static StoredProcedureParameterType Decimal { get; } = new StoredProcedureParameterType("Decimal");
+        public static StoredProcedureParameterType Guid { get; } = new StoredProcedureParameterType("Guid");
+        public static StoredProcedureParameterType Boolean { get; } = new StoredProcedureParameterType("Boolean");
+        public static StoredProcedureParameterType Date { get; } = new StoredProcedureParameterType("Date");
+
+        public static bool operator ==(StoredProcedureParameterType left, StoredProcedureParameterType right) => left.Equals(right);
+        public static bool operator !=(StoredProcedureParameterType left, StoredProcedureParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(StoredProcedureParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StoredProcedureParameterType other && Equals(other);
+        public bool Equals(StoredProcedureParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// AuthenticationType to be used for connection.
     /// </summary>
     [EnumType]
@@ -1038,6 +1524,39 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TumblingWindowFrequency other && Equals(other);
         public bool Equals(TumblingWindowFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Rest API method for target endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebActivityMethod : IEquatable<WebActivityMethod>
+    {
+        private readonly string _value;
+
+        private WebActivityMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebActivityMethod GET { get; } = new WebActivityMethod("GET");
+        public static WebActivityMethod POST { get; } = new WebActivityMethod("POST");
+        public static WebActivityMethod PUT { get; } = new WebActivityMethod("PUT");
+        public static WebActivityMethod DELETE { get; } = new WebActivityMethod("DELETE");
+
+        public static bool operator ==(WebActivityMethod left, WebActivityMethod right) => left.Equals(right);
+        public static bool operator !=(WebActivityMethod left, WebActivityMethod right) => !left.Equals(right);
+
+        public static explicit operator string(WebActivityMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebActivityMethod other && Equals(other);
+        public bool Equals(WebActivityMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

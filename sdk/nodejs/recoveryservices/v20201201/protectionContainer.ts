@@ -50,7 +50,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
     /**
      * ProtectionContainerResource properties
      */
-    public readonly properties!: pulumi.Output<outputs.recoveryservices.v20201201.AzureSqlContainerResponse | outputs.recoveryservices.v20201201.AzureStorageContainerResponse | outputs.recoveryservices.v20201201.AzureWorkloadContainerResponse | outputs.recoveryservices.v20201201.DpmContainerResponse | outputs.recoveryservices.v20201201.GenericContainerResponse | outputs.recoveryservices.v20201201.IaaSVMContainerResponse | outputs.recoveryservices.v20201201.MabContainerResponse>;
+    public readonly properties!: pulumi.Output<outputs.recoveryservices.v20201201.AzureBackupServerContainerResponse | outputs.recoveryservices.v20201201.AzureIaaSClassicComputeVMContainerResponse | outputs.recoveryservices.v20201201.AzureIaaSComputeVMContainerResponse | outputs.recoveryservices.v20201201.AzureSQLAGWorkloadContainerProtectionContainerResponse | outputs.recoveryservices.v20201201.AzureSqlContainerResponse | outputs.recoveryservices.v20201201.AzureStorageContainerResponse | outputs.recoveryservices.v20201201.AzureVMAppContainerProtectionContainerResponse | outputs.recoveryservices.v20201201.AzureWorkloadContainerResponse | outputs.recoveryservices.v20201201.DpmContainerResponse | outputs.recoveryservices.v20201201.GenericContainerResponse | outputs.recoveryservices.v20201201.IaaSVMContainerResponse | outputs.recoveryservices.v20201201.MabContainerResponse>;
     /**
      * Resource tags.
      */
@@ -136,7 +136,7 @@ export interface ProtectionContainerArgs {
     /**
      * ProtectionContainerResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20201201.AzureSqlContainer | inputs.recoveryservices.v20201201.AzureStorageContainer | inputs.recoveryservices.v20201201.AzureWorkloadContainer | inputs.recoveryservices.v20201201.DpmContainer | inputs.recoveryservices.v20201201.GenericContainer | inputs.recoveryservices.v20201201.IaaSVMContainer | inputs.recoveryservices.v20201201.MabContainer>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20201201.AzureBackupServerContainer | inputs.recoveryservices.v20201201.AzureIaaSClassicComputeVMContainer | inputs.recoveryservices.v20201201.AzureIaaSComputeVMContainer | inputs.recoveryservices.v20201201.AzureSQLAGWorkloadContainerProtectionContainer | inputs.recoveryservices.v20201201.AzureSqlContainer | inputs.recoveryservices.v20201201.AzureStorageContainer | inputs.recoveryservices.v20201201.AzureVMAppContainerProtectionContainer | inputs.recoveryservices.v20201201.AzureWorkloadContainer | inputs.recoveryservices.v20201201.DpmContainer | inputs.recoveryservices.v20201201.GenericContainer | inputs.recoveryservices.v20201201.IaaSVMContainer | inputs.recoveryservices.v20201201.MabContainer>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
