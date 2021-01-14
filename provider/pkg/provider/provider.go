@@ -8,7 +8,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/Azure/go-autorest/autorest/adal"
+	"io"
 	"io/ioutil"
 	"log"
 	"math"
@@ -19,6 +19,7 @@ import (
 	"time"
 
 	"github.com/Azure/go-autorest/autorest"
+	"github.com/Azure/go-autorest/autorest/adal"
 	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
@@ -68,21 +69,6 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 		return nil, err
 	}
 
-	uncompressed, err := gzip.NewReader(bytes.NewReader(schemaBytes))
-	if err != nil {
-		return nil, errors.Wrap(err, "expand compressed schema")
-	}
-
-	buf := bytes.Buffer{}
-	_, err = buf.ReadFrom(uncompressed)
-	if err != nil {
-		return nil, errors.Wrap(err, "closing read stream for schema")
-	}
-
-	if err = uncompressed.Close(); err != nil {
-		return nil, errors.Wrap(err, "closing uncompress stream for schema")
-	}
-
 	// Return the new provider
 	return &azureNextGenProvider{
 		host:        host,
@@ -91,7 +77,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 		client:      client,
 		resourceMap: resourceMap,
 		config:      map[string]string{},
-		schemaBytes: buf.Bytes(),
+		schemaBytes: schemaBytes,
 		converter:   &resources.SdkShapeConverter{Types: resourceMap.Types},
 	}, nil
 }
@@ -205,8 +191,13 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 			return nil, errors.New("missing required field 'text' of type 'string'")
 		}
 
+		uncompressed, err := gzip.NewReader(bytes.NewReader(k.schemaBytes))
+		if err != nil {
+			return nil, errors.Wrap(err, "expand compressed schema")
+		}
+
 		var pkgSpec schema.PackageSpec
-		if err = json.NewDecoder(bytes.NewReader(k.schemaBytes)).Decode(&pkgSpec); err != nil {
+		if err = json.NewDecoder(uncompressed).Decode(&pkgSpec); err != nil {
 			return nil, fmt.Errorf("deserializing schema: %w", err)
 		}
 
@@ -498,7 +489,22 @@ func (k *azureNextGenProvider) GetSchema(_ context.Context, req *rpc.GetSchemaRe
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
 
-	return &rpc.GetSchemaResponse{Schema: string(k.schemaBytes)}, nil
+	uncompressed, err := gzip.NewReader(bytes.NewReader(k.schemaBytes))
+	if err != nil {
+		return nil, errors.Wrap(err, "expand compressed bytes for schema")
+	}
+
+	buf := new(strings.Builder)
+	_, err = io.Copy(buf, uncompressed)
+	if err != nil {
+		return nil, errors.Wrap(err, "closing read stream for schema")
+	}
+
+	if err = uncompressed.Close(); err != nil {
+		return nil, errors.Wrap(err, "closing uncompress stream for schema")
+	}
+
+	return &rpc.GetSchemaResponse{Schema: buf.String()}, nil
 }
 
 // CheckConfig validates the configuration for this provider.
