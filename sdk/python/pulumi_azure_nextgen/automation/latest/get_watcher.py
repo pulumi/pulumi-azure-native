@@ -126,7 +126,7 @@ class GetWatcherResult:
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        The Azure Region where the resource lives
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 

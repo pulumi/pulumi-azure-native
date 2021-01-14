@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the configuration type.
-    /// Latest API Version: 2015-10-31.
+    /// Latest API Version: 2019-06-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:automation/latest:DscConfiguration")]
     public partial class DscConfiguration : Pulumi.CustomResource
@@ -132,6 +132,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:DscConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:DscConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

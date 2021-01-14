@@ -12,7 +12,7 @@ import (
 )
 
 // An application package which represents a particular version of an application.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2021-01-01.
 type ApplicationPackage struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +83,9 @@ func NewApplicationPackage(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200901:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:batch/v20210101:ApplicationPackage"),
 		},
 	})
 	opts = append(opts, aliases)

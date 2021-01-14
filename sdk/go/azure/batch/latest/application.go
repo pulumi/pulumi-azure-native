@@ -12,7 +12,7 @@ import (
 )
 
 // Contains information about an application in a Batch account.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2021-01-01.
 type Application struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +76,9 @@ func NewApplication(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200901:Application"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:batch/v20210101:Application"),
 		},
 	})
 	opts = append(opts, aliases)

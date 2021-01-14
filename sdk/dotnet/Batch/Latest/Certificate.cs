@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
 {
     /// <summary>
     /// Contains information about a certificate.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:batch/latest:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
@@ -111,6 +111,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -125,6 +125,8 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Watcher"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Watcher"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Watcher"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

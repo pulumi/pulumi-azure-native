@@ -23,11 +23,13 @@ class Snapshot(pulumi.CustomResource):
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  incremental: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SnapshotSkuArgs']]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +39,7 @@ class Snapshot(pulumi.CustomResource):
                  __opts__=None):
         """
         Snapshot resource.
-        Latest API Version: 2020-06-30.
+        Latest API Version: 2020-09-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -46,13 +48,15 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location where the snapshot will be created. Extended location cannot be changed.
         :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         :param pulumi.Input[bool] incremental: Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Union[str, 'NetworkAccessPolicy']] network_access_policy: Policy for accessing the disk via network.
         :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
+        :param pulumi.Input[pulumi.InputType['PurchasePlanArgs']] purchase_plan: Purchase plan information for the image from which the source disk for the snapshot was originally created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['SnapshotSkuArgs']] sku: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+        :param pulumi.Input[pulumi.InputType['SnapshotSkuArgs']] sku: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         :param pulumi.Input[str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -80,6 +84,7 @@ class Snapshot(pulumi.CustomResource):
             __props__['disk_size_gb'] = disk_size_gb
             __props__['encryption'] = encryption
             __props__['encryption_settings_collection'] = encryption_settings_collection
+            __props__['extended_location'] = extended_location
             __props__['hyper_v_generation'] = hyper_v_generation
             __props__['incremental'] = incremental
             if location is None and not opts.urn:
@@ -87,6 +92,7 @@ class Snapshot(pulumi.CustomResource):
             __props__['location'] = location
             __props__['network_access_policy'] = network_access_policy
             __props__['os_type'] = os_type
+            __props__['purchase_plan'] = purchase_plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -103,7 +109,7 @@ class Snapshot(pulumi.CustomResource):
             __props__['time_created'] = None
             __props__['type'] = None
             __props__['unique_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Snapshot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Snapshot, __self__).__init__(
             'azure-nextgen:compute/latest:Snapshot',
@@ -186,6 +192,14 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "encryption_settings_collection")
 
     @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location where the snapshot will be created. Extended location cannot be changed.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> pulumi.Output[Optional[str]]:
         """
@@ -250,10 +264,18 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="purchasePlan")
+    def purchase_plan(self) -> pulumi.Output[Optional['outputs.PurchasePlanResponse']]:
+        """
+        Purchase plan information for the image from which the source disk for the snapshot was originally created.
+        """
+        return pulumi.get(self, "purchase_plan")
+
+    @property
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SnapshotSkuResponse']]:
         """
-        The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+        The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         """
         return pulumi.get(self, "sku")
 

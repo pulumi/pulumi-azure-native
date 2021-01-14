@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the variable.
-    /// Latest API Version: 2015-10-31.
+    /// Latest API Version: 2019-06-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:automation/latest:Variable")]
     public partial class Variable : Pulumi.CustomResource
@@ -84,6 +84,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Variable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Variable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Variable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

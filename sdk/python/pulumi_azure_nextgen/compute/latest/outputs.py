@@ -49,6 +49,7 @@ __all__ = [
     'EncryptionSetIdentityResponse',
     'EncryptionSettingsCollectionResponse',
     'EncryptionSettingsElementResponse',
+    'ExtendedLocationResponse',
     'GalleryApplicationVersionPublishingProfileResponse',
     'GalleryArtifactVersionSourceResponse',
     'GalleryDataDiskImageResponse',
@@ -69,6 +70,7 @@ __all__ = [
     'ImageStorageProfileResponse',
     'InnerErrorResponse',
     'InstanceViewStatusResponse',
+    'KeyForDiskEncryptionSetResponse',
     'KeyVaultAndKeyReferenceResponse',
     'KeyVaultAndSecretReferenceResponse',
     'KeyVaultKeyReferenceResponse',
@@ -88,6 +90,7 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'PurchasePlanResponse',
     'RecommendedMachineConfigurationResponse',
     'RegionalReplicationStatusResponse',
     'ReplicationStatusResponse',
@@ -1939,7 +1942,7 @@ class EncryptionSetIdentityResponse(dict):
         The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         :param str principal_id: The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
         :param str tenant_id: The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-        :param str type: The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+        :param str type: The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1966,7 +1969,7 @@ class EncryptionSetIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+        The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
         """
         return pulumi.get(self, "type")
 
@@ -2056,6 +2059,44 @@ class EncryptionSettingsElementResponse(dict):
         Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
         """
         return pulumi.get(self, "key_encryption_key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    The complex type of the extended location.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The complex type of the extended location.
+        :param str name: The name of the extended location.
+        :param str type: The type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3371,6 +3412,43 @@ class InstanceViewStatusResponse(dict):
 
 
 @pulumi.output_type
+class KeyForDiskEncryptionSetResponse(dict):
+    """
+    Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+    """
+    def __init__(__self__, *,
+                 key_url: str,
+                 source_vault: Optional['outputs.SourceVaultResponse'] = None):
+        """
+        Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+        :param str key_url: Fully versioned Key Url pointing to a key in KeyVault
+        :param 'SourceVaultResponseArgs' source_vault: Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+        """
+        pulumi.set(__self__, "key_url", key_url)
+        if source_vault is not None:
+            pulumi.set(__self__, "source_vault", source_vault)
+
+    @property
+    @pulumi.getter(name="keyUrl")
+    def key_url(self) -> str:
+        """
+        Fully versioned Key Url pointing to a key in KeyVault
+        """
+        return pulumi.get(self, "key_url")
+
+    @property
+    @pulumi.getter(name="sourceVault")
+    def source_vault(self) -> Optional['outputs.SourceVaultResponse']:
+        """
+        Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+        """
+        return pulumi.get(self, "source_vault")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class KeyVaultAndKeyReferenceResponse(dict):
     """
     Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
@@ -4346,11 +4424,11 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
-        :param str id: private endpoint connection Id
-        :param str name: private endpoint connection name
+        :param str id: Resource Id
+        :param str name: Resource name
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param str type: private endpoint connection type
+        :param str type: Resource type
         :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "id", id)
@@ -4365,7 +4443,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        private endpoint connection Id
+        Resource Id
         """
         return pulumi.get(self, "id")
 
@@ -4373,7 +4451,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        private endpoint connection name
+        Resource name
         """
         return pulumi.get(self, "name")
 
@@ -4397,7 +4475,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        private endpoint connection type
+        Resource type
         """
         return pulumi.get(self, "type")
 
@@ -4483,6 +4561,65 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PurchasePlanResponse(dict):
+    """
+    Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 product: str,
+                 publisher: str,
+                 promotion_code: Optional[str] = None):
+        """
+        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+        :param str name: The plan ID.
+        :param str product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        :param str publisher: The publisher ID.
+        :param str promotion_code: The Offer Promotion Code.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The plan ID.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> str:
+        """
+        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        The publisher ID.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[str]:
+        """
+        The Offer Promotion Code.
+        """
+        return pulumi.get(self, "promotion_code")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4979,13 +5116,13 @@ class SkuResponse(dict):
 @pulumi.output_type
 class SnapshotSkuResponse(dict):
     """
-    The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+    The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
     """
     def __init__(__self__, *,
                  tier: str,
                  name: Optional[str] = None):
         """
-        The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+        The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         :param str tier: The sku tier.
         :param str name: The sku name.
         """

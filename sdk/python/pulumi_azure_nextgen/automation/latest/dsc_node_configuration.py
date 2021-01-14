@@ -31,7 +31,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
                  __opts__=None):
         """
         Definition of the dsc node configuration.
-        Latest API Version: 2018-01-15.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +83,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
             __props__['last_modified_time'] = None
             __props__['node_count'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:DscNodeConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20180115:DscNodeConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:DscNodeConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20180115:DscNodeConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:DscNodeConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:DscNodeConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DscNodeConfiguration, __self__).__init__(
             'azure-nextgen:automation/latest:DscNodeConfiguration',

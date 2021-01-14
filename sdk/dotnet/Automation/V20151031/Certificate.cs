@@ -89,6 +89,8 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

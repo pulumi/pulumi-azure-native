@@ -10,6 +10,7 @@ export * from "./dedicatedHost";
 export * from "./dedicatedHostGroup";
 export * from "./disk";
 export * from "./diskAccess";
+export * from "./diskAccessAPrivateEndpointConnection";
 export * from "./diskEncryptionSet";
 export * from "./gallery";
 export * from "./galleryApplication";
@@ -21,6 +22,7 @@ export * from "./getDedicatedHost";
 export * from "./getDedicatedHostGroup";
 export * from "./getDisk";
 export * from "./getDiskAccess";
+export * from "./getDiskAccessAPrivateEndpointConnection";
 export * from "./getDiskEncryptionSet";
 export * from "./getGallery";
 export * from "./getGalleryApplication";
@@ -65,6 +67,7 @@ import { DedicatedHost } from "./dedicatedHost";
 import { DedicatedHostGroup } from "./dedicatedHostGroup";
 import { Disk } from "./disk";
 import { DiskAccess } from "./diskAccess";
+import { DiskAccessAPrivateEndpointConnection } from "./diskAccessAPrivateEndpointConnection";
 import { DiskEncryptionSet } from "./diskEncryptionSet";
 import { Gallery } from "./gallery";
 import { GalleryApplication } from "./galleryApplication";
@@ -99,6 +102,8 @@ const _module = {
                 return new Disk(name, <any>undefined, { urn })
             case "azure-nextgen:compute/latest:DiskAccess":
                 return new DiskAccess(name, <any>undefined, { urn })
+            case "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection":
+                return new DiskAccessAPrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-nextgen:compute/latest:DiskEncryptionSet":
                 return new DiskEncryptionSet(name, <any>undefined, { urn })
             case "azure-nextgen:compute/latest:Gallery":

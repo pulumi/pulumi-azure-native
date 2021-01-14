@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the module type.
- * Latest API Version: 2015-10-31.
+ * Latest API Version: 2019-06-01.
  */
 export class Module extends pulumi.CustomResource {
     /**
@@ -167,7 +167,7 @@ export class Module extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Module" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Module" }, { type: "azure-nextgen:automation/v20190601:Module" }, { type: "azure-nextgen:automation/v20200113preview:Module" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Module.__pulumiType, name, inputs, opts);
     }

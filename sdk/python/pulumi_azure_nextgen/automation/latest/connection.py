@@ -29,7 +29,7 @@ class Connection(pulumi.CustomResource):
                  __opts__=None):
         """
         Definition of the connection.
-        Latest API Version: 2015-10-31.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -78,7 +78,7 @@ class Connection(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Connection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Connection"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Connection"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Connection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connection, __self__).__init__(
             'azure-nextgen:automation/latest:Connection',

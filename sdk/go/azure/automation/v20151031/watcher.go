@@ -65,6 +65,12 @@ func NewWatcher(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Watcher"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Watcher"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Watcher"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Watcher

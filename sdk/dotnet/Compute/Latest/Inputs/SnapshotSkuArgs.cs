@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
 {
 
     /// <summary>
-    /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+    /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
     /// </summary>
     public sealed class SnapshotSkuArgs : Pulumi.ResourceArgs
     {

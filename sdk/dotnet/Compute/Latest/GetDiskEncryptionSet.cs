@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <summary>
         /// The key vault key which is currently used by this disk encryption set.
         /// </summary>
-        public readonly Outputs.KeyVaultAndKeyReferenceResponse? ActiveKey;
+        public readonly Outputs.KeyForDiskEncryptionSetResponse? ActiveKey;
         /// <summary>
         /// The type of key used to encrypt the data of the disk.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <summary>
         /// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.KeyVaultAndKeyReferenceResponse> PreviousKeys;
+        public readonly ImmutableArray<Outputs.KeyForDiskEncryptionSetResponse> PreviousKeys;
         /// <summary>
         /// The disk encryption set provisioning state.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
         [OutputConstructor]
         private GetDiskEncryptionSetResult(
-            Outputs.KeyVaultAndKeyReferenceResponse? activeKey,
+            Outputs.KeyForDiskEncryptionSetResponse? activeKey,
 
             string? encryptionType,
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             string name,
 
-            ImmutableArray<Outputs.KeyVaultAndKeyReferenceResponse> previousKeys,
+            ImmutableArray<Outputs.KeyForDiskEncryptionSetResponse> previousKeys,
 
             string provisioningState,
 

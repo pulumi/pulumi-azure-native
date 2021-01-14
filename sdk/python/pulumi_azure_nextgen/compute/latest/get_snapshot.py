@@ -20,7 +20,7 @@ class GetSnapshotResult:
     """
     Snapshot resource.
     """
-    def __init__(__self__, creation_data=None, disk_access_id=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, hyper_v_generation=None, id=None, incremental=None, location=None, managed_by=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, sku=None, tags=None, time_created=None, type=None, unique_id=None):
+    def __init__(__self__, creation_data=None, disk_access_id=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, incremental=None, location=None, managed_by=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, purchase_plan=None, sku=None, tags=None, time_created=None, type=None, unique_id=None):
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
@@ -42,6 +42,9 @@ class GetSnapshotResult:
         if encryption_settings_collection and not isinstance(encryption_settings_collection, dict):
             raise TypeError("Expected argument 'encryption_settings_collection' to be a dict")
         pulumi.set(__self__, "encryption_settings_collection", encryption_settings_collection)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if hyper_v_generation and not isinstance(hyper_v_generation, str):
             raise TypeError("Expected argument 'hyper_v_generation' to be a str")
         pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
@@ -69,6 +72,9 @@ class GetSnapshotResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if purchase_plan and not isinstance(purchase_plan, dict):
+            raise TypeError("Expected argument 'purchase_plan' to be a dict")
+        pulumi.set(__self__, "purchase_plan", purchase_plan)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -140,6 +146,14 @@ class GetSnapshotResult:
         Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         """
         return pulumi.get(self, "encryption_settings_collection")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location where the snapshot will be created. Extended location cannot be changed.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="hyperVGeneration")
@@ -214,10 +228,18 @@ class GetSnapshotResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="purchasePlan")
+    def purchase_plan(self) -> Optional['outputs.PurchasePlanResponse']:
+        """
+        Purchase plan information for the image from which the source disk for the snapshot was originally created.
+        """
+        return pulumi.get(self, "purchase_plan")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SnapshotSkuResponse']:
         """
-        The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+        The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         """
         return pulumi.get(self, "sku")
 
@@ -267,6 +289,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             disk_state=self.disk_state,
             encryption=self.encryption,
             encryption_settings_collection=self.encryption_settings_collection,
+            extended_location=self.extended_location,
             hyper_v_generation=self.hyper_v_generation,
             id=self.id,
             incremental=self.incremental,
@@ -276,6 +299,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             network_access_policy=self.network_access_policy,
             os_type=self.os_type,
             provisioning_state=self.provisioning_state,
+            purchase_plan=self.purchase_plan,
             sku=self.sku,
             tags=self.tags,
             time_created=self.time_created,
@@ -309,6 +333,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
         disk_state=__ret__.disk_state,
         encryption=__ret__.encryption,
         encryption_settings_collection=__ret__.encryption_settings_collection,
+        extended_location=__ret__.extended_location,
         hyper_v_generation=__ret__.hyper_v_generation,
         id=__ret__.id,
         incremental=__ret__.incremental,
@@ -318,6 +343,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
         network_access_policy=__ret__.network_access_policy,
         os_type=__ret__.os_type,
         provisioning_state=__ret__.provisioning_state,
+        purchase_plan=__ret__.purchase_plan,
         sku=__ret__.sku,
         tags=__ret__.tags,
         time_created=__ret__.time_created,

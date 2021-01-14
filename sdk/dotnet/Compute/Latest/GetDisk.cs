@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     public sealed class GetDiskResult
     {
         /// <summary>
+        /// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+        /// </summary>
+        public readonly bool? BurstingEnabled;
+        /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         public readonly Outputs.CreationDataResponse CreationData;
@@ -84,6 +88,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly Outputs.EncryptionSettingsCollectionResponse? EncryptionSettingsCollection;
         /// <summary>
+        /// The extended location where the disk will be created. Extended location cannot be changed.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         public readonly string? HyperVGeneration;
@@ -124,6 +132,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+        /// </summary>
+        public readonly Outputs.PurchasePlanResponse? PurchasePlan;
+        /// <summary>
         /// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
         /// </summary>
         public readonly ImmutableArray<Outputs.ShareInfoElementResponse> ShareInfo;
@@ -158,6 +170,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
         [OutputConstructor]
         private GetDiskResult(
+            bool? burstingEnabled,
+
             Outputs.CreationDataResponse creationData,
 
             string? diskAccessId,
@@ -180,6 +194,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             Outputs.EncryptionSettingsCollectionResponse? encryptionSettingsCollection,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string? hyperVGeneration,
 
             string id,
@@ -200,6 +216,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             string provisioningState,
 
+            Outputs.PurchasePlanResponse? purchasePlan,
+
             ImmutableArray<Outputs.ShareInfoElementResponse> shareInfo,
 
             Outputs.DiskSkuResponse? sku,
@@ -216,6 +234,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             ImmutableArray<string> zones)
         {
+            BurstingEnabled = burstingEnabled;
             CreationData = creationData;
             DiskAccessId = diskAccessId;
             DiskIOPSReadOnly = diskIOPSReadOnly;
@@ -227,6 +246,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             DiskState = diskState;
             Encryption = encryption;
             EncryptionSettingsCollection = encryptionSettingsCollection;
+            ExtendedLocation = extendedLocation;
             HyperVGeneration = hyperVGeneration;
             Id = id;
             Location = location;
@@ -237,6 +257,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             NetworkAccessPolicy = networkAccessPolicy;
             OsType = osType;
             ProvisioningState = provisioningState;
+            PurchasePlan = purchasePlan;
             ShareInfo = shareInfo;
             Sku = sku;
             Tags = tags;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
 {
     /// <summary>
     /// Contains information about a pool.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:batch/latest:Pool")]
     public partial class Pool : Pulumi.CustomResource
@@ -72,6 +72,12 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of identity used for the Batch Pool.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.BatchPoolIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
@@ -192,6 +198,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -268,6 +275,12 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// The type of identity used for the Batch Pool.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.BatchPoolIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.

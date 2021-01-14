@@ -12,7 +12,7 @@ import (
 )
 
 // Contains information about a certificate.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2021-01-01.
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +79,9 @@ func NewCertificate(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200901:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:batch/v20210101:Certificate"),
 		},
 	})
 	opts = append(opts, aliases)

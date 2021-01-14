@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the schedule.
-// Latest API Version: 2015-10-31.
+// Latest API Version: 2019-06-01.
 type Schedule struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +78,12 @@ func NewSchedule(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Schedule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Schedule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Schedule"),
 		},
 	})
 	opts = append(opts, aliases)

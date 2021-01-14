@@ -8606,7 +8606,7 @@ func (o EncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 // The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentity struct {
-	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 	Type *string `pulumi:"type"`
 }
 
@@ -8623,7 +8623,7 @@ type EncryptionSetIdentityInput interface {
 
 // The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentityArgs struct {
-	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -8705,7 +8705,7 @@ func (o EncryptionSetIdentityOutput) ToEncryptionSetIdentityPtrOutputWithContext
 	}).(EncryptionSetIdentityPtrOutput)
 }
 
-// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 func (o EncryptionSetIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionSetIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -8728,7 +8728,7 @@ func (o EncryptionSetIdentityPtrOutput) Elem() EncryptionSetIdentityOutput {
 	return o.ApplyT(func(v *EncryptionSetIdentity) EncryptionSetIdentity { return *v }).(EncryptionSetIdentityOutput)
 }
 
-// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 func (o EncryptionSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionSetIdentity) *string {
 		if v == nil {
@@ -8744,7 +8744,7 @@ type EncryptionSetIdentityResponse struct {
 	PrincipalId string `pulumi:"principalId"`
 	// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 	TenantId string `pulumi:"tenantId"`
-	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 	Type *string `pulumi:"type"`
 }
 
@@ -8765,7 +8765,7 @@ type EncryptionSetIdentityResponseArgs struct {
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -8857,7 +8857,7 @@ func (o EncryptionSetIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionSetIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 func (o EncryptionSetIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionSetIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -8900,7 +8900,7 @@ func (o EncryptionSetIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 func (o EncryptionSetIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionSetIdentityResponse) *string {
 		if v == nil {
@@ -9474,6 +9474,312 @@ func (o EncryptionSettingsElementResponseArrayOutput) Index(i pulumi.IntInput) E
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EncryptionSettingsElementResponse {
 		return vs[0].([]EncryptionSettingsElementResponse)[vs[1].(int)]
 	}).(EncryptionSettingsElementResponseOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocation struct {
+	// The name of the extended location.
+	Name *string `pulumi:"name"`
+	// The type of the extended location.
+	Type *string `pulumi:"type"`
+}
+
+// ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
+// You can construct a concrete instance of `ExtendedLocationInput` via:
+//
+//          ExtendedLocationArgs{...}
+type ExtendedLocationInput interface {
+	pulumi.Input
+
+	ToExtendedLocationOutput() ExtendedLocationOutput
+	ToExtendedLocationOutputWithContext(context.Context) ExtendedLocationOutput
+}
+
+// The complex type of the extended location.
+type ExtendedLocationArgs struct {
+	// The name of the extended location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the extended location.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ExtendedLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return i.ToExtendedLocationOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput)
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput).ToExtendedLocationPtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationPtrInput` via:
+//
+//          ExtendedLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationPtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput
+	ToExtendedLocationPtrOutputWithContext(context.Context) ExtendedLocationPtrOutput
+}
+
+type extendedLocationPtrType ExtendedLocationArgs
+
+func ExtendedLocationPtr(v *ExtendedLocationArgs) ExtendedLocationPtrInput {
+	return (*extendedLocationPtrType)(v)
+}
+
+func (*extendedLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationPtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *ExtendedLocation {
+		return &v
+	}).(ExtendedLocationPtrOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
+	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation { return *v }).(ExtendedLocationOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponse struct {
+	// The name of the extended location.
+	Name *string `pulumi:"name"`
+	// The type of the extended location.
+	Type *string `pulumi:"type"`
+}
+
+// ExtendedLocationResponseInput is an input type that accepts ExtendedLocationResponseArgs and ExtendedLocationResponseOutput values.
+// You can construct a concrete instance of `ExtendedLocationResponseInput` via:
+//
+//          ExtendedLocationResponseArgs{...}
+type ExtendedLocationResponseInput interface {
+	pulumi.Input
+
+	ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput
+	ToExtendedLocationResponseOutputWithContext(context.Context) ExtendedLocationResponseOutput
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponseArgs struct {
+	// The name of the extended location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the extended location.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ExtendedLocationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
+	return i.ToExtendedLocationResponseOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput)
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput).ToExtendedLocationResponsePtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationResponsePtrInput is an input type that accepts ExtendedLocationResponseArgs, ExtendedLocationResponsePtr and ExtendedLocationResponsePtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationResponsePtrInput` via:
+//
+//          ExtendedLocationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationResponsePtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput
+	ToExtendedLocationResponsePtrOutputWithContext(context.Context) ExtendedLocationResponsePtrOutput
+}
+
+type extendedLocationResponsePtrType ExtendedLocationResponseArgs
+
+func ExtendedLocationResponsePtr(v *ExtendedLocationResponseArgs) ExtendedLocationResponsePtrInput {
+	return (*extendedLocationResponsePtrType)(v)
+}
+
+func (*extendedLocationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponsePtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return o.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *ExtendedLocationResponse {
+		return &v
+	}).(ExtendedLocationResponsePtrOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse { return *v }).(ExtendedLocationResponseOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // The publishing profile of a gallery image version.
@@ -16563,6 +16869,357 @@ func (o InstanceViewStatusResponseArrayOutput) Index(i pulumi.IntInput) Instance
 	}).(InstanceViewStatusResponseOutput)
 }
 
+// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+type KeyForDiskEncryptionSet struct {
+	// Fully versioned Key Url pointing to a key in KeyVault
+	KeyUrl string `pulumi:"keyUrl"`
+	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+	SourceVault *SourceVault `pulumi:"sourceVault"`
+}
+
+// KeyForDiskEncryptionSetInput is an input type that accepts KeyForDiskEncryptionSetArgs and KeyForDiskEncryptionSetOutput values.
+// You can construct a concrete instance of `KeyForDiskEncryptionSetInput` via:
+//
+//          KeyForDiskEncryptionSetArgs{...}
+type KeyForDiskEncryptionSetInput interface {
+	pulumi.Input
+
+	ToKeyForDiskEncryptionSetOutput() KeyForDiskEncryptionSetOutput
+	ToKeyForDiskEncryptionSetOutputWithContext(context.Context) KeyForDiskEncryptionSetOutput
+}
+
+// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+type KeyForDiskEncryptionSetArgs struct {
+	// Fully versioned Key Url pointing to a key in KeyVault
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+	SourceVault SourceVaultPtrInput `pulumi:"sourceVault"`
+}
+
+func (KeyForDiskEncryptionSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyForDiskEncryptionSet)(nil)).Elem()
+}
+
+func (i KeyForDiskEncryptionSetArgs) ToKeyForDiskEncryptionSetOutput() KeyForDiskEncryptionSetOutput {
+	return i.ToKeyForDiskEncryptionSetOutputWithContext(context.Background())
+}
+
+func (i KeyForDiskEncryptionSetArgs) ToKeyForDiskEncryptionSetOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetOutput)
+}
+
+func (i KeyForDiskEncryptionSetArgs) ToKeyForDiskEncryptionSetPtrOutput() KeyForDiskEncryptionSetPtrOutput {
+	return i.ToKeyForDiskEncryptionSetPtrOutputWithContext(context.Background())
+}
+
+func (i KeyForDiskEncryptionSetArgs) ToKeyForDiskEncryptionSetPtrOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetOutput).ToKeyForDiskEncryptionSetPtrOutputWithContext(ctx)
+}
+
+// KeyForDiskEncryptionSetPtrInput is an input type that accepts KeyForDiskEncryptionSetArgs, KeyForDiskEncryptionSetPtr and KeyForDiskEncryptionSetPtrOutput values.
+// You can construct a concrete instance of `KeyForDiskEncryptionSetPtrInput` via:
+//
+//          KeyForDiskEncryptionSetArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyForDiskEncryptionSetPtrInput interface {
+	pulumi.Input
+
+	ToKeyForDiskEncryptionSetPtrOutput() KeyForDiskEncryptionSetPtrOutput
+	ToKeyForDiskEncryptionSetPtrOutputWithContext(context.Context) KeyForDiskEncryptionSetPtrOutput
+}
+
+type keyForDiskEncryptionSetPtrType KeyForDiskEncryptionSetArgs
+
+func KeyForDiskEncryptionSetPtr(v *KeyForDiskEncryptionSetArgs) KeyForDiskEncryptionSetPtrInput {
+	return (*keyForDiskEncryptionSetPtrType)(v)
+}
+
+func (*keyForDiskEncryptionSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyForDiskEncryptionSet)(nil)).Elem()
+}
+
+func (i *keyForDiskEncryptionSetPtrType) ToKeyForDiskEncryptionSetPtrOutput() KeyForDiskEncryptionSetPtrOutput {
+	return i.ToKeyForDiskEncryptionSetPtrOutputWithContext(context.Background())
+}
+
+func (i *keyForDiskEncryptionSetPtrType) ToKeyForDiskEncryptionSetPtrOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetPtrOutput)
+}
+
+// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+type KeyForDiskEncryptionSetOutput struct{ *pulumi.OutputState }
+
+func (KeyForDiskEncryptionSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyForDiskEncryptionSet)(nil)).Elem()
+}
+
+func (o KeyForDiskEncryptionSetOutput) ToKeyForDiskEncryptionSetOutput() KeyForDiskEncryptionSetOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetOutput) ToKeyForDiskEncryptionSetOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetOutput) ToKeyForDiskEncryptionSetPtrOutput() KeyForDiskEncryptionSetPtrOutput {
+	return o.ToKeyForDiskEncryptionSetPtrOutputWithContext(context.Background())
+}
+
+func (o KeyForDiskEncryptionSetOutput) ToKeyForDiskEncryptionSetPtrOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetPtrOutput {
+	return o.ApplyT(func(v KeyForDiskEncryptionSet) *KeyForDiskEncryptionSet {
+		return &v
+	}).(KeyForDiskEncryptionSetPtrOutput)
+}
+
+// Fully versioned Key Url pointing to a key in KeyVault
+func (o KeyForDiskEncryptionSetOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyForDiskEncryptionSet) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+func (o KeyForDiskEncryptionSetOutput) SourceVault() SourceVaultPtrOutput {
+	return o.ApplyT(func(v KeyForDiskEncryptionSet) *SourceVault { return v.SourceVault }).(SourceVaultPtrOutput)
+}
+
+type KeyForDiskEncryptionSetPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyForDiskEncryptionSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyForDiskEncryptionSet)(nil)).Elem()
+}
+
+func (o KeyForDiskEncryptionSetPtrOutput) ToKeyForDiskEncryptionSetPtrOutput() KeyForDiskEncryptionSetPtrOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetPtrOutput) ToKeyForDiskEncryptionSetPtrOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetPtrOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetPtrOutput) Elem() KeyForDiskEncryptionSetOutput {
+	return o.ApplyT(func(v *KeyForDiskEncryptionSet) KeyForDiskEncryptionSet { return *v }).(KeyForDiskEncryptionSetOutput)
+}
+
+// Fully versioned Key Url pointing to a key in KeyVault
+func (o KeyForDiskEncryptionSetPtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyForDiskEncryptionSet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+func (o KeyForDiskEncryptionSetPtrOutput) SourceVault() SourceVaultPtrOutput {
+	return o.ApplyT(func(v *KeyForDiskEncryptionSet) *SourceVault {
+		if v == nil {
+			return nil
+		}
+		return v.SourceVault
+	}).(SourceVaultPtrOutput)
+}
+
+// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+type KeyForDiskEncryptionSetResponse struct {
+	// Fully versioned Key Url pointing to a key in KeyVault
+	KeyUrl string `pulumi:"keyUrl"`
+	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+	SourceVault *SourceVaultResponse `pulumi:"sourceVault"`
+}
+
+// KeyForDiskEncryptionSetResponseInput is an input type that accepts KeyForDiskEncryptionSetResponseArgs and KeyForDiskEncryptionSetResponseOutput values.
+// You can construct a concrete instance of `KeyForDiskEncryptionSetResponseInput` via:
+//
+//          KeyForDiskEncryptionSetResponseArgs{...}
+type KeyForDiskEncryptionSetResponseInput interface {
+	pulumi.Input
+
+	ToKeyForDiskEncryptionSetResponseOutput() KeyForDiskEncryptionSetResponseOutput
+	ToKeyForDiskEncryptionSetResponseOutputWithContext(context.Context) KeyForDiskEncryptionSetResponseOutput
+}
+
+// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+type KeyForDiskEncryptionSetResponseArgs struct {
+	// Fully versioned Key Url pointing to a key in KeyVault
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+	SourceVault SourceVaultResponsePtrInput `pulumi:"sourceVault"`
+}
+
+func (KeyForDiskEncryptionSetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyForDiskEncryptionSetResponse)(nil)).Elem()
+}
+
+func (i KeyForDiskEncryptionSetResponseArgs) ToKeyForDiskEncryptionSetResponseOutput() KeyForDiskEncryptionSetResponseOutput {
+	return i.ToKeyForDiskEncryptionSetResponseOutputWithContext(context.Background())
+}
+
+func (i KeyForDiskEncryptionSetResponseArgs) ToKeyForDiskEncryptionSetResponseOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetResponseOutput)
+}
+
+func (i KeyForDiskEncryptionSetResponseArgs) ToKeyForDiskEncryptionSetResponsePtrOutput() KeyForDiskEncryptionSetResponsePtrOutput {
+	return i.ToKeyForDiskEncryptionSetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyForDiskEncryptionSetResponseArgs) ToKeyForDiskEncryptionSetResponsePtrOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetResponseOutput).ToKeyForDiskEncryptionSetResponsePtrOutputWithContext(ctx)
+}
+
+// KeyForDiskEncryptionSetResponsePtrInput is an input type that accepts KeyForDiskEncryptionSetResponseArgs, KeyForDiskEncryptionSetResponsePtr and KeyForDiskEncryptionSetResponsePtrOutput values.
+// You can construct a concrete instance of `KeyForDiskEncryptionSetResponsePtrInput` via:
+//
+//          KeyForDiskEncryptionSetResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyForDiskEncryptionSetResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyForDiskEncryptionSetResponsePtrOutput() KeyForDiskEncryptionSetResponsePtrOutput
+	ToKeyForDiskEncryptionSetResponsePtrOutputWithContext(context.Context) KeyForDiskEncryptionSetResponsePtrOutput
+}
+
+type keyForDiskEncryptionSetResponsePtrType KeyForDiskEncryptionSetResponseArgs
+
+func KeyForDiskEncryptionSetResponsePtr(v *KeyForDiskEncryptionSetResponseArgs) KeyForDiskEncryptionSetResponsePtrInput {
+	return (*keyForDiskEncryptionSetResponsePtrType)(v)
+}
+
+func (*keyForDiskEncryptionSetResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyForDiskEncryptionSetResponse)(nil)).Elem()
+}
+
+func (i *keyForDiskEncryptionSetResponsePtrType) ToKeyForDiskEncryptionSetResponsePtrOutput() KeyForDiskEncryptionSetResponsePtrOutput {
+	return i.ToKeyForDiskEncryptionSetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyForDiskEncryptionSetResponsePtrType) ToKeyForDiskEncryptionSetResponsePtrOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetResponsePtrOutput)
+}
+
+// KeyForDiskEncryptionSetResponseArrayInput is an input type that accepts KeyForDiskEncryptionSetResponseArray and KeyForDiskEncryptionSetResponseArrayOutput values.
+// You can construct a concrete instance of `KeyForDiskEncryptionSetResponseArrayInput` via:
+//
+//          KeyForDiskEncryptionSetResponseArray{ KeyForDiskEncryptionSetResponseArgs{...} }
+type KeyForDiskEncryptionSetResponseArrayInput interface {
+	pulumi.Input
+
+	ToKeyForDiskEncryptionSetResponseArrayOutput() KeyForDiskEncryptionSetResponseArrayOutput
+	ToKeyForDiskEncryptionSetResponseArrayOutputWithContext(context.Context) KeyForDiskEncryptionSetResponseArrayOutput
+}
+
+type KeyForDiskEncryptionSetResponseArray []KeyForDiskEncryptionSetResponseInput
+
+func (KeyForDiskEncryptionSetResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyForDiskEncryptionSetResponse)(nil)).Elem()
+}
+
+func (i KeyForDiskEncryptionSetResponseArray) ToKeyForDiskEncryptionSetResponseArrayOutput() KeyForDiskEncryptionSetResponseArrayOutput {
+	return i.ToKeyForDiskEncryptionSetResponseArrayOutputWithContext(context.Background())
+}
+
+func (i KeyForDiskEncryptionSetResponseArray) ToKeyForDiskEncryptionSetResponseArrayOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetResponseArrayOutput)
+}
+
+// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+type KeyForDiskEncryptionSetResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyForDiskEncryptionSetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyForDiskEncryptionSetResponse)(nil)).Elem()
+}
+
+func (o KeyForDiskEncryptionSetResponseOutput) ToKeyForDiskEncryptionSetResponseOutput() KeyForDiskEncryptionSetResponseOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetResponseOutput) ToKeyForDiskEncryptionSetResponseOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetResponseOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetResponseOutput) ToKeyForDiskEncryptionSetResponsePtrOutput() KeyForDiskEncryptionSetResponsePtrOutput {
+	return o.ToKeyForDiskEncryptionSetResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyForDiskEncryptionSetResponseOutput) ToKeyForDiskEncryptionSetResponsePtrOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetResponsePtrOutput {
+	return o.ApplyT(func(v KeyForDiskEncryptionSetResponse) *KeyForDiskEncryptionSetResponse {
+		return &v
+	}).(KeyForDiskEncryptionSetResponsePtrOutput)
+}
+
+// Fully versioned Key Url pointing to a key in KeyVault
+func (o KeyForDiskEncryptionSetResponseOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyForDiskEncryptionSetResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+func (o KeyForDiskEncryptionSetResponseOutput) SourceVault() SourceVaultResponsePtrOutput {
+	return o.ApplyT(func(v KeyForDiskEncryptionSetResponse) *SourceVaultResponse { return v.SourceVault }).(SourceVaultResponsePtrOutput)
+}
+
+type KeyForDiskEncryptionSetResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyForDiskEncryptionSetResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyForDiskEncryptionSetResponse)(nil)).Elem()
+}
+
+func (o KeyForDiskEncryptionSetResponsePtrOutput) ToKeyForDiskEncryptionSetResponsePtrOutput() KeyForDiskEncryptionSetResponsePtrOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetResponsePtrOutput) ToKeyForDiskEncryptionSetResponsePtrOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetResponsePtrOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetResponsePtrOutput) Elem() KeyForDiskEncryptionSetResponseOutput {
+	return o.ApplyT(func(v *KeyForDiskEncryptionSetResponse) KeyForDiskEncryptionSetResponse { return *v }).(KeyForDiskEncryptionSetResponseOutput)
+}
+
+// Fully versioned Key Url pointing to a key in KeyVault
+func (o KeyForDiskEncryptionSetResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyForDiskEncryptionSetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+func (o KeyForDiskEncryptionSetResponsePtrOutput) SourceVault() SourceVaultResponsePtrOutput {
+	return o.ApplyT(func(v *KeyForDiskEncryptionSetResponse) *SourceVaultResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SourceVault
+	}).(SourceVaultResponsePtrOutput)
+}
+
+type KeyForDiskEncryptionSetResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyForDiskEncryptionSetResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyForDiskEncryptionSetResponse)(nil)).Elem()
+}
+
+func (o KeyForDiskEncryptionSetResponseArrayOutput) ToKeyForDiskEncryptionSetResponseArrayOutput() KeyForDiskEncryptionSetResponseArrayOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetResponseArrayOutput) ToKeyForDiskEncryptionSetResponseArrayOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetResponseArrayOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetResponseArrayOutput) Index(i pulumi.IntInput) KeyForDiskEncryptionSetResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyForDiskEncryptionSetResponse {
+		return vs[0].([]KeyForDiskEncryptionSetResponse)[vs[1].(int)]
+	}).(KeyForDiskEncryptionSetResponseOutput)
+}
+
 // Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReference struct {
 	// Url pointing to a key or secret in KeyVault
@@ -16796,31 +17453,6 @@ func (i *keyVaultAndKeyReferenceResponsePtrType) ToKeyVaultAndKeyReferenceRespon
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferenceResponsePtrOutput)
 }
 
-// KeyVaultAndKeyReferenceResponseArrayInput is an input type that accepts KeyVaultAndKeyReferenceResponseArray and KeyVaultAndKeyReferenceResponseArrayOutput values.
-// You can construct a concrete instance of `KeyVaultAndKeyReferenceResponseArrayInput` via:
-//
-//          KeyVaultAndKeyReferenceResponseArray{ KeyVaultAndKeyReferenceResponseArgs{...} }
-type KeyVaultAndKeyReferenceResponseArrayInput interface {
-	pulumi.Input
-
-	ToKeyVaultAndKeyReferenceResponseArrayOutput() KeyVaultAndKeyReferenceResponseArrayOutput
-	ToKeyVaultAndKeyReferenceResponseArrayOutputWithContext(context.Context) KeyVaultAndKeyReferenceResponseArrayOutput
-}
-
-type KeyVaultAndKeyReferenceResponseArray []KeyVaultAndKeyReferenceResponseInput
-
-func (KeyVaultAndKeyReferenceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyVaultAndKeyReferenceResponse)(nil)).Elem()
-}
-
-func (i KeyVaultAndKeyReferenceResponseArray) ToKeyVaultAndKeyReferenceResponseArrayOutput() KeyVaultAndKeyReferenceResponseArrayOutput {
-	return i.ToKeyVaultAndKeyReferenceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i KeyVaultAndKeyReferenceResponseArray) ToKeyVaultAndKeyReferenceResponseArrayOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferenceResponseArrayOutput)
-}
-
 // Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponseOutput struct{ *pulumi.OutputState }
 
@@ -16892,26 +17524,6 @@ func (o KeyVaultAndKeyReferenceResponsePtrOutput) SourceVault() SourceVaultRespo
 		}
 		return &v.SourceVault
 	}).(SourceVaultResponsePtrOutput)
-}
-
-type KeyVaultAndKeyReferenceResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultAndKeyReferenceResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyVaultAndKeyReferenceResponse)(nil)).Elem()
-}
-
-func (o KeyVaultAndKeyReferenceResponseArrayOutput) ToKeyVaultAndKeyReferenceResponseArrayOutput() KeyVaultAndKeyReferenceResponseArrayOutput {
-	return o
-}
-
-func (o KeyVaultAndKeyReferenceResponseArrayOutput) ToKeyVaultAndKeyReferenceResponseArrayOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceResponseArrayOutput {
-	return o
-}
-
-func (o KeyVaultAndKeyReferenceResponseArrayOutput) Index(i pulumi.IntInput) KeyVaultAndKeyReferenceResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultAndKeyReferenceResponse {
-		return vs[0].([]KeyVaultAndKeyReferenceResponse)[vs[1].(int)]
-	}).(KeyVaultAndKeyReferenceResponseOutput)
 }
 
 // Key Vault Secret Url and vault id of the encryption key
@@ -21805,9 +22417,9 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
-	// private endpoint connection Id
+	// Resource Id
 	Id string `pulumi:"id"`
-	// private endpoint connection name
+	// Resource name
 	Name string `pulumi:"name"`
 	// The resource of private end point.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -21815,7 +22427,7 @@ type PrivateEndpointConnectionResponse struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// private endpoint connection type
+	// Resource type
 	Type string `pulumi:"type"`
 }
 
@@ -21832,9 +22444,9 @@ type PrivateEndpointConnectionResponseInput interface {
 
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseArgs struct {
-	// private endpoint connection Id
+	// Resource Id
 	Id pulumi.StringInput `pulumi:"id"`
-	// private endpoint connection name
+	// Resource name
 	Name pulumi.StringInput `pulumi:"name"`
 	// The resource of private end point.
 	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
@@ -21842,7 +22454,7 @@ type PrivateEndpointConnectionResponseArgs struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// private endpoint connection type
+	// Resource type
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -21898,12 +22510,12 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// private endpoint connection Id
+// Resource Id
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// private endpoint connection name
+// Resource name
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -21925,7 +22537,7 @@ func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.Stri
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// private endpoint connection type
+// Resource type
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -22085,6 +22697,178 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionState struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
+//
+//          PrivateLinkServiceConnectionStateArgs{...}
+type PrivateLinkServiceConnectionStateInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput
+	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
+	return i.ToPrivateLinkServiceConnectionStateOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput)
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput).ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
+//
+//          PrivateLinkServiceConnectionStateArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkServiceConnectionStatePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput
+	ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePtrOutput
+}
+
+type privateLinkServiceConnectionStatePtrType PrivateLinkServiceConnectionStateArgs
+
+func PrivateLinkServiceConnectionStatePtr(v *PrivateLinkServiceConnectionStateArgs) PrivateLinkServiceConnectionStatePtrInput {
+	return (*privateLinkServiceConnectionStatePtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+		return &v
+	}).(PrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -22127,6 +22911,47 @@ func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConne
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput).ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkServiceConnectionStateResponsePtrInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs, PrivateLinkServiceConnectionStateResponsePtr and PrivateLinkServiceConnectionStateResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateResponsePtrInput` via:
+//
+//          PrivateLinkServiceConnectionStateResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkServiceConnectionStateResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput
+	ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput
+}
+
+type privateLinkServiceConnectionStateResponsePtrType PrivateLinkServiceConnectionStateResponseArgs
+
+func PrivateLinkServiceConnectionStateResponsePtr(v *PrivateLinkServiceConnectionStateResponseArgs) PrivateLinkServiceConnectionStateResponsePtrInput {
+	return (*privateLinkServiceConnectionStateResponsePtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStateResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
 // A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
@@ -22142,6 +22967,16 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	return o
 }
 
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+		return &v
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
 // A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
@@ -22155,6 +22990,438 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.St
 // Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStateResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
+		return *v
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlan struct {
+	// The plan ID.
+	Name string `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+	Product string `pulumi:"product"`
+	// The Offer Promotion Code.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher string `pulumi:"publisher"`
+}
+
+// PurchasePlanInput is an input type that accepts PurchasePlanArgs and PurchasePlanOutput values.
+// You can construct a concrete instance of `PurchasePlanInput` via:
+//
+//          PurchasePlanArgs{...}
+type PurchasePlanInput interface {
+	pulumi.Input
+
+	ToPurchasePlanOutput() PurchasePlanOutput
+	ToPurchasePlanOutputWithContext(context.Context) PurchasePlanOutput
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlanArgs struct {
+	// The plan ID.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+	Product pulumi.StringInput `pulumi:"product"`
+	// The Offer Promotion Code.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (PurchasePlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurchasePlan)(nil)).Elem()
+}
+
+func (i PurchasePlanArgs) ToPurchasePlanOutput() PurchasePlanOutput {
+	return i.ToPurchasePlanOutputWithContext(context.Background())
+}
+
+func (i PurchasePlanArgs) ToPurchasePlanOutputWithContext(ctx context.Context) PurchasePlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanOutput)
+}
+
+func (i PurchasePlanArgs) ToPurchasePlanPtrOutput() PurchasePlanPtrOutput {
+	return i.ToPurchasePlanPtrOutputWithContext(context.Background())
+}
+
+func (i PurchasePlanArgs) ToPurchasePlanPtrOutputWithContext(ctx context.Context) PurchasePlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanOutput).ToPurchasePlanPtrOutputWithContext(ctx)
+}
+
+// PurchasePlanPtrInput is an input type that accepts PurchasePlanArgs, PurchasePlanPtr and PurchasePlanPtrOutput values.
+// You can construct a concrete instance of `PurchasePlanPtrInput` via:
+//
+//          PurchasePlanArgs{...}
+//
+//  or:
+//
+//          nil
+type PurchasePlanPtrInput interface {
+	pulumi.Input
+
+	ToPurchasePlanPtrOutput() PurchasePlanPtrOutput
+	ToPurchasePlanPtrOutputWithContext(context.Context) PurchasePlanPtrOutput
+}
+
+type purchasePlanPtrType PurchasePlanArgs
+
+func PurchasePlanPtr(v *PurchasePlanArgs) PurchasePlanPtrInput {
+	return (*purchasePlanPtrType)(v)
+}
+
+func (*purchasePlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurchasePlan)(nil)).Elem()
+}
+
+func (i *purchasePlanPtrType) ToPurchasePlanPtrOutput() PurchasePlanPtrOutput {
+	return i.ToPurchasePlanPtrOutputWithContext(context.Background())
+}
+
+func (i *purchasePlanPtrType) ToPurchasePlanPtrOutputWithContext(ctx context.Context) PurchasePlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanPtrOutput)
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlanOutput struct{ *pulumi.OutputState }
+
+func (PurchasePlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurchasePlan)(nil)).Elem()
+}
+
+func (o PurchasePlanOutput) ToPurchasePlanOutput() PurchasePlanOutput {
+	return o
+}
+
+func (o PurchasePlanOutput) ToPurchasePlanOutputWithContext(ctx context.Context) PurchasePlanOutput {
+	return o
+}
+
+func (o PurchasePlanOutput) ToPurchasePlanPtrOutput() PurchasePlanPtrOutput {
+	return o.ToPurchasePlanPtrOutputWithContext(context.Background())
+}
+
+func (o PurchasePlanOutput) ToPurchasePlanPtrOutputWithContext(ctx context.Context) PurchasePlanPtrOutput {
+	return o.ApplyT(func(v PurchasePlan) *PurchasePlan {
+		return &v
+	}).(PurchasePlanPtrOutput)
+}
+
+// The plan ID.
+func (o PurchasePlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchasePlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+func (o PurchasePlanOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchasePlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// The Offer Promotion Code.
+func (o PurchasePlanOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurchasePlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// The publisher ID.
+func (o PurchasePlanOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchasePlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type PurchasePlanPtrOutput struct{ *pulumi.OutputState }
+
+func (PurchasePlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurchasePlan)(nil)).Elem()
+}
+
+func (o PurchasePlanPtrOutput) ToPurchasePlanPtrOutput() PurchasePlanPtrOutput {
+	return o
+}
+
+func (o PurchasePlanPtrOutput) ToPurchasePlanPtrOutputWithContext(ctx context.Context) PurchasePlanPtrOutput {
+	return o
+}
+
+func (o PurchasePlanPtrOutput) Elem() PurchasePlanOutput {
+	return o.ApplyT(func(v *PurchasePlan) PurchasePlan { return *v }).(PurchasePlanOutput)
+}
+
+// The plan ID.
+func (o PurchasePlanPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurchasePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+func (o PurchasePlanPtrOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurchasePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Product
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Offer Promotion Code.
+func (o PurchasePlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurchasePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PromotionCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The publisher ID.
+func (o PurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurchasePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlanResponse struct {
+	// The plan ID.
+	Name string `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+	Product string `pulumi:"product"`
+	// The Offer Promotion Code.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher string `pulumi:"publisher"`
+}
+
+// PurchasePlanResponseInput is an input type that accepts PurchasePlanResponseArgs and PurchasePlanResponseOutput values.
+// You can construct a concrete instance of `PurchasePlanResponseInput` via:
+//
+//          PurchasePlanResponseArgs{...}
+type PurchasePlanResponseInput interface {
+	pulumi.Input
+
+	ToPurchasePlanResponseOutput() PurchasePlanResponseOutput
+	ToPurchasePlanResponseOutputWithContext(context.Context) PurchasePlanResponseOutput
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlanResponseArgs struct {
+	// The plan ID.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+	Product pulumi.StringInput `pulumi:"product"`
+	// The Offer Promotion Code.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (PurchasePlanResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurchasePlanResponse)(nil)).Elem()
+}
+
+func (i PurchasePlanResponseArgs) ToPurchasePlanResponseOutput() PurchasePlanResponseOutput {
+	return i.ToPurchasePlanResponseOutputWithContext(context.Background())
+}
+
+func (i PurchasePlanResponseArgs) ToPurchasePlanResponseOutputWithContext(ctx context.Context) PurchasePlanResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanResponseOutput)
+}
+
+func (i PurchasePlanResponseArgs) ToPurchasePlanResponsePtrOutput() PurchasePlanResponsePtrOutput {
+	return i.ToPurchasePlanResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PurchasePlanResponseArgs) ToPurchasePlanResponsePtrOutputWithContext(ctx context.Context) PurchasePlanResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanResponseOutput).ToPurchasePlanResponsePtrOutputWithContext(ctx)
+}
+
+// PurchasePlanResponsePtrInput is an input type that accepts PurchasePlanResponseArgs, PurchasePlanResponsePtr and PurchasePlanResponsePtrOutput values.
+// You can construct a concrete instance of `PurchasePlanResponsePtrInput` via:
+//
+//          PurchasePlanResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PurchasePlanResponsePtrInput interface {
+	pulumi.Input
+
+	ToPurchasePlanResponsePtrOutput() PurchasePlanResponsePtrOutput
+	ToPurchasePlanResponsePtrOutputWithContext(context.Context) PurchasePlanResponsePtrOutput
+}
+
+type purchasePlanResponsePtrType PurchasePlanResponseArgs
+
+func PurchasePlanResponsePtr(v *PurchasePlanResponseArgs) PurchasePlanResponsePtrInput {
+	return (*purchasePlanResponsePtrType)(v)
+}
+
+func (*purchasePlanResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurchasePlanResponse)(nil)).Elem()
+}
+
+func (i *purchasePlanResponsePtrType) ToPurchasePlanResponsePtrOutput() PurchasePlanResponsePtrOutput {
+	return i.ToPurchasePlanResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *purchasePlanResponsePtrType) ToPurchasePlanResponsePtrOutputWithContext(ctx context.Context) PurchasePlanResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanResponsePtrOutput)
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlanResponseOutput struct{ *pulumi.OutputState }
+
+func (PurchasePlanResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurchasePlanResponse)(nil)).Elem()
+}
+
+func (o PurchasePlanResponseOutput) ToPurchasePlanResponseOutput() PurchasePlanResponseOutput {
+	return o
+}
+
+func (o PurchasePlanResponseOutput) ToPurchasePlanResponseOutputWithContext(ctx context.Context) PurchasePlanResponseOutput {
+	return o
+}
+
+func (o PurchasePlanResponseOutput) ToPurchasePlanResponsePtrOutput() PurchasePlanResponsePtrOutput {
+	return o.ToPurchasePlanResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PurchasePlanResponseOutput) ToPurchasePlanResponsePtrOutputWithContext(ctx context.Context) PurchasePlanResponsePtrOutput {
+	return o.ApplyT(func(v PurchasePlanResponse) *PurchasePlanResponse {
+		return &v
+	}).(PurchasePlanResponsePtrOutput)
+}
+
+// The plan ID.
+func (o PurchasePlanResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchasePlanResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+func (o PurchasePlanResponseOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchasePlanResponse) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// The Offer Promotion Code.
+func (o PurchasePlanResponseOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurchasePlanResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// The publisher ID.
+func (o PurchasePlanResponseOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchasePlanResponse) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type PurchasePlanResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PurchasePlanResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurchasePlanResponse)(nil)).Elem()
+}
+
+func (o PurchasePlanResponsePtrOutput) ToPurchasePlanResponsePtrOutput() PurchasePlanResponsePtrOutput {
+	return o
+}
+
+func (o PurchasePlanResponsePtrOutput) ToPurchasePlanResponsePtrOutputWithContext(ctx context.Context) PurchasePlanResponsePtrOutput {
+	return o
+}
+
+func (o PurchasePlanResponsePtrOutput) Elem() PurchasePlanResponseOutput {
+	return o.ApplyT(func(v *PurchasePlanResponse) PurchasePlanResponse { return *v }).(PurchasePlanResponseOutput)
+}
+
+// The plan ID.
+func (o PurchasePlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurchasePlanResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+func (o PurchasePlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurchasePlanResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Product
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Offer Promotion Code.
+func (o PurchasePlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurchasePlanResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PromotionCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The publisher ID.
+func (o PurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurchasePlanResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
 }
 
 // The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
@@ -25286,7 +26553,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSku struct {
 	// The sku name.
 	Name *string `pulumi:"name"`
@@ -25303,7 +26570,7 @@ type SnapshotSkuInput interface {
 	ToSnapshotSkuOutputWithContext(context.Context) SnapshotSkuOutput
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuArgs struct {
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -25362,7 +26629,7 @@ func (i *snapshotSkuPtrType) ToSnapshotSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSkuPtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuOutput struct{ *pulumi.OutputState }
 
 func (SnapshotSkuOutput) ElementType() reflect.Type {
@@ -25420,7 +26687,7 @@ func (o SnapshotSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuResponse struct {
 	// The sku name.
 	Name *string `pulumi:"name"`
@@ -25439,7 +26706,7 @@ type SnapshotSkuResponseInput interface {
 	ToSnapshotSkuResponseOutputWithContext(context.Context) SnapshotSkuResponseOutput
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuResponseArgs struct {
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -25500,7 +26767,7 @@ func (i *snapshotSkuResponsePtrType) ToSnapshotSkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSkuResponsePtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SnapshotSkuResponseOutput) ElementType() reflect.Type {
@@ -40609,6 +41876,10 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionSettingsElementArrayOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsElementResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsElementResponseArrayOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionPublishingProfileOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionPublishingProfilePtrOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionPublishingProfileResponseOutput{})
@@ -40687,11 +41958,15 @@ func init() {
 	pulumi.RegisterOutputType(InstanceViewStatusResponseOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyForDiskEncryptionSetOutput{})
+	pulumi.RegisterOutputType(KeyForDiskEncryptionSetPtrOutput{})
+	pulumi.RegisterOutputType(KeyForDiskEncryptionSetResponseOutput{})
+	pulumi.RegisterOutputType(KeyForDiskEncryptionSetResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyForDiskEncryptionSetResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferencePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceResponsePtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferencePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceResponseOutput{})
@@ -40749,7 +42024,14 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(PurchasePlanOutput{})
+	pulumi.RegisterOutputType(PurchasePlanPtrOutput{})
+	pulumi.RegisterOutputType(PurchasePlanResponseOutput{})
+	pulumi.RegisterOutputType(PurchasePlanResponsePtrOutput{})
 	pulumi.RegisterOutputType(RecommendedMachineConfigurationOutput{})
 	pulumi.RegisterOutputType(RecommendedMachineConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RecommendedMachineConfigurationResponseOutput{})

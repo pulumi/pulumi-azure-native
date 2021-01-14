@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the job schedule.
-    /// Latest API Version: 2015-10-31.
+    /// Latest API Version: 2019-06-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:automation/latest:JobSchedule")]
     public partial class JobSchedule : Pulumi.CustomResource
@@ -84,6 +84,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:JobSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:JobSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:JobSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

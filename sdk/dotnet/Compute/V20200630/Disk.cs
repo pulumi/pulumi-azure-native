@@ -218,6 +218,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

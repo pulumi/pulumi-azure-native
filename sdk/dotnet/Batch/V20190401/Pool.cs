@@ -185,6 +185,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190401
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

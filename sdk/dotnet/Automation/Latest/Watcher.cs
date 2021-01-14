@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the watcher type.
-    /// Latest API Version: 2015-10-31.
+    /// Latest API Version: 2019-06-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:automation/latest:Watcher")]
     public partial class Watcher : Pulumi.CustomResource
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the resource lives
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
@@ -126,6 +126,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Watcher"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Watcher"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Watcher"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -174,7 +176,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         public Input<double>? ExecutionFrequencyInSeconds { get; set; }
 
         /// <summary>
-        /// The Azure Region where the resource lives
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

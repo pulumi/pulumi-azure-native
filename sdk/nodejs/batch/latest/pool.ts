@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Contains information about a pool.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2021-01-01.
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -69,6 +69,10 @@ export class Pool extends pulumi.CustomResource {
      * The ETag of the resource, used for concurrency statements.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The type of identity used for the Batch Pool.
+     */
+    public readonly identity!: pulumi.Output<outputs.batch.latest.BatchPoolIdentityResponse | undefined>;
     /**
      * This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
      */
@@ -150,6 +154,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["certificates"] = args ? args.certificates : undefined;
             inputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["interNodeCommunication"] = args ? args.interNodeCommunication : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["mountConfiguration"] = args ? args.mountConfiguration : undefined;
@@ -188,6 +193,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["deploymentConfiguration"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["interNodeCommunication"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
             inputs["metadata"] = undefined /*out*/;
@@ -212,7 +218,7 @@ export class Pool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/v20170901:Pool" }, { type: "azure-nextgen:batch/v20181201:Pool" }, { type: "azure-nextgen:batch/v20190401:Pool" }, { type: "azure-nextgen:batch/v20190801:Pool" }, { type: "azure-nextgen:batch/v20200301:Pool" }, { type: "azure-nextgen:batch/v20200501:Pool" }, { type: "azure-nextgen:batch/v20200901:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/v20170901:Pool" }, { type: "azure-nextgen:batch/v20181201:Pool" }, { type: "azure-nextgen:batch/v20190401:Pool" }, { type: "azure-nextgen:batch/v20190801:Pool" }, { type: "azure-nextgen:batch/v20200301:Pool" }, { type: "azure-nextgen:batch/v20200501:Pool" }, { type: "azure-nextgen:batch/v20200901:Pool" }, { type: "azure-nextgen:batch/v20210101:Pool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Pool.__pulumiType, name, inputs, opts);
     }
@@ -246,6 +252,10 @@ export interface PoolArgs {
      * The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
      */
     readonly displayName?: pulumi.Input<string>;
+    /**
+     * The type of identity used for the Batch Pool.
+     */
+    readonly identity?: pulumi.Input<inputs.batch.latest.BatchPoolIdentity>;
     /**
      * This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
      */

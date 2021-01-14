@@ -8,6 +8,247 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.Compute.V20200930
 {
     /// <summary>
+    /// This enumerates the possible sources of a disk's creation.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskCreateOption : IEquatable<DiskCreateOption>
+    {
+        private readonly string _value;
+
+        private DiskCreateOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Create an empty data disk of a size given by diskSizeGB.
+        /// </summary>
+        public static DiskCreateOption Empty { get; } = new DiskCreateOption("Empty");
+        /// <summary>
+        /// Disk will be attached to a VM.
+        /// </summary>
+        public static DiskCreateOption Attach { get; } = new DiskCreateOption("Attach");
+        /// <summary>
+        /// Create a new disk from a platform image specified by the given imageReference or galleryImageReference.
+        /// </summary>
+        public static DiskCreateOption FromImage { get; } = new DiskCreateOption("FromImage");
+        /// <summary>
+        /// Create a disk by importing from a blob specified by a sourceUri in a storage account specified by storageAccountId.
+        /// </summary>
+        public static DiskCreateOption Import { get; } = new DiskCreateOption("Import");
+        /// <summary>
+        /// Create a new disk or snapshot by copying from a disk or snapshot specified by the given sourceResourceId.
+        /// </summary>
+        public static DiskCreateOption Copy { get; } = new DiskCreateOption("Copy");
+        /// <summary>
+        /// Create a new disk by copying from a backup recovery point.
+        /// </summary>
+        public static DiskCreateOption Restore { get; } = new DiskCreateOption("Restore");
+        /// <summary>
+        /// Create a new disk by obtaining a write token and using it to directly upload the contents of the disk.
+        /// </summary>
+        public static DiskCreateOption Upload { get; } = new DiskCreateOption("Upload");
+
+        public static bool operator ==(DiskCreateOption left, DiskCreateOption right) => left.Equals(right);
+        public static bool operator !=(DiskCreateOption left, DiskCreateOption right) => !left.Equals(right);
+
+        public static explicit operator string(DiskCreateOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskCreateOption other && Equals(other);
+        public bool Equals(DiskCreateOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskEncryptionSetIdentityType : IEquatable<DiskEncryptionSetIdentityType>
+    {
+        private readonly string _value;
+
+        private DiskEncryptionSetIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiskEncryptionSetIdentityType SystemAssigned { get; } = new DiskEncryptionSetIdentityType("SystemAssigned");
+        public static DiskEncryptionSetIdentityType None { get; } = new DiskEncryptionSetIdentityType("None");
+
+        public static bool operator ==(DiskEncryptionSetIdentityType left, DiskEncryptionSetIdentityType right) => left.Equals(right);
+        public static bool operator !=(DiskEncryptionSetIdentityType left, DiskEncryptionSetIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(DiskEncryptionSetIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskEncryptionSetIdentityType other && Equals(other);
+        public bool Equals(DiskEncryptionSetIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of key used to encrypt the data of the disk.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskEncryptionSetType : IEquatable<DiskEncryptionSetType>
+    {
+        private readonly string _value;
+
+        private DiskEncryptionSetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Resource using diskEncryptionSet would be encrypted at rest with Customer managed key that can be changed and revoked by a customer.
+        /// </summary>
+        public static DiskEncryptionSetType EncryptionAtRestWithCustomerKey { get; } = new DiskEncryptionSetType("EncryptionAtRestWithCustomerKey");
+        /// <summary>
+        /// Resource using diskEncryptionSet would be encrypted at rest with two layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
+        /// </summary>
+        public static DiskEncryptionSetType EncryptionAtRestWithPlatformAndCustomerKeys { get; } = new DiskEncryptionSetType("EncryptionAtRestWithPlatformAndCustomerKeys");
+
+        public static bool operator ==(DiskEncryptionSetType left, DiskEncryptionSetType right) => left.Equals(right);
+        public static bool operator !=(DiskEncryptionSetType left, DiskEncryptionSetType right) => !left.Equals(right);
+
+        public static explicit operator string(DiskEncryptionSetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskEncryptionSetType other && Equals(other);
+        public bool Equals(DiskEncryptionSetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The sku name.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskStorageAccountTypes : IEquatable<DiskStorageAccountTypes>
+    {
+        private readonly string _value;
+
+        private DiskStorageAccountTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access.
+        /// </summary>
+        public static DiskStorageAccountTypes Standard_LRS { get; } = new DiskStorageAccountTypes("Standard_LRS");
+        /// <summary>
+        /// Premium SSD locally redundant storage. Best for production and performance sensitive workloads.
+        /// </summary>
+        public static DiskStorageAccountTypes Premium_LRS { get; } = new DiskStorageAccountTypes("Premium_LRS");
+        /// <summary>
+        /// Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test.
+        /// </summary>
+        public static DiskStorageAccountTypes StandardSSD_LRS { get; } = new DiskStorageAccountTypes("StandardSSD_LRS");
+        /// <summary>
+        /// Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.
+        /// </summary>
+        public static DiskStorageAccountTypes UltraSSD_LRS { get; } = new DiskStorageAccountTypes("UltraSSD_LRS");
+
+        public static bool operator ==(DiskStorageAccountTypes left, DiskStorageAccountTypes right) => left.Equals(right);
+        public static bool operator !=(DiskStorageAccountTypes left, DiskStorageAccountTypes right) => !left.Equals(right);
+
+        public static explicit operator string(DiskStorageAccountTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskStorageAccountTypes other && Equals(other);
+        public bool Equals(DiskStorageAccountTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of key used to encrypt the data of the disk.
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionType : IEquatable<EncryptionType>
+    {
+        private readonly string _value;
+
+        private EncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Disk is encrypted at rest with Platform managed key. It is the default encryption type. This is not a valid encryption type for disk encryption sets.
+        /// </summary>
+        public static EncryptionType EncryptionAtRestWithPlatformKey { get; } = new EncryptionType("EncryptionAtRestWithPlatformKey");
+        /// <summary>
+        /// Disk is encrypted at rest with Customer managed key that can be changed and revoked by a customer.
+        /// </summary>
+        public static EncryptionType EncryptionAtRestWithCustomerKey { get; } = new EncryptionType("EncryptionAtRestWithCustomerKey");
+        /// <summary>
+        /// Disk is encrypted at rest with 2 layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
+        /// </summary>
+        public static EncryptionType EncryptionAtRestWithPlatformAndCustomerKeys { get; } = new EncryptionType("EncryptionAtRestWithPlatformAndCustomerKeys");
+
+        public static bool operator ==(EncryptionType left, EncryptionType right) => left.Equals(right);
+        public static bool operator !=(EncryptionType left, EncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionType other && Equals(other);
+        public bool Equals(EncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the extended location.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationTypes : IEquatable<ExtendedLocationTypes>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExtendedLocationTypes EdgeZone { get; } = new ExtendedLocationTypes("EdgeZone");
+
+        public static bool operator ==(ExtendedLocationTypes left, ExtendedLocationTypes right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationTypes left, ExtendedLocationTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
+        public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This property allows you to specify the permission of sharing gallery. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Private** &lt;br&gt;&lt;br&gt; **Groups**
     /// </summary>
     [EnumType]
@@ -102,6 +343,47 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
     }
 
     /// <summary>
+    /// Policy for accessing the disk via network.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkAccessPolicy : IEquatable<NetworkAccessPolicy>
+    {
+        private readonly string _value;
+
+        private NetworkAccessPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The disk can be exported or uploaded to from any network.
+        /// </summary>
+        public static NetworkAccessPolicy AllowAll { get; } = new NetworkAccessPolicy("AllowAll");
+        /// <summary>
+        /// The disk can be exported or uploaded to using a DiskAccess resource's private endpoints.
+        /// </summary>
+        public static NetworkAccessPolicy AllowPrivate { get; } = new NetworkAccessPolicy("AllowPrivate");
+        /// <summary>
+        /// The disk cannot be exported.
+        /// </summary>
+        public static NetworkAccessPolicy DenyAll { get; } = new NetworkAccessPolicy("DenyAll");
+
+        public static bool operator ==(NetworkAccessPolicy left, NetworkAccessPolicy right) => left.Equals(right);
+        public static bool operator !=(NetworkAccessPolicy left, NetworkAccessPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkAccessPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkAccessPolicy other && Equals(other);
+        public bool Equals(NetworkAccessPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
     /// </summary>
     [EnumType]
@@ -133,7 +415,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
     }
 
     /// <summary>
-    /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+    /// The Operating System type.
     /// </summary>
     [EnumType]
     public readonly struct OperatingSystemTypes : IEquatable<OperatingSystemTypes>
@@ -156,6 +438,79 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OperatingSystemTypes other && Equals(other);
         public bool Equals(OperatingSystemTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointServiceConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
+        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
+        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
+
+        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
+        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The sku name.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotStorageAccountTypes : IEquatable<SnapshotStorageAccountTypes>
+    {
+        private readonly string _value;
+
+        private SnapshotStorageAccountTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Standard HDD locally redundant storage
+        /// </summary>
+        public static SnapshotStorageAccountTypes Standard_LRS { get; } = new SnapshotStorageAccountTypes("Standard_LRS");
+        /// <summary>
+        /// Premium SSD locally redundant storage
+        /// </summary>
+        public static SnapshotStorageAccountTypes Premium_LRS { get; } = new SnapshotStorageAccountTypes("Premium_LRS");
+        /// <summary>
+        /// Standard zone redundant storage
+        /// </summary>
+        public static SnapshotStorageAccountTypes Standard_ZRS { get; } = new SnapshotStorageAccountTypes("Standard_ZRS");
+
+        public static bool operator ==(SnapshotStorageAccountTypes left, SnapshotStorageAccountTypes right) => left.Equals(right);
+        public static bool operator !=(SnapshotStorageAccountTypes left, SnapshotStorageAccountTypes right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotStorageAccountTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotStorageAccountTypes other && Equals(other);
+        public bool Equals(SnapshotStorageAccountTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

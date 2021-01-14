@@ -72,6 +72,12 @@ func NewModule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Module"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Module"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Module"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Module

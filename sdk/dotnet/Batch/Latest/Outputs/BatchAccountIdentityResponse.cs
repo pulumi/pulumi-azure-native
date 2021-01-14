@@ -25,6 +25,10 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Outputs
         /// The type of identity used for the Batch account.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.BatchAccountIdentityResponseUserAssignedIdentities>? UserAssignedIdentities;
 
         [OutputConstructor]
         private BatchAccountIdentityResponse(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Outputs
 
             string tenantId,
 
-            string type)
+            string type,
+
+            ImmutableDictionary<string, Outputs.BatchAccountIdentityResponseUserAssignedIdentities>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

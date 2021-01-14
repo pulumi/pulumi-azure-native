@@ -26,7 +26,7 @@ class Application(pulumi.CustomResource):
                  __opts__=None):
         """
         Contains information about an application in a Batch account.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -69,7 +69,7 @@ class Application(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20151201:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20170101:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20170501:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20170901:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20151201:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20170101:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20170501:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20170901:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Application"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azure-nextgen:batch/latest:Application',

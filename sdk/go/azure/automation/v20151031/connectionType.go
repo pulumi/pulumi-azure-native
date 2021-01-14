@@ -57,6 +57,12 @@ func NewConnectionType(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:ConnectionType"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:ConnectionType"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:ConnectionType"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionType

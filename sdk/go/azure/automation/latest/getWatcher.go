@@ -41,7 +41,7 @@ type LookupWatcherResult struct {
 	LastModifiedBy string `pulumi:"lastModifiedBy"`
 	// Gets or sets the last modified time.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	// The Azure Region where the resource lives
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`

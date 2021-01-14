@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the variable.
-// Latest API Version: 2015-10-31.
+// Latest API Version: 2019-06-01.
 type Variable struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +54,12 @@ func NewVariable(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Variable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Variable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Variable"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
 {
     /// <summary>
     /// An application package which represents a particular version of an application.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:batch/latest:ApplicationPackage")]
     public partial class ApplicationPackage : Pulumi.CustomResource
@@ -99,6 +99,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:ApplicationPackage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

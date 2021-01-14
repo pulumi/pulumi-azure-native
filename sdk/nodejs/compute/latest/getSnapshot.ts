@@ -63,6 +63,10 @@ export interface GetSnapshotResult {
      */
     readonly encryptionSettingsCollection?: outputs.compute.latest.EncryptionSettingsCollectionResponse;
     /**
+     * The extended location where the snapshot will be created. Extended location cannot be changed.
+     */
+    readonly extendedLocation?: outputs.compute.latest.ExtendedLocationResponse;
+    /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
     readonly hyperVGeneration?: string;
@@ -99,7 +103,11 @@ export interface GetSnapshotResult {
      */
     readonly provisioningState: string;
     /**
-     * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+     * Purchase plan information for the image from which the source disk for the snapshot was originally created.
+     */
+    readonly purchasePlan?: outputs.compute.latest.PurchasePlanResponse;
+    /**
+     * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
     readonly sku?: outputs.compute.latest.SnapshotSkuResponse;
     /**

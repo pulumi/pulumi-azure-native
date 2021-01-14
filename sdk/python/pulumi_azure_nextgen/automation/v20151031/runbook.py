@@ -101,7 +101,7 @@ class Runbook(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/latest:Runbook"), pulumi.Alias(type_="azure-nextgen:automation/v20180630:Runbook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/latest:Runbook"), pulumi.Alias(type_="azure-nextgen:automation/v20180630:Runbook"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Runbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Runbook, __self__).__init__(
             'azure-nextgen:automation/v20151031:Runbook',

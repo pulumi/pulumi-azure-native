@@ -2301,6 +2301,8 @@ func (o AzureFileShareConfigurationResponsePtrOutput) RelativeMountPath() pulumi
 type BatchAccountIdentity struct {
 	// The type of identity used for the Batch account.
 	Type string `pulumi:"type"`
+	// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // BatchAccountIdentityInput is an input type that accepts BatchAccountIdentityArgs and BatchAccountIdentityOutput values.
@@ -2318,6 +2320,8 @@ type BatchAccountIdentityInput interface {
 type BatchAccountIdentityArgs struct {
 	// The type of identity used for the Batch account.
 	Type ResourceIdentityType `pulumi:"type"`
+	// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (BatchAccountIdentityArgs) ElementType() reflect.Type {
@@ -2403,6 +2407,11 @@ func (o BatchAccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchAccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o BatchAccountIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v BatchAccountIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
 type BatchAccountIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (BatchAccountIdentityPtrOutput) ElementType() reflect.Type {
@@ -2431,6 +2440,16 @@ func (o BatchAccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o BatchAccountIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *BatchAccountIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
 // The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
 type BatchAccountIdentityResponse struct {
 	// The principal id of the Batch account. This property will only be provided for a system assigned identity.
@@ -2439,6 +2458,8 @@ type BatchAccountIdentityResponse struct {
 	TenantId string `pulumi:"tenantId"`
 	// The type of identity used for the Batch account.
 	Type string `pulumi:"type"`
+	// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]BatchAccountIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
 // BatchAccountIdentityResponseInput is an input type that accepts BatchAccountIdentityResponseArgs and BatchAccountIdentityResponseOutput values.
@@ -2460,6 +2481,8 @@ type BatchAccountIdentityResponseArgs struct {
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// The type of identity used for the Batch account.
 	Type pulumi.StringInput `pulumi:"type"`
+	// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities BatchAccountIdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (BatchAccountIdentityResponseArgs) ElementType() reflect.Type {
@@ -2555,6 +2578,13 @@ func (o BatchAccountIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchAccountIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o BatchAccountIdentityResponseOutput) UserAssignedIdentities() BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v BatchAccountIdentityResponse) map[string]BatchAccountIdentityResponseUserAssignedIdentities {
+		return v.UserAssignedIdentities
+	}).(BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
 type BatchAccountIdentityResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (BatchAccountIdentityResponsePtrOutput) ElementType() reflect.Type {
@@ -2601,6 +2631,536 @@ func (o BatchAccountIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o BatchAccountIdentityResponsePtrOutput) UserAssignedIdentities() BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *BatchAccountIdentityResponse) map[string]BatchAccountIdentityResponseUserAssignedIdentities {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type BatchAccountIdentityResponseUserAssignedIdentities struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// BatchAccountIdentityResponseUserAssignedIdentitiesInput is an input type that accepts BatchAccountIdentityResponseUserAssignedIdentitiesArgs and BatchAccountIdentityResponseUserAssignedIdentitiesOutput values.
+// You can construct a concrete instance of `BatchAccountIdentityResponseUserAssignedIdentitiesInput` via:
+//
+//          BatchAccountIdentityResponseUserAssignedIdentitiesArgs{...}
+type BatchAccountIdentityResponseUserAssignedIdentitiesInput interface {
+	pulumi.Input
+
+	ToBatchAccountIdentityResponseUserAssignedIdentitiesOutput() BatchAccountIdentityResponseUserAssignedIdentitiesOutput
+	ToBatchAccountIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Context) BatchAccountIdentityResponseUserAssignedIdentitiesOutput
+}
+
+type BatchAccountIdentityResponseUserAssignedIdentitiesArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (BatchAccountIdentityResponseUserAssignedIdentitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchAccountIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (i BatchAccountIdentityResponseUserAssignedIdentitiesArgs) ToBatchAccountIdentityResponseUserAssignedIdentitiesOutput() BatchAccountIdentityResponseUserAssignedIdentitiesOutput {
+	return i.ToBatchAccountIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Background())
+}
+
+func (i BatchAccountIdentityResponseUserAssignedIdentitiesArgs) ToBatchAccountIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) BatchAccountIdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountIdentityResponseUserAssignedIdentitiesOutput)
+}
+
+// BatchAccountIdentityResponseUserAssignedIdentitiesMapInput is an input type that accepts BatchAccountIdentityResponseUserAssignedIdentitiesMap and BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput values.
+// You can construct a concrete instance of `BatchAccountIdentityResponseUserAssignedIdentitiesMapInput` via:
+//
+//          BatchAccountIdentityResponseUserAssignedIdentitiesMap{ "key": BatchAccountIdentityResponseUserAssignedIdentitiesArgs{...} }
+type BatchAccountIdentityResponseUserAssignedIdentitiesMapInput interface {
+	pulumi.Input
+
+	ToBatchAccountIdentityResponseUserAssignedIdentitiesMapOutput() BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput
+	ToBatchAccountIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Context) BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput
+}
+
+type BatchAccountIdentityResponseUserAssignedIdentitiesMap map[string]BatchAccountIdentityResponseUserAssignedIdentitiesInput
+
+func (BatchAccountIdentityResponseUserAssignedIdentitiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BatchAccountIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (i BatchAccountIdentityResponseUserAssignedIdentitiesMap) ToBatchAccountIdentityResponseUserAssignedIdentitiesMapOutput() BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput {
+	return i.ToBatchAccountIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Background())
+}
+
+func (i BatchAccountIdentityResponseUserAssignedIdentitiesMap) ToBatchAccountIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type BatchAccountIdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
+
+func (BatchAccountIdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchAccountIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o BatchAccountIdentityResponseUserAssignedIdentitiesOutput) ToBatchAccountIdentityResponseUserAssignedIdentitiesOutput() BatchAccountIdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+func (o BatchAccountIdentityResponseUserAssignedIdentitiesOutput) ToBatchAccountIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) BatchAccountIdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o BatchAccountIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v BatchAccountIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o BatchAccountIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v BatchAccountIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
+
+func (BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BatchAccountIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput) ToBatchAccountIdentityResponseUserAssignedIdentitiesMapOutput() BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput) ToBatchAccountIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) BatchAccountIdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BatchAccountIdentityResponseUserAssignedIdentities {
+		return vs[0].(map[string]BatchAccountIdentityResponseUserAssignedIdentities)[vs[1].(string)]
+	}).(BatchAccountIdentityResponseUserAssignedIdentitiesOutput)
+}
+
+// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
+type BatchPoolIdentity struct {
+	// The type of identity used for the Batch Pool.
+	Type string `pulumi:"type"`
+	// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+}
+
+// BatchPoolIdentityInput is an input type that accepts BatchPoolIdentityArgs and BatchPoolIdentityOutput values.
+// You can construct a concrete instance of `BatchPoolIdentityInput` via:
+//
+//          BatchPoolIdentityArgs{...}
+type BatchPoolIdentityInput interface {
+	pulumi.Input
+
+	ToBatchPoolIdentityOutput() BatchPoolIdentityOutput
+	ToBatchPoolIdentityOutputWithContext(context.Context) BatchPoolIdentityOutput
+}
+
+// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
+type BatchPoolIdentityArgs struct {
+	// The type of identity used for the Batch Pool.
+	Type PoolIdentityType `pulumi:"type"`
+	// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (BatchPoolIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchPoolIdentity)(nil)).Elem()
+}
+
+func (i BatchPoolIdentityArgs) ToBatchPoolIdentityOutput() BatchPoolIdentityOutput {
+	return i.ToBatchPoolIdentityOutputWithContext(context.Background())
+}
+
+func (i BatchPoolIdentityArgs) ToBatchPoolIdentityOutputWithContext(ctx context.Context) BatchPoolIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchPoolIdentityOutput)
+}
+
+func (i BatchPoolIdentityArgs) ToBatchPoolIdentityPtrOutput() BatchPoolIdentityPtrOutput {
+	return i.ToBatchPoolIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i BatchPoolIdentityArgs) ToBatchPoolIdentityPtrOutputWithContext(ctx context.Context) BatchPoolIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchPoolIdentityOutput).ToBatchPoolIdentityPtrOutputWithContext(ctx)
+}
+
+// BatchPoolIdentityPtrInput is an input type that accepts BatchPoolIdentityArgs, BatchPoolIdentityPtr and BatchPoolIdentityPtrOutput values.
+// You can construct a concrete instance of `BatchPoolIdentityPtrInput` via:
+//
+//          BatchPoolIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type BatchPoolIdentityPtrInput interface {
+	pulumi.Input
+
+	ToBatchPoolIdentityPtrOutput() BatchPoolIdentityPtrOutput
+	ToBatchPoolIdentityPtrOutputWithContext(context.Context) BatchPoolIdentityPtrOutput
+}
+
+type batchPoolIdentityPtrType BatchPoolIdentityArgs
+
+func BatchPoolIdentityPtr(v *BatchPoolIdentityArgs) BatchPoolIdentityPtrInput {
+	return (*batchPoolIdentityPtrType)(v)
+}
+
+func (*batchPoolIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BatchPoolIdentity)(nil)).Elem()
+}
+
+func (i *batchPoolIdentityPtrType) ToBatchPoolIdentityPtrOutput() BatchPoolIdentityPtrOutput {
+	return i.ToBatchPoolIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *batchPoolIdentityPtrType) ToBatchPoolIdentityPtrOutputWithContext(ctx context.Context) BatchPoolIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchPoolIdentityPtrOutput)
+}
+
+// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
+type BatchPoolIdentityOutput struct{ *pulumi.OutputState }
+
+func (BatchPoolIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchPoolIdentity)(nil)).Elem()
+}
+
+func (o BatchPoolIdentityOutput) ToBatchPoolIdentityOutput() BatchPoolIdentityOutput {
+	return o
+}
+
+func (o BatchPoolIdentityOutput) ToBatchPoolIdentityOutputWithContext(ctx context.Context) BatchPoolIdentityOutput {
+	return o
+}
+
+func (o BatchPoolIdentityOutput) ToBatchPoolIdentityPtrOutput() BatchPoolIdentityPtrOutput {
+	return o.ToBatchPoolIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o BatchPoolIdentityOutput) ToBatchPoolIdentityPtrOutputWithContext(ctx context.Context) BatchPoolIdentityPtrOutput {
+	return o.ApplyT(func(v BatchPoolIdentity) *BatchPoolIdentity {
+		return &v
+	}).(BatchPoolIdentityPtrOutput)
+}
+
+// The type of identity used for the Batch Pool.
+func (o BatchPoolIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BatchPoolIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o BatchPoolIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v BatchPoolIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
+type BatchPoolIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (BatchPoolIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BatchPoolIdentity)(nil)).Elem()
+}
+
+func (o BatchPoolIdentityPtrOutput) ToBatchPoolIdentityPtrOutput() BatchPoolIdentityPtrOutput {
+	return o
+}
+
+func (o BatchPoolIdentityPtrOutput) ToBatchPoolIdentityPtrOutputWithContext(ctx context.Context) BatchPoolIdentityPtrOutput {
+	return o
+}
+
+func (o BatchPoolIdentityPtrOutput) Elem() BatchPoolIdentityOutput {
+	return o.ApplyT(func(v *BatchPoolIdentity) BatchPoolIdentity { return *v }).(BatchPoolIdentityOutput)
+}
+
+// The type of identity used for the Batch Pool.
+func (o BatchPoolIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BatchPoolIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o BatchPoolIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *BatchPoolIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
+// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
+type BatchPoolIdentityResponse struct {
+	// The type of identity used for the Batch Pool.
+	Type string `pulumi:"type"`
+	// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]BatchPoolIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
+}
+
+// BatchPoolIdentityResponseInput is an input type that accepts BatchPoolIdentityResponseArgs and BatchPoolIdentityResponseOutput values.
+// You can construct a concrete instance of `BatchPoolIdentityResponseInput` via:
+//
+//          BatchPoolIdentityResponseArgs{...}
+type BatchPoolIdentityResponseInput interface {
+	pulumi.Input
+
+	ToBatchPoolIdentityResponseOutput() BatchPoolIdentityResponseOutput
+	ToBatchPoolIdentityResponseOutputWithContext(context.Context) BatchPoolIdentityResponseOutput
+}
+
+// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
+type BatchPoolIdentityResponseArgs struct {
+	// The type of identity used for the Batch Pool.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities BatchPoolIdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (BatchPoolIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchPoolIdentityResponse)(nil)).Elem()
+}
+
+func (i BatchPoolIdentityResponseArgs) ToBatchPoolIdentityResponseOutput() BatchPoolIdentityResponseOutput {
+	return i.ToBatchPoolIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i BatchPoolIdentityResponseArgs) ToBatchPoolIdentityResponseOutputWithContext(ctx context.Context) BatchPoolIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchPoolIdentityResponseOutput)
+}
+
+func (i BatchPoolIdentityResponseArgs) ToBatchPoolIdentityResponsePtrOutput() BatchPoolIdentityResponsePtrOutput {
+	return i.ToBatchPoolIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BatchPoolIdentityResponseArgs) ToBatchPoolIdentityResponsePtrOutputWithContext(ctx context.Context) BatchPoolIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchPoolIdentityResponseOutput).ToBatchPoolIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// BatchPoolIdentityResponsePtrInput is an input type that accepts BatchPoolIdentityResponseArgs, BatchPoolIdentityResponsePtr and BatchPoolIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `BatchPoolIdentityResponsePtrInput` via:
+//
+//          BatchPoolIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BatchPoolIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToBatchPoolIdentityResponsePtrOutput() BatchPoolIdentityResponsePtrOutput
+	ToBatchPoolIdentityResponsePtrOutputWithContext(context.Context) BatchPoolIdentityResponsePtrOutput
+}
+
+type batchPoolIdentityResponsePtrType BatchPoolIdentityResponseArgs
+
+func BatchPoolIdentityResponsePtr(v *BatchPoolIdentityResponseArgs) BatchPoolIdentityResponsePtrInput {
+	return (*batchPoolIdentityResponsePtrType)(v)
+}
+
+func (*batchPoolIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BatchPoolIdentityResponse)(nil)).Elem()
+}
+
+func (i *batchPoolIdentityResponsePtrType) ToBatchPoolIdentityResponsePtrOutput() BatchPoolIdentityResponsePtrOutput {
+	return i.ToBatchPoolIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *batchPoolIdentityResponsePtrType) ToBatchPoolIdentityResponsePtrOutputWithContext(ctx context.Context) BatchPoolIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchPoolIdentityResponsePtrOutput)
+}
+
+// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
+type BatchPoolIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (BatchPoolIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchPoolIdentityResponse)(nil)).Elem()
+}
+
+func (o BatchPoolIdentityResponseOutput) ToBatchPoolIdentityResponseOutput() BatchPoolIdentityResponseOutput {
+	return o
+}
+
+func (o BatchPoolIdentityResponseOutput) ToBatchPoolIdentityResponseOutputWithContext(ctx context.Context) BatchPoolIdentityResponseOutput {
+	return o
+}
+
+func (o BatchPoolIdentityResponseOutput) ToBatchPoolIdentityResponsePtrOutput() BatchPoolIdentityResponsePtrOutput {
+	return o.ToBatchPoolIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BatchPoolIdentityResponseOutput) ToBatchPoolIdentityResponsePtrOutputWithContext(ctx context.Context) BatchPoolIdentityResponsePtrOutput {
+	return o.ApplyT(func(v BatchPoolIdentityResponse) *BatchPoolIdentityResponse {
+		return &v
+	}).(BatchPoolIdentityResponsePtrOutput)
+}
+
+// The type of identity used for the Batch Pool.
+func (o BatchPoolIdentityResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BatchPoolIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o BatchPoolIdentityResponseOutput) UserAssignedIdentities() BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v BatchPoolIdentityResponse) map[string]BatchPoolIdentityResponseUserAssignedIdentities {
+		return v.UserAssignedIdentities
+	}).(BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type BatchPoolIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BatchPoolIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BatchPoolIdentityResponse)(nil)).Elem()
+}
+
+func (o BatchPoolIdentityResponsePtrOutput) ToBatchPoolIdentityResponsePtrOutput() BatchPoolIdentityResponsePtrOutput {
+	return o
+}
+
+func (o BatchPoolIdentityResponsePtrOutput) ToBatchPoolIdentityResponsePtrOutputWithContext(ctx context.Context) BatchPoolIdentityResponsePtrOutput {
+	return o
+}
+
+func (o BatchPoolIdentityResponsePtrOutput) Elem() BatchPoolIdentityResponseOutput {
+	return o.ApplyT(func(v *BatchPoolIdentityResponse) BatchPoolIdentityResponse { return *v }).(BatchPoolIdentityResponseOutput)
+}
+
+// The type of identity used for the Batch Pool.
+func (o BatchPoolIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BatchPoolIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o BatchPoolIdentityResponsePtrOutput) UserAssignedIdentities() BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *BatchPoolIdentityResponse) map[string]BatchPoolIdentityResponseUserAssignedIdentities {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type BatchPoolIdentityResponseUserAssignedIdentities struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// BatchPoolIdentityResponseUserAssignedIdentitiesInput is an input type that accepts BatchPoolIdentityResponseUserAssignedIdentitiesArgs and BatchPoolIdentityResponseUserAssignedIdentitiesOutput values.
+// You can construct a concrete instance of `BatchPoolIdentityResponseUserAssignedIdentitiesInput` via:
+//
+//          BatchPoolIdentityResponseUserAssignedIdentitiesArgs{...}
+type BatchPoolIdentityResponseUserAssignedIdentitiesInput interface {
+	pulumi.Input
+
+	ToBatchPoolIdentityResponseUserAssignedIdentitiesOutput() BatchPoolIdentityResponseUserAssignedIdentitiesOutput
+	ToBatchPoolIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Context) BatchPoolIdentityResponseUserAssignedIdentitiesOutput
+}
+
+type BatchPoolIdentityResponseUserAssignedIdentitiesArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (BatchPoolIdentityResponseUserAssignedIdentitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchPoolIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (i BatchPoolIdentityResponseUserAssignedIdentitiesArgs) ToBatchPoolIdentityResponseUserAssignedIdentitiesOutput() BatchPoolIdentityResponseUserAssignedIdentitiesOutput {
+	return i.ToBatchPoolIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Background())
+}
+
+func (i BatchPoolIdentityResponseUserAssignedIdentitiesArgs) ToBatchPoolIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) BatchPoolIdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchPoolIdentityResponseUserAssignedIdentitiesOutput)
+}
+
+// BatchPoolIdentityResponseUserAssignedIdentitiesMapInput is an input type that accepts BatchPoolIdentityResponseUserAssignedIdentitiesMap and BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput values.
+// You can construct a concrete instance of `BatchPoolIdentityResponseUserAssignedIdentitiesMapInput` via:
+//
+//          BatchPoolIdentityResponseUserAssignedIdentitiesMap{ "key": BatchPoolIdentityResponseUserAssignedIdentitiesArgs{...} }
+type BatchPoolIdentityResponseUserAssignedIdentitiesMapInput interface {
+	pulumi.Input
+
+	ToBatchPoolIdentityResponseUserAssignedIdentitiesMapOutput() BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput
+	ToBatchPoolIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Context) BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput
+}
+
+type BatchPoolIdentityResponseUserAssignedIdentitiesMap map[string]BatchPoolIdentityResponseUserAssignedIdentitiesInput
+
+func (BatchPoolIdentityResponseUserAssignedIdentitiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BatchPoolIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (i BatchPoolIdentityResponseUserAssignedIdentitiesMap) ToBatchPoolIdentityResponseUserAssignedIdentitiesMapOutput() BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput {
+	return i.ToBatchPoolIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Background())
+}
+
+func (i BatchPoolIdentityResponseUserAssignedIdentitiesMap) ToBatchPoolIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type BatchPoolIdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
+
+func (BatchPoolIdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchPoolIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o BatchPoolIdentityResponseUserAssignedIdentitiesOutput) ToBatchPoolIdentityResponseUserAssignedIdentitiesOutput() BatchPoolIdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+func (o BatchPoolIdentityResponseUserAssignedIdentitiesOutput) ToBatchPoolIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) BatchPoolIdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o BatchPoolIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v BatchPoolIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o BatchPoolIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v BatchPoolIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
+
+func (BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BatchPoolIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput) ToBatchPoolIdentityResponseUserAssignedIdentitiesMapOutput() BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput) ToBatchPoolIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) BatchPoolIdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BatchPoolIdentityResponseUserAssignedIdentities {
+		return vs[0].(map[string]BatchPoolIdentityResponseUserAssignedIdentities)[vs[1].(string)]
+	}).(BatchPoolIdentityResponseUserAssignedIdentitiesOutput)
 }
 
 type CIFSMountConfiguration struct {
@@ -9277,6 +9837,274 @@ func (o NetworkSecurityGroupRuleResponseArrayOutput) Index(i pulumi.IntInput) Ne
 	}).(NetworkSecurityGroupRuleResponseOutput)
 }
 
+// Allocation configuration used by Batch Service to provision the nodes.
+type NodePlacementConfiguration struct {
+	// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
+	Policy *string `pulumi:"policy"`
+}
+
+// NodePlacementConfigurationInput is an input type that accepts NodePlacementConfigurationArgs and NodePlacementConfigurationOutput values.
+// You can construct a concrete instance of `NodePlacementConfigurationInput` via:
+//
+//          NodePlacementConfigurationArgs{...}
+type NodePlacementConfigurationInput interface {
+	pulumi.Input
+
+	ToNodePlacementConfigurationOutput() NodePlacementConfigurationOutput
+	ToNodePlacementConfigurationOutputWithContext(context.Context) NodePlacementConfigurationOutput
+}
+
+// Allocation configuration used by Batch Service to provision the nodes.
+type NodePlacementConfigurationArgs struct {
+	// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
+	Policy NodePlacementPolicyType `pulumi:"policy"`
+}
+
+func (NodePlacementConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodePlacementConfiguration)(nil)).Elem()
+}
+
+func (i NodePlacementConfigurationArgs) ToNodePlacementConfigurationOutput() NodePlacementConfigurationOutput {
+	return i.ToNodePlacementConfigurationOutputWithContext(context.Background())
+}
+
+func (i NodePlacementConfigurationArgs) ToNodePlacementConfigurationOutputWithContext(ctx context.Context) NodePlacementConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodePlacementConfigurationOutput)
+}
+
+func (i NodePlacementConfigurationArgs) ToNodePlacementConfigurationPtrOutput() NodePlacementConfigurationPtrOutput {
+	return i.ToNodePlacementConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i NodePlacementConfigurationArgs) ToNodePlacementConfigurationPtrOutputWithContext(ctx context.Context) NodePlacementConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodePlacementConfigurationOutput).ToNodePlacementConfigurationPtrOutputWithContext(ctx)
+}
+
+// NodePlacementConfigurationPtrInput is an input type that accepts NodePlacementConfigurationArgs, NodePlacementConfigurationPtr and NodePlacementConfigurationPtrOutput values.
+// You can construct a concrete instance of `NodePlacementConfigurationPtrInput` via:
+//
+//          NodePlacementConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type NodePlacementConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToNodePlacementConfigurationPtrOutput() NodePlacementConfigurationPtrOutput
+	ToNodePlacementConfigurationPtrOutputWithContext(context.Context) NodePlacementConfigurationPtrOutput
+}
+
+type nodePlacementConfigurationPtrType NodePlacementConfigurationArgs
+
+func NodePlacementConfigurationPtr(v *NodePlacementConfigurationArgs) NodePlacementConfigurationPtrInput {
+	return (*nodePlacementConfigurationPtrType)(v)
+}
+
+func (*nodePlacementConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodePlacementConfiguration)(nil)).Elem()
+}
+
+func (i *nodePlacementConfigurationPtrType) ToNodePlacementConfigurationPtrOutput() NodePlacementConfigurationPtrOutput {
+	return i.ToNodePlacementConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *nodePlacementConfigurationPtrType) ToNodePlacementConfigurationPtrOutputWithContext(ctx context.Context) NodePlacementConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodePlacementConfigurationPtrOutput)
+}
+
+// Allocation configuration used by Batch Service to provision the nodes.
+type NodePlacementConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NodePlacementConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodePlacementConfiguration)(nil)).Elem()
+}
+
+func (o NodePlacementConfigurationOutput) ToNodePlacementConfigurationOutput() NodePlacementConfigurationOutput {
+	return o
+}
+
+func (o NodePlacementConfigurationOutput) ToNodePlacementConfigurationOutputWithContext(ctx context.Context) NodePlacementConfigurationOutput {
+	return o
+}
+
+func (o NodePlacementConfigurationOutput) ToNodePlacementConfigurationPtrOutput() NodePlacementConfigurationPtrOutput {
+	return o.ToNodePlacementConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o NodePlacementConfigurationOutput) ToNodePlacementConfigurationPtrOutputWithContext(ctx context.Context) NodePlacementConfigurationPtrOutput {
+	return o.ApplyT(func(v NodePlacementConfiguration) *NodePlacementConfiguration {
+		return &v
+	}).(NodePlacementConfigurationPtrOutput)
+}
+
+// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
+func (o NodePlacementConfigurationOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodePlacementConfiguration) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+type NodePlacementConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NodePlacementConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodePlacementConfiguration)(nil)).Elem()
+}
+
+func (o NodePlacementConfigurationPtrOutput) ToNodePlacementConfigurationPtrOutput() NodePlacementConfigurationPtrOutput {
+	return o
+}
+
+func (o NodePlacementConfigurationPtrOutput) ToNodePlacementConfigurationPtrOutputWithContext(ctx context.Context) NodePlacementConfigurationPtrOutput {
+	return o
+}
+
+func (o NodePlacementConfigurationPtrOutput) Elem() NodePlacementConfigurationOutput {
+	return o.ApplyT(func(v *NodePlacementConfiguration) NodePlacementConfiguration { return *v }).(NodePlacementConfigurationOutput)
+}
+
+// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
+func (o NodePlacementConfigurationPtrOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodePlacementConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Policy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Allocation configuration used by Batch Service to provision the nodes.
+type NodePlacementConfigurationResponse struct {
+	// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
+	Policy *string `pulumi:"policy"`
+}
+
+// NodePlacementConfigurationResponseInput is an input type that accepts NodePlacementConfigurationResponseArgs and NodePlacementConfigurationResponseOutput values.
+// You can construct a concrete instance of `NodePlacementConfigurationResponseInput` via:
+//
+//          NodePlacementConfigurationResponseArgs{...}
+type NodePlacementConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToNodePlacementConfigurationResponseOutput() NodePlacementConfigurationResponseOutput
+	ToNodePlacementConfigurationResponseOutputWithContext(context.Context) NodePlacementConfigurationResponseOutput
+}
+
+// Allocation configuration used by Batch Service to provision the nodes.
+type NodePlacementConfigurationResponseArgs struct {
+	// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+}
+
+func (NodePlacementConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodePlacementConfigurationResponse)(nil)).Elem()
+}
+
+func (i NodePlacementConfigurationResponseArgs) ToNodePlacementConfigurationResponseOutput() NodePlacementConfigurationResponseOutput {
+	return i.ToNodePlacementConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i NodePlacementConfigurationResponseArgs) ToNodePlacementConfigurationResponseOutputWithContext(ctx context.Context) NodePlacementConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodePlacementConfigurationResponseOutput)
+}
+
+func (i NodePlacementConfigurationResponseArgs) ToNodePlacementConfigurationResponsePtrOutput() NodePlacementConfigurationResponsePtrOutput {
+	return i.ToNodePlacementConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i NodePlacementConfigurationResponseArgs) ToNodePlacementConfigurationResponsePtrOutputWithContext(ctx context.Context) NodePlacementConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodePlacementConfigurationResponseOutput).ToNodePlacementConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// NodePlacementConfigurationResponsePtrInput is an input type that accepts NodePlacementConfigurationResponseArgs, NodePlacementConfigurationResponsePtr and NodePlacementConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `NodePlacementConfigurationResponsePtrInput` via:
+//
+//          NodePlacementConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type NodePlacementConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToNodePlacementConfigurationResponsePtrOutput() NodePlacementConfigurationResponsePtrOutput
+	ToNodePlacementConfigurationResponsePtrOutputWithContext(context.Context) NodePlacementConfigurationResponsePtrOutput
+}
+
+type nodePlacementConfigurationResponsePtrType NodePlacementConfigurationResponseArgs
+
+func NodePlacementConfigurationResponsePtr(v *NodePlacementConfigurationResponseArgs) NodePlacementConfigurationResponsePtrInput {
+	return (*nodePlacementConfigurationResponsePtrType)(v)
+}
+
+func (*nodePlacementConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodePlacementConfigurationResponse)(nil)).Elem()
+}
+
+func (i *nodePlacementConfigurationResponsePtrType) ToNodePlacementConfigurationResponsePtrOutput() NodePlacementConfigurationResponsePtrOutput {
+	return i.ToNodePlacementConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *nodePlacementConfigurationResponsePtrType) ToNodePlacementConfigurationResponsePtrOutputWithContext(ctx context.Context) NodePlacementConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodePlacementConfigurationResponsePtrOutput)
+}
+
+// Allocation configuration used by Batch Service to provision the nodes.
+type NodePlacementConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (NodePlacementConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodePlacementConfigurationResponse)(nil)).Elem()
+}
+
+func (o NodePlacementConfigurationResponseOutput) ToNodePlacementConfigurationResponseOutput() NodePlacementConfigurationResponseOutput {
+	return o
+}
+
+func (o NodePlacementConfigurationResponseOutput) ToNodePlacementConfigurationResponseOutputWithContext(ctx context.Context) NodePlacementConfigurationResponseOutput {
+	return o
+}
+
+func (o NodePlacementConfigurationResponseOutput) ToNodePlacementConfigurationResponsePtrOutput() NodePlacementConfigurationResponsePtrOutput {
+	return o.ToNodePlacementConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o NodePlacementConfigurationResponseOutput) ToNodePlacementConfigurationResponsePtrOutputWithContext(ctx context.Context) NodePlacementConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v NodePlacementConfigurationResponse) *NodePlacementConfigurationResponse {
+		return &v
+	}).(NodePlacementConfigurationResponsePtrOutput)
+}
+
+// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
+func (o NodePlacementConfigurationResponseOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodePlacementConfigurationResponse) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+type NodePlacementConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NodePlacementConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodePlacementConfigurationResponse)(nil)).Elem()
+}
+
+func (o NodePlacementConfigurationResponsePtrOutput) ToNodePlacementConfigurationResponsePtrOutput() NodePlacementConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o NodePlacementConfigurationResponsePtrOutput) ToNodePlacementConfigurationResponsePtrOutputWithContext(ctx context.Context) NodePlacementConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o NodePlacementConfigurationResponsePtrOutput) Elem() NodePlacementConfigurationResponseOutput {
+	return o.ApplyT(func(v *NodePlacementConfigurationResponse) NodePlacementConfigurationResponse { return *v }).(NodePlacementConfigurationResponseOutput)
+}
+
+// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
+func (o NodePlacementConfigurationResponsePtrOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodePlacementConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Policy
+	}).(pulumi.StringPtrOutput)
+}
+
 type PoolEndpointConfiguration struct {
 	// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
 	InboundNatPools []InboundNatPool `pulumi:"inboundNatPools"`
@@ -12867,6 +13695,296 @@ func (o UserIdentityResponsePtrOutput) UserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VMExtension struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion *bool  `pulumi:"autoUpgradeMinorVersion"`
+	Name                    string `pulumi:"name"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings interface{} `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions []string    `pulumi:"provisionAfterExtensions"`
+	Publisher                string      `pulumi:"publisher"`
+	Settings                 interface{} `pulumi:"settings"`
+	Type                     string      `pulumi:"type"`
+	TypeHandlerVersion       *string     `pulumi:"typeHandlerVersion"`
+}
+
+// VMExtensionInput is an input type that accepts VMExtensionArgs and VMExtensionOutput values.
+// You can construct a concrete instance of `VMExtensionInput` via:
+//
+//          VMExtensionArgs{...}
+type VMExtensionInput interface {
+	pulumi.Input
+
+	ToVMExtensionOutput() VMExtensionOutput
+	ToVMExtensionOutputWithContext(context.Context) VMExtensionOutput
+}
+
+type VMExtensionArgs struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	Name                    pulumi.StringInput  `pulumi:"name"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.Input `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
+	Publisher                pulumi.StringInput      `pulumi:"publisher"`
+	Settings                 pulumi.Input            `pulumi:"settings"`
+	Type                     pulumi.StringInput      `pulumi:"type"`
+	TypeHandlerVersion       pulumi.StringPtrInput   `pulumi:"typeHandlerVersion"`
+}
+
+func (VMExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMExtension)(nil)).Elem()
+}
+
+func (i VMExtensionArgs) ToVMExtensionOutput() VMExtensionOutput {
+	return i.ToVMExtensionOutputWithContext(context.Background())
+}
+
+func (i VMExtensionArgs) ToVMExtensionOutputWithContext(ctx context.Context) VMExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMExtensionOutput)
+}
+
+// VMExtensionArrayInput is an input type that accepts VMExtensionArray and VMExtensionArrayOutput values.
+// You can construct a concrete instance of `VMExtensionArrayInput` via:
+//
+//          VMExtensionArray{ VMExtensionArgs{...} }
+type VMExtensionArrayInput interface {
+	pulumi.Input
+
+	ToVMExtensionArrayOutput() VMExtensionArrayOutput
+	ToVMExtensionArrayOutputWithContext(context.Context) VMExtensionArrayOutput
+}
+
+type VMExtensionArray []VMExtensionInput
+
+func (VMExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMExtension)(nil)).Elem()
+}
+
+func (i VMExtensionArray) ToVMExtensionArrayOutput() VMExtensionArrayOutput {
+	return i.ToVMExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i VMExtensionArray) ToVMExtensionArrayOutputWithContext(ctx context.Context) VMExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMExtensionArrayOutput)
+}
+
+type VMExtensionOutput struct{ *pulumi.OutputState }
+
+func (VMExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMExtension)(nil)).Elem()
+}
+
+func (o VMExtensionOutput) ToVMExtensionOutput() VMExtensionOutput {
+	return o
+}
+
+func (o VMExtensionOutput) ToVMExtensionOutputWithContext(ctx context.Context) VMExtensionOutput {
+	return o
+}
+
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o VMExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VMExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+func (o VMExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VMExtension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+func (o VMExtensionOutput) ProtectedSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v VMExtension) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
+}
+
+// Collection of extension names after which this extension needs to be provisioned.
+func (o VMExtensionOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VMExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+}
+
+func (o VMExtensionOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v VMExtension) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+func (o VMExtensionOutput) Settings() pulumi.AnyOutput {
+	return o.ApplyT(func(v VMExtension) interface{} { return v.Settings }).(pulumi.AnyOutput)
+}
+
+func (o VMExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VMExtension) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o VMExtensionOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMExtension) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+type VMExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (VMExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMExtension)(nil)).Elem()
+}
+
+func (o VMExtensionArrayOutput) ToVMExtensionArrayOutput() VMExtensionArrayOutput {
+	return o
+}
+
+func (o VMExtensionArrayOutput) ToVMExtensionArrayOutputWithContext(ctx context.Context) VMExtensionArrayOutput {
+	return o
+}
+
+func (o VMExtensionArrayOutput) Index(i pulumi.IntInput) VMExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VMExtension {
+		return vs[0].([]VMExtension)[vs[1].(int)]
+	}).(VMExtensionOutput)
+}
+
+type VMExtensionResponse struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion *bool  `pulumi:"autoUpgradeMinorVersion"`
+	Name                    string `pulumi:"name"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings interface{} `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions []string    `pulumi:"provisionAfterExtensions"`
+	Publisher                string      `pulumi:"publisher"`
+	Settings                 interface{} `pulumi:"settings"`
+	Type                     string      `pulumi:"type"`
+	TypeHandlerVersion       *string     `pulumi:"typeHandlerVersion"`
+}
+
+// VMExtensionResponseInput is an input type that accepts VMExtensionResponseArgs and VMExtensionResponseOutput values.
+// You can construct a concrete instance of `VMExtensionResponseInput` via:
+//
+//          VMExtensionResponseArgs{...}
+type VMExtensionResponseInput interface {
+	pulumi.Input
+
+	ToVMExtensionResponseOutput() VMExtensionResponseOutput
+	ToVMExtensionResponseOutputWithContext(context.Context) VMExtensionResponseOutput
+}
+
+type VMExtensionResponseArgs struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	Name                    pulumi.StringInput  `pulumi:"name"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.Input `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
+	Publisher                pulumi.StringInput      `pulumi:"publisher"`
+	Settings                 pulumi.Input            `pulumi:"settings"`
+	Type                     pulumi.StringInput      `pulumi:"type"`
+	TypeHandlerVersion       pulumi.StringPtrInput   `pulumi:"typeHandlerVersion"`
+}
+
+func (VMExtensionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMExtensionResponse)(nil)).Elem()
+}
+
+func (i VMExtensionResponseArgs) ToVMExtensionResponseOutput() VMExtensionResponseOutput {
+	return i.ToVMExtensionResponseOutputWithContext(context.Background())
+}
+
+func (i VMExtensionResponseArgs) ToVMExtensionResponseOutputWithContext(ctx context.Context) VMExtensionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMExtensionResponseOutput)
+}
+
+// VMExtensionResponseArrayInput is an input type that accepts VMExtensionResponseArray and VMExtensionResponseArrayOutput values.
+// You can construct a concrete instance of `VMExtensionResponseArrayInput` via:
+//
+//          VMExtensionResponseArray{ VMExtensionResponseArgs{...} }
+type VMExtensionResponseArrayInput interface {
+	pulumi.Input
+
+	ToVMExtensionResponseArrayOutput() VMExtensionResponseArrayOutput
+	ToVMExtensionResponseArrayOutputWithContext(context.Context) VMExtensionResponseArrayOutput
+}
+
+type VMExtensionResponseArray []VMExtensionResponseInput
+
+func (VMExtensionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMExtensionResponse)(nil)).Elem()
+}
+
+func (i VMExtensionResponseArray) ToVMExtensionResponseArrayOutput() VMExtensionResponseArrayOutput {
+	return i.ToVMExtensionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VMExtensionResponseArray) ToVMExtensionResponseArrayOutputWithContext(ctx context.Context) VMExtensionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMExtensionResponseArrayOutput)
+}
+
+type VMExtensionResponseOutput struct{ *pulumi.OutputState }
+
+func (VMExtensionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMExtensionResponse)(nil)).Elem()
+}
+
+func (o VMExtensionResponseOutput) ToVMExtensionResponseOutput() VMExtensionResponseOutput {
+	return o
+}
+
+func (o VMExtensionResponseOutput) ToVMExtensionResponseOutputWithContext(ctx context.Context) VMExtensionResponseOutput {
+	return o
+}
+
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o VMExtensionResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VMExtensionResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+func (o VMExtensionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VMExtensionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+func (o VMExtensionResponseOutput) ProtectedSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v VMExtensionResponse) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
+}
+
+// Collection of extension names after which this extension needs to be provisioned.
+func (o VMExtensionResponseOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VMExtensionResponse) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+}
+
+func (o VMExtensionResponseOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v VMExtensionResponse) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+func (o VMExtensionResponseOutput) Settings() pulumi.AnyOutput {
+	return o.ApplyT(func(v VMExtensionResponse) interface{} { return v.Settings }).(pulumi.AnyOutput)
+}
+
+func (o VMExtensionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VMExtensionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o VMExtensionResponseOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMExtensionResponse) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+type VMExtensionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VMExtensionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMExtensionResponse)(nil)).Elem()
+}
+
+func (o VMExtensionResponseArrayOutput) ToVMExtensionResponseArrayOutput() VMExtensionResponseArrayOutput {
+	return o
+}
+
+func (o VMExtensionResponseArrayOutput) ToVMExtensionResponseArrayOutputWithContext(ctx context.Context) VMExtensionResponseArrayOutput {
+	return o
+}
+
+func (o VMExtensionResponseArrayOutput) Index(i pulumi.IntInput) VMExtensionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VMExtensionResponse {
+		return vs[0].([]VMExtensionResponse)[vs[1].(int)]
+	}).(VMExtensionResponseOutput)
+}
+
 type VirtualMachineConfiguration struct {
 	// If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.
 	ContainerConfiguration *ContainerConfiguration `pulumi:"containerConfiguration"`
@@ -12874,7 +13992,9 @@ type VirtualMachineConfiguration struct {
 	DataDisks []DataDisk `pulumi:"dataDisks"`
 	// If specified, encryption is performed on each node in the pool during node provisioning.
 	DiskEncryptionConfiguration *DiskEncryptionConfiguration `pulumi:"diskEncryptionConfiguration"`
-	ImageReference              ImageReference               `pulumi:"imageReference"`
+	// If specified, the extensions mentioned in this configuration will be installed on each node.
+	Extensions     []VMExtension  `pulumi:"extensions"`
+	ImageReference ImageReference `pulumi:"imageReference"`
 	// This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
 	//
 	//  Windows_Server - The on-premises license is for Windows Server.
@@ -12882,6 +14002,8 @@ type VirtualMachineConfiguration struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
 	NodeAgentSkuId string `pulumi:"nodeAgentSkuId"`
+	// This configuration will specify rules on how nodes in the pool will be physically allocated.
+	NodePlacementConfiguration *NodePlacementConfiguration `pulumi:"nodePlacementConfiguration"`
 	// This property must not be specified if the imageReference specifies a Linux OS image.
 	WindowsConfiguration *WindowsConfiguration `pulumi:"windowsConfiguration"`
 }
@@ -12904,7 +14026,9 @@ type VirtualMachineConfigurationArgs struct {
 	DataDisks DataDiskArrayInput `pulumi:"dataDisks"`
 	// If specified, encryption is performed on each node in the pool during node provisioning.
 	DiskEncryptionConfiguration DiskEncryptionConfigurationPtrInput `pulumi:"diskEncryptionConfiguration"`
-	ImageReference              ImageReferenceInput                 `pulumi:"imageReference"`
+	// If specified, the extensions mentioned in this configuration will be installed on each node.
+	Extensions     VMExtensionArrayInput `pulumi:"extensions"`
+	ImageReference ImageReferenceInput   `pulumi:"imageReference"`
 	// This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
 	//
 	//  Windows_Server - The on-premises license is for Windows Server.
@@ -12912,6 +14036,8 @@ type VirtualMachineConfigurationArgs struct {
 	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
 	// The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
 	NodeAgentSkuId pulumi.StringInput `pulumi:"nodeAgentSkuId"`
+	// This configuration will specify rules on how nodes in the pool will be physically allocated.
+	NodePlacementConfiguration NodePlacementConfigurationPtrInput `pulumi:"nodePlacementConfiguration"`
 	// This property must not be specified if the imageReference specifies a Linux OS image.
 	WindowsConfiguration WindowsConfigurationPtrInput `pulumi:"windowsConfiguration"`
 }
@@ -13008,6 +14134,11 @@ func (o VirtualMachineConfigurationOutput) DiskEncryptionConfiguration() DiskEnc
 	return o.ApplyT(func(v VirtualMachineConfiguration) *DiskEncryptionConfiguration { return v.DiskEncryptionConfiguration }).(DiskEncryptionConfigurationPtrOutput)
 }
 
+// If specified, the extensions mentioned in this configuration will be installed on each node.
+func (o VirtualMachineConfigurationOutput) Extensions() VMExtensionArrayOutput {
+	return o.ApplyT(func(v VirtualMachineConfiguration) []VMExtension { return v.Extensions }).(VMExtensionArrayOutput)
+}
+
 func (o VirtualMachineConfigurationOutput) ImageReference() ImageReferenceOutput {
 	return o.ApplyT(func(v VirtualMachineConfiguration) ImageReference { return v.ImageReference }).(ImageReferenceOutput)
 }
@@ -13023,6 +14154,11 @@ func (o VirtualMachineConfigurationOutput) LicenseType() pulumi.StringPtrOutput 
 // The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
 func (o VirtualMachineConfigurationOutput) NodeAgentSkuId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineConfiguration) string { return v.NodeAgentSkuId }).(pulumi.StringOutput)
+}
+
+// This configuration will specify rules on how nodes in the pool will be physically allocated.
+func (o VirtualMachineConfigurationOutput) NodePlacementConfiguration() NodePlacementConfigurationPtrOutput {
+	return o.ApplyT(func(v VirtualMachineConfiguration) *NodePlacementConfiguration { return v.NodePlacementConfiguration }).(NodePlacementConfigurationPtrOutput)
 }
 
 // This property must not be specified if the imageReference specifies a Linux OS image.
@@ -13078,6 +14214,16 @@ func (o VirtualMachineConfigurationPtrOutput) DiskEncryptionConfiguration() Disk
 	}).(DiskEncryptionConfigurationPtrOutput)
 }
 
+// If specified, the extensions mentioned in this configuration will be installed on each node.
+func (o VirtualMachineConfigurationPtrOutput) Extensions() VMExtensionArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineConfiguration) []VMExtension {
+		if v == nil {
+			return nil
+		}
+		return v.Extensions
+	}).(VMExtensionArrayOutput)
+}
+
 func (o VirtualMachineConfigurationPtrOutput) ImageReference() ImageReferencePtrOutput {
 	return o.ApplyT(func(v *VirtualMachineConfiguration) *ImageReference {
 		if v == nil {
@@ -13110,6 +14256,16 @@ func (o VirtualMachineConfigurationPtrOutput) NodeAgentSkuId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// This configuration will specify rules on how nodes in the pool will be physically allocated.
+func (o VirtualMachineConfigurationPtrOutput) NodePlacementConfiguration() NodePlacementConfigurationPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineConfiguration) *NodePlacementConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NodePlacementConfiguration
+	}).(NodePlacementConfigurationPtrOutput)
+}
+
 // This property must not be specified if the imageReference specifies a Linux OS image.
 func (o VirtualMachineConfigurationPtrOutput) WindowsConfiguration() WindowsConfigurationPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineConfiguration) *WindowsConfiguration {
@@ -13127,7 +14283,9 @@ type VirtualMachineConfigurationResponse struct {
 	DataDisks []DataDiskResponse `pulumi:"dataDisks"`
 	// If specified, encryption is performed on each node in the pool during node provisioning.
 	DiskEncryptionConfiguration *DiskEncryptionConfigurationResponse `pulumi:"diskEncryptionConfiguration"`
-	ImageReference              ImageReferenceResponse               `pulumi:"imageReference"`
+	// If specified, the extensions mentioned in this configuration will be installed on each node.
+	Extensions     []VMExtensionResponse  `pulumi:"extensions"`
+	ImageReference ImageReferenceResponse `pulumi:"imageReference"`
 	// This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
 	//
 	//  Windows_Server - The on-premises license is for Windows Server.
@@ -13135,6 +14293,8 @@ type VirtualMachineConfigurationResponse struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
 	NodeAgentSkuId string `pulumi:"nodeAgentSkuId"`
+	// This configuration will specify rules on how nodes in the pool will be physically allocated.
+	NodePlacementConfiguration *NodePlacementConfigurationResponse `pulumi:"nodePlacementConfiguration"`
 	// This property must not be specified if the imageReference specifies a Linux OS image.
 	WindowsConfiguration *WindowsConfigurationResponse `pulumi:"windowsConfiguration"`
 }
@@ -13157,7 +14317,9 @@ type VirtualMachineConfigurationResponseArgs struct {
 	DataDisks DataDiskResponseArrayInput `pulumi:"dataDisks"`
 	// If specified, encryption is performed on each node in the pool during node provisioning.
 	DiskEncryptionConfiguration DiskEncryptionConfigurationResponsePtrInput `pulumi:"diskEncryptionConfiguration"`
-	ImageReference              ImageReferenceResponseInput                 `pulumi:"imageReference"`
+	// If specified, the extensions mentioned in this configuration will be installed on each node.
+	Extensions     VMExtensionResponseArrayInput `pulumi:"extensions"`
+	ImageReference ImageReferenceResponseInput   `pulumi:"imageReference"`
 	// This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
 	//
 	//  Windows_Server - The on-premises license is for Windows Server.
@@ -13165,6 +14327,8 @@ type VirtualMachineConfigurationResponseArgs struct {
 	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
 	// The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
 	NodeAgentSkuId pulumi.StringInput `pulumi:"nodeAgentSkuId"`
+	// This configuration will specify rules on how nodes in the pool will be physically allocated.
+	NodePlacementConfiguration NodePlacementConfigurationResponsePtrInput `pulumi:"nodePlacementConfiguration"`
 	// This property must not be specified if the imageReference specifies a Linux OS image.
 	WindowsConfiguration WindowsConfigurationResponsePtrInput `pulumi:"windowsConfiguration"`
 }
@@ -13265,6 +14429,11 @@ func (o VirtualMachineConfigurationResponseOutput) DiskEncryptionConfiguration()
 	}).(DiskEncryptionConfigurationResponsePtrOutput)
 }
 
+// If specified, the extensions mentioned in this configuration will be installed on each node.
+func (o VirtualMachineConfigurationResponseOutput) Extensions() VMExtensionResponseArrayOutput {
+	return o.ApplyT(func(v VirtualMachineConfigurationResponse) []VMExtensionResponse { return v.Extensions }).(VMExtensionResponseArrayOutput)
+}
+
 func (o VirtualMachineConfigurationResponseOutput) ImageReference() ImageReferenceResponseOutput {
 	return o.ApplyT(func(v VirtualMachineConfigurationResponse) ImageReferenceResponse { return v.ImageReference }).(ImageReferenceResponseOutput)
 }
@@ -13280,6 +14449,13 @@ func (o VirtualMachineConfigurationResponseOutput) LicenseType() pulumi.StringPt
 // The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
 func (o VirtualMachineConfigurationResponseOutput) NodeAgentSkuId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineConfigurationResponse) string { return v.NodeAgentSkuId }).(pulumi.StringOutput)
+}
+
+// This configuration will specify rules on how nodes in the pool will be physically allocated.
+func (o VirtualMachineConfigurationResponseOutput) NodePlacementConfiguration() NodePlacementConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineConfigurationResponse) *NodePlacementConfigurationResponse {
+		return v.NodePlacementConfiguration
+	}).(NodePlacementConfigurationResponsePtrOutput)
 }
 
 // This property must not be specified if the imageReference specifies a Linux OS image.
@@ -13337,6 +14513,16 @@ func (o VirtualMachineConfigurationResponsePtrOutput) DiskEncryptionConfiguratio
 	}).(DiskEncryptionConfigurationResponsePtrOutput)
 }
 
+// If specified, the extensions mentioned in this configuration will be installed on each node.
+func (o VirtualMachineConfigurationResponsePtrOutput) Extensions() VMExtensionResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineConfigurationResponse) []VMExtensionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Extensions
+	}).(VMExtensionResponseArrayOutput)
+}
+
 func (o VirtualMachineConfigurationResponsePtrOutput) ImageReference() ImageReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualMachineConfigurationResponse) *ImageReferenceResponse {
 		if v == nil {
@@ -13367,6 +14553,16 @@ func (o VirtualMachineConfigurationResponsePtrOutput) NodeAgentSkuId() pulumi.St
 		}
 		return &v.NodeAgentSkuId
 	}).(pulumi.StringPtrOutput)
+}
+
+// This configuration will specify rules on how nodes in the pool will be physically allocated.
+func (o VirtualMachineConfigurationResponsePtrOutput) NodePlacementConfiguration() NodePlacementConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineConfigurationResponse) *NodePlacementConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.NodePlacementConfiguration
+	}).(NodePlacementConfigurationResponsePtrOutput)
 }
 
 // This property must not be specified if the imageReference specifies a Linux OS image.
@@ -14046,6 +15242,14 @@ func init() {
 	pulumi.RegisterOutputType(BatchAccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(BatchAccountIdentityResponseOutput{})
 	pulumi.RegisterOutputType(BatchAccountIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(BatchAccountIdentityResponseUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput{})
+	pulumi.RegisterOutputType(BatchPoolIdentityOutput{})
+	pulumi.RegisterOutputType(BatchPoolIdentityPtrOutput{})
+	pulumi.RegisterOutputType(BatchPoolIdentityResponseOutput{})
+	pulumi.RegisterOutputType(BatchPoolIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(BatchPoolIdentityResponseUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(CIFSMountConfigurationOutput{})
 	pulumi.RegisterOutputType(CIFSMountConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CIFSMountConfigurationResponseOutput{})
@@ -14135,6 +15339,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkSecurityGroupRuleArrayOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupRuleResponseOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(NodePlacementConfigurationOutput{})
+	pulumi.RegisterOutputType(NodePlacementConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(NodePlacementConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(NodePlacementConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(PoolEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(PoolEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PoolEndpointConfigurationResponseOutput{})
@@ -14181,6 +15389,10 @@ func init() {
 	pulumi.RegisterOutputType(UserIdentityPtrOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(VMExtensionOutput{})
+	pulumi.RegisterOutputType(VMExtensionArrayOutput{})
+	pulumi.RegisterOutputType(VMExtensionResponseOutput{})
+	pulumi.RegisterOutputType(VMExtensionResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationResponseOutput{})

@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the dsc node configuration.
-// Latest API Version: 2018-01-15.
+// Latest API Version: 2019-06-01.
 type DscNodeConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +62,12 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20180115:DscNodeConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:DscNodeConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:DscNodeConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

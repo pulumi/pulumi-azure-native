@@ -68,7 +68,7 @@ export interface GetWatcherResult {
      */
     readonly lastModifiedTime: string;
     /**
-     * The Azure Region where the resource lives
+     * The geo-location where the resource lives
      */
     readonly location?: string;
     /**

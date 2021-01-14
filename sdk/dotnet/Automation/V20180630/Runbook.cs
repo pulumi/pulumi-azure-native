@@ -162,6 +162,7 @@ namespace Pulumi.AzureNextGen.Automation.V20180630
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Runbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Runbook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Runbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -18,7 +18,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_key: Optional[pulumi.Input[pulumi.InputType['KeyVaultAndKeyReferenceArgs']]] = None,
+                 active_key: Optional[pulumi.Input[pulumi.InputType['KeyForDiskEncryptionSetArgs']]] = None,
                  disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
                  encryption_type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetType']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']]] = None,
@@ -30,11 +30,11 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  __opts__=None):
         """
         disk encryption set resource.
-        Latest API Version: 2020-06-30.
+        Latest API Version: 2020-09-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KeyVaultAndKeyReferenceArgs']] active_key: The key vault key which is currently used by this disk encryption set.
+        :param pulumi.Input[pulumi.InputType['KeyForDiskEncryptionSetArgs']] active_key: The key vault key which is currently used by this disk encryption set.
         :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
         :param pulumi.Input[Union[str, 'DiskEncryptionSetType']] encryption_type: The type of key used to encrypt the data of the disk.
         :param pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
@@ -76,7 +76,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__['previous_keys'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:DiskEncryptionSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:DiskEncryptionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskEncryptionSet, __self__).__init__(
             'azure-nextgen:compute/latest:DiskEncryptionSet',
@@ -104,7 +104,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activeKey")
-    def active_key(self) -> pulumi.Output[Optional['outputs.KeyVaultAndKeyReferenceResponse']]:
+    def active_key(self) -> pulumi.Output[Optional['outputs.KeyForDiskEncryptionSetResponse']]:
         """
         The key vault key which is currently used by this disk encryption set.
         """
@@ -144,7 +144,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="previousKeys")
-    def previous_keys(self) -> pulumi.Output[Sequence['outputs.KeyVaultAndKeyReferenceResponse']]:
+    def previous_keys(self) -> pulumi.Output[Sequence['outputs.KeyForDiskEncryptionSetResponse']]:
         """
         A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
         """

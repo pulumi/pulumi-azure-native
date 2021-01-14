@@ -24,6 +24,8 @@ export * from "./getModule";
 export * from "./getPython2Package";
 export * from "./getRunbook";
 export * from "./getSchedule";
+export * from "./getSoftwareUpdateConfigurationByName";
+export * from "./getSourceControl";
 export * from "./getVariable";
 export * from "./getWatcher";
 export * from "./getWebhook";
@@ -33,6 +35,8 @@ export * from "./module";
 export * from "./python2Package";
 export * from "./runbook";
 export * from "./schedule";
+export * from "./softwareUpdateConfigurationByName";
+export * from "./sourceControl";
 export * from "./variable";
 export * from "./watcher";
 export * from "./webhook";
@@ -53,6 +57,8 @@ import { Module } from "./module";
 import { Python2Package } from "./python2Package";
 import { Runbook } from "./runbook";
 import { Schedule } from "./schedule";
+import { SoftwareUpdateConfigurationByName } from "./softwareUpdateConfigurationByName";
+import { SourceControl } from "./sourceControl";
 import { Variable } from "./variable";
 import { Watcher } from "./watcher";
 import { Webhook } from "./webhook";
@@ -85,6 +91,10 @@ const _module = {
                 return new Runbook(name, <any>undefined, { urn })
             case "azure-nextgen:automation/latest:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName":
+                return new SoftwareUpdateConfigurationByName(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/latest:SourceControl":
+                return new SourceControl(name, <any>undefined, { urn })
             case "azure-nextgen:automation/latest:Variable":
                 return new Variable(name, <any>undefined, { urn })
             case "azure-nextgen:automation/latest:Watcher":

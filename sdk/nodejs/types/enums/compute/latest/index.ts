@@ -132,10 +132,11 @@ export type DiskCreateOptionTypes = (typeof DiskCreateOptionTypes)[keyof typeof 
 
 export const DiskEncryptionSetIdentityType = {
     SystemAssigned: "SystemAssigned",
+    None: "None",
 } as const;
 
 /**
- * The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+ * The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
  */
 export type DiskEncryptionSetIdentityType = (typeof DiskEncryptionSetIdentityType)[keyof typeof DiskEncryptionSetIdentityType];
 
@@ -198,6 +199,15 @@ export const EncryptionType = {
  * The type of key used to encrypt the data of the disk.
  */
 export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+export const ExtendedLocationTypes = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The type of the extended location.
+ */
+export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
 
 export const GallerySharingPermissionTypes = {
     Private: "Private",
@@ -336,6 +346,17 @@ export const PassNames = {
  * The pass name. Currently, the only allowable value is OobeSystem.
  */
 export type PassNames = (typeof PassNames)[keyof typeof PassNames];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const ProtocolTypes = {
     Http: "Http",

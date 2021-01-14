@@ -55,6 +55,18 @@ func NewSourceControl(ctx *pulumi.Context,
 	if args.SourceControlName == nil {
 		return nil, errors.New("invalid value for required argument 'SourceControlName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:automation/latest:SourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:SourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:SourceControl"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SourceControl
 	err := ctx.RegisterResource("azure-nextgen:automation/v20170515preview:SourceControl", name, args, &resource, opts...)
 	if err != nil {

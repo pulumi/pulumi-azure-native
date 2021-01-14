@@ -528,6 +528,36 @@ func (e NetworkSecurityGroupRuleAccess) ToStringPtrOutputWithContext(ctx context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
+type NodePlacementPolicyType pulumi.String
+
+const (
+	// All nodes in the pool will be allocated in the same region.
+	NodePlacementPolicyTypeRegional = NodePlacementPolicyType("Regional")
+	// Nodes in the pool will be spread across different zones with best effort balancing.
+	NodePlacementPolicyTypeZonal = NodePlacementPolicyType("Zonal")
+)
+
+func (NodePlacementPolicyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NodePlacementPolicyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodePlacementPolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodePlacementPolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NodePlacementPolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
 type PoolAllocationMode pulumi.String
 
@@ -555,6 +585,36 @@ func (e PoolAllocationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e PoolAllocationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of identity used for the Batch Pool.
+type PoolIdentityType pulumi.String
+
+const (
+	// Batch pool has user assigned identities with it.
+	PoolIdentityTypeUserAssigned = PoolIdentityType("UserAssigned")
+	// Batch pool has no identity associated with it. Setting `None` in update pool will remove existing identities.
+	PoolIdentityTypeNone = PoolIdentityType("None")
+)
+
+func (PoolIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e PoolIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PoolIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PoolIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PoolIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -594,6 +654,8 @@ type ResourceIdentityType pulumi.String
 const (
 	// Batch account has a system assigned identity with it.
 	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
+	// Batch account has user assigned identities with it.
+	ResourceIdentityTypeUserAssigned = ResourceIdentityType("UserAssigned")
 	// Batch account has no identity associated with it. Setting `None` in update account will remove existing identities.
 	ResourceIdentityTypeNone = ResourceIdentityType("None")
 )

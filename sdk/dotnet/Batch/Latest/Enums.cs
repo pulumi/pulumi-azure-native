@@ -641,6 +641,43 @@ namespace Pulumi.AzureNextGen.Batch.Latest
     }
 
     /// <summary>
+    /// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodePlacementPolicyType : IEquatable<NodePlacementPolicyType>
+    {
+        private readonly string _value;
+
+        private NodePlacementPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// All nodes in the pool will be allocated in the same region.
+        /// </summary>
+        public static NodePlacementPolicyType Regional { get; } = new NodePlacementPolicyType("Regional");
+        /// <summary>
+        /// Nodes in the pool will be spread across different zones with best effort balancing.
+        /// </summary>
+        public static NodePlacementPolicyType Zonal { get; } = new NodePlacementPolicyType("Zonal");
+
+        public static bool operator ==(NodePlacementPolicyType left, NodePlacementPolicyType right) => left.Equals(right);
+        public static bool operator !=(NodePlacementPolicyType left, NodePlacementPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(NodePlacementPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodePlacementPolicyType other && Equals(other);
+        public bool Equals(NodePlacementPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
     /// </summary>
     [EnumType]
@@ -670,6 +707,43 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PoolAllocationMode other && Equals(other);
         public bool Equals(PoolAllocationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of identity used for the Batch Pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct PoolIdentityType : IEquatable<PoolIdentityType>
+    {
+        private readonly string _value;
+
+        private PoolIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Batch pool has user assigned identities with it.
+        /// </summary>
+        public static PoolIdentityType UserAssigned { get; } = new PoolIdentityType("UserAssigned");
+        /// <summary>
+        /// Batch pool has no identity associated with it. Setting `None` in update pool will remove existing identities.
+        /// </summary>
+        public static PoolIdentityType None { get; } = new PoolIdentityType("None");
+
+        public static bool operator ==(PoolIdentityType left, PoolIdentityType right) => left.Equals(right);
+        public static bool operator !=(PoolIdentityType left, PoolIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(PoolIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PoolIdentityType other && Equals(other);
+        public bool Equals(PoolIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -731,6 +805,10 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// Batch account has a system assigned identity with it.
         /// </summary>
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        /// <summary>
+        /// Batch account has user assigned identities with it.
+        /// </summary>
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
         /// <summary>
         /// Batch account has no identity associated with it. Setting `None` in update account will remove existing identities.
         /// </summary>

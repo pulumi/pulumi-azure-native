@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the connection type.
-// Latest API Version: 2015-10-31.
+// Latest API Version: 2019-06-01.
 type ConnectionType struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +57,12 @@ func NewConnectionType(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:ConnectionType"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:ConnectionType"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:ConnectionType"),
 		},
 	})
 	opts = append(opts, aliases)

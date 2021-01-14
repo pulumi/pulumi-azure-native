@@ -62,6 +62,12 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:DscNodeConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:DscNodeConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:DscNodeConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DscNodeConfiguration

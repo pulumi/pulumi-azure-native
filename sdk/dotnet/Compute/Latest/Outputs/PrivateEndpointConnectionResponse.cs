@@ -14,11 +14,11 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// private endpoint connection Id
+        /// Resource Id
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// private endpoint connection name
+        /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// private endpoint connection type
+        /// Resource type
         /// </summary>
         public readonly string Type;
 

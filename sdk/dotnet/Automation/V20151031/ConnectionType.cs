@@ -83,6 +83,8 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:ConnectionType"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:ConnectionType"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:ConnectionType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

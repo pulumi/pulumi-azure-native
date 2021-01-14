@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Disk resource.
- * Latest API Version: 2020-06-30.
+ * Latest API Version: 2020-09-30.
  */
 export class Disk extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class Disk extends pulumi.CustomResource {
         return obj['__pulumiType'] === Disk.__pulumiType;
     }
 
+    /**
+     * Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+     */
+    public readonly burstingEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
@@ -81,6 +85,10 @@ export class Disk extends pulumi.CustomResource {
      */
     public readonly encryptionSettingsCollection!: pulumi.Output<outputs.compute.latest.EncryptionSettingsCollectionResponse | undefined>;
     /**
+     * The extended location where the disk will be created. Extended location cannot be changed.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.compute.latest.ExtendedLocationResponse | undefined>;
+    /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
@@ -116,6 +124,10 @@ export class Disk extends pulumi.CustomResource {
      * The disk provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+     */
+    public readonly purchasePlan!: pulumi.Output<outputs.compute.latest.PurchasePlanResponse | undefined>;
     /**
      * Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
      */
@@ -171,6 +183,7 @@ export class Disk extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["burstingEnabled"] = args ? args.burstingEnabled : undefined;
             inputs["creationData"] = args ? args.creationData : undefined;
             inputs["diskAccessId"] = args ? args.diskAccessId : undefined;
             inputs["diskIOPSReadOnly"] = args ? args.diskIOPSReadOnly : undefined;
@@ -181,11 +194,13 @@ export class Disk extends pulumi.CustomResource {
             inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxShares"] = args ? args.maxShares : undefined;
             inputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
             inputs["osType"] = args ? args.osType : undefined;
+            inputs["purchasePlan"] = args ? args.purchasePlan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -202,6 +217,7 @@ export class Disk extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         } else {
+            inputs["burstingEnabled"] = undefined /*out*/;
             inputs["creationData"] = undefined /*out*/;
             inputs["diskAccessId"] = undefined /*out*/;
             inputs["diskIOPSReadOnly"] = undefined /*out*/;
@@ -213,6 +229,7 @@ export class Disk extends pulumi.CustomResource {
             inputs["diskState"] = undefined /*out*/;
             inputs["encryption"] = undefined /*out*/;
             inputs["encryptionSettingsCollection"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["hyperVGeneration"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["managedBy"] = undefined /*out*/;
@@ -222,6 +239,7 @@ export class Disk extends pulumi.CustomResource {
             inputs["networkAccessPolicy"] = undefined /*out*/;
             inputs["osType"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["purchasePlan"] = undefined /*out*/;
             inputs["shareInfo"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -238,7 +256,7 @@ export class Disk extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20160430preview:Disk" }, { type: "azure-nextgen:compute/v20170330:Disk" }, { type: "azure-nextgen:compute/v20180401:Disk" }, { type: "azure-nextgen:compute/v20180601:Disk" }, { type: "azure-nextgen:compute/v20180930:Disk" }, { type: "azure-nextgen:compute/v20190301:Disk" }, { type: "azure-nextgen:compute/v20190701:Disk" }, { type: "azure-nextgen:compute/v20191101:Disk" }, { type: "azure-nextgen:compute/v20200501:Disk" }, { type: "azure-nextgen:compute/v20200630:Disk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20160430preview:Disk" }, { type: "azure-nextgen:compute/v20170330:Disk" }, { type: "azure-nextgen:compute/v20180401:Disk" }, { type: "azure-nextgen:compute/v20180601:Disk" }, { type: "azure-nextgen:compute/v20180930:Disk" }, { type: "azure-nextgen:compute/v20190301:Disk" }, { type: "azure-nextgen:compute/v20190701:Disk" }, { type: "azure-nextgen:compute/v20191101:Disk" }, { type: "azure-nextgen:compute/v20200501:Disk" }, { type: "azure-nextgen:compute/v20200630:Disk" }, { type: "azure-nextgen:compute/v20200930:Disk" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Disk.__pulumiType, name, inputs, opts);
     }
@@ -248,6 +266,10 @@ export class Disk extends pulumi.CustomResource {
  * The set of arguments for constructing a Disk resource.
  */
 export interface DiskArgs {
+    /**
+     * Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+     */
+    readonly burstingEnabled?: pulumi.Input<boolean>;
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
@@ -289,6 +311,10 @@ export interface DiskArgs {
      */
     readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.latest.EncryptionSettingsCollection>;
     /**
+     * The extended location where the disk will be created. Extended location cannot be changed.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.compute.latest.ExtendedLocation>;
+    /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
     readonly hyperVGeneration?: pulumi.Input<string | enums.compute.latest.HyperVGeneration>;
@@ -308,6 +334,10 @@ export interface DiskArgs {
      * The Operating System type.
      */
     readonly osType?: pulumi.Input<enums.compute.latest.OperatingSystemTypes>;
+    /**
+     * Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+     */
+    readonly purchasePlan?: pulumi.Input<inputs.compute.latest.PurchasePlan>;
     /**
      * The name of the resource group.
      */

@@ -24,6 +24,7 @@ class Pool(pulumi.CustomResource):
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]]] = None,
                  deployment_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['BatchPoolIdentityArgs']]] = None,
                  inter_node_communication: Optional[pulumi.Input['InterNodeCommunicationState']] = None,
                  metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]]] = None,
                  mount_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountConfigurationArgs']]]]] = None,
@@ -41,7 +42,7 @@ class Pool(pulumi.CustomResource):
                  __opts__=None):
         """
         Contains information about a pool.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -51,6 +52,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] deployment_configuration: Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         :param pulumi.Input[str] display_name: The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
+        :param pulumi.Input[pulumi.InputType['BatchPoolIdentityArgs']] identity: The type of identity used for the Batch Pool.
         :param pulumi.Input['InterNodeCommunicationState'] inter_node_communication: This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]] metadata: The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountConfigurationArgs']]]] mount_configuration: This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
@@ -88,6 +90,7 @@ class Pool(pulumi.CustomResource):
             __props__['certificates'] = certificates
             __props__['deployment_configuration'] = deployment_configuration
             __props__['display_name'] = display_name
+            __props__['identity'] = identity
             __props__['inter_node_communication'] = inter_node_communication
             __props__['metadata'] = metadata
             __props__['mount_configuration'] = mount_configuration
@@ -117,7 +120,7 @@ class Pool(pulumi.CustomResource):
             __props__['provisioning_state_transition_time'] = None
             __props__['resize_operation_status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20170901:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20170901:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-nextgen:batch/latest:Pool',
@@ -223,6 +226,14 @@ class Pool(pulumi.CustomResource):
         The ETag of the resource, used for concurrency statements.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.BatchPoolIdentityResponse']]:
+        """
+        The type of identity used for the Batch Pool.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="interNodeCommunication")

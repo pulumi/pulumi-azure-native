@@ -33,6 +33,7 @@ __all__ = [
     'EncryptionSetIdentityArgs',
     'EncryptionSettingsCollectionArgs',
     'EncryptionSettingsElementArgs',
+    'ExtendedLocationArgs',
     'GalleryApplicationVersionPublishingProfileArgs',
     'GalleryArtifactVersionSourceArgs',
     'GalleryDataDiskImageArgs',
@@ -51,6 +52,7 @@ __all__ = [
     'ImageReferenceArgs',
     'ImageStorageProfileArgs',
     'InstanceViewStatusArgs',
+    'KeyForDiskEncryptionSetArgs',
     'KeyVaultAndKeyReferenceArgs',
     'KeyVaultAndSecretReferenceArgs',
     'KeyVaultKeyReferenceArgs',
@@ -64,6 +66,8 @@ __all__ = [
     'OSProfileArgs',
     'PatchSettingsArgs',
     'PlanArgs',
+    'PrivateLinkServiceConnectionStateArgs',
+    'PurchasePlanArgs',
     'RecommendedMachineConfigurationArgs',
     'ResourceRangeArgs',
     'RollingUpgradePolicyArgs',
@@ -1145,7 +1149,7 @@ class EncryptionSetIdentityArgs:
                  type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetIdentityType']]] = None):
         """
         The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-        :param pulumi.Input[Union[str, 'DiskEncryptionSetIdentityType']] type: The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+        :param pulumi.Input[Union[str, 'DiskEncryptionSetIdentityType']] type: The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1154,7 +1158,7 @@ class EncryptionSetIdentityArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[str, 'DiskEncryptionSetIdentityType']]]:
         """
-        The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+        The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
         """
         return pulumi.get(self, "type")
 
@@ -1256,6 +1260,46 @@ class EncryptionSettingsElementArgs:
     @key_encryption_key.setter
     def key_encryption_key(self, value: Optional[pulumi.Input['KeyVaultAndKeyReferenceArgs']]):
         pulumi.set(self, "key_encryption_key", value)
+
+
+@pulumi.input_type
+class ExtendedLocationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]] = None):
+        """
+        The complex type of the extended location.
+        :param pulumi.Input[str] name: The name of the extended location.
+        :param pulumi.Input[Union[str, 'ExtendedLocationTypes']] type: The type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -2526,6 +2570,45 @@ class InstanceViewStatusArgs:
 
 
 @pulumi.input_type
+class KeyForDiskEncryptionSetArgs:
+    def __init__(__self__, *,
+                 key_url: pulumi.Input[str],
+                 source_vault: Optional[pulumi.Input['SourceVaultArgs']] = None):
+        """
+        Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+        :param pulumi.Input[str] key_url: Fully versioned Key Url pointing to a key in KeyVault
+        :param pulumi.Input['SourceVaultArgs'] source_vault: Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+        """
+        pulumi.set(__self__, "key_url", key_url)
+        if source_vault is not None:
+            pulumi.set(__self__, "source_vault", source_vault)
+
+    @property
+    @pulumi.getter(name="keyUrl")
+    def key_url(self) -> pulumi.Input[str]:
+        """
+        Fully versioned Key Url pointing to a key in KeyVault
+        """
+        return pulumi.get(self, "key_url")
+
+    @key_url.setter
+    def key_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_url", value)
+
+    @property
+    @pulumi.getter(name="sourceVault")
+    def source_vault(self) -> Optional[pulumi.Input['SourceVaultArgs']]:
+        """
+        Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+        """
+        return pulumi.get(self, "source_vault")
+
+    @source_vault.setter
+    def source_vault(self, value: Optional[pulumi.Input['SourceVaultArgs']]):
+        pulumi.set(self, "source_vault", value)
+
+
+@pulumi.input_type
 class KeyVaultAndKeyReferenceArgs:
     def __init__(__self__, *,
                  key_url: pulumi.Input[str],
@@ -3308,6 +3391,131 @@ class PlanArgs:
 
 
 @pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class PurchasePlanArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 product: pulumi.Input[str],
+                 publisher: pulumi.Input[str],
+                 promotion_code: Optional[pulumi.Input[str]] = None):
+        """
+        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+        :param pulumi.Input[str] name: The plan ID.
+        :param pulumi.Input[str] product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        :param pulumi.Input[str] publisher: The publisher ID.
+        :param pulumi.Input[str] promotion_code: The Offer Promotion Code.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The plan ID.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def product(self) -> pulumi.Input[str]:
+        """
+        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        """
+        return pulumi.get(self, "product")
+
+    @product.setter
+    def product(self, value: pulumi.Input[str]):
+        pulumi.set(self, "product", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        The publisher ID.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Offer Promotion Code.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @promotion_code.setter
+    def promotion_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "promotion_code", value)
+
+
+@pulumi.input_type
 class RecommendedMachineConfigurationArgs:
     def __init__(__self__, *,
                  memory: Optional[pulumi.Input['ResourceRangeArgs']] = None,
@@ -3653,7 +3861,7 @@ class SnapshotSkuArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[Union[str, 'SnapshotStorageAccountTypes']]] = None):
         """
-        The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+        The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         :param pulumi.Input[Union[str, 'SnapshotStorageAccountTypes']] name: The sku name.
         """
         if name is not None:

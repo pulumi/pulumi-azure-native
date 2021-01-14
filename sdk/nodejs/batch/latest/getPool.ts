@@ -77,6 +77,10 @@ export interface GetPoolResult {
      */
     readonly id: string;
     /**
+     * The type of identity used for the Batch Pool.
+     */
+    readonly identity?: outputs.batch.latest.BatchPoolIdentityResponse;
+    /**
      * This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
      */
     readonly interNodeCommunication?: string;

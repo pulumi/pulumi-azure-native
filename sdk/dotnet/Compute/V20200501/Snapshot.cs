@@ -164,6 +164,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

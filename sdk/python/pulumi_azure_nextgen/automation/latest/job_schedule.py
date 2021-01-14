@@ -29,7 +29,7 @@ class JobSchedule(pulumi.CustomResource):
                  __opts__=None):
         """
         Definition of the job schedule.
-        Latest API Version: 2015-10-31.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -77,7 +77,7 @@ class JobSchedule(pulumi.CustomResource):
             __props__['schedule'] = schedule
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:JobSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:JobSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobSchedule, __self__).__init__(
             'azure-nextgen:automation/latest:JobSchedule',

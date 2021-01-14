@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the credential.
-// Latest API Version: 2015-10-31.
+// Latest API Version: 2019-06-01.
 type Credential struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +58,12 @@ func NewCredential(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Credential"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Credential"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Credential"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * disk access resource.
- * Latest API Version: 2020-06-30.
+ * Latest API Version: 2020-09-30.
  */
 export class DiskAccess extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class DiskAccess extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20200501:DiskAccess" }, { type: "azure-nextgen:compute/v20200630:DiskAccess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20200501:DiskAccess" }, { type: "azure-nextgen:compute/v20200630:DiskAccess" }, { type: "azure-nextgen:compute/v20200930:DiskAccess" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskAccess.__pulumiType, name, inputs, opts);
     }
