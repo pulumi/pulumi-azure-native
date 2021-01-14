@@ -72,9 +72,13 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly string SerialNumber;
         /// <summary>
+        /// ShipmentType of the order
+        /// </summary>
+        public readonly string? ShipmentType;
+        /// <summary>
         /// The shipping address.
         /// </summary>
-        public readonly Outputs.AddressResponse ShippingAddress;
+        public readonly Outputs.AddressResponse? ShippingAddress;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -98,7 +102,9 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             string serialNumber,
 
-            Outputs.AddressResponse shippingAddress,
+            string? shipmentType,
+
+            Outputs.AddressResponse? shippingAddress,
 
             string type)
         {
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
             OrderHistory = orderHistory;
             ReturnTrackingInfo = returnTrackingInfo;
             SerialNumber = serialNumber;
+            ShipmentType = shipmentType;
             ShippingAddress = shippingAddress;
             Type = type;
         }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// The order details.
-    /// Latest API Version: 2019-08-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Order")]
     public partial class Order : Pulumi.CustomResource
@@ -59,10 +59,16 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         public Output<string> SerialNumber { get; private set; } = null!;
 
         /// <summary>
+        /// ShipmentType of the order
+        /// </summary>
+        [Output("shipmentType")]
+        public Output<string?> ShipmentType { get; private set; } = null!;
+
+        /// <summary>
         /// The shipping address.
         /// </summary>
         [Output("shippingAddress")]
-        public Output<Outputs.AddressResponse> ShippingAddress { get; private set; } = null!;
+        public Output<Outputs.AddressResponse?> ShippingAddress { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
@@ -99,6 +105,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Order"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Order"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Order"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,10 +155,16 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// ShipmentType of the order
+        /// </summary>
+        [Input("shipmentType")]
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.ShipmentType>? ShipmentType { get; set; }
+
+        /// <summary>
         /// The shipping address.
         /// </summary>
-        [Input("shippingAddress", required: true)]
-        public Input<Inputs.AddressArgs> ShippingAddress { get; set; } = null!;
+        [Input("shippingAddress")]
+        public Input<Inputs.AddressArgs>? ShippingAddress { get; set; }
 
         public OrderArgs()
         {

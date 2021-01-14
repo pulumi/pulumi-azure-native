@@ -71,6 +71,10 @@ export interface GetDeviceResult {
      */
     readonly deviceType: string;
     /**
+     * The details of Edge Profile for this resource
+     */
+    readonly edgeProfile?: outputs.databoxedge.latest.EdgeProfileResponse;
+    /**
      * The etag for the devices.
      */
     readonly etag?: string;
@@ -82,6 +86,14 @@ export interface GetDeviceResult {
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
+    /**
+     * Msi identity of the resource
+     */
+    readonly identity?: outputs.databoxedge.latest.ResourceIdentityResponse;
+    /**
+     * The etag for the devices.
+     */
+    readonly kind?: string;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
@@ -99,6 +111,10 @@ export interface GetDeviceResult {
      */
     readonly nodeCount: number;
     /**
+     * The details of the move operation on this resource.
+     */
+    readonly resourceMoveDetails?: outputs.databoxedge.latest.ResourceMoveDetailsResponse;
+    /**
      * The Serial Number of Data Box Edge/Gateway device.
      */
     readonly serialNumber: string;
@@ -106,6 +122,10 @@ export interface GetDeviceResult {
      * The SKU type.
      */
     readonly sku?: outputs.databoxedge.latest.SkuResponse;
+    /**
+     * DataBoxEdge Resource
+     */
+    readonly systemData: outputs.databoxedge.latest.SystemDataResponse;
     /**
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */

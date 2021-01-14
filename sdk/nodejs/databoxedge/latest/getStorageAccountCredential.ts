@@ -76,6 +76,10 @@ export interface GetStorageAccountCredentialResult {
      */
     readonly storageAccountId?: string;
     /**
+     * StorageAccountCredential object
+     */
+    readonly systemData: outputs.databoxedge.latest.SystemDataResponse;
+    /**
      * The hierarchical type of the object.
      */
     readonly type: string;

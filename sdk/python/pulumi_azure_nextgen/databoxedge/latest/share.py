@@ -35,7 +35,7 @@ class Share(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents a share on the  Data Box Edge/Gateway device.
-        Latest API Version: 2019-08-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -94,8 +94,9 @@ class Share(pulumi.CustomResource):
             __props__['share_status'] = share_status
             __props__['user_access_rights'] = user_access_rights
             __props__['share_mappings'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Share")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Share")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Share, __self__).__init__(
             'azure-nextgen:databoxedge/latest:Share',
@@ -200,6 +201,14 @@ class Share(pulumi.CustomResource):
         Current status of the share.
         """
         return pulumi.get(self, "share_status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Share on ASE device
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

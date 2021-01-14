@@ -21,15 +21,22 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// The principal id of user assigned identity.
         /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// The tenant id of user assigned identity.
+        /// </summary>
+        public readonly string? TenantId;
 
         [OutputConstructor]
         private ClusterIdentityResponseUserAssignedIdentities(
             string clientId,
 
-            string principalId)
+            string principalId,
+
+            string? tenantId)
         {
             ClientId = clientId;
             PrincipalId = principalId;
+            TenantId = tenantId;
         }
     }
 }

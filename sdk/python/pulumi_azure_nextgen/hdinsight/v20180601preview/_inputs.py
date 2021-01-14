@@ -22,6 +22,7 @@ __all__ = [
     'ClusterCreatePropertiesArgs',
     'ClusterDefinitionArgs',
     'ClusterIdentityArgs',
+    'ClusterIdentityUserAssignedIdentitiesArgs',
     'ComputeIsolationPropertiesArgs',
     'ComputeProfileArgs',
     'DataDisksGroupsArgs',
@@ -872,11 +873,11 @@ class ClusterDefinitionArgs:
 class ClusterIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]]] = None):
         """
         Identity for the cluster.
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -897,15 +898,38 @@ class ClusterIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]]]:
         """
         The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class ClusterIdentityUserAssignedIdentitiesArgs:
+    def __init__(__self__, *,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] tenant_id: The tenant id of user assigned identity.
+        """
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id of user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
@@ -1341,6 +1365,7 @@ class RoleArgs:
     def __init__(__self__, *,
                  autoscale_configuration: Optional[pulumi.Input['AutoscaleArgs']] = None,
                  data_disks_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]]] = None,
+                 encrypt_data_disks: Optional[pulumi.Input[bool]] = None,
                  hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
                  min_instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1352,6 +1377,7 @@ class RoleArgs:
         Describes a role on the cluster.
         :param pulumi.Input['AutoscaleArgs'] autoscale_configuration: The autoscale configurations.
         :param pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]] data_disks_groups: The data disks groups for the role.
+        :param pulumi.Input[bool] encrypt_data_disks: Indicates whether encrypt the data disks.
         :param pulumi.Input['HardwareProfileArgs'] hardware_profile: The hardware profile.
         :param pulumi.Input[int] min_instance_count: The minimum instance count of the cluster.
         :param pulumi.Input[str] name: The name of the role.
@@ -1364,6 +1390,8 @@ class RoleArgs:
             pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
         if data_disks_groups is not None:
             pulumi.set(__self__, "data_disks_groups", data_disks_groups)
+        if encrypt_data_disks is not None:
+            pulumi.set(__self__, "encrypt_data_disks", encrypt_data_disks)
         if hardware_profile is not None:
             pulumi.set(__self__, "hardware_profile", hardware_profile)
         if min_instance_count is not None:
@@ -1402,6 +1430,18 @@ class RoleArgs:
     @data_disks_groups.setter
     def data_disks_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]]]):
         pulumi.set(self, "data_disks_groups", value)
+
+    @property
+    @pulumi.getter(name="encryptDataDisks")
+    def encrypt_data_disks(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether encrypt the data disks.
+        """
+        return pulumi.get(self, "encrypt_data_disks")
+
+    @encrypt_data_disks.setter
+    def encrypt_data_disks(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypt_data_disks", value)
 
     @property
     @pulumi.getter(name="hardwareProfile")

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// The Data Box Edge/Gateway device.
-    /// Latest API Version: 2019-08-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Device")]
     public partial class Device : Pulumi.CustomResource
@@ -71,6 +71,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         public Output<string> DeviceType { get; private set; } = null!;
 
         /// <summary>
+        /// The details of Edge Profile for this resource
+        /// </summary>
+        [Output("edgeProfile")]
+        public Output<Outputs.EdgeProfileResponse?> EdgeProfile { get; private set; } = null!;
+
+        /// <summary>
         /// The etag for the devices.
         /// </summary>
         [Output("etag")]
@@ -81,6 +87,18 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         [Output("friendlyName")]
         public Output<string?> FriendlyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Msi identity of the resource
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The etag for the devices.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
         /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
@@ -107,6 +125,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         public Output<int> NodeCount { get; private set; } = null!;
 
         /// <summary>
+        /// The details of the move operation on this resource.
+        /// </summary>
+        [Output("resourceMoveDetails")]
+        public Output<Outputs.ResourceMoveDetailsResponse?> ResourceMoveDetails { get; private set; } = null!;
+
+        /// <summary>
         /// The Serial Number of Data Box Edge/Gateway device.
         /// </summary>
         [Output("serialNumber")]
@@ -117,6 +141,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// DataBoxEdge Resource
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
@@ -165,6 +195,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Device"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Device"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Device"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -207,6 +239,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
+        /// The details of Edge Profile for this resource
+        /// </summary>
+        [Input("edgeProfile")]
+        public Input<Inputs.EdgeProfileArgs>? EdgeProfile { get; set; }
+
+        /// <summary>
         /// The etag for the devices.
         /// </summary>
         [Input("etag")]
@@ -217,6 +255,18 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         [Input("friendlyName")]
         public Input<string>? FriendlyName { get; set; }
+
+        /// <summary>
+        /// Msi identity of the resource
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The etag for the devices.
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.DataBoxEdgeDeviceKind>? Kind { get; set; }
 
         /// <summary>
         /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
@@ -235,6 +285,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The details of the move operation on this resource.
+        /// </summary>
+        [Input("resourceMoveDetails")]
+        public Input<Inputs.ResourceMoveDetailsArgs>? ResourceMoveDetails { get; set; }
 
         /// <summary>
         /// The SKU type.

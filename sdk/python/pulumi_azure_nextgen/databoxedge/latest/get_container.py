@@ -20,7 +20,7 @@ class GetContainerResult:
     """
     Represents a container on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, container_status=None, created_date_time=None, data_format=None, id=None, name=None, refresh_details=None, type=None):
+    def __init__(__self__, container_status=None, created_date_time=None, data_format=None, id=None, name=None, refresh_details=None, system_data=None, type=None):
         if container_status and not isinstance(container_status, str):
             raise TypeError("Expected argument 'container_status' to be a str")
         pulumi.set(__self__, "container_status", container_status)
@@ -39,6 +39,9 @@ class GetContainerResult:
         if refresh_details and not isinstance(refresh_details, dict):
             raise TypeError("Expected argument 'refresh_details' to be a dict")
         pulumi.set(__self__, "refresh_details", refresh_details)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -92,6 +95,14 @@ class GetContainerResult:
         return pulumi.get(self, "refresh_details")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Container in DataBoxEdge Resource
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -112,6 +123,7 @@ class AwaitableGetContainerResult(GetContainerResult):
             id=self.id,
             name=self.name,
             refresh_details=self.refresh_details,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -146,4 +158,5 @@ def get_container(container_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         refresh_details=__ret__.refresh_details,
+        system_data=__ret__.system_data,
         type=__ret__.type)

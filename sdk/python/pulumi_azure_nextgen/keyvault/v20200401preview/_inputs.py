@@ -411,33 +411,33 @@ class PermissionsArgs:
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 action_required: Optional[pulumi.Input[str]] = None,
+                 actions_required: Optional[pulumi.Input[Union[str, 'ActionsRequired']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         An object that represents the approval state of the private link connection.
-        :param pulumi.Input[str] action_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[Union[str, 'ActionsRequired']] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval or rejection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[Union[str, 'ActionsRequired']]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
-    @action_required.setter
-    def action_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "action_required", value)
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[Union[str, 'ActionsRequired']]]):
+        pulumi.set(self, "actions_required", value)
 
     @property
     @pulumi.getter
@@ -628,6 +628,7 @@ class VaultPropertiesArgs:
                  enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
                  network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'VaultProvisioningState']]] = None,
                  soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  vault_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -643,6 +644,7 @@ class VaultPropertiesArgs:
         :param pulumi.Input[bool] enabled_for_disk_encryption: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param pulumi.Input[bool] enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param pulumi.Input['NetworkRuleSetArgs'] network_acls: Rules governing the accessibility of the key vault from specific network locations.
+        :param pulumi.Input[Union[str, 'VaultProvisioningState']] provisioning_state: Provisioning state of the vault.
         :param pulumi.Input[int] soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param pulumi.Input[str] vault_uri: The URI of the vault for performing operations on keys and secrets.
         """
@@ -670,6 +672,8 @@ class VaultPropertiesArgs:
             pulumi.set(__self__, "enabled_for_template_deployment", enabled_for_template_deployment)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if soft_delete_retention_in_days is None:
             soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
@@ -808,6 +812,18 @@ class VaultPropertiesArgs:
     @network_acls.setter
     def network_acls(self, value: Optional[pulumi.Input['NetworkRuleSetArgs']]):
         pulumi.set(self, "network_acls", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'VaultProvisioningState']]]:
+        """
+        Provisioning state of the vault.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'VaultProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="softDeleteRetentionInDays")

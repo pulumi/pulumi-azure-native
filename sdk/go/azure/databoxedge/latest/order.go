@@ -12,7 +12,7 @@ import (
 )
 
 // The order details.
-// Latest API Version: 2019-08-01.
+// Latest API Version: 2020-09-01.
 type Order struct {
 	pulumi.CustomResourceState
 
@@ -30,8 +30,10 @@ type Order struct {
 	ReturnTrackingInfo TrackingInfoResponseArrayOutput `pulumi:"returnTrackingInfo"`
 	// Serial number of the device.
 	SerialNumber pulumi.StringOutput `pulumi:"serialNumber"`
+	// ShipmentType of the order
+	ShipmentType pulumi.StringPtrOutput `pulumi:"shipmentType"`
 	// The shipping address.
-	ShippingAddress AddressResponseOutput `pulumi:"shippingAddress"`
+	ShippingAddress AddressResponsePtrOutput `pulumi:"shippingAddress"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -52,9 +54,6 @@ func NewOrder(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ShippingAddress == nil {
-		return nil, errors.New("invalid value for required argument 'ShippingAddress'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:Order"),
@@ -67,6 +66,12 @@ func NewOrder(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Order"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Order"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Order"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -106,6 +111,8 @@ type orderState struct {
 	ReturnTrackingInfo []TrackingInfoResponse `pulumi:"returnTrackingInfo"`
 	// Serial number of the device.
 	SerialNumber *string `pulumi:"serialNumber"`
+	// ShipmentType of the order
+	ShipmentType *string `pulumi:"shipmentType"`
 	// The shipping address.
 	ShippingAddress *AddressResponse `pulumi:"shippingAddress"`
 	// The hierarchical type of the object.
@@ -127,6 +134,8 @@ type OrderState struct {
 	ReturnTrackingInfo TrackingInfoResponseArrayInput
 	// Serial number of the device.
 	SerialNumber pulumi.StringPtrInput
+	// ShipmentType of the order
+	ShipmentType pulumi.StringPtrInput
 	// The shipping address.
 	ShippingAddress AddressResponsePtrInput
 	// The hierarchical type of the object.
@@ -146,8 +155,10 @@ type orderArgs struct {
 	DeviceName string `pulumi:"deviceName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// ShipmentType of the order
+	ShipmentType *string `pulumi:"shipmentType"`
 	// The shipping address.
-	ShippingAddress Address `pulumi:"shippingAddress"`
+	ShippingAddress *Address `pulumi:"shippingAddress"`
 }
 
 // The set of arguments for constructing a Order resource.
@@ -160,8 +171,10 @@ type OrderArgs struct {
 	DeviceName pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// ShipmentType of the order
+	ShipmentType pulumi.StringPtrInput
 	// The shipping address.
-	ShippingAddress AddressInput
+	ShippingAddress AddressPtrInput
 }
 
 func (OrderArgs) ElementType() reflect.Type {

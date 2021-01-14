@@ -62,6 +62,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

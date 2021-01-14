@@ -9,10 +9,8 @@ __all__ = [
     'DhcpTypeEnum',
     'DnsServiceLogLevelEnum',
     'InternetEnum',
-    'NsxtAdminRotateEnum',
     'PortMirroringDirectionEnum',
     'SslEnum',
-    'VcsaAdminRotateEnum',
 ]
 
 
@@ -50,13 +48,6 @@ class InternetEnum(str, Enum):
     DISABLED = "Disabled"
 
 
-class NsxtAdminRotateEnum(str, Enum):
-    """
-    Indicate to rotate the NSX-T Manager password for the private cloud
-    """
-    ONETIME_ROTATE = "OnetimeRotate"
-
-
 class PortMirroringDirectionEnum(str, Enum):
     """
     Direction of port mirroring profile.
@@ -70,10 +61,3 @@ class SslEnum(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class VcsaAdminRotateEnum(str, Enum):
-    """
-    Indicate to rotate the vCenter admin password for the private cloud
-    """
-    ONETIME_ROTATE = "OnetimeRotate"

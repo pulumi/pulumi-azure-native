@@ -9081,6 +9081,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  log_storage_account_id: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 target_availability_set_id: Optional[pulumi.Input[str]] = None,
                  target_availability_zone: Optional[pulumi.Input[str]] = None,
                  target_azure_network_id: Optional[pulumi.Input[str]] = None,
                  target_azure_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -9101,6 +9102,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
                Expected value is 'HyperVReplicaAzure'.
         :param pulumi.Input[str] log_storage_account_id: The storage account to be used for logging during replication.
         :param pulumi.Input[str] os_type: The OS type associated with vm.
+        :param pulumi.Input[str] target_availability_set_id: The availability set ARM Id.
         :param pulumi.Input[str] target_availability_zone: The target availability zone.
         :param pulumi.Input[str] target_azure_network_id: The selected target Azure network Id.
         :param pulumi.Input[str] target_azure_subnet_id: The selected target Azure subnet Id.
@@ -9125,6 +9127,8 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
             pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if target_availability_set_id is not None:
+            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
             pulumi.set(__self__, "target_availability_zone", target_availability_zone)
         if target_azure_network_id is not None:
@@ -9220,6 +9224,18 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
     @os_type.setter
     def os_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="targetAvailabilitySetId")
+    def target_availability_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The availability set ARM Id.
+        """
+        return pulumi.get(self, "target_availability_set_id")
+
+    @target_availability_set_id.setter
+    def target_availability_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_availability_set_id", value)
 
     @property
     @pulumi.getter(name="targetAvailabilityZone")
@@ -10200,6 +10216,7 @@ class InMageAzureV2EnableProtectionInputArgs:
                  process_server_id: Optional[pulumi.Input[str]] = None,
                  run_as_account_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
+                 target_availability_set_id: Optional[pulumi.Input[str]] = None,
                  target_availability_zone: Optional[pulumi.Input[str]] = None,
                  target_azure_network_id: Optional[pulumi.Input[str]] = None,
                  target_azure_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -10222,6 +10239,7 @@ class InMageAzureV2EnableProtectionInputArgs:
         :param pulumi.Input[str] process_server_id: The Process Server Id.
         :param pulumi.Input[str] run_as_account_id: The CS account Id.
         :param pulumi.Input[str] storage_account_id: The storage account name.
+        :param pulumi.Input[str] target_availability_set_id: The availability set ARM Id.
         :param pulumi.Input[str] target_availability_zone: The target availability zone.
         :param pulumi.Input[str] target_azure_network_id: The selected target Azure network Id.
         :param pulumi.Input[str] target_azure_subnet_id: The selected target Azure subnet Id.
@@ -10254,6 +10272,8 @@ class InMageAzureV2EnableProtectionInputArgs:
             pulumi.set(__self__, "run_as_account_id", run_as_account_id)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if target_availability_set_id is not None:
+            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
             pulumi.set(__self__, "target_availability_zone", target_availability_zone)
         if target_azure_network_id is not None:
@@ -10413,6 +10433,18 @@ class InMageAzureV2EnableProtectionInputArgs:
     @storage_account_id.setter
     def storage_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="targetAvailabilitySetId")
+    def target_availability_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The availability set ARM Id.
+        """
+        return pulumi.get(self, "target_availability_set_id")
+
+    @target_availability_set_id.setter
+    def target_availability_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_availability_set_id", value)
 
     @property
     @pulumi.getter(name="targetAvailabilityZone")

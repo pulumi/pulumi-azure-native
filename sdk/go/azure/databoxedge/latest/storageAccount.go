@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Storage Account on the  Data Box Edge/Gateway device.
-// Latest API Version: 2019-08-01.
+// Latest API Version: 2020-09-01.
 type StorageAccount struct {
 	pulumi.CustomResourceState
 
@@ -21,7 +21,7 @@ type StorageAccount struct {
 	// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
 	ContainerCount pulumi.IntOutput `pulumi:"containerCount"`
 	// Data policy of the storage Account.
-	DataPolicy pulumi.StringPtrOutput `pulumi:"dataPolicy"`
+	DataPolicy pulumi.StringOutput `pulumi:"dataPolicy"`
 	// Description for the storage Account.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The object name.
@@ -30,6 +30,8 @@ type StorageAccount struct {
 	StorageAccountCredentialId pulumi.StringPtrOutput `pulumi:"storageAccountCredentialId"`
 	// Current status of the storage account
 	StorageAccountStatus pulumi.StringPtrOutput `pulumi:"storageAccountStatus"`
+	// StorageAccount object on ASE device
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -41,6 +43,9 @@ func NewStorageAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataPolicy == nil {
+		return nil, errors.New("invalid value for required argument 'DataPolicy'")
+	}
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
@@ -56,6 +61,12 @@ func NewStorageAccount(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:StorageAccount"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -95,6 +106,8 @@ type storageAccountState struct {
 	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
 	// Current status of the storage account
 	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
+	// StorageAccount object on ASE device
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
@@ -114,6 +127,8 @@ type StorageAccountState struct {
 	StorageAccountCredentialId pulumi.StringPtrInput
 	// Current status of the storage account
 	StorageAccountStatus pulumi.StringPtrInput
+	// StorageAccount object on ASE device
+	SystemData SystemDataResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }
@@ -124,7 +139,7 @@ func (StorageAccountState) ElementType() reflect.Type {
 
 type storageAccountArgs struct {
 	// Data policy of the storage Account.
-	DataPolicy *string `pulumi:"dataPolicy"`
+	DataPolicy string `pulumi:"dataPolicy"`
 	// Description for the storage Account.
 	Description *string `pulumi:"description"`
 	// The device name.
@@ -142,7 +157,7 @@ type storageAccountArgs struct {
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
 	// Data policy of the storage Account.
-	DataPolicy pulumi.StringPtrInput
+	DataPolicy pulumi.StringInput
 	// Description for the storage Account.
 	Description pulumi.StringPtrInput
 	// The device name.

@@ -12,7 +12,7 @@ import (
 )
 
 // Trigger details.
-// Latest API Version: 2019-08-01.
+// Latest API Version: 2020-09-01.
 type Trigger struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type Trigger struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Trigger in DataBoxEdge Resource
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -56,6 +58,12 @@ func NewTrigger(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Trigger"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Trigger"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Trigger"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Trigger
@@ -84,6 +92,8 @@ type triggerState struct {
 	Kind *string `pulumi:"kind"`
 	// The object name.
 	Name *string `pulumi:"name"`
+	// Trigger in DataBoxEdge Resource
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
@@ -93,6 +103,8 @@ type TriggerState struct {
 	Kind pulumi.StringPtrInput
 	// The object name.
 	Name pulumi.StringPtrInput
+	// Trigger in DataBoxEdge Resource
+	SystemData SystemDataResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }

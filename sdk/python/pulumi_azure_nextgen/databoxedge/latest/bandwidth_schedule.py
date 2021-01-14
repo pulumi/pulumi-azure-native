@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 from ._enums import *
 
 __all__ = ['BandwidthSchedule']
@@ -28,7 +29,7 @@ class BandwidthSchedule(pulumi.CustomResource):
                  __opts__=None):
         """
         The bandwidth schedule details.
-        Latest API Version: 2019-08-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -78,8 +79,9 @@ class BandwidthSchedule(pulumi.CustomResource):
             if stop is None and not opts.urn:
                 raise TypeError("Missing required property 'stop'")
             __props__['stop'] = stop
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BandwidthSchedule, __self__).__init__(
             'azure-nextgen:databoxedge/latest:BandwidthSchedule',
@@ -144,6 +146,14 @@ class BandwidthSchedule(pulumi.CustomResource):
         The stop time of the schedule in UTC.
         """
         return pulumi.get(self, "stop")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Bandwidth object related to ASE resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

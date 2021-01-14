@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         public Output<string> NsxtCertificateThumbprint { get; private set; } = null!;
 
         /// <summary>
-        /// Indicate to rotate the NSX-T Manager password for the private cloud
+        /// Optionally, set the NSX-T Manager password when the private cloud is created
         /// </summary>
         [Output("nsxtPassword")]
         public Output<string?> NsxtPassword { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         public Output<string> VcenterCertificateThumbprint { get; private set; } = null!;
 
         /// <summary>
-        /// Indicate to rotate the vCenter admin password for the private cloud
+        /// Optionally, set the vCenter admin password when the private cloud is created
         /// </summary>
         [Output("vcenterPassword")]
         public Output<string?> VcenterPassword { get; private set; } = null!;
@@ -216,10 +216,10 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         public Input<string> NetworkBlock { get; set; } = null!;
 
         /// <summary>
-        /// Indicate to rotate the NSX-T Manager password for the private cloud
+        /// Optionally, set the NSX-T Manager password when the private cloud is created
         /// </summary>
         [Input("nsxtPassword")]
-        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20200717Preview.NsxtAdminRotateEnum>? NsxtPassword { get; set; }
+        public Input<string>? NsxtPassword { get; set; }
 
         /// <summary>
         /// Name of the private cloud
@@ -252,10 +252,10 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         }
 
         /// <summary>
-        /// Indicate to rotate the vCenter admin password for the private cloud
+        /// Optionally, set the vCenter admin password when the private cloud is created
         /// </summary>
         [Input("vcenterPassword")]
-        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20200717Preview.VcsaAdminRotateEnum>? VcenterPassword { get; set; }
+        public Input<string>? VcenterPassword { get; set; }
 
         public PrivateCloudArgs()
         {

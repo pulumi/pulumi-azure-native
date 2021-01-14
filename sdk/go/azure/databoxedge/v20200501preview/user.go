@@ -59,6 +59,12 @@ func NewUser(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:User"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:User"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:User"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource User

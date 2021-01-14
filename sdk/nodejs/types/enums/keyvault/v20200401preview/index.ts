@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ActionsRequired = {
+    None: "None",
+} as const;
+
+/**
+ * A message indicating if changes on the service provider require any updates on the consumer.
+ */
+export type ActionsRequired = (typeof ActionsRequired)[keyof typeof ActionsRequired];
+
 export const CertificatePermissions = {
     Get: "get",
     List: "list",
@@ -155,3 +164,13 @@ export const StoragePermissions = {
 } as const;
 
 export type StoragePermissions = (typeof StoragePermissions)[keyof typeof StoragePermissions];
+
+export const VaultProvisioningState = {
+    Succeeded: "Succeeded",
+    RegisteringDns: "RegisteringDns",
+} as const;
+
+/**
+ * Provisioning state of the vault.
+ */
+export type VaultProvisioningState = (typeof VaultProvisioningState)[keyof typeof VaultProvisioningState];

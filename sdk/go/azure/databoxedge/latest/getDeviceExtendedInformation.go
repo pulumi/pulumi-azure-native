@@ -25,6 +25,14 @@ type GetDeviceExtendedInformationArgs struct {
 
 // The extended Info of the Data Box Edge/Gateway device.
 type GetDeviceExtendedInformationResult struct {
+	// The name of Channel Integrity Key stored in the Client Key Vault
+	ChannelIntegrityKeyName *string `pulumi:"channelIntegrityKeyName"`
+	// The version of Channel Integrity Key stored in the Client Key Vault
+	ChannelIntegrityKeyVersion *string `pulumi:"channelIntegrityKeyVersion"`
+	// The Key Vault ARM Id for client secrets
+	ClientSecretStoreId *string `pulumi:"clientSecretStoreId"`
+	// The url to access the Client Key Vault
+	ClientSecretStoreUrl *string `pulumi:"clientSecretStoreUrl"`
 	// The public part of the encryption certificate. Client uses this to encrypt any secret.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// The digital signature of encrypted certificate.

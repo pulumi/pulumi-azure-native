@@ -95,6 +95,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Inputs
         public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
+        /// The availability set ARM Id.
+        /// </summary>
+        [Input("targetAvailabilitySetId")]
+        public Input<string>? TargetAvailabilitySetId { get; set; }
+
+        /// <summary>
         /// The target availability zone.
         /// </summary>
         [Input("targetAvailabilityZone")]

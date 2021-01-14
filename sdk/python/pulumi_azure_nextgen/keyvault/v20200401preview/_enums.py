@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'ActionsRequired',
     'CertificatePermissions',
     'CreateMode',
     'KeyPermissions',
@@ -17,7 +18,15 @@ __all__ = [
     'SkuFamily',
     'SkuName',
     'StoragePermissions',
+    'VaultProvisioningState',
 ]
+
+
+class ActionsRequired(str, Enum):
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    NONE = "None"
 
 
 class CertificatePermissions(str, Enum):
@@ -148,3 +157,11 @@ class StoragePermissions(str, Enum):
     LISTSAS = "listsas"
     GETSAS = "getsas"
     DELETESAS = "deletesas"
+
+
+class VaultProvisioningState(str, Enum):
+    """
+    Provisioning state of the vault.
+    """
+    SUCCEEDED = "Succeeded"
+    REGISTERING_DNS = "RegisteringDns"

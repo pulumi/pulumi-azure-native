@@ -119,6 +119,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift/latest:OpenShiftCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift/v20210131preview:OpenShiftCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

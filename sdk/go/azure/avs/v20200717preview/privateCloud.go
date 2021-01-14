@@ -35,7 +35,7 @@ type PrivateCloud struct {
 	NetworkBlock pulumi.StringOutput `pulumi:"networkBlock"`
 	// Thumbprint of the NSX-T Manager SSL certificate
 	NsxtCertificateThumbprint pulumi.StringOutput `pulumi:"nsxtCertificateThumbprint"`
-	// Indicate to rotate the NSX-T Manager password for the private cloud
+	// Optionally, set the NSX-T Manager password when the private cloud is created
 	NsxtPassword pulumi.StringPtrOutput `pulumi:"nsxtPassword"`
 	// Used for virtual machine cold migration, cloning, and snapshot migration
 	ProvisioningNetwork pulumi.StringOutput `pulumi:"provisioningNetwork"`
@@ -49,7 +49,7 @@ type PrivateCloud struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Thumbprint of the vCenter Server SSL certificate
 	VcenterCertificateThumbprint pulumi.StringOutput `pulumi:"vcenterCertificateThumbprint"`
-	// Indicate to rotate the vCenter admin password for the private cloud
+	// Optionally, set the vCenter admin password when the private cloud is created
 	VcenterPassword pulumi.StringPtrOutput `pulumi:"vcenterPassword"`
 	// Used for live migration of virtual machines
 	VmotionNetwork pulumi.StringOutput `pulumi:"vmotionNetwork"`
@@ -134,7 +134,7 @@ type privateCloudState struct {
 	NetworkBlock *string `pulumi:"networkBlock"`
 	// Thumbprint of the NSX-T Manager SSL certificate
 	NsxtCertificateThumbprint *string `pulumi:"nsxtCertificateThumbprint"`
-	// Indicate to rotate the NSX-T Manager password for the private cloud
+	// Optionally, set the NSX-T Manager password when the private cloud is created
 	NsxtPassword *string `pulumi:"nsxtPassword"`
 	// Used for virtual machine cold migration, cloning, and snapshot migration
 	ProvisioningNetwork *string `pulumi:"provisioningNetwork"`
@@ -148,7 +148,7 @@ type privateCloudState struct {
 	Type *string `pulumi:"type"`
 	// Thumbprint of the vCenter Server SSL certificate
 	VcenterCertificateThumbprint *string `pulumi:"vcenterCertificateThumbprint"`
-	// Indicate to rotate the vCenter admin password for the private cloud
+	// Optionally, set the vCenter admin password when the private cloud is created
 	VcenterPassword *string `pulumi:"vcenterPassword"`
 	// Used for live migration of virtual machines
 	VmotionNetwork *string `pulumi:"vmotionNetwork"`
@@ -175,7 +175,7 @@ type PrivateCloudState struct {
 	NetworkBlock pulumi.StringPtrInput
 	// Thumbprint of the NSX-T Manager SSL certificate
 	NsxtCertificateThumbprint pulumi.StringPtrInput
-	// Indicate to rotate the NSX-T Manager password for the private cloud
+	// Optionally, set the NSX-T Manager password when the private cloud is created
 	NsxtPassword pulumi.StringPtrInput
 	// Used for virtual machine cold migration, cloning, and snapshot migration
 	ProvisioningNetwork pulumi.StringPtrInput
@@ -189,7 +189,7 @@ type PrivateCloudState struct {
 	Type pulumi.StringPtrInput
 	// Thumbprint of the vCenter Server SSL certificate
 	VcenterCertificateThumbprint pulumi.StringPtrInput
-	// Indicate to rotate the vCenter admin password for the private cloud
+	// Optionally, set the vCenter admin password when the private cloud is created
 	VcenterPassword pulumi.StringPtrInput
 	// Used for live migration of virtual machines
 	VmotionNetwork pulumi.StringPtrInput
@@ -210,7 +210,7 @@ type privateCloudArgs struct {
 	ManagementCluster ManagementCluster `pulumi:"managementCluster"`
 	// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
 	NetworkBlock string `pulumi:"networkBlock"`
-	// Indicate to rotate the NSX-T Manager password for the private cloud
+	// Optionally, set the NSX-T Manager password when the private cloud is created
 	NsxtPassword *string `pulumi:"nsxtPassword"`
 	// Name of the private cloud
 	PrivateCloudName string `pulumi:"privateCloudName"`
@@ -220,7 +220,7 @@ type privateCloudArgs struct {
 	Sku Sku `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// Indicate to rotate the vCenter admin password for the private cloud
+	// Optionally, set the vCenter admin password when the private cloud is created
 	VcenterPassword *string `pulumi:"vcenterPassword"`
 }
 
@@ -236,7 +236,7 @@ type PrivateCloudArgs struct {
 	ManagementCluster ManagementClusterInput
 	// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
 	NetworkBlock pulumi.StringInput
-	// Indicate to rotate the NSX-T Manager password for the private cloud
+	// Optionally, set the NSX-T Manager password when the private cloud is created
 	NsxtPassword pulumi.StringPtrInput
 	// Name of the private cloud
 	PrivateCloudName pulumi.StringInput
@@ -246,7 +246,7 @@ type PrivateCloudArgs struct {
 	Sku SkuInput
 	// Resource tags
 	Tags pulumi.StringMapInput
-	// Indicate to rotate the vCenter admin password for the private cloud
+	// Optionally, set the vCenter admin password when the private cloud is created
 	VcenterPassword pulumi.StringPtrInput
 }
 

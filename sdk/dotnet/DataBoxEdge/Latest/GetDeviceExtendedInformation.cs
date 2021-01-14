@@ -40,6 +40,22 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     public sealed class GetDeviceExtendedInformationResult
     {
         /// <summary>
+        /// The name of Channel Integrity Key stored in the Client Key Vault
+        /// </summary>
+        public readonly string? ChannelIntegrityKeyName;
+        /// <summary>
+        /// The version of Channel Integrity Key stored in the Client Key Vault
+        /// </summary>
+        public readonly string? ChannelIntegrityKeyVersion;
+        /// <summary>
+        /// The Key Vault ARM Id for client secrets
+        /// </summary>
+        public readonly string? ClientSecretStoreId;
+        /// <summary>
+        /// The url to access the Client Key Vault
+        /// </summary>
+        public readonly string? ClientSecretStoreUrl;
+        /// <summary>
         /// The public part of the encryption certificate. Client uses this to encrypt any secret.
         /// </summary>
         public readonly string? EncryptionKey;
@@ -66,6 +82,14 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
         [OutputConstructor]
         private GetDeviceExtendedInformationResult(
+            string? channelIntegrityKeyName,
+
+            string? channelIntegrityKeyVersion,
+
+            string? clientSecretStoreId,
+
+            string? clientSecretStoreUrl,
+
             string? encryptionKey,
 
             string? encryptionKeyThumbprint,
@@ -78,6 +102,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             string type)
         {
+            ChannelIntegrityKeyName = channelIntegrityKeyName;
+            ChannelIntegrityKeyVersion = channelIntegrityKeyVersion;
+            ClientSecretStoreId = clientSecretStoreId;
+            ClientSecretStoreUrl = clientSecretStoreUrl;
             EncryptionKey = encryptionKey;
             EncryptionKeyThumbprint = encryptionKeyThumbprint;
             Id = id;

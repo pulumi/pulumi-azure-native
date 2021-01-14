@@ -889,6 +889,178 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionState struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
+//
+//          PrivateLinkServiceConnectionStateArgs{...}
+type PrivateLinkServiceConnectionStateInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput
+	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
+	return i.ToPrivateLinkServiceConnectionStateOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput)
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput).ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
+//
+//          PrivateLinkServiceConnectionStateArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkServiceConnectionStatePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput
+	ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePtrOutput
+}
+
+type privateLinkServiceConnectionStatePtrType PrivateLinkServiceConnectionStateArgs
+
+func PrivateLinkServiceConnectionStatePtr(v *PrivateLinkServiceConnectionStateArgs) PrivateLinkServiceConnectionStatePtrInput {
+	return (*privateLinkServiceConnectionStatePtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+		return &v
+	}).(PrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -931,6 +1103,47 @@ func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConne
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput).ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkServiceConnectionStateResponsePtrInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs, PrivateLinkServiceConnectionStateResponsePtr and PrivateLinkServiceConnectionStateResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateResponsePtrInput` via:
+//
+//          PrivateLinkServiceConnectionStateResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkServiceConnectionStateResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput
+	ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput
+}
+
+type privateLinkServiceConnectionStateResponsePtrType PrivateLinkServiceConnectionStateResponseArgs
+
+func PrivateLinkServiceConnectionStateResponsePtr(v *PrivateLinkServiceConnectionStateResponseArgs) PrivateLinkServiceConnectionStateResponsePtrInput {
+	return (*privateLinkServiceConnectionStateResponsePtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStateResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
 // A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
@@ -946,6 +1159,16 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	return o
 }
 
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+		return &v
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
 // A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
@@ -959,6 +1182,56 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.St
 // Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStateResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
+		return *v
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -1201,7 +1474,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The bandwidth schedule details.
- * Latest API Version: 2019-08-01.
+ * Latest API Version: 2020-09-01.
  */
 export class BandwidthSchedule extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class BandwidthSchedule extends pulumi.CustomResource {
      */
     public readonly stop!: pulumi.Output<string>;
     /**
+     * Bandwidth object related to ASE resource
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.latest.SystemDataResponse>;
+    /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -99,6 +103,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["start"] = args ? args.start : undefined;
             inputs["stop"] = args ? args.stop : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["days"] = undefined /*out*/;
@@ -106,6 +111,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
             inputs["rateInMbps"] = undefined /*out*/;
             inputs["start"] = undefined /*out*/;
             inputs["stop"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,7 +121,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190701:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190801:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190701:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190801:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200901:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BandwidthSchedule.__pulumiType, name, inputs, opts);
     }

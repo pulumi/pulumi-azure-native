@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const SharedTypeKind = {
+export const Kind = {
     User: "user",
     Shared: "shared",
 } as const;
@@ -10,4 +10,4 @@ export const SharedTypeKind = {
 /**
  * The kind of workbook. Choices are user and shared.
  */
-export type SharedTypeKind = (typeof SharedTypeKind)[keyof typeof SharedTypeKind];
+export type Kind = (typeof Kind)[keyof typeof Kind];

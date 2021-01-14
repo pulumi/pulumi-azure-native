@@ -76,7 +76,7 @@ export class PrivateCloud extends pulumi.CustomResource {
      */
     public /*out*/ readonly nsxtCertificateThumbprint!: pulumi.Output<string>;
     /**
-     * Indicate to rotate the NSX-T Manager password for the private cloud
+     * Optionally, set the NSX-T Manager password when the private cloud is created
      */
     public readonly nsxtPassword!: pulumi.Output<string | undefined>;
     /**
@@ -104,7 +104,7 @@ export class PrivateCloud extends pulumi.CustomResource {
      */
     public /*out*/ readonly vcenterCertificateThumbprint!: pulumi.Output<string>;
     /**
-     * Indicate to rotate the vCenter admin password for the private cloud
+     * Optionally, set the vCenter admin password when the private cloud is created
      */
     public readonly vcenterPassword!: pulumi.Output<string | undefined>;
     /**
@@ -220,9 +220,9 @@ export interface PrivateCloudArgs {
      */
     readonly networkBlock: pulumi.Input<string>;
     /**
-     * Indicate to rotate the NSX-T Manager password for the private cloud
+     * Optionally, set the NSX-T Manager password when the private cloud is created
      */
-    readonly nsxtPassword?: pulumi.Input<string | enums.avs.v20200717preview.NsxtAdminRotateEnum>;
+    readonly nsxtPassword?: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */
@@ -240,7 +240,7 @@ export interface PrivateCloudArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Indicate to rotate the vCenter admin password for the private cloud
+     * Optionally, set the vCenter admin password when the private cloud is created
      */
-    readonly vcenterPassword?: pulumi.Input<string | enums.avs.v20200717preview.VcsaAdminRotateEnum>;
+    readonly vcenterPassword?: pulumi.Input<string>;
 }

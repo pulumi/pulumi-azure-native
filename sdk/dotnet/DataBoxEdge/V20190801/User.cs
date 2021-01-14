@@ -74,6 +74,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:User"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:User"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

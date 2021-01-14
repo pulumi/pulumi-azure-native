@@ -17,6 +17,12 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Modified whenever there is a change in the state of private endpoint connection.
+        /// </summary>
+        [Output("etag")]
+        public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// Azure location of the key vault resource.
         /// </summary>
         [Output("location")]
@@ -109,6 +115,12 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
 
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Modified whenever there is a change in the state of private endpoint connection.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
         /// <summary>
         /// Name of the private endpoint connection associated with the key vault.
         /// </summary>

@@ -7,9 +7,15 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./attestationProvider";
 export * from "./getAttestationProvider";
+export * from "./getPrivateEndpointConnection";
+export * from "./privateEndpointConnection";
+
+// Export enums:
+export * from "../../types/enums/attestation/v20201001";
 
 // Import resources to register:
 import { AttestationProvider } from "./attestationProvider";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,6 +23,8 @@ const _module = {
         switch (type) {
             case "azure-nextgen:attestation/v20201001:AttestationProvider":
                 return new AttestationProvider(name, <any>undefined, { urn })
+            case "azure-nextgen:attestation/v20201001:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

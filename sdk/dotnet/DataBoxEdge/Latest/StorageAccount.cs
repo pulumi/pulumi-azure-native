@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// Represents a Storage Account on the  Data Box Edge/Gateway device.
-    /// Latest API Version: 2019-08-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:StorageAccount")]
     public partial class StorageAccount : Pulumi.CustomResource
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// Data policy of the storage Account.
         /// </summary>
         [Output("dataPolicy")]
-        public Output<string?> DataPolicy { get; private set; } = null!;
+        public Output<string> DataPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Description for the storage Account.
@@ -57,6 +57,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         [Output("storageAccountStatus")]
         public Output<string?> StorageAccountStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// StorageAccount object on ASE device
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
@@ -91,6 +97,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,8 +125,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// <summary>
         /// Data policy of the storage Account.
         /// </summary>
-        [Input("dataPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.DataPolicy>? DataPolicy { get; set; }
+        [Input("dataPolicy", required: true)]
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.DataPolicy> DataPolicy { get; set; } = null!;
 
         /// <summary>
         /// Description for the storage Account.

@@ -20,15 +20,19 @@ class Workbook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'SharedTypeKind']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  serialized_data: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  storage_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -40,15 +44,19 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: Workbook category, as defined by the user at creation time.
         :param pulumi.Input[str] display_name: The user-defined name (display name) of the workbook.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] etag: Resource etag
+        :param pulumi.Input[str] id: Azure resource Id
         :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: Identity used for BYOS
-        :param pulumi.Input[Union[str, 'SharedTypeKind']] kind: The kind of workbook. Choices are user and shared.
+        :param pulumi.Input[Union[str, 'Kind']] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] name: Azure resource name
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
         :param pulumi.Input[str] source_id: ResourceId for a source resource.
         :param pulumi.Input[str] storage_uri: BYOS Storage Account URI
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] type: Azure resource type
         :param pulumi.Input[str] version: Workbook version
         """
         if __name__ is not None:
@@ -74,11 +82,12 @@ class Workbook(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
+            __props__['etag'] = etag
+            __props__['id'] = id
             __props__['identity'] = identity
             __props__['kind'] = kind
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['name'] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -88,15 +97,12 @@ class Workbook(pulumi.CustomResource):
             if serialized_data is None and not opts.urn:
                 raise TypeError("Missing required property 'serialized_data'")
             __props__['serialized_data'] = serialized_data
-            if source_id is None and not opts.urn:
-                raise TypeError("Missing required property 'source_id'")
             __props__['source_id'] = source_id
             __props__['storage_uri'] = storage_uri
             __props__['tags'] = tags
+            __props__['type'] = type
             __props__['version'] = version
-            __props__['name'] = None
             __props__['time_modified'] = None
-            __props__['type'] = None
             __props__['user_id'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/latest:Workbook"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:Workbook"), pulumi.Alias(type_="azure-nextgen:insights/v20180617preview:Workbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -142,6 +148,14 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def etag(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Resource etag
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityResponse']]:
         """
         Identity used for BYOS
@@ -158,7 +172,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -166,9 +180,9 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
-        Azure resource name. This is GUID value. The display name should be assigned within properties field.
+        Azure resource name
         """
         return pulumi.get(self, "name")
 
@@ -214,7 +228,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Azure resource type
         """

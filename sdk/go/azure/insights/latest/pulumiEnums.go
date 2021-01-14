@@ -447,6 +447,34 @@ func (e ItemType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The kind of workbook. Choices are user and shared.
+type Kind pulumi.String
+
+const (
+	KindUser   = Kind("user")
+	KindShared = Kind("shared")
+)
+
+func (Kind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Kind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Kind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Kind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Kind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // the metric statistic type. How the metrics from multiple instances are combined.
 type MetricStatisticType pulumi.String
 
@@ -759,34 +787,6 @@ func (e ScaleType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ScaleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The kind of workbook. Choices are user and shared.
-type SharedTypeKind pulumi.String
-
-const (
-	SharedTypeKindUser   = SharedTypeKind("user")
-	SharedTypeKindShared = SharedTypeKind("shared")
-)
-
-func (SharedTypeKind) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e SharedTypeKind) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SharedTypeKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SharedTypeKind) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SharedTypeKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

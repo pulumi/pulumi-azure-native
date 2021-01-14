@@ -59,6 +59,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         public Input<string>? OsType { get; set; }
 
         /// <summary>
+        /// The availability set ARM Id.
+        /// </summary>
+        [Input("targetAvailabilitySetId")]
+        public Input<string>? TargetAvailabilitySetId { get; set; }
+
+        /// <summary>
         /// The target availability zone.
         /// </summary>
         [Input("targetAvailabilityZone")]

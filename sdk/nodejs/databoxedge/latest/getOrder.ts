@@ -67,9 +67,13 @@ export interface GetOrderResult {
      */
     readonly serialNumber: string;
     /**
+     * ShipmentType of the order
+     */
+    readonly shipmentType?: string;
+    /**
      * The shipping address.
      */
-    readonly shippingAddress: outputs.databoxedge.latest.AddressResponse;
+    readonly shippingAddress?: outputs.databoxedge.latest.AddressResponse;
     /**
      * The hierarchical type of the object.
      */

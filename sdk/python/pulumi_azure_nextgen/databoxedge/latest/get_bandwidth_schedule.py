@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetBandwidthScheduleResult',
@@ -19,7 +20,7 @@ class GetBandwidthScheduleResult:
     """
     The bandwidth schedule details.
     """
-    def __init__(__self__, days=None, id=None, name=None, rate_in_mbps=None, start=None, stop=None, type=None):
+    def __init__(__self__, days=None, id=None, name=None, rate_in_mbps=None, start=None, stop=None, system_data=None, type=None):
         if days and not isinstance(days, list):
             raise TypeError("Expected argument 'days' to be a list")
         pulumi.set(__self__, "days", days)
@@ -38,6 +39,9 @@ class GetBandwidthScheduleResult:
         if stop and not isinstance(stop, str):
             raise TypeError("Expected argument 'stop' to be a str")
         pulumi.set(__self__, "stop", stop)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -91,6 +95,14 @@ class GetBandwidthScheduleResult:
         return pulumi.get(self, "stop")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Bandwidth object related to ASE resource
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -111,6 +123,7 @@ class AwaitableGetBandwidthScheduleResult(GetBandwidthScheduleResult):
             rate_in_mbps=self.rate_in_mbps,
             start=self.start,
             stop=self.stop,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -142,4 +155,5 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
         rate_in_mbps=__ret__.rate_in_mbps,
         start=__ret__.start,
         stop=__ret__.stop,
+        system_data=__ret__.system_data,
         type=__ret__.type)

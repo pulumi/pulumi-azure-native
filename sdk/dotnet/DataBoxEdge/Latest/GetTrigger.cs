@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Trigger in DataBoxEdge Resource
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
@@ -70,11 +74,14 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Kind = kind;
             Name = name;
+            SystemData = systemData;
             Type = type;
         }
     }

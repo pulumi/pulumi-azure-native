@@ -41,8 +41,10 @@ type LookupOrderResult struct {
 	ReturnTrackingInfo []TrackingInfoResponse `pulumi:"returnTrackingInfo"`
 	// Serial number of the device.
 	SerialNumber string `pulumi:"serialNumber"`
+	// ShipmentType of the order
+	ShipmentType *string `pulumi:"shipmentType"`
 	// The shipping address.
-	ShippingAddress AddressResponse `pulumi:"shippingAddress"`
+	ShippingAddress *AddressResponse `pulumi:"shippingAddress"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

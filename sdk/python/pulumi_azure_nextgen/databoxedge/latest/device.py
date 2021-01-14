@@ -21,11 +21,15 @@ class Device(pulumi.CustomResource):
                  data_box_edge_device_status: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
+                 edge_profile: Optional[pulumi.Input[pulumi.InputType['EdgeProfileArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  model_description: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_move_details: Optional[pulumi.Input[pulumi.InputType['ResourceMoveDetailsArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -33,18 +37,22 @@ class Device(pulumi.CustomResource):
                  __opts__=None):
         """
         The Data Box Edge/Gateway device.
-        Latest API Version: 2019-08-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']] data_box_edge_device_status: The status of the Data Box Edge/Gateway device.
         :param pulumi.Input[str] description: The Description of the Data Box Edge/Gateway device.
         :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input[pulumi.InputType['EdgeProfileArgs']] edge_profile: The details of Edge Profile for this resource
         :param pulumi.Input[str] etag: The etag for the devices.
         :param pulumi.Input[str] friendly_name: The Data Box Edge/Gateway device name.
+        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Msi identity of the resource
+        :param pulumi.Input[Union[str, 'DataBoxEdgeDeviceKind']] kind: The etag for the devices.
         :param pulumi.Input[str] location: The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         :param pulumi.Input[str] model_description: The description of the Data Box Edge/Gateway device model.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[pulumi.InputType['ResourceMoveDetailsArgs']] resource_move_details: The details of the move operation on this resource.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         """
@@ -70,8 +78,11 @@ class Device(pulumi.CustomResource):
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
+            __props__['edge_profile'] = edge_profile
             __props__['etag'] = etag
             __props__['friendly_name'] = friendly_name
+            __props__['identity'] = identity
+            __props__['kind'] = kind
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -79,6 +90,7 @@ class Device(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['resource_move_details'] = resource_move_details
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['configured_role_types'] = None
@@ -91,9 +103,10 @@ class Device(pulumi.CustomResource):
             __props__['name'] = None
             __props__['node_count'] = None
             __props__['serial_number'] = None
+            __props__['system_data'] = None
             __props__['time_zone'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Device")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Device")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Device, __self__).__init__(
             'azure-nextgen:databoxedge/latest:Device',
@@ -192,6 +205,14 @@ class Device(pulumi.CustomResource):
         return pulumi.get(self, "device_type")
 
     @property
+    @pulumi.getter(name="edgeProfile")
+    def edge_profile(self) -> pulumi.Output[Optional['outputs.EdgeProfileResponse']]:
+        """
+        The details of Edge Profile for this resource
+        """
+        return pulumi.get(self, "edge_profile")
+
+    @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[str]]:
         """
@@ -206,6 +227,22 @@ class Device(pulumi.CustomResource):
         The Data Box Edge/Gateway device name.
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
+        """
+        Msi identity of the resource
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[str]]:
+        """
+        The etag for the devices.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -240,6 +277,14 @@ class Device(pulumi.CustomResource):
         return pulumi.get(self, "node_count")
 
     @property
+    @pulumi.getter(name="resourceMoveDetails")
+    def resource_move_details(self) -> pulumi.Output[Optional['outputs.ResourceMoveDetailsResponse']]:
+        """
+        The details of the move operation on this resource.
+        """
+        return pulumi.get(self, "resource_move_details")
+
+    @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> pulumi.Output[str]:
         """
@@ -254,6 +299,14 @@ class Device(pulumi.CustomResource):
         The SKU type.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        DataBoxEdge Resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

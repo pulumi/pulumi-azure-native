@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a share on the  Data Box Edge/Gateway device.
-// Latest API Version: 2019-08-01.
+// Latest API Version: 2020-09-01.
 type Share struct {
 	pulumi.CustomResourceState
 
@@ -36,6 +36,8 @@ type Share struct {
 	ShareMappings MountPointMapResponseArrayOutput `pulumi:"shareMappings"`
 	// Current status of the share.
 	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
+	// Share on ASE device
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Mapping of users and corresponding access rights on the share (required for SMB protocol).
@@ -79,6 +81,12 @@ func NewShare(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Share"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Share"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Share"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -124,6 +132,8 @@ type shareState struct {
 	ShareMappings []MountPointMapResponse `pulumi:"shareMappings"`
 	// Current status of the share.
 	ShareStatus *string `pulumi:"shareStatus"`
+	// Share on ASE device
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 	// Mapping of users and corresponding access rights on the share (required for SMB protocol).
@@ -151,6 +161,8 @@ type ShareState struct {
 	ShareMappings MountPointMapResponseArrayInput
 	// Current status of the share.
 	ShareStatus pulumi.StringPtrInput
+	// Share on ASE device
+	SystemData SystemDataResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 	// Mapping of users and corresponding access rights on the share (required for SMB protocol).

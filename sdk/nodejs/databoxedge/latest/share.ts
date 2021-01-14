@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
- * Latest API Version: 2019-08-01.
+ * Latest API Version: 2020-09-01.
  */
 export class Share extends pulumi.CustomResource {
     /**
@@ -77,6 +77,10 @@ export class Share extends pulumi.CustomResource {
      */
     public readonly shareStatus!: pulumi.Output<string>;
     /**
+     * Share on ASE device
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.latest.SystemDataResponse>;
+    /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -126,6 +130,7 @@ export class Share extends pulumi.CustomResource {
             inputs["shareStatus"] = args ? args.shareStatus : undefined;
             inputs["userAccessRights"] = args ? args.userAccessRights : undefined;
             inputs["shareMappings"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["accessProtocol"] = undefined /*out*/;
@@ -138,6 +143,7 @@ export class Share extends pulumi.CustomResource {
             inputs["refreshDetails"] = undefined /*out*/;
             inputs["shareMappings"] = undefined /*out*/;
             inputs["shareStatus"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userAccessRights"] = undefined /*out*/;
         }
@@ -148,7 +154,7 @@ export class Share extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Share" }, { type: "azure-nextgen:databoxedge/v20190701:Share" }, { type: "azure-nextgen:databoxedge/v20190801:Share" }, { type: "azure-nextgen:databoxedge/v20200501preview:Share" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Share" }, { type: "azure-nextgen:databoxedge/v20190701:Share" }, { type: "azure-nextgen:databoxedge/v20190801:Share" }, { type: "azure-nextgen:databoxedge/v20200501preview:Share" }, { type: "azure-nextgen:databoxedge/v20200901:Share" }, { type: "azure-nextgen:databoxedge/v20200901preview:Share" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Share.__pulumiType, name, inputs, opts);
     }

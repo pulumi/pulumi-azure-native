@@ -33,6 +33,8 @@ type LookupRoleResult struct {
 	Kind string `pulumi:"kind"`
 	// The object name.
 	Name string `pulumi:"name"`
+	// Role configured on ASE resource
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
- * Latest API Version: 2019-08-01.
+ * Latest API Version: 2020-09-01.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -47,7 +47,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Data policy of the storage Account.
      */
-    public readonly dataPolicy!: pulumi.Output<string | undefined>;
+    public readonly dataPolicy!: pulumi.Output<string>;
     /**
      * Description for the storage Account.
      */
@@ -65,6 +65,10 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     public readonly storageAccountStatus!: pulumi.Output<string | undefined>;
     /**
+     * StorageAccount object on ASE device
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.latest.SystemDataResponse>;
+    /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -79,6 +83,9 @@ export class StorageAccount extends pulumi.CustomResource {
     constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
+            if ((!args || args.dataPolicy === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'dataPolicy'");
+            }
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -98,6 +105,7 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["blobEndpoint"] = undefined /*out*/;
             inputs["containerCount"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["blobEndpoint"] = undefined /*out*/;
@@ -107,6 +115,7 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["storageAccountCredentialId"] = undefined /*out*/;
             inputs["storageAccountStatus"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -116,7 +125,7 @@ export class StorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190801:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200501preview:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190801:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200501preview:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200901:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200901preview:StorageAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccount.__pulumiType, name, inputs, opts);
     }
@@ -129,7 +138,7 @@ export interface StorageAccountArgs {
     /**
      * Data policy of the storage Account.
      */
-    readonly dataPolicy?: pulumi.Input<string | enums.databoxedge.latest.DataPolicy>;
+    readonly dataPolicy: pulumi.Input<string | enums.databoxedge.latest.DataPolicy>;
     /**
      * Description for the storage Account.
      */

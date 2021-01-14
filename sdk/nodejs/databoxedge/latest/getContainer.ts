@@ -69,6 +69,10 @@ export interface GetContainerResult {
      */
     readonly refreshDetails: outputs.databoxedge.latest.RefreshDetailsResponse;
     /**
+     * Container in DataBoxEdge Resource
+     */
+    readonly systemData: outputs.databoxedge.latest.SystemDataResponse;
+    /**
      * The hierarchical type of the object.
      */
     readonly type: string;

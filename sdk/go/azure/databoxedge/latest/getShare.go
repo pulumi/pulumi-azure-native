@@ -49,6 +49,8 @@ type LookupShareResult struct {
 	ShareMappings []MountPointMapResponse `pulumi:"shareMappings"`
 	// Current status of the share.
 	ShareStatus string `pulumi:"shareStatus"`
+	// Share on ASE device
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 	// Mapping of users and corresponding access rights on the share (required for SMB protocol).

@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly string DeviceType;
         /// <summary>
+        /// The details of Edge Profile for this resource
+        /// </summary>
+        public readonly Outputs.EdgeProfileResponse? EdgeProfile;
+        /// <summary>
         /// The etag for the devices.
         /// </summary>
         public readonly string? Etag;
@@ -87,6 +91,14 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Msi identity of the resource
+        /// </summary>
+        public readonly Outputs.ResourceIdentityResponse? Identity;
+        /// <summary>
+        /// The etag for the devices.
+        /// </summary>
+        public readonly string? Kind;
         /// <summary>
         /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         /// </summary>
@@ -104,6 +116,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly int NodeCount;
         /// <summary>
+        /// The details of the move operation on this resource.
+        /// </summary>
+        public readonly Outputs.ResourceMoveDetailsResponse? ResourceMoveDetails;
+        /// <summary>
         /// The Serial Number of Data Box Edge/Gateway device.
         /// </summary>
         public readonly string SerialNumber;
@@ -111,6 +127,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// The SKU type.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
+        /// DataBoxEdge Resource
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         /// </summary>
@@ -144,11 +164,17 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             string deviceType,
 
+            Outputs.EdgeProfileResponse? edgeProfile,
+
             string? etag,
 
             string? friendlyName,
 
             string id,
+
+            Outputs.ResourceIdentityResponse? identity,
+
+            string? kind,
 
             string location,
 
@@ -158,9 +184,13 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             int nodeCount,
 
+            Outputs.ResourceMoveDetailsResponse? resourceMoveDetails,
+
             string serialNumber,
 
             Outputs.SkuResponse? sku,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -177,15 +207,20 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
             DeviceModel = deviceModel;
             DeviceSoftwareVersion = deviceSoftwareVersion;
             DeviceType = deviceType;
+            EdgeProfile = edgeProfile;
             Etag = etag;
             FriendlyName = friendlyName;
             Id = id;
+            Identity = identity;
+            Kind = kind;
             Location = location;
             ModelDescription = modelDescription;
             Name = name;
             NodeCount = nodeCount;
+            ResourceMoveDetails = resourceMoveDetails;
             SerialNumber = serialNumber;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             TimeZone = timeZone;
             Type = type;

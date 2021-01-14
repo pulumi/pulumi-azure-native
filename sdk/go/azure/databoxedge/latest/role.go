@@ -12,7 +12,7 @@ import (
 )
 
 // Compute role.
-// Latest API Version: 2019-08-01.
+// Latest API Version: 2020-09-01.
 type Role struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type Role struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Role configured on ASE resource
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -56,6 +58,12 @@ func NewRole(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Role"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Role"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Role"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Role
@@ -84,6 +92,8 @@ type roleState struct {
 	Kind *string `pulumi:"kind"`
 	// The object name.
 	Name *string `pulumi:"name"`
+	// Role configured on ASE resource
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
@@ -93,6 +103,8 @@ type RoleState struct {
 	Kind pulumi.StringPtrInput
 	// The object name.
 	Name pulumi.StringPtrInput
+	// Role configured on ASE resource
+	SystemData SystemDataResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }

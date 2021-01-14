@@ -22,14 +22,14 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
         public Input<Pulumi.AzureNextGen.HDInsight.V20180601Preview.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputMap<object>? _userAssignedIdentities;
+        private InputMap<Inputs.ClusterIdentityUserAssignedIdentitiesArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public InputMap<object> UserAssignedIdentities
+        public InputMap<Inputs.ClusterIdentityUserAssignedIdentitiesArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.ClusterIdentityUserAssignedIdentitiesArgs>());
             set => _userAssignedIdentities = value;
         }
 

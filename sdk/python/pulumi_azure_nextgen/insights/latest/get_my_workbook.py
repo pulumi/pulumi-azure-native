@@ -20,13 +20,16 @@ class GetMyWorkbookResult:
     """
     An Application Insights private workbook definition.
     """
-    def __init__(__self__, category=None, display_name=None, id=None, identity=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, storage_uri=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
+    def __init__(__self__, category=None, display_name=None, etag=None, id=None, identity=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, storage_uri=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if etag and not isinstance(etag, dict):
+            raise TypeError("Expected argument 'etag' to be a dict")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -82,6 +85,14 @@ class GetMyWorkbookResult:
         The user-defined name of the private workbook.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource etag
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -196,6 +207,7 @@ class AwaitableGetMyWorkbookResult(GetMyWorkbookResult):
         return GetMyWorkbookResult(
             category=self.category,
             display_name=self.display_name,
+            etag=self.etag,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
@@ -232,6 +244,7 @@ def get_my_workbook(resource_group_name: Optional[str] = None,
     return AwaitableGetMyWorkbookResult(
         category=__ret__.category,
         display_name=__ret__.display_name,
+        etag=__ret__.etag,
         id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,

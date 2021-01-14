@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// The storage account credential.
-    /// Latest API Version: 2019-08-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:StorageAccountCredential")]
     public partial class StorageAccountCredential : Pulumi.CustomResource
@@ -65,6 +65,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// StorageAccountCredential object
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
@@ -105,6 +111,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

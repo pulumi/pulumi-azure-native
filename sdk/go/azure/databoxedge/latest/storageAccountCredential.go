@@ -12,7 +12,7 @@ import (
 )
 
 // The storage account credential.
-// Latest API Version: 2019-08-01.
+// Latest API Version: 2020-09-01.
 type StorageAccountCredential struct {
 	pulumi.CustomResourceState
 
@@ -32,6 +32,8 @@ type StorageAccountCredential struct {
 	SslStatus pulumi.StringOutput `pulumi:"sslStatus"`
 	// Id of the storage account.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
+	// StorageAccountCredential object
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Username for the storage account.
@@ -76,6 +78,12 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:StorageAccountCredential"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccountCredential
@@ -116,6 +124,8 @@ type storageAccountCredentialState struct {
 	SslStatus *string `pulumi:"sslStatus"`
 	// Id of the storage account.
 	StorageAccountId *string `pulumi:"storageAccountId"`
+	// StorageAccountCredential object
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 	// Username for the storage account.
@@ -139,6 +149,8 @@ type StorageAccountCredentialState struct {
 	SslStatus pulumi.StringPtrInput
 	// Id of the storage account.
 	StorageAccountId pulumi.StringPtrInput
+	// StorageAccountCredential object
+	SystemData SystemDataResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 	// Username for the storage account.

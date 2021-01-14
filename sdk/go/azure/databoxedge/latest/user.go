@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-// Latest API Version: 2019-08-01.
+// Latest API Version: 2020-09-01.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -22,10 +22,12 @@ type User struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of shares that the user has rights on. This field should not be specified during user creation.
 	ShareAccessRights ShareAccessRightResponseArrayOutput `pulumi:"shareAccessRights"`
+	// User in DataBoxEdge Resource
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Type of the user.
-	UserType pulumi.StringOutput `pulumi:"userType"`
+	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -44,9 +46,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.UserType == nil {
-		return nil, errors.New("invalid value for required argument 'UserType'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:User"),
@@ -59,6 +58,12 @@ func NewUser(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:User"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:User"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:User"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -90,6 +95,8 @@ type userState struct {
 	Name *string `pulumi:"name"`
 	// List of shares that the user has rights on. This field should not be specified during user creation.
 	ShareAccessRights []ShareAccessRightResponse `pulumi:"shareAccessRights"`
+	// User in DataBoxEdge Resource
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 	// Type of the user.
@@ -103,6 +110,8 @@ type UserState struct {
 	Name pulumi.StringPtrInput
 	// List of shares that the user has rights on. This field should not be specified during user creation.
 	ShareAccessRights ShareAccessRightResponseArrayInput
+	// User in DataBoxEdge Resource
+	SystemData SystemDataResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 	// Type of the user.
@@ -122,10 +131,8 @@ type userArgs struct {
 	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// List of shares that the user has rights on. This field should not be specified during user creation.
-	ShareAccessRights []ShareAccessRight `pulumi:"shareAccessRights"`
 	// Type of the user.
-	UserType string `pulumi:"userType"`
+	UserType *string `pulumi:"userType"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -138,10 +145,8 @@ type UserArgs struct {
 	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
-	// List of shares that the user has rights on. This field should not be specified during user creation.
-	ShareAccessRights ShareAccessRightArrayInput
 	// Type of the user.
-	UserType pulumi.StringInput
+	UserType pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

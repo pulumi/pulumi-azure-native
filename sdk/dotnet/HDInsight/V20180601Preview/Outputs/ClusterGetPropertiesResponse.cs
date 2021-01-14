@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// </summary>
         public readonly Outputs.ClusterDefinitionResponse ClusterDefinition;
         /// <summary>
+        /// The hdp version of the cluster.
+        /// </summary>
+        public readonly string? ClusterHdpVersion;
+        /// <summary>
         /// The cluster id.
         /// </summary>
         public readonly string? ClusterId;
@@ -58,6 +62,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ErrorsResponse> Errors;
         /// <summary>
+        /// The excluded services config.
+        /// </summary>
+        public readonly Outputs.ExcludedServicesConfigResponse? ExcludedServicesConfig;
+        /// <summary>
         /// The cluster kafka rest proxy configuration.
         /// </summary>
         public readonly Outputs.KafkaRestPropertiesResponse? KafkaRestProperties;
@@ -86,6 +94,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// </summary>
         public readonly Outputs.SecurityProfileResponse? SecurityProfile;
         /// <summary>
+        /// The storage profile.
+        /// </summary>
+        public readonly Outputs.StorageProfileResponse? StorageProfile;
+        /// <summary>
         /// The cluster tier.
         /// </summary>
         public readonly string? Tier;
@@ -93,6 +105,8 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         [OutputConstructor]
         private ClusterGetPropertiesResponse(
             Outputs.ClusterDefinitionResponse clusterDefinition,
+
+            string? clusterHdpVersion,
 
             string? clusterId,
 
@@ -114,6 +128,8 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
 
             ImmutableArray<Outputs.ErrorsResponse> errors,
 
+            Outputs.ExcludedServicesConfigResponse? excludedServicesConfig,
+
             Outputs.KafkaRestPropertiesResponse? kafkaRestProperties,
 
             string? minSupportedTlsVersion,
@@ -128,9 +144,12 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
 
             Outputs.SecurityProfileResponse? securityProfile,
 
+            Outputs.StorageProfileResponse? storageProfile,
+
             string? tier)
         {
             ClusterDefinition = clusterDefinition;
+            ClusterHdpVersion = clusterHdpVersion;
             ClusterId = clusterId;
             ClusterState = clusterState;
             ClusterVersion = clusterVersion;
@@ -141,6 +160,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
             DiskEncryptionProperties = diskEncryptionProperties;
             EncryptionInTransitProperties = encryptionInTransitProperties;
             Errors = errors;
+            ExcludedServicesConfig = excludedServicesConfig;
             KafkaRestProperties = kafkaRestProperties;
             MinSupportedTlsVersion = minSupportedTlsVersion;
             NetworkProperties = networkProperties;
@@ -148,6 +168,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
             ProvisioningState = provisioningState;
             QuotaInfo = quotaInfo;
             SecurityProfile = securityProfile;
+            StorageProfile = storageProfile;
             Tier = tier;
         }
     }

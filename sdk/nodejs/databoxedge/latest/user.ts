@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
- * Latest API Version: 2019-08-01.
+ * Latest API Version: 2020-09-01.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -47,7 +47,11 @@ export class User extends pulumi.CustomResource {
     /**
      * List of shares that the user has rights on. This field should not be specified during user creation.
      */
-    public readonly shareAccessRights!: pulumi.Output<outputs.databoxedge.latest.ShareAccessRightResponse[] | undefined>;
+    public /*out*/ readonly shareAccessRights!: pulumi.Output<outputs.databoxedge.latest.ShareAccessRightResponse[]>;
+    /**
+     * User in DataBoxEdge Resource
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.latest.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -55,7 +59,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Type of the user.
      */
-    public readonly userType!: pulumi.Output<string>;
+    public readonly userType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -76,20 +80,19 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userType === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'userType'");
-            }
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["encryptedPassword"] = args ? args.encryptedPassword : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareAccessRights"] = args ? args.shareAccessRights : undefined;
             inputs["userType"] = args ? args.userType : undefined;
+            inputs["shareAccessRights"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["encryptedPassword"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["shareAccessRights"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userType"] = undefined /*out*/;
         }
@@ -100,7 +103,7 @@ export class User extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:User" }, { type: "azure-nextgen:databoxedge/v20190701:User" }, { type: "azure-nextgen:databoxedge/v20190801:User" }, { type: "azure-nextgen:databoxedge/v20200501preview:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:User" }, { type: "azure-nextgen:databoxedge/v20190701:User" }, { type: "azure-nextgen:databoxedge/v20190801:User" }, { type: "azure-nextgen:databoxedge/v20200501preview:User" }, { type: "azure-nextgen:databoxedge/v20200901:User" }, { type: "azure-nextgen:databoxedge/v20200901preview:User" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(User.__pulumiType, name, inputs, opts);
     }
@@ -127,11 +130,7 @@ export interface UserArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * List of shares that the user has rights on. This field should not be specified during user creation.
-     */
-    readonly shareAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.latest.ShareAccessRight>[]>;
-    /**
      * Type of the user.
      */
-    readonly userType: pulumi.Input<string | enums.databoxedge.latest.UserType>;
+    readonly userType?: pulumi.Input<string | enums.databoxedge.latest.UserType>;
 }

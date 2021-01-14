@@ -62,13 +62,17 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.ShareAccessRightResponse> ShareAccessRights;
         /// <summary>
+        /// User in DataBoxEdge Resource
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
         /// <summary>
         /// Type of the user.
         /// </summary>
-        public readonly string UserType;
+        public readonly string? UserType;
 
         [OutputConstructor]
         private GetUserResult(
@@ -80,14 +84,17 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             ImmutableArray<Outputs.ShareAccessRightResponse> shareAccessRights,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
-            string userType)
+            string? userType)
         {
             EncryptedPassword = encryptedPassword;
             Id = id;
             Name = name;
             ShareAccessRights = shareAccessRights;
+            SystemData = systemData;
             Type = type;
             UserType = userType;
         }

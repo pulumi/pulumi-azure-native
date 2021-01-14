@@ -22,13 +22,14 @@ class Order(pulumi.CustomResource):
                  current_status: Optional[pulumi.Input[pulumi.InputType['OrderStatusArgs']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 shipment_type: Optional[pulumi.Input[Union[str, 'ShipmentType']]] = None,
                  shipping_address: Optional[pulumi.Input[pulumi.InputType['AddressArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         The order details.
-        Latest API Version: 2019-08-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -36,6 +37,7 @@ class Order(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OrderStatusArgs']] current_status: Current status of the order.
         :param pulumi.Input[str] device_name: The order details of a device.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[Union[str, 'ShipmentType']] shipment_type: ShipmentType of the order
         :param pulumi.Input[pulumi.InputType['AddressArgs']] shipping_address: The shipping address.
         """
         if __name__ is not None:
@@ -65,8 +67,7 @@ class Order(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if shipping_address is None and not opts.urn:
-                raise TypeError("Missing required property 'shipping_address'")
+            __props__['shipment_type'] = shipment_type
             __props__['shipping_address'] = shipping_address
             __props__['delivery_tracking_info'] = None
             __props__['name'] = None
@@ -74,7 +75,7 @@ class Order(pulumi.CustomResource):
             __props__['return_tracking_info'] = None
             __props__['serial_number'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Order")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Order")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Order, __self__).__init__(
             'azure-nextgen:databoxedge/latest:Order',
@@ -157,8 +158,16 @@ class Order(pulumi.CustomResource):
         return pulumi.get(self, "serial_number")
 
     @property
+    @pulumi.getter(name="shipmentType")
+    def shipment_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        ShipmentType of the order
+        """
+        return pulumi.get(self, "shipment_type")
+
+    @property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> pulumi.Output['outputs.AddressResponse']:
+    def shipping_address(self) -> pulumi.Output[Optional['outputs.AddressResponse']]:
         """
         The shipping address.
         """

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
- * Latest API Version: 2019-08-01.
+ * Latest API Version: 2020-09-01.
  */
 export class Container extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class Container extends pulumi.CustomResource {
      */
     public /*out*/ readonly refreshDetails!: pulumi.Output<outputs.databoxedge.latest.RefreshDetailsResponse>;
     /**
+     * Container in DataBoxEdge Resource
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.latest.SystemDataResponse>;
+    /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class Container extends pulumi.CustomResource {
             inputs["createdDateTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["refreshDetails"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["containerStatus"] = undefined /*out*/;
@@ -102,6 +107,7 @@ export class Container extends pulumi.CustomResource {
             inputs["dataFormat"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["refreshDetails"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -111,7 +117,7 @@ export class Container extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190801:Container" }, { type: "azure-nextgen:databoxedge/v20200501preview:Container" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190801:Container" }, { type: "azure-nextgen:databoxedge/v20200501preview:Container" }, { type: "azure-nextgen:databoxedge/v20200901:Container" }, { type: "azure-nextgen:databoxedge/v20200901preview:Container" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Container.__pulumiType, name, inputs, opts);
     }

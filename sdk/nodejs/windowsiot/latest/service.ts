@@ -46,11 +46,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -70,7 +70,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
@@ -95,14 +95,14 @@ export class Service extends pulumi.CustomResource {
             inputs["adminDomainName"] = args ? args.adminDomainName : undefined;
             inputs["billingDomainName"] = args ? args.billingDomainName : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
+            inputs["etag"] = args ? args.etag : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["notes"] = args ? args.notes : undefined;
             inputs["quantity"] = args ? args.quantity : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["startDate"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["adminDomainName"] = undefined /*out*/;
@@ -146,6 +146,14 @@ export interface ServiceArgs {
      */
     readonly deviceName: pulumi.Input<string>;
     /**
+     * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+     */
+    readonly etag?: pulumi.Input<string>;
+    /**
+     * The Azure Region where the resource lives
+     */
+    readonly location?: pulumi.Input<string>;
+    /**
      * Windows IoT Device Service notes.
      */
     readonly notes?: pulumi.Input<string>;
@@ -157,4 +165,8 @@ export interface ServiceArgs {
      * The name of the resource group that contains the Windows IoT Device Service.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
