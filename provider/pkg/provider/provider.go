@@ -987,9 +987,11 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 		return nil, err
 	}
 
-	// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
-	// Future+WaitForCompletion+GetResult steps in that case.
-	if asyncStyle != "" {
+	// Some APIs are explicitly marked `x-ms-long-running-operation` and we are only supposed to do the
+	// Future+WaitForCompletion+GetResult steps in that case. However, if we get 202, we don't want to
+	// consider this a failure - so try following the awaiting protocol in case the service hasn't marked
+	// its API as long-running by an oversight.
+	if asyncStyle != "" || resp.StatusCode == http.StatusAccepted {
 		// Ignore the style value for now, let go-autorest handle the headers.
 		future, err := azure.NewFutureFromResponse(resp)
 		if err != nil {
