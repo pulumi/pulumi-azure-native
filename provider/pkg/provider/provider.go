@@ -8,7 +8,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/Azure/go-autorest/autorest/adal"
+	"io"
 	"io/ioutil"
 	"log"
 	"math"
@@ -19,6 +19,7 @@ import (
 	"time"
 
 	"github.com/Azure/go-autorest/autorest"
+	"github.com/Azure/go-autorest/autorest/adal"
 	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
@@ -493,8 +494,8 @@ func (k *azureNextGenProvider) GetSchema(_ context.Context, req *rpc.GetSchemaRe
 		return nil, errors.Wrap(err, "expand compressed bytes for schema")
 	}
 
-	buf := bytes.Buffer{}
-	_, err = buf.ReadFrom(uncompressed)
+	buf := new(strings.Builder)
+	_, err = io.Copy(buf, uncompressed)
 	if err != nil {
 		return nil, errors.Wrap(err, "closing read stream for schema")
 	}
@@ -503,7 +504,7 @@ func (k *azureNextGenProvider) GetSchema(_ context.Context, req *rpc.GetSchemaRe
 		return nil, errors.Wrap(err, "closing uncompress stream for schema")
 	}
 
-	return &rpc.GetSchemaResponse{Schema: string(buf.Bytes())}, nil
+	return &rpc.GetSchemaResponse{Schema: buf.String()}, nil
 }
 
 // CheckConfig validates the configuration for this provider.
