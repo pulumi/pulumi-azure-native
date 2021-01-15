@@ -734,13 +734,21 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
 
+	url := id + res.ReadPath
+
 	var response map[string]interface{}
-	switch {
-	case res.ReadWithHead:
-		err = k.azureHead(ctx, id, res.APIVersion)
+	switch res.ReadMethod {
+	case "HEAD":
+		err = k.azureHead(ctx, url, res.APIVersion)
 		response = oldState.Mappable()
+	case "POST":
+		bodyParams := map[string]interface{}{}
+		queryParams := map[string]interface{}{
+			"api-version": res.APIVersion,
+		}
+		response, err = k.azurePost(ctx, url, bodyParams, queryParams)
 	default:
-		response, err = k.azureGet(ctx, id, res.APIVersion)
+		response, err = k.azureGet(ctx, url, res.APIVersion)
 	}
 	if err != nil {
 		if reqErr, ok := err.(*azure.RequestError); ok && reqErr.StatusCode == http.StatusNotFound {
@@ -1105,13 +1113,16 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 		"api-version": res.APIVersion,
 	}
 	op := autorest.AsGet()
-	if res.ReadWithHead {
+	switch res.ReadMethod {
+	case "HEAD":
 		op = autorest.AsHead()
+	case "POST":
+		op = autorest.AsPost()
 	}
 	preparer := autorest.CreatePreparer(
 		op,
 		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
-		autorest.WithPath(id),
+		autorest.WithPath(id + res.ReadPath),
 		autorest.WithQueryParameters(queryParameters))
 	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
 	if err != nil {

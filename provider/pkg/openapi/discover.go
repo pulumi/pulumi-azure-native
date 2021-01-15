@@ -32,6 +32,7 @@ type VersionResources struct {
 type ResourceSpec struct {
 	Path               string
 	PathItem           *spec.PathItem
+	PathItemList       *spec.PathItem
 	Swagger            *Spec
 	CompatibleVersions []string
 	DefaultBody        map[string]interface{}
@@ -217,6 +218,8 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 		}
 	}
 
+	pathItemList, hasList := swagger.Paths.Paths[path+"/list"]
+
 	// Add a resource entry.
 	if pathItem.Put != nil && !pathItem.Put.Deprecated {
 		hasDelete := pathItem.Delete != nil && !pathItem.Delete.Deprecated
@@ -245,6 +248,31 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 					Path:     path,
 					PathItem: &pathItem,
 					Swagger:  swagger,
+				}
+			}
+		case hasList:
+			var typeName string
+			switch {
+			case pathItemList.Get != nil && !pathItemList.Get.Deprecated:
+				typeName = resources.ResourceName(pathItemList.Get.ID)
+			case pathItemList.Post != nil && !pathItemList.Post.Deprecated:
+				typeName = resources.ResourceName(pathItemList.Post.ID)
+			}
+			if typeName != "" {
+				var defaultBody map[string]interface{}
+				if !hasDelete {
+					// The /list pattern that we handle here seems to universally have this shape of the default body.
+					// Instead of maintaining the resources in defaultResourcesState, we can hard-code it here.
+					defaultBody = map[string]interface{}{
+						"properties": map[string]interface{}{},
+					}
+				}
+				version.Resources[typeName] = &ResourceSpec{
+					Path:         path,
+					PathItem:     &pathItem,
+					PathItemList: &pathItemList,
+					Swagger:      swagger,
+					DefaultBody:  defaultBody,
 				}
 			}
 		}

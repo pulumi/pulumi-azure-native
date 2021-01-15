@@ -72,8 +72,10 @@ type AzureAPIResource struct {
 	// https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
 	PutAsyncStyle    string `json:"putAsyncStyle,omitempty"`
 	DeleteAsyncStyle string `json:"deleteAsyncStyle,omitempty"`
-	// GET operation is not defined for this resource: use HEAD to check its existence.
-	ReadWithHead bool `json:"readWithHead,omitempty"`
+	// HTTP method to read resource state. Defaults to GET if empty.
+	ReadMethod string `json:"readMethod,omitempty"`
+	// Path to append to the resource ID to produce the URL for to read resource state.
+	ReadPath string `json:"readPath,omitempty"`
 }
 
 // AzureAPIExample provides a pointer to examples relevant to a resource from the Azure REST API spec.
