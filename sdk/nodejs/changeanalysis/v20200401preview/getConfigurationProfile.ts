@@ -30,7 +30,7 @@ export interface GetConfigurationProfileArgs {
  */
 export interface GetConfigurationProfileResult {
     /**
-     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -38,7 +38,7 @@ export interface GetConfigurationProfileResult {
      */
     readonly identity?: outputs.changeanalysis.v20200401preview.ResourceIdentityResponse;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -50,7 +50,7 @@ export interface GetConfigurationProfileResult {
      */
     readonly systemData?: outputs.changeanalysis.v20200401preview.SystemDataResponse;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

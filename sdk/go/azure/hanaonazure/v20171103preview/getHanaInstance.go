@@ -26,11 +26,11 @@ type LookupHanaInstanceArgs struct {
 // HANA instance info on Azure (ARM properties and HANA properties)
 type LookupHanaInstanceResult struct {
 	// Specifies the HANA instance unique ID.
-	HanaInstanceId string `pulumi:"hanaInstanceId"`
+	HanaInstanceId *string `pulumi:"hanaInstanceId"`
 	// Specifies the hardware settings for the HANA instance.
 	HardwareProfile *HardwareProfileResponse `pulumi:"hardwareProfile"`
 	// Hardware revision of a HANA instance
-	HwRevision string `pulumi:"hwRevision"`
+	HwRevision *string `pulumi:"hwRevision"`
 	// Resource ID
 	Id string `pulumi:"id"`
 	// Resource location
@@ -44,11 +44,11 @@ type LookupHanaInstanceResult struct {
 	// ARM ID of another HanaInstance that will share a network with this HanaInstance
 	PartnerNodeId *string `pulumi:"partnerNodeId"`
 	// Resource power state
-	PowerState string `pulumi:"powerState"`
+	PowerState *string `pulumi:"powerState"`
 	// State of provisioning of the HanaInstance
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource proximity placement group
-	ProximityPlacementGroup string `pulumi:"proximityPlacementGroup"`
+	ProximityPlacementGroup *string `pulumi:"proximityPlacementGroup"`
 	// Specifies the storage settings for the HANA instance disks.
 	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
 	// Resource tags

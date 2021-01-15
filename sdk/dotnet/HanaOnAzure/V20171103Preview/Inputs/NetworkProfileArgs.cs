@@ -15,6 +15,12 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview.Inputs
     /// </summary>
     public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the circuit id for connecting to express route.
+        /// </summary>
+        [Input("circuitId")]
+        public Input<string>? CircuitId { get; set; }
+
         [Input("networkInterfaces")]
         private InputList<Inputs.IpAddressArgs>? _networkInterfaces;
 

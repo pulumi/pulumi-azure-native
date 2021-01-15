@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview.Outputs
         /// <summary>
         /// Specifies the circuit id for connecting to express route.
         /// </summary>
-        public readonly string CircuitId;
+        public readonly string? CircuitId;
         /// <summary>
         /// Specifies the network interfaces for the HANA instance.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview.Outputs
 
         [OutputConstructor]
         private NetworkProfileResponse(
-            string circuitId,
+            string? circuitId,
 
             ImmutableArray<Outputs.IpAddressResponse> networkInterfaces)
         {

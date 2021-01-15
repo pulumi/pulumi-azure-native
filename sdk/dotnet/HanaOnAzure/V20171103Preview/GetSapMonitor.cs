@@ -110,11 +110,11 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
         /// <summary>
         /// State of provisioning of the HanaInstance
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -156,9 +156,9 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
 
             string name,
 
-            string provisioningState,
+            string? provisioningState,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {

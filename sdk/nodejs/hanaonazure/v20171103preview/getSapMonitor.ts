@@ -105,11 +105,11 @@ export interface GetSapMonitorResult {
     /**
      * State of provisioning of the HanaInstance
      */
-    readonly provisioningState: string;
+    readonly provisioningState?: string;
     /**
      * Resource tags
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Resource type
      */

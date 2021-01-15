@@ -23,16 +23,16 @@ type LookupConfigurationProfileArgs struct {
 
 // A profile object that contains change analysis configuration, such as notification settings, for this subscription
 type LookupConfigurationProfileResult struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The name of the resource.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The properties of a configuration profile.
 	Properties ConfigurationProfileResourcePropertiesResponse `pulumi:"properties"`
 	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
 	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

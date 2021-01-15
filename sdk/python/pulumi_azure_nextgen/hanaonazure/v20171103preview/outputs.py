@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'DiskResponse',
@@ -73,19 +74,21 @@ class HardwareProfileResponse(dict):
     Specifies the hardware settings for the HANA instance.
     """
     def __init__(__self__, *,
-                 hana_instance_size: str,
-                 hardware_type: str):
+                 hana_instance_size: Optional[str] = None,
+                 hardware_type: Optional[str] = None):
         """
         Specifies the hardware settings for the HANA instance.
         :param str hana_instance_size: Specifies the HANA instance SKU.
         :param str hardware_type: Name of the hardware type (vendor and/or their product name)
         """
-        pulumi.set(__self__, "hana_instance_size", hana_instance_size)
-        pulumi.set(__self__, "hardware_type", hardware_type)
+        if hana_instance_size is not None:
+            pulumi.set(__self__, "hana_instance_size", hana_instance_size)
+        if hardware_type is not None:
+            pulumi.set(__self__, "hardware_type", hardware_type)
 
     @property
     @pulumi.getter(name="hanaInstanceSize")
-    def hana_instance_size(self) -> str:
+    def hana_instance_size(self) -> Optional[str]:
         """
         Specifies the HANA instance SKU.
         """
@@ -93,7 +96,7 @@ class HardwareProfileResponse(dict):
 
     @property
     @pulumi.getter(name="hardwareType")
-    def hardware_type(self) -> str:
+    def hardware_type(self) -> Optional[str]:
         """
         Name of the hardware type (vendor and/or their product name)
         """
@@ -135,20 +138,21 @@ class NetworkProfileResponse(dict):
     Specifies the network settings for the HANA instance disks.
     """
     def __init__(__self__, *,
-                 circuit_id: str,
+                 circuit_id: Optional[str] = None,
                  network_interfaces: Optional[Sequence['outputs.IpAddressResponse']] = None):
         """
         Specifies the network settings for the HANA instance disks.
         :param str circuit_id: Specifies the circuit id for connecting to express route.
         :param Sequence['IpAddressResponseArgs'] network_interfaces: Specifies the network interfaces for the HANA instance.
         """
-        pulumi.set(__self__, "circuit_id", circuit_id)
+        if circuit_id is not None:
+            pulumi.set(__self__, "circuit_id", circuit_id)
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
 
     @property
     @pulumi.getter(name="circuitId")
-    def circuit_id(self) -> str:
+    def circuit_id(self) -> Optional[str]:
         """
         Specifies the circuit id for connecting to express route.
         """
@@ -172,39 +176,25 @@ class OSProfileResponse(dict):
     Specifies the operating system settings for the HANA instance.
     """
     def __init__(__self__, *,
-                 os_type: str,
-                 version: str,
                  computer_name: Optional[str] = None,
-                 ssh_public_key: Optional[str] = None):
+                 os_type: Optional[str] = None,
+                 ssh_public_key: Optional[str] = None,
+                 version: Optional[str] = None):
         """
         Specifies the operating system settings for the HANA instance.
-        :param str os_type: This property allows you to specify the type of the OS.
-        :param str version: Specifies version of operating system.
         :param str computer_name: Specifies the host OS name of the HANA instance.
+        :param str os_type: This property allows you to specify the type of the OS.
         :param str ssh_public_key: Specifies the SSH public key used to access the operating system.
+        :param str version: Specifies version of operating system.
         """
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "version", version)
         if computer_name is not None:
             pulumi.set(__self__, "computer_name", computer_name)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
         if ssh_public_key is not None:
             pulumi.set(__self__, "ssh_public_key", ssh_public_key)
-
-    @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> str:
-        """
-        This property allows you to specify the type of the OS.
-        """
-        return pulumi.get(self, "os_type")
-
-    @property
-    @pulumi.getter
-    def version(self) -> str:
-        """
-        Specifies version of operating system.
-        """
-        return pulumi.get(self, "version")
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="computerName")
@@ -215,12 +205,28 @@ class OSProfileResponse(dict):
         return pulumi.get(self, "computer_name")
 
     @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        This property allows you to specify the type of the OS.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
     @pulumi.getter(name="sshPublicKey")
     def ssh_public_key(self) -> Optional[str]:
         """
         Specifies the SSH public key used to access the operating system.
         """
         return pulumi.get(self, "ssh_public_key")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Specifies version of operating system.
+        """
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -232,20 +238,21 @@ class StorageProfileResponse(dict):
     Specifies the storage settings for the HANA instance disks.
     """
     def __init__(__self__, *,
-                 nfs_ip_address: str,
+                 nfs_ip_address: Optional[str] = None,
                  os_disks: Optional[Sequence['outputs.DiskResponse']] = None):
         """
         Specifies the storage settings for the HANA instance disks.
         :param str nfs_ip_address: IP Address to connect to storage.
         :param Sequence['DiskResponseArgs'] os_disks: Specifies information about the operating system disk used by the hana instance.
         """
-        pulumi.set(__self__, "nfs_ip_address", nfs_ip_address)
+        if nfs_ip_address is not None:
+            pulumi.set(__self__, "nfs_ip_address", nfs_ip_address)
         if os_disks is not None:
             pulumi.set(__self__, "os_disks", os_disks)
 
     @property
     @pulumi.getter(name="nfsIpAddress")
-    def nfs_ip_address(self) -> str:
+    def nfs_ip_address(self) -> Optional[str]:
         """
         IP Address to connect to storage.
         """

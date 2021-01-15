@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['SapMonitor']
 
@@ -29,8 +30,10 @@ class SapMonitor(pulumi.CustomResource):
                  log_analytics_workspace_arm_id: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_shared_key: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'HanaProvisioningStatesEnum']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sap_monitor_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -53,8 +56,10 @@ class SapMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] log_analytics_workspace_arm_id: The ARM ID of the Log Analytics Workspace that is used for monitoring
         :param pulumi.Input[str] log_analytics_workspace_id: The workspace ID of the log analytics workspace to be used for monitoring
         :param pulumi.Input[str] log_analytics_workspace_shared_key: The shared key of the log analytics workspace that is used for monitoring
+        :param pulumi.Input[Union[str, 'HanaProvisioningStatesEnum']] provisioning_state: State of provisioning of the HanaInstance
         :param pulumi.Input[str] resource_group_name: Name of the resource group.
         :param pulumi.Input[str] sap_monitor_name: Name of the SAP monitor resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,16 +92,16 @@ class SapMonitor(pulumi.CustomResource):
             __props__['log_analytics_workspace_arm_id'] = log_analytics_workspace_arm_id
             __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
             __props__['log_analytics_workspace_shared_key'] = log_analytics_workspace_shared_key
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if sap_monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sap_monitor_name'")
             __props__['sap_monitor_name'] = sap_monitor_name
+            __props__['tags'] = tags
             __props__['managed_resource_group_name'] = None
             __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['tags'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hanaonazure/v20200207preview:SapMonitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -254,7 +259,7 @@ class SapMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         State of provisioning of the HanaInstance
         """
@@ -262,7 +267,7 @@ class SapMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """

@@ -22,10 +22,22 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview.Inputs
         public Input<string>? ComputerName { get; set; }
 
         /// <summary>
+        /// This property allows you to specify the type of the OS.
+        /// </summary>
+        [Input("osType")]
+        public Input<string>? OsType { get; set; }
+
+        /// <summary>
         /// Specifies the SSH public key used to access the operating system.
         /// </summary>
         [Input("sshPublicKey")]
         public Input<string>? SshPublicKey { get; set; }
+
+        /// <summary>
+        /// Specifies version of operating system.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public OSProfileArgs()
         {

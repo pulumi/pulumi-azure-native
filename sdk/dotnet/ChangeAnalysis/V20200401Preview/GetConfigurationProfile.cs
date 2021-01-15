@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
     public sealed class GetConfigurationProfileResult
     {
         /// <summary>
-        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
         /// </summary>
         public readonly Outputs.SystemDataResponse? SystemData;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

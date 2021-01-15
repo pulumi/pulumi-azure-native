@@ -60,7 +60,7 @@ type LookupSapMonitorResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// State of provisioning of the HanaInstance
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

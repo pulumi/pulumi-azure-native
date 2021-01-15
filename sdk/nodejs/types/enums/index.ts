@@ -28,6 +28,7 @@ import * as certificateregistration from "./certificateregistration";
 import * as changeanalysis from "./changeanalysis";
 import * as cognitiveservices from "./cognitiveservices";
 import * as compute from "./compute";
+import * as confidentialledger from "./confidentialledger";
 import * as confluent from "./confluent";
 import * as consumption from "./consumption";
 import * as containerinstance from "./containerinstance";
@@ -62,6 +63,7 @@ import * as domainregistration from "./domainregistration";
 import * as enterpriseknowledgegraph from "./enterpriseknowledgegraph";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
+import * as hanaonazure from "./hanaonazure";
 import * as hdinsight from "./hdinsight";
 import * as healthbot from "./healthbot";
 import * as healthcareapis from "./healthcareapis";
@@ -101,7 +103,6 @@ import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
 import * as purview from "./purview";
 import * as recoveryservices from "./recoveryservices";
-import * as redhatopenshift from "./redhatopenshift";
 import * as relay from "./relay";
 import * as resources from "./resources";
 import * as saas from "./saas";
@@ -159,6 +160,7 @@ export {
     changeanalysis,
     cognitiveservices,
     compute,
+    confidentialledger,
     confluent,
     consumption,
     containerinstance,
@@ -193,6 +195,7 @@ export {
     enterpriseknowledgegraph,
     eventgrid,
     eventhub,
+    hanaonazure,
     hdinsight,
     healthbot,
     healthcareapis,
@@ -232,7 +235,6 @@ export {
     powerplatform,
     purview,
     recoveryservices,
-    redhatopenshift,
     relay,
     resources,
     saas,

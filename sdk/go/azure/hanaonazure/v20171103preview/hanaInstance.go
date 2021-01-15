@@ -16,11 +16,11 @@ type HanaInstance struct {
 	pulumi.CustomResourceState
 
 	// Specifies the HANA instance unique ID.
-	HanaInstanceId pulumi.StringOutput `pulumi:"hanaInstanceId"`
+	HanaInstanceId pulumi.StringPtrOutput `pulumi:"hanaInstanceId"`
 	// Specifies the hardware settings for the HANA instance.
 	HardwareProfile HardwareProfileResponsePtrOutput `pulumi:"hardwareProfile"`
 	// Hardware revision of a HANA instance
-	HwRevision pulumi.StringOutput `pulumi:"hwRevision"`
+	HwRevision pulumi.StringPtrOutput `pulumi:"hwRevision"`
 	// Resource location
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name
@@ -32,11 +32,11 @@ type HanaInstance struct {
 	// ARM ID of another HanaInstance that will share a network with this HanaInstance
 	PartnerNodeId pulumi.StringPtrOutput `pulumi:"partnerNodeId"`
 	// Resource power state
-	PowerState pulumi.StringOutput `pulumi:"powerState"`
+	PowerState pulumi.StringPtrOutput `pulumi:"powerState"`
 	// State of provisioning of the HanaInstance
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource proximity placement group
-	ProximityPlacementGroup pulumi.StringOutput `pulumi:"proximityPlacementGroup"`
+	ProximityPlacementGroup pulumi.StringPtrOutput `pulumi:"proximityPlacementGroup"`
 	// Specifies the storage settings for the HANA instance disks.
 	StorageProfile StorageProfileResponsePtrOutput `pulumi:"storageProfile"`
 	// Resource tags
@@ -146,8 +146,14 @@ func (HanaInstanceState) ElementType() reflect.Type {
 }
 
 type hanaInstanceArgs struct {
+	// Specifies the HANA instance unique ID.
+	HanaInstanceId *string `pulumi:"hanaInstanceId"`
 	// Name of the SAP HANA on Azure instance.
 	HanaInstanceName string `pulumi:"hanaInstanceName"`
+	// Specifies the hardware settings for the HANA instance.
+	HardwareProfile *HardwareProfile `pulumi:"hardwareProfile"`
+	// Hardware revision of a HANA instance
+	HwRevision *string `pulumi:"hwRevision"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Specifies the network settings for the HANA instance.
@@ -156,16 +162,30 @@ type hanaInstanceArgs struct {
 	OsProfile *OSProfile `pulumi:"osProfile"`
 	// ARM ID of another HanaInstance that will share a network with this HanaInstance
 	PartnerNodeId *string `pulumi:"partnerNodeId"`
+	// Resource power state
+	PowerState *string `pulumi:"powerState"`
+	// State of provisioning of the HanaInstance
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource proximity placement group
+	ProximityPlacementGroup *string `pulumi:"proximityPlacementGroup"`
 	// Name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the storage settings for the HANA instance disks.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HanaInstance resource.
 type HanaInstanceArgs struct {
+	// Specifies the HANA instance unique ID.
+	HanaInstanceId pulumi.StringPtrInput
 	// Name of the SAP HANA on Azure instance.
 	HanaInstanceName pulumi.StringInput
+	// Specifies the hardware settings for the HANA instance.
+	HardwareProfile HardwareProfilePtrInput
+	// Hardware revision of a HANA instance
+	HwRevision pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Specifies the network settings for the HANA instance.
@@ -174,10 +194,18 @@ type HanaInstanceArgs struct {
 	OsProfile OSProfilePtrInput
 	// ARM ID of another HanaInstance that will share a network with this HanaInstance
 	PartnerNodeId pulumi.StringPtrInput
+	// Resource power state
+	PowerState pulumi.StringPtrInput
+	// State of provisioning of the HanaInstance
+	ProvisioningState pulumi.StringPtrInput
+	// Resource proximity placement group
+	ProximityPlacementGroup pulumi.StringPtrInput
 	// Name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the storage settings for the HANA instance disks.
 	StorageProfile StorageProfilePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (HanaInstanceArgs) ElementType() reflect.Type {
