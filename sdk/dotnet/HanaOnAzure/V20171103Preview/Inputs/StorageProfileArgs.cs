@@ -15,6 +15,12 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview.Inputs
     /// </summary>
     public sealed class StorageProfileArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP Address to connect to storage.
+        /// </summary>
+        [Input("nfsIpAddress")]
+        public Input<string>? NfsIpAddress { get; set; }
+
         [Input("osDisks")]
         private InputList<Inputs.DiskArgs>? _osDisks;
 

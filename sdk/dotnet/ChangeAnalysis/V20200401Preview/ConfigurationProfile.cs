@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
         public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
         public Output<Outputs.SystemDataResponse?> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

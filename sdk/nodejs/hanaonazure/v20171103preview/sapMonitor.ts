@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -101,11 +102,11 @@ export class SapMonitor extends pulumi.CustomResource {
     /**
      * State of provisioning of the HanaInstance
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -141,12 +142,12 @@ export class SapMonitor extends pulumi.CustomResource {
             inputs["logAnalyticsWorkspaceArmId"] = args ? args.logAnalyticsWorkspaceArmId : undefined;
             inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             inputs["logAnalyticsWorkspaceSharedKey"] = args ? args.logAnalyticsWorkspaceSharedKey : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sapMonitorName"] = args ? args.sapMonitorName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["managedResourceGroupName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["enableCustomerAnalytics"] = undefined /*out*/;
@@ -243,6 +244,10 @@ export interface SapMonitorArgs {
      */
     readonly logAnalyticsWorkspaceSharedKey?: pulumi.Input<string>;
     /**
+     * State of provisioning of the HanaInstance
+     */
+    readonly provisioningState?: pulumi.Input<string | enums.hanaonazure.v20171103preview.HanaProvisioningStatesEnum>;
+    /**
      * Name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -250,4 +255,8 @@ export interface SapMonitorArgs {
      * Name of the SAP monitor resource.
      */
     readonly sapMonitorName: pulumi.Input<string>;
+    /**
+     * Resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

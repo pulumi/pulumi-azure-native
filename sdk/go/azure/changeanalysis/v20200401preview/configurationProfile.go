@@ -17,13 +17,13 @@ type ConfigurationProfile struct {
 
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The name of the resource.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The properties of a configuration profile.
 	Properties ConfigurationProfileResourcePropertiesResponseOutput `pulumi:"properties"`
 	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
 	SystemData SystemDataResponsePtrOutput `pulumi:"systemData"`
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -61,26 +61,26 @@ func GetConfigurationProfile(ctx *pulumi.Context,
 type configurationProfileState struct {
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The name of the resource.
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The properties of a configuration profile.
 	Properties *ConfigurationProfileResourcePropertiesResponse `pulumi:"properties"`
 	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
 	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
 type ConfigurationProfileState struct {
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity ResourceIdentityResponsePtrInput
-	// The name of the resource.
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The properties of a configuration profile.
 	Properties ConfigurationProfileResourcePropertiesResponsePtrInput
 	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
 	SystemData SystemDataResponsePtrInput
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

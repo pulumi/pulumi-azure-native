@@ -48,7 +48,7 @@ type SapMonitor struct {
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of provisioning of the HanaInstance
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -210,10 +210,14 @@ type sapMonitorArgs struct {
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// The shared key of the log analytics workspace that is used for monitoring
 	LogAnalyticsWorkspaceSharedKey *string `pulumi:"logAnalyticsWorkspaceSharedKey"`
+	// State of provisioning of the HanaInstance
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the SAP monitor resource.
 	SapMonitorName string `pulumi:"sapMonitorName"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SapMonitor resource.
@@ -246,10 +250,14 @@ type SapMonitorArgs struct {
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// The shared key of the log analytics workspace that is used for monitoring
 	LogAnalyticsWorkspaceSharedKey pulumi.StringPtrInput
+	// State of provisioning of the HanaInstance
+	ProvisioningState pulumi.StringPtrInput
 	// Name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Name of the SAP monitor resource.
 	SapMonitorName pulumi.StringInput
+	// Resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (SapMonitorArgs) ElementType() reflect.Type {

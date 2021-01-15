@@ -40,6 +40,7 @@ import * as changeanalysis from "./changeanalysis";
 import * as cognitiveservices from "./cognitiveservices";
 import * as communication from "./communication";
 import * as compute from "./compute";
+import * as confidentialledger from "./confidentialledger";
 import * as config from "./config";
 import * as confluent from "./confluent";
 import * as consumption from "./consumption";
@@ -194,6 +195,7 @@ export {
     cognitiveservices,
     communication,
     compute,
+    confidentialledger,
     config,
     confluent,
     consumption,

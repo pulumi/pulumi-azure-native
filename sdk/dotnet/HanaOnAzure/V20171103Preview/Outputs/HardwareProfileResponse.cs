@@ -16,17 +16,17 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview.Outputs
         /// <summary>
         /// Specifies the HANA instance SKU.
         /// </summary>
-        public readonly string HanaInstanceSize;
+        public readonly string? HanaInstanceSize;
         /// <summary>
         /// Name of the hardware type (vendor and/or their product name)
         /// </summary>
-        public readonly string HardwareType;
+        public readonly string? HardwareType;
 
         [OutputConstructor]
         private HardwareProfileResponse(
-            string hanaInstanceSize,
+            string? hanaInstanceSize,
 
-            string hardwareType)
+            string? hardwareType)
         {
             HanaInstanceSize = hanaInstanceSize;
             HardwareType = hardwareType;

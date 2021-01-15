@@ -219,7 +219,7 @@ class GetSapMonitorResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> Optional[str]:
         """
         State of provisioning of the HanaInstance
         """
@@ -227,7 +227,7 @@ class GetSapMonitorResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """

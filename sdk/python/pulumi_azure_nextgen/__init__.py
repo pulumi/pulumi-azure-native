@@ -39,6 +39,7 @@ from . import (
     cognitiveservices,
     communication,
     compute,
+    confidentialledger,
     config,
     confluent,
     consumption,

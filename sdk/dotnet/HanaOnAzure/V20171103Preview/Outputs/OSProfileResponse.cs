@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview.Outputs
         /// <summary>
         /// This property allows you to specify the type of the OS.
         /// </summary>
-        public readonly string OsType;
+        public readonly string? OsType;
         /// <summary>
         /// Specifies the SSH public key used to access the operating system.
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview.Outputs
         /// <summary>
         /// Specifies version of operating system.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private OSProfileResponse(
             string? computerName,
 
-            string osType,
+            string? osType,
 
             string? sshPublicKey,
 
-            string version)
+            string? version)
         {
             ComputerName = computerName;
             OsType = osType;

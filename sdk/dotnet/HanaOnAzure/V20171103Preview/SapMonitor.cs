@@ -115,13 +115,13 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
         /// State of provisioning of the HanaInstance
         /// </summary>
         [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -263,6 +263,12 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
         public Input<string>? LogAnalyticsWorkspaceSharedKey { get; set; }
 
         /// <summary>
+        /// State of provisioning of the HanaInstance
+        /// </summary>
+        [Input("provisioningState")]
+        public InputUnion<string, Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview.HanaProvisioningStatesEnum>? ProvisioningState { get; set; }
+
+        /// <summary>
         /// Name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -273,6 +279,18 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
         /// </summary>
         [Input("sapMonitorName", required: true)]
         public Input<string> SapMonitorName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public SapMonitorArgs()
         {
